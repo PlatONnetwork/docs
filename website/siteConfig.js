@@ -15,7 +15,7 @@ const siteConfig = {
   title: 'PlatON', // Title for your website.
   tagline: 'PlatON',
   url: 'https://luo-dahui.github.io/', // Your website URL
-  baseUrl: '/', // Base URL for your project */
+  baseUrl: '/Docs/', // Base URL for your project */
   // Used for publishing and more
   projectName: 'Docs',
   organizationName: 'luo-dahui',
