@@ -1,10 +1,10 @@
 {
   "docs": {
-    "Docusaurus": ["doc1"],
-    "First Category": ["doc2"],
-    "Second Category": ["doc3"]
-  },
-  "docs-other": {
-    "First Category": ["doc4", "doc5"]
+    "PlatON Developer Docs": ["index"],
+	"节点运行者":["Install_Node", "Join_PlatON_NetWork", "Become_Verification_Node"],
+	"开发者": ["Set_Develop_Env", "Smart_Contract_Development"],
+	"参考文档": ["Java_SDK","JS_SDK","MTool_Manual"],
+	"关于PlatON":["PlatON_Overall_Solution","PlatON_Consensus_Solution","Economic_Model","PlatON_Governance_Solution",				"Secure_Multi_Party_Computation","Verifiable_Computation"],
+	"社区项目":[""]
   }
 }
