@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>Test Site Blog</title>
+        <title>PlatON Blog</title>
         <link>https://luo-dahui.github.io//Docs/blog</link>
-        <description>The best place to stay up-to-date with the latest Test Site news and events.</description>
+        <description>The best place to stay up-to-date with the latest PlatON news and events.</description>
         <lastBuildDate>Tue, 24 Oct 2017 06:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
-            <title>Test Site Blog</title>
-            <url>https://luo-dahui.github.io//Docs/img/favicon.ico</url>
+            <title>PlatON Blog</title>
+            <url>https://luo-dahui.github.io//Docs/img/logo.png</url>
             <link>https://luo-dahui.github.io//Docs/blog</link>
         </image>
         <copyright>Copyright © 2020 Your Name or Your Company Name</copyright>

@@ -1,0 +1,316 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>设置开发环境 · PlatON</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="本文档主要是针对在PlatON区块链上构建应用程序的开发人员的入门指南。从这里开始，了解在PlatON上构建应用程序的含义以及如何快速部署个人私有区块链。 "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="设置开发环境 · PlatON"/><meta property="og:type" content="website"/><meta property="og:url" content="https://luo-dahui.github.io//Docs/"/><meta property="og:description" content="本文档主要是针对在PlatON区块链上构建应用程序的开发人员的入门指南。从这里开始，了解在PlatON上构建应用程序的含义以及如何快速部署个人私有区块链。 "/><meta property="og:image" content="https://luo-dahui.github.io//Docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://luo-dahui.github.io//Docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/Docs/img/logo.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/Docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/Docs/css/main.css"/><script src="/Docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/Docs/"><img class="logo" src="/Docs/img/logo.png" alt="PlatON"/><h2 class="headerTitleWithLogo">PlatON</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/Docs/docs/" target="_self">Docs</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>开发者</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">PlatON Developer Docs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/Docs/docs/">PlatON Developer Docs</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">节点运行者</h3><ul class=""><li class="navListItem"><a class="navItem" href="/Docs/docs/Install_Node">安装一个节点</a></li><li class="navListItem"><a class="navItem" href="/Docs/docs/Join_PlatON_NetWork">加入 PlatON 网络</a></li><li class="navListItem"><a class="navItem" href="/Docs/docs/Become_Verification_Node">成为验证节点</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">开发者</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/Docs/docs/Set_Develop_Env">设置开发环境</a></li><li class="navListItem"><a class="navItem" href="/Docs/docs/Smart_Contract_Development">智能合约开发</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">参考文档</h3><ul class=""><li class="navListItem"><a class="navItem" href="/Docs/docs/Java_SDK">Java SDK</a></li><li class="navListItem"><a class="navItem" href="/Docs/docs/JS_SDK">JS SDK</a></li><li class="navListItem"><a class="navItem" href="/Docs/docs/MTool_Manual">MTool使用手册</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">关于PlatON</h3><ul class=""><li class="navListItem"><a class="navItem" href="/Docs/docs/PlatON_Overall_Solution">PlatON总体方案</a></li><li class="navListItem"><a class="navItem" href="/Docs/docs/PlatON_Consensus_Solution">PlatON共识方案</a></li><li class="navListItem"><a class="navItem" href="/Docs/docs/Economic_Model">PlatON经济方案</a></li><li class="navListItem"><a class="navItem" href="/Docs/docs/PlatON_Governance_Solution">PlatON治理方案</a></li><li class="navListItem"><a class="navItem" href="/Docs/docs/Secure_Multi_Party_Computation">安全多方计算</a></li><li class="navListItem"><a class="navItem" href="/Docs/docs/Verifiable_Computation">可验证计算</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">设置开发环境</h1></header><article><div><span><p>本文档主要是针对在PlatON区块链上构建应用程序的开发人员的入门指南。从这里开始，了解在PlatON上构建应用程序的含义以及如何快速部署个人私有区块链。</p>
+<ul>
+<li><code>PlatON</code>支持Windows和Ubuntu下进行源码编译安装。</li>
+<li>私链部署方法以Ubuntu为例，包括单节点和集群部署，Windows上的部署方法和Ubuntu类似。</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="windows源码编译"></a><a href="#windows源码编译" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Windows源码编译</h2>
+<p>Windows编译环境需要符合以下条件：</p>
+<ul>
+<li>git：<code>2.19.1以上</code></li>
+<li>go语言开发包：<code>go(1.7+)</code></li>
+<li>mingw：<code>mingw（V8.1.0）</code></li>
+<li>cmake: <code>3.0+</code></li>
+</ul>
+<p>可自行安装以上编译环境，在编译<code>PlatON</code>源码之前请确保以上环境可正常运行。</p>
+<blockquote>
+<p>也可使用<code>Chocolatey</code>辅助安装编译环境（如果你还没有<code>chocolatey</code>，可以按照<a href="https://chocolatey.org">https://chocolatey.org</a>上的说明进行安装），用管理员身份启动<code>PowerShell</code>，然后执行以下命令：</p>
+<p>安装git：</p>
+<pre><code class="hljs">choco <span class="hljs-keyword">install</span> git
+</code></pre>
+<p>安装golang：</p>
+<pre><code class="hljs">choco <span class="hljs-keyword">install</span> golang
+</code></pre>
+<p>安装mingw：</p>
+<pre><code class="hljs">choco <span class="hljs-keyword">install</span> mingw
+</code></pre>
+<p>安装cmake：</p>
+<pre><code class="hljs">choco <span class="hljs-keyword">install</span> cmake
+</code></pre>
+<p>利用<code>chocolatey</code>包管理器安装的软件大部分有默认的安装路径，部分软件可能会有各种各样的路径，这取决于软件的发布者。安装这些包将修改Path环境变量。最后安装路径可查看PATH，某些机器环境可能在 PATH 中找不到这些工具的安装路径，此时需手动添加。安装完之后请确保已安装的Go版本为1.7（或更高版本）。</p>
+<p>例如：安装cmake之后，在CMD命令行中键入cmake，如果提示找不到该命令，则需要在path中添加cmake安装的路径。</p>
+</blockquote>
+<ul>
+<li>获取源码</li>
+</ul>
+<p>在当前<code>%GOPATH%</code>目录下创建<code>src/github.com/PlatONnetwork/</code>和<code>bin</code>目录，在<code>PlatONnetwork</code>目录下克隆<code>PlatON-GO</code>的源码，其中<code>release-0.10.0</code>为分支名称，届时切换到实际的分支：</p>
+<pre><code class="hljs">cd src/github.com/PlatONnetwork/;
+git clone -b release<span class="hljs-number">-0.10</span><span class="hljs-number">.0</span> https:<span class="hljs-comment">//github.com/PlatONnetwork/PlatON-Go.git --recursive</span>
+</code></pre>
+<ul>
+<li>编译</li>
+</ul>
+<blockquote>
+<p>以下编译命令均需在<code>Git-bash</code>环境运行， 且步骤1中编译环境都已经成功安装！</p>
+</blockquote>
+<p>进入源码目录<code>PlatON-Go</code>：</p>
+<pre><code class="hljs"><span class="hljs-built_in">cd</span> PlatON-Go
+</code></pre>
+<p>在编译源码目录之前在源码目录<code>PlatON-Go</code>下执行以下脚本编译所需依赖库：</p>
+<pre><code class="hljs">./<span class="hljs-keyword">build/build_deps.sh
+</span></code></pre>
+<p>由于编译依赖bls库，需要把PlatON-Go\crypto\bls\bls_win\lib配置到系统的path环境变量里面,
+否则会报<code>exit status 3221225781</code>错误。</p>
+<p>在源码目录<code>PlatON-Go</code>下执行以下编译命令可生成<code>platon</code>、<code>keytool</code>可执行文件，如下：</p>
+<pre><code class="hljs">go <span class="hljs-keyword">run</span><span class="bash"> build/ci.go install ./cmd/platon</span>
+go <span class="hljs-keyword">run</span><span class="bash"> build/ci.go install ./cmd/keytool</span>
+</code></pre>
+<p>编译完成之后在<code>PlatON-Go/build/bin</code>目录下会生成<code>platon</code>、<code>keytool</code>可执行文件，将这两个可执行文件拷贝到自己工作目录运行即可。</p>
+<blockquote>
+<p>重复编译会覆盖之前生成的可执行文件。</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="ubuntu源码编译"></a><a href="#ubuntu源码编译" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ubuntu源码编译</h2>
+<p><strong>step1.</strong> 安装编译环境（Ubuntu）：</p>
+<ul>
+<li>系统版本：<code>Ubuntu 18.04.1 及以上</code></li>
+<li>git：<code>2.19.1及以上</code></li>
+<li>编译器：<code>gcc(4.9.2+)</code>、<code>g++(5.0+)</code></li>
+<li>go语言开发包：<code>go(1.7+)</code></li>
+<li>cmake:<code>3.0+</code></li>
+</ul>
+<p><strong>step2.</strong> 获取PlatON源码：</p>
+<pre><code class="hljs css language-bash">git <span class="hljs-built_in">clone</span> -b release-0.10.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+</code></pre>
+<p><strong>step3.</strong> 安装依赖库：</p>
+<pre><code class="hljs css language-bash">sudo apt update &amp;&amp; sudo apt install golang-go cmake llvm g++ libgmp-dev libssl-dev
+</code></pre>
+<p><strong>step4.</strong> 编译：</p>
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> PlatON-Go &amp;&amp; make all
+</code></pre>
+<p>编译完成之后在<code>./build/bin</code>目录下会生成<code>platon, keytool</code>等一系列可执行文件。</p>
+<p><strong>step5.</strong> 拷贝二进制：</p>
+<pre><code class="hljs css language-shell">sudo cp -f ./build/bin/platon /usr/bin/ &amp;&amp; sudo cp -f ./build/bin/keytool /usr/bin/
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="搭建私链"></a><a href="#搭建私链" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>搭建私链</h2>
+<p>如果你不方便连接到外部网络，也可以选择搭建自己的私有网络。<code>PlatON</code>支持单节点模式和集群模式运行私有网络。以Ubuntu环境为例，假设节点数据目录为：<code>~/platon-node/data</code> (用户可自行调整)，进行说明：</p>
+<h3><a class="anchor" aria-hidden="true" id="单节点"></a><a href="#单节点" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>单节点</h3>
+<ul>
+<li><strong>生成nodekey和blskey等相关文件</strong></li>
+</ul>
+<pre><code class="hljs css language-shell">mkdir -p ~/platon-node/data &amp;&amp; keytool genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ~/platon-node/data/nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ~/platon-node/data/nodeid) &amp;&amp; keytool genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ~/platon-node/data/blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ~/platon-node/data/blspub)
+</code></pre>
+<blockquote>
+<p>说明：</p>
+<ul>
+<li>nodeid：节点公钥(ID）文件，保存节点的公钥，用于标识节点身份</li>
+<li>nodekey：节点私钥文件，保存节点的私钥，不能公开并且需要做好备份。</li>
+<li>blspub：节点BLS公钥文件，保存节点的BLS公钥，用于共识协议中快速验证签名。</li>
+<li>blskey：节点BLS私钥文件，保存节点的BLS私钥，不能公开并且需要做好备份。</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>生成创世块配置文件<code>platon.json</code></strong></li>
+</ul>
+<p>在~/platon-node目录下创建创世区块配置文件platon.json，然后将以下的创世区块配置文件模板内容拷贝到platon.json文件中，修改 <code>your-node-pubkey</code> 为之前生成的<strong><em>节点公钥(nodekey)</em></strong>，<code>your-node-blspubkey</code> 为 <strong><em>节点bls公钥(blspub)</em></strong>，<code>your-account-address</code>为钱包地址：</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"config"</span>: {
+        <span class="hljs-attr">"chainId"</span>: <span class="hljs-number">299</span>,
+        <span class="hljs-attr">"eip155Block"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"VMInterpreter"</span>: <span class="hljs-string">"evm"</span>,
+        <span class="hljs-attr">"cbft"</span>: {
+            <span class="hljs-attr">"initialNodes"</span>: [{
+                <span class="hljs-attr">"node"</span>: <span class="hljs-string">"enode://your-node-pubkey@127.0.0.1:16789"</span>,
+                <span class="hljs-attr">"blsPubKey"</span>: <span class="hljs-string">"your-node-blspubkey"</span>
+            }],
+            <span class="hljs-attr">"amount"</span>: <span class="hljs-number">10</span>,
+            <span class="hljs-attr">"period"</span>: <span class="hljs-number">20000</span>,
+            <span class="hljs-attr">"validatorMode"</span>: <span class="hljs-string">"ppos"</span>
+        },
+        <span class="hljs-attr">"genesisVersion"</span>: <span class="hljs-number">2304</span>
+    },
+    <span class="hljs-attr">"economicModel"</span>: {
+        <span class="hljs-attr">"common"</span>: {
+            <span class="hljs-attr">"maxEpochMinutes"</span>: <span class="hljs-number">360</span>,
+            <span class="hljs-attr">"maxConsensusVals"</span>: <span class="hljs-number">25</span>,
+            <span class="hljs-attr">"additionalCycleTime"</span>: <span class="hljs-number">525960</span>
+        },
+        <span class="hljs-attr">"staking"</span>: {
+            <span class="hljs-attr">"stakeThreshold"</span>: <span class="hljs-number">1000000000000000000000000</span>,
+            <span class="hljs-attr">"operatingThreshold"</span>: <span class="hljs-number">10000000000000000000</span>,
+            <span class="hljs-attr">"maxValidators"</span>: <span class="hljs-number">101</span>,
+            <span class="hljs-attr">"unStakeFreezeDuration"</span>: <span class="hljs-number">28</span>
+        },
+        <span class="hljs-attr">"slashing"</span>: {
+            <span class="hljs-attr">"slashFractionDuplicateSign"</span>: <span class="hljs-number">10</span>,
+            <span class="hljs-attr">"duplicateSignReportReward"</span>: <span class="hljs-number">50</span>,
+            <span class="hljs-attr">"maxEvidenceAge"</span>: <span class="hljs-number">27</span>,
+            <span class="hljs-attr">"slashBlocksReward"</span>: <span class="hljs-number">0</span>
+        },
+        <span class="hljs-attr">"gov"</span>: {
+            <span class="hljs-attr">"versionProposalVoteDurationSeconds"</span>: <span class="hljs-number">1209600</span>,
+            <span class="hljs-attr">"versionProposalSupportRate"</span>: <span class="hljs-number">0.667</span>,
+            <span class="hljs-attr">"textProposalVoteDurationSeconds"</span>: <span class="hljs-number">1209600</span>,
+            <span class="hljs-attr">"textProposalVoteRate"</span>: <span class="hljs-number">0.5</span>,
+            <span class="hljs-attr">"textProposalSupportRate"</span>: <span class="hljs-number">0.667</span>,
+            <span class="hljs-attr">"cancelProposalVoteRate"</span>: <span class="hljs-number">0.50</span>,
+            <span class="hljs-attr">"cancelProposalSupportRate"</span>: <span class="hljs-number">0.667</span>,
+            <span class="hljs-attr">"paramProposalVoteDurationSeconds"</span>: <span class="hljs-number">1209600</span>,
+            <span class="hljs-attr">"paramProposalVoteRate"</span>: <span class="hljs-number">0.50</span>,
+            <span class="hljs-attr">"paramProposalSupportRate"</span>: <span class="hljs-number">0.667</span>
+        },
+        <span class="hljs-attr">"reward"</span>: {
+            <span class="hljs-attr">"newBlockRate"</span>: <span class="hljs-number">50</span>,
+            <span class="hljs-attr">"platonFoundationYear"</span>: <span class="hljs-number">10</span>
+        },
+        <span class="hljs-attr">"innerAcc"</span>: {
+            <span class="hljs-attr">"platonFundAccount"</span>: <span class="hljs-string">"0xBE0af016941Acaf08Bf5f4ad185155Df6B7388ce"</span>,
+            <span class="hljs-attr">"platonFundBalance"</span>: <span class="hljs-number">0</span>,
+            <span class="hljs-attr">"cdfAccount"</span>: <span class="hljs-string">"0x08b2320Ef2482f0a5ad9411CCB1a748BcE7c2823"</span>,
+            <span class="hljs-attr">"cdfBalance"</span>: <span class="hljs-number">331811981000000000000000000</span>
+        }
+    },
+    <span class="hljs-attr">"nonce"</span>: <span class="hljs-string">"0x0376e56dffd12ab53bb149bda4e0cbce2b6aabe4cccc0df0b5a39e12977a2fcd23"</span>,
+    <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"0x5bc94a8a"</span>,
+    <span class="hljs-attr">"extraData"</span>: <span class="hljs-string">"0xd782070186706c61746f6e86676f312e3131856c696e757800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,
+    <span class="hljs-attr">"gasLimit"</span>: <span class="hljs-string">"4712388"</span>,
+    <span class="hljs-attr">"alloc"</span>: {
+        <span class="hljs-attr">"1000000000000000000000000000000000000003"</span>: {
+            <span class="hljs-attr">"balance"</span>: <span class="hljs-string">"200000000000000000000000000"</span>
+        },
+        <span class="hljs-attr">"your-account-address"</span>: {
+          <span class="hljs-attr">"balance"</span>: <span class="hljs-string">"999000000000000000000"</span>
+        }
+    },
+    <span class="hljs-attr">"number"</span>: <span class="hljs-string">"0x0"</span>,
+    <span class="hljs-attr">"gasUsed"</span>: <span class="hljs-string">"0x0"</span>,
+    <span class="hljs-attr">"parentHash"</span>: <span class="hljs-string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>
+}
+</code></pre>
+<ul>
+<li><strong>初始化创世区块</strong></li>
+</ul>
+<pre><code class="hljs css language-shell">cd ~/platon-node &amp;&amp; platon --datadir ./data init platon.json
+</code></pre>
+<blockquote>
+<p>说明：</p>
+<p>出现<code>Successfully wrote genesis state</code>相关提示说明初始化创世信息完成。</p>
+</blockquote>
+<ul>
+<li><p><strong>启动节点</strong></p>
+<p>一般情况下，platon 进程一直在前台进行，这样我们就不能进行其他操作了，并且如果中途退出该终端，程序将退出。Ubuntu下可以以nohup方式启动程序：</p></li>
+</ul>
+<pre><code class="hljs css language-shell">cd ~/platon-node &amp;&amp; nohup platon --identity "platon" --datadir ./data --port 16789 --rpcaddr 127.0.0.1 --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodiscover --nodekey ./data/nodekey --cbft.blskey ./data/blskey &amp; &gt; ./data/platon.log 2&gt;&amp;1 &amp;
+</code></pre>
+<p>当shell中提示nohup成功后再按下一次回车，确保不会因为误关闭终端引起进程退出。</p>
+<ul>
+<li><strong>检查节点运行状态</strong></li>
+</ul>
+<pre><code class="hljs css language-shell">platon attach http://localhost:6789 --exec platon.blockNumber
+</code></pre>
+<p>多执行几次上面的命令，如果块高一直在增长，表示单节点私链部署成功。</p>
+<h3><a class="anchor" aria-hidden="true" id="platon-集群环境"></a><a href="#platon-集群环境" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PlatON 集群环境</h3>
+<p><code>PlatON集群</code>是有多节点参与的网络环境，这里我们假设你已经可以构建PlatON单节点。并且，我们将在一台服务器构建两个节点组成的网络。更多的节点在操作流程上类似。</p>
+<p>为了在本地运行PlatON多节点，你要确保：</p>
+<ul>
+<li>每个节点实例拥有单独的data目录（--datadir）</li>
+<li>每个实例运行在不同的端口上，不管是p2p端口还是rpc端口（--port and --rpcport ）</li>
+<li>节点可以彼此互连</li>
+<li>RPC服务器端口不被占用</li>
+</ul>
+<p><strong>1.创建目录</strong></p>
+<p>在platon-node目录下创建目录data0和data1，作为两个节点的数据目录。分别生成两个节点的coinbase账户。</p>
+<pre><code class="hljs css language-shell">mkdir -p ~/platon-node/data0 ~/platon-node/data1
+</code></pre>
+<p><strong>2.生成密钥对</strong></p>
+<p>分别将2个节点的nodekey和blskey保存到'data0'和'data1'</p>
+<pre><code class="hljs css language-shell">cd ~/platon-node/data0 &amp;&amp; keytool genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./nodeid) &amp;&amp; keytool genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./blspub)
+
+cd ~/platon-node/data1 &amp;&amp; keytool genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./nodeid) &amp;&amp; keytool genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./blspub)
+</code></pre>
+<p><strong>3.编辑创世文件</strong></p>
+<p>修改创世块配置文件<code>platon.json</code>。</p>
+<p>将两个节点的节点信息加入 <strong>initialNodes</strong> 数组中，因为我们生成的是两个节点组成的集群环境，所以数组长度为2。
+需要修改<code>platon.json</code>文件：
+请将以下文件内容'node0-nodekey'、'node1-nodekey'、'node0-blspubkey'和'node1-blspubkey'分别替换为上一步生成的节点公钥和节点bls公钥。
+'your-account-address'替换为钱包地址。</p>
+<pre><code class="hljs">……
+  <span class="hljs-string">"cbft"</span>: {
+  <span class="hljs-string">"initialNodes"</span>: [{
+        <span class="hljs-string">"node"</span>: <span class="hljs-string">"enode://node0-pubkey@127.0.0.1:16789"</span>,
+        <span class="hljs-string">"blsPubKey"</span>: <span class="hljs-string">"node0-blspubkey"</span>
+    },{
+        <span class="hljs-string">"node"</span>: <span class="hljs-string">"enode://node1-pubkey@127.0.0.1:16790"</span>,
+        <span class="hljs-string">"blsPubKey"</span>: <span class="hljs-string">"node1-blspubkey"</span>
+    }],
+    ……
+  <span class="hljs-string">"alloc"</span>: {
+    <span class="hljs-string">"your-account-address"</span>: {
+        <span class="hljs-string">"balance"</span>: <span class="hljs-string">"999000000000000000000"</span>
+    },
+    <span class="hljs-string">"1000000000000000000000000000000000000003"</span>: {
+        <span class="hljs-string">"balance"</span>: <span class="hljs-string">"200000000000000000000000000"</span>
+    }
+  },
+……
+</code></pre>
+<p><strong>4.初始化和启动</strong></p>
+<p>分别为节点0和节点1初始化创世块信息：</p>
+<pre><code class="hljs">platon --datadir ~/platon-<span class="hljs-keyword">node</span><span class="hljs-title">/data0</span> init platon.json &amp;&amp; platon --datadir ~/platon-<span class="hljs-keyword">node</span><span class="hljs-title">/data1</span> init platon.json
+</code></pre>
+<p>初始化成功后，分别用nohup方式启动节点0和节点1：</p>
+<pre><code class="hljs css language-shell">cd ~/platon-node &amp;&amp; nohup platon --identity "platon0" --datadir ./data0 --port 16789 --rpcaddr 0.0.0.0 --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodiscover --nodekey ./data0/nodekey --cbft.blskey ./data0/blskey &gt; ./data0/platon.log 2&gt;&amp;1 &amp;
+
+cd ~/platon-node &amp;&amp; nohup platon --identity "platon1" --datadir ./data1 --port 16790 --rpcaddr 0.0.0.0 --rpcport 6790 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodiscover --nodekey ./data1/nodekey --cbft.blskey ./data1/blskey  &gt; ./data1/platon.log 2&gt;&amp;1 &amp;
+</code></pre>
+<p><strong>5.检查</strong></p>
+<p>通过前面所述的方式进入任意一个节点platon控制台，查看节点是否和对端建立连接以及通过查看blockNumber是否在持续增长来判断集群是否已成功启动。</p>
+<pre><code class="hljs css language-shell">platon attach http://localhost:6789 --exec platon.blockNumber
+platon attach http://localhost:6790 --exec platon.blockNumber
+</code></pre>
+<p>多执行几次，观察块高的增长情况。</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/Docs/docs/Become_Verification_Node"><span class="arrow-prev">← </span><span>成为验证节点</span></a><a class="docs-next button" href="/Docs/docs/Smart_Contract_Development"><span>智能合约开发</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#windows源码编译">Windows源码编译</a></li><li><a href="#ubuntu源码编译">Ubuntu源码编译</a></li><li><a href="#搭建私链">搭建私链</a><ul class="toc-headings"><li><a href="#单节点">单节点</a></li><li><a href="#platon-集群环境">PlatON 集群环境</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/Docs/" class="nav-home"><img src="/Docs/img/logo.png" alt="PlatON" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/Docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/Docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/Docs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/Docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/Docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Your Name or Your Company Name</section></footer></div></body></html>
