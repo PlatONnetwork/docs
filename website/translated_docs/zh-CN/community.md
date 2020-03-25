@@ -1,7 +1,7 @@
 ---
 id: community
 title: 社区项目
-sidebar_label: community
+sidebar_label: 社区项目
 ---
 
 Below is a categorized list of projects that use the PlatON blockchain,meet your related development and use tool needs. We welcome more community members to participate and continue to expand the PlatON ecosystem.
@@ -12,7 +12,7 @@ Below is a categorized list of projects that use the PlatON blockchain,meet your
         <td><img alt="" src="/Docs/img/logo.png"></td>
         <td>
             <p class="color"><a href="https://platscan.test.platon.network/"> ATON</a></p>
-            ATON is the first secure and user-friendly mobile wallet for PlatON Network.
+            这是中文
         </td>
     </tr>
 </table>
