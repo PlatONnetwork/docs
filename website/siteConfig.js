@@ -65,7 +65,7 @@ const siteConfig = {
   */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} PlatON`,
+  copyright: `Copyright © ${new Date().getFullYear()} PlatON Network`,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
@@ -73,7 +73,7 @@ const siteConfig = {
   },
 
   // Add custom scripts here that would be placed in <script> tags.
-  scripts: ['https://buttons.github.io/buttons.js'],
+  scripts: ["https://buttons.github.io/buttons.js"],
 
   // On page navigation for the current documentation page.
   onPageNav: 'separate',
@@ -86,6 +86,20 @@ const siteConfig = {
 
   //侧边栏伸缩
   docsSideNavCollapsible: true,
+
+  //外部链接
+  expectUrl:{
+    'en':{
+      "PlatON":"https://platon.network/?lang=en",
+      "Foundation":"https://latticex.foundation/home",
+      "Forum":"https://forum.latticex.foundation/"
+    },
+    "zh-CN":{
+      "PlatON":"https://platon.network/?lang=zh",
+      "Foundation":"https://latticex.foundation/home",
+      "Forum":"https://forum.latticex.foundation/"
+    }
+  }
 
   // Show documentation's last contributor's name.
   // enableUpdateBy: true,

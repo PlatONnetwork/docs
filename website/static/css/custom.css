@@ -118,6 +118,10 @@ code {
     background-color: #EAEAEA;
 }
 
+blockquote code{
+    background-color: rgba(234, 234, 234, 0.5);
+}
+
 .hljs,
 .hljs-subst {
     color: #fff;
@@ -280,4 +284,11 @@ code {
 
 .commmunity-table tr td{
     vertical-align: middle;
+}
+
+.nav-footer .sitemap .gitstar{
+    flex:0;
+    width: 100px;
+    flex-shrink: 0;
+    flex-grow: 0;
 }
