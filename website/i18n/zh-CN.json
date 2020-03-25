@@ -75,11 +75,11 @@
       },
       "categories": {
         "PlatON Developer Docs": "PlatON Developer Docs",
-        "节点运行者": "节点运行者",
-        "开发者": "开发者",
-        "参考文档": "参考文档",
-        "关于PlatON": "关于PlatON",
-        "社区项目": "社区项目"
+        "Node Runner": "节点运行者",
+        "Developer": "开发者",
+        "Reference Document": "参考文档",
+        "Abount PlatON": "关于PlatON",
+        "community":"社区"
       }
     },
     "pages-strings": {
