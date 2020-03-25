@@ -1,98 +1,95 @@
 ---
 id: MTool_Manual
-title: MTool使用手册
-sidebar_label: MTool使用手册
+title: MTool Manual
+sidebar_label: MTool Manual
 ---
 
 
+## MTool Environment Variable Description 
 
-## MTool环境变量说明
+The environment variables of MTool directories under Windows and Ubuntu are different:
 
-Windows和Ubuntu下MTool目录使用环境变量有所区别：
+- MTool Catalog
+  - Windows:`%MTOOLDIR%`
+  - Ubuntu:`$MTOOLDIR`
 
-- MTool目录
+> Explanation:**`Users choose according to their installed system.`**
 
-  - Windows：`%MTOOLDIR%`
+##  MTool Command Details 
 
-  - Ubuntu：`$MTOOLDIR`
+### Create A Wallet 
 
->  说明：**`用户根据自己安装的系统进行选择环境变量。`**
->
-
-##  MTool命令详解
-
-### 创建钱包
-
-- 执行命令
+- Execute the command:
 
 ```shell
 mtool-client account new staking
 ```
 
-- 参数说明
+- Variable description
 
->staking: 生成的钱包名称，创建成功后会在目录`$MTOOLDIR/keystore`下生成钱包文件`staking.json`。
+>staking: Generated wallet name, after the successful creation of the wallet file `staking.json` in the directory `$MTOOLDIR/keystore`. 
 
-### 普通转账操作
+### Ordinary transfer operation
 
-- 执行命令
+- Excuting an order
 
 ```bash
-mtool-client tx transfer --keystore $MTOOLDIR/keystore/staking.json --amount "1" --recipient $to_address --config $MTOOLDIR/validator/validator_config.json
+mtool-client tx transfer --keystore $MTOOLDIR/keystore/staking.json --amount "1" --recipient $ to_address --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- 参数说明
+- Parameter Description
 
->keystore：发送转账交易的钱包路径
+> keystore: path of the wallet sending the transaction
 >
->amount：转账金额，单位：LAT
+> amount: transfer amount, unit: LAT
 >
->recipient：接收地址
+> recipient: receiving address
 
-### 查看钱包列表
+### View wallet list
 
-- 执行命令
+- Excuting an order
 
 ```bash
 mtool-client account list
 ```
 
-### 根据钱包名称查询余额
+### Query balance based on wallet name
 
-- 执行命令
+- Excuting an order
 
 ```bash
 mtool-client account balance $keystorename --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- 变量说明
+- Variable description
 
->$keystorename：钱包文件名称，如staking.json
+> $ keystorename: wallet file name，example:staking.json
 
-### 根据地址查询余额
+### Query balance based on address
 
-- 执行命令
+- Excuting an order
 
 ```bash
 mtool-client account balance -a $address --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- 参数
+- Parameters
 
-> a：钱包地址
+> a: wallet address
 
-### 发起质押操作
+### Initiate a staking operation
 
-如果共识节点部署完成，并且已经同步区块成功，您就可以使用MTool进行质押操作。质押资金申请完成后，确保质押账户余额足够，根据用户情况替换质押金额，质押最低门槛为100万LAT。
+If the deployment of the consensus node is complete and the block has been synchronized successfully, you can use MTool for staking operations. After the staking fund application is completed, ensure that the balance of the staking account is sufficient, and replace the staking amount according to the user's situation. The minimum threshold for staking is 1 million LAT.
 
-注意：请保持质押账户里面有足够LAT，以备后续发起节点管理的交易有足够的交易手续费，比如升级提案的投票，解质押等交易。
+Note: Please keep enough LAT in the staking account, so that the transactions initiated by the subsequent node management have sufficient transaction fees, such as voting for upgrading proposals, and unsecured transactions.
 
-- 执行命令
+- Excuting an order
 
 ```bash
 mtool-client staking --amount 1000000 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
-提示：**please input keystore password:** 输入质押钱包的密码，然后回车，如果显示如下信息则代表质押成功：
+
+Tip:**please input keystore password:**Enter the password of the staking wallet and press Enter. If the following information is displayed, the staking is successful:
 
 ```bash
 operation finished
@@ -101,198 +98,198 @@ transaction hash:
 SUCCESS
 ```
 
-- 参数说明
+- Parameter Description
 
-> amount: 质押数，不少于1000000lat-质押门槛，小数点不超过8位
+> amount: staking number, not less than 1000000lat-staking threshold, no more than 8 decimal places
 >
-> restrictedamount: 不少于1000000lat-质押门槛，小数点不超过8位（使用锁仓余额质押）
+> restrictedamount: not less than 1000000lat- staking threshold, no more than 8 decimal points (staking using locked balance)
 
-### 修改验证人信息操作
+### Modify validator information operation
 
-- 执行命令
+- Excuting an order
 
 ```bash
 mtool-client update_validator --name VerifierName --url "http://www.platon.com" --identity IdentifyID --delegated-reward-rate 100 --reward 0x33d253386582f38c66cb5819bfbdaad0910339b3 --introduction "Modify the verifier information operation" --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- 参数说明
+- Parameter Description
 
-> name：验证人名称，不超过30字节，支持字母、数字、空格、上下划线及#，必须字母开头
+> name: validator name, no more than 30 bytes, supports letters, numbers, spaces, underscores and #, must start with a letter
 >
-> url：官网路径，不超过70字节，数字字母组成
+> url: official website path, no more than 70 bytes, composed of alphanumeric characters
 >
-> identity：身份认证ID，不超过140字节，对应validator_config.json配置文件中的`externalId`字段。
+> identity: identity authentication ID, no more than 140 bytes, corresponds to the `externalId` field in the validator_config.json configuration file
 >
-> delegated-reward-rate：委托奖励比例，单位：万分比，整数，范围0~10000，如输入5000，表示分红比例为50%
+> delegated-reward-rate: delegated reward ratio, unit: million points, integer, range 0 ~ 10000, If you enter 5000, it means that the dividend ratio is 50%
 >
-> reward：收益地址，42字符（字母数字）
+> reward: return address, 42 characters (alphanumeric)
 >
-> introduction：简介，验证人简要介绍说明，不超过280字节，建议英文
+> introduction: introduction, brief description of the validator, no more than 280 bytes, English is recommended
 >
-> a：执行命令时，用配置文件里面的值作参数去修改验证人信息
+> a: When executing the command, use the values in the configuration file as parameters to modify the verifier information
 
-### 解质押操作
+### Decommissioning operation
 
-- 执行命令
+- Excuting an order
 
 ```bash
 mtool-client unstaking --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- 参数说明
+- Parameter Description
 
-> 无
+> None
 
-### 增加质押操作
+### Increase staking operation
 
-- 执行命令
+- Excuting an order
 
 ```bash
 mtool-client increasestaking --amount 5000000 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- 参数说明
+- Parameter Description
 
-> amount：用账户余额来增加质押量(LAT)，不少于10最小增加值，小数点不超过8位
+> amount: Use the account balance to increase the staking amount (LAT), the minimum added value is not less than 10, and the decimal point does not exceed 8 digits
 >
-> restrictedamount： 用账户锁仓余额来增加质押量，不少于10质押门槛，小数点不超过8位（使用锁仓余额质押）
+> restrictedamount: use the account balance to increase the amount of staking, not less than 10 staking threshold, the decimal point does not exceed 8
 
-### 提交文本提案操作
+### Submit Text Proposal Action
 
-- 执行命令
+- Excuting an order
 
 ```bash
 mtool-client submit_textproposal --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- 参数说明
+- Parameter Description
 
-> pid_id：GitHub ID
+> pid_id: GitHub ID
 
-### 提交升级提案操作
+### Submit upgrade proposal operation
 
-- 执行命令
+- Excuting an order
 
 ```bash
 mtool-client submit_versionproposal --newversion 0.8.0 --end_voting_rounds 345 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- 参数说明
+- Parameter Description
 
-> newversion：目标升级版本，x.x.x，数字加标点
+> newversion: target upgrade version, x.x.x, number punctuation
 >
-> end_voting_rounds：投票共识轮数，投票共识轮数N，必须满足0 < N <= 4838（约为2周）
+> end_voting_rounds: the number of voting consensus rounds, the number of voting consensus rounds N, must satisfy 0 < N <= 4838 (about 2 weeks)
 >
-> pid_id：GitHub ID
+> pid_id: GitHub ID
 
-### 提交取消提案操作
+### Submit Cancel Proposal
 
-- 执行命令
+- Excuting an order
 
 ```bash
-mtool-client submit_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --end_voting_rounds 12 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
+mtool-client submit_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --end_voting_rounds 12 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR_validator/validator
 ```
 
-- 参数说明
+- Parameter Description
 
-> proposalid：需要被取消的提案ID，即发起提案交易的hash，66字符，字母数字组成
+> proposalid: the ID of the proposal that needs to be cancelled
 >
-> end_voting_rounds：投票共识轮数，投票共识轮数N，必须满足0 < N <= 4838（约为2周）
+> end_voting_rounds: the number of voting consensus rounds, the number of voting consensus rounds N, must satisfy 0 < N <= 4838 (about 2 weeks)
 >
-> pid_id：GitHub ID
+> pid_id: GitHub ID
 
-### 文本提案投票操作
+### Text proposal voting operation
 
-- 执行命令
+- Excuting an order
 
 ```bash
 mtool-client vote_textproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- 参数说明
+- Parameter Description
 
-> proposalid：文本提案ID，即发起提案交易的hash，66字符，字母数字组成
+> proposalid: text proposal ID, that is, the hash of the proposal transaction, 66 characters, alphanumeric
 >
-> opinion：投票选项，yes、no、abstain-三选一
+> opinion: voting options, yes, no, abstain-choose one
 
-### 升级提案投票操作
+### Upgrade proposal voting operation
 
-- 执行命令
+- Excuting an order
 
 ```bash
 mtool-client vote_versionproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- 参数说明
+- Parameter Description
 
-> proposalid：升级提案ID，即发起提案交易的hash，66字符，字母数字组成
+> proposalid: upgrade proposal ID, that is, the hash of the proposed transaction, 66 characters, alphanumeric
 
-### 取消提案投票操作
+### Cancel proposal voting
 
-- 执行命令
+- Excuting an order
 
 ```bash
 mtool-client vote_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- 参数说明
+- Parameter Description
 
-> proposalid：取消提案ID，即发起提案交易的hash，66字符，字母数字组成
+> proposalid: Cancel the proposal ID, that is, the hash of the proposed transaction, 66 characters, composed of alphanumeric characters
 >
-> opinion：投票选项，yes、no、abstain-三选一
+> opinion: voting options, yes, no, abstain-choose one
 
-### 提交参数提案操作
+### Submit parameter proposal operation
 
-- 执行命令
+- Excuting an order
 
 ```bash
-mtool-client submit_paramproposal --pid_id 200 --module $module --paramname $paramname --paramvalue $paramvalue --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
+mtool-client submit_paramproposal --pid_id 200 --module $ module --paramname $ paramname --paramvalue $ paramvalue --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- 参数说明
+- Parameter Description
 
-> module：治理模块参数
+> module: governance module parameters
 >
-> paramname：治理模块参数名，注意字母大小写
+> paramname: the name of the governance module parameter, pay attention to the case of the letters
 >
-> paramvalue：治理模块参数值
+> paramvalue: Governance module parameter value
 >
-> pid_id：GitHub ID
+> pid_id: GitHub ID
 
-###  参数提案投票操作
+### Parameter proposal voting operation
 
-- 执行命令
+- Excuting an order
 
-``` bash
-mtool-client  vote_paramproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
+```bash
+mtool-client vote_paramproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- 参数说明
+- Parameter Description
 
-> proposalid：取消提案ID，即发起提案交易的hash，66字符，字母数字组成
+> proposalid: Cancel the proposal ID, that is, the hash of the proposed transaction, 66 characters, composed of alphanumeric characters
 >
-> opinion：投票选项，yes、no、abstain-三选一
+> opinion: voting options, yes, no, abstain-choose one
 
-### 版本声明操作
+### Version declaration operation
 
-- 执行命令
+- Excuting an order
 
 ```bash
 mtool-client declare_version --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- 参数说明
+- Parameter Description
 
-> 无
+> None
 
-### 查看帮助
+### View help
 
-- 执行命令
+- Excuting an order
 
 ```bash
 mtool-client -h
 ```
 
-- 参数说明
+- Parameter Description
 
-> 无
+> None

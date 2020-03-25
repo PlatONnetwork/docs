@@ -22,52 +22,52 @@
         "sidebar_label": "JS SDK"
       },
       "MTool_Manual": {
-        "title": "MTool使用手册",
-        "sidebar_label": "MTool使用手册"
+        "title": "MTool Manual",
+        "sidebar_label": "MTool Manual"
       },
       "PlatON_Consensus_Solution": {
-        "title": "PlatON共识方案",
-        "sidebar_label": "PlatON共识方案"
+        "title": "PlatON Consensus Solution",
+        "sidebar_label": "PlatON Consensus Solution"
       },
       "PlatON_Overall_Solution": {
-        "title": "PlatON总体方案",
-        "sidebar_label": "PlatON总体方案"
+        "title": "PlatON Overall Solution",
+        "sidebar_label": "PlatON Overall Solution"
       },
       "PlatON_Governance_Solution": {
-        "title": "PlatON治理方案",
-        "sidebar_label": "PlatON治理方案"
+        "title": "PlatON Governance Solution",
+        "sidebar_label": "PlatON Governance_Solution"
       },
       "Economic_Model": {
-        "title": "PlatON经济方案",
-        "sidebar_label": "PlatON经济方案"
+        "title": "PlatON Economic Model",
+        "sidebar_label": "PlatON Economic Model"
       },
       "Join_PlatON_NetWork": {
-        "title": "加入 PlatON 网络",
-        "sidebar_label": "加入 PlatON 网络"
+        "title": "Join PlatON NetWork",
+        "sidebar_label": "Join PlatON NetWork"
       },
       "Verifiable_Computation": {
-        "title": "可验证计算",
-        "sidebar_label": "可验证计算"
+        "title": "Verifiable Computation",
+        "sidebar_label": "Verifiable Computation"
       },
       "Secure_Multi_Party_Computation": {
-        "title": "安全多方计算",
-        "sidebar_label": "安全多方计算"
+        "title": "Secure Multi Party Computation",
+        "sidebar_label": "Secure Multi Party Computationn"
       },
       "Install_Node": {
-        "title": "安装一个节点",
-        "sidebar_label": "安装一个节点"
+        "title": "Install Node",
+        "sidebar_label": "Install Node"
       },
       "Become_Verification_Node": {
-        "title": "成为验证节点",
-        "sidebar_label": "成为验证节点"
+        "title": "Become Verification Node",
+        "sidebar_label": "Become Verification Node"
       },
       "Smart_Contract_Development": {
-        "title": "智能合约开发",
-        "sidebar_label": "智能合约开发"
+        "title": "Smart Contract Development",
+        "sidebar_label": "Smart Contract Development"
       },
       "Set_Develop_Env": {
-        "title": "设置开发环境",
-        "sidebar_label": "设置开发环境"
+        "title": "Start Building",
+        "sidebar_label": "Start Building"
       }
     },
     "links": {
@@ -75,10 +75,10 @@
     },
     "categories": {
       "PlatON Developer Docs": "PlatON Developer Docs",
-      "节点运行者": "节点运行者",
-      "开发者": "开发者",
-      "参考文档": "参考文档",
-      "关于PlatON": "关于PlatON",
+      "Node Runner": "Node Runner",
+      "Developer": "Developer",
+      "Reference Document": "Reference Document",
+      "Abount PlatON": "Abount PlatON",
       "community": "community"
     }
   },

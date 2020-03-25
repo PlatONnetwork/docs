@@ -1,400 +1,412 @@
 ---
 id: PlatON_Overall_Solution
-title: PlatON总体方案
-sidebar_label: PlatON总体方案
+title: PlatON Overall Solution
+sidebar_label: PlatON Overall Solution
 ---
 
 
+## Overview
 
-## 概述
+### WEB3 Computing Infrastructure
+With the rapid growth of the Internet, the Internet giants represented by FAANG and BAT, by virtue of their technological monopoly status, have collected and stored enormous user data. And with the use of big data and AI, they are enjoying data monopoly and acquiring huge business benefits. Users not only fail to obtain data dividends, but also bear the risk of personal privacy being violated and personal data being abused.
 
-### WEB3计算基础设施
+WEB3 is a serverless Internet and a decentralized network. In this Internet, users have full ownership of their own data, and no one or any organization can use their data without permission. But it also brings the following problems:
 
-随着互联网的蓬勃发展，以FAANG和BAT为代表的互联网巨头借自己的垄断地位，存储了大量用户数据，并以此为基础通过大数据以及AI计算，挖掘和享受数据的价值。用户不但未能获得数据的红利，而且承担着个人隐私被侵犯、个人数据被滥用的风险。
+- Any individual can only get hold of a small subset of the massive amount of data. It is impossible for any entity to stream the whole set of data valuable to them, handicapping their full grasp of the landscape. Every participant of the digitalized world is partially blind, blocked in a certain angle towards the full picture. 
+- Participants are weakly trusted or even untrusted, and they cannot use "trusted third parties" for data collection and validity verification, as well as the sharing of value, information and assets. Emerging cloud computing platforms are now typical "trusted third party".
 
-WEB3是无服务器的互联网，是去中心化的网络。在这个互联网里，用户完全拥有自己数据的所有权，未经允许，任何人任何组织都不能使用他人数据。但因此也带来以下问题：
+PlatON is committed to building the next generation of Privacy-Preserving Computing and data exchange networks in the WEB3 era. Based on modern cryptography and blockchain technology, PlatON creates a new computing paradigm to maintain privacy of the client’s data without the need to rely on third parties for collaborative computing and Verify the integrity of the results.
 
-- 任何单一实体永远都只能掌握数据集合的局部，而没有任意实体可以获取所有的全局数据。每个参与者都是“盲人”，其拥有的数据不足以反映全量数据—“大象”的特征。
-- 参与者之间是弱信任甚至是无信任的，无法通过“可信任第三方”来归集计算数据，并验证数据的有效性，从而共享价值、信息和资产。现在方兴未艾的云计算平台是一个典型的“可信任第三方”。
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/overall_architecture.png" alt="overall_architecture"/>
 
-PlatON致力于建设WEB3时代的下一代隐私计算和数据交换网络，基于现代密码技术和区块链技术，创造全新的计算范式，保证用户数据隐私的前提下，无需依赖第三方就可进行协同计算并验证结果的完整性。
+### Scalable Privacy-Preserving Computing
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/web3计算技术栈.png" alt="WEB3计算技术栈"/>
+#### Blockchain: Consensus-based Strategy
 
-### 可扩展的隐私计算方案
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/consensus_based_computing.png" alt="consensus_based_computing"/>
 
-#### 区块链：基于共识的计算
+In a broad sense, the existing blockchain architecture is a consensus-based schemes, which also implements a simple computation protocol based on smart contract. To assure correctness the computation must be replicated by all the nodes, manifesting the intrinsic contradiction between efficiency and trustlessness.
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/基于共识的计算.png" alt="基于共识的计算"/>
+Driven by practicality, the blockchain industry focuses on two issues: scalability and privacy.
 
-广义上看，现有的区块链架构都是一种基于共识的计算，也就实现了一种简单计算（智能合约形式）协议：为了保证计算的正确性，每个计算操作都需要经过绝大多数节点的重复处理来验证计算的正确性，导致了区块链体系里效率和可信任之间的内在矛盾。
+**Scalability** is still a huge challenge for the blockchain. The mainstream blockchain is not highly-effective in processing transactions per second, which is several orders of magnitude different from the processing power required to run mainstream financial markets. Although there are hundreds of projects addressing scalability issues through various solutions which are limited to the "impossible triangle" at the expense of decentralization or security. In consensus-based schemes, smart contract is limited to support simple computing logic.
 
-从实用性角度看，业界核心还是关注两个问题：可扩展性和隐私性。
+**Privacy** is another major issue of blockchain. Although the blockchain's advantages such as immutability, decentralization, and no trust are tempting, it also faces the same dilemma of obtaining data as big data and AI technologies. Neither companies nor individuals have the willingness to share private information, or post to public ledges that will be freely read by governments, family, colleagues and business competitors without restriction.
 
-**可扩展性**已经公认为区块链的最大难题。当前主流的区块链每秒处理交易数不高，与运行主流金融市场所需的处理能力相差几个数量级。虽然业界也在积极实施各种解决方案，但受限于”不可能三角“，都是以牺牲去中心化或安全性为前提的。区块链基于共识的计算方式也限制了智能合约不能支持复杂的计算逻辑。
+#### PlatON: Non-interactive Proof Privacy-Preserving Computation
 
-**隐私**是区块链的另一个主要问题。尽管区块链的不可篡改、去中心化、无需信任等优势是诱人的，但其跟大数据和AI技术同样面临获取不到数据的困境，无论是公司还是个人，都没有意愿将隐私信息发布到公共账本中，这些账本可以不受限制地被政府、家人、同事和商业竞争对手随意读取。
+PlatON uses modern cryptographic algorithms including but not limited Zero-Knowledge Proof (ZKP), Verifiable Computation (VC), Homomorphic Encryption (HE), Secure Multi-Party Computation (MPC), Secret Sharing (SS), etc. to implement non-interactive proof computation scale solution.
 
-#### PlatON：非交互证明的隐私计算
+##### Scalability
 
-PlatON使用包含且不限于零知识证明（ZKP）、可验证计算（VC）、同态加密（HE）、安全多方计算（MPC）、秘密分享（SS）等现代密码算法来实现非交互证明的计算扩容方案。
+The scalability problem of the existing blockchain architecture is mainly due to the tight coupling of consensus and computing. PlatON's scheme based on verifiable computing uses cryptographic algorithms to weaken their endogenous binding relationship, thereby fundamentally decoupling consensus and computing.
 
-##### 可扩展性
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/laye2_computing_network.png" alt="laye2_computing_network"/>
 
-现有区块链架构的问题源于两个很重要的部分：共识和计算耦合太紧密了。PlatON提出一种可验证计算的方案，能从本质上把两者拆开，对这两个问题分而治之，通过数学上可证明的密码学算法，弱化他们的内生绑定关系。
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/Layer2计算.png" alt="Layer2计算"/>
 
-鉴于链上共识既有的局限性，链上的功能应该是”验证”而不是“计算”。虽然链上已经公认为是一个无需信任的环境，但是链下方案的实施又引入新的不信任因素。PlatON的可验证计算（VC）密码学算法将信任传递到链下。通过可验证计算，合约只需要在链下计算一次，所有节点可以快速验证计算的正确性，一方面提高了交易的处理性能，另一方面也使得PlatON支持复杂合约的Trustless计算。
+To avoid the trade off in efficiency, people in the industry have increasingly come to an agreement: the proper use of blockchain is for verification only; the computing tasks must be separated from the consensus layer and migrated off-chain, but the untrusted off-chain is new problem.  PlatON's Verifiable Computation (VC) cryptographic algorithm passes trust off-chain. Through verifiable computation, the contract only needs to be processed off-chain once, and all nodes can quickly verify the correctness, on the one hand, it improves the transaction processing performance, and on the other hand, it makes PlatON support complex contracts.
 
-##### 隐私性
+##### Privacy
 
-PlatON通过叠加同态加密（HE）和安全多方计算（MPC），实现真正的隐私计算，保证输入数据以及计算逻辑本身的隐私。与依赖第三方制造商提供的可信硬件或TEE（例如SGX）进行计算完整性的可信计算相比，PlatON 上的Trustless 计算仅依赖于可证伪的密码学假设，从而在其生命周期内提供前所未有的私有数据安全性，不存在信任边界。
+On PlatON, MPC and HE are combined to achieve complete privacy-preserving computing, ensuring the privacy of input data and the computation logic. Compared to trusted computing that relies on the trusted hardware or TEE (such as SGX) provided by a third-party manufacturer for computational integrity, trustless computing on PlatON relies only on falsifiable cryptographic assumptions, and thus during its life, it provides unprecedented private data security without trust boundaries.
 
-## PlatON总体架构
+## PlatON Overall Architecture
 
-### 总体逻辑结构
+### Overall Logical Structure
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/总体逻辑结构.png" alt="总体逻辑结构"/>
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/overall_logical_architecture.png" alt="overall_logical_architecture"/>
 
-PlatON除了提供底层链外，同时提供钱包、区块浏览器和节点工具的开源实现：
+In addition to providing the underlying chain, PlatON also provides open source implementations of a wallet, a block browser, and a node management tool:
 
-- ATON钱包：一款支持冷热HD钱包、交易管理和委托管理的移动端钱包，账户私钥在客户端管理，后续支持Keyshared（基于门限签名的密钥管理系统）
-- PlatScan区块浏览器：PlatON官方提供的区块浏览器
-- 节点工具
+- ATON Wallet - A mobile wallet that supports hot and cold wallet, transaction and delegation. The private key is managed on the client, and Keyshared (a key management system based on threshold signature) is subsequently supported.
+- PlatScan Block Browser - The official block browser provided by PlatON
+- Node Tool
 
-### 底层逻辑结构
+### Logical Structure
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/逻辑结构.png" alt="逻辑结构"/>
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/logical_architecture.png" alt="logical_architecture"/>
 
-PlatON中，Layer1共识网络在以太坊的技术框架上进行修改，核心组件重新编写，并扩展了一些新组件：
+PlatON's Layer1 consensus network layer is based on the Ethereum skeleton. The core components have been completely rewritten, and some new components have been extended:
 
-- 密码算法：沿用从比特币时代开始使用的SHA256Hash算法、ECDSA签名算法外，PlatON还使用BLS用作共识的聚合签名，VRF做PPoS的验证人随机选取，ZKP和HE做隐私保护方案。
-- P2P网络：PlatON不用主流区块链项目常用的libp2p和devp2p库，实现RFC标准RFC6940的RELOAD（REsource LOcation And Discovery）定义的P2P协议，以及RFC7374的ReDiR（Recursive Distributed Rendezvous）定义的服务发现机制。
-- 账户模型和数据存储：沿用以太坊的账户模型，状态数据保存在帕特里夏树。PPoS相关的数据由于数据量较大，存放在帕特里夏树性能较差，不保存在帕特里夏树，而是单独保存在另外一个不存储历史状态的SNAPDB中。
-- 共识机制：使用BFT风格的PoS共识机制。PPoS为带VRF的DPoS机制，VRF引入的随机性，可内生地抑制矿池规模扩张，这对PlatON的去中心化和安全非常重要。另外PlatON的BFT是一种基于部分同步假设情形下的并行拜占庭协议CBFT(Concurrent Byzantine Fault Tolerance)，CBFT参考了PBFT, Tendermint，Hotstaff等共识协议，通过pipeline的方式并行完成批量区块的生成和确认，从而提高共识效率。
-- 智能合约：同时支持EVM和WASM引擎，根据具体交易自动选择对应的虚机执行合约，支持Solidity,C++，Java，Python等主流编程语言。基于LLVM实现WASM编译器，并基于Truffer修改相应的命令行IDE，以及图形化IDE，同时支持隐私合约和可验证合约。
-- DAPP SDK：在以太坊的WEB3（支持Javascript，Java，Python，Swift语言）和JSON RPC的基础上根据PlatON的功能进行修改。另外需要增加更高效的GRPC接口。
+- Cryptographic algorithm: In addition to the SHA256Hash algorithm and ECDSA signature algorithm that have been used since Bitcoin, PlatON also adds BLS as aggregate signature for consensus, VRF for random election of validators, and ZKP and HE for privacy preserving.
+- P2P network: Instead of using the popular libp2p and devp2p libraries, PlatON implements RELOAD (REsource LOcation And Discovery) protocol defined by RFC6940  and ReDiR(Recursive Distributed Rendezvous) service discovery mechanism defined by RFC7374.
+- Account model and data storage: Following Ethereum's account model, state data is stored in the Patricia tree. Due to the large amount of data, PPoS-related data is stored in the Patricia tree with poor performance. It is not stored in the Patricia tree, but is stored separately in another SNAPDB that does not store historical status.
+- Consensus mechanism: use BFT-style PoS consensus mechanism. PPoS is a DPoS mechanism with VRF. The randomness introduced by VRF can endogenously curb the expansion of staking pools and ensure the decentralization and security. PlatON's CBFT consensus mechanism is a three-phase pipelining consensus protocol that and produce and verifies batch blocks in parallel, thereby improves the consensus efficiency. 
+- Smart contract: Support EVM and WASM virtual machine at the same time,  and support mainstream programming languages such as Solidity, C ++, Java, Python. A modified version of Truffle is provided to support the development of Solidity and C ++ contracts.
+- DAPP SDK: Based on Ethereum's WEB3 (supports Javascript, Java, Python, Swift languages) and JSON RPC, it is modified according to the function of PlatON. In addition, a more efficient GRPC-based interface has been added.
 
-Layer2将复杂计算扩展到链下，并通过链下安全多方计算实现隐私计算协议。
+Layer2 extends complex computing to off-chain and implements Privacy-Preserving Computing protocols through off-chain Secure Multi-Party Computation.
 
-- 密码算法：可验证计算（VC）算法可实现非交互证明的链下计算扩容方案。安全多方计算（MPC）结合秘密共享（SS）和同态加密（HE）实现隐私计算协议。
-- MPC虚拟机：隐私合约通过LLVM编译器编译成LLVM IR，MPC VM基于LLVM JIT实现，可执行LLVM IR代码，MPC VM内置MPC、SS、HE等隐私计算协议，减少隐私合约编译后的LLVM IR代码大小。
-- 专用计算硬件：通过开发基于 FPGA/ASIC 的专用计算硬件，能够极大的提高计算性能，降低功耗/成本。
-- 隐私计算和数据交换协议：不泄露原始数据的前提下能进行协同计算和结果验证的计算协议。
-- 隐私计算框架：封装隐私计算和数据交换协议的开发框架，包括基于隐私计算协议的隐私AI开发框架。
+- Cryptographic algorithm: Verifiable Computation (VC) algorithm can implement the non-interactive proof of off-chain computing scale solution. The privacy computing protocol is implemented by combining Secure Multi-Party Computation (MPC), secret sharing (SS), and homomorphic encryption (HE).
+- MPC virtual machine: The privacy contract is compiled into the LLVM IR and executed in the MPC VM implemented through the LLVM JIT. The privacy calculation protocols including MPC, SS, and HE have been built into the MPC VM to reduce the size of the LLVM IR compiled from the privacy contract.
+-  Computing specific hardware: Computing specific hardware based on FPGA/ASIC can greatly improve computing performance and reduce computing power.
+- Privacy computing and data exchange protocol: A computing protocol that enables collaborative computing and results verification without revealing the original data.
+- Privacy-Preserving Computing Framework: A development framework that encapsulates Privacy-Preserving Computing and data exchange protocols, including a privacy AI development framework based on a Privacy-Preserving Computing protocol.
 
-### 网络结构
+### Network Structure
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/网络结构.png" alt="网络结构"/>
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/network_structure.png" alt="network_structure"/>
 
-#### 基础网络
+#### Basic Network
 
-PlatON的基础区块链网络主要由以下几类节点构成，这些节点通过P2P方式连接：
+PlatON's basic blockchain network is mainly composed of the following types of nodes, which are connected by P2P:
 
-- 轻节点
+In general, we can divide node into two types: full nodes and light(weight) nodes. Full nodes verify block that is broadcast onto the network. Full nodes that preserve the entire history of transactions are known as full archiving nodes.Light nodes, in contrast, do not verify every block or transaction and may not have a copy of the current blockchain state. They rely on full nodes to provide them with missing details.
 
-  不保存所有区块的数据，只保存区块头信息以及跟自己相关的数据，依赖全节点进行快速交易验证。轻节点参与交易和区块信息的全网广播。
+- Light Nodes
+Light nodes do not verify every block or transaction and may not have a copy of the current blockchain state. They rely on full nodes to provide them with missing details.
 
-- 全节点
+- Full Nodes
+Full nodes verify block that is broadcast onto the network. That is, they ensure that the transactions contained in the blocks (and the blocks themselves) follow the rules defined in the PlatON specifications.  All full nodes will have to replay all the transactions to ensure that they arrive at the correct, agreed-upon next state of the blockchain.
 
-  保存了所有区块的数据，可以在本地直接验证交易数据的有效性。全节点参与交易和区块信息的全网广播。
+- Archive Nodes
+Full nodes that preserve the entire history of transactions are known as full archiving nodes.
 
-- 归档节点
+- Bootstrap Nodes
+The new node joins the PlatON network and first connects to the bootstrap node and discovers other nodes.
 
-  保存了所有区块的历史状态的节点，历史上任何一个区块对应的世界状态都被保存在节点上，归档节点是一种特殊的全节点。
+- Validator Nodes
+Responsible for production and verify blocks, validator nodes are randomly selected through PPoS + VRF, and run the CBFT protocol for consensus.
 
-- 种子节点
+#### Decentralized Application
 
-  新节点加入PlatON网络，首先连接到种子节点，发现其他节点。
+To deploy DAPP applications (including blockchain), the following servers need to be deployed in the intranet environment:
 
-- 验证节点
+- Full node
+This node must connect to mainnet or testnet of PlatON. The P2P port of the node can be exposed to the internet, but the RPC port is not recommended to be exposed to the internet. 
 
-  负责执行交易并把交易数据打包成区块，验证节点通过 PPoS+VRF随机选出，并运行CBFT 协议进行共识。
+- DAPP server
+The DAPP server is connected to the local full-node RPC port, monitor transactions, events, and blocks on the chain. At the same time, the DAPP server is also connected to the original business system of the enterprise.
 
-#### 分布式应用
+#### Validator pool
 
-部署DAPP应用（包括区块链），需要在内网环境部署以下服务器：
+The validator pool deploys multiple validator nodes, and it is recommended to connect to the internet through a public front-end full node. For specific security deployment solution, see [validator deployment](#validator-deployment).
 
-- 全节点
+#### Operations platform
 
-  用来接入PlatON网络，全节点可以对外开放公网P2P端口，但不建议开放节点RPC端口。
+The Operations platform synchronizes all blocks, transactions, and events through a full node and perform monitoring.
 
-- DAPP服务器
+#### PlatScan Block Browser
 
-  连接至本地全节点RPC端口，通过全节点监控链上交易、事件和区块，并发生交易。同时DAPP服务器也连接到企业原有业务系统。
+The PlatScan block browser synchronizes all blocks, transactions, and events through a full node, and displays data such as blocks and transactions. The PlatScan block browser requires the following servers to be deployed:
 
-#### 验证节点池
+- Full node: RPC port allows only data processing server access
+- Data processing server
+- Database server
+- WEB server
+- Push server
 
-验证节点池部署多个验证节点，建议通过公开的全节点连接外网。具体安全部署方式参见[连接公有网络](/zh-cn/Network/[Chinese-Simplified]-连接公有网络.md)。
+#### ATON wallet server
 
-#### 监控运维平台
+ATON is a mobile wallet which implements key management, signing transactions forwarded to the chain through the ATON server. The data including transaction, block, validator on the chain are synchronized by the ATON server through the full node and pushed to the mobile client. ATON wallet server needs to deploy the following servers:
 
-监控运维平台通过一个全节点同步所有区块、交易和事件，并进行指标监控。
+- Full node: RPC port allows only data processing server access
+- Data processing server
+- Database server
+- WEB server
+- Push server
 
-#### PlatScan区块浏览器
+### Validator Deployment
 
-PlatScan区块浏览器通过一个全节点同步所有区块、交易和事件，并进行区块、交易等数据的展示。PlatScan区块浏览器需要部署以下服务器：
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/node_deployment.png" alt="node_deployment"/>
 
-- 全节点：RPC端口只对内部数据处理服务器开放
-- 数据处理服务器
-- 数据库服务器
-- WEB服务器
-- 推送服务器
+Appropriate measures should be taken to ensure the security of validator for running stably: 
+- RPC ports of full node and validator node are closed.
+- The validator node is not exposed on the Internet and communicates through non-validator full nodes.
+- Each validtor node should have at least 2 public full nodes and 2 non-public full nodes. The IPs of the public full nodes can be exposed on the Internet. The IPs of the non-public full nodes are only exposed  to other reliable validator nodes and are not exposed on the Internet to avoid DDoS attacks.
+- Prevent network-wide scanning to locate highly-defensive servers. Modify the port 9876 (the same as RPC 8888) to ports 80, 443, or 22. This can effectively increase the cost of attacker positioning.
 
-#### ATON钱包服务端
+## Core Modules
 
-ATON是一个移动端钱包，私钥在客户端管理，客户端负责签名转账交易、质押交易等，并通过ATON服务器转发到链上。链上的发送交易回执、接收交易、验证人信息、收益等由ATON服务器通过全节点进行同步处理并推送到移动客户端。ATON需要部署以下服务器：
+### P2P Network
 
-- 全节点：RPC端口只对内部数据处理服务器开放
-- 数据处理服务器
-- 数据库服务器
-- WEB服务器
-- 推送服务器
+The basic implementation of PlatON network is a decentralized structured topology completely based on RELOAD (Resource LOcation And Discovery) protocol and the Kademlia protocol [Kademlia]. The overall PlatON network structure is shown as follows.
 
-### 验证节点部署结构
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/P2P_network.png" alt="p2p_protocal_stack"/>
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/节点部署结构.png" alt="节点部署结构"/>
+#### Link Layer
 
-为保护验证节点正常通信与运行，稳定出块，对节点需要进行安全防护：
+The Link Layer ensures the secure transfer of data. A variety of transmission protocols are employed to prevent eavesdropping, tampering and spoofing; to provide secure and authenticated connections; and to verify the source of messages and ensure the integrity of the data.
 
-- 全节点和验证节点RPC端口关闭。
-- 验证节点不在公网上暴露，通过非共识全节点进行通信。
-- 每个验证节点应至少准备 2 个公开全节点、2 个非公开全节点，公开全节点的 IP 可以对外公开，以供 和主网正常通信。另 2 个非公开全节点的 IP 只告知其他可靠验证节点，不对外公开，以避免同时遭遇 DDoS 攻击。
-- 防止全网扫描定位高防后的服务器，修改同步端口 9876（同理 RPC 的 8888）至全网最大存活数量的端口 80、443 或 22，这样可以有效抬高攻击者定位成本。
+Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS) are implemented on this layer.
 
-## PlatON核心模块
+#### Forwarding and Connection Management
 
-### P2P网络
+The Forwarding and Connection Management layer stores and implements the Routing Table by providing packet forwarding services between nodes. It also handles establishing new links between nodes, setting up connections for overlay links across NATs using ICE.
 
-PlatON 完全实现 RELOAD（REsource LOcation And Discovery）标准[RFC6940]的P2P基础协议  和 Kademlia协议 。下图为 PlatON 网络整体分层结构。
+#### Topology Plug-in
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/P2P协议栈.png" alt="P2P协议栈"/>
+RELOAD is a P2P network framework that supports the development of different topology algorithms for implementing a fully-distributed non-structured topological or fully-distributed structured topological network.
 
-#### 链接层
+The Topology Plug-in is responsible for implementing the specific overlay algorithm being used. It uses the Message Transport component to send and receive overlay management messages, the Storage component to manage data replication, and the forwarding and connection management layer to control hop-by-hop message forwarding.
 
-链接层定位于实现数据的安全传输，提供多种传输协议来防止窃听、篡改、消息伪造；提供安全、可认证的连接；保证消息来源认证和消息数据的完整性。本层实现安全传输层协议（TLS）和数据包传输层安全性协议（DTLS）。
+The Topology Plug-in allows RELOAD to support a variety of overlay algorithms. PlatON implements a DHT based on Kademlia algorithm.
 
-#### 分组转发和连接管理
+#### Data Storage
 
-负责提供分组转发服务来实现存储路由表，同时负责点对点建立连接，包括位于 NAT设备和防火墙后的节点。RELOAD 使用 ICE 方法 [RFC5245] 实现 NAT 穿越。
+The Data Storage Layer is responsible for processing messages relating to the storage and retrieval of data. It talks directly to the Topology Plug-in to manage data replication and migration, and it talks to the Message Transport component to send and receive messages.
 
-#### 拓扑插件
+The base RELOAD protocol currently defines three data models: single value, array and dictionary.
 
-RELOAD 是一个 P2P 网络框架，支持扩展不同的拓扑算法来实现全分布式非结构化拓扑或全分布式结构化拓扑网络。
+#### Message Transport
 
-拓扑算法可利用消息传输组件来管理消息的收发，利用存储组件来管理数据的存储。
+The Message Transport layer is responsible for handling end-to-end reliability.
 
-拓扑算法与分组转发和链接管理层紧密配合，提供多种路由功能来满足不同需求。PlatON 网络采用 Kademlia 算法来实现全分布式结构化拓扑网络。
+PlatON uses RELOAD as the basis for developing a Regional Flooding algorithm that broadcasts messages quickly throughout the entire network.
 
-#### 数据存储
+#### Application Layer
 
-负责数据的存储，通过与拓扑插件的配合完成数据的复制、迁移等动作，同时与消息传输组件配合完成数据消息的收发。RELOAD 支持字符串、数组和 dictionary 类型的数据存储。
+The communication and storage capabilities of the RELOAD base layer are used to provide service discovery and scaling as well as routing, computing, data, storage and blockchain services based on service discovery.
 
-#### 消息传输
+### Service Discovery
 
-负责对应用提供可靠的点对点消息传输服务。PlatON 在 RELOAD 基础上扩展了分区泛洪算法来进行消息的快速全网广播。
+PlatON uses ReDiR (Recursive Distributed Rendezvous) [RFC7374] to implement the service discovery mechanism. ReDiR can support tens of thousands of service provider nodes and service query nodes.
 
-#### 应用层
+#### ReDiR Tree
 
-利用RELOAD 底层的通信、存储能力来构建服务发现扩展，以及基于服务发现的TURN服务、计算服务、数据服务、存储服务、区块链服务等。
+ReDiR uses a tree structure to implement the P2P service discovery mechanism. At the same time, the storage capacity of the RELOAD overlay network is used to save the data. Each type of service is stored as a ReDiR tree, and the tree nodes save the information of the service providing nodes. When a node requests to find a specified service provider, a limited number of searches in the ReDiR tree can find the service provider node that best matches the requesting node.
 
-### 服务发现
+Each tree node in the ReDiR tree contains a dictionary of entries of peers providing a particular service. Each tree node in the ReDiR tree also belongs to some level in the tree. The root node of the ReDiR tree is located at level 0. The child nodes of the root node are located at level 1 of the ReDiR tree. The children of the tree nodes at level 1 are located at level 2, and so forth.
 
-PlatON 使用 ReDiR（Recursive Distributed Rendezvous）[RFC7374] 来实现服务发现机制，ReDiR 可以支持数万的服务提供节点及服务查询节点。
+The number of nodes in each layer of the ReDiR tree depends on the branching factor b. Each layer can hold up to $b^{level}$ nodes. Each node is uniquely identified by $(level, j)$, where $level$ is the node location The number of layers, $j$ means that the node is the $j$ node in the corresponding layer. In each layer, $b^{level}$ tree nodes divide the $level$ layer into $b^{level}$ KEY spaces.
 
-#### ReDiR 树
-
-ReDiR 使用树状结构实现 P2P 服务发现机制。同时使用 RELOAD 覆盖网络的存储能力保存数据，每一类服务都存储为一棵 ReDiR 树，树节点保存服务提供节点的信息。当某个节点请求查找指定服务的提供者时，对 ReDiR 树做有限次的查找就可以找到与请求节点最匹配的服务提供节点。
-        ReDiR 树节点使用 RELOAD 的 dictionary 结构存储服务提供节点，每一个 ReDiR 树节点属于 ReDiR 树的某一层（level），ReDiR 树的根节点为第 0 层, 根节点的子节点位于第1层，第一层的子节点位于第2层，以此类推。
-
-ReDiR 树每层容纳的节点数取决于分支因子 b，每层最多容纳$b^{level}$ 个节点，每个节点用$ (level, j)$ 来唯一标识，其中$level$为节点所在的层数，$j$ 表示该节点为相应层中第$j$个节点。在每一层中，$b^{level}$ 个树节点把第$level $层分为$b^{level}$ 个 KEY 空间。
-
-所有服务节点映射存储到相应的 KEY 空间，每个 KEY 空间由一个树节点负责存储，树节点 $(level, j) $包含的 KEY 范围为
+All services providers are mapped into corresponding key space. A tree node is responsible for the storage of each key space. Tree node contains key space
 
 $(2^{BitsInKEY}b^{-level}(j+\frac{b'}{b}), 2^{BitsInKEY}b^{-level}(j+\frac{b'+1}{b}))$
 
-其中 $0 ≤ b′ < b$，树节点$ (level, j) $中保存的资源 ID 取值为 $ID = hash(service, level, j)$。
+for $0 ≤ b′ < b$, and the resource ID stored in the tree node $ (level, j) $ is $ID = hash(service, level, j)$. 
 
-#### 服务发布
+#### Service Registration
 
-在 RELOAD 覆盖网络中，KEY 为 $k$ 的节点 $n$ 发布服务的步骤如下：
+A node $n$ with key $k$ use the following procedure to register as a service provider in the RELOAD Overlay Instance:
 
-- 步骤一：选择一个初始层$ l = l_{start}$，一般为 2。
-- 步骤二：节点 $n$ 发送查询请求到负责 KEY 空间 $I(l, k)$ 的树节点，获取该树节点存储的
-  服务节点列表。
-- 步骤三：节点 $n$ 发送存储请求将自身信息存储到负责 KEY 空间 $I(l, k)$ 的树节点中。
-- 步骤四：检查第一步返回的结果，如果节点 $n$的 KEY 值 $k$ 是其中最大或最小的，则将当前层数减 1，重复第 2-3 步，直到节点 $n$ 的 KEY 值不是最大或最小，或者到达根节点为止。
+- Step 1: Starting at some level $ l = l_{start}$. This is generally 2.
 
-同理，节点 $n$ 从层 $l = l_{start}$ 往下层遍历处理，直到满足以下条件为止：负责 KEY 空间$I(l, k)$ 的树节点中，节点 $n$ 为唯一一个服务节点。
+- Step 2: Node $n$ sends a RELOAD Fetch request to fetch the contents of the tree node responsible for key space $I(l, k)$.and obtains the list of service nodes that the tree node stores.
 
-#### 服务更新
+- Step 3: Node $n$ sends a RELOAD Store request add its entry to the dictionary stored in the tree node responsible for key space $I(l, k)$.
 
-注册到 ReDiR 中的服务状态都是动态的，服务节点需要定期重复服务发布流程来更新服务状态。若超时未更新，负责存储的树节点需要将其从存储中删除。
+- Step 4: If node n’s key is the lowest or highest key stored in the tree node responsible for key space, node $n$ MUST reduce the current level by one, repeating steps 2 and 3 above. Node $n$ continue in this way until it reaches either the root of the tree or a level at which k is not the lowest or highest key in the key space.
 
-#### 服务查找
+In the same way, node $n$ also performs a downward walk from level $l = l_{start}$ recursively until the following condition is satisfied:node $n$ is the only service provider in the tree node responsible for key space $I(l, k)$.
 
-服务查找过程跟服务发布类似，也是从一个初始层 $l = l_{start}$ 开始，每一步获取到当前KEY 空间 $I(l, k)$ 中的服务节点列表，按照以下方法处理：
+#### Service Refresh
 
-- 步骤一：如果没有返回任何服务节点，则表明 KEY($k$) 对应的服务节点存在更大的 KEY空间，将层数减 1 然后重复查询，如果当前 $level$ 为 0 则查询失败。
-- 步骤二：如果在返回的服务节点中，$k$ 不是其中最大或最小的，则表明对应的服务节点一定存在的子空间中，将层数加 1，然后重复查询。
-- 步骤三：否则，返回的结果为最接近 KEY($k$)的服务节点，查询成功。
+All state in the ReDiR tree is soft. Therefore, a service provider needs to periodically repeat the registration process to refresh its Resource Record. If a record expires, it must be dropped from the dictionary by the peer storing the tree node.
 
-### 账户模型
+####  Service Lookup
 
-相比账户模型，UTXO不支持智能合约，而很多的DAG项目也在积极探索智能合约，但是还没有成熟稳定的解决方案，因此PlatON选择成熟稳定支持智能合约的账户模型。PlatON中，每个账户都有一个与之关联的状态(state)和一个20字节的地址(address)。账户分为两类：
+A service lookup is similar to service registration. It also starts from an initial layer $l = l_{start}$. At each step gets the list of service nodes in the current KEY space $I(l, k)$, and it is processed as follows:
 
-- 普通账户
+- Step 1: If there is no service provider stored in the tree node associated with, then service provider corresponding to KEY($k$) must occur in a larger range of the keyspace, so we decrease the number of layers by 1 and repeat the query, or fail if $level$ is equal to 0.
 
-  由私钥控制，用户可通过钱包客户端或命令行生成。PlatON中，普通账户可以创建交易，并使用私钥对交易签名。
+- Step 2: If $k$ is sandwiched between two client entries in, then the service provider must lie somewhere in a sub-space of . We set and repeat.
 
-- 合约账户
+- Step 3: Otherwise, the returned result must be the service provider closest to key($k$) and the lookup is done.
 
-  没有私钥，由代码控制，合约账户地址在部署合约时产生。与普通账户不同，合约账户不能自行发起新的交易。每当合约账户收到一条消息，合约内部的代码就会被激活，允许它对内部存储进行读取和写入，以及发送其它消息或者创建合约。
+### Account Model
 
-### 数据存储
+Compared with the account model, UTXO does not support smart contracts, and many DAG projects are actively exploring smart contracts, but there is no mature and stable solution. Therefore, PlatON chooses mature and stable account models that support smart contracts. In PlatON, each account has a state associated with it and a 20-byte address. There are two types of accounts:
 
-在最初的bitcoin区块链中， 只有普通的转账交易才需要存储，比特币是基于UTXO模型，也就是说链上存储的除了区块相关的信息（hash、nonce等）以外都是UTXO，在以Ethereum为代表的blockchain2.0公链中普遍支持了智能合约（Smart Contract），合约中存储的内容可以是任意的，除了账户相关的信息（如代币）外，用户还可以把文本、图片、视频等等存到链上。
+- Ordinary account
 
-在一些链上（比如以太坊）为了保证数据完整性，通常还需要把一些状态数据（或者叫做历史数据）存在链上，这些数据只在对应的块（高度）有用，在其他高度是没有任何用处的，这样做的好处是任何时候， 我都能追溯历史上某个高度上，账本的全貌是什么样子的，但弊端也显而易见， 就是存储的成本很高。所以就有了类似EOS这种公链的存储方案，除了只存最新状态数据， EOS还借助星级文件系统来分担存储上的压力。
+  Controlled by the private key, users can generate it through the wallet client or the command line. In PlatON, ordinary accounts can create transactions and use private keys to sign transactions.
 
-PlatON认为，链上存储需要充分考虑成本， 只有有价值的、需要所有账本做出共识的信息才应该被存储到公共账本上，有价值的信息包括：区块、交易、账户数据。而对于经济模型中的一些信息，如当前共识轮的验证人列表、候选人列表、各个节点当前的出块率等，只需要存储当前最新数据即可。
+- Contract account
 
-PlatON的存储分为账户数据存储（statedb）和快照存储（snapshotdb）。
+  There is no private key, it is controlled by code, and the contract account address is generated when the contract is deployed. Unlike ordinary accounts, contract accounts cannot initiate new transactions on their own. Whenever a contract account receives a message, the code inside the contract is activated, allowing it to read and write to internal storage, and send other messages or create a contract.
 
-#### 账户数据存储（statedb）
+### data storage
 
-PlatON的账户数据存储参考了以太坊的MPT树状存储模型，如下所示：
+In the original bitcoin blockchain, only ordinary transfer transactions need to be stored. Bitcoin is based on the UTXO model, which means that all the information stored on the chain is UTXO except for block-related information (hash, nonce, etc.) Smart contracts are generally supported in the blockchain 2.0 public chain represented by Ethereum. The content stored in the contract can be arbitrary. In addition to account-related information (such as tokens), users can also send text and pictures , videos, and so on.
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/区块和交易存储结构.png" alt="区块和交易存储结构"/>
+In some chains (such as Ethereum), in order to ensure data integrity, some state data (or historical data) is usually stored on the chain. These data are only useful in the corresponding block (height), and there is no other height. It is useful. The advantage of doing this is that at any time, I can trace what the full picture of the ledger looks like at a certain height in history, but the disadvantages are also obvious: the cost of storage is high. Therefore, there is a public chain storage solution similar to EOS. In addition to storing only the latest status data, EOS also uses the star file system to share the pressure on storage.
 
-PlatON中，所有和账户相关的状态信息都是通过 StateDB 来存储和获取的。为了支持数据的快速查询以及区块的回滚操作，StateDB 使用 MPT 结构作为其下层的存储方式。MPT 中的所有节点最后都会以 key - value 的形式存入磁盘数据库。
+PlatON believes that on-chain storage requires full consideration of costs. Only valuable information that requires consensus among all ledgers should be stored on the public ledger. Valuable information includes: blocks, transactions, and account data. For some information in the economic model, such as the validator list of the current consensus round, the candidate list, and the current block rate of each node, it is only necessary to store the latest data.
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/StateDB.png" alt="StateDB"/>
+PlatON's storage is divided into account data storage (statedb) and snapshot storage (snapshotdb).
 
-最上层就是StateDB。StateDB负责将数据做最初步的记录。往下一层是Trie层，Trie负责将所有数据结构化，方便后续的存储查询回滚等操作。Trie分两种，State Trie和Storage Trie。前者是状态树，记录了所有账号的余额nonce等基本信息。后者用于记录各种合约存储数据。状态树只有一棵，存储树有很多棵，因为每个合约都有棵属于自己的存储树。Trie再往后就是TrieDB，TrieDB将Trie中的节点序列化后存储在内存中。TrieDB的主要作用是做为最终插入硬盘数据之前的缓存层。整个结构中最后一环就是最终硬盘上的数据库leveldb。
+#### Account data storage (statedb)
 
-#### 快照数据存储（snapshotdb）
+PlatON's account data storage references Ethereum's MPT tree storage model, as shown below:
 
-考虑到存储成本和读取性能，PlatON中部分数据只保留最终状态，通过snapshotdb来存储和获取，snapshotdb中的数据最后都会以key-value的形式存入磁盘数据库。
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/MPT_tree_storage_model.png" alt="MPT_tree_storage_model"/>
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/snapshotdb.jpg" alt="snapshotdb"/>
+In PlatON, all account-related state information is stored and retrieved through StateDB. To support fast data query and block rollback operations, StateDB uses the MPT structure as its underlying storage method. All nodes in the MPT will eventually be stored in the disk database as key-value.
 
-其中：
-- **unRecognizedBlockData: **一个未确认的数据集合，每个DB写入请求都更新数据集合。
-- **RecognizedBlockData: **被确认的区块数据，BlockData经过Flush后即变成RecognizedBlockData，RecognizedBlockData与区块hash和number有对应关系，同一块高可以有多个RecognizedBlockData，commit后删除同一块高及以下的其他RecognizedBlockData。
-- **CommitedBlockData:** 等待Compaction的区块数据，有且只有一条路径（区块关联）。
-- **WAL:** 日志文件,所有数据记录之前先写log。存储k，v，hash数据，hash = hash（k+v+hash） 
-- **current:** 用于存储当前最高提交区块（highest）和最高合并区块(base)区块的高度
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/StateDB.png" alt="statedb"/>
 
-### 共识机制
+The top layer is StateDB. StateDB is responsible for making the most preliminary records of the data. The next layer is the Trie layer. Trie is responsible for structuring all data and subsequent operations such as rollback of storage queries. There are two types of Trie, State Trie and Storage Trie. The former is a status tree that records basic information such as the balance nonce of all accounts. The latter is used to record various contract storage data. There is only one state tree and many storage trees, because each contract has its own storage tree. Trie is TrieDB. TrieDB stores the order of the nodes in Trie in memory. TrieDB's main function is to act as a cache layer before finally inserting data into the hard disk. The last link in the entire structure is the database leveldb on the final hard disk.
 
-“不可能三角”中，去中心化的量化指标就是参与共识的节点数量，可扩展性的量化指标是TPS或吞吐量，安全性的量化指标是作恶的经济成本，经过对这几个量化指标的权衡，PlatON采用BFT类的PoS机制。
+#### Snapshot Data Storage (snapshotdb)
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/共识机制.png" alt="共识机制"/>
+Considering storage cost and read performance, part of the data in PlatON only retains the final state, which is stored and retrieved through snapshotdb. The data in snapshotdb will be finally stored in the disk database in the form of key-value.
 
-PlatON共识运行分3个阶段：1. 备选节点选举；2. 用VRF从备选节点中选出验证节点；3. 验证节点轮流出块并运行拜占庭协议CBFT。
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/snapshotdb.jpg" alt="snapshotdb"/>
 
-- 第1阶段：备选节点选举
+among them:
+- **unRecognizedBlockData:** An unconfirmed data set. Each DB write request updates the data set.
+- **RecognizedBlockData:** Confirmed block data. BlockData will become RecognizedBlockData after Flush. RecognizedBlockData has a corresponding relationship with block hash and number. There can be multiple RecognizedBlockData for the same block height. After committing, delete the same block height and The following other RecognizedBlockData.
+- **CommitedBlockData:** Block data waiting for Compaction, there is only one path (block association).
+- **WAL:** log file, write log before all data is recorded. Store k, v, hash data, hash = hash (k + v + hash)
+- **current:** is used to store the height of the current highest commit block and the highest merge block (base) block
 
-每个Energon持有者都能参与选举。
+### Consensus mechanism
 
-如果一个Energon持有者想成为验证节点，必须锁定超过一个事先确定的最低数量Energon，成为备选节点候选人。每锁定1个Energon相当于自投1张选票。备选节点候选人之间不得相互投票。
+The scalability trilemma posits that blockchains in which every node processes every computation and in which every node comes to consensus about the order of those computations can have two of three properties: safety, scalability, and decentralization of block production. 
 
-其他想参与备选节点选举的Energon持有者也必须锁定Energon，但对它们锁定的Energon数量没有任何限制，每锁定1个Energon兑换1张选票，它们可以将自己的选票投给任何它们支持的备选节点候选人。
+- The decentralization of block production can be quantified as the number of block producers. 
+- Scalability can be quantified as the number of transactions per unit of time that the system can process.
+- Safety can be quantified as the cost of mounting a Byzantine attack that affects liveness or transaction ordering. 
 
-所有投票完成后，备选节点候选人按照它们的得票排序。得票最高的前若干位候选人成为备选节点，备选节点数量也是事先确定的。备选节点及其支持者锁定的Energon将继续保持锁定状态，直到一个事先确定的锁定周期结束。没有入选备选节点的候选人及其支持者锁定的Energon，在选举后可以解锁，它们不参与这一轮共识，也不会获得任何补偿。
+As a trade-off, PlatON uses a BFT-Style PoS mechanism.
 
-- 第2阶段：用VRF选出验证节点
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/consensus_mechanism.png" alt="consensus_mechanism" style="zoom: 67%;"/>
 
-VRF将从全部备选节点中，选出一定数量的验证节点，验证节点数量是事先确定的。
+PlatON consensus runs in three stages: 
 
-数学上可以证明，得票数越高的备选节点，经VRF被选为验证节点的概率越高。但因为VRF引入的随机性，最终选出的验证节点不一定正好是得票最高的那些备选节点。
+- Phase 1: The Election of Alternative Validators; 
 
-- 第3阶段：验证节点运行CBFT
+In PlatON, every Energon holder can participate in PPoS. 
 
-在CBFT中，每个验证节点均被分配一个时间窗口，在这个时间窗口内连续生产区块。每个验证节点在其时间窗口内生产的区块数量是事先确定的。此后，全部验证节点对候选区块运行CBFT直到达成共识。
+For an Energon holder who wants to become a validator, it must stake more than a pre-specified minimum number of Energons to first become an alternative validator candidate. One staked Energon means one vote, which must be voted for himself and no one else. In other words, alternative validator candidates aren’t allowed to vote for each other.
 
-### 智能合约
+Other Energon holders who want to participate in the election of alternative validators must stake Energons too. They can stake as many Energons as they wish, also with one staked Energon equaling one vote. They can vote for any alternative validator candidates they choose.
 
-从技术角度看，PlatON计算网络本质上是一个去中心化的FaaS(Functions as a Service)平台，相应地，智能合约可以认为就是FaaS上的function。PlatON中的智能合约分为四类。
+After all the votes are cast, alternative validator candidates are ranked according to how many votes they receive. A pre-specified number of candidates receiving the most votes become alternative validators. The Energons staked by alternative validators and their supporters remain staked until the end of a pre-specified lock-up period. For other candidates and their supporters, their staked Energons can be un-staked immediately after the election. They won’t participate in current round of PPoS anymore and won’t get any compensation, either.
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/智能合约.jpg" alt="智能合约"/>
+- Phase 2: The Selection of Validators by the VRF
 
-#### Solidity合约（Solidity Contract）
+The VRF is used to select a pre-specified number of validators within all the alternative validators. The details of the VRF are very complicated. But it is equivalent to the following experiment. 
 
-**Solidity合约**支持使用solidity语言开发，编译成solc bin执行。触发Solidity合约的交易由共识节点打包，全网节点重复执行验证。Solidity合约的状态保存在公共账本中。
+Firstly, imagine every vote received by each alternative validator as a ball. Mark different alternative validators by different colors, and mix all the balls together. Secondly, randomly draw a ball from the pool, record its color, and put it back. Repeat this step for many times. Thirdly, count the color distribution of the balls drawn from the pool. Those alternative validators corresponding to the colors with the most occurrences become validators.
 
-#### WASM合约（WASM Contract）
+It can be proved that the more votes an alternative validator receives, the more likely it will be selected by the VRF as a validator. However, the VRF introduces a considerable level of randomness. The validators selected may not correspond to the alternative validators with the most votes.
 
-**Wasm合约**支持高级语言开发，编译成wasm执行。触发Wasm合约的交易由共识节点打包，全网节点重复执行验证。Wasm合约的状态保存在公共账本中。
+- Phase 3: Validators Run CBFT
 
-##### WASM虚拟机
+ In CBFT, every validator is assigned a time window, during which it produces a pre-specified number of blocks consecutively. All the validators then run CBFT to reach consensus on the candidate blocks.
 
-PlatON 采用[wagon](https://github.com/go-interpreter/wagon)作为PlatON虚拟机。作为PlatON的虚拟机，需要进行改造。实现链上的外部函数以及GAS的计算方式。
+ After receiving block reward and staking reward, validators and alternative validators share their income with supporters according to agreements between them. Validators’ income also includes transaction fees. 
 
-##### 工具链
+### Smart contract
 
-PlatON 首先支持C++作为智能合约的编写语言，后续逐步提供Rust、Go等主流高级开发语言，针对C++提供以下工具链：
+From a technical perspective, PlatON is essentially a decentralized FaaS (Functions as a Service) platform. Accordingly, smart contracts can be considered as functions on FaaS. Smart contracts in PlatON fall into three categories.
 
-- platon-cpp : C++的编译器，负责生成WASM目标码和ABI文件。
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/smart_contract.png" alt="smart_contract"/>
 
-##### WASM合约执行流程
+#### Solidity Contract
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/wasm_compile_pub_tx.jpg" alt="wasm_compile_pub_tx"/>
+**Solidity contract** Supports development using solidity language, compiled into evm bytecode for execution. The transactions that trigger the solidity contract are packaged by validators, and nodes across the network repeatedly perform verification. The status of solidity contracts is kept in the statedb.
 
-##### WASM合约GAS计费
+#### WASM Contract
 
-WASM合约的执行按照调用的WASM指令进行GAS计费，不同WASM指令GAS不同，具体WASM指令的GAS值后续补充。
+**Wasm contract** Supports high-level language development, compiled into wasm bytecode for execution. The transactions that trigger the Wasm contract are packaged by validators, and nodes across the network repeatedly perform verification. The status of the Wasm contract is kept in the statedb.
 
-#### 隐私合约（Privacy Contract）
+##### WASM Virtual Machine
 
-##### 隐私合约方案
+PlatON uses [wagon](https://github.com/go-interpreter/wagon) as the PlatON virtual machine. As a PlatON virtual machine, it needs to be transformed. To implement external functions on the chain and how GAS is calculated.
 
-隐私合约同样支持高级语言开发，编译成llvm ir中间语言执行。隐私合约的输入数据保存在数据节点本地，由数据节点通过秘密分享给到多个随机计算节点，计算节点在链下以安全多方计算方式进行隐私计算，并提交计算结果到链上。
+##### Toolchain
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/隐私合约.png" alt="隐私合约"/>
+PlatON first supports C ++ as a smart contract writing language, and gradually provides mainstream high-level development languages ​​such as Rust and Go. The following tool chains are provided for C ++:
 
-##### 隐私合约执行流程
+- platon-cpp: C ++ compiler, responsible for generating WASM object code and ABI files.
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/隐私合约流程.png" alt="隐私合约流程"/>
+##### WASM contract execution process
 
-#### 可验证合约（VC Contract）
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/wasm_compile_pub_tx.jpg" alt="wasm_compile_pub_tx"/>
 
-可验证合约的开发和发布跟Wasm合约没有区别，最终也是编译成wasm执行。可验证合约的状态转换在链下由计算节点异步执行，计算完成后新的状态和状态转换证明提交到链上，全网节点可快速验证正确性并将新的状态更新到公共账本中。可验证合约可支持复杂、繁重的计算逻辑而不影响整条链的性能。
+##### GAS Billing for WASM Contracts
 
-##### 可验证合约方案
+The execution of the WASM contract is performed in accordance with the called WASM instruction for GAS billing. Different WASM instructions have different GAS. The GAS value of the specific WASM instruction is supplemented later.
 
-PlatON的可验证方案暂时基于zk-SNARK算法，后续逐步替换为更优化算法。
+#### Privacy Contract
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/可验证合约.png" alt="可验证合约"/>
+##### Privacy contract scheme
 
-- vc-contract template：用户根据提供的模板编写 vc 合约，可以输入任意计算模型，主要实现三个接口：
+The privacy contract also supports high-level language development, which is compiled into llvm ir intermediate language for execution. The input data of the privacy contract is stored locally in the data node, and the data node is secretly shared to multiple random computing nodes. The computing node performs privacy computations in a secure multi-party computing manner off-chain, and submits the computation results to the chain.
 
-  - compute()：计算请求
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/privacy_contract.png" alt="privacy_contract"/>
 
-  - real_compute() ：生成计算结果和证明
+##### Privacy contract execution process
 
-  - set_result()：验证计算结果和证明
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/privacy_contract_flow.png" alt="privacy_contract_flow"/>
 
-- vclang：将用户编写的 vc 合约编译，生成 wasm vm 支持的执行文件，合约开发者无需关心具体的 libsnark api 使用方法，只需编写好自己的计算模型代码即可
+#### VC Contract
 
-- vcc-reslover：在wasm虚拟机中内置支持访问 libcsnark的接口层，以 c-go 的方式调用 libcsnark 接口
+The development and release of a verifiable contract is no different from a Wasm contract, and it is eventually compiled into a wasm implementation. The state transition of the verifiable contract is performed asynchronously by the computing nodes off-chain. After the computation is completed, new states and state transition certificates are submitted to the chain. The nodes on the entire network can quickly verify the correctness and update the new state to the public ledger. Verifiable contracts can support complex and heavy computation logic without affecting the performance of the entire chain.
 
-- libcsnark：封装 libsnark api，将 c++ 实现的 libsnark 可以由 c 接口访问
+##### Verifiable contract scheme
 
-- vc_pool：负责 vc 的交易处理，分发 vc 计算任务，并将计算结果和证明上链
+PlatON's verifiable solution is temporarily based on the zk-SNARK algorithm, and it is gradually replaced with a more optimized algorithm in the future.
 
-##### 可验证合约执行流程
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/verifiable_contract.png" alt="verifiable_contract"/>
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/可验证合约流程.jpg" alt="可验证合约流程"/>
+- vc-contract template: The user compiles a vc contract according to the provided template, and can enter any computation model. It mainly implements three interfaces:
+  - compute (): compute request
+  - real_compute (): Generate computation results and proofs
+  - set_result (): verify computation result and proof
+- vclang: compile the vc contract written by the user to generate an executable file supported by wasm vm. Contract developers do not need to care about the specific use of libsnark api, they only need to write their own computation model code.
+- vcc-reslover: built-in interface layer to support access to libcsnark in wasm virtual machine, calling libcsnark interface in c-go mode
+- libcsnark: encapsulates the libsnark api, libsnark implemented by c ++ can be accessed by the c interface
+- vc_pool: responsible for vc's transaction processing, distributing vc computation tasks, and uploading the computation results and proofs to the chain
 
-- 合约编译之后，已经生成了 pk，vk，部署至 PlatON 网络之后，pk，vk 存储至链上，无法被篡改，可方便节点访问
-- 当 vc compute 交易执行时，会创建一个 vc task，taskid 由 tx 的 nonce 组成，并以 taskid 为 key，存储输入参数 x
-- compute交易写入区块之后，会触发 vc_pool解析交易event,从而决定是否将task加入vc_pool的队列中
-- 区块确认之后，就可以开始执行 real_compute，由于是链下计算，不会产生交易费用。real_compute 的过程是首先根据执行此前编译生成的 gadget 序列运算产生 s(witness)，一旦计算出 s ，就可以根据pk，计算出证明proof
-- set_result(proof, result) 是将计算结果和证明上链，该过程主要是 verify(vk, proof, input) ，一旦验证通过，则交易发起者可获取计算酬劳。zk-SNARK的 verify 的时间相对产生 proof 的阶段比较短，但也是和输入参数长度相关，所以需要注意限制输入参数长度，防止该笔交易的gas费用过高，增加验证者成本
+##### Verifiable contract execution process
 
-##### 激励模型
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/verifiable_contract_flow.png" alt="verifiable_contract_flow"/>
 
-有计算外包需要的用户，需要先抵押合适费用至合约账户，各计算节点可自行竞争计算任务（后续将抢单模式修改为随机派单模式），一旦计算成功，生成结果和证明，就发起set_result交易请求，需要计算节点先支付该笔交易的矿工费，节点收到请求，执行set_result，一旦验证通过交易中携带的 proof 和 result 参数，则认为交易请求者成功计算出结果，会将合约账户抵押的费用转账至请求者账户中，失败则不会给以激励。
+- After the contract is compiled, pk and vk have been generated. After deployment to the PlatON network, pk and vk are stored on the chain and cannot be tampered with, which can facilitate node access
+
+- When the vc compute transaction is executed, a vc task is created, taskid is composed of the nonce of tx, and taskid is the key to store the input parameter x
+
+- After the compute transaction is written into the block, it will trigger the vc_pool to resolve the transaction event, so as to decide whether to add the task to the vc_pool queue
+
+- After the block is confirmed, real_compute can be executed. Because it is off-chain computation, no transaction fees will be incurred. The process of real_compute is to first generate s (witness) according to the gadget sequence operation that was previously compiled and generated. Once s is calculated, you can calculate the proof based on pk
+
+- set_result (proof, result) is to upload the computation result and proof to the chain. This process is mainly verify (vk, proof, input). Once the verification is passed, the transaction initiator can get the computation reward. The verification time of zk-SNARK is relatively short compared to the stage of generating proof, but it is also related to the length of the input parameter. Therefore, it is necessary to pay attention to limit the length of the input parameter to prevent the gas cost of the transaction from being too high and increase the cost of the verifier.
+
+##### Incentive model
+
+Users who need computing outsourcing need to mortgage the appropriate fees to the contract account first, and each computing node can compete for the computing task by itself (the order-changing model will be changed to the random ordering model later). Once the computation is successful, the result and proof are generated, and set_result is initiated For a transaction request, the computing node needs to pay the miner fee for the transaction first. The node receives the request and executes set_result. Once the proof and result parameters carried in the transaction are verified, the transaction requester successfully calculates the result and the contract account will be mortgaged. Fees are transferred to the requester's account, failure will not be rewarded.

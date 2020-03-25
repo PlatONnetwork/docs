@@ -1,376 +1,732 @@
 ---
 id: PlatON_Consensus_Solution
-title: PlatON共识方案
-sidebar_label: PlatON共识方案
+title: PlatON Consensus Solution
+sidebar_label: PlatON Consensus Solution
 ---
 
-## 概述
+##  Summary
 
-我们提出了一种基于部分同步假设情形下的并行拜占庭容错协议CBFT(Concurrent Byzantine Fault Tolerance)，解决区块链共识效率的问题。本文分析了PBFT，Tendermint，Hotstuff等共识协议，CBFT综合了其优点，通过pipeline的方式完成区块生成和确认的并行，在一个视图窗口内可以出多个块，并可以在O(n^(2))内完成视图窗口切换，从而提高共识效率。
+We propose a concurrent Byzantine fault tolerance protocol (CBFT) to solve the efficiency problem of partially synchronous networks. This article analyzes consensus protocols such as PBFT, Tendermint, and Hotstuff. With reference to their best practices, CBFT designed pipeline validation, batch production, and low-complexity view-change to improve consensus efficiency.
 
+## Distributed network model
 
+According to the distributed system theory, the network model of the distributed system is divided into three categories:
 
-## 分布式网络模型
+- **Synchronous network model:** messages sent by nodes will definitely reach the target node within a certain time
 
-按照分布式系统理论，分布式系统的网络模型分为三类：
+- **Asynchronous network model:** messages sent by nodes cannot be sure to reach the target node
 
-- 同步网络模型：节点所发出的消息，在一个确定的时间内，肯定会到达目标节点
+- **Partial synchronous network model:** messages sent by nodes, although delayed, will eventually reach the target node
 
-- 异步网络模型：节点所发出的消息，不能确定一定会到达目标节点
+The synchronous network model is a very ideal situation, and the asynchronous network model is closer to the actual model, but according to the principle of **FLP Impossibility [1]**, under the assumption of the asynchronous network model, the consensus algorithm cannot simultaneously satisfy the **security safety** and **liveness**, most current BFT consensus algorithms are based on the assumption of a partially synchronous network model. We also discuss based on the assumption of a partially synchronous network model.
 
-- 部分同步网络模型：节点发出的消息，虽然会有延迟，但是最终会到达目标节点
+## BFT consensus protocol
 
-同步网络模型是十分理想的情况，异步网络模型是更为贴近实际的模型，但据**FLP不可能[1]**原理，在异步网络模型假定下，共识算法不可能同时满足**安全性（safety）**和**活跃性（liveness）**，目前的BFT类共识算法多是基于部分同步网络模型假定。我们也是基于部分同步网络模型假定来进行讨论。
+### BFT Protocol Overview
 
-## BFT共识协议
+A distributed system is composed of multiple nodes, and the nodes need to send messages to communicate with each other. According to the protocol they follow, consensus is reached on a certain task message and is executed consistently. There are many types of errors in this process, but they can basically be divided into two categories.
 
-### 概述
+- The first type of error is node crash, network failure, packet loss, etc. This type of error node is not malicious and belongs to non-Byzantine error.
 
-一个分布式系统是由多个节点组成，节点之间需要网络发送消息通信，根据它们遵循的协议在某个任务消息达成共识并一致执行。这个过程中会出现很多类型的错误，但它们基本上可以分为两大类。
+- The second type of error is that the node may be malicious and does not follow the protocol rules. For example, the validator can delay or reject messages in the network, the proposer can propose invalid blocks, or the node can send different messages to different peers. In the worst case, malicious nodes may cooperate with each other. These are called Byzantine errors.
 
-- 第一类错误是节点崩溃、网络故障、丢包等，这种错误类型的节点是没有恶意的，属于非拜占庭错误。
+Considering these two errors, we hope that the system can always maintain two attributes: safety and liveness.
 
-- 第二类错误是节点可能是恶意的，不遵守协议规则。例如验证者节点可以延迟或拒绝网络中的消息、领导者可以提出无效块、或者节点可以向不同的对等体发送不同的消息。在最坏的情况下，恶意节点可能会相互协作。这些被称为拜占庭错误。
+- Security: When the above two types of errors occur, the consensus system cannot produce wrong results. In the semantics of blockchain, it means that there will be no double-spending and forks.
+- Liveness: The system has been able to continuously generate submissions. Under the semantics of the blockchain, it means that consensus will continue and will not get stuck. If the consensus of a blockchain system is stuck at a certain height, then the new transaction is not responding, that is, it does not meet the liveness.
 
-考虑到这两种错误，我们希望系统始终能够保持两个属性：安全性(safety)和活跃性(liveness)。
-
-- 安全性：在以上两类错误发生时，共识系统不能产生错误的结果。在区块链的语义下，指的是不会产生双重花费和分叉。
-- 活跃性：系统一直能持续产生提交，在区块链的语义下，指的是共识会持续进行，不会卡住。假如一个区块链系统的共识卡在了某个高度，那么新的交易是没有回应的，也就是不满足liveness。
-
-BFT(拜占庭容错协议)是一种即使系统中存在恶意节点也能保证分布式系统的安全性和活跃性的协议。根据Lamport[2]的经典论文，所有BFT协议都有一个基本假设：节点总数大于 3f 时，恶意节点最大为 f ，诚实节点可以达成一致的正确结果。
+Byzantine Fault Tolerance Protocol (BFT) is a protocol that can guarantee the security and activity of distributed systems even if malicious nodes exist in the system. According to the classic paper of Lampport [2], all BFT protocols have a basic assumption: when the total number of nodes is greater than 3f, the maximum number of malicious nodes is f, and honest nodes can reach a correct result that is consistent.
 
 ### PBFT
 
-实用拜占庭容错算法（PBFT[3]）是现实世界里首批能够同时处理第一类和第二类错误的拜占庭容错协议之一，基于部分同步模型，解决了之前BFT类算法效率不高的问题，将算法复杂度由节点数的指数级降低到节点数的平方级，使得拜占庭容错算法在实际系统应用中变得可行。
+The practical Byzantine fault tolerance algorithm (PBFT [3]) is one of the first Byzantine fault tolerance protocols in the real world to be able to handle the first and second types of errors at the same time. Based on the partial synchronization model, it solves the problem of low efficiency of previous BFT algorithms By reducing the complexity of the algorithm from the exponential order of the number of nodes to the square order of the number of nodes, the Byzantine fault tolerance algorithm becomes feasible in practical system applications.
 
-目前区块链中使用的BFT类共识协议都可以认为是PBFT的变形，与PBFT一脉相承。
+The BFT consensus protocols currently used in blockchains can be considered as a variant of PBFT, which is in the same vein as PBFT.
 
-#### 正常流程
+#### Normal process
 
-PBFT正常流程如下所示（图1中C为客户端，系统中有编号分别为0～3的四个节点，且节点3为拜占庭节点）: 
+The normal PBFT process is shown below (C is the client in Figure 1, the system has four nodes numbered 0 to 3, and node 3 is a Byzantine node):
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/PBFT_Normal_case_operation.png" alt="PBFT_Normal_case_operation"/>
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_consensus_solution.assets/PBFT_Normal_case_operation.png" alt="PBFT_Normal_case_operation"/>
 
-<center>图1 PBFT正常流程</center>
+<center> Figure 1 PBFT normal process </center>
+The normal PBFT process is a three-phase protocol:
+-  pre-prepare: The primary node broadcasts a pre-prepare message to each replica node.
+- prepare: In this stage, each node tells other nodes that I already know this message. Once a node receives n-f prepare messages (we call it QC (Quorum Certificate)), it enters the prepared state.
+- commit: In this phase, each node and other nodes know this message. Once a node receives n-f commit messages (QC), it enters the committed state.
 
-PBFT 正常流程为3阶段协议：
-- pre-prepare：主节点（Primary）广播预准备消息（Preprepare）到各副本节点（Replica) 
-- prepare：该阶段是各个节点告诉其他节点我已经知道了这个消息，一旦某个节点收到了 包含n-f 个prepare消息（我们将使用QC也就是Quorum Certificate来指代，下同）则进入prepared状态
-- commit：该阶段是各个节点以及知道其他节点知道了这个消息，一旦某个节点收到了n-f 个commit消息（QC）则进入committed状态
+#### View switching process
 
-#### 视图切换流程
+view-change is the most critical design of PBFT. When the master node hangs (no response after timeout) or the replica node collectively thinks that the master node is a problem node, the view-change will be triggered. At this time, the nodes in the system broadcast the view-change request, and when a node receives enough view-change requests, it will send a view-change confirmation to the new master node. When the new master node receives enough view-change confirmations to start the next view, each view-change request must include a message that the node has reached the prepared state sequence number.
 
-视图切换（viewchange）是PBFT最为关键的设计，当主节点挂了（超时无响应）或者副本节点集体认为主节点是问题节点时，就会触发ViewChange事件，开始viewchange阶段。此时，系统中的节点会广播视图切换请求，当某个节点收到足够多的视图切换请求后会发送视图切换确认给新的主节点。当新的主节点收到足够多的视图切换确认后开始下一视图，每个视图切换请求都要包含该节点达到prepared状态序号的消息。
+During the view-change process, we need to ensure that the sequence number of the submitted message is also consistent throughout the view-change. In simple terms, when a message is sequenced n and 2f + 1 prepare messages are received, it will still be assigned a sequence number n in the next view and restart the normal process.
 
-在视图切换过程中，我们需要确保提交的消息序号在整个视图更改中也是一致的。简单来说，当一个消息定序为n，且收到2f+1个prepare 消息之后，在下个视图中，依然会被分配序号为n，并重新开始正常流程。
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_consensus_solution.assets/pbft-viewchange.png" alt="pbft-viewchange"/>
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/pbft-viewchange.png" alt="pbft-viewchange"/>
+<center> Figure 2 PBFT view-change process </center>
+As shown in Figure 2, view-change will have three phases, namely view-change, view-change-ack and new-view phases. When the slave node thinks there is a problem with the master node, it will send a view-change message to other nodes. The node with the lowest surviving node number will become the new master node. When the new master node receives 2f view-change messages from other nodes, it proves that there are enough people that the node thinks there is a problem with the master node, and it will broadcast to other nodes.
 
-<center>图2 PBFT视图切换流程</center>
-如图2所示，viewchange会有三个阶段，分别是view-change，view-change-ack和new-view阶段。从节点认为主节点有问题时，会向其它节点发送view-change消息，当前存活的节点编号最小的节点将成为新的主节点。当新的主节点收到2f个其它节点的view-change消息，则证明有足够多人的节点认为主节点有问题，于是就会向其它节点广播。
+#### Communication complexity
 
-#### 通信复杂度问题
+PBFT is an agreement based on a three-phase voting process. In the prepare and commit phases, each node needs to broadcast its own prepare or commit message, so the communication complexity is $ O(n^2) $.
 
-PBFT 是基于三阶段投票即可达成共识的协议。prepare和commit阶段中，都需要每个节点广播自己的prepare或commit消息，因此通信复杂度是$O(n^2)$。
+During the view-change process, all replica nodes are required to time out first, and then a consensus is reached on view-change. Then, they let the new master node know about the reached consensus. The new master node will broadcast this message to announce view-change, so the communication complexity of view-change is $O(n^3)$.
 
-view change过程中，需要所有的副本节点先time out，然后对于view change这件事达成共识，然后，他们把这个共识（以及已经达成了共识这件事）告诉新的主节点，新的主节点还要把这个消息广播出去宣布view change，因此，view change的通信复杂度是$O(n^3)$。
+The communication complexity of up to $O(n^3)$ undoubtedly has a serious impact on the consensus efficiency of PBFT, which greatly limits the scalability of PBFT.
 
-高达 $O(n^3)$ 的通信复杂度无疑给PBFT 的共识效率带来了严重的影响，极大地制约了PBFT的可扩展性。
+### Optimization of BFT protocol
 
-### BFT协议的优化
+How to reduce the communication complexity of $O(n^3)$ to $O(n)$ and improve the efficiency of consensus is the challenge that the blockchain BFT consensus protocol faces. There are several approaches to optimize BFT consensus efficiency:
 
-如何把$O(n^3)$的通信复杂度降到$O(n)$，提高共识效率，是BFT共识协议在区块链场景中面临的挑战。针对BFT共识效率的优化方法，具有以下几类：
+#### Aggregation signature
 
-#### 聚合签名
+E. Kokoris-Kogias et al. proposed in their paper the method of using aggregate signatures in the consensus mechanism. The **ByzCoin** [4] mentioned in the paper replaced the original MAC used by PBFT with a digital signature to reduce the communication delay from $O(n^2)$ to $O(n)$. The communication complexity is further reduced to $O(logn)$. But ByzCoin still has limitations in terms of malicious master node or 33% fault tolerance.
 
-E.Kokoris-Kogias等在其论文中提出了在共识机制中使用聚合签名的方法。论文中提到的**ByzCoin**[4]以数字签名方式替代原有PBFT使用的MAC将通信延迟从$O(n^2)$降低至$O(n)$，使用聚合签名方式将通信复杂度进一步降低至$O(logn)$。但ByzCoin在主节点作恶或33%容错等方面仍有局限。
+After that, some public chain projects, such as **Zilliqa** [5], etc., based on this idea, adopted the EC-Schnorr multi-signature algorithm to improve the message passing efficiency in the Prepare and Commit stages of the PBFT process.
 
-之后一些公链项目，例如**Zilliqa**[5]等基于这种思想，采用EC-Schnorr多签算法提高PBFT过程中Prepare和Commit阶段的消息传递效率。
+#### Communication mechanism optimization
 
-#### 通信机制优化
+PBFT uses all-to-all messages that creates $O(n^2)$ communication complexity.
 
-PBFT使用多对多(all-to-all)的消息模式，因此需要 $O(n^2)$ 的通信复杂度。
+SBFT (Scale optimized PBFT) [6] proposed a linear communication mode using a collector. In this mode, the message is no longer sent to each node, but to the collector, and then broadcasted by the collector to all nodes. Further more, the message length can be reduced from linear to constant by using threshold signatures, which reduces the total overhead to $O(n^2)$.
 
-SBFT(Scale optimized PBFT)[6]提出了一个使用收集器(collector)的线性通信模式。这种模式下不再将消息发给每一个副本节点，而是发给收集器，然后再由收集器广播给所有副本节点，同时通过使用门限签名(threshold signatures)可以将消息长度从线性降低到常数，从而总的开销降低到$O(n^2)$。
+Tendermint [7] uses a gossip all-to-all mechanism, so $O(nlogn)$ messages and $O(n^2)$ words under optimistic conditions.
 
-Tendermint[7]使用gossip通信机制，乐观情况下可以将通信复杂度降低到$O(nlogn)$。
+#### view-change process optimization
 
-#### view-change流程优化
+All BFT protocols change the master node through view-change. Protocols such as PBFT and SBFT have independent view-change processes, which are triggered when there is a problem with the master node. In Tendermint, HostStuff [8] and other protocols, there is no explicit view-change process. The view-change process is integrated into the normal process, so the efficiency of view-change is improved, and the communication complexity of view-change is reduced.
 
-所有的BFT协议都通过view-change来更换主节点。PBFT，SBFT等协议具有独立的view-change流程，当主节点出问题后才触发。而在Tendermint、HostStuff[8]等协议中没有显式的view-change流程，view-change流程合入正常流程中，因此提高了view-change的效率，将view-change的通信复杂度降低。
+Tendermint integrates round-change (similar to view-change) into the normal process, so round-change is the same as the normal block message commit process. There is no separate view-change process like PBFT, so the communication complexity is reduced to $ O(n^2) $.
 
-Tendermint 将roundchange(和viewchange类似)合入正常流程中，因此roundchange和正常的区块消息commit流程一样，不像PBFT一样有单独的viewchange流程，因此通信复杂度也就降为$O(n^2)$。
+HotStuff refers to Tendermint and also merges the view-change process with the normal process, that is, there is no longer a separate view-change process. By introducing a two-stage voting lock, and adopting a leader node set BLS aggregation signature, the communication complexity of view-change is reduced to $ O(n) $.
 
-HotStuff参考Tendermint，也将视图切换流程和正常流程进行合并，即不再有单独的视图切换流程。通过引入二阶段投票锁定区块，并采用leader节点集合BLS聚合签名的方式，将视图切换的通信复杂度降低到了$O(n)$。
+#### Chained BFT
 
-#### 链式BFT
+Traditional BFT requires two rounds of consensus for each block. The communication complexity of $ O(n) $ can make the block reach prepareQC, but the communication complexity of $O(n^2)$ is required for the block to reach commitQC.
 
-传统BFT需要对每个区块进行两轮共识，$O(n)$的通信复杂度可以让区块达到prepareQC，但是必须要$O(n^2)$ 的通信复杂度才能让区块达到commitQC。
+Hotstuff changed the two-round synchronous BFT of the traditional BFT to a three-round chain BFT. There is no clear prepare and commit consensus phase. Each block only needs to perform one round of QC. The prepare phase of the latter block is the previous one. The pre-commit phase of the next block is the commit phase of the previous block. Each time the block is generated, it only requires communication complexity of $ O(n)$. Through the two rounds of communication complexity of $O(n)$, the previous $O(n^2)$ effect is achieved.
 
-Hotstuff将传统BFT的两轮的同步BFT改为三轮的链式BFT，没有明确的prepare，commit共识阶段，每个区块只需要进行一轮QC，后一个区块的 prepare 阶段为前一个区块的 pre-commit 阶段，后一个区块的 pre-commit 阶段为前一个区块的 commit 阶段。每次出块的时候都只需要$O(n)$的通信复杂度，通过两轮的$O(n)$通信复杂度，达到了之前$O(n^2)$的效果。
+#### Pipelining and Concurrency
 
-#### 流水线（Pipelining）和并行处理（Concurrency）
+Protocols such as PBFT and Tendermint have the characteristics of Instant Finality, and it is almost impossible to fork. In PBFT, every block has to be confirmed before the next block can be produced. Tendermint also proposes a proof-of-lock-change mechanism, which further ensures the instant certainty of the block, that is, in a round stage, nodes vote on a block with pre-commit, in the next round, the node can only vote for the same block with pre-commit, unless it receives a new proposer's unlocking certificate for a certain block message.
 
-PBFT、Tendermint等协议具有即时确定(Instant Finality)的特性，几乎不可能出现分叉。在PBFT中，每个区块被确认后才能出下一个区块，Tendermint还提出区块锁定的概念，进一步确保了区块的即时确定性，即在某个round阶段，节点对区块消息投了pre-commit票，则在下一个round中，该节点也只能给该区块消息投pre-commit票，除非收到新proposer的针对某个区块消息的解锁证明。
+This type of BFT consensus protocol is essentially a synchronous system that tightly couples the production and confirmation of blocks. The next block can be produced only after previous block get confirmed. The system has to wait for the longest possible network delay between blocks, and the consensus efficiency is greatly limited.
 
-这类BFT共识协议本质上是一个同步系统，将区块的生产和确认紧密耦合，一个区块确认后才能生产下一个区块，需要在块与块间等待最大的可能网络延迟，共识效率受到很大的限制。
+HotStuff separates the production and confirmation of blocks. The final confirmation of each block requires the latter two blocks to reach QC, which means that the next block can be produced without the previous block being fully confirmed. This method is actually a semi-synchronous system. The production of each block still needs to wait for the previous block to reach QC.
 
-HotStuff的Pipelining方法将区块的生产和确认分离，每个区块的最终确认需要后两个区块达到QC，也就意味着上一个区块没有完全确认（需要满足Three-Chain）的情况下可以生产下一个区块。这种方式实际上还是一个半同步系统，每个区块的产生还是需要等上一个区块达到QC。
+EOS [9] 's BFT-DPoS can be considered as a completely parallel pipelining solution: each block is broadcast immediately after production, and the block producers wait for 0.5 seconds to produce the new block while receiving the confirmation of the old block from other nodes. The production of the new block and the receipt of the old block are performed at the same time, which greatly optimizes the block production efficiency.
 
-EOS[9]的BFT-DPoS共识协议可认为是一种完全并行的Pipelining方案：每个区块生产后立即全网广播，区块生产者一边等待 0.5 秒生产下一个区块，一边接收其他见证人对于上一个区块的确认结果，使用BFT协议达成共识，新区块的生产和旧区块确认的接收同时进行，这极大地优化了出块效率。
+## CBFT consensus protocol
 
-## CBFT 共识协议
+### Why design CBFT
 
-### 为什么设计CBFT
+In the previous content, we analyzed the problems of the BFT consensus protocol and several mainstream optimized BFT consensus protocols. These BFT consensus protocols have achieved good research results in reducing communication complexity and block production efficiency, but there are still some room for improvement.
 
-前面的内容中，我们分析了BFT共识协议的问题，以及几种主流的优化BFT共识协议，这些BFT共识协议在降低通信复杂度和出块效率方面都取得了不错的研究成果，但仍存在一些改进空间。
+- Compared to previous BFT, Although PBFT is more practical, due to the view-change overhead of $O(n^3)$, there is a big problem in scalability.
 
-- PBFT 较之于之前的 BFT 算法虽更实用，但因受制于O(n^(3))的视图切换开销，在扩展性方面存在很大的问题。
+- Tendermint merges round change with normal processes, simplifies view-change logic, and reduces the communication complexity of view-change to $ O(n^2) $, but needs to wait for a relatively large network delay to ensure activity.  Further more, Tendermint is still serially producting and confirming blocks. 
 
-- Tendermint将round change和正常流程合并，简化了视图切换逻辑，将视图切换的通信复杂度降低为$O(n^2)$，但需要等待一个比较大的网络时延来保证活跃性。同时 Tendermint 仍然是串行出块和确认，一个区块的投票需要等上一个区块 commit 完成才能开始。
+- In EOS's BFT-DPOS consensus protocol, block producers can continuously product several blocks, and the blocks are confirmed in parallel, which increases the block production speed. The block is confirmed using the BFT protocol, but only suitable for strong synchronized communication model.
 
-- EOS的BFT-DPOS 共识协议中，区块生产者可以连续产生若干区块，同时区块采用并行确认，提高了出块速度。使用 BFT 协议确认出块，但仅适用于强同步的通信模型。
+- HotStuff innovatively proposed a three-phase submission BFT consensus protocol based on the leader node, absorbing the advantages of Tendermint, merging view-change with normal processes, and reducing the communication complexity of view-change to linear. By simplifying the message type, the block can be confirmed in a pipeline manner. However, the introduction of a new voting stage will also increase the communication complexity. In addition, a view window only confirms one block. This undoubtedly requires more communication complexity in view-change. In addition, the star-like topology based on the collection of votes by leader nodes is more suitable for a good alliance chain such as Libra. In a weak network environment, it is more likely to be affected by a single point of failure, resulting in a large leader node switching overhead.
 
-- HotStuff 创新地提出了基于leader节点的、三阶段提交的 BFT 共识协议，吸收了 Tendermint 的优点，将viewchange 和正常流程合并，并将 viewchange 的通信复杂度降至线性。同时通过简化消息类型，可以 pipeline 的方式确认区块。但引入了新的投票阶段也会增加通信复杂度，同时一个视图窗口只确认一个区块，这无疑需要耗费较多的通信复杂度在视图切换上。此外，基于Leader节点收集投票的星状拓扑结构，比较适合于 Libra 这种网络环境良好的联盟链，在弱网环境中比较容易受单点故障影响，造成较大的 leader 节点切换开销。
+Therefore, we proposed the CBFT consensus protocol. Further optimization on top of the above consensus protocol can dramatically reduce the complexity of communication and improve the efficiency of block production.
 
-因此，我们提出了 CBFT 共识协议，在以上共识协议的基础上进行进一步的优化，可以极大地降低通信复杂度 ，并且提高出块效率。
+### CBFT Overview
 
-### CBFT概述
+Based on the partially synchronous mesh communication model, CBFT proposed a three-phase consensus concurrent Byzantine fault tolerance protocol. The mesh communication model is more suitable for the weak network environment of the public network. 
 
-CBFT基于部分同步网状通信模型，提出了一个三阶段共识的并行拜占庭容错协议。网状的通信模型更适合公网的弱网环境，在PlatON上已经使用了该协议作为共识算法。
+The normal process of CBFT is similar to Hotstuff, and it is divided into prepare, pre-comit, commit, and decide stages. However, CBFT has also made key improvements: batch blocks can be proposed in a view window continuously, and the production of the next block does not need to wait for the previous block to reach QC; block producer can product the next block in parallel while receiving the vote of the previous block, which greatly improves the block production speed.
 
-CBFT 的正常流程和 Hotstuff 类似，分为 prepare，pre-comit，commit 和 decide几个阶段。但 CBFT 还作了关键的改进：在一个视图窗口内可以连续提议多个区块，下一个区块的产生不用等上一个区块达到QC；而且各个节点可以在接收上一个区块投票的同时，并行执行下个区块的交易，以 pipeline 的方式对区块进行投票确认， 从而极大提高了出块速度。
+CBFT has a self-adaptive view-change mechanism: in a view window, when a node receives enough blocks and votes in favor (more than 2/3 of the nodes vote, that is, QC), it will automatically switch  to the next view, no view-change vote required. Otherwise, the node will start the view-change process  which can be completed within the communication complexity of $ O(n^2) $ by using the Hotstuff-like two-stage lock rules and BLS aggregation signatures.
 
-CBFT 有自适配的视图切换机制：在一个视图窗口内，节点接收到足够多的区块以及赞成票（超过2/3的节点投票，也就是 QC）时，会自动进行窗口切换，切换到下一个窗口，无需进行 viewchange 投票。除此之外，节点才会启动 viewchange 流程，并且在 viewchange 阶段引入了和 Hotstuff 一样的二阶段锁定投票规则，同时使用 BLS 聚合签名，可以在$O(n^2)$的通信复杂度内完成视图窗口切换。
+In normal network environment, CBFT will not trigger a view-change unless extreme network exception, so it will have less view-change  overhead than HotStuff.
 
-根据上面的讨论，CBFT 只在正常流程之外才会进行 viewchange，因此相比 HotStuff 会有更少的视图切换开销。
+Next, the related concepts and meanings involved in the CBFT consensus will be given first, the CBFT details will be introduced later.
 
-接下来先给出 CBFT 共识中涉及的相关概念及其含义说明，便于之后对 CBFT 进行详细介绍。
+#### CBFT related terms
 
-#### CBFT相关术语
+  * **Proposer:** The node responsible for generating blocks in the CBFT consensus
+  * **T:** Time window, each proposer can only make blocks in his own time window
+  * **N:** Total number of consensus nodes
+  * **f:** maximum number of Byzantine nodes
+  * **Sufficient enough votes:** indicates that at least N-f votes have been received
+  * **Validator:** Non-proposer node in consensus node
+  * **View:** The time range of the current proposal's time window can generate blocks
+  * **ViewNumber:** The serial number of each time window, increasing with time window
+  * **HighestQCBlock:** Local highest N-f PrepareVote block
+  * **ProposalIndex:** The index number of the proposer
+  * **ValidatorIndex:** Validator's index number
+  * **PrepareBlock:** Proposed block message, which mainly includes Block, the index number of the proposer
+  * **PrepareVote:** Validators vote for the Prepare of the proposed block, and each validator needs to execute the block before sending PrepareVote. Mainly include ViewNumber, block hash, block height, validator index number (ValidatorIndex)
+  * **view-change:** When the time window expires and the proposer's blocks have not all collected N-f PrepareVote, then the next proposer will send view-change. view-change contains the index number of the proposer (ValidatorIndex), the highest confirmation block (HighestQCBlock)
+  * **Lock:** Lock the specified block height
+  * **Timeout:** Timeout (time window expiration can be considered as the timeout time of the proposer)
+  * **Legal:** Maximum allowed
+  * **One View:** The ViewNumbers of two Views are equal and can be the same View
 
-  * **提议人(Proposer)：** CBFT共识中负责出块的节点
-  * **T：** 时间窗口，每个提议人只能在自己的时间窗口进行出块
-  * **N：** 共识节点总数
-  * **f：** 拜占庭节点最大数量
-  * **足够多赞成票：** 表示为至少收到N-f张赞成票
-  * **验证人(Validator)：** 共识节点中非提议人节点
-  * **视图(View)：** 当前提议人的时间窗口可以产生区块的时间范围
-  * **ViewNumber：** 每个时间窗口的序号，随着时间窗口递增
-  * **HighestQCBlock：** 本地最高的N-f PrepareVote区块
-  * **ProposalIndex：** 提议人的索引号
-  * **ValidatorIndex：** 验证人的索引号
-  * **PrepareBlock：** 提议的区块消息，主要包含区块（Block)，提议人索引号
-  * **PrepareVote：** 验证人对提议区块的Prepare投票，每个验证人需要执行区块后才发送PrepareVote。主要包含ViewNumber, 区块hash, 区块高度，验证人索引号(ValidatorIndex)
-  * **ViewChange：** 当时间窗口超时，提议人的区块没有都收集到N-f PrepareVote，则会向下一个提议人发送ViewChange。ViewChange包含 提议人索引号（ValidatorIndex），最高确认区块(HighestQCBlock)
-  * **锁(Lock)：** 对指定块高进行锁定
-  * **Timeout：**  超时（时间窗口到期可以看作提议人的超时时间）
-  * **法定：** 最大被允许
-  * **同一个View：** 两个View的ViewNumber相等，可以成为同一个View  
+#### BLS Signature
 
-#### BLS签名
+Currently, the aggregate signature scheme adopted by the industry is BLS aggregate signature. BLS aggregation signature is an extension scheme based on BLS signature scheme. The Boneh-Lynn-Shacham (BLS) signature scheme was proposed by Dan Boneh, Ben Lynn, Hovav Shacham [10] in 2001. BLS signatures are currently used in many blockchain projects such as Dfifinity, fifilecoin, and Libra. The BLS aggregate signature can simplify multiple signatures into one aggregate signature, which is very important for improving the communication efficiency in the BFT consensus protocol.
 
-目前业界采用的聚合签名方案主要是BLS聚合签名。BLS聚合签名是在BLS签名方案基础上的扩展方案。Boneh-Lynn-Shacham（BLS）签名方案是Dan Boneh，Ben Lynn, Hovav Shacham[10]于2001年提出的。BLS签名目前在许多区块链项目如Dfifinity、fifilecoin、 Libra中都得到了运用。 BLS聚合签名可以把多个签名简化为1个聚合签名，对于提高BFT共识协议中的通信效率至关重要。
+It is worth noting that the method of BLS aggregation signature has defects. An attack called rogue public key can give the attacker the opportunity to manipulate the output of the aggregate signature after obtaining the public keys of other signers and standard BLS signature information.
 
-值得注意的是，BLS聚合签名的方法是有漏洞的。一种称为rogue public key的攻击可以使得攻击者有机会在获得其他签名者的公钥和标准BLS签名信息之后，能够操纵聚合签名的输出结果。
+One of the most direct defenses against this attack is that everyone participating in the BLS aggregate signature needs to first prove that they actually have the BLS private key information and register in advance. This process can be accomplished by using a simple and efficient zero-knowledge proof technology (Schnorr non-interactive zero-knowledge proof protocol). Participants need to give zero-knowledge proofs before they perform aggregate signatures to prove that they hold the public key information, and indeed they have the private key information corresponding to the public key.
 
-对这个攻击的一种最直接的防御措施是，参与BLS聚合签名的人都需要先证明各自确实掌握了BLS私钥信息，并事先注册。这一过程可以通过使用一种简单高效的零知识证明技术(Schnorr非交互式零知识证明协议)完成。参与者在进行聚合签名之前，需要给出零知识证明，证明其持有公钥信息的同时，确实掌握了该公钥对应的私钥信息。
+### CBFT protocol flow
 
-### CBFT协议流程
+#### Normal process
 
-#### 正常流程
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_consensus_solution.assets/prepareqc.png" alt="prepareqc"/>
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/prepareqc.jpg" alt="prepareqc"/>
+<center> Figure 3 CBFT normal process </center>
+1. After the proposer successfully enters the new View, it will product multiple blocks in sequence and broadcast messages PrepareBlock <ViewNumber, ProposalIndex, Block> to the validators.
 
-<center>图3 CBFT正常流程</center>
-1. 提议人在成功进入到新的 View 后，会连续产生多个区块，将消息PrepareBlock<ViewNumber, ProposalIndex, Block>广播给验证人。
+2. Verify blocks one by one: The validators verify the signature and time window, executes the block, and generates PrepareVote <ViewNumber, BlockHash, BlockNumber> after success. When N-f PrepareVote is collected by the parent block corresponding to PrepareVote, the individual signatures of N-f PrepareVote are aggregated into one aggregate signature using BLS, and broadcast the current PrepareVote. We simplify N-f PrepareVote(s) to one prepareQC (quorum certificate).
 
-2. 逐个验证区块：验证人校验签名和时间窗口，执行区块，成功后产生PrepareVote<ViewNumber,BlockHash, BlockNumber>。当PrepareVote对应的父区块收集到N-f个PrepareVote时，使用BLS 将N-f 个PrepareVote的个体签名聚合成一个聚合签名，并将当前PrepareVote进行广播。我们将N-f个PrepareVote 简化为prepareQC(quorum certificate) 。 
+3. When the node receives prepareQC in the last block in the current view, it will enter the new view and start the next round of voting.
 
-3. 当节点在当前view内最后一个区块收到prepareQC，则会进入新的view开始下一轮投票。
+In order to vote more securely, voting must comply with the following rules:
 
-为了更安全的投票，投票必须符合以下规则：
-  - 区块执行后才能进行投票
+- Vote after block execution
 
-  - 诚实的节点只能对当前View提议的区块进行投票
+- Honest nodes can only vote on the blocks proposed by the current View
 
-  - 诚实的节点当View超时后不能再进行投票，也不接收当前View的投票
+- When current view times out, honest nodes can no longer vote, and will not receive votes from the current View
 
-  - 在同一个View内，相同高度的两个区块只能投其中一个
+- If there are two blocks with same height in one view, can only vote for one of them
 
-  - 当对Block(n+1)进行投票时，Block(n)需达到prepareQC
+- When voting on Block (n + 1), Block (n) must reach prepareQC
 
-#### ViewChange流程
+#### view-change Process
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/viewchange_normal.jpg" alt="viewchange_normal"/>
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_consensus_solution.assets/viewchange_normal.jpg" alt="viewchange_normal"/>
 
-<center>图4 时间窗口出块完成时切换窗口</center>
+<center> Figure 4 Automatically switch view</center>
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/viewchange_timeout.jpg" alt="viewchange_timeout"/>
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_consensus_solution.assets/viewchange_timeout.jpg" alt="viewchange_timeout"/>
 
-<center>图5 时间窗口出块未完成但过期时切换窗口</center> 
+<center> Figure 5 View-change switch view </center>
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/viewchange_timeout_seq.jpg" alt="viewchange_timeout_seq"/>
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_consensus_solution.assets/viewchange_timeout_seq.jpg" alt="viewchange_timeout_seq"/>
 
-<center>图6 viewchange投票流程</center> 
+<center> Figure 6 view-change process </center>
+Assuming that each time window allows a maximum of $n$ blocks, the view-change process is as follows:
 
-假设每个时间窗口最多允许产生n个区块，viewchange 流程如下： 
+1. If within the time window, the block n prepareQC is received, the local view + 1 is updated to enter the new normal process. In this case, if the new proposer reaches the QC of n, the first block of new view is broadcasted. The block, as shown in Figure 4, has a BlockNumber (n) +1 height and will carry a prepareQC for block n.
+2. If the time window expires, the node will first refuse to generate a new vote for the block of the current proposer, and at the same time does not receive the prepareQC of the block n, it sends a view-change <ViewNumber, HighestQCBlock> message, as shown in Figure 5.
+3. After the proposer of the next time window received N-f view-change messages (we refer to N-f view-change messages as viewchangeQC), it uses the BLS signature to aggregate into a QC signature, and then update the local ViewNumber + 1. Based on the two stage voting lock mechanism, the new proposer can simply select HighestQCBlock from the N-f view-change messages received, set the new block number to HighestQCBlock + 1, as shown in Figure 6, and then broadcast the first block to each validator node together with the QC signature of HighestQCBlock and the QC signature of view-change.
+ 4. Each validator node will start a new round of consensus based on the received HighestQCBlock + 1 sequence number.
 
-　1. 如果在时间窗口内，收到第n块的prepareQC，则更新本地view+1，进入新的正常流程，这种情况下如果是新提议人达成n的QC，则开始广播第一个区块，如图4所示，高度为BlockNumber(n)+1 ，并会携带n 区块的prepareQC。
-　2. 如果时间窗口过期，节点首先会拒绝对当前提议人的区块产生新的投票，同时没有收到第n块的prepareQC，则发送ViewChange<ViewNumber,  HighestQCBlock>消息，如图5所示。
-　3. 下一个时间窗口的提议人收到 N-f 个ViewChange 消息（我们将N-f 个ViewChange 消息简称为 viewchangeQC )之后，使用BLS签名聚合成一个QC签名，然后更新本地ViewNumber+1，由于采用两轮投票锁定区块的规则，新提议人可以简单地从收到的 N-f 个viewchange 消息中选择 HighestQCBlock，将新的区块序号定为 HighestQCBlock+1，如图6所示，然后广播第一个区块给各验证人节点，并携带HighestQCBlock的QC签名和viewchange的QC签名。
- 　4. 各验证人节点会根据收到的 HighestQCBlock+1 序号开始新一轮共识。
+#### Block confirmation
 
-#### 区块确认
+##### Pipelining Process
 
-##### Pipelining流程
+In traditional BFT (PBFT, Tendermint), each block usually needs to go through a clear Pre-Commit and Commit phase before final confirmation:
 
-在传统BFT(PBFT, Tendermint)中，每个区块通常都需要经历明确的Pre-Commit 和 Commit阶段才最终确认：
+- **Pre-Commit:** When a node receives N-f Prepare votes, it will broadcast Pre-Commit. Pre-Commit can be considered as confirmation of the Prepare phase.
 
-- **Pre-Commit：** 当节点收到N-f个Prepare投票时会广播Pre-Commit, Pre-Commit 可以看作对Prepare阶段的确认。
-- **Commit：** 当收到N-f个Pre-Commit投票时，表明所有节点对指定消息达成一致，提交到本地磁盘。
+- **Commit:** When N-f Pre-Commit votes are received, it indicates that all nodes agree on the specified message and submit it to the local disk.
 
-根据上面的介绍，CBFT中也有类似的 Prepare 和 ViewChange 两个阶段，每个区块只有Prepare投票，没有明确的Pre-Commit 和 Commit阶段，那么如何达到区块的确认呢？CBFT可看作Pipeline版本的 BFT，每个prepareQC 都是对前面区块更高阶段的确认。
+In contrast, CBFT also has the two phases, Prepare and ViewChange. Each block has only Prepare vote, and has no clear Pre-Commit and Commit phase. So how to achieve block confirmation? The CBFT can be regarded as the pipeline BFT, and each prepareQC is a further confirmation of the previous block.
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/three_phrase.jpg" alt="three_phrase"/>
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_consensus_solution.assets/three_phrase.jpg" alt="three_phrase"/>
 
-<center>图7 CBFT确认流程</center>
-如图7所示prepareQC(2)作为Block(1)的Pre-Commit阶段，prepareQC(3)作为Block(1)的Commit阶段，Block(2)的Pre-Commit阶段。
+<center> Figure 7 CBFT confirmation process </center>
+As shown in FIG. 7, prepareQC (2) is used as the Pre-Commit stage of Block (1), prepareQC (3) is used as the Commit stage of Block (1), and Pre-Commit stage of Block (2).
 
-因此在CBFT中，只有两种消息类型：prepare消息和view-change消息，每个消息的QC均采用聚合签名方式验证。
+Therefore, in CBFT, there are only two message types: prepare message and view-change message, and the QC of each message is verified by the aggregate signature method.
 
-##### 区块重组
+##### Block Reorganization
 
-假设每个view允许产生n个区块，当前view $V_i$ 时间窗口超时，view切换到$V_{i+1}$，此时$V_i$产生的区块只有部分得到QC，部分区块会进行重组，重组规则如下：
+Assume each view allows $n$ blocks to be generated. The current view $ V_i $ time window expires and the view switches to $ V_ {i+1} $. At this time, only part of blocks generated by $ V_i $ get QC, and some blocks will be reorganized, the reorganization rules are as follows:
 
-- Pre-Commit状态的区块被锁定，不能被重组，即如果当前节点在高度h上有Pre-Commit状态的区块，当前节点不能在高度h产生新的区块，也不能在高度h对其他区块投票
-- Prepare状态的区块可以被重组，即如果当前节点在高度h上有Prepare状态的区块，当前节点可以在高度h产生新的区块，或者在高度h对其他区块投票（只允许对更高viewnumber的区块投票）
+- Blocks reached Pre-Commit state will be locked and cannot be reorganized. That is, if the current node has a Pre-Commit state block at height h, the current node cannot generate new blocks at height h, and cannot Vote on other blocks with height h.
 
-### 验证人替换机制
+- Blocks with Prepared state can be reorganized, that is, if the current node has a Prepare state block at height h, the current node can generate new blocks at height h, or vote for other blocks at height h (can only vote for Blocks with higher viewnumber)
 
-CBFT共识中，每250个区块（称为一个 Epoch）就会更新验证人集合，更新规则如下：
+### Validator Replacement Mechanism
 
-- 新验证人可能由于网络连接或区块不同步等原因不能参与共识，因此我们每次替换不超过8个节点，如果候选验证人不足8个，替换的数量为候选验证人的总数。
-- 使用VRF从候选验证人中随机选出新验证人。
+In the CBFT consensus, the validator pool is reshuffled every 250 blocks (a.k.a Epoch). The rules are as follows:
 
-### 容错恢复（WAL）机制
+- New validators may not be able to participate in consensus due to issues such as network connection or block synchronization, so we replace no more than 8 nodes each time. If there are less than 8 candidate validators, the number of replacements is the total number of candidate validators.
 
-CBFT 共识提供了容错恢复机制，也就是 WAL 模块。该模块不属于严格意义上的预写日志系统，但是借鉴了相关思想，在验证人共识过程中将还未落链区块的共识状态和当前View的共识消息从内存分别持久化到本地数据库和本地文件。在系统 crash 或者机器掉电重启之后通过磁盘日志数据迅速恢复共识状态。
+- Use VRF to randomly select new validators from candidate validators.
 
-这里简要介绍一下主要的原理： 
+### Fault Tolerance Recovery (WAL) mechanism
 
-- 区块、viewChange 在各验证人间达成共识需要经历验证、投票等阶段，某个区块最终落链前与该区块相关的共识状态、消息都记录在内存中。节点重启也只是需要恢复这部分还未落链区块的内存数据，因此 checkpoint 恢复点也就是当前 blockchain 的 currentBlock 
-- 链式投票可得，每一区块的投票都是对前一区块的确认，达到第三级即达到达到区块的 Commit 阶段，因此 3-chain 区块的 prepareQC 状态在共识中至关重要，必须保证在重启后恢复，这部分数据存储至 db 
-- 共识消息只保留最近一轮 view 相关的，这部分数据存储至文件 
+The CBFT consensus provides a fault tolerance recovery mechanism, which is the WAL module. This module does not belong to the write-ahead log system in the strict sense, but it draws on the relevant ideas, and in the process of validator consensus, the consensus state of the yet-to-be-finalized block and the current View consensus message are persisted from memory to the local database and local files. After the system crashes or the machine is powered off and restarted, the consensus state is quickly restored through the disk log data.
 
-### 区块同步机制
+Here is a brief introduction to the main principles:
 
-由于 CBFT 共识的异步并行性，导致最新的区块存储在内存中，并且区块高度有3种高度：最高逻辑区块高度、最高确认区块高度和写入磁盘区块高度，并且三种高度依次递减。因此 CBFT  中的区块同步机制也在已有的PlatON-P2P的基础上作了适配，调整了区块高度的获取方式。 
-这里概要介绍区块同步机制如下： 
+- Block, ViewChange requires consensus between each validator going through stages of verification, voting, etc. Before a block finally recorded the chain, the consensus status and messages related to the block are stored in memory. Restarting a node only needs to restore the memory data of this part of the unchained block. Therefore, the checkpoint of recovery is the currentBlock of the current blockchain.
 
-- 新加入节点通过PlatON-P2P 利用快速同步或全同步更新至主网高度
-- 共识节点利用CBFT-P2P的心跳机制与其它节点保持块高一致 
-- 共识节点区块落后时，会主动减少通信量，全力处理区块同步 
-- 同步机制使用BLS签名来减少网络同步消息量
+- According to voting mechanism. The voting of each block is a confirmation of the previous block, and the Commit stage of the block is reached at the third level, so the prepareQC status of 3-Chain is crucial in the consensus. This part of the data is stored in the db since it is important to ensure recovery after restarting.
 
-## CBFT分析
+- The consensus messages of most recent view will be stored to a file.
 
-### 基本规则定义
+### Block synchronization mechanism
 
-为方便对CBFT的安全性和活跃性进行分析 ，我们定义CBFT的几条基本规则。
+Due to the asynchronous parallelism of the CBFT consensus, the latest blocks are stored in memory, and the block height has three heights: the highest logical block height, the highest confirmed block height, and the write block height, and three heights decrement in order. Therefore, the block synchronization mechanism in CBFT is also adapted on the basis of the existing ETH-P2P, and the block height acquisition method is adjusted.
 
-#### K-Chain 规则
+Here is an overview of the block synchronization mechanism:
 
-对于一条链，满足以下条件：
-> B(0)<-C(0)<-...<-B(k-1)<-C(k-1)
+- Newly added nodes update blocks to mainnet height via ETH-P2P with fast synchronization or full synchronization
 
-我们将其定义为K-Chain, 其中B为Block, C为B的prepareQC。我们可以看到当达到3-Chain时如：`B0<-C0<-B1<-C1<-B2<-C2`, B0达到Commit状态。
+- Consensus nodes use CBFT-P2P's heartbeat mechanism to keep the block height consistent with other nodes
 
-#### Lock-Block规则
+- When the consensus node block height lags behind, it will actively reduce the communication volume and fully focus on block synchronization
 
-节点a中, 当区块n收到区块n之后的2次prepareQC，则区块n定义为Lock-Block(a)。可以观察到，当Lock-Block(a) = B0时，B0达到2-Chain, 如`B0<-C0<-B1<-C1`。
+- Synchronization mechanism uses BLS signatures to reduce the amount of network synchronization messages
 
-#### Unlock-Block规则
+## CBFT Analysis
 
-假设Lock-Block(a)为n，当n的子区块n+1达到2次prepareQC,则Lock-Block(a)为n+1。可以观察到，当Lock-Block(a) = B0时，B0达到2-Chain， 如B0<-C0<-B1<-C1-B2,当B0 Unlock-Block时，B0达到3-Chain，如`B0<-C0<-B1<-C1<-B2<-C2`。
+### Basic Rule Definition
 
-#### Previous-Block规则
+To facilitate the analysis of the safety and activity of CBFT, we define several basic rules of CBFT.
 
-形如 Block(B)<-prepareQC(B)<-Block(B')，我们将Block(B)定义为Block(B')的Previous-Block， 则可表示为Previous-Block(B') = Block(B)。
+#### K-Chain Rules
 
-由Lock-Block与Previous-Block规则可知:
+For a chain, the following conditions are met:
+> B (0) <-C (0) <-... <-B (k-1) <-C (k-1)
 
-> 在节点a中，形如B<-C<-B'<-C'<-B'' , Previous-Block(B'') > Lock-Block(a)
+We define it as K-Chain, where B(0) is Block 0 and C(0) is B(0)'s prepareQC. A 3-Chain instance is as follows: `B0 <-C0 <-B1 <-C1 <-B2 <-C2`, in this 3-Chain, B0 reaches the Commit state.
 
-#### Commit 规则
+#### Lock-Block Rules
 
-当区块n, 收到区块n之后的3次prepareQC，则区块n被Commit。可以观察到，当B0被Commit时，B0达到3-Chain，如B0<-C0<-B1<-C1<-B2<-C2。
+In node a, when block n receives 2 prepareQCs after block n, block n is defined as Lock-Block (a). It can be observed that when Lock-Block (a) = B0, B0 reaches 2-Chain, such as `B0 <-C0 <-B1 <-C1`.
 
-### 安全性（safety）证明
+#### Unlock-Block Rules
 
-**1）** 不存在同一个View中有两个相同高度区块都能收到足够多投票
+Assume Lock-Block (a) is n. When n + 1 of **child block** n reaches prepareQC twice, Lock-Block (a) is n + 1. It can be observed that when Lock-Block (a) = B0, B0 reaches 2-Chain, such as B0 <-C0 <-B1 <-C1-B2, when B0 Unlock-Block, B0 reaches 3-Chain, such as ` B0 <-C0 <-B1 <-C1 <-B2 <-C2`.
 
-**证明：** 假设N=3f+1为节点总数，f为拜占庭节点最大数量，那么当收到2f+1投票为足够多投票。因两个区块都收到至少2f+1,投票总量至少为 2(2f+1) = N+f+1, 可以看到至少有f+1对两个区块投了票，与f个拜占庭节点假设矛盾。
+#### Previous-Block Rule
 
-**2）** 对于3-Chain来说，B0<-C0<-B1<-C1<-B2<-C2, ViewNumber(B2) >= ViewNumber(B0)。那么存在Block(B)，当ViewNumber(B) > ViewNumber(B2)，则Previous_Block(B) > B0。
+In the form of Block (B) <-prepareQC (B) <-Block (B '), we define Block (B) as the Previous-Block of Block (B'), which can be expressed as Previous-Block (B ') = Block (B).
 
-**证明：** 对于正常诚实节点（给区块B2，B投过票）来说， 那么节点至少可以看到B0<-C0<-B1<-C1<-B2, 也就是Lock-Block最小为Lock-Block(B0)。因为ViewNumber(B) > ViewNumber(B2)，则根据ViewChange确认规则，ViewNumber(B)的第一个区块不小于B1，则Previous_Block(B) > B0
+From the Lock-Block and Previous-Block rules:
 
-**3）** 假设节点n的Lock-Block(n) = B，节点m的Lock-Block(m) = B'，如果Number(B) = Number(B'), 则Hash(B) = Hash(B')
+> In node a, the form B <-C <-B '<-C' <-B '', Previous-Block (B '')> Lock-Block (a)
 
-**证明：** 由上面Lock-Block规则可知，存在2种Lock-Block场景，第一种情况两个QC在同一View内，则由1可知不存在B'和B同时收到足够多投票。第二种情况，出现B与B'分属不同View，且都收到prepareQC(B), prepareQC(B')。假设ViewNumber(B') > ViewNumber(B), 那么根据结论2，Previous_Block(B') > B，与假设矛盾。
+#### Commit Rule
 
-**4）** 在Commit阶段不会有两个相同高度不同块Hash被Commit
+When block n receives 3 prepareQCs after block n, block n is Commit. It can be observed that when B0 is Commit, B0 reaches 3-Chain, such as B0 <-C0 <-B1 <-C1 <-B2 <-C2.
 
-**证明：** 由3可知，如果Number(B) = Number(B'),不存在B，B''同时被Lock-Block。则可推不存在Commit(B),Commit(B')都被提交。
+### Proof of Safety
 
-### 活跃性（liveness）证明
+**1)** There will be no two blocks of the same height in the same View can receive enough votes
 
-假设节点间网络最大延时为T，执行区块为S
+**Proof:** Assuming N = 3f + 1 is the total number of nodes and f is the maximum number of Byzantine nodes, then when 2f + 1 votes are received, they are enough votes. Since both blocks received at least 2f + 1, the total number of votes was at least 2 (2f + 1) = N + f + 1. You can see that at least f + 1 voted for two blocks, which is contradict to f Byzantine nodes assumption.
 
-**1）** 不存在时间窗口永远小于time(prepareQC)*2时间
+**2)** For 3-Chain, B0 <-C0 <-B1 <-C1 <-B2 <-C2, ViewNumber (B2)> = ViewNumber (B0). Then Block (B) exists. When ViewNumber (B)> ViewNumber (B2), Previous_Block (B)> B0.
 
-**证明：** 根据实际网络状况，合理调整实际窗口大小，可以保证时间窗口内至少达成2次QC，则时间窗口至少为 2*S+4*T
+**Proof:** For a normal honest node (voted for block B2 and B), then the node can at least see B0 <-C0 <-B1 <-C1 <-B2, which is the minimum Lock-Block It is Lock-Block (B0). Because ViewNumber (B)> ViewNumber (B2), according to the view-change confirmation rule, the first block of ViewNumber (B) is not less than B1, then Previous_Block (B)> B0
 
-**2）** ViewNumber可以达成一致，并且递增
+**3)** Assume Lock-Block (n) = B for node n and Lock-Block (m) = B 'for node m. If Number (B) = Number (B'), then Hash (B) = Hash (B ')
 
-**证明：** ViewChange达成一致最少需要T，由结论1可以保证ViewChange可以达成一致，为那么ViewNumber可以进行递增切换
+**Proof:** From the Lock-Block rules above, we know that there are two types of Lock-Block scenarios. In the first case, two QCs are in the same view. From 1), we know that B 'and B cannot receive enough votes at the same time . In the second case, B and B 'belong to different views, and both receive prepareQC (B), prepareQC (B'). Assuming ViewNumber (B ')> ViewNumber (B), then according to conclusion 2), Previous_Block (B')> B, contradicts to the assumption.
 
-**3）** Lock-Block高度永远递增
+**4)** During the Commit phase, there will be no two Hashes of the same height and different blocks be Committed.
 
-**证明：** 假设ViewNumber为n, n+1, 由安全证明（2），可以保证ViewNumber(n+1)的第一个区块Previous-Block至少为Lock-Block(View(n))，又由于活证明（1), 至少有两次prepareQC，可以得到两个View锁定高度的关系，Lock-Block(View(n+1)) >= Lock-Block(View(n))+1
+**Proof:** From 3), if Number (B) = Number (B '), There will be no B and B' as Lock-Block at the same time. It can be deduced that there will be no Commit (B), and Commit (B’) are all both submitted.
 
-### 通信复杂度分析
+### Proof of Liveness
 
-* PBFT: 网状网络拓扑，采用二阶段投票协议，消息达到prepared状态即锁定，有单独的视图切换流程，正常流程通信复杂度为$O(n^2)$，视图切换流程通信复杂度为$O(n^3)$。 
-* Tendermint: 网状网络拓扑，采用二阶段投票协议， 消息达到prepared状态即锁定，视图切换流程和正常流程合并，通信复杂度为$O(n^2)$。 
-* Hotstuff 星状网络拓扑，采用三阶段投票协议，消息达到pre-commited状态即锁定，视图切换流程和正常流程合并， 通信复杂度为$O(n)$。 
-* CBFT: 网状网络拓扑，采用三阶段投票协议， 消息达到pre-commited状态即锁定, 自适配视图切换流程， 通信复杂度为$O(n^2)$。 
+Assume that the maximum network delay between nodes is T and the execution time for a block is S.
 
-## 回顾与总结
+**1)** Time window of a view cannot be always less than time (prepareQC) * 2
 
-　本文讨论了目前常见的BFT类共识算法，提出了一种可以更适合公网环境的CBFT协议，可以在满足安全性和活跃性的前提下，大大提高区块出块确认速度，满足区块链当下越来越高的共识速度需求。
+**Proof:** Reasonably adjust the actual window length according to the actual network conditions to ensure that QC is reached at least 2 times in the time window, and the time window is at least 2 * S + 4 * T
 
+**2)** ViewNumber can reach an agreement and increase
 
+**Proof:** ViewChange requires at least T to reach agreement. Conclusion 1) can guarantee that ViewChange can reach agreement, and then ViewNumber can be incremented.
 
-## 参考文献
+**3)** Lock-Block height always increases
 
-[1] M. J. Fischer, N. A. Lynch, and M. S. Paterson, “Impossibility of distributed consensus with one faulty process,”*J. ACM*, 1985.
+**Proof:** Assuming ViewNumber is n, n + 1, the proof of safety 2) can guarantee that the first block of ViewNumber (n + 1)'s' Previous-Block is at least Lock-Block (View (n)). And because of the proof of liveness 1), there are at least two prepareQCs, and the relationship between the lock heights of the two Views can be obtained. Lock-Block (View (n + 1))> = Lock-Block (View (n)) + 1
 
-[2] L. Lamport, R. Shostak, and M. Pease. The Byzantine Generals Problem. ACM Transactions on Programming Languages and Systems, 4(3), 1982.
+### Communication complexity analysis
 
-[3] M. Castro and B. Liskov. Practical byzantine fault tolerance. In OSDI,1999.
+* PBFT: Mesh network topology, using a two-stage voting protocol, messages are locked when they are in the prepared state, there is a separate view-change process, the communication complexity of the normal process is $ O(n^2) $, and the communication complexity of the view-change process is $ O(n^3) $.
+* Tendermint: Mesh network topology, using a two-stage voting protocol, messages are locked when they are in the prepared state, the view-change process is merged with the normal process, and the communication complexity is $ O(n^2) $.
+* Hotstuff star network topology, using a three-phase voting protocol, the message is locked when it reaches the pre-committed state, the ViewChange process is merged with the normal process, and the communication complexity is $O(n)$.
+* CBFT: mesh network topology, using a three-phase voting protocol, messages are locked when they reach the pre-committed state, the process of self-adaptive view-change, and the communication complexity is $ O(n^2) $.
 
-[4]  E. Kokoris-Kogias, P. Jovanovic, N. Gailly, I. Khoffi, L. Gasser, and B. Ford, “Enhancing Bitcoin Security and Performance with Strong Consistency via Collective Signing,” 2016.
+## Case Analysis
 
-[5]  TEAM T Z. Zilliqa TechnicalWhitepaper[J]. Zilliqa, 2017: 1–8.
+This section lists some specific exception cases, and infers the cases to detect whether there are problems in safety and liveness.
 
-[6] Guy Golan Gueta, Ittai Abraham, Shelly Grossman, Dahlia Malkhi, Benny Pinkas, Michael K. Reiter, Dragos-Adrian Seredinschi, Orr Tamir, Alin Tomescu，“a Scalable and Decentralized Trust Infrastructure”，2018.
+### Initial state
 
-[7]      C. Unchained, “Tendermint Explained — Bringing BFT-based PoS to the Public Blockchain Domain.” [Online]. Available: https://blog.cosmos.network/tendermint-explained-bringing-bft-based-pos-to-the-public-blockchain-domain-f22e274a0fdb.
+Assume that there are four nodes A, B, C, and D, and each view has a maximum of 2 blocks. The last block is block 7 produced by D, which is in QC state in the four nodes.
+
+The state of the last block of the four nodes is as follows:
+
+| A      | B      | C      | D      |
+| ------ | ------ | ------ | ------ |
+| D7(QC) | D7(QC) | D7(QC) | D7(QC) |
+
+### Network exception
+
+#### A's turn to produce blocks
+
+Assume that it is A's turn to produce block. A produce block 8 and 9 based on block 7. Block 8 and 9 are synchronized to B, C, and D. A receives enough PrepareVote messages for blocks 8 and 9. Block 8 and 9 reach QC state on A. However, due to network reasons, D did not receive enough PrepareVote messages for block 8, B, C and D did not receive enough PrepareVote messages for block 9.
+The block state of each node is as follows:
+
+| A            | B          | C          | D      |
+| ------------ | ---------- | ---------- | ------ |
+| D7(QC)commit | D7(QC)lock | D7(QC)lock | D7(QC) |
+| A8(QC)lock   | A8(QC)     | A8(QC)     | A8     |
+| A9(QC)       | A9         | A9         | A9     |
+
+When timeout, B, C and D will send view-change request.
+
+| A    | B              | C              | D              |
+| ---- | -------------- | -------------- | -------------- |
+| nil  | ViewChange<A8> | ViewChange<A8> | ViewChange<D7> |
+
+#### B's turn to produce blocks
+
+As A's View ends, it's B's turn to produce blocks. B will encounter the following two situations.
+
+- **B-1:** B received QC of ViewChange earlier
+
+  Suppose B receives C.ViewChange <A8>, D.ViewChange <D7> before QC of A9, then B will produce B9 and B10 based on A8. 
+
+  The actions of each node after receiving B9 are as follows:
+
+  
+
+  | A           | B           | C           | D           |
+  | ----------- | ----------- | ----------- | ----------- |
+  | Verified B9 | Verified B9 | Verified B9 | Verified B9 |
+
+  Because B9's PrepareBlock message carries A8‘s prepareQC, D can confirm A8 locally. The block state of each node is as follows:
+
+  
+
+  | A            | B          | C          | D      |
+  | ------------ | ---------- | ---------- | ------ |
+  | D7(QC)commit | D7(QC)lock | D7(QC)lock | D7(QC) |
+  | A8(QC)lock   | A8(QC)     | A8(QC)     | A8(QC) |
+  | A9(QC)   B9  | A9 B9      | A9 B9      | A9 B9  |
+  | B10          | B10        | B10        | B10    |
+
+- **B-2:** B received QC of A9 earlier
+
+  Suppose B receives QC of A9 before viewchangeQC, then B will produce B10 and B11 based on A9. 
+
+  Because B10‘s PrepareBlock message carries A9’s prepareQC, C can confirm A9 locally. The actions of each node after receiving B10 are as follows:
+
+  
+  
+  | A            | B            | C            | D    |
+| ------------ | ------------ | ------------ | ---- |
+  | Verified B10 | Verified B10 | Verified B10 | nil  |
+
+  The block state of each node is as follows:
+  
+  
+  
+  | A            | B            | C            | D          |
+  | ------------ | ------------ | ------------ | ---------- |
+  | D7(QC)commit | D7(QC)commit | D7(QC)commit | D7(QC)     |
+  | A8(QC)lock   | A8(QC) lock  | A8(QC)lock   | A8(QC)lock |
+  | A9(QC)       | A9(QC)       | A9(QC)       | A9(QC)     |
+  | B10          | B10          | B10          | B10        |
+  | B11          | B11          | B11          | B11        |
+
+#### C's turn to produce blocks
+
+Now it's C's turn to produce blocks. The following is based on **B-1**.
+Assuming that B9 is not reached QC, there may be two cases of HighestQCBlock for each node. The view-change analysis in different cases is as follows:
+
+The HighestQCBlock for each node is as follows:
+
+
+
+| A    | B    | C    | D    |
+| ---- | ---- | ---- | ---- |
+| A9   | A8   | A8   | A8   |
+
+The view-change actions of each node are as follows:
+
+
+
+| A              | B              | C              | D              |
+| -------------- | -------------- | -------------- | -------------- |
+| ViewChange<A9> | ViewChange<A8> | ViewChange<A8> | ViewChange<A8> |
+
+C will produce different blocks based on the received ViewChange message.
+- C-1
+  Suppose C receives B.ViewChange <A8>, C.ViewChange <A8>, D.ViewChange <A8>, then C will generate C9 and C10 based on A8. 
+  The actions of each node after receiving C10 are as follows:
+  
+  
+  
+  | A           | B           | C           | D           |
+  | ----------- | ----------- | ----------- | ----------- |
+  | Verified C9 | Verified C9 | Verified C9 | Verified C9 |
+  
+  The block state of each node is as follows:
+  
+  
+  
+  | A              | B          | C          | D        |
+  | -------------- | ---------- | ---------- | -------- |
+  | D7(QC)commit   | D7(QC)lock | D7(QC)lock | D7(QC)   |
+  | A8(QC)lock     | A8(QC)     | A8(QC)     | A8(QC)   |
+  | A9(QC)   B9 C9 | A9 B9 C9   | A9 B9 C9   | A9 B9 C9 |
+  | B10   C10      | B10  C10   | B10    C10 | B10      |
+  
+  If C9 reaches QC, the block state of each node is as follows:
+  
+  
+  
+  | A                   | B             | C             | D             |
+  | ------------------- | ------------- | ------------- | ------------- |
+  | D7(QC)commit        | D7(QC)commit  | D7(QC)commit  | D7(QC)commit  |
+  | A8(QC)lock          | A8(QC)lock    | A8(QC)lock    | A8(QC)lock    |
+  | A9(QC)   B9 C9 (QC) | A9 B9 C9 (QC) | A9 B9 C9 (QC) | A9 B9 C9 (QC) |
+  | B10   C10           | B10  C10      | B10    C10    | B10           |
+  
+- C-2
+  Suppose C receives A.ViewChange <A9>, B.ViewChange <A8>, C.ViewChange <A8>, then C will produce C10 and C11 based on A9. 
+  The actions of each node after receiving C10 are as follows:
+  
+  
+  
+  | A            | B            | C            | D                                                |
+  | ------------ | ------------ | ------------ | ------------------------------------------------ |
+  | Verified C10 | Verified C10 | Verified C10 | nil: C10 was not received due to network reasons |
+  
+  The block state of each node is as follows:
+  
+  
+  
+  | A            | B           | C           | D          |
+  | ------------ | ----------- | ----------- | ---------- |
+  | D7(QC)commit | D7(QC)lock  | D7(QC)lock  | D7(QC)lock |
+  | A8(QC)lock   | A8(QC) lock | A8(QC) lock | A8(QC)     |
+  | A9(QC)   B9  | A9(QC) B9   | A9(QC) B9   | A9 B9      |
+  | B10   C10    | B10  C10    | B10    C10  | B10        |
+  | C11          | C11         | C11         | C11        |
+  
+  If C10 reaches QC, the block state of each node is as follows:
+  
+  
+  
+  | A             | B            | C              | D          |
+  | ------------- | ------------ | -------------- | ---------- |
+  | D7(QC)commit  | D7(QC)commit | D7(QC)commit   | D7(QC)lock |
+  | A8(QC)commit  | A8(QC)commit | A8(QC) commit  | A8(QC)     |
+  | A9(QC)lock    | A9(QC)lock   | A9(QC)lock     | A9 B9      |
+  | B10   C10(QC) | B10  C10(QC) | B10    C10(QC) | B10        |
+  | C11           | C11          | C11            | C11        |
+
+### Double-producing
+
+Suppose it is A's turn, and A is a Byzantine node. Blocks 8 and 9 are produced based on block 7. In addition, block 8 'is produced based on block 7.
+
+The state of the last block of the four nodes is as follows:
+
+| A       | B       | C       | D       |
+| ------- | ------- | ------- | ------- |
+| D7(QC)  | D7(QC)  | D7(QC)  | D7(QC)  |
+| A8, A8' | A8, A8' | A8, A8' | A8, A8' |
+| A9      | A9      | A9      | A9      |
+
+- If A8 reaches QC
+
+  The state of the last block of the four nodes is as follows:
+
+
+| A           | B           | C           | D           |
+| ----------- | ----------- | ----------- | ----------- |
+| D7(QC) lock | D7(QC)lock  | D7(QC)lock  | D7(QC)lock  |
+| A8(QC), A8' | A8(QC), A8' | A8(QC), A8' | A8(QC), A8' |
+| A9          | A9          | A9          | A9          |
+
+  When it is B's turn, B can produce blocks based on A8.
+
+- If A8' reaches QC
+
+  The state of the last block of the four nodes is as follows:
+
+
+| A           | B           | C           | D           |
+| ----------- | ----------- | ----------- | ----------- |
+| D7(QC) lock | D7(QC)lock  | D7(QC)lock  | D7(QC)lock  |
+| A8, A8'(QC) | A8, A8'(QC) | A8, A8'(QC) | A8, A8'(QC) |
+| A9          | A9          | A9          | A9          |
+
+  When it is B's turn, B can produce blocks based on A8'.
+
+- If neither A8, A8' reaches QC
+
+  Due to network reasons, different nodes receive different blocks, and C cannot receive any blocks. The state of the last block of the four nodes is as follows:
+
+  
+  
+  | A            | B             | C      | D             |
+  | ------------ | ------------- | ------ | ------------- |
+  | D7(QC)       | D7(QC)        | D7(QC) | D7(QC)        |
+| A8(B, A8'(D) | A8(B), A8'(D) |        | A8(B), A8'(D) |
+  | A9           | A9            |        | A9            |
+
+  when timeout, view-change is triggered. At this time A may take two actions.
+
+  1. A does not send ViewChange message
+
+  
+  
+  As honest nodes, B and D send ViewChange message  according to the rules. C is down and cannot send ViewChange message.
+
+  
+
+  | A              | B              | C         | D              |
+| -------------- | -------------- | --------- | -------------- |
+  | nil(Byzantine) | ViewChange<D7> | nil(down) | ViewChange<D7> |
+  
+  
+
+  The ViewChange cannot reaches QC. And the view can only switch to B normally after C failure recovers.
+  
+  2. A does send ViewChange
+  
+  
+  
+  | A              | B              | C         | D              |
+  | -------------- | -------------- | --------- | -------------- |
+  | ViewChange<D7> | ViewChange<D7> | nil(down) | ViewChange<D7> |
+  
+  
+  
+  At this time, ViewChange can reach QC, and B can rotate normally and produce blocks based on D7.
+
+### View-change exception
+
+Assume that it is A's turn to produce block. A produce block 8 and 9 based on block 7. Block 8 and 9 are synchronized to B, C, and D. A receives enough PrepareVote messages for blocks 8 and 9. Block 8 and 9 reach QC state on A. However, due to network reasons, D did not receive enough PrepareVote messages for block 8, B, C and D did not receive enough PrepareVote messages for block 9.
+The block state of each node is as follows:
+
+| A            | B          | C          | D      |
+| ------------ | ---------- | ---------- | ------ |
+| D7(QC)commit | D7(QC)lock | D7(QC)lock | D7(QC) |
+| A8(QC)lock   | A8(QC)     | A8(QC)     | A8     |
+| A9(QC)       | A9         | A9         | A9     |
+
+When timeout, A, B, C and D will send ViewChange messages. B receives ViewChange messages as follows:
+
+| A              | B              | C              | D              |
+| -------------- | -------------- | -------------- | -------------- |
+| ViewChange<A9> | ViewChange<A8> | ViewChange<A8> | ViewChange<D7> |
+
+By rule, B should select A9 as HighestQCBlock from the 4 received ViewChange messages, and produce new blocks based on A9 and broadcast it to other nodes, carrying prepareQC of A9 and viewchangeQC.
+
+However, B can completely abandon ViewChange <A9>, choose A8 as HighestQCBlock, and produce new blocks based on A8 and broadcast it to other nodes, carrying prepareQC of A8 and viewchangeQC. The blocks based on A8 can also be verified by other nodes.
+
+If B is a Byzantine node, B may produce blocks based on both A8 and A9 to fork.
+
+```mermaid
+graph LR
+A[D7] -->B[A8]
+    B --> C[A9]
+    B --> D[B9:A8]
+    C --> E[B10:A9]
+    E --> F[B11:A9]
+    D --> G[B10:A8]
+```
+
+B synchronizes the blocks produced based on A8 and A9 to other nodes at the same time. If other nodes receive all new blocks at the same time:
+
+| A              | B              | C              | D              |
+| -------------- | -------------- | -------------- | -------------- |
+| D7(QC) commit  | D7(QC)commit   | D7(QC)commit   | D7(QC)commit   |
+| A8(QC)lock     | A8(QC)lock     | A8(QC)lock     | A8(QC)lock     |
+| A9(QC)  B9:A8  | A9(QC)   B9:A8 | A9(QC)  B9:A8  | A9(QC) B9:A8   |
+| B10:A8  B10:A9 | B10:A8  B10:A9 | B10:A8  B10:A9 | B10:A8  B10:A9 |
+| B11:A9         | B11:A9         | B11:A9         | B11:A9         |
+
+After consensus, there are three possible outcomes:
+
+- B8:A8 reaches QC
+
+  
+  
+  | A                 | B                  | C                 | D                |
+  | ----------------- | ------------------ | ----------------- | ---------------- |
+  | D7(QC) commit     | D7(QC)commit       | D7(QC)commit      | D7(QC)commit     |
+  | A8(QC)lock        | A8(QC)lock         | A8(QC)lock        | A8(QC)lock       |
+  | A9(QC)  B9:A8(QC) | A9(QC)   B9:A8(QC) | A9(QC)  B9:A8(QC) | A9(QC) B9:A8(QC) |
+| B10:A8  B10:A9    | B10:A8  B10:A9     | B10:A8  B10:A9    | B10:A8  B10:A9   |
+  | B11:A9            | B11:A9             | B11:A9            | B11:A9           |
+  
+  At 9th height, the blocks A9 and B9: A8 only reached QC, and are not finalized, so the chain is not forked. When it is C's turn, C can produce new blocks based on A9 or B9: A8.
+  
+- B10:A9 reaches QC
+  
+  
+  
+  | A                  | B                  | C                  | D                  |
+  | ------------------ | ------------------ | ------------------ | ------------------ |
+  | D7(QC) commit      | D7(QC)commit       | D7(QC)commit       | D7(QC)commit       |
+  | A8(QC)commit       | A8(QC)commit       | A8(QC)commit       | A8(QC)commit       |
+  | A9(QC)lock  B9:A8  | A9(QC)lock  B9:A8  | A9(QC)lock  B9:A8  | A9(QC)lock  B9:A8  |
+  | B10:A8  B10:A9(QC) | B10:A8  B10:A9(QC) | B10:A8  B10:A9(QC) | B10:A8  B10:A9(QC) |
+  | B11:A9             | B11:A9             | B11:A9             | B11:A9             |
+  
+  When B10:A9 reaches QC, A9 is be locked, and A8 is commited.  All nodes are in the same state, the chain is not forked.  When it is C's turn, C can produce new blocks based on B10: A9.
+  
+- B9:A8 and B10:A9 have not reached QC
+  It may be caused by D network abnormality or D host downtime.
+  At this point, the view-change is triggered. If B is a Byzantine node, B may or may not send a ViewChange message.
+  1. B does not send ViewChange message
+  
+  
+  
+  | A              | B              | C              | D    |
+  | -------------- | -------------- | -------------- | ---- |
+  | ViewChange<A9> | ViewChange<A8> | ViewChange<A9> | nil  |
+  
+  
+  
+  In this case, C will produce blocks based on A9.
+  
+  2. B does send ViewChange message
+  
+  
+  
+  | A             | B    | C             | D    |
+  | ------------- | ---- | ------------- | ---- |
+  | ViewChange<9> | nil  | ViewChange<9> | nil  |
+  
+  
+  
+  The ViewChange cannot reaches QC. And the view can only switch to C normally after D failure recovers.
+
+## Review and Summary
+
+This article discusses the current common BFT-type consensus algorithms, and proposes a CBFT protocol that can be more suitable for the public network environment. It can greatly improve the speed of block confirmation and satisfy the blockchain on the premise of meeting safety and liveness. There is a growing need for consensus speed.
+
+## References
+
+[1] M. J. Fischer, N. A. Lynch, and M. S. Paterson, "Impossibility of distributed consensus with one faulty process," * J. ACM *, 1985.
+
+[2] L. Lamport, R. Shostak, and M. Pease. The Byzantine Generals Problem. ACM Transactions on Programming Languages and Systems, 4 (3), 1982.
+
+[3] M. Castro and B. Liskov. Practical byzantine fault tolerance. In OSDI, 1999.
+
+[4] E. Kokoris-Kogias, P. Jovanovic, N. Gailly, I. Khoffi, L. Gasser, and B. Ford, “Enhancing Bitcoin Security and Performance with Strong Consistency via Collective Signing,” 2016.
+
+[5] TEAM T Z. Zilliqa TechnicalWhitepaper [J]. Zilliqa, 2017: 1–8.
+
+[6] Guy Golan Gueta, Ittai Abraham, Shelly Grossman, Dahlia Malkhi, Benny Pinkas, Michael K. Reiter, Dragos-Adrian Seredinschi, Orr Tamir, Alin Tomescu, "a Scalable and Decentralized Trust Infrastructure", 2018.
+
+[7] C. Unchained, “Tendermint Explained — Bringing BFT-based PoS to the Public Blockchain Domain.” [Online]. Available: https://blog.cosmos.network/tendermint-explained-bringing-bft-based-pos-to-the-public-blockchain-domain-f22e274a0fdb.
 
 [8] M. Yin, D. Malkhi, M. K. Reiterand, G. G. Gueta, and I. Abraham, “HotStuff: BFT consensus in the lens of blockchain,” 2019.
 
-[9]      “EOS.IO Technical White Paper v2.” [Online]. Available: https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md.
+[9] “EOS.IO Technical White Paper v2.” [Online]. Available: https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md.
 
 [10] Dan Boneh, Manu Drijvers, Gregory Neven. "BLS Multi-Signatures With Public-Key Aggregation", 2018.

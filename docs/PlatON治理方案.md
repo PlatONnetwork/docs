@@ -1,245 +1,278 @@
 ---
 id: PlatON_Governance_Solution
-title: PlatON治理方案
-sidebar_label: PlatON治理方案
+title: PlatON Governance Solution
+sidebar_label: PlatON Governance_Solution
 ---
 
-## 概述
 
-区块链治理机制是指区块链生态中利益相关者对决策达成一致的一套决策规则和行动标准。其目的是让去中心化的网络随着时间的推移能不断迭代发展。在区块链中，一些重要的技术，如共识机制、扩展性、安全性等，都可通过治理机制提供合理的激励方式得到更好的解决。完整的区块链治理机制应该是区块链技术、经济学和政治学的结合产物，包含权利分配、经济激励和技术实现。区块链的生态结构由开发者、矿工和用户构成，治理中各个角色需要发挥各自的价值，承担相应责任并获得对应的收益。治理的意义在于减少社区分裂和混乱的发生，帮助社区提高项目更新迭代效率，提高社区成员参与的积极性。 
 
-## 治理现状分析
+## Governance Overview
 
-目前治理从大的模式上分为链下治理和链上治理。链下治理由核心开发者控制，节点通过安装软件来发出决定信号，将全部责任交给那些运行完整节点的人，灵活性较高，但需要更高的社会协调成本，且缺乏合理的激励机制，限制了新开发者的加入。而链上管理有一套明确的治理流程，通过链上提案投票机制的形式强制升级，将决策权交给利益相关者。
+Blockchain governance mechanism refers to a set of decision rules and action standards for stakeholders in the blockchain ecosystem to agree on decisions. The goal is to allow the decentralized network to iteratively develop over time. In the blockchain, some important technologies, such as consensus mechanism, scalability, security, etc., can be better solved by providing reasonable incentives through the governance mechanism. A complete blockchain governance mechanism should be the combined product of blockchain technology, economics, and politics, including rights distribution, economic incentives, and technological realization. The blockchain's ecological structure consists of developers, miners, and users. Each role in governance needs to play its own value, assume corresponding responsibilities, and obtain corresponding benefits. The significance of governance is to reduce the occurrence of community fragmentation and chaos, help the community to improve the efficiency of project update and iteration, and increase the participation of community members.
 
-链下治理的代表公链如比特币和以太坊，其协议的升级主要是由核心开发者进行运营，普通矿工和用户群体选择权利缺失，因此参与度低，公民基础薄弱。意识到链下治理的缺点，一些公链开始纷纷推出自己的链上治理机制，将社区的决策数字化，大大降低了利益相关者的协调成本。链上治理机制常见的权利分配方式往往是直接民主和间接民主的选择与平衡。
+## Analysis of governance status
 
-直接民主是由持币者直接参与制定规则，采用一代币一票的方式，去中心化程度较高，如Decred和Tezos等。在直接民主中往往存在投票率、专业性、代币集中等问题。而间接民主即代议制，通过不同方式选出代表人，依靠代表人行使权利，如EOS超级节点、Polkadot中的理事会和DFINITY中的“跟随投票”机制等。间接民主需要考虑到治理结构的设计、权利分配和激励等问题。
+At present, governance is divided into off-chain governance and on-chain governance from the big model. Off-chain governance is controlled by core developers. Nodes send their decision signals by installing their preferred software and give full responsibility to those who run complete nodes. It has higher flexibility, but requires higher social coordination costs and lacks reasonable Incentive mechanism restricts the entry of new developers. On-chain management has a clear set of governance processes, which are forcibly upgraded through the on-chain proposal voting mechanism and hand over decision-making power to stakeholders.
 
-## PlatON治理机制
+The representative public chains of off-chain governance, such as Bitcoin and Ethereum, are mainly upgraded by the core developers, and ordinary miners and user groups lack the right to choose. Therefore, participation is low and the citizen base is weak. Recognizing the shortcomings of off-chain governance, some public chains have begun to launch their own on-chain governance mechanisms to digitize community decisions and greatly reduce the coordination costs of stakeholders. The common power distribution method of on-chain governance mechanisms is often the choice and balance of direct democracy and indirect democracy.
 
-在我们看来，决策权应属于“利益相关者”，即权利属于人民。但进行全民公投需考虑到实施成本以及投票率、专业性、治理效率等问题，因此公投不应该是治理常态，更应该是重大分歧情况下的治理方式。在我们的PPoS设计中，其备选节点的产生本身就是一种选举，且节点的利益和公链生态的兴衰息息相关，理应承担更多的治理责任，拥有更多的治理权利。因此，在PlatON治理中，我们采用了直接民主和间接民主结合的模式，其核心原则是：常态下由备选节点投票治理，即间接民主；重大分歧下由社区公开投票治理，即直接民主。
+Direct democracy involves the holders of money directly participating in the formulation of rules, using one coin per vote, and a higher degree of decentralization, such as Decred and Tezos. In direct democracy, there are often problems such as turnout, professionalism, and token concentration. Indirect democracy is the representative system. Representatives are elected through different methods and rely on the representatives to exercise their rights, such as the EOS super node, the board in Polkadot, and the "follow voting" mechanism in DFINITY. Indirect democracy needs to take into account the design of governance structures, the allocation of power, and incentives.
 
-### 参与角色
+## PlatON governance mechanism
 
-- **备选节点**
-  节点通过质押一定的Token成为候选人，其他用户可将自己的Token委托给候选人，系统根据候选人的总权益（质押+委托）进行排名，排名前101的候选人被选举成为备选节点。
-- **持币人**
-  所有Energon代币持有者。
+In our opinion, decision-making power should belong to "stakeholders", that is, the right belongs to the people. However, the referendum needs to take into account issues such as implementation costs, turnout rates, professionalism, and governance efficiency. Therefore, the referendum should not be the governance norm, but also the governance method in the case of major differences. In our PPoS design, the generation of validators is an election in itself, and the interests of validators are closely related to the rise and fall of the public chain ecology. It should assume more governance responsibilities and have more governance rights. Therefore, in PlatON governance, we have adopted a combination of direct and indirect democracy. Its core principles are: in the normal state, voting by the verifier, that is, indirect democracy; under major differences, voting by the community, which is direct democracy.
 
-- **核心开发者** 
-  共同建设PlatON公链及社区的核心开发者。
+### Participating Roles
 
-### 权利分配
-- ****备选节点****
-  - 发起提案
-  - 对公投提案投票
-  - 对非公投提案投票
-  - 对提案进行附议
-- **持币人**
-  - 发起提案
-  - 对公投提案投票
-  - 对提案进行附议
-- **开发者**
-  - github代码控制
-  - 提案审核
-  - 提案实现
+- **Alternative node**
+  Nodes become candidates by stake certain amount of tokens. Other users can delegate their own tokens to candidates, and the system ranks according to the total staking amount of each candidates. The top 101 candidates are elected as validators.
+  
+- **Token holder**
+  All Energon token holders.
+  
+- **Developers** 
 
-### 提案分类
+  Co-construct core developers of the PlatON public chain and community.
 
-- **公投提案**
-  公投提案的发生是在存在争议性比较大的场景下，任意持币人都可以发起公投提案，需要进行全民公投产生结果，场景如下：
-  - 修改基本法
-  - 进行重大的分叉，类似The Dao的分叉
-  - 终止链的运行
-- **非公投提案**
-  非公投提案即普通提案，由备选节点投票产生结果，提案类型可分为以下类型：       
-  - 文本提案：对于无需实施的决策都可以用文本提案发起
-  - 软件升级提案：用来在链上发起升级投票，达到平滑升级的目的
-  - 参数修改提案：用来对系统参数等可治理的参数进行修改
-  - 账户提案： 用来冻结或解冻账户（包括合约）
-  - 激励提案： 用来分配治理基金账户余额
-  - 取消提案： 用来取消链上正在投票中的软件升级提案
+### Rights Assignment
+- **Alternative node**
+  - Initiate a proposal
+  - Vote on the referendum proposal
+  - Vote on non-referendum proposals
+  - Seconding the proposal
+- **Currency holder**
+  - Initiate a proposal
+  - Vote on the referendum proposal
+  - Seconding the proposal
+- **Developers**
+  - GitHub code control
+  - Proposal review
+  - Proposal implementation
 
-### 治理流程
+### Proposal Classification
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON治理方案.assets/governace-flow.png" alt="governace-flow"/>
+- **Referendum proposal**
+  The referendum proposal occurs in a highly controversial scenario. Any currency holder can initiate a referendum proposal, and a referendum is required to produce results. The scenario is as follows:
+  - Amendment of the Basic Law
+  - Make a major fork, similar to The Dao's fork
+  - Terminate the running of the chain
+- **Non-referendum proposal**
+  Non-referendum proposals are ordinary proposals that are produced by validator votes. The types of proposals can be divided into the following types:
+  - Text proposals: Text proposals can be used for decisions that need not be implemented.
+  - Software upgrade proposal: used to initiate an upgrade vote on the chain to achieve the purpose of smooth upgrade.
+  - Parameter modification proposal: used to modify manageable parameters such as system parameters.
+  - Account proposal: used to freeze or unfreeze accounts (including contracts).
+  - Incentive proposal: Used to allocate the balance of the governance fund account.
+  - Cancel Proposal: Used to cancel the software upgrade proposal that is being voted on the chain.
 
-**1)** **发起提案**
+### Governance process
 
-公投提案可以由任何人发起，非公投提案由备选节点发起。每个提案都应该有与之对应的文本说明，该文本说明存储于github上的PIP仓库，由核心开发者管理，类似EIP。
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_governance_solution.assets/governace-flow.png" alt="governace-flow"/>
 
-为控制垃圾提案，所有类型的提案的发起都需要支付一笔提案手续费，作为提案的成本。
+**1)** **Initiate Proposal**
 
-**2)** **提案筛选**
+Referendum proposals can be initiated by anyone, and non-referendum proposals are initiated by validators. Each proposal should have a corresponding text description, which is stored in the PIP repository on github and managed by the core developer, similar to EIP.
 
- - **公投提案**：由于公投提案并非是常态，因此链上可以同时发起多个公投提案，这些提案将根据保证金从高到低进行排序，每个月选择出保证金最高的提案进入投票阶段。
+To control spam proposals, the initiation of all types of proposals requires a proposal fee as the cost of the proposal. For the referendum proposal, a token is required to be pledged as the deposit of the proposal. Other holders can also attach the proposal by increasing the deposit of the proposal to increase the chance of the proposal entering the voting period. The proposal deposit is returned to the original account when the proposal enters the voting period.
 
- - **非公投提案**：发起提案成功即进入投票期，可多提案并行投票。
+**2)** **Proposal Screening**
 
-**3)** **提案投票**
+- **Referendum Proposal**: Since the referendum proposal is not the norm, multiple referendum proposals can be initiated on the chain at the same time. These proposals will be sorted according to the highest margin, and the proposal with the highest margin will be selected each month to enter the voting stage .
 
- - **公投提案**
+- **Non-referendum proposal**: The successful launch of the proposal will enter the voting period, and multiple proposals can be voted in parallel.
 
-   公投提案的核心的权益投票。投票将持续两周，有三种投票选项，分别为：“支持”、“反对”和“弃权”。只有参与质押和委托的代币才能进行投票。投票形式采用“备选节点代投+个人投票覆盖”的模式。即：备选节点投票权重是自有质押代币和接受委托代币数量之和，若委托人与该备选节点持不同意见，则该委托人可自行投票，其投票权重为委托数量，该权重对应的投票选项将被覆盖。所有的投票将会锁定代币到投票结束。
+**3)** **Vote for Proposal**
 
-   为缓解由于多数代币被少数节点控制而导致的投票中心化问题，参与投票的备选节点数量应该足够多，若多数备选节点不同意或没有参与投票，该提案仍然不会通过。
+- **Referendum proposal**
 
-- **非公投提案**
+  The core equity vote of the referendum proposal. Voting will last two weeks and there are three voting options: "Yes", "No" and "Abstain". Only tokens participating in the pledge and delegation can vote. The voting form adopts the model of "validator's vote + personal voting coverage". That is: the verifier's voting weight is the sum of its own pledged tokens and the number of accepted commissioned tokens. If the client and the validator have different opinions, the client can vote on its own, and its voting weight is the number of commissions. The voting options will be overwritten. All votes will be locked until the end of the vote.
 
-   非公投提案的投票的核心是备选节点投票。只要是在该提案投票周期内当选成为备选节点的节点都能进行投票。投票周期一般为两周，软件升级提案的投票周期可根据情况由提案发起人决定。投票形式采用备选节点一人一票制度，投票后将锁定备选节点自有质押代币到投票结束。除软件升级提案外，其他类型的投票有三种投票选项，分别为：“是”、“否”、“弃权”。为了简化投票流程，**软件升级提案**没有显性的选项选择，各备选节点可通过是否升级本地节点来表明自己的投票立场，具体可以参考[升级机制](#upgrade)。
+  In order to alleviate the problem of voting centralization caused by the majority of tokens being controlled by a few nodes, the number of validators participating in the voting should be sufficient. If the majority of validators disagree or do not participate in the voting, the proposal will still not pass.
 
-**4)** **投票结果计算**
+- **Non-referendum proposal**
 
- - **公投提案**： 公投提案结果计算维度有以下三个:
-   
-   - 备选节点支持率：投票支持的备选节点人数与可投票的备选节点总人数的比值
-   - Token支持率：支持的Token数量与总参与投票的Token数量的比值
-   - Token参与率：总参与投票的Token数量与总质押的Token数量的比值
-   
-   当同时满足：备选节点支持率>P%，Token支持率>Q%且Token参与率>K%时，该提案投票通过，否则该提案投票未通过。
-   
- - **非公投提案**：非公投提案的计算维度有以下两个；
-   - 备选节点支持率：投票支持的备选节点人数与可投票的备选节点总人数的比
-   - 备选节点参与率：投票备选节点人数与总可投票备选节点人数的比值
+  The core of voting on non-referendum proposals is validator voting. Any node that is elected as a validator within the voting period of the proposal can vote. The voting cycle is generally two weeks, and the voting cycle of a software upgrade proposal can be determined by the proposal initiator according to the situation. The voting method adopts a system of one person and one vote for validators. After voting, the validator's own pledged tokens will be locked until the end of voting. In addition to software upgrade proposals, there are three voting options for other types of voting: "Yes", "No", and "Abstain". In order to simplify the voting process, there are no explicit options for the **software upgrade proposal**. Each validator can indicate his or her voting position by whether to upgrade the local node. 
 
-   当同时满足：备选节点支持率>M%，备选节点参与率>N%时，该提案投票通过，否则该提案投票未通过。
-   
-   不同类型提案对应的支持率和参与率如下:
-   
-| 类型 | 参与率 | 支持率 |
-|:-------|:-------|:-------|
-| 文本提案 | >50% | >=66.7% |
-| 取消提案 | >50% | >=66.7% |
-| 参数提案 | >50% | >=66.7% |
-| 升级提案 | =100% | >=66.7% |
+**4)** **Voting results calculation**
 
-### <span id="upgrade">升级机制</span>
+- **Referendum Proposal**: There are three dimensions for calculating the results of referendum proposals:
+  - Validator support rate: the ratio of the number of validators who vote for support to the total number of validators who can vote;
+  - Token support rate: the ratio of the number of tokens supported to the total number of tokens participating in the vote;
+  - Token participation rate: The ratio of the total number of tokens participating in the voting to the total number of tokens in circulation.
 
-升级机制是网络能够不断迭代完善的保证。对于区块链系统运行过程中可能出现的不同情况，我们应该提供有针对性的升级方式，主要有以下四种情况：
- - 优化升级：此类升级是对当前链版本的功能优化。各节点可以根据情况决定是否升级，无论升级与否不会对共识造成影响。
- - 投票升级：此类别的升级为添加了新功能，或者对补丁进行修复后影响到共识机制。该升级需要在链上发起软件升级提案，通过投票结果来决定是否实施升级，在不中断网络的情况下完成平滑升级。后面会重点讲解。
- - 修复升级：当节点因版本低或者异常交易导致不能正常参与共识时，备选节点可以通过安装新版本软件来恢复参与网络共识。
- - 快照升级：当区块链系统遇到重大异常，导致整条链无法正常出块时，可基于之前的正常网络状态生成快照，然后基于该快照恢复网络。
 
-下面我们将重点说明**链上投票升级机制**。
+  When both: validator support rate> P%, Token support rate> Q%, and Token participation rate> K%, the proposal is approved, otherwise the proposal is not approved.
 
-**1)** **发起升级提案**
+- **Non-referendum proposal**: There are two calculation dimensions for non-referendum proposals:
+  
+  - Verifier support rate: the ratio of the number of validators who vote for support to the total number of validators who can vote;
+- Validator participation rate: the ratio of the number of voting validators to the total number of voteable validators;
+  
 
-升级提案只能由备选节点发起，发起时需要支付一笔高于普通交易的提案手续费，软件升级提案参数中需要提供以下参数：
- - 升级的目的版本号。版本号有三位数字组成，如1.2.0，升级目的版本号前两位需大于当前链版本号前两位。
- - github对升级信息的描述的文件的ID，即PIP-ID。该ID必须唯一
- - 升级提案投票的共识轮数N。该参数将用来计算投票截止块高，即在当前共识轮开始第N个共识轮的第230个块截止投票。
+When both: Validator support rate> M% and validator participation rate> N%, the proposal is voted through, otherwise the proposal fails to vote.
 
-链上只能存在一个处理中的软件升级提案，即当链上已经存在处于投票中的软件升级提案或参数提案时，不能再发起另外一个软件升级提案。此时遇到特殊原因或者紧急情况，需要立即发起一个新的软件升级提案，则可以发起一个取消提案来取消该软件升级提案。
+   > **Note**: In the software upgrade proposal, the default validator participation rate is 100%.
 
-> 取消提案说明： 只有当链上存在正在投票中的升级提案时，才能发起取消提案。取消提案的交易需要有以下参数，
-> - 被取消的升级提案交易hash
-> - github对升级信息的描述的文件的ID，即PIP-ID。该ID必须唯一
-> - 取消提案投票的共识轮数。由该参数计算出来的投票截止块高不能超过被取消的升级提案投票截止块高
+| Type               | Participation Rate | Support ratio |
+| :----------------- | :----------------- | :------------ |
+| Text proposal      | >50%               | >=66.7%       |
+| Cancel proposal    | >50%               | >=66.7%       |
+| Parameter proposal | >50%               | >=66.7%       |
+| Upgrade proposal   | =100%              | >=66.7%       |
 
-**2)** **升级提案投票**
+### <span id="upgrade">Upgrade mechanism</span>
 
-软件升级提案发起成功之后，则进入投票阶段。只能由备选节点参与投票，即投票交易只能由节点质押账户发起，投票前需升级本地节点，以一人一票的方式计票。
+#### Overall mechanism
 
-我们对于软件升级提案的投票交易中并未设置"支持"、"反对"、"弃权"的投票选项，而是通过节点行为来表达自己的立场，如下：
-- 支持者：可将本地节点版本更新到提案升级中的版本后，对升级提案发起投票；
-- 中立者：可以选择升级节点，但不投票，而发起版本声明交易来声明本节点已经升级，这样不论该提案通过与否都可以正常参与共识；
-- 反对者：则无需升级本地节点，无需投票。
+The upgrade mechanism is a guarantee that the network can continue to iterate and improve. For different situations that may occur during the operation of the blockchain system, we should provide targeted upgrade methods, mainly in the following four cases:
 
-升级提案投票交易需要提供以下参数：
-- 发起提案交易的Hash 
-- 节点的真实版本号。该版本号需要和投票中的升级目的版本号一致，才能投票成功。
-- 节点签名。该签名是节点私钥对节点版本号的签名。
-> 投票期间虽然节点已经升级，但是当前运行的逻辑还是旧版本的逻辑。等到实施完成后才会切换到新版本的逻辑。
+- Optimized upgrade: This type of upgrade is a function optimization of the current chain version. Each node can decide whether to upgrade according to the situation, whether or not the upgrade does not affect the consensus.
 
-**3)** **升级提案投票结果统计**
+- Vote for upgrades: This category of upgrades adds new features or fixes to patches that affect the consensus mechanism. This upgrade needs to initiate a software upgrade proposal on the chain, and decide whether to implement the upgrade based on the voting results, and complete the smooth upgrade without interrupting the network. The focus will be explained later.
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON治理方案.assets/upgrade-statistics.png" alt="upgrade-statistics"/>
+- Repair and upgrade: When a node cannot participate in consensus normally due to a low version or an abnormal transaction, the validator can restore the participation in the network consensus by installing a new version of the software.
 
-在投票截止块高统计对升级提案的投票结果，若投票周期内投票情况如上图所示：
+- Snapshot upgrade: When the blockchain system encounters a major anomaly, which prevents the entire chain from producing blocks properly, a snapshot can be generated based on the previous normal network state, and then the network can be restored based on the snapshot.
 
-- 结算周期1内总备选节点数： $P_1$，备选节点发起升级投票数量为$M_1$
+Below we will focus on the **on-chain voting upgrade mechanism**.
 
-- 结算周期2内总备选节点数： $P_2$，备选节点发起升级投票数量为$M_2$
+#### On-chain voting upgrade
 
-- 结算周期N内总备选节点数： $P_n$，备选节点发起升级投票数量为$M_n$
+The upgrade package corresponding to the software upgrade proposal is provided by the developer. The upgrade package must be compatible with the current chain version, and validators can participate in voting after upgrading the local node.
 
-则最后支持率：$SR=\frac{100\%\times \sum_{i=1}^{n}M_i}{\sum_{i=1}^{n}P_i-P_1\cap P_2 \cap ... \cap P_n}$
+##### Initiate Upgrade Proposal
 
-若$SR \geq 66.7%$ ，则提案投票通过，进入实施阶段。
+The upgrade proposal can only be initiated by a validator. When it is initiated, a fee higher than the ordinary transaction fee must be paid. The following parameters need to be provided in the parameters of the software upgrade proposal:
+
+- The version number of the upgrade target. The version number consists of three digits, such as 1.2.0. The first two digits of the version number of the upgrade target must be greater than the first two digits of the current chain version number.
+
+- The ID of the file that github describes the upgrade information, which is PIP-ID. The ID must be unique.
+
+- Number of consensus rounds for voting on the upgrade proposal. This parameter will be used to calculate the voting cutoff block height, that is, the 230th block cutoff vote of the Nth consensus round starts at the current consensus round.
+
+There can only be one software upgrade proposal in the chain, that is, when there is already a software upgrade proposal in the voting or under implementation on the chain, another software upgrade proposal cannot be initiated. If you encounter a special reason or emergency at this time and need to initiate a new software upgrade proposal immediately, you can initiate a cancellation proposal to cancel the software upgrade proposal.
+
+> Cancellation proposal description: Cancellation proposal can be initiated only when there is an upgrade proposal being voted on the chain. The following parameters are required to cancel a proposed transaction.
+>
+> - Canceled upgrade proposal transaction hash
+>
+> - GitHub's description file ID of the upgrade information, that is, PIP-ID. The ID must be unique.
+>
+> - Cancel consensus round of proposal voting. The vote cutoff block height calculated by this parameter cannot exceed the vote cutoff block height of the cancelled upgrade proposal.
+
+##### Vote on Upgrade Proposal
+
+After the software upgrade proposal is successfully launched, it enters the voting phase. Only validators can participate in the voting, that is, the voting transaction can only be initiated by the node's pledged account. Before voting, the local node must be upgraded to count votes by one person and one vote.
+
+We did not set voting options for "support", "oppose", and "abstain" in the voting transaction for the software upgrade proposal, but expressed our position through node behavior, as follows:
+
+- Supporters: After the local node version is updated to the version in the proposal upgrade, a vote on the upgrade proposal is initiated;
+
+- Neutral: You can choose to upgrade the node, but do not vote, and initiate a version statement transaction to declare that this node has been upgraded, so that you can participate in consensus normally whether the proposal is passed or not;
+  -Opponents: No need to upgrade local nodes, no voting required.
+
+The following parameters are required to upgrade the proposal voting transaction:
+
+- Hash to initiate proposal transactions
+
+- The actual version number of the node. This version number needs to be the same as the version number of the upgrade target in the voting in order to vote successfully.
+
+- Node signature. The signature is the node private key's signature on the node version number.
+
+> Although the node has been upgraded during the voting period, the logic currently running is still the logic of the old version. Wait until the implementation is complete before switching to the new version of the logic.
+
+##### Statistics on voting results of upgrade proposals
+
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_governance_solution.assets/upgrade-statistics.png" alt="upgrade-statistics"/>
+
+The voting result of the upgrade proposal is highly counted at the voting deadline block. If the voting situation in the voting cycle is as shown above:
+
+- The total number of validators in the settlement cycle 1: $ P_1 $, the number of validator-initiated upgrade votes is $ M_1 $
+
+- The total number of validators in the settlement cycle 2: $ P_2 $, the number of validator-initiated upgrade votes is $ M_2 $
+
+- The total number of validators in the settlement period N: $ P_n $, and the number of validator-initiated upgrade votes is $ M_n $
+
+Then the final support rate: $SR=\frac{100\%\times \sum_{i=1}^{n}M_i}{\sum_{i=1}^{n}P_i-P_1\cap P_2 \cap ... \cap P_n}$
+
+If $SR \geq 66.7%$, the proposal is voted through and the implementation phase is entered.
     
-**4)** **升级提案实施**
 
-由于VRF选取备选节点具有随机性，且为了不影响共识，因此我们在实施升级时，需要保证某一个共识轮中的验证节点都是已经升级的节点。
+##### Upgrade Proposal Implementation
 
-因此，在提案投票截止块高时，该提案的支持率达到66.7%，则在下一个共识轮第一个块开始实施升级，且不再选择未升级的节点参与共识。在当前结算周期中，被淘汰的未升级节点只是不会被VRF选中参与共识,但仍然享受当前结算周期的质押收益。
+Due to the randomness of VRF selection of candidate nodes and in order not to affect consensus, we need to ensure that the verification nodes in a consensus round are all upgraded nodes when implementing the upgrade.
 
-**5)** **版本声明**
+Therefore, when the proposal voting deadline is high, the proposal's approval rate reaches 66.7%, then the upgrade will be implemented in the first block of the next consensus round, and no non-upgraded nodes will no longer be selected to participate in the consensus. In the current settlement cycle, the eliminated non-upgraded nodes will just not be selected by VRF to participate in consensus, but still enjoy the pledged benefits of the current settlement cycle.
 
-由于不同版本之间可能存在数据不兼容的情况，为避免因版本问题造成共识失败，对链上的节点版本应该进行控制，因此，我们引入了版本声明。节点通过发起版本声明来表明自己节点版本和当前链版本或软件升级提案投票中的目的版本号一致，才能有机会在升级前后正常参与共识。
+##### Release Statement
 
-只有候选节点和验证节点才可以发起版本声明。新加入的节点需要先成为候选人后才能发起版本声明。各个阶段版本声明条件如下：
+As there may be data incompatibility between different versions, in order to avoid consensus failure due to version issues, the node version on the chain should be controlled, so we introduced a version declaration. A node initiates a version statement to indicate that its node version is consistent with the target version number in the current chain version or software upgrade proposal vote, so that it can have the opportunity to participate in consensus normally before and after the upgrade.
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON治理方案.assets/version-declare.png" alt="version-declare"/>
+Only candidate nodes and validator nodes can initiate version declarations. Newly added nodes need to be candidates before they can launch a version statement. The conditions for each stage version declaration are as follows:
 
-当节点版本和链上版本不一致（版本号前两位不同）时，该节点不会被选入参与共识，即使质押很高，此时节点可以通过发起版本声明交易来声明自己节点与链版本一致，才能在后续结算周期中正常参与共识。当链上存在正在投票中的软件升级提案时，可以发起和升级版本一致的版本声明，版本声明不代表投票，在升级提案投票通过后，声明了与升级目的版本号一致的节点即使没有投票也可以正常参与共识。
+<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_governance_solution.assets/version-declare.png" alt="version-declare"/>
 
-#### 快速升级
+When the node version and the version on the chain are inconsistent (the first two digits of the version number are different), the node will not be selected to participate in the consensus, even if the pledge is high, at this time, the node can declare that its node is consistent with the chain version by initiating a version declaration transaction. In order to participate in consensus in the subsequent settlement cycle. When there is a voting software upgrade proposal on the chain, a version statement consistent with the upgrade version can be issued. The version statement does not represent a vote. After the upgrade proposal is voted through, the node that has the same version number as the upgrade destination is declared without voting. Can participate in consensus normally.
 
-在链上发起升级投票本是一件严肃的事情，理论上不应该存在撤销提案的可能，所有的结果都应该交给备选节点投票决定。但我们的只允许链上存在一个投票中的软件升级提案，因此当出现紧急情况时需要快速升级时，若链上存在未处理完成的提案，会直接影响紧急情况的处理速度。由此我们引入取消提案，该提案由备选节点发起，投票周期可自行确定，但必须在被取消提案投票周期内。通过发起取消提案和各节点的快速响应，即可在短时间取消正在投票中的软件升级提案，从而快速实施紧急方案。只有当链上存在正在投票中的升级提案时，才能发起取消提案。取消提案一旦发起则必须执行，因此我们提倡只在紧急情况使用取消提案。
+##### Quick Upgrade
 
-取消提案的交易需要有以下参数：
+Initiating an upgrade vote on the chain is a serious matter. In theory, there should be no possibility of revoking the proposal. All the results should be submitted to the verifier to vote. However, we only allow one software upgrade proposal to be voted on the chain, so when an emergency situation needs to be upgraded quickly, if there are unprocessed proposals on the chain, it will directly affect the emergency processing speed. From this we introduce the cancellation proposal, which is initiated by the validator. The voting cycle can be determined by itself, but it must be within the voting cycle of the cancelled proposal. By initiating the cancellation proposal and the quick response of each node, the software upgrade proposal that is being voted on can be cancelled in a short time, thereby implementing the emergency plan quickly. Cancellation proposals can only be initiated when there is an upgrade proposal being voted on the chain. Cancellation proposals must be implemented once they are initiated, so we encourage the use of cancellation proposals only in emergencies.
 
-- 被取消的升级提案交易hash
-- github对升级信息的描述的文件的ID，即PIP-ID。该ID必须唯一。
-- 取消提案投票的共识轮数。（由该参数计算出来的投票截止块高不能超过被取消的升级提案投票截止块高）
+The following parameters are required to cancel a proposed transaction:
 
-### 参数治理
+- Canceled upgrade proposal transaction hash
 
-备选节点可以通过发起参数治理提案来修改部分系统参数。为避免参数提案和升级提案交叉实施引发问题，因此，当链上存在投票中的升级提案或者参数提案，不允许在发起新的参数修改提案。
-参数提案投票周期为两周。截止当前，我们支持的治理参数如下： 
+- The ID of the file that github describes the upgrade information, which is PIP-ID. The ID must be unique.
 
-- slashing模块
+- Number of consensus rounds to cancel proposal voting. The vote cutoff block height calculated by this parameter cannot exceed the vote cutoff block height of the cancelled upgrade proposal.
 
-| Key | 描述|范围|
-| ---|---|---|
-| slashBlocksReward |	出块率为0，削减的区块奖励块数 |[0, 50000] blocks	|
-| slashFractionDuplicateSign|双签举报处罚节点自有质押金比例| (0,10000] ‱|
-| duplicateSignReportReward|	举报人可获得处罚金的奖励比例	| (0, 80] %	|
-| maxEvidenceAge| 双签举报证据有效的结算周期数 |(0, 节点质押退回锁定周期）Epoch|
+### Governance parameters
 
-- block模块
+Alternative nodes can modify some system parameters by initiating a parameter governance proposal. To avoid problems caused by the cross-implementation of parameter proposals and upgrade proposals, when there are voting upgrade proposals or parameter proposals on the chain, it is not allowed to initiate new parameter modification proposals.
+The parameter proposal voting cycle is two weeks. As of now, the governance parameters we support are as follows:
 
-| Key | 描述|范围|
-| ---|---|---|
-| MaxBlockGasLimit|区块最大Gas|[4712388, 210000000] gas|
+- slashing module
 
-- staking模块
+| Key                        | description                                                  | range                                     |
+| -------------------------- | ------------------------------------------------------------ | ----------------------------------------- |
+| slashBlocksReward          | When the block generation rate is 0, the number of blocks rewarded by the reduced block | [0, 50000] blocks                         |
+| slashFractionDuplicateSign | Proportion of penalty node own staking when dual signing behavior was reported | (0,10000] ‱                               |
+| duplicateSignReportReward  | Whistleblower reward ratio                                   | (0, 80] %                                 |
+| maxEvidenceAge             | Number of valid settlement cycles for evidence reported by dual signing | (0, Node staking return lock cycle）Epoch |
 
-| Key | 描述|范围|
-| ---|---|---|
-| stakeThreshold|	成为备选节点候选人最低的质押Token数 | [100W,1000w] LAT|
-| operatingThreshold	|委托人每次委托及赎回的最低Token数|	[10, 10000] LAT|
-| unStakeFreezeDuration |节点质押退回锁定周期	| (证据有效期,112] Epoch	|
-| maxValidators| 备选节点数量|[25, 201]	|
+- block module
 
+| Key              | description   | range                    |
+| ---------------- | ------------- | ------------------------ |
+| MaxBlockGasLimit | Block Max Gas | [4712388, 210000000] gas |
 
-### 奖惩机制
+- staking module
 
-在设计治理机制时，需要有良好的制度来鼓励更多有兴趣、有能力的专业人士参与到治理中，同时也应该对恶意占用网络资源等行为进行惩罚。
+| Key                   | description                                                  | range                         |
+| --------------------- | ------------------------------------------------------------ | ----------------------------- |
+| stakeThreshold        | The minimum number of staking tokens to become alternative node candidates | [100W,1000w] LAT              |
+| operatingThreshold    | Minimum number of tokens for each delegation and redemption by the client | [10, 10000] LAT               |
+| unStakeFreezeDuration | Node staking return lock cycle                               | (Evidence validity,112] Epoch |
+| maxValidators         | Number of alternative nodes                                  | [25, 201]                     |
 
-#### 奖励
+### Reward and punishment mechanism
 
-- 提案奖励：提案奖励在提案投票通过后自动发放一定奖励到提案发起账户
-- 投票奖励：投票后需要锁定代币到提案投票结束，因此投票奖励和投票锁定时间长度成正比，在提案投票结束时统一发放至各个投票账户
-- 开发者奖励：开发者奖励需在链上发起提案，通过投票结果决定是否发放
-- 漏洞悬赏：在确认漏洞真实存在后，需在链上发起提案，通过投票结果决定是否发放
+When designing a governance mechanism, a good system is needed to encourage more interested and capable professionals to participate in governance, and at the same time punish malicious acts such as occupying network resources.
 
-#### 惩罚
+#### Reward
 
-若不诚实的节点通过伪装版本而达到升级的目的，当链升级成功后，该备选节点被选择参与共识时，会由于出块不能被共识导致出块率低，从而受到系统的惩罚，严重者可直接取消验证节点资格。
+- Proposal rewards: Proposal rewards are automatically distributed to the proposal launch account after the proposal has been voted through;
 
-### 治理基金
+- Voting rewards: After voting, the tokens need to be locked until the voting of the proposal ends, so the voting reward is proportional to the length of the voting lock time and will be distributed to each voting account at the end of the voting of the proposal
 
- 治理基金来源于基金会，每年从基金会的账户划拨固定比例的资金到治理账户，通过提案投票的方式分配治理账户余额，用于激励、薪酬分发。当提案投票通过后，通过多重签名方式自动下发。
+- Developer rewards: Developer rewards need to initiate proposals on the chain and decide whether to release them based on the voting results;
+
+- Vulnerability bounty: After confirming the existence of the loophole, a proposal must be launched on the chain and the voting result will be used to decide whether to release it.
+
+#### Punishment
+
+If the dishonest node achieves the upgrade by disguising the version, when the chain upgrade is successful, the validator is selected to participate in the consensus, and the block generation rate will be low because the block cannot be consensus, which will result in system punishment. You can directly disqualify the node.
+
+### Governance Fund
+
+The governance fund comes from the foundation, and a fixed percentage of funds are transferred from the foundation's account to the governance account each year, and the balance of the governance account is allocated by way of voting on proposals for incentives and salary distribution. When the proposal is voted through, it will be automatically issued through multiple signatures.

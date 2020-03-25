@@ -4,15 +4,16 @@ title: Java SDK
 sidebar_label: Java SDK
 ---
 
-## 开发库导入
 
-根据构建工具的不同，使用以下方式将相关依赖项添加到项目中：
+## Import Development Library
 
-- 使用要求jdk1.8以上.
+Depending on the build tool, use the following methods to add related dependencies to your project：
+
+- Use requirements above jdk1.8.
 
 ### maven
 
-> 项目配置:
+> Project configuration:
 ```xml
 <repository>
 	<id>platon-public</id>
@@ -20,7 +21,7 @@ sidebar_label: Java SDK
 </repository>
 ```
 
-> maven引用方式:
+> maven reference:
 ```xml
 <dependency>
 	<groupId>com.platon.client</groupId>
@@ -31,36 +32,37 @@ sidebar_label: Java SDK
 
 ### gradle
 
-> 项目配置:	
+> Project configuration:
 ```
 repositories {
 	maven { url "https://sdk.platon.network/nexus/content/groups/public/" }
 }
 ```
 
-> gradle引用方式:
+> gradle way of reference:
 ```
-compile "com.platon.client:core:0.7.5.1"
+compile "com.platon.client:core:0.8.0.0"
 ```
 
-## 系统合约调用
+## System Contract Call
 
-系统合约主要包含经济模型和治理相关的合约：
-* 质押合约
-* 委托合约
-* 节点合约
-* 治理合约
-* 举报合约
-* 锁仓合约
+System contracts mainly include economic model and governance related contracts：
+* staking contract
+* delegate contract
+* reward contract
+* node contract
+* proposal contract
+* slash contract
+* restrictingPlan contract
 
-如上系统合约的介绍和使用，请参考如下合约接口说明。
+For the introduction and use of the above system contract, please refer to the following contract interface description.
 
 
-### 质押相关接口
+### Pledge Related Interface
 
-> PlatON经济模型中质押合约相关的接口
+> Interfaces related to pledge contracts in the PlatON economic model.
 
-#### 加载质押合约
+#### Loading Pledge Contract
 
 ```java
 //Java 8
@@ -70,38 +72,39 @@ Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/wall
 StakingContract contract = StakingContract.load(web3j, credentials, chainId);
 ```
 
-#### 接口说明
+#### Interface Description
 
 ##### **staking**
 
-> 节点候选人申请质押
+> Node candidate applies for pledge
 
-* **入参**
+- **Introduction**
 
-  - String：nodeId   节点id,16进制格式
-  - BigInteger：amount   质押的VON，默认质押金额大于等于1000000LAT，根据治理参数调整
-  - StakingAmountType：stakingAmountType   枚举,FREE_AMOUNT_TYPE表示使用账户自由金额,RESTRICTING_AMOUNT_TYPE表示使用锁仓金额做质押
-  - String：benifitAddress   收益账户,用于接受出块奖励和质押奖励的收益账户
-  - String：nodeName   被质押节点的名称
-  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥
-  - String：webSite   节点的第三方主页(有长度限制，表示该节点的主页)
-  - String：details   节点的描述(有长度限制，表示该节点的描述)
-  - ProgramVersion：processVersion  程序的真实版本，治理rpc获取
-  - String：blsPubKey   bls的公钥
-  - String：blsProof    bls的证明，治理rpc获取
+  - String: nodeId node id, hexadecimal format
+  - BigInteger: amount of von pledged, the pledged amount must be greater than or equal to 1,000,000 LAT
+  - StakingAmountType: stakingAmountType, enumeration, FREE_AMOUNT_TYPE means use the free amount of the account, RESTRICTING_AMOUNT_TYPE means use the amount of the lock to make a pledge
+  - String: benefitAddress revenue account
+  - String: nodeName The name of the node being pledged
+  - String: externalId External Id(the length of the Id described by the third-party pull node), currently the keybase account public key
+  - String: The third-party homepage of the webSite node(the length is limited, indicating the homepage of the node)
+  - String: description of the details node(there is a length limitation, indicating the description of the node)
+  - ProgramVersion: the real version of the processVersion program, governing rpc acquisition
+  - String: blsPubKey bls public key
+  - String: Proof of blsProof bls
+  - BigInteger：rewardPer   delegate of reward，1=0.01%   10000=100%
 
-* **返回值**
+- **return value**
 
 ```java
 TransactionResponse
 ```
 
-- TransactionResponse： 通用应答包
-	- int：code   结果标识，0为成功
-	- String：errMsg   错误信息，失败时存在
-	- TransactionReceipt：transactionReceipt  交易的回执
+- TransactionResponse: General Response Packet
+  - int: Code result identification, 0 is success
+  - String: ErrMsg error message, exists on failure
+  - TransactionReceipt：transactionReceipt  Receipt of the transaction
 
-* **合约使用**
+- **Contract use**
 
 ```java
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
@@ -113,6 +116,7 @@ String nodeName = "integration-node1";
 String webSite = "https://www.platon.network/#/";
 String details = "integration-node1-details";
 String blsPubKey = "5ccd6b8c32f2713faa6c9a46e5fb61ad7b7400e53fabcbc56bdc0c16fbfffe09ad6256982c7059e7383a9187ad93a002a7cda7a75d569f591730481a8b91b5fad52ac26ac495522a069686df1061fc184c31771008c1fedfafd50ae794778811";
+BigInteger rewardPer = BigInteger.valueOf(1000L);
 
 PlatonSendTransaction platonSendTransaction = stakingContract.stakingReturnTransaction(new StakingParam.Builder()
         .setNodeId(nodeId)
@@ -126,30 +130,31 @@ PlatonSendTransaction platonSendTransaction = stakingContract.stakingReturnTrans
         .setBlsPubKey(blsPubKey)
         .setProcessVersion(web3j.getProgramVersion().send().getAdminProgramVersion())
         .setBlsProof(web3j.getSchnorrNIZKProve().send().getAdminSchnorrNIZKProve())
+        .setRewardPer(rewardPer)
         .build()).send();
 TransactionResponse baseResponse = stakingContract.getTransactionResponse(platonSendTransaction).send();
 ```
 
 ##### **unStaking**
 
-> 节点撤销质押(一次性发起全部撤销，多次到账)
+> Node revocation pledge(initiate all revocations at one time, multiple accounts)
 
-* **入参**
+- **Introduction**
 
-  - String：nodeId   节点id，16进制格式
+  - String: nodeId node id, hexadecimal format
 
-* **返回值**
+- **return value**
 
 ```java
 TransactionResponse
 ```
 
-- TransactionResponse： 通用应答包
-	- int：code   结果标识，0为成功
-	- String：errMsg   错误信息，失败时存在
-	- TransactionReceipt：transactionReceipt  交易的回执
+- BaseResponse: General Response Packet
+  - int: Code result identification, 0 is success
+  - String: ErrMsg error message, exists on failure
+  - TransactionReceipt：transactionReceipt  Receipt of the transaction
 
-* **合约使用**
+- **Contract use**
 
 ```java
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
@@ -160,29 +165,30 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 
 ##### **updateStaking**
 
-> 修改质押信息
+> Modify pledge information
 
-* **入参**
+- **Introduction**
 
-  - String：nodeId   节点id,16进制格式
-  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id),目前为keybase账户公钥
-  - String：benifitAddress   收益账户
-  - String：nodeName   被质押节点的名称
-  - String：webSite   节点的第三方主页(有长度限制，表示该节点的主页)
-  - String：details   节点的描述(有长度限制，表示该节点的描述)
+  - String: nodeId node id, hexadecimal format, starting with 0x
+  - String: externalId External Id(with a length limit, the ID described by the third-party pull node), currently the keybase account public key
+  - String: benefitAddress revenue account
+  - String: nodeName The name of the node being pledged
+  - String: the third-party homepage of the webSite node
+  - String: description of the details node(there is a length limitation, indicating the description of the node)
+  - BigInteger：rewardPer   delegate of reward，1=0.01%   10000=100%
 
-* **返回值**
+- **return value**
 
 ```java
 TransactionResponse
 ```
 
-- TransactionResponse： 通用应答包
-	- int：code   结果标识，0为成功
-	- String：errMsg   错误信息，失败时存在
-	- TransactionReceipt：transactionReceipt  交易的回执
+- TransactionResponse: General Response Packet
+  - int: Code result identification, 0 is success
+  - String: ErrMsg error message, exists on failure
+  - TransactionReceipt：transactionReceipt  Receipt of the transaction
 
-* **合约使用**
+- **Contract use**
 
 ```java
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
@@ -191,6 +197,7 @@ String externalId = "";
 String nodeName = "integration-node1-u";
 String webSite = "https://www.platon.network/#/";
 String details = "integration-node1-details-u";
+BigInteger rewardPer = BigInteger.valueOf(1000L);
 
 PlatonSendTransaction platonSendTransaction = stakingContract.updateStakingInfoReturnTransaction(new UpdateStakingParam.Builder()
         .setBenifitAddress(benifitAddress)
@@ -199,32 +206,33 @@ PlatonSendTransaction platonSendTransaction = stakingContract.updateStakingInfoR
         .setNodeName(nodeName)
         .setWebSite(webSite)
         .setDetails(details)
+        .setRewardPer(rewardPer)
         .build()).send();
 TransactionResponse baseResponse = stakingContract.getTransactionResponse(platonSendTransaction).send();
 ```
 
 ##### **addStaking**
 
-> 增持质押，增加已质押节点质押金
+> Increase pledge and increase pledged deposits of pledged nodes
 
-* **入参**
+- **Introduction**
 
-    - String：nodeId   节点id，16进制格式
-    - StakingAmountType：stakingAmountType  枚举,FREE_AMOUNT_TYPE表示使用账户自由金额,RESTRICTING_AMOUNT_TYPE表示使用锁仓金额做质押
-    - BigInteger：addStakingAmount   增持的金额
+  - String: nodeId node id, hexadecimal format, starting with 0x
+  - StakingAmountType: stakingAmountType, enumeration, FREE_AMOUNT_TYPE means use the free amount of the account, RESTRICTING_AMOUNT_TYPE means use the amount of the lock to make a pledge
+  - BigInteger: addStakingAmount
 
-* **返回值**
+- **return value**
 
 ```java
 TransactionResponse
 ```
 
-- TransactionResponse： 通用应答包
-	- int：code   结果标识，0为成功
-	- String：errMsg   错误信息，失败时存在
-	- TransactionReceipt：transactionReceipt  交易的回执
+- TransactionResponse: General Response Packet
+  - int: Code result identification, 0 is success
+  - String: ErrMsg error message, exists on failure
+  - String: Data response data
 
-* **合约使用**
+* **Contract use**
 
 ```java
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
@@ -237,60 +245,72 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 
 ##### **getStakingInfo**
 
-> 查询当前节点的质押信息
+> Query the pledge information of the current node
 
-* **入参**
+* **Introduction**
 
-  - String：nodeId   节点id，16进制格式
+  - String: nodeId node id, hexadecimal format, starting with 0x
 
-* **返回值**
+* **return value**
 
 ```java
 CallResponse<Node> baseRespons
 ```
 
-- CallResponse<Node>描述
-	- int： code   结果标识，0为成功
-	- Node：data   Node对象数据
-	- String：errMsg   错误信息，失败时存在
-	
-* **Node**：保存当前节点质押信息的对象
+- CallResponse<Node> description
+  -  int: Code result flag, 0 is success
+  -  Node: data Node object data
+  -  String: ErrMsg error message, exists on failure
 
-  - String：BenefitAddress	用于接受出块奖励和质押奖励的收益账户
+- **Node**: object that holds the current node pledge information
 
-  - String：Details   节点的描述(有长度限制，表示该节点的描述) 
+  - String: BenefitAddress is used to accept the block reward and pledged reward income account
 
-  - String：NodeId   被质押的节点Id(也叫候选人的节点Id)
+  - String: Details The description of the Details node(the length is limited, indicating the description of the node)
 
-  - String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)
+  - String: NodeId The node Id of the pledge(also called the candidate's node Id)
 
-  - BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
+  - String: NodeName The name of the node being pledged(the length is limited, indicating the name of the node)
 
-  - BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON
+  - BigInteger: ProgramVersion The real version number of the PlatON process of the pledged node(the interface for obtaining the version number is provided by the governance)
 
-  - BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON
+  - BigInteger: Released von who initiated a free amount locked period pledged account
 
-  - BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
+  - BigInteger: ReleasedHes initiated the free amount of the hesitation period of the pledged account
 
-  - BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
+  - BigInteger: RestrictingPlan initiates the lock-up period of the locked account amount of the pledged account.
 
-  - BigInteger：Shares   当前候选人总共质押加被委托的VON数目
+  - BigInteger: RestrictingPlanHes initiated the hedging period of the locked amount of the pledged account
 
-  - String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
+  - BigInteger: Shares the current candidate's total pledge plus the number of entrusted VON
 
-  - BigInteger：StakingBlockNum    发起质押时的区块高度
+  - String: StakingAddress The account used when initiating the pledge(when the pledge is cancelled, von will be returned to the account or the account's lock information)
 
-  - BigInteger：StakingEpoch   当前变更质押金额时的结算周期
+  - BigInteger: block height when StakingBlockNum initiated pledge
 
-  - BigInteger：StakingTxIndex   发起质押时的交易索引
+  - BigInteger: StakingEpoch's current settlement cycle when the pledge amount is changed
 
-  - BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销
+  - BigInteger: StakingTxIndex transaction index when pledge is initiated
 
-  - BigInteger：ValidatorTerm   验证人的任期
+  - BigInteger: Status of the status candidate, 0: node is available, 1: node is unavailable, 2: node block rate is low but the removal condition is not met,4: The node's von is insufficient to the minimum pledge threshold(only the penultimate bit is 1), 8: the node is reported to be double signed, 16: the node block rate is low and the removal condition is reached(the penultimate bit is 1); : Node initiates cancellation
 
-  - String：Website   节点的第三方主页(有长度限制，表示该节点的主页)
+  - BigInteger: ValidatorTerm
 
-* **Java SDK合约使用**
+  - String: Website The third-party homepage of the Website node(the length of the node is the homepage of the node)
+
+  - BigInteger：delegateEpoch  The node's last delegate settlement cycle
+  
+  - BigInteger：delegateTotal  The total number of delegate nodes
+  
+  - BigInteger：delegateTotalHes  Total number of inactive nodes delegate
+  
+  - BigInteger：delegateRewardTotal  Total delegated rewards currently issued by the candidate
+  
+  - BigInteger：nextRewardPer Proportion of reward share in the next settlement cycle
+  
+  - BigInteger：rewardPer Proportion of reward share in current settlement cycle
+
+- **Java SDK contract use**
 
 ```java
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
@@ -299,24 +319,24 @@ CallResponse<Node> baseResponse = stakingContract.getStakingInfo(nodeId).send();
 
 ##### **getPackageReward**
 
-> 查询当前结算周期的区块奖励
+> Query the block reward of the current settlement cycle
 
-* **入参**
+* **Introduction**
 
-  无
+  no
 
-* **返回值**
+* **return value**
 
-```java
+```
 CallResponse<BigInteger> baseResponse
 ```
 
-- CallResponse<BigInteger>描述
-	- int：code   结果标识，0为成功
-	- BigInteger：reward   当前结算周期的区块奖励
-	- String：errMsg   错误信息，失败时存在
+- CallResponse<BigInteger> description
+  -  int: Code result flag, 0 is success
+  -  BigInteger：reward   Block rewards for the current settlement cycle
+  -  String: ErrMsg error message, exists on failure
 
-* **Java SDK合约使用**
+* **Java SDK contract use**
 
 ```java
 CallResponse<BigInteger> response = stakingContract.getPackageReward().send();
@@ -324,24 +344,24 @@ CallResponse<BigInteger> response = stakingContract.getPackageReward().send();
 
 ##### **getStakingReward**
 
-> 查询当前结算周期的质押奖励
+> Query the staking reward of the current settlement cycle
 
-* **入参**
+* **Introduction**
 
-  无
+  no
 
-* **返回值**
+* **return value**
 
 ```java
 CallResponse<BigInteger> baseResponse
 ```
 
-- CallResponse<List<Node>>描述
-	- int：code   结果标识，0为成功
-	- BigInteger：reward   当前结算周期的质押奖励
-	- String：errMsg   错误信息，失败时存在
+- CallResponse<BigInteger> description
+  -  int: Code result flag, 0 is success
+  -  BigInteger：reward   staking rewards for the current settlement cycle
+  -  String: ErrMsg error message, exists on failure
 
-* **Java SDK合约使用**
+* **Java SDK contract use**
 
 ```java
 CallResponse<BigInteger> response = stakingContract.getStakingReward().send();
@@ -349,34 +369,34 @@ CallResponse<BigInteger> response = stakingContract.getStakingReward().send();
 
 ##### **getAvgPackTime**
 
-> 查询打包区块的平均时间
+> Query the average time of packed blocks
 
-* **入参**
+* **Introduction**
 
-  无
+  no
 
-* **返回值**
+* **return value**
 
 ```java
 CallResponse<BigInteger> baseResponse
 ```
 
-- CallResponse<BigInteger>描述
-	- int：code   结果标识，0为成功
-	- BigInteger：data   打包区块的平均时间
-	- String：errMsg   错误信息，失败时存在
+- CallResponse<BigInteger> description
+  -  int: Code result flag, 0 is success
+  -  BigInteger：data   average time of packed blocks
+  -  String: ErrMsg error message, exists on failure
 
-* **Java SDK合约使用**
+* **Java SDK contract use**
 
 ```java
 CallResponse<BigInteger> response = stakingContract.getAvgPackTime().send();
 ```
 
-### 委托相关接口
+### Delegation Related Interface
 
-> PlatON经济模型中委托人相关的合约接口
+> Principal related contract interface in PlatON economic model
 
-#### 加载委托合约
+#### Load Delegate Contract
 
 ```java
 //Java 8
@@ -386,30 +406,30 @@ Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/wall
 DelegateContract delegateContract = DelegateContract.load(web3j, credentials, chainId);
 ```
 
-#### 接口说明
+#### Interface Description
 
 ##### **delegate**
 
-> 发起委托，委托已质押节点，委托给某个节点增加节点权重来获取收入 
+> Initiate a commission, commission a node that has been pledged, and commission a node to increase the weight of the node to obtain revenue
 
-* **入参**
+- **Introduction**
 
-  - String：nodeId   节点id，16进制格式，0x开头
-  - StakingAmountType：stakingAmountType  枚举,FREE_AMOUNT_TYPE表示使用账户自由金额,RESTRICTING_AMOUNT_TYPE表示使用锁仓金额做质押
-  - BigInteger：amount   委托的金额(按照最小单位算，1LAT = 10**18 VON)
+  - String: nodeId node id, hexadecimal format, starting with 0x
+  - StakingAmountType: stakingAmountType, enumeration, FREE_AMOUNT_TYPE means use the free amount of the account, RESTRICTING_AMOUNT_TYPE means use the amount of the lock to make a pledge
+  - BigInteger: amount of amount commissioned(based on the smallest unit, 1LAT = 10**18 VON)
 
-* **返回值**
+- **return value**
 
 ``` java
 TransactionResponse
 ```
 
-- TransactionResponse： 通用应答包
-	- int：code   结果标识，0为成功
-	- String：errMsg   错误信息，失败时存在
-	- TransactionReceipt：transactionReceipt  交易的回执
+- TransactionResponse: General Response Packet
+	- int: Code result identification, 0 is success
+	- String: ErrMsg error message, exists on failure
+	- TransactionReceipt：transactionReceipt  Receipt of the transaction
 
-* **合约使用**
+- **Contract use**
 
 ```java
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
@@ -422,29 +442,29 @@ TransactionResponse baseResponse = delegateContract.getTransactionResponse(plato
 
 ##### **getRelatedListByDelAddr**
 
-> 查询当前账户地址所委托的节点的NodeID和质押Id
+> Query the NodeID and Pledged Id of the node entrusted by the current account address
 
-* **入参**
+* **Introduction**
 
-  - String：address   委托人的账户地址
+  - String: address Account address of the principal
 
-* **返回值**
+* **return value**
 
 ```java
 CallResponse<List<DelegationIdInfo>> baseRespons
 ```
 
-- CallResponse<List<DelegationIdInfo>>描述
-	- int：code   结果标识，0为成功
-	- List<DelegationIdInfo>：data   DelegationIdInfo对象列表
-	- String：errMsg   错误信息，失败时存在
+- CallResponse<List<DelegationIdInfo>>
+  - int: Code result identification, 0 is success
+  - List<DelegationIdInfo>: List of Data DelegationIdInfo objects
+  - String: ErrMsg error message, exists on failure
 
-* **DelegationIdInfo**：保存当前账户地址所委托的节点的NodeID和质押区块高度的对象
-  - String：address   委托人的账户地址
-  - String：NodeId   验证人的节点Id
-  - BigInteger：StakingBlockNum   发起质押时的区块高度
+- **DelegationIdInfo**: An object that stores the NodeID and the height of the pledged block of the node commissioned by the current account address
+  - String: address Account address of the principal
+  - String: NodeId Node Id of the validator
+  - BigInteger: block height when StakingBlockNum initiated pledge
 
-* **Java SDK合约使用**
+- **Java SDK contract use**
 
 ```java
 CallResponse<List<DelegationIdInfo>> baseResponse = delegateContract.getRelatedListByDelAddr(delegateCredentials.getAddress()).send();
@@ -452,37 +472,38 @@ CallResponse<List<DelegationIdInfo>> baseResponse = delegateContract.getRelatedL
 
 ##### **getDelegateInfo**
 
-> 查询当前单个委托信息
+> Query current single commission information
 
-* **入参**
+- **Introduction**
 
-  - String：address   委托人的账户地址
-  - String：nodeId   节点id，16进制格式，0x开头
-  - BigInteger：stakingBlockNum   发起质押时的区块高度
+  - String: address Account address of the principal
+  - String: nodeId node id, in hexadecimal format, starting with 0x
+  - BigInteger: block height when stakingBlockNum initiated pledge
 
-* **返回值**
+- **return value**
 
 ```java
 CallResponse<Delegation>
 ```
 
-- CallResponse<Delegation>描述
-	- int：code   结果标识，0为成功
-	- Delegation：Data   Delegation对象数据
-	- String：errMsg   错误信息，失败时存在
+- CallResponse<Delegation>
+  - int: Code result identification, 0 is success
+  - Delegation: Data delegation object data
+  - String: ErrMsg error message, exists on failure
 
-* **Delegation**：保存当前委托账户委托信息的对象
-  - String：Address	委托人的账户地址
-  - String：NodeId   验证人的节点Id
-  - BigInteger：StakingBlockNum    发起质押时的区块高度
-  - BigInteger：DelegateEpoch   最近一次对该候选人发起的委托时的结算周期
-  - BigInteger：Released   发起委托账户的自由金额的锁定期委托的VON
-  - BigInteger：ReleasedHes   发起委托账户的自由金额的犹豫期委托的VON
-  - BigInteger：RestrictingPlan   发起委托账户的锁仓金额的锁定期委托的VON
-  - BigInteger：RestrictingPlanHes   发起委托账户的锁仓金额的犹豫期质押的VON
-  - BigInteger：Reduction   处于撤销计划中的VON
+- **Delegation**: the object to save the delegation information of the current delegation account
+  - String: Address The account address of the principal
+  - String: NodeId Node Id of the validator
+  - BigInteger: block height when StakingBlockNum initiated pledge
+  - BigInteger: DelegateEpoch's settlement cycle at the time of the most recent delegation to this candidate
+  - BigInteger: Released to initiate a free amount lock-in period of the commissioned account
+  - BigInteger: ReleasedHes initiated the free amount of the hesitation period commissioned by the commissioned account von
+  - BigInteger: RestrictingPlan initiates a lock-in period of the entrusted account
+  - BigInteger: RestrictingPlanHes initiated the hedging period of the locked account of the entrusted account
+  - BigInteger: Reduction von in revocation plan
+  - BigInteger：cumulativeIncome  Delegate income to be received
 
-* **Java SDK合约使用**
+- **Java SDK contract use**
 
 ```java
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
@@ -494,26 +515,30 @@ CallResponse<Delegation> baseResponse = delegateContract.getDelegateInfo(nodeId,
 
 ##### **unDelegate**
 
-> 减持/撤销委托(全部减持就是撤销)
+> Reduction / revocation of commission(all reductions are revocation)
 
-* **入参**
+- **Introduction**
 
-  - String：nodeId   节点id，16进制格式，0x开头
-  - BigInteger：stakingBlockNum   委托节点的质押块高，代表着某个node的某次质押的唯一标示
-  - BigInteger：stakingAmount     减持的委托金额(按照最小单位算，1LAT = 10**18 VON)
+  - String: nodeId node id, hexadecimal format, starting with 0x
+  - BigInteger: The stakingBlockNum entrusted node has a high pledge block, which represents a unique sign of a pledge of a node
+  - BigInteger: the commission amount of stakingAmount reduction(based on the smallest unit, 1LAT = 10**18 von)
 
-* **返回值**
+- **return value**
 
 ```java
 TransactionResponse
 ```
 
-- TransactionResponse： 通用应答包
-	- int：code   结果标识，0为成功
-	- String：errMsg   错误信息，失败时存在
-	- TransactionReceipt：transactionReceipt  交易的回执
+- TransactionResponse: General Response Packet
+  - int: Code result identification, 0 is success
+  - String: ErrMsg error message, exists on failure
+  - TransactionReceipt：transactionReceipt  Receipt of the transaction
 
-* **合约使用**
+* **Decode transaction receipt**
+
+   - BigInteger：reward   Obtain the delegate income drawn when the commission is cancelled
+
+- **Contract use**
 
 ```java
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
@@ -522,13 +547,99 @@ BigInteger stakingBlockNum = new BigInteger("12134");
 
 PlatonSendTransaction platonSendTransaction = delegateContract.unDelegateReturnTransaction(nodeId, stakingBlockNum, stakingAmount.toBigInteger()).send();
 TransactionResponse baseResponse = delegateContract.getTransactionResponse(platonSendTransaction).send();
+
+if(baseResponse.isStatusOk()){ 
+       BigInteger reward = delegateContract.decodeUnDelegateLog(baseResponse.getTransactionReceipt());
+}
 ```
 
-### 节点相关合约
+### Reward Related Interface
 
-> PlatON经济模型中委托人相关的合约接口
+> Contract-related contract interfaces in the PlatON economic model
 
-#### 加载节点合约
+#### Load Reward Contract
+
+```java
+//Java 8
+Web3j web3j = Web3j.build(new HttpService("http://localhost:6789"));
+String chainId = "100";
+Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
+RewardContract rewardContract = RewardContract.load(web3j, deleteCredentials, chainId);
+```
+
+#### Interface Description
+
+##### **withdrawDelegateReward**
+
+> Withdraw all currently available commissioned rewards on the account 
+
+* **Introduction**
+
+  no
+
+* **return value**
+
+```java
+TransactionResponse
+```
+
+- TransactionResponse: General Response Packet
+  - int: Code result identification, 0 is success
+  - String: ErrMsg error message, exists on failure
+  - TransactionReceipt：transactionReceipt  Receipt of the transaction
+
+* **Decode transaction receipt**
+   - String：nodeId    node id
+   - BigInteger：stakingNum  node staking block number
+   - BigInteger：reward  received benefits
+
+* **Contract use**
+
+```java
+PlatonSendTransaction platonSendTransaction = rewardContract.withdrawDelegateRewardReturnTransaction().send();
+TransactionResponse baseResponse = rewardContract.getTransactionResponse(platonSendTransaction).send();
+if(baseResponse.isStatusOk()){
+    List<Reward> rewardList = rewardContract.decodeWithdrawDelegateRewardLog(baseResponse.getTransactionReceipt());
+}
+```
+
+##### **getDelegateReward**
+
+> Check the current account to get the reward details
+
+* **Introduction**
+  - String：address   client s account address
+  - List<String>： nodeList  Node list, if all is checked
+
+* **return value**
+
+```java
+CallResponse<List<Reward>> baseRespons
+```
+
+- CallResponse<List<Reward>>description
+	- int：code   result identification, 0 is success
+	- List<Reward>：data   rewardList object data
+	- String：errMsg   Error message, exists on failure
+
+* **Reward**：Reward details
+   - String：nodeId   
+   - BigInteger：stakingNum  Node pledge block is high
+   - BigInteger：reward  received benefits
+
+* **Java SDK contract use**
+
+```java
+List<String> nodeList = new ArrayList<>();
+nodeList.add(nodeId);
+CallResponse<List<Reward>> baseResponse = rewardContract.getDelegateReward(delegateAddress, nodeList).send();
+```
+
+### Node-related Contracts
+
+> Principal related contract interface in PlatON economic model
+
+#### Load Node Contract
 
 ```java
 //Java 8
@@ -538,199 +649,227 @@ Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/wall
 NodeContract contract = NodeContract.load(web3j, credentials, chainId);
 ```
 
-#### 接口说明
+#### Interface Description
 
-##### **getVerifierList**
+##### **GetVerifierList**
 
-> 查询当前结算周期的验证人队列
+> Query the queue of validators in the current settlement cycle
 
-* **入参**
+* **Introduction**
 
-  无
+  no
 
-* **返回值**
+* **return value**
 
 ```java
 CallResponse<List<Node>> baseResponse
 ```
 
-- CallResponse<List<Node>>描述
-	- int：code   结果标识，0为成功
-	- List<Node>：data   nodeList对象数据
-	- String：errMsg   错误信息，失败时存在
+- CallResponse<List<Node >>
+  - int: Code result identification, 0 is success
+  - List<Node>: data nodeList object data
+  - String: ErrMsg error message, exists on failure
 
-* **Node**：保存单个当前结算周期验证节点信息的对象
+* **Node**: object for saving node information for a single current settlement cycle
 
-  - String：BenefitAddress	用于接受出块奖励和质押奖励的收益账户
+  - String: BenefitAddress is used to accept the block reward and pledged reward income account
 
-  - String：Details   节点的描述(有长度限制，表示该节点的描述) 
+  - String: The description of the Details node(the length is limited, indicating the description of the node)
 
-  - String：NodeId   被质押的节点Id(也叫候选人的节点Id)
+  - String: NodeId The node Id of the pledge(also called the candidate's node Id)
 
-  - String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)
+  - String: NodeName The name of the node being pledged(the length is limited, indicating the name of the node)
 
-  - BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
+  - BigInteger: ProgramVersion The real version number of the PlatON process of the pledged node(the interface for obtaining the version number is provided by the governance)
 
-  - BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON
+  - BigInteger: Released von who initiated a free amount locked period pledged account
 
-  - BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON
+  - BigInteger: ReleasedHes initiated the free amount of the hesitation period of the pledged account
 
-  - BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
+  - BigInteger: RestrictingPlan initiates the lock-up period of the locked account amount of the pledged account.
 
-  - BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
+  - BigInteger: RestrictingPlanHes initiated the hedging period of the locked amount of the pledged account
 
-  - BigInteger：Shares   当前候选人总共质押加被委托的VON数目
+  - BigInteger: Shares the current candidate's total pledge plus the number of entrusted vons
 
-  - String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
+  - String: StakingAddress The account used when initiating the pledge(when the pledge is cancelled, von will be returned to the account or the account's lock information)
 
-  - BigInteger：StakingBlockNum    发起质押时的区块高度
+  - BigInteger: block height when StakingBlockNum initiated pledge
 
-  - BigInteger：StakingEpoch   当前变更质押金额时的结算周期
+  - BigInteger: StakingEpoch's current settlement cycle when the pledge amount is changed
 
-  - BigInteger：StakingTxIndex   发起质押时的交易索引
+  - BigInteger: StakingTxIndex transaction index when pledge is initiated
 
-  - BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，          
+  - BigInteger: Status of the status candidate, 0: node is available, 1: node is unavailable, 2: node block rate is low but the removal condition is not met,
 
-    4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销
+    4: The node's von is insufficient to the minimum pledge threshold(only the penultimate bit is 1), 8: the node is reported to be double signed, 16: the node block rate is low and the removal condition is reached(the penultimate bit is 1); : Node initiates cancellation
 
-  - BigInteger：ValidatorTerm   验证人的任期
+  - BigInteger: ValidatorTerm
 
-  - String：Website   节点的第三方主页(有长度限制，表示该节点的主页)
+  - String: Website The third-party homepage of the Website node(the length of the node is the homepage of the node)
 
-* **Java SDK合约使用**
+  - BigInteger：delegateTotal  The total number of commissioned nodes
+
+  - BigInteger：delegateRewardTotal  Total delegated rewards currently issued by the candidate
+
+  - BigInteger：nextRewardPer Proportion of reward share in the next settlement cycle
+
+  - BigInteger：rewardPer Proportion of reward share in current settlement cycle
+
+* **Java SDK contract use**
 
 ```java
 CallResponse<List<Node>> baseResponse = nodeContract.getVerifierList().send();
 ```
 
 ##### **getValidatorList**
-> 查询当前共识周期的验证人列表
+> Query the list of validators in the current consensus cycle
 
-* **入参**
+- **Introduction**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 CallResponse<List<Node>> baseResponse
 ```
 
-- CallResponse<List<Node>>描述
-	- int：code   结果标识，0为成功
-	- List<Node>：data   nodeList对象数据
-	- String：errMsg   错误信息，失败时存在
+- CallResponse<List<Node >>
+  - int: Code result identification, 0 is success
+  - List<Node>: Data nodeList object data
+  - String: ErrMsg error message, exists on failure
 
-* **Node**：保存单个当前共识周期验证节点信息的对象
+- **Node**: object that saves the information of a single current consensus cycle verification node
 
-  - String：BenefitAddress	用于接受出块奖励和质押奖励的收益账户
+  - String: BenefitAddress is used to accept the block reward and pledged reward income account
 
-  - String：Details   节点的描述(有长度限制，表示该节点的描述) 
+  - String: The description of the Details node(the length is limited, indicating the description of the node)
 
-  - String：NodeId   被质押的节点Id(也叫候选人的节点Id)
+  - String: NodeId The node Id of the pledge(also called the candidate's node Id)
 
-  - String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)
+  - String: NodeName The name of the node being pledged(the length is limited, indicating the name of the node)
 
-  - BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
+  - BigInteger: ProgramVersion The real version number of the PlatON process of the pledged node(the interface for obtaining the version number is provided by the governance)
 
-  - BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON
+  - BigInteger: Released von who initiated a free amount locked period pledged account
 
-  - BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON
+  - BigInteger: ReleasedHes initiated the free amount of the hesitation period of the pledged account
 
-  - BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
+  - BigInteger: RestrictingPlan initiates the lock-up period of the locked account amount of the pledged account.
 
-  - BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
+  - BigInteger: RestrictingPlanHes initiated the hedging period of the locked amount of the pledged account
 
-  - BigInteger：Shares   当前候选人总共质押加被委托的VON数目
+  - BigInteger: Shares the current candidate's total pledge plus the number of entrusted vons
 
-  - String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
+  - String: StakingAddress The account used when initiating the pledge(when the pledge is cancelled, von will be returned to the account or the account's lock information)
 
-  - BigInteger：StakingBlockNum    发起质押时的区块高度
+  - BigInteger: block height when StakingBlockNum initiated pledge
 
-  - BigInteger：StakingEpoch   当前变更质押金额时的结算周期
+  - BigInteger: StakingEpoch's current settlement cycle when the pledge amount is changed
 
-  - BigInteger：StakingTxIndex   发起质押时的交易索引
+  - BigInteger: StakingTxIndex transaction index when pledge is initiated
 
-  - BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销
+  - BigInteger: Status of the status candidate, 0: node is available, 1: node is unavailable, 2: node block rate is low but the removal condition is not met, 4: The node's von is less than the minimum pledge threshold(only the penultimate bit is 1),8: The node is reported with double sign, 16: The node's block generation rate is low and the removal condition is reached(the penultimate bit is 1); 32: The node actively initiates the cancellation
 
-  - BigInteger：ValidatorTerm   验证人的任期
+  - BigInteger: ValidatorTerm
 
-  - String：Website   节点的第三方主页(有长度限制，表示该节点的主页)
+  - String: Website The third-party homepage of the Website node(the length of the node is the homepage of the node)
 
-* **Java SDK合约使用**
+  - BigInteger：delegateTotal  The total number of commissioned nodes
+
+  - BigInteger：delegateRewardTotal  Total delegated rewards currently issued by the candidate
+
+  - BigInteger：nextRewardPer Proportion of reward share in the next settlement cycle
+
+  - BigInteger：rewardPer Proportion of reward share in current settlement cycle
+
+- **Java SDK contract use**
 
 ```java
 CallResponse<List<Node>> baseResponse = nodeContract.getValidatorList().send();
 ```
 
-##### **getCandidateList**
+##### **GetCandidateList**
 
-> 查询所有实时的候选人列表
+> Query all real-time candidate lists
 
-* **入参**
+- **Introduction**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 CallResponse<List<Node>> baseResponse
 ```
 
-- CallResponse<List<Node>>描述
-	- int：code   结果标识，0为成功
-	- List<Node>：data   nodeList对象数据
-	- String：errMsg   错误信息，失败时存在
+- CallResponse<List<Node >>
+  - int: Code result identification, 0 is success
+  - List<Node>: Data nodeList object data
+  - String: ErrMsg error message, exists on failure
 
-* **Node**：保存单个候选节点信息对象
+- **Node**: holds a single candidate node information object
 
-  - String：BenefitAddress	用于接受出块奖励和质押奖励的收益账户
+  - String: BenefitAddress is used to accept the block reward and pledged reward income account
 
-  - String：Details   节点的描述(有长度限制，表示该节点的描述) 
+  - String: The description of the Details node(the length is limited, indicating the description of the node)
 
-  - String：NodeId   被质押的节点Id(也叫候选人的节点Id)
+  - String: NodeId The node Id of the pledge(also called the candidate's node Id)
 
-  - String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)
+  - String: NodeName The name of the node being pledged(the length is limited, indicating the name of the node)
 
-  - BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
+  - BigInteger: ProgramVersion The real version number of the PlatON process of the pledged node(the interface for obtaining the version number is provided by the governance)
 
-  - BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON
+  - BigInteger: Released von who initiated a free amount locked period pledged account
 
-  - BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON
+  - BigInteger: ReleasedHes initiated the free amount of the hesitation period of the pledged account
 
-  - BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
+  - BigInteger: RestrictingPlan initiates the lock-up period of the locked account amount of the pledged account.
 
-  - BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
+  - BigInteger: RestrictingPlanHes initiated the hedging period of the locked amount of the pledged account
 
-  - BigInteger：Shares   当前候选人总共质押加被委托的VON数目
+  - BigInteger: Shares the current candidate's total pledge plus the number of entrusted vons
 
-  - String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
+  - String: StakingAddress The account used when initiating the pledge(when the pledge is cancelled, von will be returned to the account or the account's lock information)
 
-  - BigInteger：StakingBlockNum    发起质押时的区块高度
+  - BigInteger: block height when StakingBlockNum initiated pledge
 
-  - BigInteger：StakingEpoch   当前变更质押金额时的结算周期
+  - BigInteger: StakingEpoch's current settlement cycle when the pledge amount is changed
 
-  - BigInteger：StakingTxIndex   发起质押时的交易索引
+  - BigInteger: StakingTxIndex transaction index when pledge is initiated
 
-  - BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，          
+  - BigInteger: Status of the status candidate, 0: node is available, 1: node is unavailable, 2: node block rate is low but the removal condition is not met,
 
-    4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销
+    4: The node's von is insufficient to the minimum pledge threshold(only the penultimate bit is 1), 8: the node is reported to be double signed, 16: the node block rate is low and the removal condition is reached(the penultimate bit is 1); : Node initiates cancellation
 
-  - BigInteger：ValidatorTerm   验证人的任期
+  - BigInteger: ValidatorTerm
 
-  - String：Website   节点的第三方主页(有长度限制，表示该节点的主页)
+  - String: The third-party homepage of the Website node(the length of the node is the homepage of the node)
 
-* **Java SDK合约使用**
+  - BigInteger：delegateEpoch  The node's last commissioned settlement cycle
+  
+  - BigInteger：delegateTotal  The total number of commissioned nodes
+  
+  - BigInteger：delegateTotalHes  Total number of inactive nodes commissioned
+  
+  - BigInteger：delegateRewardTotal  Total delegated rewards currently issued by the candidate
+  
+  - BigInteger：nextRewardPer Proportion of reward share in the next settlement cycle
+  
+  - BigInteger：rewardPer Proportion of reward share in current settlement cycle
+
+- **Java SDK contract use**
 
 ```java
 CallResponse<List<Node>> baseResponse = nodeContract.getCandidateList().send();
 ```
 
-###  治理相关合约
+### Governance Related Contracts
 
-> PlatON治理相关的合约接口
+> Contract interface related to PlatON governance
 
-#### 加载治理合约
+#### Load governance contract
 
 ```java
 //Java 8
@@ -740,51 +879,51 @@ Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/wall
 ProposalContract contract = ProposalContract.load(web3j, credentials, chainId);
 ```
 
-#### 接口说明
+#### Interface Description
 
 ##### **submitProposal**
 
-> 提交提案
+> Submit a Proposal
 
-* **入参**
+- **Introduction**
 
-  - Proposal：提案对象
+  - Proposal：proposal
 
-* **文本提案 Proposal.createSubmitTextProposalParam()**
-  - String：verifier 提交提案的验证人
+* **TextProposal Proposal.createSubmitTextProposalParam()**
+  - String：verifier Submit verifier
   - String：pIDID  PIPID
 
-* **升级提案 Proposal.createSubmitVersionProposalParam()**
-  - String：verifier 提交提案的验证人
+* **VersionProposal Proposal.createSubmitVersionProposalParam()**
+  - String：verifier Submit verifier
   - String：pIDID  PIPID
-  - BigInteger：newVersion  升级版本
-  - BigInteger：endVotingRounds   投票共识轮数量。说明：假设提交提案的交易，被打包进块时的共识轮序号时round1，则提案投票截止块高，就是round1 + endVotingRounds这个共识轮的第230个块高（假设一个共识轮出块250，ppos揭榜提前20个块高，250，20都是可配置的 ），其中0 < endVotingRounds <= 4840（约为2周，实际论述根据配置可计算），且为整数）
+  - BigInteger：newVersion  updated version
+  - BigInteger：endVotingRounds   Number of voting consensus rounds. Explanation: Suppose that the transaction that submitted the proposal is round1 when the consensus round number is packed into the block, the proposal voting deadline block is high, which is round1 + endVotingRounds, the 230th block height of the consensus round (assuming a consensus round produces block 250, ppos Unveiled 20 blocks high in advance, 250 and 20 are configurable), where 0 <endVotingRounds <= 4840 (about 2 weeks, actual discussion can be calculated based on configuration), and is an integer)
 
-* **参数提案 Proposal.createSubmitParamProposalParam()**
-  - String：verifier 提交提案的验证人
+* **ParamProposal Proposal.createSubmitParamProposalParam()**
+  - String：verifier Submit verifier
   - String：pIDID  PIPID
-  - String：module  参数模块
-  - String：name  参数名称
-  - String：newValue 参数新值
+  - String：module  parameter module
+  - String：name  parameter name
+  - String：newValue parameter newValue
   
-* **取消提案 Proposal.createSubmitCancelProposalParam()**
-  - String：verifier 提交提案的验证人
+* **CancelProposal Proposal.createSubmitCancelProposalParam()**
+  - String：verifier Submit verifier
   - String：pIDID  PIPID
-  - BigInteger：endVotingRounds  投票共识轮数量。参考提交升级提案的说明，同时，此接口中此参数的值不能大于对应升级提案中的
-  - String：tobeCanceledProposalID  待取消的提案ID
+  - BigInteger：endVotingRounds  Number of voting consensus rounds. Refer to the description of submitting an upgrade proposal. At the same time, the value of this parameter in this interface cannot be greater than the corresponding
+  - String：tobeCanceledProposalID  Proposal ID to be cancelled
 
-* **返回值**
+* **return value**
 
 ```java
 TransactionResponse
 ```
 
-- TransactionResponse： 通用应答包
-	- int：code   结果标识，0为成功
-	- String：errMsg   错误信息，失败时存在
-	- TransactionReceipt：transactionReceipt  交易的回执
+- BaseResponse: General Response Packet
+  - int: Code result identification, 0 is success
+  - String: Data response data
+  - String: ErrMsg error message, exists on failure
 
-* **合约使用**
+- **Contract use**
 
 ```java
 Proposal proposal = Proposal.createSubmitTextProposalParam(proposalNodeId,"1");
@@ -795,27 +934,27 @@ TransactionResponse baseResponse = proposalContract.getTransactionResponse(plato
 
 ##### **vote**
 
-> 给提案投票
+> Vote on proposals
 
-* **入参**
+- **Introduction**
 
-  - ProgramVersion:ProgramVersion 程序的真实版本，治理rpc接口admin_getProgramVersion获取
-  - VoteOption：voteOption   投票类型，YEAS 赞成票，NAYS 反对票，ABSTENTIONS 弃权票
-  - String：proposalID   提案ID
-  - String：verifier   声明的节点，只能是验证人/候选人
+  - ProgramVersion: the real version of the ProgramVersion program, managed by the rpc interface admin_getProgramVersion
+  - VoteOption: voteOption voting type, YEAS in favor, NAYS against, ABSTENTIONS abstaining
+  - String: proposalID proposal ID
+  - String: verifier declared node, can only be validator / candidate
 
-* **返回值**
+- **return value**
 
 ```java
 TransactionResponse
 ```
 
-- TransactionResponse： 通用应答包
-	- int：code   结果标识，0为成功
-	- String：errMsg   错误信息，失败时存在
-	- TransactionReceipt：transactionReceipt  交易的回执
+- TransactionResponse: General Response Packet
+  - int: Code result identification, 0 is success
+  - String: ErrMsg error message, exists on failure
+  - TransactionReceipt：transactionReceipt  Receipt of the transaction
 
-* **合约使用**：
+- **Contract use**:
 
 ```java
 ProgramVersion programVersion = web3j.getProgramVersion().send().getAdminProgramVersion();
@@ -829,117 +968,118 @@ TransactionResponse baseResponse = proposalContract.getTransactionResponse(plato
 
 ##### **getProposal**
 
->  查询提案
+> Query Proposal
 
-* **入参**
+* **Introduction**
 
-  - String：proposalID   提案id
+  - String: proposalID proposal id
 
-* **返回值**
+* **return value**
 
 ```java
 CallResponse<Proposal>
 ```
 
-- CallResponse<Proposal>描述
-	- int：code   结果标识，0为成功
-	- Proposal：data   Proposal对象数据
-	- String：errMsg   错误信息，失败时存在
+- CallResponse<Proposal>
+  - int: Code result identification, 0 is success
+  - Proposal: Data Proposal object data
+  - String: ErrMsg error message, exists on failure
 
-* **Proposal**：保存单个提案信息的对象
-  - String:	   proposalId	提案ID
-  - String:    proposer   提案节点ID
-  - int:    proposalType   提案类型， 0x01：文本提案； 0x02：升级提案；0x03参数提案  0x04取消提案
-  - String:    piPid   提案PIPID
-  - BigInteger:   submitBlock   提交提案的块高
-  - BigInteger:   endVotingBlock   提案投票结束的块高
-  - BigInteger:   newVersion   升级版本
-  - BigInteger:   toBeCanceled   提案要取消的升级提案ID
-  - BigInteger:   activeBlock   （如果投票通过）生效块高（endVotingBlock + 20 + 4*250 < 生效块高 <= endVotingBlock + 20 + 10*250）
-  - String:   verifier     提交提案的验证人
+- **Proposal**: Objects that hold information about a single proposal
+  - String: proposalId
+  - String: proposer ID of the proposal node
+  - int: proposalType proposal type, 0x01: text proposal; 0x02: upgrade proposal; 0x03 parameter proposal
+  - String: piPid proposal PIPID
+  - BigInteger: submitBlock
+  - BigInteger: endVotingBlock block height
+  - BigInteger: newVersion
+  - BigInteger: ID of the promotion proposal to be canceled by the toBeCanceled proposal
+  - BigInteger: activeBlock(if the vote passes) the effective block height(endVotingBlock + 20 + 4 * 250<effective block height<= endVotingBlock + 20 + 10 * 250)
+  - String: verifier
 
-* **合约使用**
+- **Contract use**
 
 ```java
-//提案id
+// Proposal id
 String proposalID = "";
 CallResponse<Proposal> baseResponse = proposalContract.getProposal(proposalID).send();
 ```
 
 ##### **getTallyResult**
 
-> 查询提案结果
+> Query Proposal Results
 
-* **入参**
+- **Introduction**
 
-  - String：proposalID   提案ID
+  - String: proposalID proposal ID
 
-* **返回值**
+- **return value**
+
 ```java
 CallResponse<TallyResult>
 ```
 
-- CallResponse<TallyResult>描述
-  - int：code   结果标识，0为成功
-  - TallyResult：data   TallyResult对象数据
-  - String：errMsg   错误信息，失败时存在
+- CallResponse<TallyResult>
+  - int: Code result identification, 0 is success
+  - TallyResult: Data TallyResult object data
+  - String: ErrMsg error message, exists on failure
 
-* **TallyResult**：保存单个提案结果的对象
-  - String:   proposalID   提案ID
-  - BigInteger:   yeas   赞成票票数
-  - BigInteger:   nays   反对票票数
-  - BigInteger:   abstentions   弃权票票数
-  - BigInteger:   accuVerifiers   在整个投票期内有投票资格的验证人总数
-  - int:   status   提案状态  
-  
+- **TallyResult**: Object that holds the results of a single proposal
+  - String: proposalID
+  - BigInteger: yeas votes
+  - BigInteger: nays
+  - BigInteger: abstentions
+  - BigInteger: accuVerifiers Total number of validators who have qualified to vote throughout the voting period
+  - int: status proposal status
+
 * **status**
-  - Voting：0x01，投票中
-  - Pass：0x02，投票通过
-  - Failed：0x03，投票失败
-  - PreActive：0x04，（升级提案）预生效
-  - Active：0x05，（升级提案）生效
-  - Canceled：0x06，被取消
+  - Voting：0x01
+  - Pass：0x02
+  - Failed：0x03
+  - PreActive：0x04
+  - Active：0x05
+  - Canceled：0x06
 
-* **合约使用**
+- **Contract use**
 
 ```java
-//提案id
+// Proposal id
 String proposalID ="";
 CallResponse<TallyResult> baseResponse = proposalContract.getTallyResult(proposalID).send();
 ```
 
 ##### **getProposalList**
 
-> 查询提案列表
+> Query proposal list
 
-* **入参**
+- **Introduction**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 CallResponse<List<Proposal>>
 ```
 
-- CallResponse<List<Proposal>>描述
-	- int：code   结果标识，0为成功
-	- List<Proposal>：data   ProposalList对象数据
-	- String：errMsg   错误信息，失败时存在
+- CallResponse<List<Proposal >>
+  - int: Code result identification, 0 is success
+  - List<Proposal>: Data ProposalList object data
+  - String: ErrMsg error message, exists on failure
 
-* **Proposal**：保存单个提案的对象
-  - String:	   proposalId	提案ID
-  - String:    proposer   提案节点ID
-  - int:    proposalType   提案类型， 0x01：文本提案； 0x02：升级提案；0x03参数提案
-  - String:    piPid   提案PIPID
-  - BigInteger:   submitBlock   提交提案的块高
-  - BigInteger:   endVotingBlock   提案投票结束的块高
-  - BigInteger:   newVersion   升级版本
-  - String:   toBeCanceled   提案要取消的升级提案ID
-  - BigInteger:   activeBlock   （如果投票通过）生效块高（endVotingBlock + 20 + 4*250 < 生效块高 <= endVotingBlock + 20 + 10*250）
-  - String:   verifier     提交提案的验证人
+- **Proposal**: object for saving a single proposal
+  - String: proposalId
+  - String: proposer ID of the proposal node
+  - int: proposalType proposal type, 0x01: text proposal; 0x02: upgrade proposal; 0x03 parameter proposal
+  - String: piPid proposal PIPID
+  - BigInteger: submitBlock
+  - BigInteger: endVotingBlock block height
+  - BigInteger: newVersion
+  - String: ID of the promotion proposal to be canceled by the toBeCanceled proposal
+  - BigInteger: activeBlock(if the vote passes) the effective block height(endVotingBlock + 20 + 4 * 250<effective block height<= endVotingBlock + 20 + 10 * 250)
+  - String: verifier
 
-* **合约使用**
+- **Contract use**
 
 ```java
 CallResponse<List<Proposal>> baseResponse = proposalContract.getProposalList().send();
@@ -947,24 +1087,25 @@ CallResponse<List<Proposal>> baseResponse = proposalContract.getProposalList().s
 
 ##### **declareVersion**
 
-> 版本声明
+> Release statement
 
-* **入参**
+- **Introduction**
 
-  - ProgramVersion:ProgramVersion 程序的真实版本，治理rpc接口admin_getProgramVersion获取
-  - String：verifier   声明的节点，只能是验证人/候选人
+  - ProgramVersion: the real version of the ProgramVersion program, managed by the rpc interface admin_getProgramVersion
+  - String: verifier declared node, can only be validator / candidate
 
-* **返回值**
-```
+- **return value**
+
+```java
 TransactionResponse
 ```
 
-- TransactionResponse： 通用应答包
-	- int：code   结果标识，0为成功
-	- String：errMsg   错误信息，失败时存在
-	- TransactionReceipt：transactionReceipt  交易的回执
+- TransactionResponse: General Response Packet
+  - int: Code result identification, 0 is success
+  - String: ErrMsg error message, exists on failure
+  - TransactionReceipt：transactionReceipt  Receipt of the transaction
 
-* **合约使用**
+- **Contract use**
 
 ```java
 ProgramVersion programVersion = web3j.getProgramVersion().send().getAdminProgramVersion();
@@ -976,34 +1117,35 @@ TransactionResponse baseResponse = proposalContract.getTransactionResponse(plato
 
 ##### **getActiveVersion**
 
-> 查询节点的链生效版本
+> Query node chain effective version
 
-* **入参**
+- **Introduction**
 
-  无
+  no
 
-* **返回值**
-```
+- **return value**
+
+```java
 CallResponse
 ```
 
-- CallResponse<BigInteger>： 通用应答包
-	- int：code   结果标识，0为成功
-	- BigInteger：data   版本信息
-	- String：errMsg   错误信息，失败时存在
+- CallResponse: General Response Packet
+  - int: Code result identification, 0 is success
+  - String: Data response data
+  - String: ErrMsg error message, exists on failure
 
-* **合约使用**
+- **Contract use**
 
 ```java
 CallResponse<BigInteger> baseResponse = proposalContract.getActiveVersion().send();
 ProposalUtils.versionInterToStr(baseResponse.getData());
 ```
 
-###  双签举报相关接口
+### Double Sign Report Related Interface
 
-> PlatON举报惩罚相关的合约接口
+> PlatON report contract related punishment interface
 
-#### 加载举报合约
+#### Load Report Contract
 
 ```
 //Java 8
@@ -1013,69 +1155,69 @@ Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/wall
 SlashContract contract = SlashContract.load(web3j, credentials, chainId);
 ```
 
-#### 接口说明
+#### Interface Description
 
-##### **reportDoubleSign**
+##### **ReportDoubleSignReturnTransaction**
 
-> 举报双签
+> Submit a Proposal
 
-* **入参**
+- **Introduction**
 
-  - DuplicateSignType：DuplicateSignType   枚举，代表双签类型：PREPARE_BLOCK，PREPARE_VOTE，VIEW_CHANGE
-  - String：data   单个证据的json值，格式参照[RPC接口Evidences](#evidences_interface)
+  - DuplicateSignType: DuplicateSignType enumeration, representing double sign types: prepareBlock, EprepareVote, viewChange
+  - String: data json value of a single evidence, format refer to [RPC interface Evidences](# evidences_interface)
 
-* **返回值**
+- **return value**
 
 ```java
 TransactionResponse
 ```
 
-- TransactionResponse： 通用应答包
-	- int：code   结果标识，0为成功
-	- String：errMsg   错误信息，失败时存在
-	- TransactionReceipt：transactionReceipt  交易的回执
+- TransactionResponse: General Response Packet
+  - int: Code result identification, 0 is success
+  - String: ErrMsg error message, exists on failure
+  - TransactionReceipt：transactionReceipt  Receipt of the transaction
 
-* **合约使用**
+- **Contract use**
 
 ```java
-String data = "";	//举报证据
+String data = ""; // Report evidence
 PlatonSendTransaction platonSendTransaction = slashContract.reportDoubleSignReturnTransaction(DuplicateSignType.PREPARE_BLOCK, data).send();
 
 TransactionResponse baseResponse = slashContract.getTransactionResponse(platonSendTransaction).send();
 ```
 
-##### **checkDuplicateSign**
+##### **CheckDoubleSign**
 
-> 查询节点是否已被举报过多签
+> Query whether a node has been reported as oversigned
 
-* **入参**
+- **Introduction**
 
-  - DuplicateSignType：DuplicateSignType   枚举，代表双签类型：prepareBlock，EprepareVote，viewChange
-  - String：address   举报的节点地址
-  - BigInteger：blockNumber   多签的块高 
+  - DuplicateSignType: DuplicateSignType enumeration, representing double sign types: prepareBlock, EprepareVote, viewChange
+  - String: address of the node reported by address
+  - BigInteger: blockNumber multi-sign block height
 
-* **返回值**
+- **return value**
 
 ```java
 CallResponse
 ```
 
-- CallResponse： 通用应答包
-	- int：code   结果标识，0为成功
-	- String：data   Y, 可能为零交易Hash，即: 0x000...000
-	- String：errMsg   错误信息，失败时存在
+- CallResponse: General Response Packet
+  - int: Code result identification, 0 is success
+  - String: Data response data
+  - String: ErrMsg error message, exists on failure
 
-* **合约使用**
+- **Contract use**
 
 ```java
 CallResponse<String> baseResponse = slashContract.checkDoubleSign(DuplicateSignType.PREPARE_BLOCK, "0x4F8eb0B21eb8F16C80A9B7D728EA473b8676Cbb3", BigInteger.valueOf(500L)).send();
 ```
 
-###  锁仓相关接口
+### Lock Related Interface
 
-> PlatON举报惩罚相关的合约接口
+> PlatON report contract related punishment interface
 
-#### 加载锁仓合约
+#### Loading The Hedging Contract
 
 ```java
 //Java 8
@@ -1085,31 +1227,31 @@ Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/wall
 RestrictingPlanContract contract = RestrictingPlanContract.load(web3j, credentials, chainId);
 ```
 
-#### 接口说明
+#### Interface Description
 
-##### **createRestrictingPlan**
+##### **CreateRestrictingPlan**
 
-> 创建锁仓计划
+> Create Lockup Plan
 
-* **入参**
+- **Introduction**
 
-  - String：address   锁仓释放到账账户
-  - List<RestrictingPlan>：plan   锁仓计划列表（数组）
-    - epoch：表示结算周期的倍数。与每个结算周期出块数的乘积表示在目标区块高度上释放锁定的资金。如果 account 是激励池地址， 那么 period 值是 120（即，30*4） 的倍数。另外，period,每周期的区块数至少要大于最高不可逆区块高度。
-    - amount：表示目标区块上待释放的金额。
+  - String: address lock position is released to the account
+  - List<RestrictingPlan>: plan Locked plan list(array)
+    - epoch: indicates a multiple of the settlement cycle. The product of the number of blocks produced per settlement cycle indicates the release of locked funds at the height of the target block. If account is the incentive pool address, the period value is a multiple of 120(that is, 30 * 4). In addition, period, the number of blocks per cycle must be at least greater than the highest irreversible block height.
+    - amount: indicates the amount to be released on the target block.
 
-* **返回值**
+- **return value**
 
 ```java
 TransactionResponse
 ```
 
-- TransactionResponse： 通用应答包
-	- int：code   结果标识，0为成功
-	- String：errMsg   错误信息，失败时存在
-	- TransactionReceipt：transactionReceipt  交易的回执
+- TransactionResponse: General Response Packet
+  - int: Code result identification, 0 is success
+  - String: ErrMsg error message, exists on failure
+  - TransactionReceipt：transactionReceipt  Receipt of the transaction
 
-* **合约使用**
+- **Contract use**
 
 ```java
 List<RestrictingPlan> restrictingPlans = new ArrayList<>();
@@ -1120,84 +1262,85 @@ PlatonSendTransaction platonSendTransaction = restrictingPlanContract.createRest
 TransactionResponse baseResponse = restrictingPlanContract.getTransactionResponse(platonSendTransaction).send();
 ```
 
-##### **getRestrictingInfo**
+##### **GetRestrictingInfo**
 
-> 获取锁仓计划
+> Get Locked Up Plan
 
-* **入参**
-  - String：address   锁仓释放到账账户
+- **Introduction**
 
-* **返回值**
+  - String: address lock position is released to the account
+
+- **return value**
 
 ```java
 CallResponse<RestrictingItem> baseResponse
 ```
 
-- CallResponse<RestrictingItem>描述
-	- int：code   结果标识，0为成功
-	- RestrictingItem：Data   RestrictingItem对象数据
-	- String：errMsg   错误信息，失败时存在
+- CallResponse<RestrictingItem> description
+  - int: Code result identification, 0 is success
+  - RestrictingItem: Data RestrictingItem object data
+  - String: ErrMsg error message, exists on failure
 
-* **RestrictingItem**：保存锁仓信息对象
-  - BigInteger：balance    锁仓余额
-  - BigInteger：pledge   质押/抵押金额
-  - BigInteger：debt   欠释放金额
-  - List<RestrictingInfo>：info   锁仓分录信息
-* **RestrictingInfo**：保存单个锁仓分录信息的对象
-  - BigInteger：blockNumber    释放区块高度
-  - BigInteger：amount   释放金额
+- **RestrictingItem**: save lock information object
+  - BigInteger: balance
+  - BigInteger: pledge pledge / mortgage amount
+  - BigInteger: debt release amount due
+  - List<RestrictingInfo>: info lock entry information
+- **RestrictingInfo**: Object that saves information of a single lock entry
+  - BigInteger: blockNumber releases block height
+  - BigInteger: amount released
 
-* **合约使用**
+- **Contract use**
 
 ```java
 CallResponse<RestrictingItem> baseResponse = restrictingPlanContract.getRestrictingInfo(restrictingRecvCredentials.getAddress()).send();
 ```
 
-## 基础API使用
+## Basic API Usage
 
-基础`API`包括网络，交易，查询，节点信息，经济模型参数配置等相关的接口，具体参考如下`API`使用说明。
+The basic `API` includes network, transaction, query, node information, economic model parameter configuration and other related interfaces. For details, refer to the following` API` instructions.
 
 ### web3ClientVersion
 
-> 返回当前客户端版本
+> Returns the current client version
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, Web3ClientVersion>
 ```
 
-Web3ClientVersion属性中的string即为对应存储数据
+The string in the Web3ClientVersion property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, Web3ClientVersion> request = currentValidWeb3j.web3ClientVersion();
-String version = request.send().getWeb3ClientVersion();
+Request<?, Web3ClientVersion> request = currentValidWeb3j.web3ClientVersion();
+String version = request.send(). GetWeb3ClientVersion();
 ```
 
 ### web3Sha3
 
-> 返回给定数据的keccak-256（不是标准sha3-256）
+> Keccak-256 returning the given data
 
-* **参数**
+- **parameters**
 
-  String ：加密前的数据
+  String: The data before encryption
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, Web3Sha3>
 ```
 
-Web3Sha3属性中的string即为对应存储数据
+The string in the Web3Sha3 attribute is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1208,21 +1351,21 @@ String resDate = request.send().getWeb3ClientVersion();
 
 ### netVersion
 
-> 返回当前网络ID
+> Returns the current network ID
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, NetVersion>
 ```
 
-NetVersion属性中的string即为对应存储数据
+The string in the NetVersion attribute is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1232,21 +1375,21 @@ String version = request.send().getNetVersion();
 
 ### netListening
 
-> 如果客户端正在积极侦听网络连接，则返回true
+Return true if the client is actively listening for a network connection
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, NetListening>
 ```
 
-NetListening属性中的boolean即为对应存储数据
+The boolean in the NetListening property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1256,21 +1399,21 @@ boolean req = request.send().isListening();
 
 ### netPeerCount
 
-> 返回当前连接到客户端的对等体的数量
+> Returns the number of peers currently connected to the client
 
-* **参数**
+- **parameters**
 
-  ​	无
+  None
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, NetPeerCount>
 ```
 
-NetPeerCount属性中的BigInteger即为对应存储数据
+The BigInteger in the NetPeerCount property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1280,21 +1423,21 @@ BigInteger req = request.send().getQuantity();
 
 ### platonProtocolVersion
 
-> 返回当前platon协议版本
+> Returns the current platon protocol version
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonProtocolVersion>
 ```
 
-PlatonProtocolVersion属性中的String即为对应存储数据
+The String in the PlatonProtocolVersion property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1302,23 +1445,23 @@ Request <?, PlatonProtocolVersion> request = currentValidWeb3j.platonProtocolVer
 String req = request.send().getProtocolVersion();
 ```
 
-### platonSyncing
+### PlatonSyncing
 
-> 返回一个对象，其中包含有关同步状态的数据或false
+Return an object containing data about the synchronization status or false
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonSyncing>
 ```
 
-PlatonSyncing属性中的String即为对应存储数据
+The String in the PlatonSyncing property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1328,21 +1471,21 @@ boolean req = request.send().isSyncing();
 
 ### platonGasPrice
 
-> 返回gas当前价格
+> Return current gas price
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonGasPrice>
 ```
 
-PlatonGasPrice属性中的BigInteger即为对应存储数据
+The BigInteger in the PlatonGasPrice property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1352,21 +1495,21 @@ BigInteger req = request.send().getGasPrice();
 
 ### platonAccounts
 
-> 返回客户端拥有的地址列表
+> Return the list of addresses owned by the client
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonAccounts>
 ```
 
-PlatonAccounts属性中的String数组即为对应存储数据
+The String array in the PlatonAccounts property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1376,21 +1519,21 @@ List<String> req = request.send().getAccounts();
 
 ### platonBlockNumber
 
-> 返回当前最高块高
+> Returns the current highest block height
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonBlockNumber>
 ```
 
-PlatonBlockNumber属性中的BigInteger即为对应存储数据
+The BigInteger in the PlatonBlockNumber property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1400,25 +1543,25 @@ BigInteger req = request.send().getBlockNumber();
 
 ### platonGetBalance
 
-> 返回查询地址余额
+> Back to query address balance
 
-* **参数**
-    - String ： address 需要查询的地址
-    - DefaultBlockParameter: 
-      - DefaultBlockParameterName.LATEST  最新块高(默认)
-      - DefaultBlockParameterName.EARLIEST 最低块高
-      - DefaultBlockParameterName.PENDING 未打包交易
-      - DefaultBlockParameter.valueOf(BigInteger  blockNumber) 指定块高
+- **parameters**
+  - String: address The address to query
+  - DefaultBlockParameter:
+    - DefaultBlockParameterName.LATEST latest block height(default)
+    - DefaultBlockParameterName.EARLIEST minimum block height
+    - DefaultBlockParameterName.PENDING unpackaged transaction
+    - DefaultBlockParameter.valueOf(BigInteger blockNumber)
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonGetBalance>
 ```
 
-PlatonGetBalance属性中的BigInteger即为对应存储数据
+The BigInteger in the PlatonGetBalance property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j web3j = Web3j.build(new HttpService("http://localhost:6789"));
@@ -1429,26 +1572,26 @@ BigInteger req = request.send().getBalance();
 
 ### platonGetStorageAt
 
-> 从给定地址的存储位置返回值
+Return value from storage location of given address
 
-* **参数**
-    - String : address  存储地址
-    - BigInteger: position 存储器中位置的整数
-    - DefaultBlockParameter: 
-      -  DefaultBlockParameterName.LATEST  最新块高(默认)
-      -  DefaultBlockParameterName.EARLIEST 最低块高
-      -  DefaultBlockParameterName.PENDING 未打包交易
-      -  DefaultBlockParameter.valueOf(BigInteger blockNumber) 指定块高
-
-* **返回值**
+- **parameters**
+  - String: address
+  - BigInteger: integer for position in position memory
+  - DefaultBlockParameter:
+    - DefaultBlockParameterName.LATEST latest block height(default)
+    - DefaultBlockParameterName.EARLIEST minimum block height
+    - DefaultBlockParameterName.PENDING unpackaged transaction
+    - DefaultBlockParameter.valueOf(BigInteger blockNumber)
+-
+ **return value**
 
 ```java
 Request<?, PlatonGetStorageAt>
 ```
 
-PlatonGetStorageAt属性中的String即为对应存储数据
+The String in the PlatonGetStorageAt property is the corresponding storage data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1459,20 +1602,20 @@ String req = request.send().getData();
 
 ### platonGetBlockTransactionCountByHash
 
-> 根据区块hash查询区块中交易个数
+> Query the number of transactions in a block according to the block hash
 
-* **参数**
-	- String : blockHash 区块hash
+- **parameters**
+  - String: blockHash block hash
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonGetBlockTransactionCountByHash>
 ```
 
-PlatonGetBlockTransactionCountByHash属性中的BigInteger即为对应存储数据
+The BigInteger in the PlatonGetBlockTransactionCountByHash property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1483,53 +1626,53 @@ BigInteger req = request.send().getTransactionCount();
 
 ### platonGetTransactionCount
 
-> 根据地址查询该地址发送的交易个数
+> Query the number of transactions sent by the address according to the address
 
-* **参数**
-    - String : address 查询地址
-    - DefaultBlockParameter: 
-      -  DefaultBlockParameterName.LATEST  最新块高(默认)
-      -  DefaultBlockParameterName.EARLIEST 最低块高
-      -  DefaultBlockParameterName.PENDING 未打包交易
-      -  DefaultBlockParameter.valueOf(BigInteger blockNumber) 指定块高
+- **parameters**
+  - String: address
+  - DefaultBlockParameter:
+    - DefaultBlockParameterName.LATEST latest block height(default)
+    - DefaultBlockParameterName.EARLIEST minimum block height
+    - DefaultBlockParameterName.PENDING unpackaged transaction
+    - DefaultBlockParameter.valueOf(BigInteger blockNumber)
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonGetTransactionCount>
 ```
 
-PlatonGetTransactionCount属性中的BigInteger即为对应存储数据
+The BigInteger in the PlatonGetTransactionCount property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String address = "";
-Request <?, PlatonGetTransactionCount> request = currentValidWeb3j.platonGetTransactionCount(address,DefaultBlockParameterName.LATEST);
-BigInteger req = request.send().getTransactionCount();
+Request<?, PlatonGetTransactionCount> request = currentValidWeb3j.platonGetTransactionCount(address, DefaultBlockParameterName.LATEST);
+BigInteger req = request.send(). GetTransactionCount();
 ```
 
 ### platonGetBlockTransactionCountByNumber
 
-> 根据区块块高，返回块高中的交易总数
+> Returns the total number of transactions in block high school based on block height
 
-* **参数**
-    - DefaultBlockParameter: 
-      -  DefaultBlockParameterName.LATEST  最新块高(默认)
-      -  DefaultBlockParameterName.EARLIEST 最低块高
-      -  DefaultBlockParameterName.PENDING 未打包交易
-      -  DefaultBlockParameter.valueOf(BigInteger blockNumber) 指定块高
+- **parameters**
+  - DefaultBlockParameter:
+    - DefaultBlockParameterName.LATEST latest block height(default)
+    - DefaultBlockParameterName.EARLIEST minimum block height
+    - DefaultBlockParameterName.PENDING unpackaged transaction
+    - DefaultBlockParameter.valueOf(BigInteger blockNumber)
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonGetBlockTransactionCountByNumber>
 ```
 
-PlatonGetBlockTransactionCountByNumber属性中的BigInteger即为对应存储数据
+The BigInteger in the PlatonGetBlockTransactionCountByNumber property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1539,25 +1682,26 @@ BigInteger req = request.send().getTransactionCount();
 
 ### platonGetCode
 
->  返回给定地址的代码
+> Return code for given address
 
-* **参数**
-    - String ： address 地址/合约
+- **parameters**
+  - String: address
 
-    - DefaultBlockParameter: 
-      -  DefaultBlockParameterName.LATEST  最新块高(默认)
-      -  DefaultBlockParameterName.EARLIEST 最低块高
-      -  DefaultBlockParameterName.PENDING 未打包交易
-      -  DefaultBlockParameter.valueOf(BigInteger blockNumber) 指定块高
+  - DefaultBlockParameter:
+    - DefaultBlockParameterName.LATEST latest block height(default)
+    - DefaultBlockParameterName.EARLIEST minimum block height
+    - DefaultBlockParameterName.PENDING unpackaged transaction
+    - DefaultBlockParameter.valueOf(BigInteger blockNumber)
 
-* **返回值**
+- **return value**
+
 ```java
 Request<?, PlatonGetCode>
 ```
 
-PlatonGetCode属性中的String即为对应存储数据
+The String in the PlatonGetCode property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1568,21 +1712,21 @@ String req = request.send().getCode();
 
 ### platonSign
 
->  数据签名
+> Data Signature
 
-* **参数**
-    - String ： address   地址
-    - String :  sha3HashOfDataToSign  待签名数据
+- **parameters**
+  - String: address
+  - String: sha3HashOfDataToSign data to be signed
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonSign>
 ```
 
-PlatonSign属性中的String即为对应存储数据
+The String in the PlatonSign property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1592,33 +1736,33 @@ Request <?, PlatonSign> request = currentValidWeb3j.platonSign(address,DefaultBl
 String req = request.send().getSignature();
 ```
 
-备注：地址必须提前先解锁
+Note: The address must be unlocked in advance
 
 ### platonSendTransaction
 
->  发送服务代签名交易
+> Send service signing transaction
 
-* **参数**
-    - Transaction : Transaction: 交易结构
-      - String : from : 交易发送地址
-      - String : to : 交易接收方地址
-      - BigInteger ： gas ：  本次交易gas用量上限 
-      - BigInteger ： gasPrice ： gas价格
-      - BigInteger ：value ： 转账金额
-      - String ：data ： 上链数据
-      - BigInteger ：nonce ： 交易唯一性标识
-        - 调用platonGetTransactionCount，获取from地址作为参数，获取到该地址的已发送交易总数
-        - 每次使用该地址nonce +1 
+- **parameters**
+  - Transaction: Transaction: transaction structure
+    - String: from: transaction sending address
+    - String: to: address of transaction receiver
+    - BigInteger: gas: maximum gas usage for this transaction
+    - BigInteger: gasPrice: gas price
+    - BigInteger: value: transfer amount
+    - String: data: data on the chain
+    - BigInteger: nonce: transaction unique identifier
+      - Call platonGetTransactionCount, get the from address as a parameter, and get the total number of sent transactions to that address
+      - Each use of the address nonce +1
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonSendTransaction>
 ```
 
-PlatonSendTransaction属性中的String即为对应存储数据
+The String in the PlatonSendTransaction property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1629,20 +1773,20 @@ String req = request.send().getTransactionHash();
 
 ### platonSendRawTransaction
 
->  发送交易
+> Send transaction
 
-* **参数**
-	- String : data : 钱包签名后数据
+- **parameters**
+  - String: data: wallet signed data
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonSendTransaction>
 ```
 
-PlatonSendTransaction属性中的String即为对应存储数据
+The String in the PlatonSendTransaction property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1653,29 +1797,29 @@ String req = request.send().getTransactionHash();
 
 ### platonCall
 
->   执行一个消息调用交易，消息调用交易直接在节点旳VM中执行而 不需要通过区块链的挖矿来执行 
+> Execute a message call transaction, the message call transaction is executed directly in the node 旳 VM without the need to execute through blockchain mining
 
-* **参数**
-    - Transaction : Transaction: 交易结构
-      - String : from : 交易发送地址
-      - String : to : 交易接收方地址
-      - BigInteger ： gas ：  本次交易gas用量上限 
-      - BigInteger ： gasPrice ： gas价格
-      - BigInteger ：value ： 转账金额
-      - String ：data ： 上链数据
-      - BigInteger ：nonce ： 交易唯一性标识
-        - 调用platonGetTransactionCount，获取from地址作为参数，获取到该地址的已发送交易总数
-        - 每次使用该地址nonce +1 
+- **parameters**
+  - Transaction: Transaction: transaction structure
+    - String: from: transaction sending address
+    - String: to: address of transaction receiver
+    - BigInteger: gas: maximum gas usage for this transaction
+    - BigInteger: gasPrice: gas price
+    - BigInteger: value: transfer amount
+    - String: data: data on the chain
+    - BigInteger: nonce: transaction unique identifier
+      - Call platonGetTransactionCount, get the from address as a parameter, and get the total number of sent transactions to that address
+      - Each use of the address nonce +1
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonCall>
 ```
 
-PlatonCall属性中的String即为对应存储数据
+The String in the PlatonCall property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```javas
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1686,29 +1830,29 @@ String req = request.send().getValue();
 
 ### platonEstimateGas
 
->   估算合约方法gas用量 
+> Estimating contract method gas usage
 
-* **参数**
-    - Transaction : Transaction: 交易结构
-      - String : from : 交易发送地址
-      - String : to : 交易接收方地址
-      - BigInteger ： gas ：  本次交易gas用量上限 
-      - BigInteger ： gasPrice ： gas价格
-      - BigInteger ：value ： 转账金额
-      - String ：data ： 上链数据
-      - BigInteger ：nonce ： 交易唯一性标识
-        - 调用platonGetTransactionCount，获取from地址作为参数，获取到该地址的已发送交易总数
-        - 每次使用该地址nonce +1 
+- **parameters**
+  - Transaction: Transaction: transaction structure
+    - String: from: transaction sending address
+    - String: to: address of transaction receiver
+    - BigInteger: gas: maximum gas usage for this transaction
+    - BigInteger: gasPrice: gas price
+    - BigInteger: value: transfer amount
+    - String: data: data on the chain
+    - BigInteger: nonce: transaction unique identifier
+      - Call platonGetTransactionCount, get the from address as a parameter, and get the total number of sent transactions to that address
+      - Each use of the address nonce +1
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonEstimateGas>
 ```
 
-PlatonEstimateGas属性中的BigInteger即为对应存储数据
+The BigInteger in the PlatonEstimateGas property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1719,23 +1863,23 @@ BigInteger req = request.send().getAmountUsed();
 
 ### platonGetBlockByHash
 
->  根据区块hash查询区块信息
+> Query block information based on block hash
 
-* **参数**
-    - String ： blockHash  区块hash
-    - boolean : 
-      -  true ： 区块中带有完整的交易列表
-      -  false： 区块中只带交易hash列表
+- **parameters**
+  - String: blockHash block hash
+  - boolean:
+    - true: complete transaction list in block
+    - false: only transaction hash list in block
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonBlock>
 ```
 
-PlatonBlock属性中的Block即为对应存储数据
+The block in the PlatonBlock property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1747,27 +1891,27 @@ Block req = request.send().getBlock();
 
 ### platonGetBlockByNumber
 
->  根据区块高度查询区块信息
+> Query block information based on block height
 
-* **参数**
-    - DefaultBlockParameter: 
-      -  DefaultBlockParameterName.LATEST  最新块高(默认)
-      -  DefaultBlockParameterName.EARLIEST 最低块高
-      -  DefaultBlockParameterName.PENDING 未打包交易
-      -  DefaultBlockParameter.valueOf(BigInteger blockNumber) 指定块高
-    - boolean : 
-      -  true ： 区块中带有完整的交易列表
-      -  false： 区块中只带交易hash列表
+- **parameters**
+  - DefaultBlockParameter:
+    - DefaultBlockParameterName.LATEST latest block height(default)
+    - DefaultBlockParameterName.EARLIEST minimum block height
+    - DefaultBlockParameterName.PENDING unpackaged transaction
+    - DefaultBlockParameter.valueOf(BigInteger blockNumber)
+  - boolean:
+    - true: complete transaction list in block
+    - false: only transaction hash list in block
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonBlock>
 ```
 
-PlatonBlock属性中的Block即为对应存储数据
+The block in the PlatonBlock property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1777,21 +1921,21 @@ Block req = request.send().getBlock();
 
 ### platonGetTransactionByBlockHashAndIndex
 
->  根据区块hash查询区块中指定序号的交易
+> Query the transaction with the specified serial number in the block according to the block hash
 
-* **参数**
-    - String : blockHash  区块hash
-    - BigInteger ： transactionIndex  交易在区块中的序号
+- **parameters**
+  - String: blockHash block hash
+  - BigInteger: transactionIndex number of the transaction in the block
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonTransaction>
 ```
 
-PlatonTransaction属性中的Transaction即为对应存储数据
+The transaction in the PlatonTransaction property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1802,74 +1946,74 @@ Optional<Transaction> req = request.send().getTransaction();
 
 ### platonGetTransactionByBlockNumberAndIndex
 
->  根据区块高度查询区块中指定序号的交易
+> Query the transaction with the specified serial number in the block according to the block height
 
-* **参数**
-    - DefaultBlockParameter: 
-      -  DefaultBlockParameterName.LATEST  最新块高(默认)
-      -  DefaultBlockParameterName.EARLIEST 最低块高
-      -  DefaultBlockParameterName.PENDING 未打包交易
-      -  DefaultBlockParameter.valueOf(BigInteger blockNumber) 指定块高
-    - BigInteger ： transactionIndex  交易在区块中的序号
+- **parameters**
+  - DefaultBlockParameter:
+    - DefaultBlockParameterName.LATEST latest block height(default)
+    - DefaultBlockParameterName.EARLIEST minimum block height
+    - DefaultBlockParameterName.PENDING unpackaged transaction
+    - DefaultBlockParameter.valueOf(BigInteger blockNumber)
+  - BigInteger: transactionIndex number of the transaction in the block
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonTransaction>
 ```
 
-PlatonTransaction属性中的Transaction即为对应存储数据
+The transaction in the PlatonTransaction property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-String blockHash    = "";
-Request <?, PlatonTransaction> request = currentValidWeb3j.platonGetTransactionByHash(DefaultBlockParameter.valueOf(BigInteger.ZERO) ,BigInteger.ZERO);
-Optional<Transaction> req = request.send().getTransaction();
+String blockHash = "";
+Request<?, PlatonTransaction> request = currentValidWeb3j.platonGetTransactionByHash(DefaultBlockParameter.valueOf(BigInteger.ZERO), BigInteger.ZERO);
+Optional<Transaction> req = request.send(). GetTransaction();
 ```
 
 ### platonGetTransactionReceipt
 
->  根据交易hash查询交易回执
+> Query transaction receipt based on transaction hash
 
-* **参数**
-	- String : transactionHash  交易hash
+- **parameters**
+  - String: transactionHash
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonGetTransactionReceipt>
 ```
 
-PlatonGetTransactionReceipt属性中的Transaction即为对应存储数据
+The transaction in the PlatonGetTransactionReceipt property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-String blockHash    = "";
-Request <?, PlatonGetTransactionReceipt> request = currentValidWeb3j.platonGetTransactionReceipt(DefaultBlockParameter.valueOf(BigInteger.ZERO) ,BigInteger.ZERO);
-Optional<TransactionReceipt> req = request.send().getTransactionReceipt();
+String blockHash = "";
+Request<?, PlatonGetTransactionReceipt> request = currentValidWeb3j.platonGetTransactionReceipt(DefaultBlockParameter.valueOf(BigInteger.ZERO), BigInteger.ZERO);
+Optional<TransactionReceipt> req = request.send(). GetTransactionReceipt();
 ```
 
 ### platonNewFilter
 
->   创建一个过滤器，以便在客户端接收到匹配的whisper消息时进行通知 
+Create a filter to notify when the client receives a matching whisper message
 
-* **参数**
-    - PlatonFilter:  PlatonFilter :
-      - SingleTopic : 
+- **parameters**
+  - PlatonFilter: PlatonFilter:
+    - SingleTopic:
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonFilter>
 ```
 
-PlatonFilter属性中的BigInteger即为对应存储数据
+The BigInteger in the PlatonFilter property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1881,21 +2025,21 @@ BigInteger req = request.send().getFilterId();
 
 ### platonNewBlockFilter
 
->   在节点中创建一个过滤器，以便当新块生成时进行通知。要检查状态是否变化 
+> Create a filter in the node to be notified when new blocks are generated. To check if the status changes
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonFilter>
 ```
 
-PlatonFilter属性中的BigInteger即为对应存储数据
+The BigInteger in the PlatonFilter property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1905,21 +2049,21 @@ BigInteger req = request.send().getFilterId();
 
 ### platonNewPendingTransactionFilter
 
->    在节点中创建一个过滤器，以便当产生挂起交易时进行通知。 要检查状态是否发生变化 
+> Create a filter in the node to be notified when a pending transaction occurs. To check if the status has changed
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonFilter>
 ```
 
-PlatonFilter属性中的BigInteger即为对应存储数据
+The BigInteger in the PlatonFilter property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1929,21 +2073,21 @@ BigInteger req = request.send().getFilterId();
 
 ### platonNewPendingTransactionFilter
 
->  写在具有指定编号的过滤器。当不在需要监听时，总是需要执行该调用  
+> Write in filter with specified number. This call is always needed when listening is no longer needed
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonFilter>
 ```
 
-PlatonFilter属性中的BigInteger即为对应存储数据
+The BigInteger in the PlatonFilter property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1953,20 +2097,20 @@ BigInteger req = request.send().getFilterId();
 
 ### platonUninstallFilter
 
->     写在具有指定编号的过滤器。当不在需要监听时，总是需要执行该调用 
+> Write in filter with specified number. This call is always needed when listening is no longer needed
 
-* **参数**
-	- BigInteger  : filterId :  过滤器编号 
+- **parameters**
+  - BigInteger: filterId: filter ID
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonUninstallFilter>
 ```
 
-PlatonUninstallFilter属性中的boolean即为对应存储数据
+The boolean in the PlatonUninstallFilter attribute is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1976,20 +2120,20 @@ boolean req = request.send().isUninstalled();
 
 ### platonGetFilterChanges
 
->    轮询指定的过滤器，并返回自上次轮询之后新生成的日志数组 
+> Polling the specified filter and returning a newly generated log array since the last poll
 
-* **参数**
-	- BigInteger  : filterId :  过滤器编号 
+- **parameters**
+  - BigInteger: filterId: filter ID
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonLog>
 ```
 
-PlatonLog属性中的LogResult数组即为对应存储数据
+The LogResult array in the PlatonLog property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -1999,20 +2143,20 @@ List<PlatonLog.LogResult> req = request.send().getLogs();
 
 ### platonGetFilterLogs
 
->     轮询指定的过滤器，并返回自上次轮询之后新生成的日志数组。
+> Polling the specified filter and returning a newly generated log array since the last poll.
 
-* **参数**
-	- BigInteger  : filterId :  过滤器编号 
+- **parameters**
+  - BigInteger: filterId: filter ID
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonLog>
 ```
 
-PlatonLog属性中的LogResult数组即为对应存储数据
+The LogResult array in the PlatonLog property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -2022,46 +2166,46 @@ List<PlatonLog.LogResult> req = request.send().getLogs();
 
 ### platonGetLogs
 
->    返回指定过滤器中的所有日志 
+> Return all logs in the specified filter
 
-* **参数**
-    - PlatonFilter:  PlatonFilter :
-      - SingleTopic : 
+- **parameters**
+  - PlatonFilter: PlatonFilter:
+    - SingleTopic:
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonLog>
 ```
 
-PlatonLog属性中的BigInteger即为对应存储数据
+The BigInteger in the PlatonLog property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 org.web3j.protocol.core.methods.request.PlatonFilter filter = new org.web3j.protocol.core.methods.request.PlatonFilter();
 filter.addSingleTopic("");
-Request <?, PlatonLog> request = currentValidWeb3j.platonGetLogs(filter);
-List<LogResult> = request.send().getLogs();
+Request<?, PlatonLog> request = currentValidWeb3j.platonGetLogs(filter);
+List<LogResult> = request.send(). GetLogs();
 ```
 
 ### platonPendingTransactions
->查询待处理交易
+> Query pending transactions
 
-* **参数**
+- **parameters**
 
-   无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonPendingTransactions>
 ```
 
-PlatonPendingTransactions属性中的transactions即为对应存储数据
+The transactions in the PlatonPendingTransactions property are the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -2072,22 +2216,22 @@ List<Transaction> transactions = res.getTransactions();
 
 ### dbPutString
 
->   在本地数据库中存入字符串。
+> Store strings in local database.
 
-* **参数**
-    - String :  databaseName :   数据库名称 
-    - String : keyName :  键名 
-    - String : stringToStore :   要存入的字符串 
+- **parameters**
+  - String: databaseName: database name
+  - String: keyName: key name
+  - String: stringToStore: the string to be stored
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, DbPutString>
 ```
 
-DbPutString属性中的boolean即为对应存储数据
+The boolean in the DbPutString property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -2100,21 +2244,21 @@ List<DbPutString> = request.send().valueStored();
 
 ### dbGetString
 
->    从本地数据库读取字符串 
+Read string from local database
 
-* **参数**
-    - String :  databaseName :   数据库名称 
-    - String : keyName :  键名 
+- **parameters**
+  - String: databaseName: database name
+  - String: keyName: key name
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, DbGetString>
 ```
 
-DbGetString属性中的String即为对应存储数据
+The String in the DbGetString property is the corresponding stored data
 
-**示例**
+**Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -2126,228 +2270,271 @@ String req  = request.send().getStoredValue();
 
 ### dbPutHex
 
->     将二进制数据写入本地数据库 
+> Write binary data to local database
 
-* **参数**
-    - String :  databaseName :   数据库名称 
-    - String : keyName :  键名 
-    - String : dataToStore :   要存入的二进制数据 
+- **parameters**
+  - String: databaseName: database name
+  - String: keyName: key name
+  - String: dataToStore: binary data to be stored
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, DbPutHex>
 ```
 
-DbPutHex属性中的boolean即为对应存储数据
+The boolean in the DbPutHex attribute is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String databaseName;
 String keyName;
 String dataToStore;
-Request <?, DbPutHex> request = currentValidWeb3j.dbPutHex(databaseName,keyName,dataToStore);
-boolean req  = request.send().valueStored();
+Request<?, DbPutHex> request = currentValidWeb3j.dbPutHex(databaseName, keyName, dataToStore);
+boolean req = request.send(). valueStored();
 ```
 
 ### dbGetHex
 
->     从本地数据库中读取二进制数据  
+> Read binary data from local database
 
-* **参数**
-    - String :  databaseName :   数据库名称 
-    - String : keyName :  键名 
+- **parameters**
+  - String: databaseName: database name
+  - String: keyName: key name
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, DbGetHex>
 ```
 
-DbGetHex属性中的String即为对应存储数据
+The String in the DbGetHex property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String databaseName;
 String keyName;
-Request <?, DbGetHex> request = currentValidWeb3j.dbGetHex(databaseName,keyName);
-String req  = request.send().getStoredValue();
+Request<?, DbGetHex> request = currentValidWeb3j.dbGetHex(databaseName, keyName);
+String req = request.send(). GetStoredValue();
 ```
 
 ### platonEvidences
 
->    返回双签举报数据
+> Return double sign report data
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **出参**
+- **Export parameters**
 
-| 参数    | 类型   | 描述       |
-| ------- | ------ | ---------- |
-| jsonrpc | string | rpc版本号  |
-| id      | int    | id序号     |
-| result  | string | 证据字符串 |
+|Parameters | Type | Description |
+|:------- |:------ |:---------- |
+| jsonrpc | string | rpc version number |
+| id | int | id serial number |
+| result | string | Evidence String |
 
-result为证据字符串，包含3种证据类型，分别是：duplicatePrepare、duplicateVote、duplicateViewchange
-每种类型包含多个证据，所以是数组结构，解析时需注意。
+result is the evidence string, which contains 3 types of evidence: duplicatePrepare, duplicateVote, duplicateViewchange
+Each type contains multiple evidences, so it is an array structure, and you need to pay attention when parsing.
 
-* **duplicatePrepare**
+- **duplicatePrepare**
 
-```json
+```text
 {
-    "prepare_a":{
-        "epoch":0, 			//共识轮epoch值
-        "view_number":0,	//共识轮view值
-        "block_hash":"0xf41006b64e9109098723a37f9246a76c236cd97c67a334cfb4d54bc36a3f1306",
-        //区块hash
-        "block_number":500,		//区块number
-        "block_index":0,		//区块在一轮view中的索引值
-        "validate_node":{
-            "index":0,			//验证人在一轮epoch中的索引值
-            "address":"0x0550184a50db8162c0cfe9296f06b2b1db019331",		//验证人地址
-            "NodeID":"77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050",		//验证人nodeID
-            "blsPubKey":"5ccd6b8c32f2713faa6c9a46e5fb61ad7b7400e53fabcbc56bdc0c16fbfffe09ad6256982c7059e7383a9187ad93a002a7cda7a75d569f591730481a8b91b5fad52ac26ac495522a069686df1061fc184c31771008c1fedfafd50ae794778811"		//验证人bls公钥
-        },
-        "signature":"0xa7205d571b16696b3a9b68e4b9ccef001c751d860d0427760f650853fe563f5191f2292dd67ccd6c89ed050182f19b9200000000000000000000000000000000"	//消息签名
-    }
- }
+  "prepareA": {
+    "epoch": 0,            //epoch value of consensus round
+    "viewNumber": 0,       //View value of consensus round
+    "blockHash": "0x06abdbaf7a0a5cb1deddf69de5b23d6bc3506fdadbdcfc32333a1220da1361ba",    //block hash
+    "blockNumber": 16013,       //block number
+    "blockIndex": 0,        //The index value of the block in a round view
+    "blockData": "0xe1a507a57c1e9d8cade361fefa725d7a271869aea7fd923165c872e7c0c2b3f2",     //Block rlp encoding value
+    "validateNode": {            
+      "index": 0,     //The index value of the validator in a round of epoch
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",    //Verifier address
+      "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",    //Verifier nodeID
+      "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"    //Validator bls public key
+    },
+    "signature": "0x1afdf43596e07d0f5b59ae8f45d30d21a9c5ac793071bfb6382ae151081a901fd3215e0b9645040c9071d0be08eb200900000000000000000000000000000000"     //message signing
+  },
+  "prepareB": {
+    "epoch": 0,
+    "viewNumber": 0,
+    "blockHash": "0x74e3744545e95f4defc82d731504a39994b8013575491f83f7520cf796347b8f",
+    "blockNumber": 16013,
+    "blockIndex": 0,
+    "blockData": "0xb11be0a3634e29281403d690c1a0bc38e96ea34b3aea0b0da2883800f610c3b7",
+    "validateNode": {
+      "index": 0,
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",
+      "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",
+      "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"
+    },
+    "signature": "0x16795379ca8e28953e74b23d1c384dda760579ad70c5e490225403664a8d4490cabb1dc64a2e0967b5f0c1e9dbd6578c00000000000000000000000000000000"
+  }
+}
 ```
 
-* **duplicateVote**
+- **duplicateVote**
 
-```json 
+```text 
 {
-    "voteA":{
-        "epoch":0, 			//共识轮epoch值
-        "view_number":0,	//共识轮view值
-        "block_hash":"0xf41006b64e9109098723a37f9246a76c236cd97c67a334cfb4d54bc36a3f1306",
-        //区块hash
-        "block_number":500,		//区块number
-        "block_index":0,		//区块在一轮view中的索引值
-        "validate_node":{
-            "index":0,			//验证人在一轮epoch中的索引值
-            "address":"0x0550184a50db8162c0cfe9296f06b2b1db019331",		//验证人地址
-            "NodeID":"77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050",		//验证人nodeID
-            "blsPubKey":"5ccd6b8c32f2713faa6c9a46e5fb61ad7b7400e53fabcbc56bdc0c16fbfffe09ad6256982c7059e7383a9187ad93a002a7cda7a75d569f591730481a8b91b5fad52ac26ac495522a069686df1061fc184c31771008c1fedfafd50ae794778811"		//验证人bls公钥
-        },
-        "signature":"0xa7205d571b16696b3a9b68e4b9ccef001c751d860d0427760f650853fe563f5191f2292dd67ccd6c89ed050182f19b9200000000000000000000000000000000"	//消息签名
-    }
- }
+  "voteA": {
+    "epoch": 0,   //epoch value of consensus round
+    "viewNumber": 0,    //View value of consensus round
+    "blockHash": "0x58b5976a471f86c4bd198984827bd594dce6ac861ef15bbbb1555e7b2edc2fc9",   //block hash
+    "blockNumber": 16013,   //block number
+    "blockIndex": 0,    //The index value of the block in a round view
+    "validateNode": { 
+      "index": 0,    //The index value of the validator in a round of epoch
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",  //Verifier address
+      "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",   //Verifier nodeID
+      "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"    //Validator bls public key
+    },
+    "signature": "0x071350aed09f226e218715357ffb7523ba41271dd1d82d4dded451ee6509cd71f6888263b0b14bdfb33f88c04f76790d00000000000000000000000000000000"    //message signing
+  },
+  "voteB": {
+    "epoch": 0,
+    "viewNumber": 0,
+    "blockHash": "0x422515ca50b9aa01c46dffee53f3bef0ef29884bfd014c3b6170c05d5cf67696",
+    "blockNumber": 16013,
+    "blockIndex": 0,
+    "validateNode": {
+      "index": 0,
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",
+      "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",
+      "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"
+    },
+    "signature": "0x9bf6c01643058c0c828c35dc3277666edd087cb439c5f6a78ba065d619f812fb42c5ee881400a7a42dd8366bc0c5c88100000000000000000000000000000000"
+  }
+}
 ```
 
-* **duplicateViewchange**
+- **duplicateViewchange**
 
-```json
+```text
 {
-    "viewA":{
-        "epoch":0, 			//共识轮epoch值
-        "view_number":0,	//共识轮view值
-        "block_hash":"0xf41006b64e9109098723a37f9246a76c236cd97c67a334cfb4d54bc36a3f1306",
-        //区块hash
-        "block_number":500,		//区块number
-        "block_index":0,		//区块在一轮view中的索引值
-        "validate_node":{
-            "index":0,			//验证人在一轮epoch中的索引值
-            "address":"0x0550184a50db8162c0cfe9296f06b2b1db019331",		//验证人地址
-            "NodeID":"77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050",		//验证人nodeID
-            "blsPubKey":"5ccd6b8c32f2713faa6c9a46e5fb61ad7b7400e53fabcbc56bdc0c16fbfffe09ad6256982c7059e7383a9187ad93a002a7cda7a75d569f591730481a8b91b5fad52ac26ac495522a069686df1061fc184c31771008c1fedfafd50ae794778811"		//验证人bls公钥
-        },
-        "signature":"0xa7205d571b16696b3a9b68e4b9ccef001c751d860d0427760f650853fe563f5191f2292dd67ccd6c89ed050182f19b9200000000000000000000000000000000"	//消息签名
-    }
- }
+  "viewA": {
+    "epoch": 0,  
+    "viewNumber": 0, 
+    "blockHash": "0xb84a40bb954e579716e7a6b9021618f6b25cdb0e0dd3d8c2c0419fe835640f36",  //区块hash
+    "blockNumber": 16013, 
+    "validateNode": {
+      "index": 0,  
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4", 
+      "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",
+      "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"
+    },
+    "signature": "0x9c8ba2654c6b8334b1b94d3b421c5901242973afcb9d87c4ab6d82c2aee8e212a08f2ae000c9203f05f414ca578cda9000000000000000000000000000000000",
+    "blockEpoch": 0,
+    "blockView": 0
+  },
+  "viewB": {
+    "epoch": 0,
+    "viewNumber": 0,
+    "blockHash": "0x2a60ed6f04ccb9e468fbbfdda98b535653c42a16f1d7ccdfbd5d73ae1a2f4bf1",
+    "blockNumber": 16013,
+    "validateNode": {
+      "index": 0,
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",
+      "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",
+      "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"
+    },
+    "signature": "0xed69663fb943ce0e0dd90df1b65e96514051e82df48b3867516cc7e505234b9ca707fe43651870d9141354a7a993e09000000000000000000000000000000000",
+    "blockEpoch": 0,
+    "blockView": 0
+  }
+}
 ```
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, PlatonEvidences>
 ```
 
-PlatonEvidences属性中的Evidences对象即为对应存储数据
+The Evidences object in the PlatonEvidences property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 Request<?, PlatonEvidences> req = currentValidWeb3j.platonEvidences();
-Evidences evidences = req.send().getEvidences();
+Evidences evidences = req.send(). GetEvidences();
 ```
 
 ### getProgramVersion
 
->    获取代码版本
+> Get code version
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, AdminProgramVersion>
 ```
 
-AdminProgramVersion属性中的ProgramVersion对象即为对应存储数据
+The ProgramVersion object in the AdminProgramVersion property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 Request<?, AdminProgramVersion> req = currentValidWeb3j.getProgramVersion();
-ProgramVersion programVersion = req.send().getAdminProgramVersion();
+ProgramVersion programVersion = req.send(). GetAdminProgramVersion();
 ```
 
-* **ProgramVersion 对象解析**
-    - BigInteger ： version ： 代码版本
-    - String ： sign ： 代码版本签名
+- **ProgramVersion Object Parsing**
+  - BigInteger: version: code version
+  - String: sign: code version signature
 
 ### getSchnorrNIZKProve
 
->    获取bls的证明
+> Get proof of bls
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, AdminSchnorrNIZKProve>
 ```
 
-AdminSchnorrNIZKProve属性中的String即为对应存储数据
+The String in the AdminSchnorrNIZKProve property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 Request<?, AdminProgramVersion> req = currentValidWeb3j.getSchnorrNIZKProve();
-String res = req.send().getAdminSchnorrNIZKProve();
+String res = req.send(). GetAdminSchnorrNIZKProve();
 ```
 
 ### getEconomicConfig
 
->    获取PlatON参数配置
+> Get PlatON parameter configuration
 
-* **参数**
+- **parameters**
 
-  无
+  no
 
-* **返回值**
+- **return value**
 
 ```java
 Request<?, DebugEconomicConfig>
 ```
 
-DebugEconomicConfig属性中的String即为对应存储数据
+The String in the DebugEconomicConfig property is the corresponding stored data
 
-* **示例**
+- **Example**
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
@@ -2355,31 +2542,31 @@ Request<?, DebugEconomicConfig> req = currentValidWeb3j.getEconomicConfig();
 String debugEconomicConfig = req.send().getEconomicConfigStr();
 ```
 
-## Solidity合约调用
+## Solidity Contract Call
 
-将Solidity智能合约部署到区块链上时，必须先将其编译成字节码的格式，然后将其作为交易的一部分发送。Java SDK 将帮你生成Solidity智能合约对应的Java包装类，可以方便的部署Solidity智能合约以及调用Solidity智能合约中的交易方法、事件和常量方法。
+When deploying a Solidity smart contract on the blockchain, it must first be compiled into a bytecode format and then sent as part of the transaction. The Java SDK will help you generate a Java wrapper class for Solidity smart contracts, which can easily deploy Solidity smart contracts and call transaction methods, events, and constant methods in Solidity smart contracts.
 
-### 编译solidity源代码
+### Compile Solidity Source Code
 
-* 通过`solc`编译器编译solidity源代码([solc下载](https://github.com/PlatONnetwork/solidity/releases))：
+* Compile solidity source code with `solc` compiler([solc download](https://github.com/PlatONnetwork/solidity/releases))：
 
 ```shell
 $ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
 ```
 
-`bin`，输出包含十六进制编码的solidity二进制文件以提供交易请求。
-`abi`，输出一个solidity的应用程序二进制接口（`ABI`）文件，它详细描述了所有可公开访问的合约方法及其相关参数。`abi`文件也用于生成solidity智能合约对应的Java包装类。
+`bin`，Output a hex-encoded solidity binary file to provide transaction requests.
+`abi`，Output a solidity application binary interface (`ABI`) file, which details all publicly accessible contract methods and their related parameters. The `abi` file is also used to generate the Java wrapper class corresponding to the solidity smart contract.
 
-* 使用`platon-truffle`编译solidity源代码([platon-truffle开发工具安装参考](https://github.com/PlatONnetwork/platon-truffle/tree/feature/evm)|[platon-truffle开发工具使用手册](https://platon-truffle.readthedocs.io/en/v0.1.0/index.html))：
+* Compile solidity source code with `platon-truffle`([platon-truffle development tool installation reference](https://github.com/PlatONnetwork/platon-truffle/tree/feature/evm)|[platon-truffle Development tool manual](https://platon-truffle.readthedocs.io/en/v0.1.0/index.html))：
 
-> **step1.** 使用platon-truffle初始化项目
+> **step1.** Initialize the project with platon-truffle
 
 ```
-在安装有platon-truffle的服务器上面先初始化一个工程。
+Initialize a project on the server where platon-truffle is installed。
 mkdir HelloWorld
 cd HelloWorld
 truffle init
-提示如下表示成功：
+Prompt indicates success：
 
   ✔ Preparing to download
   ✔ Downloading
@@ -2395,14 +2582,14 @@ truffle init
     Test contracts: truffle test
 ```
 
-> **step2.** 将HelloWorld.sol放入HelloWorld/contracts目录下
+> **step2.** Put HelloWorld.sol in `HelloWorld/contracts` directory
 
 ```
-guest@guest:~/HelloWorld/contracts$ ls
+ls
 HelloWorld.sol  Migrations.sol
 ```
 
-> **step3.** 修改truffle-config.js文件，将编译器版本修改成“^0.5.13”
+> **step3.** Modify truffle-config.js file and change the compiler version to "^ 0.5.13"
 
 ```
 compilers: {
@@ -2420,10 +2607,10 @@ compilers: {
 }
 ```
 
-> **step4.** 执行truffle compile编译合约
+> **step4.** Execute truffle compile to compile the contract
 
 ```
-guest@guest:~/HelloWorld$ truffle compile
+truffle compile
 
 Compiling your contracts...
 
@@ -2439,34 +2626,34 @@ Warning: This is a pre-release compiler version, please do not use it in product
     solc: 0.5.13-develop.2020.1.2+commit.9ff23752.mod.Emscripten.clang
 ```
 
-### Solidity智能合约Java包装类
+### Solidity Smart Contract Java Packaging Class
 
-Java SDK支持从`abi`文件中自动生成Solidity智能合约对应的Java包装类。
+The Java SDK supports automatic generation of Java wrapper classes for Solidity smart contracts from an `abi` file.
 
-* 通过命令行工具生成Java包装类：
+* Generate Java wrapper classes via command line tools:
 
 ```shell
-$ platon-web3j solidity generate [--javaTypes|--solidityTypes] /path/to/<smart-contract>.bin /path/to/<smart-contract>.abi -o /path/to/src/main/java -p com.your.organisation.name
+platon-web3j solidity generate [--javaTypes|--solidityTypes] /path/to/<smart-contract>.bin /path/to/<smart-contract>.abi -o /path/to/src/main/java -p com.your.organisation.name
 ```
 
-* 直接调用Java SDK中的工具类生成Java包装类：
+* Directly call the tool class in the Java SDK to generate a Java wrapper class:
 
 ```java
 String args[] = {"generate", "/path/to/<smart-contract>.bin", "/path/to/<smart-contract>.abi", "-o", "/path/to/src/main/java", "-p" , "com.your.organisation.name"};
 org.web3j.codegen.SolidityFunctionWrapperGenerator.run(args);
 ```
 
-其中`bin`和`abi`文件是编译solidity源代码以后生成的。
+The `bin` and` abi` files are generated after compiling the solidity source code.
 
-Solidity智能合约对应的Java包装类支持的主要功能：
-- 构建与部署
-- 确定合约有效性
-- 调用交易和事件
-- 调用常量方法
+The main functions supported by the Java wrapper class corresponding to the Solidity smart contract:
+- Build and deploy
+- Determine contract validity
+- Invoking transactions and events
+- Call constant method
 
-#### 构建与部署智能合约
+#### Building And Deploying Smart Contracts
 
-智能合约的构建和部署使用包装类中的deploy方法：
+The construction and deployment of smart contracts use the deploy method in the wrapper class：
 
 ```java
 YourSmartContract contract = YourSmartContract.deploy(
@@ -2474,65 +2661,65 @@ YourSmartContract contract = YourSmartContract.deploy(
         [<initialValue>,] <param1>, ..., <paramN>).send();
 ```
 
-这个方法将在区块链上部署智能合约。部署成功以后，它将会返回一个智能合约的包装类实例，包含智能合约的地址。
+This method will deploy smart contracts on the blockchain. After successful deployment, it will return a wrapper class instance of the smart contract, which contains the address of the smart contract.
 
-如果你的智能合约在构造上接受LAT转账，则需要初始化参数值<initialValue>。
+If your smart contract accepts LAT transfers on the structure, you need to initialize the parameter value <initialValue>.
 
-通过智能合约的地址也可以创建智能合约对应的Java包装类的实例：
+You can also create an instance of the Java wrapper class corresponding to the smart contract by using the address of the smart contract:
 
 ```java
 YourSmartContract contract = YourSmartContract.load(
         "0x<address>|<ensName>", web3j, transactionManager, contractGasProvider);
 ```
 
-#### 智能合约有效性
+#### Smart Contract Validity
 
-使用此方法，可以验证智能合约的有效性。只有在合约地址中部署的字节码与智能合约封装包中的字节码匹配时才会返回`true`。
+Using this method, the validity of the smart contract can be verified. `True` will only be returned if the bytecode deployed in the contract address matches the bytecode in the smart contract package.
 
 ```java
 contract.isValid();  // returns false if the contract bytecode does not match what's deployed
                      // at the provided address
 ```
 
-#### 交易管理器
-Java SDK提供了一个交易管理器`TransactionManager`来控制你连接到PlatON客户端的方式。默认采用`RawTransactionManager`。
-`RawTransactionManager`需要指定链ID。防止一个链的交易被重新广播到另一个链上：
+#### TransactionManager
+The Java SDK provides a transaction manager `TransactionManager` to control how you connect to the PlatON client. `RawTransactionManager` is used by default.
+`RawTransactionManager` needs to specify the chain ID. Prevent transactions on one chain from being rebroadcasted to another chain:
 
 ```java
 TransactionManager transactionManager = new RawTransactionManager(web3j, credentials, 100L);
 ```
 
-你可以通过以下请求来获得链ID：
+You can get the chain ID with the following request:
 
 ```java
 web3j.netVersion().send().getNetVersion();
 ```
 
-除了`RawTransactionManager`之外，Java SDK还提供了一个客户端交易管理器`ClientTransactionManager`，它将你的交易签名工作交给你正在连接的PlatON客户端。
-此外，还有一个`ReadonlyTransactionManager`，用于只从智能合约中查询数据，而不与它进行交易。
+In addition to `RawTransactionManager`, the Java SDK also provides a client transaction manager` ClientTransactionManager`, which will hand over your transaction signing work to the PlatON client you are connecting to.
+In addition, there is a `ReadonlyTransactionManager`, which is used to query data from the smart contract only and not to trade with it.
 
-#### 调用交易和事件
-对于所有交易的方法，只返回与交易关联的交易收据。
+#### Invoking Transactions And Events
+For all transactions methods, only the transaction receipt associated with the transaction is returned.
 
 ```java
 TransactionReceipt transactionReceipt = contract.someMethod(<param1>, ...).send();
 ```
 
-通过交易收据，可以提取索引和非索引的事件参数。
+With transaction receipts, you can extract indexed and non-indexed event parameters.
 
 ```java
 List<SomeEventResponse> events = contract.getSomeEvents(transactionReceipt);
 ```
 
-或者，你可以使用可观察的过滤器Observable filter，监听与智能合约相关联的事件：
+Alternatively, you can use Observable filters to listen to events associated with smart contracts:
 
 ```java
 contract.someEventObservable(startBlock, endBlock).subscribe(event -> ...);
 ```
 
-#### 调用常量方法
+#### Call Constant Method
 
-常量方法只做查询，而不改变智能合约的状态。
+Constant methods only do queries without changing the state of the smart contract.
 
 ```java
 Type result = contract.someMethod(<param1>, ...).send();

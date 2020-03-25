@@ -1,7 +1,7 @@
 ---
 id: Join_PlatON_NetWork
-title: 加入 PlatON 网络
-sidebar_label: 加入 PlatON 网络
+title: Join PlatON NetWork
+sidebar_label: Join PlatON NetWork
 ---
 
 ## 简介
