@@ -1,7 +1,7 @@
 ---
 id: index
-title: PlatON Developer Docs
-sidebar_label: PlatON Developer Docs
+title: PlatON开发者文档
+sidebar_label: PlatON开发者文档
 ---
 
 ## 节点运行者
