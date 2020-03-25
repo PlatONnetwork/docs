@@ -1,17 +1,19 @@
 ---
 id: community
-title: 社区项目
+title: Community Projects
 sidebar_label: community
 ---
 
 Below is a categorized list of projects that use the PlatON blockchain,meet your related development and use tool needs. We welcome more community members to participate and continue to expand the PlatON ecosystem.
+
+The LatticeX Foundation has now opened the [Grants program](https://latticex.foundation/grants), and you can contribute your value through Grants.
 
 ## Wallets
 <table class="commmunity-table">
     <tr>
         <td><img alt="" src="/Docs/img/logo.png"></td>
         <td>
-            <p class="color"><a href="https://platscan.test.platon.network/"> ATON</a></p>
+            <p class="color"><a target="_blank" href="https://developer.platon.network/?lang=en">ATON</a></p>
             ATON is the first secure and user-friendly mobile wallet for PlatON Network.
         </td>
     </tr>
@@ -22,8 +24,8 @@ Below is a categorized list of projects that use the PlatON blockchain,meet your
     <tr>
         <td><img alt="" src="/Docs/img/logo.png"></td>
         <td>
-            <p class="color"><a href="https://platscan.test.platon.network/"> PlatScan</a></p>
-            PlatScan is a Block Explorer and Analytics Platform for PlatON
+            <p class="color"><a target="_blank" href="https://platscan.test.platon.network/?lang=en">PlatScan</a></p>
+            PlatScan is a Block Explorer and Analytics Platform for PlatON.
         </td>
     </tr>
 </table>
@@ -33,7 +35,7 @@ Below is a categorized list of projects that use the PlatON blockchain,meet your
     <tr>
         <td><img alt="" src="/Docs/img/logo.png"></td>
         <td>
-            <p class="color"><a href="https://platscan.test.platon.network/">MTool</a></p>
+            <p class="color"><a target="_blank" href="https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.8.0.0/mtool-setup.exe">MTool</a></p>
             Node Management Tool.
         </td>
     </tr>
@@ -44,7 +46,7 @@ Below is a categorized list of projects that use the PlatON blockchain,meet your
     <tr>
         <td><img alt="" src="/Docs/img/logo.png"></td>
         <td>
-            <p class="color"><a href="https://platscan.test.platon.network/">LatticeX Forum</a></p>
+            <p class="color"><a target="_blank" href="https://forum.latticex.foundation/">LatticeX Forum</a></p>
             PlatON Developer Forums. Need help implementing a solution on PlatON? Want to provide feedback?  Check out PlatON’s developer forums.
         </td>
     </tr>
