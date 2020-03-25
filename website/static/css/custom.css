@@ -195,3 +195,89 @@ code {
 .hljs-link {
     text-decoration: underline
 }
+
+.navGroup:first-child h3,.navGroup:last-child h3{
+    display: none;
+}
+.navGroup:first-child ul,.navGroup:last-child ul{
+    display: block;
+    padding-left: 0;
+}
+
+.navGroup:first-child ul li a,.navGroup:last-child ul li a{
+    padding: 0;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2em;
+    margin-bottom: 13px;
+    margin-top: 13px;
+}
+.card-wrap{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 345px);
+}
+@media screen and (max-width: 1350px){
+    .card-wrap{
+        grid-template-columns: repeat(1, 345px);
+    }
+}
+.homepage-card{
+    width: 345px;
+    height: 150px;
+    padding: 25px 20px;
+    color: #000000;
+    background-color: white;
+    border: 1px solid #F2F2F5;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px #F2F2F5;
+}
+.homepage-card img{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 9px;
+    vertical-align: middle;
+}
+ .homepage-card a{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    vertical-align: middle;
+}
+.card-description{
+    margin-top: 17px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.commmunity-table{
+    box-shadow: 0 2px 4px 2px #F2F2F5;
+}
+.commmunity-table tbody{
+    width: 100%;
+    display: table;
+}
+.commmunity-table td,.commmunity-table tr{
+    border: none;
+}
+.commmunity-table tr td:first-child{
+    width: 100px;
+    text-align: center;
+}
+
+.commmunity-table .color{
+    font-size: 20px;
+    color: #E40065;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.commmunity-table tr td:last-child{
+    padding-bottom: 10px;
+}
+
+.commmunity-table tr td{
+    vertical-align: middle;
+}
