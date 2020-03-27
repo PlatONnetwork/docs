@@ -40,8 +40,8 @@ const siteConfig = {
   //users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/logo.png',
-  footerIcon: 'img/logo.png',
+  headerIcon: 'img/PlatON-logo.svg',
+  footerIcon: 'img/PlatON-logo2.svg',
   favicon: 'img/logo.png',
 
   /* Colors for website */
