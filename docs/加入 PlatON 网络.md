@@ -4,36 +4,36 @@ title: Join the PlatON network
 sidebar_label: Join the PlatON network
 ---
 
-## 简介
+## Overview
 
-PlatON 目前有2个公有网络，一个是还未正式上线的、独立运行的 PlatON 主网络，网络ID为 100。
+Currently PlatON  has two public networks, one is the PlatON main network that has not yet been officially launched and operates independently. The chain ID is 100.
 
-另外一个是已经于北京时间 2020-2-20日 正式上线的用来对开发者开放的测试网络贝莱世界，网络ID为 101。
-
-
-
-## 准备
-
-在加入 PlatON 公有网络前请确保服务器本地具备以下条件：
-
-- 已经按照《安装一个节点》指引安装好 PlatON 节点并创建好钱包文件和节点密钥。
-
-本章节假设服务器为 Ubuntu18.04，可执行文件所在工作目录为 `~/platon-node`，注意后续所有命令行操作均在工作目录下进行。
+The other is the test network Baley World, which has been officially launched on 2020-2-20 Beijing time, and is open to developers. The chain ID is 101.
 
 
 
+## Preparation
 
-## 加入主网
+Before joining the PlatON public network, please ensure that the server has the following conditions：
 
-主网目前还没正式上线，敬请期待。
+- The PlatON node has been installed and the wallet file and node key have been created according to the instructions of `Installing a Node`.
+
+This section assumes that the server is Ubuntu 18.04, and the working directory where the executable file is located is ~/platon-node. Note that all subsequent command line operations are performed in the working directory.
 
 
 
-## 加入贝莱世界
 
-任何人、任何组织都可以加入 PlatON 测试网络贝莱世界。
+## Join the Main Network
 
-### 执行以下命令即可`启动验证节点`加入贝莱世界：
+The mainnet has not been officially launched yet.
+
+
+
+## Join the Baley Network
+
+Anyone, any organization can join PlatON test network.
+
+### Execute the following command to join the Baley World
 
 ```bash
 $ cd ~/platon-node
@@ -42,34 +42,34 @@ $ nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcpo
 
 
 
-### 如果要`启动归档节点加`入贝莱世界，请执行以下命令：
+### Become a archive node by executing the following command：
 
 ```bash
 $ cd ~/platon-node
 $ nohup platon --identity platon --datadir ./data --port 16789 --db.nogc --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
 ```
 
-**提示：**
+**Prompt：**
 
-| **选项**      | **描述**                                 |
-| ------------- | ---------------------------------------- |
-| --identity    | 指定网络名称                             |
-| --datadir     | 指定 data 目录路径                       |
-| --rpcaddr     | 指定 rpc 服务器地址                      |
-| --rpcport     | 指定 rpc 协议通信端口                    |
-| --rpcapi      | 指定节点开放的 rpcapi 名称               |
-| --rpc         | 指定 http-rpc 通讯方式                   |
-| --nodekey     | 指定节点私钥文件                         |
-| --cbft.blskey | 指定节点 bls 私钥文件                    |
-| --testnet     | 指定连接到测试网络，不指定默认运行主网络 |
+| **Parameters** | **Description**                                              |
+| -------------- | ------------------------------------------------------------ |
+| --identity     | Specify the network name                                     |
+| --datadir      | Specify the data directory path                              |
+| --rpcaddr      | Specify rpc server address                                   |
+| --rpcport      | Specifying the RPC protocol communication port               |
+| --rpcapi       | Specify the rpcapi name open by the node                     |
+| --rpc          | Specify http-rpc communication method                        |
+| --nodekey      | Specify the node private key file                            |
+| --cbft.blskey  | Specify the node bls private key file                        |
+| --testnet      | Specify to connect to the test network (Default: main network) |
 
-更多参数意义通过`platon --help`命令查看。
+See more parameters with the `platon --help` command.
 
-当 PlatON 启动成功后，正常情况下会通过节点发现协议自动和距离自己最近的节点建立连接，连接成功后会启动区块同步，所以判断加入网络是否成功可以通过查看节点的 peers 同时确认当前节点块高是否增长来判断。
+When PlatON is successfully started, under normal circumstances, it will automatically establish a connection with the node closest to it through the node discovery protocol. After the connection is successful, block synchronization will be started. To determine whether the growth is getting higher.
 
 
 
-### 进入`PlatON`控制台
+### Enter `PlatON` console
 
 ```bash
 $ platon attach http://localhost:6789
@@ -85,7 +85,7 @@ at block: 1929954 (Sun, 17 Dec 52180 18:55:28 UTC)
 
 
 
-### 查看节点的  peers
+### View peers of a node
 
 ```bash
 > admin.peers
@@ -121,17 +121,17 @@ at block: 1929954 (Sun, 17 Dec 52180 18:55:28 UTC)
 
 
 
-### 查看当前块高
+### View the current block height
 
-通过在`PlatON`控制台中执行以下命令查看当前节点的块高。
+You can get the block height of the current node by executing the following command in the `PlatON` console.
 
 ```bash
 > platon.blockNumber
 2235
 ```
 
-节点列表中出现一系列测试网络节点并且块高在不断增长，则表示连接成功！
+A series of test network nodes appear in the node list and the block height is increasing, indicating that the connection is successful.
 
-> 注意
+> Attention:
 >
-> 测试 Energon 没有任何价值，仅限于体验测试网络功能。如仅仅只是连接测试网络，无需申请！
+> Testing Energon has no value and is limited to experiencing test network features. No need to apply if you just connect to the test network.
