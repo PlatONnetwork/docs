@@ -74,12 +74,12 @@
         "Docs": "Docs"
       },
       "categories": {
-        "PlatON Developer Docs": "PlatON Developer Docs",
-        "Node Runner": "节点运行者",
+        "PlatON Developer Docs": "PlatON开发者文档",
+        "Noderunners": "节点运行者",
         "Developer": "开发者",
-        "Reference Document": "参考文档",
+        "Reference Docs": "参考文档",
         "Abount PlatON": "关于PlatON",
-        "community":"社区"
+        "Community Projects":"社区"
       }
     },
     "pages-strings": {
