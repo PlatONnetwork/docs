@@ -17,7 +17,7 @@ class Footer extends React.Component {
     return (
       <footer className="nav-footer" id="footer">
         <section className="sitemap">
-          <a href={this.props.config.baseUrl} className="nav-home">
+          <a href={this.expectUrl('PlatON', this.props.language)} className="nav-home">
             {this.props.config.footerIcon && (
               <img
                 src={this.props.config.baseUrl + this.props.config.footerIcon}
