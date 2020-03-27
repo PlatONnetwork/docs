@@ -6,7 +6,7 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://luo-dahui.github.io//Docs/blog"/>
     <subtitle>The best place to stay up-to-date with the latest PlatON news and events.</subtitle>
-    <logo>https://luo-dahui.github.io//Docs/img/logo.png</logo>
+    <logo>https://luo-dahui.github.io//Docs/img/PlatON-logo.svg</logo>
     <rights>Copyright © 2020 PlatON Network</rights>
     <entry>
         <title type="html"><![CDATA[New Version 1.0.0]]></title>
