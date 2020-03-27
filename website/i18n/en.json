@@ -70,9 +70,7 @@
         "sidebar_label": "Start Building"
       }
     },
-    "links": {
-      "Docs": "Docs"
-    },
+    "links": {},
     "categories": {
       "PlatON Developer Docs": "PlatON Developer Docs",
       "Node Runner": "Node Runner",

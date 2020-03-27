@@ -67,7 +67,7 @@ sidebar_label: PlatON Developer Docs
         <img src="/Docs/img/logo.png">
         <a href="/Docs/docs/en/community" class="card-title">Community Projects</a>
         <div class="card-description">
-        Browse existing projects built on PlatON(including wallets, blockchain browsers, node tools, etc.).
+        Browse existing projects built on PlatON, including wallets, blockchain browsers, node tools, etc.
         </div>
     </div>
 </div>

@@ -29,7 +29,7 @@ const siteConfig = {
   },
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: 'index', label: 'Docs'},
+    //{doc: 'index', label: 'Docs'},
 	// 判断链接中的搜索栏的位置
 	{ search: true },
 	// 判断链接中的语言下拉菜单的位置

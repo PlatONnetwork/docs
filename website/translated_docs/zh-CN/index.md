@@ -60,15 +60,15 @@ sidebar_label: PlatON开发者文档
         <img src="/Docs/img/logo.png">
         <a href="/Docs/docs/zh-CN/PlatON_Overall_Solution" class="card-title">关于PlatON</a>
         <div class="card-description">
-        （学习更多关于PlatON的共识、经济模型、治理、隐私计算等技术）
+        学习更多关于PlatON的共识、经济模型、治理、隐私计算等技术
         </div>
     </div>
     <div class="homepage-card">
         <img src="/Docs/img/logo.png">
         <a href="/Docs/docs/zh-CN/community" class="card-title">社区项目</a>
         <div class="card-description">
-       开发者论坛、aton、PlatScan、mtool）
-浏览基于PlatON构建的现有项目（包含钱包，区块链浏览器，节点工具等
+       开发者论坛、ATON、PlatScan、MTool，
+浏览基于PlatON构建的现有项目，包含钱包、区块链浏览器、节点工具等
         </div>
     </div>
 </div>
