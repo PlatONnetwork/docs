@@ -1,7 +1,7 @@
 ---
 id: community
 title: Community Projects
-sidebar_label: community
+sidebar_label: Community Projects
 ---
 
 Below is a categorized list of projects that use the PlatON blockchain,meet your related development and use tool needs. We welcome more community members to participate and continue to expand the PlatON ecosystem.

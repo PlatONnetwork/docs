@@ -7,7 +7,7 @@
     "docs": {
       "community": {
         "title": "Community Projects",
-        "sidebar_label": "community"
+        "sidebar_label": "Community Projects"
       },
       "index": {
         "title": "PlatON Developer Docs",
@@ -42,8 +42,8 @@
         "sidebar_label": "PlatON Economic Model"
       },
       "Join_PlatON_NetWork": {
-        "title": "Join PlatON NetWork",
-        "sidebar_label": "Join PlatON NetWork"
+        "title": "Join the PlatON network",
+        "sidebar_label": "Join the PlatON network"
       },
       "Verifiable_Computation": {
         "title": "Verifiable Computation",
@@ -54,12 +54,12 @@
         "sidebar_label": "Secure Multi Party Computationn"
       },
       "Install_Node": {
-        "title": "Install Node",
-        "sidebar_label": "Install Node"
+        "title": "Install and deploy a node",
+        "sidebar_label": "Install and deploy a node"
       },
       "Become_Verification_Node": {
-        "title": "Become Verification Node",
-        "sidebar_label": "Become Verification Node"
+        "title": "Upgrade to Validator Node",
+        "sidebar_label": "Upgrade to Validator Node"
       },
       "Smart_Contract_Development": {
         "title": "Smart Contract Development",
@@ -73,9 +73,9 @@
     "links": {},
     "categories": {
       "PlatON Developer Docs": "PlatON Developer Docs",
-      "Node Runner": "Node Runner",
+      "Noderunners": "Noderunners",
       "Developer": "Developer",
-      "Reference Document": "Reference Document",
+      "Reference Docs": "Reference Docs",
       "Abount PlatON": "Abount PlatON",
       "Community": "Community"
     }
