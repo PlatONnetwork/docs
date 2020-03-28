@@ -11,7 +11,7 @@ The LatticeX Foundation has now opened the [Grants program](https://latticex.fou
 ## Wallets
 <table class="commmunity-table">
     <tr>
-        <td><img alt="" src="/img/ATON_logo.svg"></td>
+        <td><img alt="" src="/docs/img/ATON_logo.svg"></td>
         <td>
             <p class="color"><a target="_blank" href="https://developer.platon.network/?lang=en">ATON</a></p>
             ATON is the first secure and user-friendly mobile wallet for PlatON Network.
@@ -22,7 +22,7 @@ The LatticeX Foundation has now opened the [Grants program](https://latticex.fou
 ## Block Explorers
 <table class="commmunity-table">
     <tr>
-        <td><img alt="" src="/img/platscanlogo.svg"></td>
+        <td><img alt="" src="/docs/img/platscanlogo.svg"></td>
         <td>
             <p class="color"><a target="_blank" href="https://platscan.test.platon.network/?lang=en">PlatScan</a></p>
             PlatScan is a Block Explorer and Analytics Platform for PlatON.
@@ -33,7 +33,7 @@ The LatticeX Foundation has now opened the [Grants program](https://latticex.fou
 ## Node Tools
 <table class="commmunity-table">
     <tr>
-        <td><img alt="" src="/img/MTool_logo.svg"></td>
+        <td><img alt="" src="/docs/img/MTool_logo.svg"></td>
         <td>
             <p class="color"><a target="_blank" href="https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.8.0.0/mtool-setup.exe">MTool</a></p>
             Node Management Tool.
@@ -44,7 +44,7 @@ The LatticeX Foundation has now opened the [Grants program](https://latticex.fou
 ## Developer Forums
 <table class="commmunity-table">
     <tr>
-        <td><img alt="" src="/img/latticexforumlogo.svg"></td>
+        <td><img alt="" src="/docs/img/latticexforumlogo.svg"></td>
         <td>
             <p class="color"><a target="_blank" href="https://forum.latticex.foundation/">LatticeX Forum</a></p>
             PlatON Developer Forums. Need help implementing a solution on PlatON? Want to provide feedback?  Check out PlatON’s developer forums.

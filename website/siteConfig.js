@@ -15,13 +15,14 @@ const siteConfig = {
   title: 'PlatON', // Title for your website.
   tagline: 'PlatON',
   url: 'https://luo-dahui.github.io/', // Your website URL
-  baseUrl: '/', // Base URL for your project */
+  baseUrl: '/docs/', // Base URL for your project */
   // Used for publishing and more
   projectName: 'Docs',
   organizationName: 'luo-dahui',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
+  docsUrl :'',
   
   algolia: {
     apiKey:"0f9f28b9ab9efae89810921a351753b5",
@@ -75,7 +76,7 @@ const siteConfig = {
   // Add custom scripts here that would be placed in <script> tags.
   scripts: [
     "https://buttons.github.io/buttons.js",
-    "/js/redirect.js"
+    "/docs/js/redirect.js"
   ],
 
   // On page navigation for the current documentation page.
