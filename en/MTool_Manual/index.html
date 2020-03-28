@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>MTool Manual · PlatON</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## MTool Environment Variable Description "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="MTool Manual · PlatON"/><meta property="og:type" content="website"/><meta property="og:url" content="https://luo-dahui.github.io//docs/"/><meta property="og:description" content="## MTool Environment Variable Description "/><meta property="og:image" content="https://luo-dahui.github.io//docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://luo-dahui.github.io//docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs/img/logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="/docs/js/redirect.js"></script><script src="/docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs/css/main.css"/><script src="/docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="https://www.platon.network/?lang=en"><img class="logo" src="/docs/img/PlatON-logo.svg" alt="PlatON"/></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/docs/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/zh-CN/MTool_Manual">中文</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Reference Docs</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">PlatON Developer Docs<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/en/">PlatON Developer Docs</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Noderunners<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/en/Install_Node">Install and deploy a node</a></li><li class="navListItem"><a class="navItem" href="/docs/en/Join_PlatON_NetWork">Join the PlatON network</a></li><li class="navListItem"><a class="navItem" href="/docs/en/Become_Verification_Node">Upgrade to Validator Node</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Developer<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/en/Set_Develop_Env">Start Building</a></li><li class="navListItem"><a class="navItem" href="/docs/en/Smart_Contract_Development">Smart Contract Development</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Reference Docs<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/en/Java_SDK">Java SDK</a></li><li class="navListItem"><a class="navItem" href="/docs/en/JS_SDK">JS SDK</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/MTool_Manual">MTool Manual</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Abount PlatON<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/en/PlatON_Overall_Solution">PlatON Overall Solution</a></li><li class="navListItem"><a class="navItem" href="/docs/en/PlatON_Consensus_Solution">PlatON Consensus Solution</a></li><li class="navListItem"><a class="navItem" href="/docs/en/Economic_Model">PlatON Economic Model</a></li><li class="navListItem"><a class="navItem" href="/docs/en/PlatON_Governance_Solution">PlatON Governance_Solution</a></li><li class="navListItem"><a class="navItem" href="/docs/en/Secure_Multi_Party_Computation">Secure Multi Party Computationn</a></li><li class="navListItem"><a class="navItem" href="/docs/en/Verifiable_Computation">Verifiable Computation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Community<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/en/community">Community Projects</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">MTool Manual</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="mtool-environment-variable-description"></a><a href="#mtool-environment-variable-description" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MTool Environment Variable Description</h2>
+<p>The environment variables of MTool directories under Windows and Ubuntu are different:</p>
+<ul>
+<li>MTool Catalog
+<ul>
+<li>Windows:<code>%MTOOLDIR%</code></li>
+<li>Ubuntu:<code>$MTOOLDIR</code></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Explanation:<strong><code>Users choose according to their installed system.</code></strong></p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="mtool-command-details"></a><a href="#mtool-command-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MTool Command Details</h2>
+<h3><a class="anchor" aria-hidden="true" id="create-a-wallet"></a><a href="#create-a-wallet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create A Wallet</h3>
+<ul>
+<li>Execute the command:</li>
+</ul>
+<pre><code class="hljs css language-shell">mtool-client account new staking
+</code></pre>
+<ul>
+<li>Variable description</li>
+</ul>
+<blockquote>
+<p>staking: Generated wallet name, after the successful creation of the wallet file <code>staking.json</code> in the directory <code>$MTOOLDIR/keystore</code>.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="ordinary-transfer-operation"></a><a href="#ordinary-transfer-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ordinary transfer operation</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client tx transfer --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --amount <span class="hljs-string">"1"</span> --recipient $ to_address --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>keystore: path of the wallet sending the transaction</p>
+<p>amount: transfer amount, unit: LAT</p>
+<p>recipient: receiving address</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="view-wallet-list"></a><a href="#view-wallet-list" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>View wallet list</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client account list
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="query-balance-based-on-wallet-name"></a><a href="#query-balance-based-on-wallet-name" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Query balance based on wallet name</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client account balance <span class="hljs-variable">$keystorename</span> --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<ul>
+<li>Variable description</li>
+</ul>
+<blockquote>
+<p>$ keystorename: wallet file name，example:staking.json</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="query-balance-based-on-address"></a><a href="#query-balance-based-on-address" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Query balance based on address</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client account balance -a <span class="hljs-variable">$address</span> --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<ul>
+<li>Parameters</li>
+</ul>
+<blockquote>
+<p>a: wallet address</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="initiate-a-staking-operation"></a><a href="#initiate-a-staking-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initiate a staking operation</h3>
+<p>If the deployment of the consensus node is complete and the block has been synchronized successfully, you can use MTool for staking operations. After the staking fund application is completed, ensure that the balance of the staking account is sufficient, and replace the staking amount according to the user's situation. The minimum threshold for staking is 1 million LAT.</p>
+<p>Note: Please keep enough LAT in the staking account, so that the transactions initiated by the subsequent node management have sufficient transaction fees, such as voting for upgrading proposals, and unsecured transactions.</p>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client staking --amount 1000000 --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<p>Tip:<strong>please input keystore password:</strong>Enter the password of the staking wallet and press Enter. If the following information is displayed, the staking is successful:</p>
+<pre><code class="hljs css language-bash">operation finished
+transaction <span class="hljs-built_in">hash</span>:
+0x89b964d27d0caf1d8bf268f721eb123c4af57aed36187bea90b262f4769eeb9b
+SUCCESS
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>amount: staking number, not less than 1000000lat-staking threshold, no more than 8 decimal places</p>
+<p>restrictedamount: not less than 1000000lat- staking threshold, no more than 8 decimal points (staking using locked balance)</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="modify-validator-information-operation"></a><a href="#modify-validator-information-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Modify validator information operation</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client update_validator --name VerifierName --url <span class="hljs-string">"http://www.platon.com"</span> --identity IdentifyID --delegated-reward-rate 100 --reward 0x33d253386582f38c66cb5819bfbdaad0910339b3 --introduction <span class="hljs-string">"Modify the verifier information operation"</span> --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>name: validator name, no more than 30 bytes, supports letters, numbers, spaces, underscores and #, must start with a letter</p>
+<p>url: official website path, no more than 70 bytes, composed of alphanumeric characters</p>
+<p>identity: identity authentication ID, no more than 140 bytes, corresponds to the <code>externalId</code> field in the validator_config.json configuration file</p>
+<p>delegated-reward-rate: delegated reward ratio, unit: million points, integer, range 0 ~ 10000, If you enter 5000, it means that the dividend ratio is 50%</p>
+<p>reward: return address, 42 characters (alphanumeric)</p>
+<p>introduction: introduction, brief description of the validator, no more than 280 bytes, English is recommended</p>
+<p>a: When executing the command, use the values in the configuration file as parameters to modify the verifier information</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="decommissioning-operation"></a><a href="#decommissioning-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Decommissioning operation</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client unstaking --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>None</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="increase-staking-operation"></a><a href="#increase-staking-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Increase staking operation</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client increasestaking --amount 5000000 --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>amount: Use the account balance to increase the staking amount (LAT), the minimum added value is not less than 10, and the decimal point does not exceed 8 digits</p>
+<p>restrictedamount: use the account balance to increase the amount of staking, not less than 10 staking threshold, the decimal point does not exceed 8</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="submit-text-proposal-action"></a><a href="#submit-text-proposal-action" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Submit Text Proposal Action</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client submit_textproposal --pid_id 100 --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>pid_id: GitHub ID</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="submit-upgrade-proposal-operation"></a><a href="#submit-upgrade-proposal-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Submit upgrade proposal operation</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client submit_versionproposal --newversion 0.8.0 --end_voting_rounds 345 --pid_id 100 --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>newversion: target upgrade version, x.x.x, number punctuation</p>
+<p>end_voting_rounds: the number of voting consensus rounds, the number of voting consensus rounds N, must satisfy 0 &lt; N &lt;= 4838 (about 2 weeks)</p>
+<p>pid_id: GitHub ID</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="submit-cancel-proposal"></a><a href="#submit-cancel-proposal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Submit Cancel Proposal</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client submit_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --end_voting_rounds 12 --pid_id 100 --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR_validator</span>/validator
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>proposalid: the ID of the proposal that needs to be cancelled</p>
+<p>end_voting_rounds: the number of voting consensus rounds, the number of voting consensus rounds N, must satisfy 0 &lt; N &lt;= 4838 (about 2 weeks)</p>
+<p>pid_id: GitHub ID</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="text-proposal-voting-operation"></a><a href="#text-proposal-voting-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Text proposal voting operation</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client vote_textproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>proposalid: text proposal ID, that is, the hash of the proposal transaction, 66 characters, alphanumeric</p>
+<p>opinion: voting options, yes, no, abstain-choose one</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="upgrade-proposal-voting-operation"></a><a href="#upgrade-proposal-voting-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Upgrade proposal voting operation</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client vote_versionproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>proposalid: upgrade proposal ID, that is, the hash of the proposed transaction, 66 characters, alphanumeric</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="cancel-proposal-voting"></a><a href="#cancel-proposal-voting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cancel proposal voting</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client vote_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>proposalid: Cancel the proposal ID, that is, the hash of the proposed transaction, 66 characters, composed of alphanumeric characters</p>
+<p>opinion: voting options, yes, no, abstain-choose one</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="submit-parameter-proposal-operation"></a><a href="#submit-parameter-proposal-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Submit parameter proposal operation</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client submit_paramproposal --pid_id 200 --module $ module --paramname $ paramname --paramvalue $ paramvalue --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>module: governance module parameters</p>
+<p>paramname: the name of the governance module parameter, pay attention to the case of the letters</p>
+<p>paramvalue: Governance module parameter value</p>
+<p>pid_id: GitHub ID</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="parameter-proposal-voting-operation"></a><a href="#parameter-proposal-voting-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameter proposal voting operation</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client vote_paramproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>proposalid: Cancel the proposal ID, that is, the hash of the proposed transaction, 66 characters, composed of alphanumeric characters</p>
+<p>opinion: voting options, yes, no, abstain-choose one</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="version-declaration-operation"></a><a href="#version-declaration-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Version declaration operation</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client declare_version --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>None</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="view-help"></a><a href="#view-help" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>View help</h3>
+<ul>
+<li>Excuting an order</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client -h
+</code></pre>
+<ul>
+<li>Parameter Description</li>
+</ul>
+<blockquote>
+<p>None</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/JS_SDK"><span class="arrow-prev">← </span><span>JS SDK</span></a><a class="docs-next button" href="/docs/en/PlatON_Overall_Solution"><span class="function-name-prevnext">PlatON Overall Solution</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#mtool-environment-variable-description">MTool Environment Variable Description</a></li><li><a href="#mtool-command-details">MTool Command Details</a><ul class="toc-headings"><li><a href="#create-a-wallet">Create A Wallet</a></li><li><a href="#ordinary-transfer-operation">Ordinary transfer operation</a></li><li><a href="#view-wallet-list">View wallet list</a></li><li><a href="#query-balance-based-on-wallet-name">Query balance based on wallet name</a></li><li><a href="#query-balance-based-on-address">Query balance based on address</a></li><li><a href="#initiate-a-staking-operation">Initiate a staking operation</a></li><li><a href="#modify-validator-information-operation">Modify validator information operation</a></li><li><a href="#decommissioning-operation">Decommissioning operation</a></li><li><a href="#increase-staking-operation">Increase staking operation</a></li><li><a href="#submit-text-proposal-action">Submit Text Proposal Action</a></li><li><a href="#submit-upgrade-proposal-operation">Submit upgrade proposal operation</a></li><li><a href="#submit-cancel-proposal">Submit Cancel Proposal</a></li><li><a href="#text-proposal-voting-operation">Text proposal voting operation</a></li><li><a href="#upgrade-proposal-voting-operation">Upgrade proposal voting operation</a></li><li><a href="#cancel-proposal-voting">Cancel proposal voting</a></li><li><a href="#submit-parameter-proposal-operation">Submit parameter proposal operation</a></li><li><a href="#parameter-proposal-voting-operation">Parameter proposal voting operation</a></li><li><a href="#version-declaration-operation">Version declaration operation</a></li><li><a href="#view-help">View help</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '0f9f28b9ab9efae89810921a351753b5',
+                indexName: 'github',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

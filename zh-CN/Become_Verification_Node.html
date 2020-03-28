@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>成为验证节点 · PlatON</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## 简介"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="成为验证节点 · PlatON"/><meta property="og:type" content="website"/><meta property="og:url" content="https://luo-dahui.github.io//docs/"/><meta property="og:description" content="## 简介"/><meta property="og:image" content="https://luo-dahui.github.io//docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://luo-dahui.github.io//docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs/img/logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="/docs/js/redirect.js"></script><script src="/docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs/css/main.css"/><script src="/docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="https://www.platon.network/?lang=zh"><img class="logo" src="/docs/img/PlatON-logo.svg" alt="PlatON"/></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/docs/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/Become_Verification_Node">English</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>节点运行者</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">PlatON开发者文档<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/">PlatON开发者文档</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">节点运行者<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Install_Node">安装一个节点</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Join_PlatON_NetWork">加入 PlatON 网络</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/zh-CN/Become_Verification_Node">成为验证节点</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">开发者<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Set_Develop_Env">设置开发环境</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Smart_Contract_Development">智能合约开发</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">参考文档<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Java_SDK">Java SDK</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/JS_SDK">JS SDK</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/MTool_Manual">MTool使用手册</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">关于PlatON<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Overall_Solution">PlatON总体方案</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Consensus_Solution">PlatON共识方案</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Economic_Model">PlatON经济方案</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Governance_Solution">PlatON治理方案</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Secure_Multi_Party_Computation">安全多方计算</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Verifiable_Computation">可验证计算</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Community<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/community">社区项目</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">成为验证节点</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="简介"></a><a href="#简介" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>简介</h2>
+<p>PlatON 是实行民主治理的区块链项目，验证节点由所有 Energon 持有者共同推选，以维护和发展 PlatON 网络。得票数最多的 101 名节点将成为备选节点，从中用 VRF 随机选出 25 个验证节点，参与管理整个 PlatON 网络。</p>
+<p>本节描述如何操作成为验证节点。</p>
+<h2><a class="anchor" aria-hidden="true" id="准备"></a><a href="#准备" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>准备</h2>
+<h3><a class="anchor" aria-hidden="true" id="在成为验证节点前请确保服务器本地具备以下条件："></a><a href="#在成为验证节点前请确保服务器本地具备以下条件：" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>在成为验证节点前请确保服务器本地具备以下条件：</h3>
+<ul>
+<li>已经按照《安装一个节点》指引安装好 PlatON 节点并创建好钱包文件和节点密钥。</li>
+<li>启动节点，加入 PlatON 网络</li>
+</ul>
+<blockquote>
+<p>本章节假设服务器为 Ubuntu18.04，可执行文件所在工作目录为 <code>~/platon-node</code>，注意后续所有命令行操作均在工作目录下进行。</p>
+<p>如果没有预先生成密钥，节点在启动时自动在节点的data目录下生成。如果采用自动生成的形式，将只会生成节点私钥与 BLS 私钥，相关公钥不会自动生成。</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="配置-nginx"></a><a href="#配置-nginx" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>配置 Nginx</h2>
+<p>安全考虑，不建议节点 rpc 端口对外直接开放（节点服务器默认 Ubuntu 18.04）。可以考虑使用 Nginx 进行反向代理，并通过用户鉴权和 HTTPS 加强 Nginx 端口的安全性。如果用户在安装 PlatON 做了节点数据目录的修改，nginx_conf.sh 脚本也需要修改成相同的节点数据目录。</p>
+<h3><a class="anchor" aria-hidden="true" id="下载-nginx_confsh"></a><a href="#下载-nginx_confsh" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>下载 nginx_conf.sh</h3>
+<pre><code class="hljs css language-bash">$ wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/opensource/scripts/nginx_conf.sh
+</code></pre>
+<p>或者</p>
+<pre><code class="hljs css language-bash">$ wget http://47.91.153.183/opensource/scripts/nginx_conf.sh
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="执行脚本"></a><a href="#执行脚本" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>执行脚本</h3>
+<pre><code class="hljs css language-bash">$ chmod +x nginx_conf.sh
+$ ./nginx_conf.sh
+</code></pre>
+<blockquote>
+<p>注意</p>
+<ul>
+<li>提示 <code>[sudo] password for</code> 时，输入当前账户密码。</li>
+<li>提示 <code>Enter your name:</code> 时，输入用户名，提示 <code>Enter your password:</code> 时，输入密码。务必牢记用户名和密码，后续MTool 配置验证节点信息时需要填写。</li>
+<li>提示 <code>ngnix conf succeed</code> 时，表示配置 nginx 成功，未配置成功时，请通过我们的客服联系方式反馈具体问题。</li>
+</ul>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="安装-mtool"></a><a href="#安装-mtool" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>安装 Mtool</h2>
+<h3><a class="anchor" aria-hidden="true" id="下载-mtool-工具包"></a><a href="#下载-mtool-工具包" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>下载 Mtool 工具包</h3>
+<pre><code class="hljs css language-bash">$ wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.8.0.0/mtool-client.zip
+</code></pre>
+<p>或者</p>
+<pre><code class="hljs css language-bash">$ wget http://47.91.153.183/mtool/0.8.0.0/mtool-client.zip
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="解压-mtool-工具包并安装"></a><a href="#解压-mtool-工具包并安装" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>解压 Mtool 工具包并安装</h3>
+<pre><code class="hljs css language-bash">$ (<span class="hljs-keyword">if</span> ! <span class="hljs-built_in">command</span> -v unzip;<span class="hljs-keyword">then</span> sudo apt install unzip; <span class="hljs-keyword">fi</span>;) &amp;&amp; unzip mtool-client.zip &amp;&amp; mv mtool-client*/ mtool-client &amp;&amp; <span class="hljs-built_in">cd</span> mtool-client
+$ chmod +x mtool_install.sh &amp;&amp; ./mtool_install.sh
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="配置-mtool"></a><a href="#配置-mtool" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>配置 Mtool</h2>
+<h3><a class="anchor" aria-hidden="true" id="创建钱包"></a><a href="#创建钱包" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>创建钱包</h3>
+<p>PlatON 中，参与验证节点进行出块要创建两个钱包。如果已经有钱包，可通过将钱包文件拷贝到<code>$MTOOLDIR/keystore</code>目录下，跳过本步骤。</p>
+<ul>
+<li>质押钱包：质押钱包用于质押 token，质押成功后才能成为备选节点候选人。 运行以下命令创建质押钱包</li>
+</ul>
+<pre><code class="hljs css language-bash">$ mtool-client account new staking
+</code></pre>
+<p>输入一次密码，再输入一次确认密码，即可创建钱包文件，创建成功后会在目录<code>$MTOOLDIR/keystore</code>下生成质押钱包文件<code>staking.json</code>。</p>
+<ul>
+<li>收益钱包：用于收取区块奖励和Staking奖励，Staking奖励统一发放给验证节点，由验证节点自行分配。 运行以下命令创建收益钱包</li>
+</ul>
+<pre><code class="hljs css language-bash">$ mtool-client account new reward
+</code></pre>
+<p>输入一次密码，再输入一次确认密码，即可创建钱包文件，创建成功后会在目录<code>$MTOOLDIR/keystore</code>下生成质押钱包文件<code>reward.json</code>。</p>
+<h3><a class="anchor" aria-hidden="true" id="配置验证节点信息"></a><a href="#配置验证节点信息" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>配置验证节点信息</h3>
+<h4><a class="anchor" aria-hidden="true" id="下载脚本"></a><a href="#下载脚本" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>下载脚本</h4>
+<pre><code class="hljs css language-bash">$ <span class="hljs-built_in">cd</span> <span class="hljs-variable">$MTOOLDIR</span>
+$ wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/opensource/scripts/validator_conf.sh
+</code></pre>
+<p>或者</p>
+<pre><code class="hljs css language-bash">$ <span class="hljs-built_in">cd</span> <span class="hljs-variable">$MTOOLDIR</span>
+$ wget http://47.91.153.183/opensource/scripts/validator_conf.sh
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="运行脚本配置"></a><a href="#运行脚本配置" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>运行脚本配置</h4>
+<pre><code class="hljs css language-bash">$ chmod +x validator_conf.sh &amp;&amp; ./validator_conf.sh
+</code></pre>
+<blockquote>
+<p><strong>注意：</strong></p>
+<ul>
+<li>提示 Please enter the platon node IP address: 时，请输入 PlatON 节点服务器 ip 地址。</li>
+<li>提示 Please enter the platon chain id: 时，请输入链ID，根据所连网络是主网还是测试网选择输入(测试网:101)。</li>
+<li>提示 Please enter the delegatedRewardRate(0~10000):时，请输入比例分红，范围从0到10000，单位(万分比)，如输入5000，表示分红比例为50%。</li>
+<li>提示 Enter your name: 时，请输入配置 PlatON节点 nginx 时输入的用户名。</li>
+<li>提示 Enter your password: 时，请输入配置 PlatON节点 nginx 时输入的密码。</li>
+<li>提示 Enter your platon node name:时，请输入 PlatON 节点的名称。</li>
+<li>提示 Enter your platon node description:时，请输入 PlatON 节点描述。</li>
+<li>提示 validator conf success，并最后打印出的validator_config.json内容正常时，表示脚本执行成功，未执行成功时，请通过我们的官方客服联系方式反馈具体问题。</li>
+</ul>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="验证节点信息配置文件说明"></a><a href="#验证节点信息配置文件说明" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>验证节点信息配置文件说明</h4>
+<p>完成配置验证节点信息后，会在 MTool 的安装目录的 validator 子目录下，生成验证节点信息文件 validator_config.json，文件内容如下：</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"chainId"</span>: <span class="hljs-string">"101"</span>,
+  <span class="hljs-attr">"delegatedRewardRate"</span>: <span class="hljs-string">"5000"</span>,
+  <span class="hljs-attr">"nodePublicKey"</span>: <span class="hljs-string">"79ca603ef75d5954ec270802fa4e7b9bf045842bb7f3e95b849173f61d8a7cfef82b8687abef67f29645e068ff371da514f32b009b05f48062daa84f0b58ab6d"</span>,
+  <span class="hljs-attr">"blsPubKey"</span>: <span class="hljs-string">"a2e1c2e60eb8bb2af05fff4d07c8fce7c408fbe944be1a58194d9e9c9078cb7bb55b63311c8af107453ac182eef22a04cb9ff28cc3367f1e8459f8dcbe9f5c965a6f377f9ff9bb39a78e4e04fd27876137bb0a9aa4066d0277464f018e989e94"</span>,
+  <span class="hljs-attr">"benefitAddress"</span>: <span class="hljs-string">"0x32bec384344c2dc1ea794a4e149c1b74dd8467ef"</span>,
+  <span class="hljs-attr">"nodeAddress"</span>: <span class="hljs-string">"https://test:test@domain3"</span>,
+  <span class="hljs-attr">"nodePort"</span>: <span class="hljs-string">"16789"</span>,
+  <span class="hljs-attr">"nodeRpcPort"</span>: <span class="hljs-string">"443"</span>,
+  <span class="hljs-attr">"nodeName"</span>: <span class="hljs-string">"water-node"</span>,
+  <span class="hljs-attr">"details"</span>: <span class="hljs-string">"this is water-node"</span>,
+  <span class="hljs-attr">"externalId"</span>: <span class="hljs-string">"MyKeyBaseId"</span>,
+  <span class="hljs-attr">"webSite"</span>: <span class="hljs-string">"http://www.mycompany.com"</span>,
+  <span class="hljs-attr">"certificate"</span>: <span class="hljs-string">"C:/tools/mtool/current/ca.crt"</span>
+}
+</code></pre>
+<blockquote>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li>chainId: 贝莱世界的链为 101。</li>
+<li>delegatedRewardRate: 用来设置给委托人分红的比例。</li>
+<li>nodePublicKey: 节点 ID，可通过节点数据目录 data 下的 nodeid 文件查看。</li>
+<li>blsPubKey: BLS 公钥，可通过节点数据目录 data 下的 blspub 文件查看。</li>
+<li>benefitAddress: 收益钱包地址。</li>
+<li>nodeAddress: 节点地址，分使用 Nginx 和不使用 Nginx 两种情况:
+<ul>
+<li>如果使用Nginx，需要用 <strong>https</strong> 协议，格式为：<code>https://test:test@domain3</code>。</li>
+<li>如果不使用Nginx，需要用 <strong>http</strong> 协议，如果 MTool 和节点在同一台机器或同一个局域网内，可以使用内网IP，否则使用公网 IP，格式为：<code>http://18.238.183.12</code>。</li>
+</ul></li>
+<li>nodePort: 节点 P2P 端口，默认为16789。</li>
+<li>nodeRpcPort: 分使用 Nginx 和不使用 Nginx 两种情况:
+<ul>
+<li>如果使用了 Nginx，端口默认为 443。</li>
+<li>如果不使用 Nginx，端口默认为 6789。</li>
+</ul></li>
+<li>nodeName: 节点名称。</li>
+<li>details: 节点描述信息。</li>
+<li>externalId: 对应为浏览器显示的头像，可在 <a href="https://keybase.io/">keybase.io</a> 官网进行注册，对应的值为：注册账户，生成16位的公钥 。</li>
+<li>webSite: 公司网址。</li>
+<li>certificate: ca 证书地址，如果不使用 Nginx 反向代理，可删除此参数。</li>
+</ul>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="发起质押操作"></a><a href="#发起质押操作" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>发起质押操作</h2>
+<p>如果共识节点部署完成，并且已经同步区块成功，您就可以使用 MTool 进行质押操作。质押资金申请完成后，确保质押账户余额足够，根据用户情况替换质押金额，质押最低门槛为100万 LAT。</p>
+<p>注意：请保持质押账户里面有足够 LAT，以备后续发起节点管理的交易有足够的交易手续费，比如升级提案的投票，解质押等交易。</p>
+<ul>
+<li>执行命令</li>
+</ul>
+<pre><code class="hljs css language-bash">mtool-client staking --amount 1000000 --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+</code></pre>
+<p>提示：<strong>please input keystore password:</strong> 输入质押钱包的密码，然后回车，如果显示如下信息则代表质押成功：</p>
+<pre><code class="hljs css language-bash">operation finished
+transaction <span class="hljs-built_in">hash</span>:
+0x89b964d27d0caf1d8bf268f721eb123c4af57aed36187bea90b262f4769eeb9b
+SUCCESS
+</code></pre>
+<blockquote>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li>amount: 质押数，不少于1000000lat-质押门槛，小数点不超过8位</li>
+<li>restrictedamount: 不少于1000000lat-质押门槛，小数点不超过8位（使用锁仓余额质押）</li>
+</ul>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/Join_PlatON_NetWork"><span class="arrow-prev">← </span><span class="function-name-prevnext">加入 PlatON 网络</span></a><a class="docs-next button" href="/docs/zh-CN/Set_Develop_Env"><span>设置开发环境</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#简介">简介</a></li><li><a href="#准备">准备</a><ul class="toc-headings"><li><a href="#在成为验证节点前请确保服务器本地具备以下条件：">在成为验证节点前请确保服务器本地具备以下条件：</a></li></ul></li><li><a href="#配置-nginx">配置 Nginx</a><ul class="toc-headings"><li><a href="#下载-nginx_confsh">下载 nginx_conf.sh</a></li><li><a href="#执行脚本">执行脚本</a></li></ul></li><li><a href="#安装-mtool">安装 Mtool</a><ul class="toc-headings"><li><a href="#下载-mtool-工具包">下载 Mtool 工具包</a></li><li><a href="#解压-mtool-工具包并安装">解压 Mtool 工具包并安装</a></li></ul></li><li><a href="#配置-mtool">配置 Mtool</a><ul class="toc-headings"><li><a href="#创建钱包">创建钱包</a></li><li><a href="#配置验证节点信息">配置验证节点信息</a></li></ul></li><li><a href="#发起质押操作">发起质押操作</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '0f9f28b9ab9efae89810921a351753b5',
+                indexName: 'github',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
