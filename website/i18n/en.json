@@ -61,7 +61,7 @@
         "title": "Upgrade to Validator Node",
         "sidebar_label": "Upgrade to Validator Node"
       },
-      "Smart_Contract_Development": {
+      "Smart_Contract": {
         "title": "Smart Contract Development",
         "sidebar_label": "Smart Contract Development"
       },
@@ -77,7 +77,7 @@
       "Developer": "Developer",
       "Reference Docs": "Reference Docs",
       "Abount PlatON": "Abount PlatON",
-      "Community": "Community"
+      "Community Projects": "Community Projects"
     }
   },
   "pages-strings": {
