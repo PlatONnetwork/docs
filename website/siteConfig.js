@@ -77,6 +77,7 @@ const siteConfig = {
   scripts: [
     "https://buttons.github.io/buttons.js",
     "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML",
+    "https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js",
     "/docs/js/custom.js",
   ],
 

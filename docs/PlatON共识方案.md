@@ -628,15 +628,15 @@ However, B can completely abandon ViewChange <A9>, choose A8 as HighestQCBlock, 
 
 If B is a Byzantine node, B may produce blocks based on both A8 and A9 to fork.
 
-```mermaid
+<div class="mermaid">
 graph LR
-A[D7] -->B[A8]
-    B --> C[A9]
-    B --> D[B9:A8]
-    C --> E[B10:A9]
-    E --> F[B11:A9]
-    D --> G[B10:A8]
-```
+  A[D7] -->B[A8]
+  B --> C[A9]
+  B --> D[B9:A8]
+  C --> E[B10:A9]
+  E --> F[B11:A9]
+  D --> G[B10:A8]
+</div>
 
 B synchronizes the blocks produced based on A8 and A9 to other nodes at the same time. If other nodes receive all new blocks at the same time:
 
