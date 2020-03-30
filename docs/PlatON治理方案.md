@@ -1,7 +1,7 @@
 ---
 id: PlatON_Governance_Solution
 title: PlatON Governance Solution
-sidebar_label: PlatON Governance_Solution
+sidebar_label: PlatON Governance Solution
 ---
 
 

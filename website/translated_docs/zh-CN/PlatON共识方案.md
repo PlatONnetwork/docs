@@ -1,5 +1,5 @@
 ---
-id: PlatON_Consensus_Solution
+id: PlatON_Solution
 title: PlatON共识方案
 sidebar_label: PlatON共识方案
 ---

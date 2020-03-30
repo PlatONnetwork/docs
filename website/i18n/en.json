@@ -25,7 +25,7 @@
         "title": "MTool Manual",
         "sidebar_label": "MTool Manual"
       },
-      "PlatON_Consensus_Solution": {
+      "PlatON_Solution": {
         "title": "PlatON Consensus Solution",
         "sidebar_label": "PlatON Consensus Solution"
       },
@@ -35,7 +35,7 @@
       },
       "PlatON_Governance_Solution": {
         "title": "PlatON Governance Solution",
-        "sidebar_label": "PlatON Governance_Solution"
+        "sidebar_label": "PlatON Governance Solution"
       },
       "Economic_Model": {
         "title": "PlatON Economic Model",
