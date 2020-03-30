@@ -318,23 +318,23 @@ In order to prevent the newly selected validators from affecting the efficiency 
   
   The proposer of the 230th block of each round is responsible for selecting the verification node for the next consensus round. Assuming the current $n$ block, the selection rules are as follows:
   
-  - The block proposer generates a random seed of the current block and its proof based on the random seed of the previous block $(r_i, \pi_i)$ 
+  - The block proposer generates a random seed of the current block and its proof based on the random seed of the previous block $(r_n, \pi_n)$ 
   
   - Consider a candidate node. Assume that the ranking is $i$ and there are $w_i$ votes. The total number of votes for all candidate nodes is $W=\sum_{k=1}^{101}w_k$, choose a positive The integer $m<W$,  so  $p=\frac{m}{W}$.For this node, finding $X$ makes
   
-    $$\sum_{k=0}^XB(k,w_i,p)\leq\frac{r_i}{2^l-1}<\sum_{k=0}^{X+1}B(k,w_i,p)$$                                               (2)
+    $$\sum_{k=0}^XB(k,w_i,p)\leq\frac{r_{n-i} \oplus r_n}{2^l-1}<\sum_{k=0}^{X+1}B(k,w_i,p)$$                               (2)
   
     Where $B(k,n,p)$ is a probability density function of the binomial distribution $B(n,p)$, and $F(x)=\sum_{k=0}^xB(k,n,p)$ is its cumulative probability distribution function.
   
-    Therefore, formula (2) can be equivalently expressed as $F(X)=\frac{r_i}{2^l-1}$, so
+    Therefore, formula (2) can be equivalently expressed as $F(X)=\frac{r_{n-i} \oplus r_n}{2^l-1}$, so
   
-    $$X=F^{-1}(\frac{r_i}{2^l-1})$$                                                                                                     (3)
+    $$X=F^{-1}(\frac{r_{n-i} \oplus r_n}{2^l-1})$$                                                                          (3)
   
-    Because $\frac{r_i}{2^l-1}$ obeys the distribution between $[0,1]$, X obeys the binomial distribution $B(n,p)$, and
+    Because $\frac{r_{n-i} \oplus r_n}{2^l-1}$ obeys the distribution between $[0,1]$, X obeys the binomial distribution $B(n,p)$, and
   
     $$E(X)=np$$                                                                                                             (4)
   
-    Because the current random seed parameters and public key are public, participants in the PPoS consensus algorithm can easily verify $(r_i, \pi_i)$ and calculate their $X$ value based on the number of votes received by the candidate nodes.
+    Because the current random seed parameters and public key are public, participants in the PPoS consensus algorithm can easily verify $(r_n, \pi_n)$ and calculate their $X$ value based on the number of votes received by the candidate nodes.
   
   - The $X$ value of all candidate nodes is calculated, and the candidate node corresponding to the highest $F$ $X$ value becomes the verification node. The higher the value of $X$ obtained by VRF, the more likely it is to be selected as a verification node. However, due to the randomness introduced by VRF, the finally selected $F$ verification nodes may not be exactly the $F$ candidate nodes with the highest votes.
   

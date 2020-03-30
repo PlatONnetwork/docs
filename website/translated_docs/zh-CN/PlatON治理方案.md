@@ -25,7 +25,7 @@ sidebar_label: PlatON治理方案
 - **备选节点**
   节点通过质押一定的Token成为候选人，其他用户可将自己的Token委托给候选人，系统根据候选人的总权益（质押+委托）进行排名，排名前101的候选人被选举成为备选节点。
 - **持币人**
-  所有Energon代币持有者。
+  所有Token代币持有者。
 
 - **核心开发者** 
   共同建设PlatON公链及社区的核心开发者。
@@ -37,7 +37,7 @@ sidebar_label: PlatON治理方案
   - 对非公投提案投票
   - 对提案进行附议
 - **持币人**
-  - 发起提案
+  - 发起公投提案
   - 对公投提案投票
   - 对提案进行附议
 - **开发者**
@@ -113,7 +113,7 @@ sidebar_label: PlatON治理方案
 | 取消提案 | >50% | >=66.7% |
 | 参数提案 | >50% | >=66.7% |
 | 升级提案 | =100% | >=66.7% |
-
+ 
 ### <span id="upgrade">升级机制</span>
 
 升级机制是网络能够不断迭代完善的保证。对于区块链系统运行过程中可能出现的不同情况，我们应该提供有针对性的升级方式，主要有以下四种情况：
@@ -202,27 +202,27 @@ sidebar_label: PlatON治理方案
 
 - slashing模块
 
-| Key | 描述|范围|
+| Key | 描述|范围| 
 | ---|---|---|
-| slashBlocksReward |	出块率为0，削减的区块奖励块数 |[0, 50000] blocks	|
-| slashFractionDuplicateSign|双签举报处罚节点自有质押金比例| (0,10000] ‱|
-| duplicateSignReportReward|	举报人可获得处罚金的奖励比例	| (0, 80] %	|
-| maxEvidenceAge| 双签举报证据有效的结算周期数 |(0, 节点质押退回锁定周期）Epoch|
+| slashBlocksReward |	出块率为0，削减的区块奖励块数 |[0, 50000] blocks	| 
+| slashFractionDuplicateSign|双签举报处罚节点自有质押金比例| (0,10000] ‱| 
+| duplicateSignReportReward|	举报人可获得处罚金的奖励比例	| (0, 80] %	| 
+| maxEvidenceAge| 双签举报证据有效的结算周期数 |(0, 节点质押退回锁定周期）Epoch| 
 
 - block模块
 
-| Key | 描述|范围|
+| Key | 描述|范围| 
 | ---|---|---|
-| MaxBlockGasLimit|区块最大Gas|[4712388, 210000000] gas|
+| MaxBlockGasLimit|区块最大Gas|[4712388, 210000000] gas| 
 
 - staking模块
 
-| Key | 描述|范围|
+| Key | 描述|范围| 
 | ---|---|---|
-| stakeThreshold|	成为备选节点候选人最低的质押Token数 | [100W,1000w] LAT|
-| operatingThreshold	|委托人每次委托及赎回的最低Token数|	[10, 10000] LAT|
-| unStakeFreezeDuration |节点质押退回锁定周期	| (证据有效期,112] Epoch	|
-| maxValidators| 备选节点数量|[25, 201]	|
+| stakeThreshold|	成为备选节点候选人最低的质押Token数 | [100W,1000w] LAT| 
+| operatingThreshold	|委托人每次委托及赎回的最低Token数|	[10, 10000] LAT| 
+| unStakeFreezeDuration |节点质押退回锁定周期	| (证据有效期,112] Epoch	| 
+| maxValidators| 备选节点数量|[25, 201]	| 
 
 
 ### 奖惩机制

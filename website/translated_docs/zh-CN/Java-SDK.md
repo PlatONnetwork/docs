@@ -4,6 +4,7 @@ title: Java SDK
 sidebar_label: Java SDK
 ---
 
+
 ## 开发库导入
 
 根据构建工具的不同，使用以下方式将相关依赖项添加到项目中：
@@ -25,7 +26,7 @@ sidebar_label: Java SDK
 <dependency>
 	<groupId>com.platon.client</groupId>
 	<artifactId>core</artifactId>
-	<version>0.8.0.0</version>
+	<version>0.8.0.1</version>
 </dependency>
 ```
 
@@ -40,25 +41,26 @@ repositories {
 
 > gradle引用方式:
 ```
-compile "com.platon.client:core:0.7.5.1"
+compile "com.platon.client:core:0.8.0.1"
 ```
 
 ## 系统合约调用
 
-系统合约主要包含经济模型和治理相关的合约：
-* 质押合约
-* 委托合约
-* 节点合约
-* 治理合约
-* 举报合约
-* 锁仓合约
+系统接口主要包含经济模型和治理相关的合约接口：
+* 质押相关接口
+* 委托相关接口
+* 奖励相关接口
+* 节点相关接口
+* 治理相关接口
+* 举报相关接口
+* 锁仓相关接口
 
-如上系统合约的介绍和使用，请参考如下合约接口说明。
+如上接口的介绍和使用，请参考如下接口说明。
 
 
 ### 质押相关接口
 
-> PlatON经济模型中质押合约相关的接口
+> 质押相关的接口：主要包括节点质押、修改质押信息、解除质押、查询质押信息等接口
 
 #### 加载质押合约
 
@@ -67,28 +69,29 @@ compile "com.platon.client:core:0.7.5.1"
 Web3j web3j = Web3j.build(new HttpService("http://localhost:6789"));
 String chainId = "100";
 Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
-StakingContract contract = StakingContract.load(web3j, credentials, chainId);
+StakingContract stakingContract = StakingContract.load(web3j, credentials, chainId);
 ```
 
 #### 接口说明
 
 ##### **staking**
 
-> 节点候选人申请质押
+> 节点质押：适用于矿工，节点质押后才有机会参与共识，获得收益。质押前需要自己的节点接入网络，质押时rpc链接地址必须是当前需要质押的节点。如果质押成功，节点会出现在候选人列表中。
 
 * **入参**
 
-  - String：nodeId   节点id,16进制格式
-  - BigInteger：amount   质押的VON，默认质押金额大于等于1000000LAT，根据治理参数调整
-  - StakingAmountType：stakingAmountType   枚举,FREE_AMOUNT_TYPE表示使用账户自由金额,RESTRICTING_AMOUNT_TYPE表示使用锁仓金额做质押
-  - String：benifitAddress   收益账户,用于接受出块奖励和质押奖励的收益账户
-  - String：nodeName   被质押节点的名称
-  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥
+  - String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach http://127.0.0.1:6789 --exec "admin.nodeInfo.id"）。
+  - BigInteger：stakingAmount  质押的金额，单位VON，默认质押金额必须大于等于1000000LAT，该大小限制可以通过治理参数动态调整，可通过治理接口获得当前值（proposalContract.getGovernParamValue("staking", "stakeThreshold")）。
+  - StakingAmountType：stakingAmountType  表示使用账户自由金额还是账户的锁仓金额做质押，StakingAmountType.FREE_AMOUNT_TYPE：自由金额，StakingAmountType.RESTRICTING_AMOUNT_TYPE：锁仓金额
+  - String：benifitAddress   收益账户，用于接收出块奖励和质押奖励的收益账户。
+  - String：nodeName   节点的名称
+  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。
   - String：webSite   节点的第三方主页(有长度限制，表示该节点的主页)
   - String：details   节点的描述(有长度限制，表示该节点的描述)
-  - ProgramVersion：processVersion  程序的真实版本，治理rpc获取
+  - ProgramVersion：processVersion  程序的真实版本，通过治理rpc获取
   - String：blsPubKey   bls的公钥
-  - String：blsProof    bls的证明，治理rpc获取
+  - String：blsProof    bls的证明，通过治理rpc获取
+  - BigInteger：rewardPer   委托所得到的奖励分成比例，1=0.01%   10000=100%
 
 * **返回值**
 
@@ -113,6 +116,7 @@ String nodeName = "integration-node1";
 String webSite = "https://www.platon.network/#/";
 String details = "integration-node1-details";
 String blsPubKey = "5ccd6b8c32f2713faa6c9a46e5fb61ad7b7400e53fabcbc56bdc0c16fbfffe09ad6256982c7059e7383a9187ad93a002a7cda7a75d569f591730481a8b91b5fad52ac26ac495522a069686df1061fc184c31771008c1fedfafd50ae794778811";
+BigInteger rewardPer = BigInteger.valueOf(1000L);
 
 PlatonSendTransaction platonSendTransaction = stakingContract.stakingReturnTransaction(new StakingParam.Builder()
         .setNodeId(nodeId)
@@ -126,17 +130,18 @@ PlatonSendTransaction platonSendTransaction = stakingContract.stakingReturnTrans
         .setBlsPubKey(blsPubKey)
         .setProcessVersion(web3j.getProgramVersion().send().getAdminProgramVersion())
         .setBlsProof(web3j.getSchnorrNIZKProve().send().getAdminSchnorrNIZKProve())
+        .setRewardPer(rewardPer)
         .build()).send();
 TransactionResponse baseResponse = stakingContract.getTransactionResponse(platonSendTransaction).send();
 ```
 
 ##### **unStaking**
 
-> 节点撤销质押(一次性发起全部撤销，多次到账)
+> 节点撤销质押(一次性发起全部撤销，多次到账)，成功后节点会从候选人列表移除。只能由该节点的质押钱包地址发起交易。
 
 * **入参**
 
-  - String：nodeId   节点id，16进制格式
+  - String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach http://127.0.0.1:6789 --exec "admin.nodeInfo.id"）。
 
 * **返回值**
 
@@ -160,17 +165,18 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 
 ##### **updateStaking**
 
-> 修改质押信息
+> 修改质押信息，只能由该节点的质押钱包地址发起交易。
 
 * **入参**
 
-  - String：nodeId   节点id,16进制格式
-  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id),目前为keybase账户公钥
-  - String：benifitAddress   收益账户
-  - String：nodeName   被质押节点的名称
+  - String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach http://127.0.0.1:6789 --exec "admin.nodeInfo.id"）。
+  - String：benifitAddress   收益账户，用于接收出块奖励和质押奖励的收益账户。
+  - String：nodeName   节点的名称
+  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。
   - String：webSite   节点的第三方主页(有长度限制，表示该节点的主页)
   - String：details   节点的描述(有长度限制，表示该节点的描述)
-
+  - BigInteger：rewardPer   委托所得到的奖励分成比例，1=0.01%   10000=100%
+   
 * **返回值**
 
 ```java
@@ -186,11 +192,12 @@ TransactionResponse
 
 ```java
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
-String benifitAddress = benefitCredentials.getAddress();
+String benifitAddress = "0x02c344817be3448c97a059473121a6679450b414";
 String externalId = "";
 String nodeName = "integration-node1-u";
 String webSite = "https://www.platon.network/#/";
 String details = "integration-node1-details-u";
+BigInteger rewardPer = BigInteger.valueOf(1000L);
 
 PlatonSendTransaction platonSendTransaction = stakingContract.updateStakingInfoReturnTransaction(new UpdateStakingParam.Builder()
         .setBenifitAddress(benifitAddress)
@@ -199,19 +206,20 @@ PlatonSendTransaction platonSendTransaction = stakingContract.updateStakingInfoR
         .setNodeName(nodeName)
         .setWebSite(webSite)
         .setDetails(details)
+        .setRewardPer(rewardPer)
         .build()).send();
 TransactionResponse baseResponse = stakingContract.getTransactionResponse(platonSendTransaction).send();
 ```
 
 ##### **addStaking**
 
-> 增持质押，增加已质押节点质押金
+> 增持质押，增加已质押节点质押金，只能由该节点的质押钱包地址发起交易。
 
 * **入参**
 
-    - String：nodeId   节点id，16进制格式
-    - StakingAmountType：stakingAmountType  枚举,FREE_AMOUNT_TYPE表示使用账户自由金额,RESTRICTING_AMOUNT_TYPE表示使用锁仓金额做质押
-    - BigInteger：addStakingAmount   增持的金额
+    - String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach http://127.0.0.1:6789 --exec "admin.nodeInfo.id"）。
+    - StakingAmountType：stakingAmountType  表示使用账户自由金额还是账户的锁仓金额做质押，StakingAmountType.FREE_AMOUNT_TYPE：自由金额，StakingAmountType.RESTRICTING_AMOUNT_TYPE：锁仓金额
+    - BigInteger：addStakingAmount   增持的金额，单位VON
 
 * **返回值**
 
@@ -241,7 +249,7 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 
 * **入参**
 
-  - String：nodeId   节点id，16进制格式
+  - String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach http://127.0.0.1:6789 --exec "admin.nodeInfo.id"）。
 
 * **返回值**
 
@@ -256,39 +264,51 @@ CallResponse<Node> baseRespons
 	
 * **Node**：保存当前节点质押信息的对象
 
-  - String：BenefitAddress	用于接受出块奖励和质押奖励的收益账户
+  - String：benifitAddress	收益账户，用于接收出块奖励和质押奖励的收益账户。
 
-  - String：Details   节点的描述(有长度限制，表示该节点的描述) 
+  - String：details  节点的描述(有长度限制，表示该节点的描述)
 
-  - String：NodeId   被质押的节点Id(也叫候选人的节点Id)
+  - String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach http://127.0.0.1:6789 --exec "admin.nodeInfo.id"）。
 
-  - String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)
+  - String：nodeName  节点的名称
 
-  - BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
+  - BigInteger：programVersion  程序的真实版本，通过治理rpc获取
 
-  - BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON
+  - BigInteger：released   发起质押账户的自由金额的锁定期质押的VON
 
-  - BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON
+  - BigInteger：releasedHes   发起质押账户的自由金额的犹豫期质押的VON
 
-  - BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
+  - BigInteger：restrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
 
-  - BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
+  - BigInteger：restrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
 
-  - BigInteger：Shares   当前候选人总共质押加被委托的VON数目
+  - BigInteger：shares   当前候选人总共质押加被委托的VON数目
 
-  - String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
+  - String：stakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
 
-  - BigInteger：StakingBlockNum    发起质押时的区块高度
+  - BigInteger：stakingBlockNum    发起质押时的区块高度
 
-  - BigInteger：StakingEpoch   当前变更质押金额时的结算周期
+  - BigInteger：stakingEpoch   当前变更质押金额时的结算周期
 
-  - BigInteger：StakingTxIndex   发起质押时的交易索引
+  - BigInteger：stakingTxIndex   发起质押时的交易索引
 
-  - BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销
+  - BigInteger：status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，4:节点的VON不足最低质押门槛，8:节点被举报双签，16:节点出块率低且达到移除条件, 32: 节点主动发起撤销
 
-  - BigInteger：ValidatorTerm   验证人的任期
+  - BigInteger：validatorTerm   验证人的任期
 
-  - String：Website   节点的第三方主页(有长度限制，表示该节点的主页)
+  - String：website   节点的第三方主页(有长度限制，表示该节点的主页)
+  
+  - BigInteger：delegateEpoch  节点最后一次被委托的结算周期
+  
+  - BigInteger：delegateTotal  节点被委托的生效总数量
+  
+  - BigInteger：delegateTotalHes  节点被委托的未生效总数量
+  
+  - BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励
+  
+  - BigInteger：nextRewardPer 下一个结算周期奖励分成比例，1=0.01%   10000=100%
+  
+  - BigInteger：rewardPer 当前结算周期奖励分成比例，1=0.01%   10000=100%
 
 * **Java SDK合约使用**
 
@@ -363,7 +383,7 @@ CallResponse<BigInteger> baseResponse
 
 - CallResponse<BigInteger>描述
 	- int：code   结果标识，0为成功
-	- BigInteger：data   打包区块的平均时间
+	- BigInteger：data   打包区块的平均时间（单位为毫秒）
 	- String：errMsg   错误信息，失败时存在
 
 * **Java SDK合约使用**
@@ -394,9 +414,9 @@ DelegateContract delegateContract = DelegateContract.load(web3j, credentials, ch
 
 * **入参**
 
-  - String：nodeId   节点id，16进制格式，0x开头
-  - StakingAmountType：stakingAmountType  枚举,FREE_AMOUNT_TYPE表示使用账户自由金额,RESTRICTING_AMOUNT_TYPE表示使用锁仓金额做质押
-  - BigInteger：amount   委托的金额(按照最小单位算，1LAT = 10**18 VON)
+  - String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach http://127.0.0.1:6789 --exec "admin.nodeInfo.id"）。
+  - StakingAmountType：stakingAmountType   表示使用账户自由金额还是账户的锁仓金额做质押，StakingAmountType.FREE_AMOUNT_TYPE：自由金额，StakingAmountType.RESTRICTING_AMOUNT_TYPE：锁仓金额
+  - BigInteger：amount   委托的金额，单位VON，默认委托金额必须大于等于10LAT，该大小限制可以通过治理参数动态调整，可通过治理接口获得当前值（proposalContract.getGovernParamValue("staking", "operatingThreshold")）。
 
 * **返回值**
 
@@ -441,8 +461,8 @@ CallResponse<List<DelegationIdInfo>> baseRespons
 
 * **DelegationIdInfo**：保存当前账户地址所委托的节点的NodeID和质押区块高度的对象
   - String：address   委托人的账户地址
-  - String：NodeId   验证人的节点Id
-  - BigInteger：StakingBlockNum   发起质押时的区块高度
+  - String：nodeId   验证人的节点Id
+  - BigInteger：stakingBlockNum   发起质押时的区块高度
 
 * **Java SDK合约使用**
 
@@ -468,19 +488,19 @@ CallResponse<Delegation>
 
 - CallResponse<Delegation>描述
 	- int：code   结果标识，0为成功
-	- Delegation：Data   Delegation对象数据
+	- Delegation：data   Delegation对象数据
 	- String：errMsg   错误信息，失败时存在
 
 * **Delegation**：保存当前委托账户委托信息的对象
-  - String：Address	委托人的账户地址
-  - String：NodeId   验证人的节点Id
-  - BigInteger：StakingBlockNum    发起质押时的区块高度
-  - BigInteger：DelegateEpoch   最近一次对该候选人发起的委托时的结算周期
-  - BigInteger：Released   发起委托账户的自由金额的锁定期委托的VON
-  - BigInteger：ReleasedHes   发起委托账户的自由金额的犹豫期委托的VON
-  - BigInteger：RestrictingPlan   发起委托账户的锁仓金额的锁定期委托的VON
-  - BigInteger：RestrictingPlanHes   发起委托账户的锁仓金额的犹豫期质押的VON
-  - BigInteger：Reduction   处于撤销计划中的VON
+  - String：delegateAddress	委托人的账户地址
+  - String：nodeId   验证人的节点Id
+  - BigInteger：stakingBlockNum    发起质押时的区块高度
+  - BigInteger：delegateEpoch   最近一次对该候选人发起的委托时的结算周期
+  - BigInteger：delegateReleased   发起委托账户的自由金额的锁定期委托的VON
+  - BigInteger：delegateReleasedHes   发起委托账户的自由金额的犹豫期委托的VON
+  - BigInteger：delegateLocked   发起委托账户的锁仓金额的锁定期委托的VON
+  - BigInteger：delegateLockedHes   发起委托账户的锁仓金额的犹豫期质押的VON
+  - BigInteger：cumulativeIncome  待领取的委托收益
 
 * **Java SDK合约使用**
 
@@ -512,9 +532,13 @@ TransactionResponse
 	- int：code   结果标识，0为成功
 	- String：errMsg   错误信息，失败时存在
 	- TransactionReceipt：transactionReceipt  交易的回执
+	
+* **解交易回执**
+
+   - BigInteger：reward   获得解除委托时所提取的委托收益
 
 * **合约使用**
-
+   
 ```java
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
 BigDecimal stakingAmount = Convert.toVon("500000", Unit.LAT);
@@ -522,6 +546,92 @@ BigInteger stakingBlockNum = new BigInteger("12134");
 
 PlatonSendTransaction platonSendTransaction = delegateContract.unDelegateReturnTransaction(nodeId, stakingBlockNum, stakingAmount.toBigInteger()).send();
 TransactionResponse baseResponse = delegateContract.getTransactionResponse(platonSendTransaction).send();
+
+if(baseResponse.isStatusOk()){ 
+    BigInteger reward = delegateContract.decodeUnDelegateLog(baseResponse.getTransactionReceipt());
+}
+```
+
+### 奖励相关接口
+
+> PlatON经济模型中奖励相关的合约接口
+
+#### 加载奖励合约
+
+```java
+//Java 8
+Web3j web3j = Web3j.build(new HttpService("http://localhost:6789"));
+String chainId = "100";
+Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
+RewardContract rewardContract = RewardContract.load(web3j, deleteCredentials, chainId);
+```
+
+#### 接口说明
+
+##### **withdrawDelegateReward**
+
+> 提取账户当前所有的可提取的委托奖励 
+
+* **入参**
+
+  无
+
+* **返回值**
+
+```java
+TransactionResponse
+```
+
+- TransactionResponse： 通用应答包
+	- int：code   结果标识，0为成功
+	- String：errMsg   错误信息，失败时存在
+	- TransactionReceipt：transactionReceipt  交易的回执
+	
+* **解交易回执**
+   - String：nodeId    节点ID
+   - BigInteger：stakingNum  节点的质押块高
+   - BigInteger：reward  领取到的收益
+
+* **合约使用**
+
+```java
+PlatonSendTransaction platonSendTransaction = rewardContract.withdrawDelegateRewardReturnTransaction().send();
+TransactionResponse baseResponse = rewardContract.getTransactionResponse(platonSendTransaction).send();
+if(baseResponse.isStatusOk()){
+    List<Reward> rewardList = rewardContract.decodeWithdrawDelegateRewardLog(baseResponse.getTransactionReceipt());
+}
+```
+
+##### **getDelegateReward**
+
+> 查询当前账号可提取奖励明细
+
+* **入参**
+  - String：address   委托人的账户地址
+  - List<String>： nodeList  节点列表，如果为空查全部
+
+* **返回值**
+
+```java
+CallResponse<List<Reward>> baseRespons
+```
+
+- CallResponse<List<Reward>>描述
+	- int：code   结果标识，0为成功
+	- List<Reward>：data   Reward对象列表
+	- String：errMsg   错误信息，失败时存在
+
+* **Reward**：奖励明细
+   - String：nodeId    节点ID
+   - BigInteger：stakingNum  节点的质押块高
+   - BigInteger：reward  领取到的收益
+
+* **Java SDK合约使用**
+
+```java
+List<String> nodeList = new ArrayList<>();
+nodeList.add(nodeId);
+CallResponse<List<Reward>> baseResponse = rewardContract.getDelegateReward(delegateAddress, nodeList).send();
 ```
 
 ### 节点相关合约
@@ -535,7 +645,7 @@ TransactionResponse baseResponse = delegateContract.getTransactionResponse(plato
 Web3j web3j = Web3j.build(new HttpService("http://localhost:6789"));
 String chainId = "100";
 Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
-NodeContract contract = NodeContract.load(web3j, credentials, chainId);
+NodeContract nodeContract = NodeContract.load(web3j, credentials, chainId);
 ```
 
 #### 接口说明
@@ -561,41 +671,37 @@ CallResponse<List<Node>> baseResponse
 
 * **Node**：保存单个当前结算周期验证节点信息的对象
 
-  - String：BenefitAddress	用于接受出块奖励和质押奖励的收益账户
+  - String：nodeId   被质押的节点Id(也叫候选人的节点Id)
 
-  - String：Details   节点的描述(有长度限制，表示该节点的描述) 
+  - String：stakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
 
-  - String：NodeId   被质押的节点Id(也叫候选人的节点Id)
+  - String：benifitAddress	用于接受出块奖励和质押奖励的收益账户
 
-  - String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)
+  - BigInteger：rewardPer 当前结算周期奖励分成比例
 
-  - BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
+  - BigInteger：nextRewardPer 下一个结算周期奖励分成比例
 
-  - BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON
+  - BigInteger：stakingTxIndex   发起质押时的交易索引 
 
-  - BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON
+  - BigInteger：programVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
 
-  - BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
+  - BigInteger：stakingBlockNum    发起质押时的区块高度 
 
-  - BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
+  - BigInteger：shares   当前候选人总共质押加被委托的VON数目  
 
-  - BigInteger：Shares   当前候选人总共质押加被委托的VON数目
+  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。
 
-  - String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
+  - String：nodeName   被质押节点的名称(有长度限制，表示该节点的名称)
 
-  - BigInteger：StakingBlockNum    发起质押时的区块高度
+  - String：website   节点的第三方主页(有长度限制，表示该节点的主页)
 
-  - BigInteger：StakingEpoch   当前变更质押金额时的结算周期
+  - String：details   节点的描述(有长度限制，表示该节点的描述) 
 
-  - BigInteger：StakingTxIndex   发起质押时的交易索引
-
-  - BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，          
-
-    4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销
-
-  - BigInteger：ValidatorTerm   验证人的任期
-
-  - String：Website   节点的第三方主页(有长度限制，表示该节点的主页)
+  - BigInteger：validatorTerm   验证人的任期
+  
+  - BigInteger：delegateTotal  节点被委托的生效总数量
+  
+  - BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励
 
 * **Java SDK合约使用**
 
@@ -623,39 +729,37 @@ CallResponse<List<Node>> baseResponse
 
 * **Node**：保存单个当前共识周期验证节点信息的对象
 
-  - String：BenefitAddress	用于接受出块奖励和质押奖励的收益账户
+  - String：nodeId   被质押的节点Id(也叫候选人的节点Id)
 
-  - String：Details   节点的描述(有长度限制，表示该节点的描述) 
+  - String：stakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
 
-  - String：NodeId   被质押的节点Id(也叫候选人的节点Id)
+  - String：benifitAddress	用于接受出块奖励和质押奖励的收益账户
 
-  - String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)
+  - BigInteger：rewardPer 当前结算周期奖励分成比例
 
-  - BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
+  - BigInteger：nextRewardPer 下一个结算周期奖励分成比例
 
-  - BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON
+  - BigInteger：stakingTxIndex   发起质押时的交易索引 
 
-  - BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON
+  - BigInteger：programVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
 
-  - BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
+  - BigInteger：stakingBlockNum    发起质押时的区块高度 
 
-  - BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
+  - BigInteger：shares   当前候选人总共质押加被委托的VON数目  
 
-  - BigInteger：Shares   当前候选人总共质押加被委托的VON数目
+  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。
 
-  - String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
+  - String：nodeName   被质押节点的名称(有长度限制，表示该节点的名称)
 
-  - BigInteger：StakingBlockNum    发起质押时的区块高度
+  - String：website   节点的第三方主页(有长度限制，表示该节点的主页)
 
-  - BigInteger：StakingEpoch   当前变更质押金额时的结算周期
+  - String：details   节点的描述(有长度限制，表示该节点的描述) 
 
-  - BigInteger：StakingTxIndex   发起质押时的交易索引
+  - BigInteger：validatorTerm   验证人的任期
+  
+  - BigInteger：delegateTotal  节点被委托的生效总数量
 
-  - BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销
-
-  - BigInteger：ValidatorTerm   验证人的任期
-
-  - String：Website   节点的第三方主页(有长度限制，表示该节点的主页)
+  - BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励
 
 * **Java SDK合约使用**
 
@@ -684,41 +788,51 @@ CallResponse<List<Node>> baseResponse
 
 * **Node**：保存单个候选节点信息对象
 
-  - String：BenefitAddress	用于接受出块奖励和质押奖励的收益账户
+  - String：nodeId   被质押的节点Id(也叫候选人的节点Id)
 
-  - String：Details   节点的描述(有长度限制，表示该节点的描述) 
+  - String：stakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
 
-  - String：NodeId   被质押的节点Id(也叫候选人的节点Id)
+  - String：benifitAddress	用于接受出块奖励和质押奖励的收益账户
 
-  - String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)
+  - BigInteger：rewardPer 当前结算周期奖励分成比例
 
-  - BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
+  - BigInteger：nextRewardPer 下一个结算周期奖励分成比例
 
-  - BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON
+  - BigInteger：stakingTxIndex   发起质押时的交易索引 
 
-  - BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON
+  - BigInteger：programVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
 
-  - BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
+  - BigInteger：status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，4:节点的VON不足最低质押门槛，8:节点被举报双签，16:节点出块率低且达到移除条件, 32: 节点主动发起撤销
 
-  - BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
+  - BigInteger：stakingEpoch   当前变更质押金额时的结算周期
 
-  - BigInteger：Shares   当前候选人总共质押加被委托的VON数目
+  - BigInteger：stakingBlockNum    发起质押时的区块高度 
 
-  - String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
+  - BigInteger：shares   当前候选人总共质押加被委托的VON数目  
 
-  - BigInteger：StakingBlockNum    发起质押时的区块高度
+  - BigInteger：released   发起质押账户的自由金额的锁定期质押的VON
 
-  - BigInteger：StakingEpoch   当前变更质押金额时的结算周期
+  - BigInteger：releasedHes   发起质押账户的自由金额的犹豫期质押的VON
 
-  - BigInteger：StakingTxIndex   发起质押时的交易索引
+  - BigInteger：restrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
 
-  - BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，          
+  - BigInteger：restrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON  
 
-    4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销
+  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。
 
-  - BigInteger：ValidatorTerm   验证人的任期
+  - String：nodeName   被质押节点的名称(有长度限制，表示该节点的名称)
 
-  - String：Website   节点的第三方主页(有长度限制，表示该节点的主页)
+  - String：website   节点的第三方主页(有长度限制，表示该节点的主页)
+
+  - String：details   节点的描述(有长度限制，表示该节点的描述) 
+
+  - BigInteger：delegateEpoch  节点最后一次被委托的结算周期
+  
+  - BigInteger：delegateTotal  节点被委托的生效总数量
+  
+  - BigInteger：delegateTotalHes  节点被委托的未生效总数量
+
+  - BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励
 
 * **Java SDK合约使用**
 
@@ -737,7 +851,7 @@ CallResponse<List<Node>> baseResponse = nodeContract.getCandidateList().send();
 Web3j web3j = Web3j.build(new HttpService("http://localhost:6789"));
 String chainId = "100";
 Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
-ProposalContract contract = ProposalContract.load(web3j, credentials, chainId);
+ProposalContract proposalContract = ProposalContract.load(web3j, credentials, chainId);
 ```
 
 #### 接口说明
@@ -855,7 +969,7 @@ CallResponse<Proposal>
   - BigInteger:   endVotingBlock   提案投票结束的块高
   - BigInteger:   newVersion   升级版本
   - BigInteger:   toBeCanceled   提案要取消的升级提案ID
-  - BigInteger:   activeBlock   （如果投票通过）生效块高（endVotingBlock + 20 + 4*250 < 生效块高 <= endVotingBlock + 20 + 10*250）
+  - BigInteger:   activeBlock   提案生效块高，系统根据EndVotingBlock算出
   - String:   verifier     提交提案的验证人
 
 * **合约使用**
@@ -875,6 +989,7 @@ CallResponse<Proposal> baseResponse = proposalContract.getProposal(proposalID).s
   - String：proposalID   提案ID
 
 * **返回值**
+
 ```java
 CallResponse<TallyResult>
 ```
@@ -893,12 +1008,12 @@ CallResponse<TallyResult>
   - int:   status   提案状态  
   
 * **status**
-  - Voting：0x01，投票中
-  - Pass：0x02，投票通过
-  - Failed：0x03，投票失败
-  - PreActive：0x04，（升级提案）预生效
-  - Active：0x05，（升级提案）生效
-  - Canceled：0x06，被取消
+  - 1  投票中
+  - 2  投票通过
+  - 3  投票失败
+  - 4 （升级提案）预生效
+  - 5 （升级提案）生效
+  - 6  被取消
 
 * **合约使用**
 
@@ -936,7 +1051,7 @@ CallResponse<List<Proposal>>
   - BigInteger:   endVotingBlock   提案投票结束的块高
   - BigInteger:   newVersion   升级版本
   - String:   toBeCanceled   提案要取消的升级提案ID
-  - BigInteger:   activeBlock   （如果投票通过）生效块高（endVotingBlock + 20 + 4*250 < 生效块高 <= endVotingBlock + 20 + 10*250）
+  - BigInteger:   activeBlock   提案生效块高，系统根据EndVotingBlock算出
   - String:   verifier     提交提案的验证人
 
 * **合约使用**
@@ -955,7 +1070,8 @@ CallResponse<List<Proposal>> baseResponse = proposalContract.getProposalList().s
   - String：verifier   声明的节点，只能是验证人/候选人
 
 * **返回值**
-```
+
+```java
 TransactionResponse
 ```
 
@@ -983,7 +1099,8 @@ TransactionResponse baseResponse = proposalContract.getTransactionResponse(plato
   无
 
 * **返回值**
-```
+
+```java
 CallResponse
 ```
 
@@ -1095,7 +1212,7 @@ RestrictingPlanContract contract = RestrictingPlanContract.load(web3j, credentia
 
   - String：address   锁仓释放到账账户
   - List<RestrictingPlan>：plan   锁仓计划列表（数组）
-    - epoch：表示结算周期的倍数。与每个结算周期出块数的乘积表示在目标区块高度上释放锁定的资金。如果 account 是激励池地址， 那么 period 值是 120（即，30*4） 的倍数。另外，period,每周期的区块数至少要大于最高不可逆区块高度。
+    - epoch：锁仓的周期，表示结算周期的倍数
     - amount：表示目标区块上待释放的金额。
 
 * **返回值**
@@ -1125,6 +1242,7 @@ TransactionResponse baseResponse = restrictingPlanContract.getTransactionRespons
 > 获取锁仓计划
 
 * **入参**
+
   - String：address   锁仓释放到账账户
 
 * **返回值**
@@ -1551,6 +1669,7 @@ BigInteger req = request.send().getTransactionCount();
       -  DefaultBlockParameter.valueOf(BigInteger blockNumber) 指定块高
 
 * **返回值**
+
 ```java
 Request<?, PlatonGetCode>
 ```
@@ -2199,68 +2318,111 @@ result为证据字符串，包含3种证据类型，分别是：duplicatePrepare
 
 * **duplicatePrepare**
 
-```json
+```text
 {
-    "prepare_a":{
-        "epoch":0, 			//共识轮epoch值
-        "view_number":0,	//共识轮view值
-        "block_hash":"0xf41006b64e9109098723a37f9246a76c236cd97c67a334cfb4d54bc36a3f1306",
-        //区块hash
-        "block_number":500,		//区块number
-        "block_index":0,		//区块在一轮view中的索引值
-        "validate_node":{
-            "index":0,			//验证人在一轮epoch中的索引值
-            "address":"0x0550184a50db8162c0cfe9296f06b2b1db019331",		//验证人地址
-            "NodeID":"77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050",		//验证人nodeID
-            "blsPubKey":"5ccd6b8c32f2713faa6c9a46e5fb61ad7b7400e53fabcbc56bdc0c16fbfffe09ad6256982c7059e7383a9187ad93a002a7cda7a75d569f591730481a8b91b5fad52ac26ac495522a069686df1061fc184c31771008c1fedfafd50ae794778811"		//验证人bls公钥
-        },
-        "signature":"0xa7205d571b16696b3a9b68e4b9ccef001c751d860d0427760f650853fe563f5191f2292dd67ccd6c89ed050182f19b9200000000000000000000000000000000"	//消息签名
-    }
- }
+  "prepareA": {
+    "epoch": 0,            //共识轮epoch值
+    "viewNumber": 0,       //共识轮view值
+    "blockHash": "0x06abdbaf7a0a5cb1deddf69de5b23d6bc3506fdadbdcfc32333a1220da1361ba",    //区块hash
+    "blockNumber": 16013,       //区块number
+    "blockIndex": 0,        //区块在一轮view中的索引值
+    "blockData": "0xe1a507a57c1e9d8cade361fefa725d7a271869aea7fd923165c872e7c0c2b3f2",     //区块rlp编码值
+    "validateNode": {            
+      "index": 0,     //验证人在一轮epoch中的索引值
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",    //验证人地址
+      "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",    //验证人nodeID
+      "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"    //验证人bls公钥
+    },
+    "signature": "0x1afdf43596e07d0f5b59ae8f45d30d21a9c5ac793071bfb6382ae151081a901fd3215e0b9645040c9071d0be08eb200900000000000000000000000000000000"     //消息签名
+  },
+  "prepareB": {
+    "epoch": 0,
+    "viewNumber": 0,
+    "blockHash": "0x74e3744545e95f4defc82d731504a39994b8013575491f83f7520cf796347b8f",
+    "blockNumber": 16013,
+    "blockIndex": 0,
+    "blockData": "0xb11be0a3634e29281403d690c1a0bc38e96ea34b3aea0b0da2883800f610c3b7",
+    "validateNode": {
+      "index": 0,
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",
+      "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",
+      "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"
+    },
+    "signature": "0x16795379ca8e28953e74b23d1c384dda760579ad70c5e490225403664a8d4490cabb1dc64a2e0967b5f0c1e9dbd6578c00000000000000000000000000000000"
+  }
+}
 ```
 
 * **duplicateVote**
 
-```json 
+```text 
 {
-    "voteA":{
-        "epoch":0, 			//共识轮epoch值
-        "view_number":0,	//共识轮view值
-        "block_hash":"0xf41006b64e9109098723a37f9246a76c236cd97c67a334cfb4d54bc36a3f1306",
-        //区块hash
-        "block_number":500,		//区块number
-        "block_index":0,		//区块在一轮view中的索引值
-        "validate_node":{
-            "index":0,			//验证人在一轮epoch中的索引值
-            "address":"0x0550184a50db8162c0cfe9296f06b2b1db019331",		//验证人地址
-            "NodeID":"77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050",		//验证人nodeID
-            "blsPubKey":"5ccd6b8c32f2713faa6c9a46e5fb61ad7b7400e53fabcbc56bdc0c16fbfffe09ad6256982c7059e7383a9187ad93a002a7cda7a75d569f591730481a8b91b5fad52ac26ac495522a069686df1061fc184c31771008c1fedfafd50ae794778811"		//验证人bls公钥
-        },
-        "signature":"0xa7205d571b16696b3a9b68e4b9ccef001c751d860d0427760f650853fe563f5191f2292dd67ccd6c89ed050182f19b9200000000000000000000000000000000"	//消息签名
-    }
- }
+  "voteA": {
+    "epoch": 0,   //共识轮epoch值
+    "viewNumber": 0,    //共识轮view值
+    "blockHash": "0x58b5976a471f86c4bd198984827bd594dce6ac861ef15bbbb1555e7b2edc2fc9",   //区块hash
+    "blockNumber": 16013,   //区块number
+    "blockIndex": 0,    //区块在一轮view中的索引值
+    "validateNode": { 
+      "index": 0,    //验证人在一轮epoch中的索引值
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",  //验证人地址
+      "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",   //验证人nodeID
+      "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"    //验证人bls公钥
+    },
+    "signature": "0x071350aed09f226e218715357ffb7523ba41271dd1d82d4dded451ee6509cd71f6888263b0b14bdfb33f88c04f76790d00000000000000000000000000000000"    //消息签名
+  },
+  "voteB": {
+    "epoch": 0,
+    "viewNumber": 0,
+    "blockHash": "0x422515ca50b9aa01c46dffee53f3bef0ef29884bfd014c3b6170c05d5cf67696",
+    "blockNumber": 16013,
+    "blockIndex": 0,
+    "validateNode": {
+      "index": 0,
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",
+      "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",
+      "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"
+    },
+    "signature": "0x9bf6c01643058c0c828c35dc3277666edd087cb439c5f6a78ba065d619f812fb42c5ee881400a7a42dd8366bc0c5c88100000000000000000000000000000000"
+  }
+}
 ```
 
 * **duplicateViewchange**
 
-```json
+```text
 {
-    "viewA":{
-        "epoch":0, 			//共识轮epoch值
-        "view_number":0,	//共识轮view值
-        "block_hash":"0xf41006b64e9109098723a37f9246a76c236cd97c67a334cfb4d54bc36a3f1306",
-        //区块hash
-        "block_number":500,		//区块number
-        "block_index":0,		//区块在一轮view中的索引值
-        "validate_node":{
-            "index":0,			//验证人在一轮epoch中的索引值
-            "address":"0x0550184a50db8162c0cfe9296f06b2b1db019331",		//验证人地址
-            "NodeID":"77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050",		//验证人nodeID
-            "blsPubKey":"5ccd6b8c32f2713faa6c9a46e5fb61ad7b7400e53fabcbc56bdc0c16fbfffe09ad6256982c7059e7383a9187ad93a002a7cda7a75d569f591730481a8b91b5fad52ac26ac495522a069686df1061fc184c31771008c1fedfafd50ae794778811"		//验证人bls公钥
-        },
-        "signature":"0xa7205d571b16696b3a9b68e4b9ccef001c751d860d0427760f650853fe563f5191f2292dd67ccd6c89ed050182f19b9200000000000000000000000000000000"	//消息签名
-    }
- }
+  "viewA": {
+    "epoch": 0,  
+    "viewNumber": 0, 
+    "blockHash": "0xb84a40bb954e579716e7a6b9021618f6b25cdb0e0dd3d8c2c0419fe835640f36",  //区块hash
+    "blockNumber": 16013, 
+    "validateNode": {
+      "index": 0,  
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4", 
+      "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",
+      "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"
+    },
+    "signature": "0x9c8ba2654c6b8334b1b94d3b421c5901242973afcb9d87c4ab6d82c2aee8e212a08f2ae000c9203f05f414ca578cda9000000000000000000000000000000000",
+    "blockEpoch": 0,
+    "blockView": 0
+  },
+  "viewB": {
+    "epoch": 0,
+    "viewNumber": 0,
+    "blockHash": "0x2a60ed6f04ccb9e468fbbfdda98b535653c42a16f1d7ccdfbd5d73ae1a2f4bf1",
+    "blockNumber": 16013,
+    "validateNode": {
+      "index": 0,
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",
+      "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",
+      "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"
+    },
+    "signature": "0xed69663fb943ce0e0dd90df1b65e96514051e82df48b3867516cc7e505234b9ca707fe43651870d9141354a7a993e09000000000000000000000000000000000",
+    "blockEpoch": 0,
+    "blockView": 0
+  }
+}
 ```
 
 * **返回值**
@@ -2443,7 +2605,7 @@ Warning: This is a pre-release compiler version, please do not use it in product
 
 Java SDK支持从`abi`文件中自动生成Solidity智能合约对应的Java包装类。
 
-* 通过命令行工具生成Java包装类：
+* 通过命令行工具生成Java包装类（[platon-web3j下载](https://download.platon.network/sdk/0.8.0.1-20200316/platon-web3j-0.8.0.1.zip)）：
 
 ```shell
 $ platon-web3j solidity generate [--javaTypes|--solidityTypes] /path/to/<smart-contract>.bin /path/to/<smart-contract>.abi -o /path/to/src/main/java -p com.your.organisation.name
@@ -2452,6 +2614,9 @@ $ platon-web3j solidity generate [--javaTypes|--solidityTypes] /path/to/<smart-c
 * 直接调用Java SDK中的工具类生成Java包装类：
 
 ```java
+// 通过maven或gradle导入console模块
+compile "com.platon.client:console:{version}"
+
 String args[] = {"generate", "/path/to/<smart-contract>.bin", "/path/to/<smart-contract>.abi", "-o", "/path/to/src/main/java", "-p" , "com.your.organisation.name"};
 org.web3j.codegen.SolidityFunctionWrapperGenerator.run(args);
 ```
