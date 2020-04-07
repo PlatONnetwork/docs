@@ -929,7 +929,7 @@ GasPrice)是用户的交易成本, 同时该成本会作为佣金奖励给旷工
 <p>C++标准库提供了一些常用的容器(map, vector, list等等), 在使用时应当仔细阅读对应的接口文档. 特别需要注意的是 map 的 <code>operator[]</code> 操作符, 根据接口文档说明, <code>operator[]</code> 当 key 不存在时, 会执行插入动作. 对应合约开发来说, 使用 <code>StorageType</code> 存储 map 时, 不要通过 <code>operator[]</code> 判断 key 是否存在, 而应该通过 <code>find()</code>.</p>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="api"></a><a href="#api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API</h2>
-<h3><a class="anchor" aria-hidden="true" id="区块api"></a><a href="#区块api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>区块api</h3>
+<h3><a class="anchor" aria-hidden="true" id="区块api"></a><a href="#区块api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>区块Api</h3>
 <h4><a class="anchor" aria-hidden="true" id="platon_block_hash"></a><a href="#platon_block_hash" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon_block_hash()</h4>
 <pre><code class="hljs css language-cpp"><span class="hljs-function">h256 <span class="hljs-title">platon::platon_block_hash</span><span class="hljs-params">(<span class="hljs-keyword">int64_t</span> num)</span>
 </span></code></pre>
@@ -1055,7 +1055,21 @@ GasPrice)是用户的交易成本, 同时该成本会作为佣金奖励给旷工
 <li>合约地址</li>
 </ul></li>
 </ul>
-<h3><a class="anchor" aria-hidden="true" id="帐户api"></a><a href="#帐户api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>帐户api</h3>
+<h3><a class="anchor" aria-hidden="true" id="帐户api"></a><a href="#帐户api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>帐户Api</h3>
+<h4><a class="anchor" aria-hidden="true" id="make_address"></a><a href="#make_address" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>make_address()</h4>
+<pre><code class="hljs css language-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">size_t</span> M&gt; <span class="hljs-function">Address <span class="hljs-title">make_address</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> (&amp;str)[M])</span>
+</span></code></pre>
+<p>将C风格字符串转换为地址对象。</p>
+<ul>
+<li><strong>参数</strong>
+<ul>
+<li><code>str：</code> C风格字符串</li>
+</ul></li>
+<li><strong>返回值</strong>
+<ul>
+<li>地址对象</li>
+</ul></li>
+</ul>
 <h4><a class="anchor" aria-hidden="true" id="platon_balance"></a><a href="#platon_balance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon_balance()</h4>
 <pre><code class="hljs css language-cpp"><span class="hljs-function">Energon <span class="hljs-title">platon::platon_balance</span><span class="hljs-params">(<span class="hljs-keyword">const</span> Address &amp; addr)</span>
 </span></code></pre>
@@ -1597,34 +1611,239 @@ MapStr <span class="hljs-built_in">map</span>;
 <li><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; const std::string platon::db::Map&lt; TableName, Key, Value &gt;::kType = &quot;__map__&quot;</code></li>
 </ul></li>
 </ul>
-<h4><a class="anchor" aria-hidden="true" id="platondbmultiindex-tablename-t-indices-index-indexname-extractor-number-indextypename--模板类"></a><a href="#platondbmultiindex-tablename-t-indices-index-indexname-extractor-number-indextypename--模板类" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon::db::MultiIndex&lt; TableName, T, Indices &gt;::Index&lt; IndexName, Extractor, Number, IndexTypeName &gt; 模板类</h4>
+<h4><a class="anchor" aria-hidden="true" id="templatenameraw-tablename-typename-t-typename-indices-class-platondbmultiindex-tablename-t-indices-"></a><a href="#templatenameraw-tablename-typename-t-typename-indices-class-platondbmultiindex-tablename-t-indices-" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>template&lt;Name::Raw TableName, typename T, typename... Indices&gt; class platon::db::MultiIndex&lt; TableName, T, Indices &gt;</h4>
+<p>MultiIndex支持惟一索引和普通索引。惟一索引应该放在参数的第一个位置。结构需要提供与index字段对应的get函数。</p>
 <ul>
-<li><p><strong>公共类型</strong></p>
+<li><strong>成员函数功能</strong>
 <ul>
-<li><p><code>enum Constants { kTableName = static_cast&lt;uint64_t&gt;(TableName), kIndexName = static_cast&lt;uint64_t&gt;(IndexName), kIndexNumber = Number }</code></p></li>
-<li><p><code>typedef Extractor SecondaryExtractorType</code></p></li>
-<li><p><code>typedef std::decay&lt; decltype(Extractor()(nullptr))&gt;::type SecondaryKeyType</code></p></li>
+<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt;const_iterator platon::db::MultiIndex&lt; TableName, T, Indices &gt;::cbegin()</code>
+开始迭代器</p>
+<ul>
+<li><strong>返回值</strong>
+<ul>
+<li>const_iterator</li>
 </ul></li>
-<li><p><strong>静态成员函数</strong></p>
+<li><strong>示例：</strong></li>
+</ul>
+<pre><code class="hljs css language-cpp">  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Member</span> {</span>
+  <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name;
+  <span class="hljs-keyword">uint8_t</span> age;
+  <span class="hljs-keyword">uint8_t</span> sex;
+  <span class="hljs-keyword">uint64_t</span> $seq_;
+  <span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">Name</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> name; }
+  <span class="hljs-function"><span class="hljs-keyword">uint8_t</span> <span class="hljs-title">Age</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> age; }
+  PLATON_SERIALIZE(Member, (name)(age)(sex))
+};
+MultiIndex&lt;
+  <span class="hljs-string">"table"</span>_n, Member,
+  IndexedBy&lt;<span class="hljs-string">"index"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, &amp;Member::Name,
+                                      IndexType::UniqueIndex&gt;&gt;,
+  IndexedBy&lt;<span class="hljs-string">"index2"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-keyword">uint8_t</span>, &amp;Member::Age,
+                                      IndexType::NormalIndex&gt;&gt;&gt;
+  member_table;
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> it = member_table.cbegin(); it != it_end; ++it){}
+</code></pre></li>
+<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt; const_iterator platon::db::MultiIndex&lt; TableName, T, Indices &gt;::cend()</code>
+结束迭代器</p>
 <ul>
-<li><p><code>static bool unique ()</code></p></li>
-<li><p><code>static uint64_t index_name ()</code></p></li>
-<li><p><code>static uint64_t table_name ()</code></p></li>
-<li><p><code>static uint64_t index_number ()</code></p></li>
-<li><p><code>static auto extract_secondary_key (const T &amp;obj)</code></p></li>
+<li><strong>返回值</strong>
+<ul>
+<li>const_iterator</li>
 </ul></li>
-<li><p><strong>成员Typedef</strong></p>
+<li><strong>示例：</strong></li>
+</ul>
+<pre><code class="hljs css language-cpp">  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Member</span> {</span>
+  <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name;
+  <span class="hljs-keyword">uint8_t</span> age;
+  <span class="hljs-keyword">uint8_t</span> sex;
+  <span class="hljs-keyword">uint64_t</span> $seq_;
+  <span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">Name</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> name; }
+  <span class="hljs-function"><span class="hljs-keyword">uint8_t</span> <span class="hljs-title">Age</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> age; }
+  PLATON_SERIALIZE(Member, (name)(age)(sex))
+};
+MultiIndex&lt;
+  <span class="hljs-string">"table"</span>_n, Member,
+  IndexedBy&lt;<span class="hljs-string">"index"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, &amp;Member::Name,
+                                      IndexType::UniqueIndex&gt;&gt;,
+  IndexedBy&lt;<span class="hljs-string">"index2"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-keyword">uint8_t</span>, &amp;Member::Age,
+                                      IndexType::NormalIndex&gt;&gt;&gt;
+  member_table;
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> it = member_table.cbegin(); it != it_end; ++it){}
+</code></pre></li>
+<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt; template&lt;Name::Raw IndexName, typename KEY &gt; size_t platon::db::MultiIndex&lt; TableName, T, Indices &gt;::count(const KEY &amp;key)</code></p>
 <ul>
-<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt; template&lt;Name::Raw IndexName, typename Extractor , uint64_t Number, typename IndexTypeName &gt; typedef Extractor platon::db::MultiIndex&lt; TableName, T, Indices &gt;::Index&lt; IndexName, Extractor, Number, IndexTypeName &gt;::SecondaryExtractorType</code></p></li>
-<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt; template&lt;Name::Raw IndexName, typename Extractor , uint64_t Number, typename IndexTypeName &gt; typedef std::decay&lt;decltype(Extractor()(nullptr))&gt;::type platon::db::MultiIndex&lt; TableName, T, Indices &gt;::Index&lt; IndexName, Extractor, Number, IndexTypeName &gt;::SecondaryKeyType</code></p></li>
+<li><strong>返回值</strong>
+<ul>
+<li>获取与索引值对应的数据的数量</li>
 </ul></li>
-<li><p><strong>Member Function Documentation</strong></p>
+<li><strong>示例：</strong></li>
+</ul>
+<pre><code class="hljs css language-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Member</span> {</span>
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name;
+<span class="hljs-keyword">uint8_t</span> age;
+<span class="hljs-keyword">uint8_t</span> sex;
+<span class="hljs-keyword">uint64_t</span> $seq_;
+<span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">Name</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> name; }
+<span class="hljs-function"><span class="hljs-keyword">uint8_t</span> <span class="hljs-title">Age</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> age; }
+PLATON_SERIALIZE(Member, (name)(age)(sex))
+};
+MultiIndex&lt;
+<span class="hljs-string">"table"</span>_n, Member,
+  IndexedBy&lt;<span class="hljs-string">"index"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, &amp;Member::Name,
+                                    IndexType::UniqueIndex&gt;&gt;,
+IndexedBy&lt;<span class="hljs-string">"index2"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-keyword">uint8_t</span>, &amp;Member::Age,
+                                      IndexType::NormalIndex&gt;&gt;&gt;
+member_table;
+<span class="hljs-keyword">auto</span> count = member_table.count&lt;<span class="hljs-string">"index2"</span>_n&gt;(<span class="hljs-keyword">uint8_t</span>(<span class="hljs-number">10</span>));
+</code></pre></li>
+<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt; template&lt;typename Lambda&gt; std::pair&lt;const_iterator, bool&gt; platon::db::MultiIndex&lt; TableName, T, Indices &gt;::emplace(Lambda &amp;constructor)</code></p>
 <ul>
-<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt; template&lt;Name::Raw IndexName, typename Extractor , uint64_t Number, typename IndexTypeName &gt; static auto platon::db::MultiIndex&lt; TableName, T, Indices &gt;::Index&lt; IndexName, Extractor, Number, IndexTypeName &gt;::extract_secondary_key ( const T &amp; obj )</code></p></li>
-<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt; template&lt;Name::Raw IndexName, typename Extractor , uint64_t Number, typename IndexTypeName &gt; static uint64_t platon::db::MultiIndex&lt; TableName, T, Indices &gt;::Index&lt; IndexName, Extractor, Number, IndexTypeName &gt;::index_name ()</code></p></li>
-<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt; template&lt;Name::Raw IndexName, typename Extractor , uint64_t Number, typename IndexTypeName &gt; static uint64_t platon::db::MultiIndex&lt; TableName, T, Indices &gt;::Index&lt; IndexName, Extractor, Number, IndexTypeName &gt;::index_number ()</code></p></li>
-<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt; template&lt;Name::Raw IndexName, typename Extractor , uint64_t Number, typename IndexTypeName &gt; static uint64_t platon::db::MultiIndex&lt; TableName, T, Indices &gt;::Index&lt; IndexName, Extractor, Number, IndexTypeName &gt;::table_name ()</code></p></li>
-<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt; template&lt;Name::Raw IndexName, typename Extractor , uint64_t Number, typename IndexTypeName &gt; static bool platon::db::MultiIndex&lt; TableName, T, Indices &gt;::Index&lt; IndexName, Extractor, Number, IndexTypeName &gt;::unique ( )</code></p></li>
+<li><strong>参数</strong>
+<ul>
+<li>数据项处理函数</li>
+</ul></li>
+<li><strong>返回值</strong>
+<ul>
+<li>返回一个迭代器，该迭代器指示使用bool类型的插入是否成功。如果惟一索引冲突，则插入失败</li>
+</ul></li>
+<li><strong>示例：</strong></li>
+</ul>
+<pre><code class="hljs css language-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Member</span> {</span>
+  <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name;
+  <span class="hljs-keyword">uint8_t</span> age;
+  <span class="hljs-keyword">uint8_t</span> sex;
+  <span class="hljs-keyword">uint64_t</span> $seq_;
+  <span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">Name</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> name; }
+  <span class="hljs-function"><span class="hljs-keyword">uint8_t</span> <span class="hljs-title">Age</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> age; }
+  PLATON_SERIALIZE(Member, (name)(age)(sex))
+};
+MultiIndex&lt;
+  <span class="hljs-string">"table"</span>_n, Member,
+  IndexedBy&lt;<span class="hljs-string">"index"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, &amp;Member::Name,
+                                      IndexType::UniqueIndex&gt;&gt;,
+  IndexedBy&lt;<span class="hljs-string">"index2"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-keyword">uint8_t</span>, &amp;Member::Age,
+                                      IndexType::NormalIndex&gt;&gt;&gt;
+  member_table;
+member_table.emplace([&amp;](<span class="hljs-keyword">auto</span> &amp;m) {
+  m.age = <span class="hljs-number">10</span>;
+  m.name = <span class="hljs-string">"hello"</span>;
+  m.sex = <span class="hljs-number">1</span>;
+});
+</code></pre></li>
+<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt; void platon::db::MultiIndex&lt; TableName, T, Indices &gt;::erase(const_iterator position)</code>
+基于迭代器删除数据</p>
+<ul>
+<li><strong>参数</strong>
+<ul>
+<li><code>position：</code>迭代器</li>
+</ul></li>
+<li><strong>示例：</strong></li>
+</ul>
+<pre><code class="hljs css language-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Member</span> {</span>
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name;
+<span class="hljs-keyword">uint8_t</span> age;
+<span class="hljs-keyword">uint8_t</span> sex;
+<span class="hljs-keyword">uint64_t</span> $seq_;
+<span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">Name</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> name; }
+<span class="hljs-function"><span class="hljs-keyword">uint8_t</span> <span class="hljs-title">Age</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> age; }
+PLATON_SERIALIZE(Member, (name)(age)(sex))
+};
+MultiIndex&lt;
+<span class="hljs-string">"table"</span>_n, Member,
+IndexedBy&lt;<span class="hljs-string">"index"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, &amp;Member::Name,
+                                  IndexType::UniqueIndex&gt;&gt;,
+IndexedBy&lt;<span class="hljs-string">"index2"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-keyword">uint8_t</span>, &amp;Member::Age,
+                                    IndexType::NormalIndex&gt;&gt;&gt;
+member_table;
+<span class="hljs-keyword">auto</span> vect_iter = member_table.find&lt;<span class="hljs-string">"index2"</span>_n&gt;(<span class="hljs-keyword">uint8_t</span>(<span class="hljs-number">10</span>));
+member_table.erase(vect_iter[<span class="hljs-number">0</span>]);
+</code></pre></li>
+<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt; template&lt;Name::Raw IndexName, typename KEY &gt; const_iterator platon::db::MultiIndex&lt; TableName, T, Indices &gt;::find(const KEY &amp; key)</code>
+找到数据，只有一个唯一的索引是可用的。</p>
+<ul>
+<li><strong>参数</strong>
+<ul>
+<li><code>key：</code>索引值</li>
+</ul></li>
+<li><strong>返回值</strong>
+<ul>
+<li>结果迭代器。如果没有找到值为cend()。</li>
+</ul></li>
+<li><strong>示例：</strong></li>
+</ul>
+<pre><code class="hljs css language-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Member</span> {</span>
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name;
+<span class="hljs-keyword">uint8_t</span> age;
+<span class="hljs-keyword">uint8_t</span> sex;
+<span class="hljs-keyword">uint64_t</span> $seq_;
+<span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">Name</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> name; }
+<span class="hljs-function"><span class="hljs-keyword">uint8_t</span> <span class="hljs-title">Age</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> age; }
+PLATON_SERIALIZE(Member, (name)(age)(sex))
+};
+MultiIndex&lt;
+<span class="hljs-string">"table"</span>_n, Member,
+  IndexedBy&lt;<span class="hljs-string">"index"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, &amp;Member::Name,
+                                    IndexType::UniqueIndex&gt;&gt;,
+IndexedBy&lt;<span class="hljs-string">"index2"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-keyword">uint8_t</span>, &amp;Member::Age,
+                                      IndexType::NormalIndex&gt;&gt;&gt;
+member_table;
+<span class="hljs-keyword">auto</span> vect_iter = member_table.find&lt;<span class="hljs-string">"index2"</span>_n&gt;(<span class="hljs-keyword">uint8_t</span>(<span class="hljs-number">10</span>));
+</code></pre></li>
+<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt; template&lt;Name::Raw IndexName&gt;auto platon::db::MultiIndex&lt; TableName, T, Indices &gt;::get_index()</code>
+获取非唯一索引的索引对象。</p>
+<ul>
+<li><strong>返回值</strong>
+<ul>
+<li>索引对象</li>
+</ul></li>
+<li><strong>示例：</strong></li>
+</ul>
+<pre><code class="hljs css language-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Member</span> {</span>
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name;
+<span class="hljs-keyword">uint8_t</span> age;
+<span class="hljs-keyword">uint8_t</span> sex;
+<span class="hljs-keyword">uint64_t</span> $seq_;
+<span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">Name</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> name; }
+<span class="hljs-function"><span class="hljs-keyword">uint8_t</span> <span class="hljs-title">Age</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> age; }
+PLATON_SERIALIZE(Member, (name)(age)(sex))
+};
+MultiIndex&lt;
+<span class="hljs-string">"table"</span>_n, Member,
+  IndexedBy&lt;<span class="hljs-string">"index"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, &amp;Member::Name,
+                                    IndexType::UniqueIndex&gt;&gt;,
+IndexedBy&lt;<span class="hljs-string">"index2"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-keyword">uint8_t</span>, &amp;Member::Age,
+                                      IndexType::NormalIndex&gt;&gt;&gt;
+member_table;
+<span class="hljs-keyword">auto</span> index = member_table.get_index&lt;<span class="hljs-string">"index2"</span>_n&gt;();
+</code></pre></li>
+<li><p><code>template&lt;Name::Raw TableName, typename T , typename... Indices&gt; template&lt;typename Lambda &gt;void platon::db::MultiIndex&lt; TableName, T, Indices &gt;::modify(const_iterator position,Lambda &amp;&amp; constructor)</code>
+基于迭代器修改数据，但不能修改所有与索引相关的字段。</p>
+<ul>
+<li><strong>参数</strong>
+<ul>
+<li><code>position：</code>迭代器</li>
+<li><code>constructor：</code>更新目标对象的lambda函数</li>
+</ul></li>
+<li><strong>示例：</strong></li>
+</ul>
+<pre><code class="hljs css language-cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Member</span> {</span>
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name;
+<span class="hljs-keyword">uint8_t</span> age;
+<span class="hljs-keyword">uint8_t</span> sex;
+<span class="hljs-keyword">uint64_t</span> $seq_;
+<span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">Name</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> name; }
+<span class="hljs-function"><span class="hljs-keyword">uint8_t</span> <span class="hljs-title">Age</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> age; }
+PLATON_SERIALIZE(Member, (name)(age)(sex))
+};
+MultiIndex&lt;
+<span class="hljs-string">"table"</span>_n, Member,
+  IndexedBy&lt;<span class="hljs-string">"index"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, &amp;Member::Name,
+                                    IndexType::UniqueIndex&gt;&gt;,
+IndexedBy&lt;<span class="hljs-string">"index2"</span>_n, IndexMemberFun&lt;Member, <span class="hljs-keyword">uint8_t</span>, &amp;Member::Age,
+                                      IndexType::NormalIndex&gt;&gt;&gt;
+member_table;
+member_table.modify(r.first, [&amp;](<span class="hljs-keyword">auto</span> &amp;m) { m.sex = <span class="hljs-number">15</span>; });
+</code></pre></li>
 </ul></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="合约api"></a><a href="#合约api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>合约API</h3>
@@ -1996,7 +2215,7 @@ K/V 存储到数据库. 对于大规模数据, <code>platon::db::Map</code> 和 
 };
 </code></pre></li>
 </ol>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/Sol_Smart_Contract"><span class="arrow-prev">← </span><span>Solidity智能合约开发</span></a><a class="docs-next button" href="/docs/zh-CN/Java_SDK"><span>Java SDK</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#入门">入门</a><ul class="toc-headings"><li><a href="#概要">概要</a></li><li><a href="#platon-truffle开发工具介绍">platon-truffle开发工具介绍</a></li><li><a href="#创建helloworld合约">创建HelloWorld合约</a></li><li><a href="#编译helloworld合约">编译HelloWorld合约</a></li><li><a href="#部署helloworld合约">部署HelloWorld合约</a></li><li><a href="#调用helloworld合约">调用HelloWorld合约</a></li></ul></li><li><a href="#合约开发成本">合约开发成本</a><ul class="toc-headings"><li><a href="#概要-1">概要</a></li><li><a href="#小型合约示例">小型合约示例</a></li><li><a href="#中型合约示例">中型合约示例</a></li><li><a href="#大型合约示例">大型合约示例</a></li></ul></li><li><a href="#最佳实践">最佳实践</a><ul class="toc-headings"><li><a href="#介绍">介绍</a></li><li><a href="#费用合理设置">费用合理设置</a></li><li><a href="#避免超时">避免超时</a></li><li><a href="#非法操作处罚">非法操作处罚</a></li><li><a href="#cc语言限制">C/C++语言限制</a></li><li><a href="#编程规范">编程规范</a></li></ul></li><li><a href="#api">API</a><ul class="toc-headings"><li><a href="#区块api">区块api</a></li><li><a href="#交易api">交易API</a></li><li><a href="#帐户api">帐户api</a></li><li><a href="#存储api">存储API</a></li><li><a href="#合约api">合约API</a></li><li><a href="#异常api">异常API</a></li><li><a href="#其他api">其他API</a></li></ul></li><li><a href="#faq">FAQ</a><ul class="toc-headings"><li><a href="#编译相关">编译相关</a></li><li><a href="#合约相关">合约相关</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/Sol_Smart_Contract"><span class="arrow-prev">← </span><span>Solidity智能合约开发</span></a><a class="docs-next button" href="/docs/zh-CN/Java_SDK"><span>Java SDK</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#入门">入门</a><ul class="toc-headings"><li><a href="#概要">概要</a></li><li><a href="#platon-truffle开发工具介绍">platon-truffle开发工具介绍</a></li><li><a href="#创建helloworld合约">创建HelloWorld合约</a></li><li><a href="#编译helloworld合约">编译HelloWorld合约</a></li><li><a href="#部署helloworld合约">部署HelloWorld合约</a></li><li><a href="#调用helloworld合约">调用HelloWorld合约</a></li></ul></li><li><a href="#合约开发成本">合约开发成本</a><ul class="toc-headings"><li><a href="#概要-1">概要</a></li><li><a href="#小型合约示例">小型合约示例</a></li><li><a href="#中型合约示例">中型合约示例</a></li><li><a href="#大型合约示例">大型合约示例</a></li></ul></li><li><a href="#最佳实践">最佳实践</a><ul class="toc-headings"><li><a href="#介绍">介绍</a></li><li><a href="#费用合理设置">费用合理设置</a></li><li><a href="#避免超时">避免超时</a></li><li><a href="#非法操作处罚">非法操作处罚</a></li><li><a href="#cc语言限制">C/C++语言限制</a></li><li><a href="#编程规范">编程规范</a></li></ul></li><li><a href="#api">API</a><ul class="toc-headings"><li><a href="#区块api">区块Api</a></li><li><a href="#交易api">交易API</a></li><li><a href="#帐户api">帐户Api</a></li><li><a href="#存储api">存储API</a></li><li><a href="#合约api">合约API</a></li><li><a href="#异常api">异常API</a></li><li><a href="#其他api">其他API</a></li></ul></li><li><a href="#faq">FAQ</a><ul class="toc-headings"><li><a href="#编译相关">编译相关</a></li><li><a href="#合约相关">合约相关</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
