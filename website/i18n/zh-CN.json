@@ -61,9 +61,13 @@
         "title": "成为验证节点",
         "sidebar_label": "成为验证节点"
       },
-      "Smart_Contract": {
-        "title": "智能合约开发",
-        "sidebar_label": "智能合约开发"
+      "Sol_Smart_Contract": {
+        "title": "Solidity智能合约开发",
+        "sidebar_label": "Solidity智能合约开发"
+      },
+	  "WASM_Smart_Contract": {
+        "title": "WASM智能合约开发",
+        "sidebar_label": "WASM智能合约开发"
       },
       "Set_Develop_Env": {
         "title": "设置开发环境",

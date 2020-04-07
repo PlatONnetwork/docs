@@ -41,6 +41,14 @@
         "title": "PlatON Economic Model",
         "sidebar_label": "PlatON Economic Model"
       },
+      "Sol_Smart_Contract": {
+        "title": "Solidity Smart Contract Development",
+        "sidebar_label": "Solidity Smart Contract Development"
+      },
+      "WASM_Smart_Contract": {
+        "title": "WASM Smart Contract Development",
+        "sidebar_label": "WASM Smart Contract Development"
+      },
       "Join_PlatON_NetWork": {
         "title": "Join the PlatON network",
         "sidebar_label": "Join the PlatON network"
@@ -60,10 +68,6 @@
       "Become_Verification_Node": {
         "title": "Upgrade to Validator Node",
         "sidebar_label": "Upgrade to Validator Node"
-      },
-      "Smart_Contract": {
-        "title": "Smart Contract Development",
-        "sidebar_label": "Smart Contract Development"
       },
       "Set_Develop_Env": {
         "title": "Start Building",

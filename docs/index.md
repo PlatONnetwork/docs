@@ -40,13 +40,23 @@ sidebar_label: PlatON Developer Docs
     </div>
     <div class="homepage-card">
         <img src="/docs/img/Smart_Contract_Development.svg">
-        <a href="/docs/en/Smart_Contract" class="card-title">Smart contract development</a>
+        <a href="/docs/en/Sol_Smart_Contract" class="card-title">Solidity Smart contract development</a>
         <div class="card-description">
-        Learn how to develop and use PlatON blockchain smart contracts.
+        Learn how to develop and use PlatON blockchain Solidity smart contracts.
         </div>
     </div>
-    <div class="homepage-card">
-        <img src="/docs/img/resdoc.svg">
+
+   <div class="homepage-card">
+        <img src="/docs/img/Smart_Contract_Development.svg">
+        <a href="/docs/en/WASM_Smart_Contract" class="card-title">WASM Smart contract development</a>
+        <div class="card-description">
+        Learn how to develop and use PlatON blockchain WASM smart contracts.
+        </div>
+    </div>
+
+<div class="homepage-card">
+
+​        <img src="/docs/img/resdoc.svg">
         <a href="/docs/en/Java_SDK" class="card-title">Reference Docs</a>
         <div class="card-description">
         Tools, API and SDK documentation, learning resource references, etc.
