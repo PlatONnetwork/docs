@@ -1191,6 +1191,20 @@ Get the address of contract.
 
 ### account api
 
+#### make_address()
+
+```cpp
+template <size_t M> Address make_address(const char (&str)[M])
+```
+
+Converts a c-style string to an address object.
+
+* **参数**
+  * `str：` C-style string
+* **返回值**
+  * Address object
+
+
 #### platon_balance()
 
 ```cpp
@@ -1792,56 +1806,235 @@ Destroy the Map object Refresh data to the blockchain.
   * `template<Name::Raw TableName, typename Key , typename Value >
     const std::string platon::db::Map< TableName, Key, Value >::kType = "__map__"`
 
-#### platon::db::MultiIndex< TableName, T, Indices >::Index< IndexName, Extractor, Number, IndexTypeName > Struct Template
+#### template<Name::Raw TableName, typename T, typename... Indices> class platon::db::MultiIndex< TableName, T, Indices >
 
-* **Public Types**
-  * `enum   Constants { kTableName = static_cast<uint64_t>(TableName), kIndexName = static_cast<uint64_t>(IndexName), kIndexNumber = Number }`
-
-  * `typedef Extractor  SecondaryExtractorType`
-
-  * `typedef std::decay< decltype(Extractor()(nullptr))>::type  SecondaryKeyType`
-
-* **Static Public Member Functions**
-  * `static bool unique ()`
-
-  * `static uint64_t  index_name ()`
-
-  * `static uint64_t  table_name ()`
-
-  * `static uint64_t  index_number ()`
-
-  * `static auto  extract_secondary_key (const T &obj)`
-
-* **Member Typedef Documentation**
-
-  * `template<Name::Raw TableName, typename T , typename... Indices>
-    template<Name::Raw IndexName, typename Extractor , uint64_t Number, typename IndexTypeName >
-    typedef Extractor platon::db::MultiIndex< TableName, T, Indices >::Index< IndexName, Extractor, Number, IndexTypeName >::SecondaryExtractorType`
-
-  * `template<Name::Raw TableName, typename T , typename... Indices>
-    template<Name::Raw IndexName, typename Extractor , uint64_t Number, typename IndexTypeName >
-    typedef std::decay<decltype(Extractor()(nullptr))>::type platon::db::MultiIndex< TableName, T, Indices >::Index< IndexName, Extractor, Number, IndexTypeName >::SecondaryKeyType`
+MultiIndex supports unique indexes and ordinary indexes. The unique index should be placed first in the parameter. The structure needs to provide the get function corresponding to the index field.
 
 * **Member Function Documentation**
-  * `template<Name::Raw TableName, typename T , typename... Indices>
-    template<Name::Raw IndexName, typename Extractor , uint64_t Number, typename IndexTypeName >
-    static auto platon::db::MultiIndex< TableName, T, Indices >::Index< IndexName, Extractor, Number, IndexTypeName >::extract_secondary_key ( const T & obj )`
+  * `template<Name::Raw TableName, typename T , typename... Indices>const_iterator platon::db::MultiIndex< TableName, T, Indices >::cbegin()`
+Iterator start position
+
+    * **Returns**
+      * const_iterator
+    * **Example:**
+
+    ```cpp
+      struct Member {
+      std::string name;
+      uint8_t age;
+      uint8_t sex;
+      uint64_t $seq_;
+      std::string Name() const { return name; }
+      uint8_t Age() const { return age; }
+      PLATON_SERIALIZE(Member, (name)(age)(sex))
+    };
+    MultiIndex<
+      "table"_n, Member,
+      IndexedBy<"index"_n, IndexMemberFun<Member, std::string, &Member::Name,
+                                          IndexType::UniqueIndex>>,
+      IndexedBy<"index2"_n, IndexMemberFun<Member, uint8_t, &Member::Age,
+                                          IndexType::NormalIndex>>>
+      member_table;
+    for (auto it = member_table.cbegin(); it != it_end; ++it){}
+    ```
 
   * `template<Name::Raw TableName, typename T , typename... Indices>
-    template<Name::Raw IndexName, typename Extractor , uint64_t Number, typename IndexTypeName >
-    static uint64_t platon::db::MultiIndex< TableName, T, Indices >::Index< IndexName, Extractor, Number, IndexTypeName >::index_name ()`
+const_iterator platon::db::MultiIndex< TableName, T, Indices >::cend()`
+Iterator end position
 
-  * `template<Name::Raw TableName, typename T , typename... Indices>
-    template<Name::Raw IndexName, typename Extractor , uint64_t Number, typename IndexTypeName >
-    static uint64_t platon::db::MultiIndex< TableName, T, Indices >::Index< IndexName, Extractor, Number, IndexTypeName >::index_number ()`
+    * **Returns**
+      * const_iterator
+    * **Example:**
 
-  * `template<Name::Raw TableName, typename T , typename... Indices>
-    template<Name::Raw IndexName, typename Extractor , uint64_t Number, typename IndexTypeName >
-    static uint64_t platon::db::MultiIndex< TableName, T, Indices >::Index< IndexName, Extractor, Number, IndexTypeName >::table_name ()`
+    ```cpp
+      struct Member {
+      std::string name;
+      uint8_t age;
+      uint8_t sex;
+      uint64_t $seq_;
+      std::string Name() const { return name; }
+      uint8_t Age() const { return age; }
+      PLATON_SERIALIZE(Member, (name)(age)(sex))
+    };
+    MultiIndex<
+      "table"_n, Member,
+      IndexedBy<"index"_n, IndexMemberFun<Member, std::string, &Member::Name,
+                                          IndexType::UniqueIndex>>,
+      IndexedBy<"index2"_n, IndexMemberFun<Member, uint8_t, &Member::Age,
+                                          IndexType::NormalIndex>>>
+      member_table;
+    for (auto it = member_table.cbegin(); it != it_end; ++it){}
+    ```
 
-  * `template<Name::Raw TableName, typename T , typename... Indices>
-    template<Name::Raw IndexName, typename Extractor , uint64_t Number, typename IndexTypeName >
-    static bool platon::db::MultiIndex< TableName, T, Indices >::Index< IndexName, Extractor, Number, IndexTypeName >::unique ( )`
+  * `template<Name::Raw TableName, typename T , typename... Indices> template<Name::Raw IndexName, typename KEY > size_t platon::db::MultiIndex< TableName, T, Indices >::count(const KEY &key)`
+
+    * **Returns**
+      * Gets the number of data corresponding to the index value
+    * **Example:**
+
+    ```cpp
+    struct Member {
+    std::string name;
+    uint8_t age;
+    uint8_t sex;
+    uint64_t $seq_;
+    std::string Name() const { return name; }
+    uint8_t Age() const { return age; }
+    PLATON_SERIALIZE(Member, (name)(age)(sex))
+    };
+    MultiIndex<
+    "table"_n, Member,
+      IndexedBy<"index"_n, IndexMemberFun<Member, std::string, &Member::Name,
+                                        IndexType::UniqueIndex>>,
+    IndexedBy<"index2"_n, IndexMemberFun<Member, uint8_t, &Member::Age,
+                                          IndexType::NormalIndex>>>
+    member_table;
+    auto count = member_table.count<"index2"_n>(uint8_t(10));
+    ```
+
+  * `template<Name::Raw TableName, typename T , typename... Indices> template<typename Lambda> std::pair<const_iterator, bool> platon::db::MultiIndex< TableName, T, Indices >::emplace(Lambda &constructor)`
+
+    * **Parameters**
+      * constructor of value
+    * **Returns**
+      * Returns an iterator that indicates whether the insertion was successful with the bool type. If unique index conflicts, the insertion fails
+    * **Example:**
+
+    ```cpp
+    struct Member {
+      std::string name;
+      uint8_t age;
+      uint8_t sex;
+      uint64_t $seq_;
+      std::string Name() const { return name; }
+      uint8_t Age() const { return age; }
+      PLATON_SERIALIZE(Member, (name)(age)(sex))
+    };
+    MultiIndex<
+      "table"_n, Member,
+      IndexedBy<"index"_n, IndexMemberFun<Member, std::string, &Member::Name,
+                                          IndexType::UniqueIndex>>,
+      IndexedBy<"index2"_n, IndexMemberFun<Member, uint8_t, &Member::Age,
+                                          IndexType::NormalIndex>>>
+      member_table;
+    member_table.emplace([&](auto &m) {
+      m.age = 10;
+      m.name = "hello";
+      m.sex = 1;
+    });
+    ```
+
+  * `template<Name::Raw TableName, typename T , typename... Indices> void platon::db::MultiIndex< TableName, T, Indices >::erase(const_iterator position)`
+erase data based on iterator
+
+    * **Parameters**
+      * `position:` position of iterator
+    * **Example:**
+
+    ```cpp
+    struct Member {
+    std::string name;
+    uint8_t age;
+    uint8_t sex;
+    uint64_t $seq_;
+    std::string Name() const { return name; }
+    uint8_t Age() const { return age; }
+    PLATON_SERIALIZE(Member, (name)(age)(sex))
+    };
+    MultiIndex<
+    "table"_n, Member,
+    IndexedBy<"index"_n, IndexMemberFun<Member, std::string, &Member::Name,
+                                      IndexType::UniqueIndex>>,
+    IndexedBy<"index2"_n, IndexMemberFun<Member, uint8_t, &Member::Age,
+                                        IndexType::NormalIndex>>>
+    member_table;
+    auto vect_iter = member_table.find<"index2"_n>(uint8_t(10));
+    member_table.erase(vect_iter[0]);
+    ```
+
+  * `template<Name::Raw TableName, typename T , typename... Indices> template<Name::Raw IndexName, typename KEY > const_iterator platon::db::MultiIndex< TableName, T, Indices >::find(const KEY & key)`
+Find the data, Only a unique index is available.
+
+    * **Parameters**
+      * `key:` key of index
+    * **Returns**
+      * the first iterator. cend() if not found.
+    * **Example:**
+
+    ```cpp
+    struct Member {
+    std::string name;
+    uint8_t age;
+    uint8_t sex;
+    uint64_t $seq_;
+    std::string Name() const { return name; }
+    uint8_t Age() const { return age; }
+    PLATON_SERIALIZE(Member, (name)(age)(sex))
+    };
+    MultiIndex<
+    "table"_n, Member,
+      IndexedBy<"index"_n, IndexMemberFun<Member, std::string, &Member::Name,
+                                        IndexType::UniqueIndex>>,
+    IndexedBy<"index2"_n, IndexMemberFun<Member, uint8_t, &Member::Age,
+                                          IndexType::NormalIndex>>>
+    member_table;
+    auto vect_iter = member_table.find<"index2"_n>(uint8_t(10));
+    ```
+
+  * `template<Name::Raw TableName, typename T , typename... Indices> template<Name::Raw IndexName>auto platon::db::MultiIndex< TableName, T, Indices >::get_index()`
+Gets the index object of a non-unique index.
+
+    * **Returns**
+      * index object
+    * **Example:**
+
+    ```cpp
+    struct Member {
+    std::string name;
+    uint8_t age;
+    uint8_t sex;
+    uint64_t $seq_;
+    std::string Name() const { return name; }
+    uint8_t Age() const { return age; }
+    PLATON_SERIALIZE(Member, (name)(age)(sex))
+    };
+    MultiIndex<
+    "table"_n, Member,
+      IndexedBy<"index"_n, IndexMemberFun<Member, std::string, &Member::Name,
+                                        IndexType::UniqueIndex>>,
+    IndexedBy<"index2"_n, IndexMemberFun<Member, uint8_t, &Member::Age,
+                                          IndexType::NormalIndex>>>
+    member_table;
+    auto index = member_table.get_index<"index2"_n>();
+    ```
+
+  * `template<Name::Raw TableName, typename T , typename... Indices> template<typename Lambda >void platon::db::MultiIndex< TableName, T, Indices >::modify(const_iterator position,Lambda && constructor)`
+Modify data based on iterator, but cannot modify all index-related fields .
+
+    * **Parameters**
+      * `position:` position of iterator
+      * `constructor:` lambda function that updates the target object
+    * **Example:**
+
+    ```cpp
+    struct Member {
+    std::string name;
+    uint8_t age;
+    uint8_t sex;
+    uint64_t $seq_;
+    std::string Name() const { return name; }
+    uint8_t Age() const { return age; }
+    PLATON_SERIALIZE(Member, (name)(age)(sex))
+    };
+    MultiIndex<
+    "table"_n, Member,
+      IndexedBy<"index"_n, IndexMemberFun<Member, std::string, &Member::Name,
+                                        IndexType::UniqueIndex>>,
+    IndexedBy<"index2"_n, IndexMemberFun<Member, uint8_t, &Member::Age,
+                                          IndexType::NormalIndex>>>
+    member_table;
+    member_table.modify(r.first, [&](auto &m) { m.sex = 15; });
+ 
 
 ### contract api
 
