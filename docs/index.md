@@ -8,14 +8,14 @@ sidebar_label: PlatON Developer Docs
 <div class="card-wrap">
     <div class="homepage-card">
         <img src="/docs/img/Install_Node.svg">
-        <a href="/docs/en/Install_Node" class="card-title">Install and deploy a node</a>
+        <a href="/docs/en/Install_Node" class="card-title">Install and Deploy a Node</a>
         <div class="card-description">
         Install, configure, and deploy a node.
         </div>
     </div>
     <div class="homepage-card">
         <img src="/docs/img/Join_PlatON_NetWork.svg">
-        <a href="/docs/en/Join_PlatON_NetWork" class="card-title">Join the PlatON network</a>
+        <a href="/docs/en/Join_PlatON_NetWork" class="card-title">Join the PlatON Network</a>
         <div class="card-description">
         How to join PlatON's mainnet and testnet.
         </div>
@@ -27,35 +27,32 @@ sidebar_label: PlatON Developer Docs
         Participate in PlatON consensus.
         </div>
     </div>
+    <div class="homepage-card">
+        <img src="/docs/img/nodeTool.svg">
+        <a href="/docs/en/MTool_Manual" class="card-title">Node Tool</a>
+        <div class="card-description">
+        Learn to understand the commands and operating instructions of node related tools.
+        </div>
+    </div>
 </div>
 
 ## Developers
 <div class="card-wrap">
     <div class="homepage-card">
         <img src="/docs/img/Set_Develop_Env.svg">
-        <a href="/docs/en/Set_Develop_Env" class="card-title">Start Building</a>
+        <a href="/docs/en/Source_Code_Compilation" class="card-title">Start Building</a>
         <div class="card-description">
-        Learn how to setup your dev environment and send your first transaction.
+        Learn how to install PlatON and deploy a private test network.
         </div>
     </div>
     <div class="homepage-card">
         <img src="/docs/img/Smart_Contract_Development.svg">
-        <a href="/docs/en/Sol_Smart_Contract" class="card-title">Solidity Smart contract development</a>
+        <a href="/docs/en/EVM_Smart_Contract" class="card-title">Smart Contract Development</a>
         <div class="card-description">
-        Learn how to develop and use PlatON blockchain Solidity smart contracts.
+        Learn how to develop and use PlatON blockchain smart contracts.
         </div>
     </div>
-
-   <div class="homepage-card">
-        <img src="/docs/img/Smart_Contract_Development.svg">
-        <a href="/docs/en/WASM_Smart_Contract" class="card-title">WASM Smart contract development</a>
-        <div class="card-description">
-        Learn how to develop and use PlatON blockchain WASM smart contracts.
-        </div>
-    </div>
-
-<div class="homepage-card">
-
+    <div class="homepage-card">
 ​        <img src="/docs/img/resdoc.svg">
         <a href="/docs/en/Java_SDK" class="card-title">Reference Docs</a>
         <div class="card-description">
