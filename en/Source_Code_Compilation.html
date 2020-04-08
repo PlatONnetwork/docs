@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Source code compilation · PlatON</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This document is primarily a how-to guide for developers building applications on the PlatON blockchain."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Source code compilation · PlatON"/><meta property="og:type" content="website"/><meta property="og:url" content="https://luo-dahui.github.io//docs/"/><meta property="og:description" content="This document is primarily a how-to guide for developers building applications on the PlatON blockchain."/><meta property="og:image" content="https://luo-dahui.github.io//docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://luo-dahui.github.io//docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs/img/logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></script><script type="text/javascript" src="/docs/js/custom.js"></script><script src="/docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs/css/main.css"/><script src="/docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="https://www.platon.network/?lang=en"><img class="logo" src="/docs/img/PlatON-logo.svg" alt="PlatON"/></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/docs/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/zh-CN/Source_Code_Compilation">中文</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Start Building</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">PlatON Developer Docs<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/en/">PlatON Developer Docs</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Run a Node<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/en/Install_Node">Install and deploy a node</a></li><li class="navListItem"><a class="navItem" href="/docs/en/Join_PlatON_NetWork">Join the PlatON network</a></li><li class="navListItem"><a class="navItem" href="/docs/en/Become_Verification_Node">Upgrade to Validator Node</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Node tool<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/en/MTool_Manual">MTool Tutorials</a></li><li class="navListItem"><a class="navItem" href="/docs/en/Command_Line_Tools">PlatON Command line tools</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Start Building<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/Source_Code_Compilation">Source code compilation</a></li><li class="navListItem"><a class="navItem" href="/docs/en/Build_Private_Chain">Build a private chain</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Smart contract development<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/en/EVM_Smart_Contract">EVM</a></li><li class="navListItem"><a class="navItem" href="/docs/en/WASM_Smart_Contract">WASM</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Reference Docs<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/en/Java_SDK">Java SDK</a></li><li class="navListItem"><a class="navItem" href="/docs/en/JS_SDK">JS SDK</a></li><li class="navListItem"><a class="navItem" href="/docs/en/Json_Rpc">JSON RPC</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Abount PlatON<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/en/PlatON_Overall_Solution">PlatON Overall Solution</a></li><li class="navListItem"><a class="navItem" href="/docs/en/PlatON_Solution">PlatON Consensus Solution</a></li><li class="navListItem"><a class="navItem" href="/docs/en/Economic_Model">PlatON Economic Model</a></li><li class="navListItem"><a class="navItem" href="/docs/en/PlatON_Governance_Solution">PlatON Governance Solution</a></li><li class="navListItem"><a class="navItem" href="/docs/en/Secure_Multi_Party_Computation">Secure Multi Party Computationn</a></li><li class="navListItem"><a class="navItem" href="/docs/en/Verifiable_Computation">Verifiable Computation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Community Projects<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/en/community">Community Projects</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Source code compilation</h1></header><article><div><span><p>This document is primarily a how-to guide for developers building applications on the PlatON blockchain.</p>
+<ul>
+<li>PlatON supports source code compilation and installation under Windows and Ubuntu.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="windows-source-code-compilation"></a><a href="#windows-source-code-compilation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Windows source code compilation</h2>
+<p>Windows compilation environment requirements :</p>
+<ul>
+<li>git: <code>2.19.1 and above</code></li>
+<li>Go language development kit: <code>go (1.7+)</code></li>
+<li>mingw: <code>mingw (V8.1.0)</code></li>
+<li>cmake: <code>3.0 +</code></li>
+</ul>
+<p>You can install the above compilation environment yourself. Please make sure the above environment can run normally before compiling <code>PlatON</code> source code.</p>
+<blockquote>
+<p>You can also use <code>Chocolatey</code> to install the compilation environment (if you do not already have <code>chocolatey</code>, you can follow the instructions on <a href="https://chocolatey.org">https://chocolatey.org</a> to install), start <code>PowerShell</code> as an administrator, and then execute the following command:</p>
+<p>Install git:</p>
+<pre><code class="hljs">choco <span class="hljs-keyword">install</span> git
+</code></pre>
+<p>Install golang:</p>
+<pre><code class="hljs">choco <span class="hljs-keyword">install</span> golang
+</code></pre>
+<p>Install mingw:</p>
+<pre><code class="hljs">choco <span class="hljs-keyword">install</span> mingw
+</code></pre>
+<p>Install cmake:</p>
+<pre><code class="hljs">choco <span class="hljs-keyword">install</span> cmake
+</code></pre>
+<p>Most software installed using the <code>chocolatey</code> package manager has a default installation path, and some software may have various paths, depending on the publisher of the software. Installing these packages will modify the Path environment variable. The final installation path can be viewed in the PATH. Some machine environments may not find the installation path of these tools in the PATH, and you need to add it manually at this time. After installation, please make sure the installed Go version is 1.7 (or higher).</p>
+<p>For example: After installing cmake, type cmake on the CMD command line. If you are prompted that the command cannot be found, you need to add the path where cmake is installed.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="get-the-source-code"></a><a href="#get-the-source-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get the source code</h3>
+<p>Create <code>src/github.com/PlatONnetwork/</code> and <code>bin</code> directories under the current<code>%GOPATH%</code>directory, and clone the source code of<code>PlatON-GO</code> under the <code>PlatONnetwork</code> directory:</p>
+<pre><code class="hljs">cd src/github.com/PlatONnetwork/;
+git clone -b release<span class="hljs-number">-0.10</span><span class="hljs-number">.0</span> https:<span class="hljs-comment">//github.com/PlatONnetwork/PlatON-Go.git --recursive</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="compile"></a><a href="#compile" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Compile</h3>
+<blockquote>
+<p>The following compilation commands need to be run in the <code>Git-bash</code> environment, and the compilation environment in step 1 has been successfully installed!</p>
+</blockquote>
+<p>Go to the source directory <code>PlatON-Go</code>:</p>
+<pre><code class="hljs"><span class="hljs-built_in">cd</span> PlatON-Go
+</code></pre>
+<p>Before compiling the source directory, execute the following script in the source directory <code>PlatON-Go</code> to compile the required libraries:</p>
+<pre><code class="hljs">./<span class="hljs-keyword">build/build_deps.sh
+</span></code></pre>
+<p>Since the compilation depends on the bls library, PlatON-Go\crypto\bls\bls_win\lib needs to be configured into the path environment variable of the system.</p>
+<p>Otherwise it will report <code>exit status 3221225781</code> error.</p>
+<p>Executing the following compilation commands in the source directory <code>PlatON-Go</code> can generate<code>platon</code>, <code>keytool</code> executable files, as follows:</p>
+<pre><code class="hljs">go <span class="hljs-keyword">run</span><span class="bash"> build/ci.go install ./cmd/platon</span>
+go <span class="hljs-keyword">run</span><span class="bash"> build/ci.go install ./cmd/keytool</span>
+</code></pre>
+<p>After compiling, <code>platon</code>,<code>keytool</code> executable files will be generated in the<code>PlatON-Go/build/bin</code> directory. Copy these executable files to your working directory and run.</p>
+<blockquote>
+<p>Repeated compilation will overwrite the previously generated executable file.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="ubuntu-source-code-compilation"></a><a href="#ubuntu-source-code-compilation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ubuntu source code compilation</h2>
+<p><strong>step1.</strong> Ubuntu compilation environment requirements:</p>
+<ul>
+<li>System version: <code>Ubuntu 18.04.1 and above</code></li>
+<li>git: <code>2.19.1 and above</code></li>
+<li>Compilers: <code>gcc (4.9.2+)</code>, <code>g ++ (5.0+)</code></li>
+<li>Go language development kit: <code>go (1.7+)</code></li>
+<li>cmake: <code>3.0 +</code></li>
+</ul>
+<p><strong>step2.</strong> Get the PlatON source:</p>
+<pre><code class="hljs css language-bash">git <span class="hljs-built_in">clone</span> -b release-0.10.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+</code></pre>
+<p><strong>step3.</strong> Install dependency library:</p>
+<pre><code class="hljs css language-bash">sudo apt update &amp;&amp; sudo apt install golang-go cmake llvm g++ libgmp-dev libssl-dev
+</code></pre>
+<p><strong>step4.</strong> compilation：</p>
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> PlatON-Go &amp;&amp; make all
+</code></pre>
+<p>After compiling, a series of executable files such as <code>platon, keytool</code> and so on will be generated in the <code>./build/bin</code> directory.</p>
+<p><strong>step5.</strong> Copy binary:</p>
+<pre><code class="hljs css language-shell">sudo cp -f ./build/bin/platon /usr/bin/ &amp;&amp; sudo cp -f ./build/bin/keytool /usr/bin/
+</code></pre>
+<p>To this step, congratulations, the source code compilation completed!</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/Command_Line_Tools"><span class="arrow-prev">← </span><span class="function-name-prevnext">PlatON Command line tools</span></a><a class="docs-next button" href="/docs/en/Build_Private_Chain"><span>Build a private chain</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#windows-source-code-compilation">Windows source code compilation</a><ul class="toc-headings"><li><a href="#get-the-source-code">Get the source code</a></li><li><a href="#compile">Compile</a></li></ul></li><li><a href="#ubuntu-source-code-compilation">Ubuntu source code compilation</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '0f9f28b9ab9efae89810921a351753b5',
+                indexName: 'github',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>PlatON命令行工具 · PlatON</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="- [platon](#platon)"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="PlatON命令行工具 · PlatON"/><meta property="og:type" content="website"/><meta property="og:url" content="https://luo-dahui.github.io//docs/"/><meta property="og:description" content="- [platon](#platon)"/><meta property="og:image" content="https://luo-dahui.github.io//docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://luo-dahui.github.io//docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs/img/logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></script><script type="text/javascript" src="/docs/js/custom.js"></script><script src="/docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs/css/main.css"/><script src="/docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="https://www.platon.network/?lang=zh"><img class="logo" src="/docs/img/PlatON-logo.svg" alt="PlatON"/></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/docs/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/Command_Line_Tools">English</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>节点工具</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">PlatON开发者文档<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/">PlatON开发者文档</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">运行一个节点<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Install_Node">安装一个节点</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Join_PlatON_NetWork">加入 PlatON 网络</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Become_Verification_Node">成为验证节点</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">节点工具<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/MTool_Manual">MTool教程</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/zh-CN/Command_Line_Tools">PlatON命令行工具</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">设置开发环境<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Source_Code_Compilation">源码编译</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Build_Private_Chain">搭建私链</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">智能合约开发<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/EVM_Smart_Contract">EVM</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/WASM_Smart_Contract">WASM</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">参考文档<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Java_SDK">Java SDK</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/JS_SDK">JS SDK</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Json_Rpc">JSON RPC</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">关于PlatON<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Overall_Solution">PlatON总体方案</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Solution">PlatON共识方案</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Economic_Model">PlatON经济方案</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Governance_Solution">PlatON治理方案</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Secure_Multi_Party_Computation">安全多方计算</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Verifiable_Computation">可验证计算</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">社区<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/community">社区项目</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">PlatON命令行工具</h1></header><article><div><span><ul>
+<li><a href="#platon">platon</a></li>
+<li><a href="#ctool">ctool</a></li>
+<li><a href="#console">console</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="platon"></a><a href="#platon" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon</h2>
+<ul>
+<li><code>Platon</code> 命令行参数说明。</li>
+</ul>
+<pre><code class="hljs css language-conf">NAME:
+   platon.exe - the go-platon command line interface
+
+   Copyright 2013-2018 The PlatON-Go Authors
+
+USAGE:
+   platon.exe [options] command [command options] [arguments...]
+
+VERSION:
+   1.8.16-stable-401329c1
+
+COMMANDS:
+   account           Manage accounts
+   attach            <span class="hljs-keyword">Start</span> an interactive JavaScript environment (<span class="hljs-keyword">connect</span> <span class="hljs-keyword">to</span> node)
+   bug               opens a <span class="hljs-keyword">window</span> <span class="hljs-keyword">to</span> report a bug <span class="hljs-keyword">on</span> the platon repo
+   console           <span class="hljs-keyword">Start</span> an interactive JavaScript environment
+   copydb            <span class="hljs-keyword">Create</span> a <span class="hljs-keyword">local</span> <span class="hljs-keyword">chain</span> <span class="hljs-keyword">from</span> a target chaindata folder
+   dump              Dump a specific <span class="hljs-keyword">block</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">storage</span>
+   dumpconfig        <span class="hljs-keyword">Show</span> configuration <span class="hljs-keyword">values</span>
+   <span class="hljs-keyword">export</span>            <span class="hljs-keyword">Export</span> blockchain <span class="hljs-keyword">into</span> <span class="hljs-keyword">file</span>
+   <span class="hljs-keyword">export</span>-preimages  <span class="hljs-keyword">Export</span> the preimage <span class="hljs-keyword">database</span> <span class="hljs-keyword">into</span> an RLP stream
+   <span class="hljs-keyword">import</span>            <span class="hljs-keyword">Import</span> a blockchain <span class="hljs-keyword">file</span>
+   <span class="hljs-keyword">import</span>-preimages  <span class="hljs-keyword">Import</span> the preimage <span class="hljs-keyword">database</span> <span class="hljs-keyword">from</span> an RLP stream
+   init              Bootstrap <span class="hljs-keyword">and</span> initialize a <span class="hljs-keyword">new</span> genesis <span class="hljs-keyword">block</span>
+   js                <span class="hljs-keyword">Execute</span> the specified JavaScript files
+   license           Display license information
+   makecache         Generate ethash verification <span class="hljs-keyword">cache</span> (<span class="hljs-keyword">for</span> testing)
+   makedag           Generate ethash <span class="hljs-keyword">mining</span> DAG (<span class="hljs-keyword">for</span> testing)
+   monitor           Monitor <span class="hljs-keyword">and</span> visualize node metrics
+   removedb          Remove blockchain <span class="hljs-keyword">and</span> state <span class="hljs-keyword">databases</span>
+   <span class="hljs-keyword">version</span>           Print <span class="hljs-keyword">version</span> numbers
+   <span class="hljs-keyword">wallet</span>            Manage Ethereum presale wallets
+   <span class="hljs-keyword">help</span>, h           Shows a <span class="hljs-keyword">list</span> <span class="hljs-keyword">of</span> commands <span class="hljs-keyword">or</span> <span class="hljs-keyword">help</span> <span class="hljs-keyword">for</span> one command
+
+ETHEREUM OPTIONS:
+  <span class="hljs-comment">--config value                                        TOML configuration file</span>
+  <span class="hljs-comment">--datadir "C:\Users\jungle\AppData\Roaming\Ethereum"  Data directory for the databases and keystore</span>
+  <span class="hljs-comment">--keystore                                            Directory for the keystore (default = inside the datadir)</span>
+  <span class="hljs-comment">--nousb                                               Disables monitoring for and managing USB hardware wallets</span>
+  <span class="hljs-comment">--networkid value                                     Network identifier (integer, 1=Frontier, 2=Morden (disused), 3=Ropsten, 4=Rinkeby) (default: 1)</span>
+  <span class="hljs-comment">--testnet                                             Ropsten network: pre-configured proof-of-work test network</span>
+  <span class="hljs-comment">--rinkeby                                             Rinkeby network: pre-configured proof-of-authority test network</span>
+  <span class="hljs-comment">--syncmode "full"                                     Blockchain sync mode ("fast", "full", or "light")</span>
+  <span class="hljs-comment">--gcmode value                                        Blockchain garbage collection mode ("full", "archive") (default: "full")</span>
+  <span class="hljs-comment">--ethstats value                                      Reporting URL of a ethstats service (nodename:secret@host:port)</span>
+  <span class="hljs-comment">--identity value                                      Custom node name</span>
+  <span class="hljs-comment">--lightserv value                                     Maximum percentage of time allowed for serving LES requests (0-90) (default: 0)</span>
+  <span class="hljs-comment">--lightpeers value                                    Maximum number of LES client peers (default: 100)</span>
+  <span class="hljs-comment">--lightkdf                                            Reduce key-derivation RAM &amp; CPU usage at some expense of KDF strength</span>
+
+DEVELOPER <span class="hljs-keyword">CHAIN</span> OPTIONS:
+  <span class="hljs-comment">--dev               Ephemeral proof-of-authority network with a pre-funded developer account, mining enabled</span>
+  <span class="hljs-comment">--dev.period value  Block period to use in developer mode (0 = mine only if transaction pending) (default: 0)</span>
+
+ETHASH OPTIONS:
+  <span class="hljs-comment">--ethash.cachedir                                 Directory to store the ethash verification caches (default = inside the datadir)</span>
+  <span class="hljs-comment">--ethash.cachesinmem value                        Number of recent ethash caches to keep in memory (16MB each) (default: 2)</span>
+  <span class="hljs-comment">--ethash.cachesondisk value                       Number of recent ethash caches to keep on disk (16MB each) (default: 3)</span>
+  <span class="hljs-comment">--ethash.dagdir "C:\Users\jungle\AppData\Ethash"  Directory to store the ethash mining DAGs (default = inside home folder)</span>
+  <span class="hljs-comment">--ethash.dagsinmem value                          Number of recent ethash mining DAGs to keep in memory (1+GB each) (default: 1)</span>
+  <span class="hljs-comment">--ethash.dagsondisk value                         Number of recent ethash mining DAGs to keep on disk (1+GB each) (default: 2)</span>
+
+<span class="hljs-keyword">TRANSACTION</span> POOL OPTIONS:
+  <span class="hljs-comment">--txpool.locals value         Comma separated accounts to treat as locals (no flush, priority inclusion)</span>
+  <span class="hljs-comment">--txpool.nolocals             Disables price exemptions for locally submitted transactions</span>
+  <span class="hljs-comment">--txpool.journal value        Disk journal for local transaction to survive node restarts (default: "transactions.rlp")</span>
+  <span class="hljs-comment">--txpool.rejournal value      Time interval to regenerate the local transaction journal (default: 1h0m0s)</span>
+  <span class="hljs-comment">--txpool.pricelimit value     Minimum gas price limit to enforce for acceptance into the pool (default: 1)</span>
+  <span class="hljs-comment">--txpool.pricebump value      Price bump percentage to replace an already existing transaction (default: 10)</span>
+  <span class="hljs-comment">--txpool.accountslots value   Minimum number of executable transaction slots guaranteed per account (default: 16)</span>
+  <span class="hljs-comment">--txpool.globalslots value    Maximum number of executable transaction slots for all accounts (default: 4096)</span>
+  <span class="hljs-comment">--txpool.accountqueue value   Maximum number of non-executable transaction slots permitted per account (default: 64)</span>
+  <span class="hljs-comment">--txpool.globalqueue value    Maximum number of non-executable transaction slots for all accounts (default: 1024)</span>
+  <span class="hljs-comment">--txpool.globaltxcount value  Maximum number of transactions for package (default: 3000)</span>
+  <span class="hljs-comment">--txpool.lifetime value       Maximum amount of time non-executable transaction are queued (default: 3h0m0s)</span>
+
+<span class="hljs-keyword">PERFORMANCE</span> TUNING OPTIONS:
+  <span class="hljs-comment">--cache value            Megabytes of memory allocated to internal caching (default: 1024)</span>
+  <span class="hljs-comment">--cache.database value   Percentage of cache memory allowance to use for database io (default: 75)</span>
+  <span class="hljs-comment">--cache.gc value         Percentage of cache memory allowance to use for trie pruning (default: 25)</span>
+  <span class="hljs-comment">--trie-cache-gens value  Number of trie node generations to keep in memory (default: 120)</span>
+
+<span class="hljs-keyword">ACCOUNT</span> OPTIONS:
+  <span class="hljs-comment">--unlock value    Comma separated list of accounts to unlock</span>
+  <span class="hljs-comment">--password value  Password file to use for non-interactive password input</span>
+
+API <span class="hljs-keyword">AND</span> CONSOLE OPTIONS:
+  <span class="hljs-comment">--rpc                  Enable the HTTP-RPC server</span>
+  <span class="hljs-comment">--rpcaddr value        HTTP-RPC server listening interface (default: "localhost")</span>
+  <span class="hljs-comment">--rpcport value        HTTP-RPC server listening port (default: 6789)</span>
+  <span class="hljs-comment">--rpcapi value         API's offered over the HTTP-RPC interface</span>
+  <span class="hljs-comment">--ws                   Enable the WS-RPC server</span>
+  <span class="hljs-comment">--wsaddr value         WS-RPC server listening interface (default: "localhost")</span>
+  <span class="hljs-comment">--wsport value         WS-RPC server listening port (default: 6790)</span>
+  <span class="hljs-comment">--wsapi value          API's offered over the WS-RPC interface</span>
+  <span class="hljs-comment">--wsorigins value      Origins from which to accept websockets requests</span>
+  <span class="hljs-comment">--ipcdisable           Disable the IPC-RPC server</span>
+  <span class="hljs-comment">--ipcpath              Filename for IPC socket/pipe within the datadir (explicit paths escape it)</span>
+  <span class="hljs-comment">--rpccorsdomain value  Comma separated list of domains from which to accept cross origin requests (browser enforced)</span>
+  <span class="hljs-comment">--rpcvhosts value      Comma separated list of virtual hostnames from which to accept requests (server enforced). Accepts '*' wildcard. (default: "localhost")</span>
+  <span class="hljs-comment">--jspath loadScript    JavaScript root path for loadScript (default: ".")</span>
+  <span class="hljs-comment">--exec value           Execute JavaScript statement</span>
+  <span class="hljs-comment">--preload value        Comma separated list of JavaScript files to preload into the console</span>
+
+NETWORKING OPTIONS:
+  <span class="hljs-comment">--bootnodes value     Comma separated enode URLs for P2P discovery bootstrap (set v4+v5 instead for light servers)</span>
+  <span class="hljs-comment">--bootnodesv4 value   Comma separated enode URLs for P2P v4 discovery bootstrap (light server, full nodes)</span>
+  <span class="hljs-comment">--bootnodesv5 value   Comma separated enode URLs for P2P v5 discovery bootstrap (light server, light nodes)</span>
+  <span class="hljs-comment">--port value          Network listening port (default: 16789)</span>
+  <span class="hljs-comment">--maxpeers value      Maximum number of network peers (network disabled if set to 0) (default: 25)</span>
+  <span class="hljs-comment">--maxpendpeers value  Maximum number of pending connection attempts (defaults used if set to 0) (default: 0)</span>
+  <span class="hljs-comment">--nat value           NAT port mapping mechanism (any|none|upnp|pmp|extip:&lt;IP&gt;) (default: "any")</span>
+  <span class="hljs-comment">--nodiscover          Disables the peer discovery mechanism (manual peer addition)</span>
+  <span class="hljs-comment">--v5disc              Enables the experimental RLPx V5 (Topic Discovery) mechanism</span>
+  <span class="hljs-comment">--netrestrict value   Restricts network communication to the given IP networks (CIDR masks)</span>
+  <span class="hljs-comment">--nodekey value       P2P node key file</span>
+  <span class="hljs-comment">--nodekeyhex value    P2P node key as hex (for testing)</span>
+
+MINER OPTIONS:
+  <span class="hljs-comment">--mine                         Enable mining</span>
+  <span class="hljs-comment">--miner.threads value          Number of CPU threads to use for mining (default: 0)</span>
+  <span class="hljs-comment">--miner.notify value           Comma separated HTTP URL list to notify of new work packages</span>
+  <span class="hljs-comment">--miner.gasprice "1000000000"  Minimum gas price for mining a transaction</span>
+  <span class="hljs-comment">--miner.gastarget value        Target gas floor for mined blocks (default: 3150000000)</span>
+  <span class="hljs-comment">--miner.gaslimit value         Target gas ceiling for mined blocks (default: 3150000000)</span>
+  <span class="hljs-comment">--miner.etherbase value        Public address for block mining rewards (default = first account) (default: "0")</span>
+  <span class="hljs-comment">--miner.extradata value        Block extra data set by the miner (default = client version)</span>
+  <span class="hljs-comment">--miner.recommit value         Time interval to recreate the block being mined (default: 3s)</span>
+  <span class="hljs-comment">--miner.noverify               Disable remote sealing verification</span>
+
+GAS PRICE <span class="hljs-keyword">ORACLE</span> OPTIONS:
+  <span class="hljs-comment">--gpoblocks value      Number of recent blocks to check for gas prices (default: 20)</span>
+  <span class="hljs-comment">--gpopercentile value  Suggested gas price is the given percentile of a set of recent transaction gas prices (default: 60)</span>
+
+<span class="hljs-keyword">VIRTUAL</span> MACHINE OPTIONS:
+  <span class="hljs-comment">--vmdebug         Record information useful for VM and contract debugging</span>
+  <span class="hljs-comment">--vm.evm value    External EVM configuration (default = built-in interpreter)</span>
+  <span class="hljs-comment">--vm.ewasm value  External ewasm configuration (default = built-in interpreter)</span>
+
+<span class="hljs-keyword">LOGGING</span> <span class="hljs-keyword">AND</span> DEBUGGING OPTIONS:
+  <span class="hljs-comment">--fakepow                 Disables proof-of-work verification</span>
+  <span class="hljs-comment">--nocompaction            Disables db compaction after import</span>
+  <span class="hljs-comment">--verbosity value         Logging verbosity: 0=silent, 1=error, 2=warn, 3=info, 4=debug, 5=detail (default: 3)</span>
+  <span class="hljs-comment">--vmodule value           Per-module verbosity: comma-separated list of &lt;pattern&gt;=&lt;level&gt; (e.g. eth/*=5,p2p=4)</span>
+  <span class="hljs-comment">--backtrace value         Request a stack trace at a specific logging statement (e.g. "block.go:271")</span>
+  <span class="hljs-comment">--debug                   Prepends log messages with call-site location (file and line number)</span>
+  <span class="hljs-comment">--pprof                   Enable the pprof HTTP server</span>
+  <span class="hljs-comment">--pprofaddr value         pprof HTTP server listening interface (default: "127.0.0.1")</span>
+  <span class="hljs-comment">--pprofport value         pprof HTTP server listening port (default: 6060)</span>
+  <span class="hljs-comment">--memprofilerate value    Turn on memory profiling with the given rate (default: 524288)</span>
+  <span class="hljs-comment">--blockprofilerate value  Turn on block profiling with the given rate (default: 0)</span>
+  <span class="hljs-comment">--cpuprofile value        Write CPU profile to the given file</span>
+  <span class="hljs-comment">--trace value             Write execution trace to the given file</span>
+  <span class="hljs-comment">--wasmlog value           output wasm contract log to file</span>
+
+METRICS <span class="hljs-keyword">AND</span> STATS OPTIONS:
+  <span class="hljs-comment">--metrics                          Enable metrics collection and reporting</span>
+  <span class="hljs-comment">--metrics.influxdb                 Enable metrics export/push to an external InfluxDB database</span>
+  <span class="hljs-comment">--metrics.influxdb.endpoint value  InfluxDB API endpoint to report metrics to (default: "http://localhost:8086")</span>
+  <span class="hljs-comment">--metrics.influxdb.database value  InfluxDB database name to push reported metrics to (default: "platon")</span>
+  <span class="hljs-comment">--metrics.influxdb.username value  Username to authorize access to the database (default: "test")</span>
+  <span class="hljs-comment">--metrics.influxdb.password value  Password to authorize access to the database (default: "test")</span>
+  <span class="hljs-comment">--metrics.influxdb.host.tag host   InfluxDB host tag attached to all measurements (default: "localhost")</span>
+
+WHISPER (EXPERIMENTAL) OPTIONS:
+  <span class="hljs-comment">--shh                       Enable Whisper</span>
+  <span class="hljs-comment">--shh.maxmessagesize value  Max message size accepted (default: 1048576)</span>
+  <span class="hljs-comment">--shh.pow value             Minimum POW accepted (default: 0.2)</span>
+  <span class="hljs-comment">--shh.restrict-light        Restrict connection between two whisper light clients</span>
+
+DEPRECATED OPTIONS:
+  <span class="hljs-comment">--minerthreads value     Number of CPU threads to use for mining (deprecated, use --miner.threads) (default: 0)</span>
+  <span class="hljs-comment">--targetgaslimit value   Target gas floor for mined blocks (deprecated, use --miner.gastarget) (default: 3150000000)</span>
+  <span class="hljs-comment">--gasprice "1000000000"  Minimum gas price for mining a transaction (deprecated, use --miner.gasprice)</span>
+  <span class="hljs-comment">--etherbase value        Public address for block mining rewards (default = first account, deprecated, use --miner.etherbase) (default: "0")</span>
+  <span class="hljs-comment">--extradata value        Block extra data set by the miner (default = client version, deprecated, use --miner.extradata)</span>
+
+MPC <span class="hljs-keyword">COMPUTE</span> OPTIONS:
+  <span class="hljs-comment">--mpc              Enable mpc compute</span>
+  <span class="hljs-comment">--mpc.actor value  The address of actor to exec mpc compute</span>
+  <span class="hljs-comment">--mpc.ice value    Filename for ice to init mvm</span>
+
+MISC OPTIONS:<span class="hljs-number">6</span>
+  <span class="hljs-comment">--help, -h  show help</span>
+
+
+COPYRIGHT:
+   Copyright <span class="hljs-number">2013</span><span class="hljs-number">-2018</span> The PlatON-<span class="hljs-keyword">Go</span> <span class="hljs-keyword">Authors</span>
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="ctool"></a><a href="#ctool" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ctool</h2>
+<ul>
+<li>一个可以快速的进行合约发布、调用、查询的命令行工具。</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="简介"></a><a href="#简介" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>简介</h3>
+<p><code>ctool</code>：一个可用于快速进行合约发布、交易发送（合约调用）、查询的简易工具集。</p>
+<p>下载地址：</p>
+<ul>
+<li><a href="https://download.platon.network/ctool-windows-amd64.exe">window 版本</a></li>
+<li><a href="https://download.platon.network/ctool-linux-amd64">Linux 版本</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="使用说明"></a><a href="#使用说明" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>使用说明</strong></h3>
+<pre><code class="hljs">$ ctool.exe &lt;<span class="hljs-keyword">command</span>&gt; [<span class="hljs-params">--addr</span> contractAddress] [<span class="hljs-params">--type</span> txType<span class="hljs-params">(default:2)</span>] [<span class="hljs-params">--func</span> funcInfo] <span class="hljs-params">--abi</span> &lt;abi_path&gt; <span class="hljs-params">--code</span> &lt;wasm_path&gt; [<span class="hljs-params">--config</span> &lt;config_path&gt;]
+</code></pre>
+<ul>
+<li><code>command</code> 待执行的命令,主要有：deploy(发布合约)、invoke(合约调用)、getTxReceipt(查询回执)；</li>
+<li><code>abi_path</code> ABI文件的路径，示例中为：<code>firstdemo.cpp.abi.json</code>；</li>
+<li><code>wasm_path</code> WASM文件路径，示例中为：<code>firstdemo.wasm</code>；</li>
+<li><code>config_path</code> 配置文件路径，用于配置节点及账户信息；</li>
+</ul>
+<p><strong>命令行选项</strong></p>
+<ul>
+<li><code>--addr</code>：调用合约时使用，用于指明需要调用的合约地址；</li>
+<li><code>--type</code>：调用合约时指定当次的交易类型，如果未指定则默认为<code>2</code>。可取值为：<code>2</code>(普通交易)、<code>5</code>(MPC交易)</li>
+<li><code>--func</code>：调用合约时用于指定调用的方法名，如：--func 'sayHello(&quot;你好&quot;)'</li>
+</ul>
+<p>提示：如果命令行中未明确指明配置文件路径，则会在当前工作路径读取文件：<code>config.json</code>。</p>
+<h3><a class="anchor" aria-hidden="true" id="配置文件"></a><a href="#配置文件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>配置文件</strong></h3>
+<p>范例：</p>
+<pre><code class="hljs css language-JSON">{
+  <span class="hljs-attr">"url"</span>:<span class="hljs-string">"http://127.0.0.1:8545"</span>,
+  <span class="hljs-attr">"from"</span>:<span class="hljs-string">"0x60ceca9c1290ee56b98d4e160ef0453f7c40d219"</span>
+}
+</code></pre>
+<ul>
+<li><code>url</code> PlatON开放的<code>JSON-RPC</code>地址信息；</li>
+<li><code>from</code> 交易发送者的地址，注意，需要节点保证了该账户已进行了解锁动作；</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="发布合约"></a><a href="#发布合约" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>发布合约</strong></h3>
+<p>此步用于演示如何进行合约发布，合约发布需要两个文件，一个为后缀为<code>.wasm</code>(合约二进制)文件，
+另一个为后缀<code>.json</code>(合约接口描述)文件。如何获取这两个文件请参考：<a href="/zh-cn/development/[Chinese-Simplified]-Wasm合约开发指南.md">WASM合约开发指南</a></p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> ctool.exe deploy --abi ./demo.cpp.abi.json --code ./demo.wasm --config ./config.json</span>
+</code></pre>
+<pre><code class="hljs"><span class="hljs-attr">trasaction hash:</span> <span class="hljs-number">0xdb0f9a28fcd447702e8d5961f47144d1ea830979e3c984acc8f72c0dca8bdcfc</span>
+<span class="hljs-attr">contract address:</span> <span class="hljs-number">0x43355c787c50b647c425f594b441d4bd751951c1</span>
+</code></pre>
+<p>命令执行后，会返回交易哈希与合约地址。</p>
+<h3><a class="anchor" aria-hidden="true" id="发送交易"></a><a href="#发送交易" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>发送交易</strong></h3>
+<p>合约发布成功后，接下来进行合约调用，假定测试合约中包含了方法<code>sayHello(string _word);</code>,现在对
+该方法进行调用：</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> ctool.exe invoke -addr <span class="hljs-string">"0x43355c787c50b647c425f594b441d4bd751951c1"</span> --func <span class="hljs-string">'sayHello("HelloWorld")'</span> --abi ./demo.cpp.abi.json --config ./config.json</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="查询结果"></a><a href="#查询结果" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>查询结果</strong></h3>
+<p>继续假设，在上一步我们执行了合约方法<code>sayHello</code>,下一步我们将调用该函数将存储的值读取出来，这种动作
+我们称为查询（call）调用。假定测试合约用包含方法：<code>char* getWorld()</code>，调用如下：</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> ctool.exe invoke -addr <span class="hljs-string">"0x43355c787c50b647c425f594b441d4bd751951c1"</span> --func <span class="hljs-string">'getWorld()'</span> --abi ./demo.cpp.abi.json --config ./config.json</span>
+</code></pre>
+<blockquote>
+<p>预期结果获取到屏幕输出的结果应该为：<code>HelloWorld</code>。</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="查询交易回执"></a><a href="#查询交易回执" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>查询交易回执</strong></h3>
+<p>有时候可能需要对交易发送后的回执信息进行查看，则：</p>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> ctool.exe getTxReceipt 0x0b8996dadd6fd821f055affd1f95dbdf718d288a17e4ac5ed4133f3393bca44d(交易哈希)</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="常见问题及注意事项"></a><a href="#常见问题及注意事项" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>常见问题及注意事项</h3>
+<ul>
+<li>注意事项</li>
+</ul>
+<p>1.使用命令工具前请确保您使用的节点正常可用；</p>
+<p>2.一般比较明显的错误在执行工具后会在控制台进行输出；</p>
+<p>3.使用工具进行交易发送要求当前使用的账号在对应链接的节点已进行解锁操作；</p>
+<ul>
+<li>基础问题</li>
+</ul>
+<p>1.合约无法发布问题？</p>
+<p><strong>A</strong>: 请确保配置文件中的能量设置合理，使用的账户已在节点侧解锁。</p>
+<h3><a class="anchor" aria-hidden="true" id="更多问题"></a><a href="#更多问题" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>更多问题</h3>
+<p>如果你有其他问题，或者你的问题在这里找不到答案，请提交一个 <a href="https://github.com/PlatONnetwork/PlatON-Go/issues/new">issue</a> 。</p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="console"></a><a href="#console" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>console</h2>
+<ul>
+<li>可以在交互式（控制台）或非交互式（脚本）模式下使用的javascript运行时环境（JSRE）.</li>
+</ul>
+<p>PlatON console are based on Ethereum javascript console.</p>
+<h3><a class="anchor" aria-hidden="true" id="interactive-use-the-jsre-repl--console"></a><a href="#interactive-use-the-jsre-repl--console" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interactive use: the JSRE REPL  Console</h3>
+<p>The <code>PlatON CLI</code> executable <code>platon</code> has a JavaScript console (a <strong>Read, Evaluate &amp; Print Loop</strong> = REPL exposing the JSRE), which can be started with the <code>console</code> or <code>attach</code> subcommand. The <code>console</code> subcommands starts the platon node and then opens the console. The <code>attach</code> subcommand will not start the platon node but instead tries to open the console on a running platon instance.</p>
+<pre><code class="hljs">$ platon console
+$ platon attach
+</code></pre>
+<p>The attach node accepts an endpoint in case the platon node is running with a non default ipc endpoint or you would like to connect over the rpc interface.</p>
+<pre><code class="hljs">$ platon attach ipc:/some/custom/path
+$ platon attach http://191.168.1.1:6789
+$ platon attach ws://191.168.1.1:6790
+</code></pre>
+<p>Note that by default the platon node doesn't start the http and weboscket service and not all functionality is provided over these interfaces due to security reasons. These defaults can be overridden when the <code>--rpcapi</code> and <code>--wsapi</code> arguments when the platon node is started, or with <a href="admin_startRPC">admin.startRPC</a> and <a href="admin_startWS">admin.startWS</a>.</p>
+<p>If you need log information, start with:</p>
+<pre><code class="hljs">$ platon --verbosity 5 console 2&gt;&gt; /tmp/eth.log
+</code></pre>
+<p>Otherwise mute your logs, so that it does not pollute your console:</p>
+<pre><code class="hljs">$ platon console 2&gt;&gt; /dev/null
+</code></pre>
+<p>or</p>
+<pre><code class="hljs">$ platon --verbosity 0 console
+</code></pre>
+<p>PlatON has support to load custom JavaScript files into the console through the <code>--preload</code> argument. This can be used to load often used functions, setup web3 contract objects, or ...</p>
+<pre><code class="hljs">platon --preload <span class="hljs-string">"/my/scripts/folder/utils.js,/my/scripts/folder/contracts.js"</span><span class="hljs-built_in"> console
+</span>
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="non-interactive-use-jsre-script-mode"></a><a href="#non-interactive-use-jsre-script-mode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Non-interactive use: JSRE script mode</h3>
+<p>It's also possible to execute files to the JavaScript interpreter. The <code>console</code> and <code>attach</code> subcommand accept the <code>--exec</code> argument which is a javascript statement.</p>
+<pre><code class="hljs">$ platon --exec &quot;eth.blockNumber&quot; attach
+</code></pre>
+<p>This prints the current block number of a running platon instance.</p>
+<p>Or execute a local script with more complex statements on a remote node over http:</p>
+<pre><code class="hljs">$ platon --exec 'loadScript(&quot;/tmp/checkbalances.js&quot;)' attach http://123.123.123.123:6789
+$ platon --jspath &quot;/tmp&quot; --exec 'loadScript(&quot;checkbalances.js&quot;)' attach http://123.123.123.123:6789
+</code></pre>
+<p>Use the <code>--jspath &lt;path/to/my/js/root&gt;</code> to set a libdir for your js scripts. Parameters to <code>loadScript()</code> with no absolute path will be understood relative to this directory.</p>
+<p>You can exit the console cleanly by typing <code>exit</code> or simply with <code>CTRL-C</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="caveat"></a><a href="#caveat" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Caveat</h3>
+<p>The platon JSRE uses the <a href="https://github.com/robertkrimen/otto">Otto JS VM</a> which has some limitations:</p>
+<ul>
+<li>&quot;use strict&quot; will parse, but does nothing.</li>
+<li>The regular expression engine (re2/regexp) is not fully compatible with the ECMA5 specification.</li>
+</ul>
+<p>Note that the other known limitation of Otto (namely the lack of timers) is taken care of. PlatON JSRE implements both <code>setTimeout</code> and <code>setInterval</code>. In addition to this, the console provides <code>admin.sleep(seconds)</code> as well as a &quot;blocktime sleep&quot; method <code>admin.sleepBlocks(number)</code>.</p>
+<p>Since <code>web3.js</code> uses the <a href="https://github.com/MikeMcl/bignumber.js"><code>bignumber.js</code></a> library (MIT Expat Licence), it is also autoloded.</p>
+<h3><a class="anchor" aria-hidden="true" id="timers"></a><a href="#timers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Timers</h3>
+<p>In addition to the full functionality of JS (as per ECMA5), the platon JSRE is augmented with various timers. It implements <code>setInterval</code>, <code>clearInterval</code>, <code>setTimeout</code>, <code>clearTimeout</code> you may be used to using in browser windows. It also provides implementation for <code>admin.sleep(seconds)</code> and a block based timer, <code>admin.sleepBlocks(n)</code> which sleeps till the number of new blocks added is equal to or greater than <code>n</code>, think &quot;wait for n confirmations&quot;.</p>
+<h3><a class="anchor" aria-hidden="true" id="management-apis"></a><a href="#management-apis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Management APIs</h3>
+<p>Beside the official interface the platon node has support for additional management API's. These API's are offered using <a href="http://www.jsonrpc.org/specification">JSON-RPC</a> and follow the same conventions as used in the DApp API. The platon package comes with a console client which has support for all additional API's.</p>
+<p><a href="https://github.com/ethereum/go-ethereum/wiki/Management-APIs">For more information please visit the Ethereum's management API wiki page</a>.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/MTool_Manual"><span class="arrow-prev">← </span><span>MTool教程</span></a><a class="docs-next button" href="/docs/zh-CN/Source_Code_Compilation"><span>源码编译</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#platon">platon</a></li><li><a href="#ctool">ctool</a><ul class="toc-headings"><li><a href="#简介">简介</a></li><li><a href="#使用说明"><strong>使用说明</strong></a></li><li><a href="#配置文件"><strong>配置文件</strong></a></li><li><a href="#发布合约"><strong>发布合约</strong></a></li><li><a href="#发送交易"><strong>发送交易</strong></a></li><li><a href="#查询结果"><strong>查询结果</strong></a></li><li><a href="#查询交易回执"><strong>查询交易回执</strong></a></li><li><a href="#常见问题及注意事项">常见问题及注意事项</a></li><li><a href="#更多问题">更多问题</a></li></ul></li><li><a href="#console">console</a><ul class="toc-headings"><li><a href="#interactive-use-the-jsre-repl--console">Interactive use: the JSRE REPL  Console</a></li><li><a href="#non-interactive-use-jsre-script-mode">Non-interactive use: JSRE script mode</a></li><li><a href="#caveat">Caveat</a></li><li><a href="#timers">Timers</a></li><li><a href="#management-apis">Management APIs</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '0f9f28b9ab9efae89810921a351753b5',
+                indexName: 'github',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
