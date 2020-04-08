@@ -6,7 +6,7 @@ sidebar_label: PlatON开发者文档
 
 ## 节点运行者
 <div class="card-wrap">
-    <div class="homepage-card">
+    <!-- <div class="homepage-card">
         <img src="/docs/img/Install_Node.svg">
         <a href="/docs/zh-CN/Install_Node" class="card-title">安装一个节点</a>
         <div class="card-description">
@@ -25,6 +25,13 @@ sidebar_label: PlatON开发者文档
         <a href="/docs/zh-CN/Become_Verification_Node" class="card-title">成为验证节点</a>
         <div class="card-description">
         参与PlatON网络共识。
+        </div>
+    </div> -->
+    <div class="homepage-card">
+        <img src="/docs/img/Install_Node.svg">
+        <a href="/docs/zh-CN/Install_Node" class="card-title">运行一个节点</a>
+        <div class="card-description">
+        安装，配置和部署节点。
         </div>
     </div>
     <div class="homepage-card">

@@ -6,7 +6,7 @@ sidebar_label: PlatON Developer Docs
 
 ## Noderunners
 <div class="card-wrap">
-    <div class="homepage-card">
+    <!-- <div class="homepage-card">
         <img src="/docs/img/Install_Node.svg">
         <a href="/docs/en/Install_Node" class="card-title">Install and Deploy a Node</a>
         <div class="card-description">
@@ -25,6 +25,13 @@ sidebar_label: PlatON Developer Docs
         <a href="/docs/en/Become_Verification_Node" class="card-title">Upgrade to Validator Node</a>
         <div class="card-description">
         Participate in PlatON consensus.
+        </div>
+    </div> -->
+    <div class="homepage-card">
+        <img src="/docs/img/Install_Node.svg">
+        <a href="/docs/en/Install_Node" class="card-title">Run a Node</a>
+        <div class="card-description">
+        Install, configure, and deploy a node.
         </div>
     </div>
     <div class="homepage-card">
