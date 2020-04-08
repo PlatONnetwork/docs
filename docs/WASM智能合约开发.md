@@ -1,7 +1,7 @@
 ---
 id: WASM_Smart_Contract
 title: WASM Smart Contract Development
-sidebar_label: WASM Smart Contract Development
+sidebar_label: WASM
 ---
 
 WebAssembly (wasm for short) is a binary instruction set designed for stacked virtual machines. Wasm was designed to be a compile target for platforms such as C / C ++ / Rust, and was originally designed to solve JavaScript performance issues. Wasm is a web standard being led by the W3C and supported by browser vendors such as Google, Microsoft, and Mozilla.
@@ -1812,7 +1812,7 @@ MultiIndex supports unique indexes and ordinary indexes. The unique index should
 
 * **Member Function Documentation**
   * `template<Name::Raw TableName, typename T , typename... Indices>const_iterator platon::db::MultiIndex< TableName, T, Indices >::cbegin()`
-Iterator start position
+  Iterator start position
 
     * **Returns**
       * const_iterator
@@ -1839,8 +1839,8 @@ Iterator start position
     ```
 
   * `template<Name::Raw TableName, typename T , typename... Indices>
-const_iterator platon::db::MultiIndex< TableName, T, Indices >::cend()`
-Iterator end position
+  const_iterator platon::db::MultiIndex< TableName, T, Indices >::cend()`
+  Iterator end position
 
     * **Returns**
       * const_iterator
@@ -1925,7 +1925,7 @@ Iterator end position
     ```
 
   * `template<Name::Raw TableName, typename T , typename... Indices> void platon::db::MultiIndex< TableName, T, Indices >::erase(const_iterator position)`
-erase data based on iterator
+  erase data based on iterator
 
     * **Parameters**
       * `position:` position of iterator
@@ -1953,7 +1953,7 @@ erase data based on iterator
     ```
 
   * `template<Name::Raw TableName, typename T , typename... Indices> template<Name::Raw IndexName, typename KEY > const_iterator platon::db::MultiIndex< TableName, T, Indices >::find(const KEY & key)`
-Find the data, Only a unique index is available.
+  Find the data, Only a unique index is available.
 
     * **Parameters**
       * `key:` key of index
@@ -1982,7 +1982,7 @@ Find the data, Only a unique index is available.
     ```
 
   * `template<Name::Raw TableName, typename T , typename... Indices> template<Name::Raw IndexName>auto platon::db::MultiIndex< TableName, T, Indices >::get_index()`
-Gets the index object of a non-unique index.
+  Gets the index object of a non-unique index.
 
     * **Returns**
       * index object
@@ -2009,7 +2009,7 @@ Gets the index object of a non-unique index.
     ```
 
   * `template<Name::Raw TableName, typename T , typename... Indices> template<typename Lambda >void platon::db::MultiIndex< TableName, T, Indices >::modify(const_iterator position,Lambda && constructor)`
-Modify data based on iterator, but cannot modify all index-related fields .
+    Modify data based on iterator, but cannot modify all index-related fields .
 
     * **Parameters**
       * `position:` position of iterator
@@ -2034,7 +2034,8 @@ Modify data based on iterator, but cannot modify all index-related fields .
                                           IndexType::NormalIndex>>>
     member_table;
     member_table.modify(r.first, [&](auto &m) { m.sex = 15; });
- 
+    ```
+
 
 ### contract api
 

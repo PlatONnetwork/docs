@@ -1,7 +1,7 @@
 ---
-id: Sol_Smart_Contract
-title: Solidity Smart Contract Development
-sidebar_label: Solidity Smart Contract Development
+id: EVM_Smart_Contract
+title: EVM Smart Contract Development
+sidebar_label: EVM
 ---
 
 
@@ -41,7 +41,7 @@ Solidity language is a contract-oriented high-level programming language created
 This tutorial is mainly to guide users to create a simple HelloWorld smart contract using solidity language on PlatON, compile, deploy, and call this contract through platon-truffle. If you want to use a richer API you can refer to [Java SDK ](/docs/en/Java_SDK) and  [JS SDK](/docs/en/JS_SDK).
 
 - Please refer to solidity smart contract syntax: [Solidity official documentation](https://solidity.readthedocs.io/en/develop/).
-- Before developing a contract, if you need to build a private chain, please refer to:[Build a private chain](/docs/en/Set_Develop_Env#set-up-the-chain-of-private).
+- Before developing a contract, if you need to build a private chain, please refer to:[Build a private chain](/docs/en/Build_Private_Chain).
 
 ### Platon-truffle Introduce 
 

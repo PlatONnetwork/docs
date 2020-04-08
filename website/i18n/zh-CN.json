@@ -21,9 +21,13 @@
         "title": "JS SDK",
         "sidebar_label": "JS SDK"
       },
+	  "Json_Rpc": {
+        "title": "JSON RPC API",
+        "sidebar_label": "JSON RPC"
+      },
       "MTool_Manual": {
-        "title": "MTool使用手册",
-        "sidebar_label": "MTool使用手册"
+        "title": "MTool教程",
+        "sidebar_label": "MTool教程"
       },
       "PlatON_Solution": {
         "title": "PlatON共识方案",
@@ -61,24 +65,34 @@
         "title": "成为验证节点",
         "sidebar_label": "成为验证节点"
       },
-      "Sol_Smart_Contract": {
-        "title": "Solidity智能合约开发",
-        "sidebar_label": "Solidity智能合约开发"
+      "EVM_Smart_Contract": {
+        "title": "EVM智能合约开发",
+        "sidebar_label": "EVM"
       },
 	  "WASM_Smart_Contract": {
         "title": "WASM智能合约开发",
-        "sidebar_label": "WASM智能合约开发"
+        "sidebar_label": "WASM"
       },
-      "Set_Develop_Env": {
-        "title": "设置开发环境",
-        "sidebar_label": "设置开发环境"
+	  "Source_Code_Compilation": {
+        "title": "源码编译",
+        "sidebar_label": "源码编译"
+      },
+	  "Build_Private_Chain": {
+        "title": "搭建私链",
+        "sidebar_label": "搭建私链"
+      },
+      "Command_Line_Tools": {
+        "title": "PlatON命令行工具",
+        "sidebar_label": "PlatON命令行工具"
       }
     },
     "links": {},
     "categories": {
       "PlatON Developer Docs": "PlatON开发者文档",
-      "Noderunners": "节点运行者",
-      "Developer": "开发者",
+      "Run a Node": "运行一个节点",
+	  "Node tool": "节点工具",
+      "Start Building": "设置开发环境",
+	  "Smart contract development": "智能合约开发",
       "Reference Docs": "参考文档",
       "Abount PlatON": "关于PlatON",
       "Community Projects": "社区"

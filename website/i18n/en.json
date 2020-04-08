@@ -9,6 +9,10 @@
         "title": "Community Projects",
         "sidebar_label": "Community Projects"
       },
+      "EVM_Smart_Contract": {
+        "title": "EVM Smart Contract Development",
+        "sidebar_label": "EVM"
+      },
       "index": {
         "title": "PlatON Developer Docs",
         "sidebar_label": "PlatON Developer Docs"
@@ -21,13 +25,21 @@
         "title": "JS SDK",
         "sidebar_label": "JS SDK"
       },
+      "Json_Rpc": {
+        "title": "JSON RPC API",
+        "sidebar_label": "JSON RPC"
+      },
       "MTool_Manual": {
-        "title": "MTool Manual",
-        "sidebar_label": "MTool Manual"
+        "title": "MTool Tutorials",
+        "sidebar_label": "MTool Tutorials"
       },
       "PlatON_Solution": {
         "title": "PlatON Consensus Solution",
         "sidebar_label": "PlatON Consensus Solution"
+      },
+      "Command_Line_Tools": {
+        "title": "PlatON Command Line Tools",
+        "sidebar_label": "PlatON Command line tools"
       },
       "PlatON_Overall_Solution": {
         "title": "PlatON Overall Solution",
@@ -41,13 +53,9 @@
         "title": "PlatON Economic Model",
         "sidebar_label": "PlatON Economic Model"
       },
-      "Sol_Smart_Contract": {
-        "title": "Solidity Smart Contract Development",
-        "sidebar_label": "Solidity Smart Contract Development"
-      },
       "WASM_Smart_Contract": {
         "title": "WASM Smart Contract Development",
-        "sidebar_label": "WASM Smart Contract Development"
+        "sidebar_label": "WASM"
       },
       "Join_PlatON_NetWork": {
         "title": "Join the PlatON network",
@@ -69,16 +77,22 @@
         "title": "Upgrade to Validator Node",
         "sidebar_label": "Upgrade to Validator Node"
       },
-      "Set_Develop_Env": {
-        "title": "Start Building",
-        "sidebar_label": "Start Building"
+      "Build_Private_Chain": {
+        "title": "Build a private chain",
+        "sidebar_label": "Build a private chain"
+      },
+      "Source_Code_Compilation": {
+        "title": "Source code compilation",
+        "sidebar_label": "Source code compilation"
       }
     },
     "links": {},
     "categories": {
       "PlatON Developer Docs": "PlatON Developer Docs",
-      "Noderunners": "Noderunners",
-      "Developer": "Developer",
+      "Run a Node": "Run a Node",
+      "Node tool": "Node tool",
+      "Start Building": "Start Building",
+      "Smart contract development": "Smart contract development",
       "Reference Docs": "Reference Docs",
       "Abount PlatON": "Abount PlatON",
       "Community Projects": "Community Projects"

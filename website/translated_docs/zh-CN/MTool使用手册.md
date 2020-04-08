@@ -1,7 +1,7 @@
 ---
 id: MTool_Manual
-title: MTool使用手册
-sidebar_label: MTool使用手册
+title: MTool教程
+sidebar_label: MTool教程
 ---
 
 

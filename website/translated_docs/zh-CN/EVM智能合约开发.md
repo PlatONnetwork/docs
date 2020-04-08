@@ -1,7 +1,7 @@
 ---
-id: Sol_Smart_Contract
-title: Solidity智能合约开发
-sidebar_label: Solidity智能合约开发
+id: EVM_Smart_Contract
+title: EVM智能合约开发
+sidebar_label: EVM
 ---
 
 
@@ -36,7 +36,7 @@ Solidity语言是一种面向合约的、为实现智能合约而创建的高级
 本教程主要是指导用户在PlatON上使用solidity语言创建简单的HelloWorld智能合约，通过platon-truffle编译，部署，调用此合约。如果您想使用更加丰富的API可以参考[Java SDK开发指南](/docs/zh-CN/Java_SDK) 或者 [JS SDK开发指南](/docs/zh-CN/JS_SDK)
 
 - solidity智能合约语法请参考[Solidity官方文档](https://solidity.readthedocs.io/en/develop/)
-- 在开发合约前，如果需要搭建私链请参考：[搭建私链](/docs/zh-CN/Set_Develop_Env#搭建私链)
+- 在开发合约前，如果需要搭建私链请参考：[搭建私链](/docs/zh-CN/Build_Private_Chain)
 
 ### platon-truffle开发工具介绍
 

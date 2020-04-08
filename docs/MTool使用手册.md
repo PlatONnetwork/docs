@@ -1,7 +1,7 @@
 ---
 id: MTool_Manual
-title: MTool Manual
-sidebar_label: MTool Manual
+title: MTool Tutorials
+sidebar_label: MTool Tutorials
 ---
 
 

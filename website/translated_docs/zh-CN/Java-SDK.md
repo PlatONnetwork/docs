@@ -26,7 +26,7 @@ sidebar_label: Java SDK
 <dependency>
 	<groupId>com.platon.client</groupId>
 	<artifactId>core</artifactId>
-	<version>0.8.0.1</version>
+	<version>0.8.0.0</version>
 </dependency>
 ```
 
@@ -41,26 +41,26 @@ repositories {
 
 > gradle引用方式:
 ```
-compile "com.platon.client:core:0.8.0.1"
+compile "com.platon.client:core:0.8.0.0"
 ```
 
 ## 系统合约调用
 
-系统接口主要包含经济模型和治理相关的合约接口：
-* 质押相关接口
-* 委托相关接口
-* 奖励相关接口
-* 节点相关接口
-* 治理相关接口
-* 举报相关接口
-* 锁仓相关接口
+系统合约主要包含经济模型和治理相关的合约：
+* 质押合约
+* 委托合约
+* 奖励合约
+* 节点合约
+* 治理合约
+* 举报合约
+* 锁仓合约
 
-如上接口的介绍和使用，请参考如下接口说明。
+如上系统合约的介绍和使用，请参考如下合约接口说明。
 
 
 ### 质押相关接口
 
-> 质押相关的接口：主要包括节点质押、修改质押信息、解除质押、查询质押信息等接口
+> PlatON经济模型中质押合约相关的接口
 
 #### 加载质押合约
 
@@ -69,28 +69,28 @@ compile "com.platon.client:core:0.8.0.1"
 Web3j web3j = Web3j.build(new HttpService("http://localhost:6789"));
 String chainId = "100";
 Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
-StakingContract stakingContract = StakingContract.load(web3j, credentials, chainId);
+StakingContract contract = StakingContract.load(web3j, credentials, chainId);
 ```
 
 #### 接口说明
 
 ##### **staking**
 
-> 节点质押：适用于矿工，节点质押后才有机会参与共识，获得收益。质押前需要自己的节点接入网络，质押时rpc链接地址必须是当前需要质押的节点。如果质押成功，节点会出现在候选人列表中。
+> 节点候选人申请质押
 
 * **入参**
 
-  - String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach http://127.0.0.1:6789 --exec "admin.nodeInfo.id"）。
-  - BigInteger：stakingAmount  质押的金额，单位VON，默认质押金额必须大于等于1000000LAT，该大小限制可以通过治理参数动态调整，可通过治理接口获得当前值（proposalContract.getGovernParamValue("staking", "stakeThreshold")）。
-  - StakingAmountType：stakingAmountType  表示使用账户自由金额还是账户的锁仓金额做质押，StakingAmountType.FREE_AMOUNT_TYPE：自由金额，StakingAmountType.RESTRICTING_AMOUNT_TYPE：锁仓金额
-  - String：benifitAddress   收益账户，用于接收出块奖励和质押奖励的收益账户。
-  - String：nodeName   节点的名称
-  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。
+  - String：nodeId   节点id,16进制格式
+  - BigInteger：amount   质押的VON，默认质押金额大于等于1000000LAT，根据治理参数调整
+  - StakingAmountType：stakingAmountType   枚举,FREE_AMOUNT_TYPE表示使用账户自由金额,RESTRICTING_AMOUNT_TYPE表示使用锁仓金额做质押
+  - String：benifitAddress   收益账户,用于接受出块奖励和质押奖励的收益账户
+  - String：nodeName   被质押节点的名称
+  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥
   - String：webSite   节点的第三方主页(有长度限制，表示该节点的主页)
   - String：details   节点的描述(有长度限制，表示该节点的描述)
-  - ProgramVersion：processVersion  程序的真实版本，通过治理rpc获取
+  - ProgramVersion：processVersion  程序的真实版本，治理rpc获取
   - String：blsPubKey   bls的公钥
-  - String：blsProof    bls的证明，通过治理rpc获取
+  - String：blsProof    bls的证明，治理rpc获取
   - BigInteger：rewardPer   委托所得到的奖励分成比例，1=0.01%   10000=100%
 
 * **返回值**
@@ -137,11 +137,11 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 
 ##### **unStaking**
 
-> 节点撤销质押(一次性发起全部撤销，多次到账)，成功后节点会从候选人列表移除。只能由该节点的质押钱包地址发起交易。
+> 节点撤销质押(一次性发起全部撤销，多次到账)
 
 * **入参**
 
-  - String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach http://127.0.0.1:6789 --exec "admin.nodeInfo.id"）。
+  - String：nodeId   节点id，16进制格式
 
 * **返回值**
 
@@ -165,18 +165,18 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 
 ##### **updateStaking**
 
-> 修改质押信息，只能由该节点的质押钱包地址发起交易。
+> 修改质押信息
 
 * **入参**
 
-  - String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach http://127.0.0.1:6789 --exec "admin.nodeInfo.id"）。
-  - String：benifitAddress   收益账户，用于接收出块奖励和质押奖励的收益账户。
-  - String：nodeName   节点的名称
-  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。
+  - String：nodeId   节点id,16进制格式
+  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id),目前为keybase账户公钥
+  - String：benifitAddress   收益账户
+  - String：nodeName   被质押节点的名称
   - String：webSite   节点的第三方主页(有长度限制，表示该节点的主页)
   - String：details   节点的描述(有长度限制，表示该节点的描述)
   - BigInteger：rewardPer   委托所得到的奖励分成比例，1=0.01%   10000=100%
-   
+
 * **返回值**
 
 ```java
@@ -192,7 +192,7 @@ TransactionResponse
 
 ```java
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
-String benifitAddress = "0x02c344817be3448c97a059473121a6679450b414";
+String benifitAddress = benefitCredentials.getAddress();
 String externalId = "";
 String nodeName = "integration-node1-u";
 String webSite = "https://www.platon.network/#/";
@@ -213,13 +213,13 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 
 ##### **addStaking**
 
-> 增持质押，增加已质押节点质押金，只能由该节点的质押钱包地址发起交易。
+> 增持质押，增加已质押节点质押金
 
 * **入参**
 
-    - String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach http://127.0.0.1:6789 --exec "admin.nodeInfo.id"）。
-    - StakingAmountType：stakingAmountType  表示使用账户自由金额还是账户的锁仓金额做质押，StakingAmountType.FREE_AMOUNT_TYPE：自由金额，StakingAmountType.RESTRICTING_AMOUNT_TYPE：锁仓金额
-    - BigInteger：addStakingAmount   增持的金额，单位VON
+    - String：nodeId   节点id，16进制格式
+    - StakingAmountType：stakingAmountType  枚举,FREE_AMOUNT_TYPE表示使用账户自由金额,RESTRICTING_AMOUNT_TYPE表示使用锁仓金额做质押
+    - BigInteger：addStakingAmount   增持的金额
 
 * **返回值**
 
@@ -249,7 +249,7 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 
 * **入参**
 
-  - String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach http://127.0.0.1:6789 --exec "admin.nodeInfo.id"）。
+  - String：nodeId   节点id，16进制格式
 
 * **返回值**
 
@@ -264,39 +264,39 @@ CallResponse<Node> baseRespons
 	
 * **Node**：保存当前节点质押信息的对象
 
-  - String：benifitAddress	收益账户，用于接收出块奖励和质押奖励的收益账户。
+  - String：BenefitAddress	用于接受出块奖励和质押奖励的收益账户
 
-  - String：details  节点的描述(有长度限制，表示该节点的描述)
+  - String：Details   节点的描述(有长度限制，表示该节点的描述) 
 
-  - String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach http://127.0.0.1:6789 --exec "admin.nodeInfo.id"）。
+  - String：NodeId   被质押的节点Id(也叫候选人的节点Id)
 
-  - String：nodeName  节点的名称
+  - String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)
 
-  - BigInteger：programVersion  程序的真实版本，通过治理rpc获取
+  - BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
 
-  - BigInteger：released   发起质押账户的自由金额的锁定期质押的VON
+  - BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON
 
-  - BigInteger：releasedHes   发起质押账户的自由金额的犹豫期质押的VON
+  - BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON
 
-  - BigInteger：restrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
+  - BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
 
-  - BigInteger：restrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
+  - BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
 
-  - BigInteger：shares   当前候选人总共质押加被委托的VON数目
+  - BigInteger：Shares   当前候选人总共质押加被委托的VON数目
 
-  - String：stakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
+  - String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
 
-  - BigInteger：stakingBlockNum    发起质押时的区块高度
+  - BigInteger：StakingBlockNum    发起质押时的区块高度
 
-  - BigInteger：stakingEpoch   当前变更质押金额时的结算周期
+  - BigInteger：StakingEpoch   当前变更质押金额时的结算周期
 
-  - BigInteger：stakingTxIndex   发起质押时的交易索引
+  - BigInteger：StakingTxIndex   发起质押时的交易索引
 
-  - BigInteger：status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，4:节点的VON不足最低质押门槛，8:节点被举报双签，16:节点出块率低且达到移除条件, 32: 节点主动发起撤销
+  - BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销
 
-  - BigInteger：validatorTerm   验证人的任期
+  - BigInteger：ValidatorTerm   验证人的任期
 
-  - String：website   节点的第三方主页(有长度限制，表示该节点的主页)
+  - String：Website   节点的第三方主页(有长度限制，表示该节点的主页)
   
   - BigInteger：delegateEpoch  节点最后一次被委托的结算周期
   
@@ -306,9 +306,9 @@ CallResponse<Node> baseRespons
   
   - BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励
   
-  - BigInteger：nextRewardPer 下一个结算周期奖励分成比例，1=0.01%   10000=100%
+  - BigInteger：nextRewardPer 下一个结算周期奖励分成比例
   
-  - BigInteger：rewardPer 当前结算周期奖励分成比例，1=0.01%   10000=100%
+  - BigInteger：rewardPer 当前结算周期奖励分成比例
 
 * **Java SDK合约使用**
 
@@ -383,7 +383,7 @@ CallResponse<BigInteger> baseResponse
 
 - CallResponse<BigInteger>描述
 	- int：code   结果标识，0为成功
-	- BigInteger：data   打包区块的平均时间（单位为毫秒）
+	- BigInteger：data   打包区块的平均时间
 	- String：errMsg   错误信息，失败时存在
 
 * **Java SDK合约使用**
@@ -414,9 +414,9 @@ DelegateContract delegateContract = DelegateContract.load(web3j, credentials, ch
 
 * **入参**
 
-  - String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach http://127.0.0.1:6789 --exec "admin.nodeInfo.id"）。
-  - StakingAmountType：stakingAmountType   表示使用账户自由金额还是账户的锁仓金额做质押，StakingAmountType.FREE_AMOUNT_TYPE：自由金额，StakingAmountType.RESTRICTING_AMOUNT_TYPE：锁仓金额
-  - BigInteger：amount   委托的金额，单位VON，默认委托金额必须大于等于10LAT，该大小限制可以通过治理参数动态调整，可通过治理接口获得当前值（proposalContract.getGovernParamValue("staking", "operatingThreshold")）。
+  - String：nodeId   节点id，16进制格式，0x开头
+  - StakingAmountType：stakingAmountType  枚举,FREE_AMOUNT_TYPE表示使用账户自由金额,RESTRICTING_AMOUNT_TYPE表示使用锁仓金额做质押
+  - BigInteger：amount   委托的金额(按照最小单位算，1LAT = 10**18 VON)
 
 * **返回值**
 
@@ -461,8 +461,8 @@ CallResponse<List<DelegationIdInfo>> baseRespons
 
 * **DelegationIdInfo**：保存当前账户地址所委托的节点的NodeID和质押区块高度的对象
   - String：address   委托人的账户地址
-  - String：nodeId   验证人的节点Id
-  - BigInteger：stakingBlockNum   发起质押时的区块高度
+  - String：NodeId   验证人的节点Id
+  - BigInteger：StakingBlockNum   发起质押时的区块高度
 
 * **Java SDK合约使用**
 
@@ -488,18 +488,19 @@ CallResponse<Delegation>
 
 - CallResponse<Delegation>描述
 	- int：code   结果标识，0为成功
-	- Delegation：data   Delegation对象数据
+	- Delegation：Data   Delegation对象数据
 	- String：errMsg   错误信息，失败时存在
 
 * **Delegation**：保存当前委托账户委托信息的对象
-  - String：delegateAddress	委托人的账户地址
-  - String：nodeId   验证人的节点Id
-  - BigInteger：stakingBlockNum    发起质押时的区块高度
-  - BigInteger：delegateEpoch   最近一次对该候选人发起的委托时的结算周期
-  - BigInteger：delegateReleased   发起委托账户的自由金额的锁定期委托的VON
-  - BigInteger：delegateReleasedHes   发起委托账户的自由金额的犹豫期委托的VON
-  - BigInteger：delegateLocked   发起委托账户的锁仓金额的锁定期委托的VON
-  - BigInteger：delegateLockedHes   发起委托账户的锁仓金额的犹豫期质押的VON
+  - String：Address	委托人的账户地址
+  - String：NodeId   验证人的节点Id
+  - BigInteger：StakingBlockNum    发起质押时的区块高度
+  - BigInteger：DelegateEpoch   最近一次对该候选人发起的委托时的结算周期
+  - BigInteger：Released   发起委托账户的自由金额的锁定期委托的VON
+  - BigInteger：ReleasedHes   发起委托账户的自由金额的犹豫期委托的VON
+  - BigInteger：RestrictingPlan   发起委托账户的锁仓金额的锁定期委托的VON
+  - BigInteger：RestrictingPlanHes   发起委托账户的锁仓金额的犹豫期质押的VON
+  - BigInteger：Reduction   处于撤销计划中的VON
   - BigInteger：cumulativeIncome  待领取的委托收益
 
 * **Java SDK合约使用**
@@ -538,19 +539,19 @@ TransactionResponse
    - BigInteger：reward   获得解除委托时所提取的委托收益
 
 * **合约使用**
+  
+   ```java
+   String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
+   BigDecimal stakingAmount = Convert.toVon("500000", Unit.LAT);
+   BigInteger stakingBlockNum = new BigInteger("12134");
    
-```java
-String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
-BigDecimal stakingAmount = Convert.toVon("500000", Unit.LAT);
-BigInteger stakingBlockNum = new BigInteger("12134");
-
-PlatonSendTransaction platonSendTransaction = delegateContract.unDelegateReturnTransaction(nodeId, stakingBlockNum, stakingAmount.toBigInteger()).send();
-TransactionResponse baseResponse = delegateContract.getTransactionResponse(platonSendTransaction).send();
-
-if(baseResponse.isStatusOk()){ 
-    BigInteger reward = delegateContract.decodeUnDelegateLog(baseResponse.getTransactionReceipt());
-}
-```
+   PlatonSendTransaction platonSendTransaction = delegateContract.unDelegateReturnTransaction(nodeId, stakingBlockNum, stakingAmount.toBigInteger()).send();
+   TransactionResponse baseResponse = delegateContract.getTransactionResponse(platonSendTransaction).send();
+   
+   if(baseResponse.isStatusOk()){ 
+       BigInteger reward = delegateContract.decodeUnDelegateLog(baseResponse.getTransactionReceipt());
+   }
+   ```
 
 ### 奖励相关接口
 
@@ -645,7 +646,7 @@ CallResponse<List<Reward>> baseResponse = rewardContract.getDelegateReward(deleg
 Web3j web3j = Web3j.build(new HttpService("http://localhost:6789"));
 String chainId = "100";
 Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
-NodeContract nodeContract = NodeContract.load(web3j, credentials, chainId);
+NodeContract contract = NodeContract.load(web3j, credentials, chainId);
 ```
 
 #### 接口说明
@@ -671,37 +672,49 @@ CallResponse<List<Node>> baseResponse
 
 * **Node**：保存单个当前结算周期验证节点信息的对象
 
-  - String：nodeId   被质押的节点Id(也叫候选人的节点Id)
+  - String：BenefitAddress	用于接受出块奖励和质押奖励的收益账户
 
-  - String：stakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
+  - String：Details   节点的描述(有长度限制，表示该节点的描述) 
 
-  - String：benifitAddress	用于接受出块奖励和质押奖励的收益账户
+  - String：NodeId   被质押的节点Id(也叫候选人的节点Id)
 
-  - BigInteger：rewardPer 当前结算周期奖励分成比例
+  - String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)
+
+  - BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
+
+  - BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON
+
+  - BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON
+
+  - BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
+
+  - BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
+
+  - BigInteger：Shares   当前候选人总共质押加被委托的VON数目
+
+  - String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
+
+  - BigInteger：StakingBlockNum    发起质押时的区块高度
+
+  - BigInteger：StakingEpoch   当前变更质押金额时的结算周期
+
+  - BigInteger：StakingTxIndex   发起质押时的交易索引
+
+  - BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，          
+
+    4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销
+
+  - BigInteger：ValidatorTerm   验证人的任期
+
+  - String：Website   节点的第三方主页(有长度限制，表示该节点的主页)
+
+  - BigInteger：delegateTotal  节点被委托的生效总数量
+
+  - BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励
 
   - BigInteger：nextRewardPer 下一个结算周期奖励分成比例
 
-  - BigInteger：stakingTxIndex   发起质押时的交易索引 
-
-  - BigInteger：programVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
-
-  - BigInteger：stakingBlockNum    发起质押时的区块高度 
-
-  - BigInteger：shares   当前候选人总共质押加被委托的VON数目  
-
-  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。
-
-  - String：nodeName   被质押节点的名称(有长度限制，表示该节点的名称)
-
-  - String：website   节点的第三方主页(有长度限制，表示该节点的主页)
-
-  - String：details   节点的描述(有长度限制，表示该节点的描述) 
-
-  - BigInteger：validatorTerm   验证人的任期
-  
-  - BigInteger：delegateTotal  节点被委托的生效总数量
-  
-  - BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励
+  - BigInteger：rewardPer 当前结算周期奖励分成比例
 
 * **Java SDK合约使用**
 
@@ -729,37 +742,47 @@ CallResponse<List<Node>> baseResponse
 
 * **Node**：保存单个当前共识周期验证节点信息的对象
 
-  - String：nodeId   被质押的节点Id(也叫候选人的节点Id)
+  - String：BenefitAddress	用于接受出块奖励和质押奖励的收益账户
 
-  - String：stakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
+  - String：Details   节点的描述(有长度限制，表示该节点的描述) 
 
-  - String：benifitAddress	用于接受出块奖励和质押奖励的收益账户
+  - String：NodeId   被质押的节点Id(也叫候选人的节点Id)
 
-  - BigInteger：rewardPer 当前结算周期奖励分成比例
+  - String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)
 
-  - BigInteger：nextRewardPer 下一个结算周期奖励分成比例
+  - BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
 
-  - BigInteger：stakingTxIndex   发起质押时的交易索引 
+  - BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON
 
-  - BigInteger：programVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
+  - BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON
 
-  - BigInteger：stakingBlockNum    发起质押时的区块高度 
+  - BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
 
-  - BigInteger：shares   当前候选人总共质押加被委托的VON数目  
+  - BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
 
-  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。
+  - BigInteger：Shares   当前候选人总共质押加被委托的VON数目
 
-  - String：nodeName   被质押节点的名称(有长度限制，表示该节点的名称)
+  - String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
 
-  - String：website   节点的第三方主页(有长度限制，表示该节点的主页)
+  - BigInteger：StakingBlockNum    发起质押时的区块高度
 
-  - String：details   节点的描述(有长度限制，表示该节点的描述) 
+  - BigInteger：StakingEpoch   当前变更质押金额时的结算周期
 
-  - BigInteger：validatorTerm   验证人的任期
-  
+  - BigInteger：StakingTxIndex   发起质押时的交易索引
+
+  - BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销
+
+  - BigInteger：ValidatorTerm   验证人的任期
+
+  - String：Website   节点的第三方主页(有长度限制，表示该节点的主页)
+
   - BigInteger：delegateTotal  节点被委托的生效总数量
 
   - BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励
+
+  - BigInteger：nextRewardPer 下一个结算周期奖励分成比例
+
+  - BigInteger：rewardPer 当前结算周期奖励分成比例
 
 * **Java SDK合约使用**
 
@@ -788,51 +811,53 @@ CallResponse<List<Node>> baseResponse
 
 * **Node**：保存单个候选节点信息对象
 
-  - String：nodeId   被质押的节点Id(也叫候选人的节点Id)
+  - String：BenefitAddress	用于接受出块奖励和质押奖励的收益账户
 
-  - String：stakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
+  - String：Details   节点的描述(有长度限制，表示该节点的描述) 
 
-  - String：benifitAddress	用于接受出块奖励和质押奖励的收益账户
+  - String：NodeId   被质押的节点Id(也叫候选人的节点Id)
 
-  - BigInteger：rewardPer 当前结算周期奖励分成比例
+  - String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)
 
-  - BigInteger：nextRewardPer 下一个结算周期奖励分成比例
+  - BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
 
-  - BigInteger：stakingTxIndex   发起质押时的交易索引 
+  - BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON
 
-  - BigInteger：programVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
+  - BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON
 
-  - BigInteger：status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，4:节点的VON不足最低质押门槛，8:节点被举报双签，16:节点出块率低且达到移除条件, 32: 节点主动发起撤销
+  - BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
 
-  - BigInteger：stakingEpoch   当前变更质押金额时的结算周期
+  - BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
 
-  - BigInteger：stakingBlockNum    发起质押时的区块高度 
+  - BigInteger：Shares   当前候选人总共质押加被委托的VON数目
 
-  - BigInteger：shares   当前候选人总共质押加被委托的VON数目  
+  - String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)
 
-  - BigInteger：released   发起质押账户的自由金额的锁定期质押的VON
+  - BigInteger：StakingBlockNum    发起质押时的区块高度
 
-  - BigInteger：releasedHes   发起质押账户的自由金额的犹豫期质押的VON
+  - BigInteger：StakingEpoch   当前变更质押金额时的结算周期
 
-  - BigInteger：restrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
+  - BigInteger：StakingTxIndex   发起质押时的交易索引
 
-  - BigInteger：restrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON  
+  - BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，          
 
-  - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。
+    4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销
 
-  - String：nodeName   被质押节点的名称(有长度限制，表示该节点的名称)
+  - BigInteger：ValidatorTerm   验证人的任期
 
-  - String：website   节点的第三方主页(有长度限制，表示该节点的主页)
-
-  - String：details   节点的描述(有长度限制，表示该节点的描述) 
+  - String：Website   节点的第三方主页(有长度限制，表示该节点的主页)
 
   - BigInteger：delegateEpoch  节点最后一次被委托的结算周期
   
   - BigInteger：delegateTotal  节点被委托的生效总数量
   
   - BigInteger：delegateTotalHes  节点被委托的未生效总数量
-
+  
   - BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励
+  
+  - BigInteger：nextRewardPer 下一个结算周期奖励分成比例
+  
+  - BigInteger：rewardPer 当前结算周期奖励分成比例
 
 * **Java SDK合约使用**
 
@@ -851,7 +876,7 @@ CallResponse<List<Node>> baseResponse = nodeContract.getCandidateList().send();
 Web3j web3j = Web3j.build(new HttpService("http://localhost:6789"));
 String chainId = "100";
 Credentials credentials = WalletUtils.loadCredentials("password", "/path/to/walletfile");
-ProposalContract proposalContract = ProposalContract.load(web3j, credentials, chainId);
+ProposalContract contract = ProposalContract.load(web3j, credentials, chainId);
 ```
 
 #### 接口说明
@@ -969,7 +994,7 @@ CallResponse<Proposal>
   - BigInteger:   endVotingBlock   提案投票结束的块高
   - BigInteger:   newVersion   升级版本
   - BigInteger:   toBeCanceled   提案要取消的升级提案ID
-  - BigInteger:   activeBlock   提案生效块高，系统根据EndVotingBlock算出
+  - BigInteger:   activeBlock   （如果投票通过）生效块高（endVotingBlock + 20 + 4*250 < 生效块高 <= endVotingBlock + 20 + 10*250）
   - String:   verifier     提交提案的验证人
 
 * **合约使用**
@@ -1008,12 +1033,12 @@ CallResponse<TallyResult>
   - int:   status   提案状态  
   
 * **status**
-  - 1  投票中
-  - 2  投票通过
-  - 3  投票失败
-  - 4 （升级提案）预生效
-  - 5 （升级提案）生效
-  - 6  被取消
+  - Voting：0x01，投票中
+  - Pass：0x02，投票通过
+  - Failed：0x03，投票失败
+  - PreActive：0x04，（升级提案）预生效
+  - Active：0x05，（升级提案）生效
+  - Canceled：0x06，被取消
 
 * **合约使用**
 
@@ -1051,7 +1076,7 @@ CallResponse<List<Proposal>>
   - BigInteger:   endVotingBlock   提案投票结束的块高
   - BigInteger:   newVersion   升级版本
   - String:   toBeCanceled   提案要取消的升级提案ID
-  - BigInteger:   activeBlock   提案生效块高，系统根据EndVotingBlock算出
+  - BigInteger:   activeBlock   （如果投票通过）生效块高（endVotingBlock + 20 + 4*250 < 生效块高 <= endVotingBlock + 20 + 10*250）
   - String:   verifier     提交提案的验证人
 
 * **合约使用**
@@ -1212,7 +1237,7 @@ RestrictingPlanContract contract = RestrictingPlanContract.load(web3j, credentia
 
   - String：address   锁仓释放到账账户
   - List<RestrictingPlan>：plan   锁仓计划列表（数组）
-    - epoch：锁仓的周期，表示结算周期的倍数
+    - epoch：表示结算周期的倍数。与每个结算周期出块数的乘积表示在目标区块高度上释放锁定的资金。如果 account 是激励池地址， 那么 period 值是 120（即，30*4） 的倍数。另外，period,每周期的区块数至少要大于最高不可逆区块高度。
     - amount：表示目标区块上待释放的金额。
 
 * **返回值**
@@ -2605,7 +2630,7 @@ Warning: This is a pre-release compiler version, please do not use it in product
 
 Java SDK支持从`abi`文件中自动生成Solidity智能合约对应的Java包装类。
 
-* 通过命令行工具生成Java包装类（[platon-web3j下载](https://download.platon.network/sdk/0.8.0.1-20200316/platon-web3j-0.8.0.1.zip)）：
+* 通过命令行工具生成Java包装类：
 
 ```shell
 $ platon-web3j solidity generate [--javaTypes|--solidityTypes] /path/to/<smart-contract>.bin /path/to/<smart-contract>.abi -o /path/to/src/main/java -p com.your.organisation.name
@@ -2614,9 +2639,6 @@ $ platon-web3j solidity generate [--javaTypes|--solidityTypes] /path/to/<smart-c
 * 直接调用Java SDK中的工具类生成Java包装类：
 
 ```java
-// 通过maven或gradle导入console模块
-compile "com.platon.client:console:{version}"
-
 String args[] = {"generate", "/path/to/<smart-contract>.bin", "/path/to/<smart-contract>.abi", "-o", "/path/to/src/main/java", "-p" , "com.your.organisation.name"};
 org.web3j.codegen.SolidityFunctionWrapperGenerator.run(args);
 ```
@@ -2647,7 +2669,126 @@ YourSmartContract contract = YourSmartContract.deploy(
 
 ```java
 YourSmartContract contract = YourSmartContract.load(
-        "0x<address>|<ensName>", web3j, transactionManager, contractGasProvider);
+        "0x<address>", web3j, transactionManager, contractGasProvider);
+```
+
+#### 智能合约有效性
+
+使用此方法，可以验证智能合约的有效性。只有在合约地址中部署的字节码与智能合约封装包中的字节码匹配时才会返回`true`。
+
+```java
+contract.isValid();  // returns false if the contract bytecode does not match what's deployed
+                     // at the provided address
+```
+
+#### 交易管理器
+Java SDK提供了一个交易管理器`TransactionManager`来控制你连接到PlatON客户端的方式。默认采用`RawTransactionManager`。
+`RawTransactionManager`需要指定链ID。防止一个链的交易被重新广播到另一个链上：
+
+```java
+TransactionManager transactionManager = new RawTransactionManager(web3j, credentials, 100L);
+```
+
+你可以通过以下请求来获得链ID：
+
+```java
+web3j.netVersion().send().getNetVersion();
+```
+
+除了`RawTransactionManager`之外，Java SDK还提供了一个客户端交易管理器`ClientTransactionManager`，它将你的交易签名工作交给你正在连接的PlatON客户端。
+此外，还有一个`ReadonlyTransactionManager`，用于只从智能合约中查询数据，而不与它进行交易。
+
+#### 调用交易和事件
+对于所有交易的方法，只返回与交易关联的交易收据。
+
+```java
+TransactionReceipt transactionReceipt = contract.someMethod(<param1>, ...).send();
+```
+
+通过交易收据，可以提取索引和非索引的事件参数。
+
+```java
+List<SomeEventResponse> events = contract.getSomeEvents(transactionReceipt);
+```
+
+或者，你可以使用可观察的过滤器Observable filter，监听与智能合约相关联的事件：
+
+```java
+contract.someEventObservable(startBlock, endBlock).subscribe(event -> ...);
+```
+
+#### 调用常量方法
+
+常量方法只做查询，而不改变智能合约的状态。
+
+```java
+Type result = contract.someMethod(<param1>, ...).send();
+```
+
+## Wasm合约调用
+
+将Wasm智能合约部署到区块链上时，必须先将其编译成字节码的格式，然后将其作为交易的一部分发送。Java SDK 将帮你生成Wasm智能合约对应的Java包装类，可以方便的部署Wasm智能合约以及调用Wasm智能合约中的交易方法、事件和常量方法。
+
+### 编译Wasm合约源代码
+
+* 通过`CDT`编译器编译Wasm合约源代码([CDT下载](https://github.com/PlatONnetwork/PlatON-CDT))
+
+CDT安装成功以后，可通过如下命令编译Wasm合约源代码：
+
+```shell
+$ platon-cpp <contract>.cpp 
+```
+
+编译成功以后，会生成`<contract>.wasm`和`<contract>.abi.json`文件
+`wasm`，输出Wasm合约的二进制文件以提供交易请求。
+`abi.json`，详细描述了所有可公开访问的合约方法及其相关参数。`abi`文件也用于生成Wasm智能合约对应的Java包装类。
+
+* 使用`platon-truffle`编译Wasm合约源代码([platon-truffle开发工具安装参考](https://github.com/PlatONnetwork/platon-truffle/tree/feature/wasm)|[platon-truffle开发工具使用手册](https://platon-truffle.readthedocs.io/en/v0.1.0/index.html))
+
+### Wasm智能合约Java包装类
+
+Java SDK支持从`abi.json`文件中自动生成Wasm智能合约对应的Java包装类。
+
+* 通过命令行工具生成Java包装类：
+
+```shell
+$ platon-web3j wasm generate /path/to/<smart-contract>.wasm /path/to/<smart-contract>.abi.json -o /path/to/src/main/java -p com.your.organisation.name
+```
+
+* 直接调用Java SDK中的工具类生成Java包装类：
+
+```java
+String args[] = {"generate", "/path/to/<smart-contract>.wasm", "/path/to/<smart-contract>.abi.json", "-o", "/path/to/src/main/java", "-p" , "com.your.organisation.name"};
+org.web3j.codegen.WasmFunctionWrapperGenerator.run(args);
+```
+
+其中`wasm`和`abi.json`文件是编译wasm源代码以后生成的。
+
+Wasm智能合约对应的Java包装类支持的主要功能：
+- 构建与部署
+- 确定合约有效性
+- 调用交易和事件
+- 调用常量方法
+
+#### 构建与部署智能合约
+
+智能合约的构建和部署使用包装类中的deploy方法：
+
+```java
+YourSmartContract contract = YourSmartContract.deploy(
+        <web3j>, <transactionManager>, contractGasProvider,
+        [<initialValue>,] <param1>, ..., <paramN>).send();
+```
+
+这个方法将在区块链上部署智能合约。部署成功以后，它将会返回一个智能合约的包装类实例，包含智能合约的地址。
+
+如果你的智能合约在构造上接受LAT转账，则需要初始化参数值<initialValue>。
+
+通过智能合约的地址也可以创建智能合约对应的Java包装类的实例：
+
+```java
+YourSmartContract contract = YourSmartContract.load(
+        "0x<address>", web3j, transactionManager, contractGasProvider);
 ```
 
 #### 智能合约有效性

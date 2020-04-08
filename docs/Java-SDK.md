@@ -4,8 +4,7 @@ title: Java SDK
 sidebar_label: Java SDK
 ---
 
-
-## Import Development Library
+## Development Library Import
 
 Depending on the build tool, use the following methods to add related dependencies to your project：
 
@@ -58,11 +57,11 @@ System contracts mainly include economic model and governance related contracts�
 For the introduction and use of the above system contract, please refer to the following contract interface description.
 
 
-### Pledge Related Interface
+### Pledge related interface
 
-> Interfaces related to pledge contracts in the PlatON economic model.
+> Interfaces related to pledge contracts in the PlatON economic model
 
-#### Loading Pledge Contract
+#### Loading pledge contract
 
 ```java
 //Java 8
@@ -392,11 +391,11 @@ CallResponse<BigInteger> baseResponse
 CallResponse<BigInteger> response = stakingContract.getAvgPackTime().send();
 ```
 
-### Delegation Related Interface
+### Delegation related interface
 
 > Principal related contract interface in PlatON economic model
 
-#### Load Delegate Contract
+#### Load delegate contract
 
 ```java
 //Java 8
@@ -492,14 +491,15 @@ CallResponse<Delegation>
   - String: ErrMsg error message, exists on failure
 
 - **Delegation**: the object to save the delegation information of the current delegation account
-  - String: delegateAddress The account address of the principal
-  - String: nodeId Node Id of the validator
-  - BigInteger: stakingBlockNum height when StakingBlockNum initiated pledge
-  - BigInteger: delegateEpoch delegateEpoch's settlement cycle at the time of the most recent delegation to this candidate
-  - BigInteger: delegateReleased to initiate a free amount lock-in period of the commissioned account
-  - BigInteger: delegateReleasedHes initiated the free amount of the hesitation period commissioned by the commissioned account von
-  - BigInteger: delegateLocked initiates a lock-in period of the entrusted account
-  - BigInteger: delegateLockedHes initiated the hedging period of the locked account of the entrusted account
+  - String: Address The account address of the principal
+  - String: NodeId Node Id of the validator
+  - BigInteger: block height when StakingBlockNum initiated pledge
+  - BigInteger: DelegateEpoch's settlement cycle at the time of the most recent delegation to this candidate
+  - BigInteger: Released to initiate a free amount lock-in period of the commissioned account
+  - BigInteger: ReleasedHes initiated the free amount of the hesitation period commissioned by the commissioned account von
+  - BigInteger: RestrictingPlan initiates a lock-in period of the entrusted account
+  - BigInteger: RestrictingPlanHes initiated the hedging period of the locked account of the entrusted account
+  - BigInteger: Reduction von in revocation plan
   - BigInteger：cumulativeIncome  Delegate income to be received
 
 - **Java SDK contract use**
@@ -552,11 +552,11 @@ if(baseResponse.isStatusOk()){
 }
 ```
 
-### Reward Related Interface
+### Reward related interface
 
 > Contract-related contract interfaces in the PlatON economic model
 
-#### Load Reward Contract
+#### Load reward contract
 
 ```java
 //Java 8
@@ -634,11 +634,11 @@ nodeList.add(nodeId);
 CallResponse<List<Reward>> baseResponse = rewardContract.getDelegateReward(delegateAddress, nodeList).send();
 ```
 
-### Node-related Contracts
+### Node-related contracts
 
 > Principal related contract interface in PlatON economic model
 
-#### Load Node Contract
+#### Load node contract
 
 ```java
 //Java 8
@@ -671,37 +671,49 @@ CallResponse<List<Node>> baseResponse
 
 * **Node**: object for saving node information for a single current settlement cycle
 
-  - String: nodeId The node Id of the pledge(also called the candidate's node Id)
+  - String: BenefitAddress is used to accept the block reward and pledged reward income account
 
-  - String: stakingAddress The account used when initiating the pledge(when the pledge is cancelled, von will be returned to the account or the account's lock information)
+  - String: The description of the Details node(the length is limited, indicating the description of the node)
 
-  - String: benefitAddress is used to accept the block reward and pledged reward income account
+  - String: NodeId The node Id of the pledge(also called the candidate's node Id)
 
-  - BigInteger：rewardPer Proportion of reward share in current settlement cycle
+  - String: NodeName The name of the node being pledged(the length is limited, indicating the name of the node)
 
-  - BigInteger：nextRewardPer Proportion of reward share in the next settlement cycle
+  - BigInteger: ProgramVersion The real version number of the PlatON process of the pledged node(the interface for obtaining the version number is provided by the governance)
 
-  - BigInteger: stakingTxIndex transaction index when pledge is initiated
+  - BigInteger: Released von who initiated a free amount locked period pledged account
 
-  - BigInteger: programVersion The real version number of the PlatON process of the pledged node(the interface for obtaining the version number is provided by the governance)
+  - BigInteger: ReleasedHes initiated the free amount of the hesitation period of the pledged account
 
-  - BigInteger: stakingBlockNum block height when StakingBlockNum initiated pledge
+  - BigInteger: RestrictingPlan initiates the lock-up period of the locked account amount of the pledged account.
 
-  - BigInteger: shares the current candidate's total pledge plus the number of entrusted vons
+  - BigInteger: RestrictingPlanHes initiated the hedging period of the locked amount of the pledged account
 
-  - String：externalId   External Id (with a length limit, the ID described by the third party to pull the node) is currently the public key of the keybase account, and the node icon is obtained through the public key.
+  - BigInteger: Shares the current candidate's total pledge plus the number of entrusted vons
 
-  - String: nodeName The name of the node being pledged(the length is limited, indicating the name of the node)
+  - String: StakingAddress The account used when initiating the pledge(when the pledge is cancelled, von will be returned to the account or the account's lock information)
 
-  - String: website The third-party homepage of the Website node(the length of the node is the homepage of the node)
+  - BigInteger: block height when StakingBlockNum initiated pledge
 
-  - String: details The description of the Details node(the length is limited, indicating the description of the node)
+  - BigInteger: StakingEpoch's current settlement cycle when the pledge amount is changed
 
-  - BigInteger: validatorTerm
-  
+  - BigInteger: StakingTxIndex transaction index when pledge is initiated
+
+  - BigInteger: Status of the status candidate, 0: node is available, 1: node is unavailable, 2: node block rate is low but the removal condition is not met,
+
+    4: The node's von is insufficient to the minimum pledge threshold(only the penultimate bit is 1), 8: the node is reported to be double signed, 16: the node block rate is low and the removal condition is reached(the penultimate bit is 1); : Node initiates cancellation
+
+  - BigInteger: ValidatorTerm
+
+  - String: Website The third-party homepage of the Website node(the length of the node is the homepage of the node)
+
   - BigInteger：delegateTotal  The total number of commissioned nodes
 
   - BigInteger：delegateRewardTotal  Total delegated rewards currently issued by the candidate
+
+  - BigInteger：nextRewardPer Proportion of reward share in the next settlement cycle
+
+  - BigInteger：rewardPer Proportion of reward share in current settlement cycle
 
 * **Java SDK contract use**
 
@@ -729,37 +741,47 @@ CallResponse<List<Node>> baseResponse
 
 - **Node**: object that saves the information of a single current consensus cycle verification node
 
-  - String: nodeId The node Id of the pledge(also called the candidate's node Id)
+  - String: BenefitAddress is used to accept the block reward and pledged reward income account
 
-  - String: stakingAddress The account used when initiating the pledge(when the pledge is cancelled, von will be returned to the account or the account's lock information)
+  - String: The description of the Details node(the length is limited, indicating the description of the node)
 
-  - String: benefitAddress is used to accept the block reward and pledged reward income account
+  - String: NodeId The node Id of the pledge(also called the candidate's node Id)
 
-  - BigInteger：rewardPer Proportion of reward share in current settlement cycle
+  - String: NodeName The name of the node being pledged(the length is limited, indicating the name of the node)
 
-  - BigInteger：nextRewardPer Proportion of reward share in the next settlement cycle
+  - BigInteger: ProgramVersion The real version number of the PlatON process of the pledged node(the interface for obtaining the version number is provided by the governance)
 
-  - BigInteger: stakingTxIndex transaction index when pledge is initiated
+  - BigInteger: Released von who initiated a free amount locked period pledged account
 
-  - BigInteger: programVersion The real version number of the PlatON process of the pledged node(the interface for obtaining the version number is provided by the governance)
+  - BigInteger: ReleasedHes initiated the free amount of the hesitation period of the pledged account
 
-  - BigInteger: stakingBlockNum block height when StakingBlockNum initiated pledge
+  - BigInteger: RestrictingPlan initiates the lock-up period of the locked account amount of the pledged account.
 
-  - BigInteger: shares the current candidate's total pledge plus the number of entrusted vons
+  - BigInteger: RestrictingPlanHes initiated the hedging period of the locked amount of the pledged account
 
-  - String：externalId   External Id (with a length limit, the ID described by the third party to pull the node) is currently the public key of the keybase account, and the node icon is obtained through the public key.
+  - BigInteger: Shares the current candidate's total pledge plus the number of entrusted vons
 
-  - String: nodeName The name of the node being pledged(the length is limited, indicating the name of the node)
+  - String: StakingAddress The account used when initiating the pledge(when the pledge is cancelled, von will be returned to the account or the account's lock information)
 
-  - String: website The third-party homepage of the Website node(the length of the node is the homepage of the node)
+  - BigInteger: block height when StakingBlockNum initiated pledge
 
-  - String: details The description of the Details node(the length is limited, indicating the description of the node)
+  - BigInteger: StakingEpoch's current settlement cycle when the pledge amount is changed
 
-  - BigInteger: validatorTerm
-  
+  - BigInteger: StakingTxIndex transaction index when pledge is initiated
+
+  - BigInteger: Status of the status candidate, 0: node is available, 1: node is unavailable, 2: node block rate is low but the removal condition is not met, 4: The node's von is less than the minimum pledge threshold(only the penultimate bit is 1),8: The node is reported with double sign, 16: The node's block generation rate is low and the removal condition is reached(the penultimate bit is 1); 32: The node actively initiates the cancellation
+
+  - BigInteger: ValidatorTerm
+
+  - String: Website The third-party homepage of the Website node(the length of the node is the homepage of the node)
+
   - BigInteger：delegateTotal  The total number of commissioned nodes
 
   - BigInteger：delegateRewardTotal  Total delegated rewards currently issued by the candidate
+
+  - BigInteger：nextRewardPer Proportion of reward share in the next settlement cycle
+
+  - BigInteger：rewardPer Proportion of reward share in current settlement cycle
 
 - **Java SDK contract use**
 
@@ -788,51 +810,53 @@ CallResponse<List<Node>> baseResponse
 
 - **Node**: holds a single candidate node information object
 
-  - String: nodeId The node Id of the pledge(also called the candidate's node Id)
+  - String: BenefitAddress is used to accept the block reward and pledged reward income account
 
-  - String: stakingAddress The account used when initiating the pledge(when the pledge is cancelled, von will be returned to the account or the account's lock information)
+  - String: The description of the Details node(the length is limited, indicating the description of the node)
 
-  - String: benefitAddress is used to accept the block reward and pledged reward income account
+  - String: NodeId The node Id of the pledge(also called the candidate's node Id)
 
-  - BigInteger：rewardPer Proportion of reward share in current settlement cycle
+  - String: NodeName The name of the node being pledged(the length is limited, indicating the name of the node)
 
-  - BigInteger：nextRewardPer Proportion of reward share in the next settlement cycle
+  - BigInteger: ProgramVersion The real version number of the PlatON process of the pledged node(the interface for obtaining the version number is provided by the governance)
 
-  - BigInteger: stakingTxIndex transaction index when pledge is initiated
+  - BigInteger: Released von who initiated a free amount locked period pledged account
 
-  - BigInteger: programVersion The real version number of the PlatON process of the pledged node(the interface for obtaining the version number is provided by the governance)
+  - BigInteger: ReleasedHes initiated the free amount of the hesitation period of the pledged account
 
-  - BigInteger：status   Candidate status，0: node available，1: node is unavailable ，2:Nodes that have a low block yield but do not meet the removal conditions，4:The node's VON is less than the minimum pledge threshold. 8: The node is reported to have double sign.，16:Node block rate is low and removal conditions are met, 32: node initiates cancellation
+  - BigInteger: RestrictingPlan initiates the lock-up period of the locked account amount of the pledged account.
 
-  - BigInteger：stakingEpoch   settlement cycle when current pledge amount is changed
+  - BigInteger: RestrictingPlanHes initiated the hedging period of the locked amount of the pledged account
 
-  - BigInteger: stakingBlockNum block height when StakingBlockNum initiated pledge
+  - BigInteger: Shares the current candidate's total pledge plus the number of entrusted vons
 
-  - BigInteger: shares the current candidate's total pledge plus the number of entrusted vons
+  - String: StakingAddress The account used when initiating the pledge(when the pledge is cancelled, von will be returned to the account or the account's lock information)
 
-  - BigInteger：released   VON that initiates a free amount locked period pledged account
+  - BigInteger: block height when StakingBlockNum initiated pledge
 
-  - BigInteger：releasedHes   VON to initiate a free amount of pledged account
+  - BigInteger: StakingEpoch's current settlement cycle when the pledge amount is changed
 
-  - BigInteger：restrictingPlan   VON that initiated the lock-up amount of the pledged account's lock-up period
+  - BigInteger: StakingTxIndex transaction index when pledge is initiated
 
-  - BigInteger：restrictingPlanHes   VON that initiates the hesitation period of the locked amount of the pledged account
+  - BigInteger: Status of the status candidate, 0: node is available, 1: node is unavailable, 2: node block rate is low but the removal condition is not met,
 
-  - String：externalId   External Id (with a length limit, the ID described by the third party to pull the node) is currently the public key of the keybase account, and the node icon is obtained through the public key.
+    4: The node's von is insufficient to the minimum pledge threshold(only the penultimate bit is 1), 8: the node is reported to be double signed, 16: the node block rate is low and the removal condition is reached(the penultimate bit is 1); : Node initiates cancellation
 
-  - String: nodeName The name of the node being pledged(the length is limited, indicating the name of the node)
+  - BigInteger: ValidatorTerm
 
-  - String: website The third-party homepage of the Website node(the length of the node is the homepage of the node)
+  - String: The third-party homepage of the Website node(the length of the node is the homepage of the node)
 
-  - String: details The description of the Details node(the length is limited, indicating the description of the node)
-
-  - BigInteger：delegateEpoch The node's last commissioned settlement cycle
+  - BigInteger：delegateEpoch  The node's last commissioned settlement cycle
   
   - BigInteger：delegateTotal  The total number of commissioned nodes
   
   - BigInteger：delegateTotalHes  Total number of inactive nodes commissioned
-
+  
   - BigInteger：delegateRewardTotal  Total delegated rewards currently issued by the candidate
+  
+  - BigInteger：nextRewardPer Proportion of reward share in the next settlement cycle
+  
+  - BigInteger：rewardPer Proportion of reward share in current settlement cycle
 
 - **Java SDK contract use**
 
@@ -840,7 +864,7 @@ CallResponse<List<Node>> baseResponse
 CallResponse<List<Node>> baseResponse = nodeContract.getCandidateList().send();
 ```
 
-### Governance Related Contracts
+### Governance related contracts
 
 > Contract interface related to PlatON governance
 
@@ -1116,11 +1140,11 @@ CallResponse<BigInteger> baseResponse = proposalContract.getActiveVersion().send
 ProposalUtils.versionInterToStr(baseResponse.getData());
 ```
 
-### Double Sign Report Related Interface
+### Double sign report related interface
 
 > PlatON report contract related punishment interface
 
-#### Load Report Contract
+#### Load report contract
 
 ```
 //Java 8
@@ -1188,11 +1212,11 @@ CallResponse
 CallResponse<String> baseResponse = slashContract.checkDoubleSign(DuplicateSignType.PREPARE_BLOCK, "0x4F8eb0B21eb8F16C80A9B7D728EA473b8676Cbb3", BigInteger.valueOf(500L)).send();
 ```
 
-### Lock Related Interface
+### Lock related interface
 
 > PlatON report contract related punishment interface
 
-#### Loading The Hedging Contract
+#### Loading the hedging contract
 
 ```java
 //Java 8
@@ -2307,8 +2331,8 @@ String req = request.send(). GetStoredValue();
 
 - **Export parameters**
 
-|Parameters | Type | Description |   
-|:------- |:------ |:---------- |
+Parameters | Type | Description |
+| ------- | ------ | ---------- |
 | jsonrpc | string | rpc version number |
 | id | int | id serial number |
 | result | string | Evidence String |
@@ -2557,7 +2581,7 @@ Prompt indicates success：
     Test contracts: truffle test
 ```
 
-> **step2.** Put HelloWorld.sol in `HelloWorld/contracts` directory
+> **step2.** Put HelloWorld.sol in HelloWorld / contracts directory
 
 ```
 guest@guest:~/HelloWorld/contracts$ ls
@@ -2605,7 +2629,7 @@ Warning: This is a pre-release compiler version, please do not use it in product
 
 The Java SDK supports automatic generation of Java wrapper classes for Solidity smart contracts from an `abi` file.
 
-* Generate Java wrapper classes via command line tools（[platon-web3j download](https://download.platon.network/sdk/0.8.0.1-20200316/platon-web3j-0.8.0.1.zip)）:
+* Generate Java wrapper classes via command line tools:
 
 ```shell
 $ platon-web3j solidity generate [--javaTypes|--solidityTypes] /path/to/<smart-contract>.bin /path/to/<smart-contract>.abi -o /path/to/src/main/java -p com.your.organisation.name
@@ -2614,9 +2638,6 @@ $ platon-web3j solidity generate [--javaTypes|--solidityTypes] /path/to/<smart-c
 * Directly call the tool class in the Java SDK to generate a Java wrapper class:
 
 ```java
-// Import console module via maven or gradle
-compile "com.platon.client:console:{version}"
-
 String args[] = {"generate", "/path/to/<smart-contract>.bin", "/path/to/<smart-contract>.abi", "-o", "/path/to/src/main/java", "-p" , "com.your.organisation.name"};
 org.web3j.codegen.SolidityFunctionWrapperGenerator.run(args);
 ```
@@ -2647,7 +2668,127 @@ You can also create an instance of the Java wrapper class corresponding to the s
 
 ```java
 YourSmartContract contract = YourSmartContract.load(
-        "0x<address>|<ensName>", web3j, transactionManager, contractGasProvider);
+        "0x<address>", web3j, transactionManager, contractGasProvider);
+```
+
+#### Smart Contract Validity
+
+Using this method, the validity of the smart contract can be verified. `True` will only be returned if the bytecode deployed in the contract address matches the bytecode in the smart contract package.
+
+```java
+contract.isValid();  // returns false if the contract bytecode does not match what's deployed
+                     // at the provided address
+```
+
+#### TransactionManager
+The Java SDK provides a transaction manager `TransactionManager` to control how you connect to the PlatON client. `RawTransactionManager` is used by default.
+`RawTransactionManager` needs to specify the chain ID. Prevent transactions on one chain from being rebroadcasted to another chain:
+
+```java
+TransactionManager transactionManager = new RawTransactionManager(web3j, credentials, 100L);
+```
+
+You can get the chain ID with the following request:
+
+```java
+web3j.netVersion().send().getNetVersion();
+```
+
+In addition to `RawTransactionManager`, the Java SDK also provides a client transaction manager` ClientTransactionManager`, which will hand over your transaction signing work to the PlatON client you are connecting to.
+In addition, there is a `ReadonlyTransactionManager`, which is used to query data from the smart contract only and not to trade with it.
+
+#### Invoking Transactions And Events
+For all transactions methods, only the transaction receipt associated with the transaction is returned.
+
+```java
+TransactionReceipt transactionReceipt = contract.someMethod(<param1>, ...).send();
+```
+
+With transaction receipts, you can extract indexed and non-indexed event parameters.
+
+```java
+List<SomeEventResponse> events = contract.getSomeEvents(transactionReceipt);
+```
+
+Alternatively, you can use Observable filters to listen to events associated with smart contracts:
+
+```java
+contract.someEventObservable(startBlock, endBlock).subscribe(event -> ...);
+```
+
+#### Call Constant Method
+
+Constant methods only do queries without changing the state of the smart contract.
+
+```java
+Type result = contract.someMethod(<param1>, ...).send();
+```
+
+## Wasm Contract Call
+
+When deploying a Wasm smart contract on the blockchain, it must first be compiled into a bytecode format and then sent as part of the transaction. The Java SDK will help you generate a Java wrapper class for Wasm smart contracts, which can easily deploy Wasm smart contracts and call transaction methods, events, and constant methods in Wasm smart contracts.
+
+### Compile Wasm Source Code
+
+* Compile Wasm contract source code with `CDT` compiler([CDT download](https://github.com/PlatONnetwork/PlatON-CDT))：
+
+After the CDT installation is successful, you can compile the Wasm contract source code with the following command:
+
+```shell
+$ platon-cpp <contract>.cpp 
+```
+
+After successful compilation, `<contract> .wasm` and` <contract> .abi.json` files will be generated.
+
+`wasm`，Output binary file of Wasm contract to provide transaction request.
+`abi.json`，Which details all publicly accessible contract methods and their related parameters. The `abi` file is also used to generate the Java wrapper class corresponding to the Wasm smart contract.
+
+* Compile Wasm source code with `platon-truffle`([platon-truffle development tool installation reference](https://github.com/PlatONnetwork/platon-truffle/tree/feature/wasm)|[platon-truffle Development tool manual](https://platon-truffle.readthedocs.io/en/v0.1.0/index.html))
+
+### Wasm Smart Contract Java Packaging Class
+
+The Java SDK supports automatic generation of Java wrapper classes for Wasm smart contracts from an `abi` file.
+
+* Generate Java wrapper classes via command line tools:
+
+```shell
+$ platon-web3j wasm generate /path/to/<smart-contract>.wasm /path/to/<smart-contract>.abi.json -o /path/to/src/main/java -p com.your.organisation.name
+```
+
+* Directly call the tool class in the Java SDK to generate a Java wrapper class:
+
+```java
+String args[] = {"generate", "/path/to/<smart-contract>.wasm", "/path/to/<smart-contract>.abi.json", "-o", "/path/to/src/main/java", "-p" , "com.your.organisation.name"};
+org.web3j.codegen.WasmFunctionWrapperGenerator.run(args);
+```
+
+The `wasm` and` abi.json` files are generated after compiling the Wasm contract source code.
+
+The main functions supported by the Java wrapper class corresponding to the Wasm smart contract:
+- Build and deploy
+- Determine contract validity
+- Invoking transactions and events
+- Call constant method
+
+#### Building And Deploying Smart Contracts
+
+The construction and deployment of smart contracts use the deploy method in the wrapper class：
+
+```java
+YourSmartContract contract = YourSmartContract.deploy(
+        <web3j>, <transactionManager>, contractGasProvider,
+        [<initialValue>,] <param1>, ..., <paramN>).send();
+```
+
+This method will deploy smart contracts on the blockchain. After successful deployment, it will return a wrapper class instance of the smart contract, which contains the address of the smart contract.
+
+If your smart contract accepts LAT transfers on the structure, you need to initialize the parameter value <initialValue>.
+
+You can also create an instance of the Java wrapper class corresponding to the smart contract by using the address of the smart contract:
+
+```java
+YourSmartContract contract = YourSmartContract.load(
+        "0x<address>", web3j, transactionManager, contractGasProvider);
 ```
 
 #### Smart Contract Validity
