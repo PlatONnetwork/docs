@@ -4,7 +4,6 @@ title: JS SDK
 sidebar_label: JS SDK
 ---
 
-
 ## Web3.js Interface 
 
 Interact with nodes through web3 objects provided by web3.js. On the underlying implementation, it communicates with the local node through RPC calls. web3.js can connect to any PlatON node that exposes the RPC interface.
@@ -58,7 +57,7 @@ Example:
 
 ```js
 web3.version;
-> "0.8.0"
+> "0.11.0"
 ```
 
 ***
@@ -897,6 +896,7 @@ Example:
 
 ```js
 var Tx = require('ethereumjs-tx');
+var Common = require('ethereumjs-common');
 var privateKey = new Buffer('e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109', 'hex')
 
 var rawTx = {
@@ -908,7 +908,16 @@ var rawTx = {
   data: '0x7f7465737432000000000000000000000000000000000000000000000000000000600057'
 }
 
-var tx = new Tx(rawTx);
+const customCommon = Common.default.forCustomChain(
+  'mainnet',
+  {
+    name: 'platon',
+    networkId: 1,
+    chainId: 101,
+  },
+  'petersburg'
+);
+var tx = new Tx.Transaction(rawTx, { common: customCommon }	);
 tx.sign(privateKey);
 
 var serializedTx = tx.serialize();
@@ -1428,6 +1437,7 @@ Parameter:
    * `gasPrice` - `String`: The gas price in von to use for transactions.
    * `gas` - `Number`: The maximum gas provided for a transaction (gas limit).
    * `data` - `String`: The byte code of the contract. Used when the contract gets deployed.
+   * `vmType` - `Number`: The contract type。0 means solidity contract, 1 means wasm contract. The default is the solidity contract. (New field)
 
 Returns:
 
@@ -1558,7 +1568,7 @@ Parameter:
 `options` - Object: The options used for deployment.
 
 * `data` - `String`: The byte code of the contract.
-* `arguments` - `Array`: (optional): The arguments which get passed to the constructor on deployment.
+* `arguments` - `Array`: (optional): The arguments which get passed to the constructor on deployment. If you deploy a wasm contract, you can refer to [wasm contract parameter passing reference](https://github.com/PlatONnetwork/client-sdk-js/blob/feature/wasm/test/1_platon_wasm.js)。
 
 Returns:
 
@@ -1632,6 +1642,8 @@ myContract.deploy({
 #### methods
 
 Creates a transaction object for that method, which then can be called, send, estimated.
+
+If it is a wasm contract, you can refer to [wasm contract parameter passing reference](https://github.com/PlatONnetwork/client-sdk-js/blob/feature/wasm/test/1_platon_wasm.js)。
 
 Method:
 
@@ -3422,7 +3434,7 @@ Of course, in order to satisfy multiple ppos that can be instantiated arbitraril
     // Since the provider has been passed in when instantiating web3, it is not necessary to pass in the provider.
     ppos.updateSetting({
         privateKey: 'acc73b693b79bbb56f89f63ccc3a0c00bf1b8380111965bfe8ab22e32045600c',
-        chainId: 100,
+        chainId: 101,
     })
 
     let data, reply;
@@ -3442,6 +3454,7 @@ Of course, in order to satisfy multiple ppos that can be instantiated arbitraril
         website: 'www.platon.network',
         details: 'staking',
         amount: ppos.bigNumBuf(amount),
+        rewardPer: 500, //传500就是5%的奖励作为委托奖励
         programVersion: undefined, // rpc get
         programVersionSign: undefined, // rpc get 
         blsPubKey: ppos.hexStrBuf(blsPubKey),
@@ -3466,6 +3479,7 @@ Of course, in order to satisfy multiple ppos that can be instantiated arbitraril
         'www.platon.network',
         'staking',
         ppos.bigNumBuf(amount),
+        500,
         pv.Version,
         pv.Sign,
         ppos.hexStrBuf(blsPubKey),
@@ -3491,7 +3505,7 @@ Of course, in order to satisfy multiple ppos that can be instantiated arbitraril
     const ppos1 = new web3.PPOS({
         provider: 'http://127.0.0.1:6789',
         privateKey: '9f9b18c72f8e5154a9c59af2a35f73d1bdad37b049387fc6cea2bac89804293b',
-        chainId: 100,
+        chainId: 101,
     })
     reply = await ppos1.call(data);
 })()
@@ -3600,8 +3614,8 @@ Parameters:
   * `provider` - `String`: network link.
   * `privateKey` - `String`: pairvate key.
   * `chainId` - `String`: id of chain.
-  * `gas` - `String`: Maximum gas consumption value, please enter a hexadecimal string, such as '0x76c0000'.
-  * `gasPrice` - `String`: Fuel price, please enter a hexadecimal string, such as '0x9184e72a000000'.
+  * `gas` - `String`: Maximum gas consumption value, please enter a hexadecimal string, such as '0xf4240'.
+  * `gasPrice` - `String`: Fuel price, please enter a hexadecimal string, such as '0x746a528800'.
   * `retry` - `Number`: The number of times to query the receipt.
   * `interval` - `Number`: Time interval to query the transaction receipt, the unit is `ms`.
 
@@ -3614,7 +3628,7 @@ Example:
 ```JavaScript
 ppos.updateSetting({
     privateKey: 'acc73b693b79bbb56f89f63ccc3a0c00bf1b8380111965bfe8ab22e32045600c',
-    chainId: 100,
+    chainId: 101,
 })
 
 ppos.updateSetting({
@@ -3688,6 +3702,7 @@ Parameters:
 
 * `intStr` - `String`: String decimal large integer.
   
+
 Returns:
 
 * `buffer` - `Buffer`: A cache area.
@@ -3710,6 +3725,7 @@ Parameters:
 
 * `hexStr` - `String`: A hex string.
   
+
 Returns:
 
 * `buffer` - `Buffer`: A cache area.
@@ -3735,6 +3751,7 @@ Parameters:
 
 * `params` - `Object|Array`: Call parameters.
   
+
 Returns:
 
 1. `reply` - `Object`: The result of the call. Note that I have turned the returned results into Object objects.
@@ -3782,8 +3799,8 @@ Parameters:
 
 * `params` - `Object|Array`: Transaction parameters.
 * `other` - `Object`(Optional): 
-  * `gas` - `String`: Gas limit, default '0x76c0000'.
-  * `gasPrice` - `String`: Gas price, default '0x9184e72a000000'.
+  * `gas` - `String`: Gas limit, default '0xf4240'.
+  * `gasPrice` - `String`: Gas price, default '0x746a528800'.
   * `retry` - `Number`: Query the number of transaction receipt objects. The default is 600 times.
   * `interval` - `Number`: Query the interval of the transaction receipt object, the unit is ms. The default is 100 ms.
 
@@ -3858,6 +3875,7 @@ Pledge by sending transactions via send.
 |website|string|The third-party home page of the node (the length is limited, indicating the home page of the node)|
 |details|string|The description of the node (the length is limited, indicating the description of the node)|
 |amount|*big.Int(bytes)|Pledged von|
+|rewardPer|uint16(2bytes)|The percentage of rewards obtained from delegation is BasePoint 1BP = 0.01%|
 |programVersion|uint32|Real version of the program, governance rpc acquisition|
 |programVersionSign|65bytes|The true version signature of the program and the rpc interface of the governance module|
 |blsPubKey|96bytes|bls public key|
@@ -3872,6 +3890,7 @@ Modify the pledge information by sending the transaction.
 |funcType|uint16(2bytes)|Method type code(1001)|
 |benefitAddress|20bytes|Revenue account for receiving block rewards and pledged rewards|
 |nodeId|64bytes|The node ID of the pledged (also called the node ID of the candidate)|
+|rewardPer|uint16(2bytes)|The percentage of rewards obtained from delegation is BasePoint 1BP = 0.01%|
 |externalId|string| External Id (with a length limit, the Id described by the third-party pull node) |
 |nodeName|string| The name of the node being pledged (there is a length limitation, indicating the name of the node) |
 |website|string| The third-party home page of the node (the length is limited, indicating the home page of the node) |
@@ -4433,6 +4452,52 @@ Returns a json format string with the following fields:
 | pledge    | string(Hex) | Pledge / mortgage amount|
 | debt  | string(Hex) | Amount due for release |
 | plans    | bytes           | Locked entry information, json array：[{"blockNumber":"","amount":""},...,{"blockNumber":"","amount":""}]. among:<br/>blockNumber：\*big.Int，Release blockNumber <br/>amount：\string(Hex string), Release amount |
+
+### Reward Interface
+
+#### Withdraw Delegate Reward
+
+Withdraw all currently available delegate rewards from the account and send the transaction.
+
+Parameters：
+
+| Field    | Type           | Remark                 |
+| -------- | -------------- | ---------------------- |
+| funcType | uint16(2bytes) | Method type code(5000) |
+
+Returns:
+
+Note: The transaction results are stored in the logs.data of the transaction receipt. If the transaction is successful, rlp.Encode (byte {[] byte (status code 0), rlp.Encode (`node income list`)}). If the transaction is unsuccessful, it is consistent with the previous method.
+
+The returned `node income list` is an array
+
+| Field      | Type                     | Remark                  |
+| ---------- | ------------------------ | ----------------------- |
+| NodeID     | discover.NodeID(64bytes) | Node ID                 |
+| StakingNum | uint64                   | Node stake block Number |
+| Reward     | *big.Int                 | Received reward         |
+
+#### Query Delegate Reward
+
+The query account did not withdraw the delegate reward at each node, and call query.
+
+Parameters：
+
+| Field    | Type              | Remark                                                       |
+| -------- | ----------------- | ------------------------------------------------------------ |
+| funcType | uint16(2bytes)    | Method type code(5100)                                       |
+| address  | 20bytes           | The address of the account to be queried                     |
+| nodeIDs  | []discover.NodeID | The node to be queried, if it is empty, all nodes entrusted by the account are queried |
+
+Returns：
+
+Is a []Reward array
+
+| Field      | Type                     | Remark                               |
+| ---------- | ------------------------ | ------------------------------------ |
+| nodeID     | discover.NodeID(64bytes) | Node ID                              |
+| stakingNum | uint64                   | Node stake block Number              |
+| reward     | string(0x hex string)    | Did not withdraw the delegate reward |
 
 ### Error Code Description
 
