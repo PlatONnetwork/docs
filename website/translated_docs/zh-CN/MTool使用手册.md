@@ -4,7 +4,82 @@ title: MTool教程
 sidebar_label: MTool教程
 ---
 
+## 安装MTool
 
+另外，本文档分别介绍Windows和Ubuntu环境下MTool的操作，用户可根据自己的资源进行选择。
+
+### Windows下安装MTool
+
+#### 安装前准备
+
+执行命令：
+
+```
+mtool-client --version
+```
+
+如果执行结果显示`无法将“mtool-client”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然后再试一次`，表示没有安装旧版本不需要执行下面操作。
+
+如果执行结果显示版本号，时间戳等信息表示已安装MTool，如果MTool是旧版本，此时需要备份重要信息，然后再手工卸载旧版本，操作步骤：
+
+**step1.** 备份目录 `C:\tools\mtool\current\keystore` 下的所有文件到 D 盘或其他非 `C:\tools` 的目录下。安装完新版本之后需要将备份文件拷贝回 `C:\tools\mtool\current\keystore` 目录下。
+
+**step2.** 双击 `C:\tools\unins000.exe` 卸载所有旧版本的 MTool 及其他业务工具。
+
+#### 开始安装
+
+- 下载MTool安装包
+
+  在在线机器上，复制链接<https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.11.0/mtool-setup.exe>或者 <http://47.91.153.183/mtool/mtool-setup/0.11.0/mtool-setup.exe> 到浏览器下载MTool安装包。
+
+- 安装MTool
+
+  双击mtool-setup.exe进行安装。默认安装目录为 C:\tools，建议不要更改此安装目录。弹出界面显示**Completing the mtool Setup Wizard**信息表示安装成功，点击**Finish**即可。
+
+### Ubuntu下安装MTool
+
+步骤如下：
+
+**step1.** 下载mtool工具包
+
+``` bash
+wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.11.0/mtool-client.zip
+```
+
+或者
+
+``` bash
+wget http://47.91.153.183/mtool/0.11.0/mtool-client.zip
+```
+
+**step2.** 解压mtool工具包
+
+``` bash
+(if ! command -v unzip;then sudo apt install unzip; fi;) && unzip mtool-client.zip && cd mtool-client
+```
+
+**step3.** 下载脚本
+
+>脚本下载到<font color=red>mtool-client</font> 目录下，否则脚本无法找到新版本mtool的路径。
+
+``` bash
+wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/opensource/scripts/mtool_install.sh
+```
+
+或者
+
+``` bash
+wget http://47.91.153.183/opensource/scripts/mtool_install.sh
+```
+
+**step4.** 执行命令
+
+```
+chmod +x mtool_install.sh && ./mtool_install.sh
+```
+
+> - 提示 <font color=red>Install mtool succeed.</font> 时，表示 MTool 安装成功，未安装成功时，请通过我们的官方客服联系方式反馈具体问题。
+> - 安装完成之后，需要<font color=red>重启终端</font>，让新添加的环境变量生效。
 
 ## MTool环境变量说明
 
