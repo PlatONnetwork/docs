@@ -2,7 +2,7 @@
   "docs": {
     "PlatON Developer Docs": ["index"],
 	"Run a Node":["Install_Node","Join_PlatON_NetWork","Become_Verification_Node"],
-	"Node tool":["MTool_Manual","Command_Line_Tools"],
+	"Node Tool":["MTool_Manual","Command_Line_Tools"],
 	"Start Building":["Source_Code_Compilation","Build_Private_Chain"],
 	"Smart Contract":["EVM_Smart_Contract","WASM_Smart_Contract"],
 	"Reference Docs": ["Java_SDK","JS_SDK","Json_Rpc"],

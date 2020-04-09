@@ -31,7 +31,7 @@ sidebar_label: PlatON开发者文档
         <img src="/docs/img/Install_Node.svg">
         <a href="/docs/zh-CN/Install_Node" class="card-title">运行一个节点</a>
         <div class="card-description">
-        安装，配置和部署节点。
+        部署节点，加入PlatON的主网和测试网，并参与PlatON网络共识。
         </div>
     </div>
     <div class="homepage-card">
