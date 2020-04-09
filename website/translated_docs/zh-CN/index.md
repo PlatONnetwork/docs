@@ -54,7 +54,7 @@ sidebar_label: PlatON开发者文档
     </div>
     <div class="homepage-card">
         <img src="/docs/img/Smart_Contract_Development.svg">
-        <a href="/docs/zh-CN/EVM_Smart_Contract" class="card-title">智能合约开发</a>
+        <a href="/docs/zh-CN/EVM_Smart_Contract" class="card-title">智能合约</a>
         <div class="card-description">
         了解如何开发和使用PlatON区块链智能合约。
         </div>

@@ -54,7 +54,7 @@ sidebar_label: PlatON Developer Docs
     </div>
     <div class="homepage-card">
         <img src="/docs/img/Smart_Contract_Development.svg">
-        <a href="/docs/en/EVM_Smart_Contract" class="card-title">Smart Contract Development</a>
+        <a href="/docs/en/EVM_Smart_Contract" class="card-title">Smart Contract</a>
         <div class="card-description">
         Learn how to develop and use PlatON blockchain smart contracts.
         </div>
