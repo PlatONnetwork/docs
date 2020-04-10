@@ -1,7 +1,7 @@
 ---
 id: WASM_Smart_Contract
-title: WASM Smart Contract Development
-sidebar_label: WASM
+title: WASM Smart Contract
+sidebar_label: WASM Smart Contract
 ---
 
 WebAssembly (wasm for short) is a binary instruction set designed for stacked virtual machines. Wasm was designed to be a compile target for platforms such as C / C ++ / Rust, and was originally designed to solve JavaScript performance issues. Wasm is a web standard being led by the W3C and supported by browser vendors such as Google, Microsoft, and Mozilla.

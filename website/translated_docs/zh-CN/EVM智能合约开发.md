@@ -1,7 +1,7 @@
 ---
 id: EVM_Smart_Contract
-title: EVM智能合约开发
-sidebar_label: EVM
+title: EVM智能合约
+sidebar_label: EVM智能合约
 ---
 
 

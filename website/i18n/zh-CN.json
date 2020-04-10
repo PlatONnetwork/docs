@@ -66,20 +66,20 @@
         "sidebar_label": "成为验证节点"
       },
       "EVM_Smart_Contract": {
-        "title": "EVM智能合约开发",
-        "sidebar_label": "EVM"
+        "title": "EVM智能合约",
+        "sidebar_label": "EVM智能合约"
       },
 	  "WASM_Smart_Contract": {
-        "title": "WASM智能合约开发",
-        "sidebar_label": "WASM"
+        "title": "WASM智能合约",
+        "sidebar_label": "WASM智能合约"
       },
-	  "Source_Code_Compilation": {
-        "title": "源码编译",
-        "sidebar_label": "源码编译"
+	  "Install_PlatON": {
+        "title": "安装PlatON",
+        "sidebar_label": "安装PlatON"
       },
 	  "Build_Private_Chain": {
-        "title": "搭建私链",
-        "sidebar_label": "搭建私链"
+        "title": "部署私有测试网",
+        "sidebar_label": "部署私有测试网"
       },
       "Command_Line_Tools": {
         "title": "PlatON命令行工具",
@@ -90,9 +90,9 @@
     "categories": {
       "PlatON Developer Docs": "PlatON开发者文档",
       "Run a Node": "运行一个节点",
-	    "Node Tool": "节点工具",
+	  "Node Tool": "节点工具",
       "Start Building": "设置开发环境",
-	    "Smart Contract": "智能合约",
+	  "Smart Contract": "智能合约",
       "Reference Docs": "参考文档",
       "Abount PlatON": "关于PlatON",
       "Community Projects": "社区"

@@ -36,8 +36,7 @@ PlatON目前有2个公有网络，一个是还未正式上线的、独立运行�
 ### 执行以下命令即可`启动验证节点`加入贝莱世界：
 
 ```bash
-$ cd ~/platon-node
-$ nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
+cd ~/platon-node && nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
 ```
 
 
@@ -45,8 +44,7 @@ $ nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcpo
 ### 如果要`启动归档节点加`入贝莱世界，请执行以下命令：
 
 ```bash
-$ cd ~/platon-node
-$ nohup platon --identity platon --datadir ./data --port 16789 --db.nogc --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
+cd ~/platon-node && nohup platon --identity platon --datadir ./data --port 16789 --db.nogc --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
 ```
 
 **提示：**
@@ -72,18 +70,8 @@ $ nohup platon --identity platon --datadir ./data --port 16789 --db.nogc --testn
 ### 进入`PlatON`控制台
 
 ```bash
-$ platon attach http://localhost:6789
-Welcome to the PlatON JavaScript console!
-
-instance: PlatONnetwork/platon-47.254.149.41/v0.10.1-unstable-1bc1d754/linux-amd64/go1.13.1
-at block: 1929954 (Sun, 17 Dec 52180 18:55:28 UTC)
- datadir: /opt/platon/data
- modules: admin:1.0 debug:1.0 net:1.0 personal:1.0 platon:1.0 rpc:1.0 web3:1.0
-
->
+platon attach http://localhost:6789
 ```
-
-
 
 ### 查看节点的  peers
 

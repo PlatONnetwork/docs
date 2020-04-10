@@ -1,7 +1,7 @@
 ---
-id: Source_Code_Compilation
-title: Source code compilation
-sidebar_label: Source code compilation
+id: Install_PlatON
+title: Intall PlatON
+sidebar_label: Intall PlatON
 ---
 
 

@@ -36,8 +36,7 @@ Anyone, any organization can join PlatON test network.
 ### Execute the following command to join the Baley World
 
 ```bash
-$ cd ~/platon-node
-$ nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
+cd ~/platon-node && nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
 ```
 
 
@@ -45,8 +44,7 @@ $ nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcpo
 ### Become a archive node by executing the following command：
 
 ```bash
-$ cd ~/platon-node
-$ nohup platon --identity platon --datadir ./data --port 16789 --db.nogc --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
+cd ~/platon-node && nohup platon --identity platon --datadir ./data --port 16789 --db.nogc --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
 ```
 
 **Prompt：**
@@ -72,18 +70,8 @@ When PlatON is successfully started, under normal circumstances, it will automat
 ### Enter `PlatON` console
 
 ```bash
-$ platon attach http://localhost:6789
-Welcome to the PlatON JavaScript console!
-
-instance: PlatONnetwork/platon-47.254.149.41/v0.10.1-unstable-1bc1d754/linux-amd64/go1.13.1
-at block: 1929954 (Sun, 17 Dec 52180 18:55:28 UTC)
- datadir: /opt/platon/data
- modules: admin:1.0 debug:1.0 net:1.0 personal:1.0 platon:1.0 rpc:1.0 web3:1.0
-
->
+platon attach http://localhost:6789
 ```
-
-
 
 ### View peers of a node
 

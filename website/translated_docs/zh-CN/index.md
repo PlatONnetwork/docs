@@ -47,7 +47,7 @@ sidebar_label: PlatON开发者文档
 <div class="card-wrap">
     <div class="homepage-card">
         <img src="/docs/img/Set_Develop_Env.svg">
-        <a href="/docs/zh-CN/Source_Code_Compilation" class="card-title">设置开发环境</a>
+        <a href="/docs/zh-CN/Install_PlatON" class="card-title">设置开发环境</a>
         <div class="card-description">
         了解如何安装PlatON并部署私有测试网络。
         </div>

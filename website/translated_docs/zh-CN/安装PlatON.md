@@ -1,7 +1,7 @@
 ---
-id: Source_Code_Compilation
-title: 源码编译
-sidebar_label: 源码编译
+id: Install_PlatON
+title: 安装PlatON
+sidebar_label: 安装PlatON
 ---
 
 本文档主要是针对在PlatON区块链上构建应用程序的开发人员的入门指南。

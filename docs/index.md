@@ -47,7 +47,7 @@ sidebar_label: PlatON Developer Docs
 <div class="card-wrap">
     <div class="homepage-card">
         <img src="/docs/img/Set_Develop_Env.svg">
-        <a href="/docs/en/Source_Code_Compilation" class="card-title">Start Building</a>
+        <a href="/docs/en/Install_PlatON" class="card-title">Start Building</a>
         <div class="card-description">
         Learn how to install PlatON and deploy a private test network.
         </div>

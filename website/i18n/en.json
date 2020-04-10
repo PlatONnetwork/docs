@@ -10,8 +10,8 @@
         "sidebar_label": "Community Projects"
       },
       "EVM_Smart_Contract": {
-        "title": "EVM Smart Contract Development",
-        "sidebar_label": "EVM"
+        "title": "EVM Smart Contract",
+        "sidebar_label": "EVM Smart Contract"
       },
       "index": {
         "title": "PlatON Developer Docs",
@@ -54,8 +54,8 @@
         "sidebar_label": "PlatON Economic Model"
       },
       "WASM_Smart_Contract": {
-        "title": "WASM Smart Contract Development",
-        "sidebar_label": "WASM"
+        "title": "WASM Smart Contract",
+        "sidebar_label": "WASM Smart Contract"
       },
       "Join_PlatON_NetWork": {
         "title": "Join the PlatON network",
@@ -69,21 +69,21 @@
         "title": "Secure Multi Party Computation",
         "sidebar_label": "Secure Multi Party Computationn"
       },
+      "Install_PlatON": {
+        "title": "Intall PlatON",
+        "sidebar_label": "Intall PlatON"
+      },
       "Install_Node": {
-        "title": "Install and deploy a node",
-        "sidebar_label": "Install and deploy a node"
+        "title": "Install and Deploy a Node",
+        "sidebar_label": "Install and Deploy a Node"
       },
       "Become_Verification_Node": {
         "title": "Upgrade to Validator Node",
         "sidebar_label": "Upgrade to Validator Node"
       },
       "Build_Private_Chain": {
-        "title": "Build a private chain",
-        "sidebar_label": "Build a private chain"
-      },
-      "Source_Code_Compilation": {
-        "title": "Source code compilation",
-        "sidebar_label": "Source code compilation"
+        "title": "Deploy Your Own Private Testnet",
+        "sidebar_label": "Deploy Your Own Private Testnet"
       }
     },
     "links": {},

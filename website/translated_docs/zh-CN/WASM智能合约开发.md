@@ -1,7 +1,7 @@
 ---
 id: WASM_Smart_Contract
-title: WASM智能合约开发
-sidebar_label: WASM
+title: WASM智能合约
+sidebar_label: WASM智能合约
 ---
 
 PlatON区块链支持使用WebAssembly (WASM)来执行用户编写的智能合约，WASM是一种为栈式虚拟机设计的二进制指令集。WASM被设计为可供类似C/C++/Rust等高级语言的平台编译目标，最初设计目的是解决 JavaScript 的性能问题。WASM是由 W3C 牵头正在推进的 Web 标准，并得到了谷歌、微软和 Mozilla 等浏览器厂商的支持。

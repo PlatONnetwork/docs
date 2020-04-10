@@ -1,7 +1,7 @@
 ---
 id: EVM_Smart_Contract
-title: EVM Smart Contract Development
-sidebar_label: EVM
+title: EVM Smart Contract
+sidebar_label: EVM Smart Contract
 ---
 
 
