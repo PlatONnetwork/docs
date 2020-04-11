@@ -71,6 +71,7 @@ git clone -b release-0.11.0 https://github.com/PlatONnetwork/PlatON-Go.git --rec
 
 ```bash
 echo 'export PATH=$PATH:"$GOPATH/src/github.com/PlatONnetwork/PlatON-Go/crypto/bls/bls_win/lib"' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 - Compile
