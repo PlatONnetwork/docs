@@ -70,7 +70,7 @@ git clone -b release-0.11.0 https://github.com/PlatONnetwork/PlatON-Go.git --rec
 - Add bls dependent library to environment variables
 
 ```bash
-echo 'export PATH=$PATH:"$GOPATH/src/github.com/PlatONnetwork/PlatON-Go/crypto/bls/bls_win/lib"' >> /etc/profile
+echo 'export PATH=$PATH:"$GOPATH/src/github.com/PlatONnetwork/PlatON-Go/crypto/bls/bls_win/lib"' >> ~/.bashrc
 ```
 
 - Compile
