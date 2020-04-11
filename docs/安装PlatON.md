@@ -44,45 +44,39 @@ You can install the above compilation environment yourself. Please make sure the
 > Install cmake:
 >
 > ```
-> choco install cmake
+> choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
 > ```
 >
 > Most software installed using the `chocolatey` package manager has a default installation path, and some software may have various paths, depending on the publisher of the software. Installing these packages will modify the Path environment variable. The final installation path can be viewed in the PATH. Some machine environments may not find the installation path of these tools in the PATH, and you need to add it manually at this time. After installation, please make sure the installed Go version is 1.7 (or higher).
 >
-> For example: After installing cmake, type cmake on the CMD command line. If you are prompted that the command cannot be found, you need to add the path where cmake is installed.
+> Note：
+>
+> **<font color=red>Once the installation is complete, you need to restart `PowerShell` as an administrator</font>**。
 
-### Get the source code
 
-Create `src/github.com/PlatONnetwork/` and `bin` directories under the current`%GOPATH% `directory, and clone the source code of` PlatON-GO` under the `PlatONnetwork` directory:
 
-```
-cd src/github.com/PlatONnetwork/;
-git clone -b release-0.10.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
-```
+> The following commands need to be run in the `Git-bash` environment. In any directory, right-click and select `Git Bash Here` to bring up the `Git Bash` running window.
 
-### Compile
+- Get the source code
 
-> The following compilation commands need to be run in the `Git-bash` environment, and the compilation environment in step 1 has been successfully installed!
-
-Go to the source directory `PlatON-Go`:
+Get the source code and put it in the GOPATH path, where release-0.11.0 is the branch name, then switch to the actual branch:
 
 ```
-cd PlatON-Go
+mkdir -p $GOPATH/src/github.com/PlatONnetwork
+cd $GOPATH/src/github.com/PlatONnetwork
+git clone -b release-0.11.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 ```
 
-Before compiling the source directory, execute the following script in the source directory `PlatON-Go` to compile the required libraries:
+- Add bls dependent library to environment variables
+
+```bash
+setx PATH "$PATH;$GOPATH/src/github.com/PlatONnetwork/PlatON-Go/crypto/bls/bls_win/lib;"
+```
+
+- Compile
 
 ```
-./build/build_deps.sh
-```
-
-Since the compilation depends on the bls library, PlatON-Go\crypto\bls\bls_win\lib needs to be configured into the path environment variable of the system.
-
-Otherwise it will report `exit status 3221225781` error.
-
-Executing the following compilation commands in the source directory `PlatON-Go` can generate` platon`, `keytool` executable files, as follows:
-
-```
+cd $GOPATH/src/github.com/PlatONnetwork/PlatON-Go
 go run build/ci.go install ./cmd/platon
 go run build/ci.go install ./cmd/keytool
 ```
@@ -104,19 +98,21 @@ After compiling, `platon`,` keytool` executable files will be generated in the` 
 **step2.** Get the PlatON source:
 
 ```bash
-git clone -b release-0.10.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+git clone -b release-0.11.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 ```
 
 **step3.** Install dependency library:
 
 ```bash
-sudo apt update && sudo apt install golang-go cmake llvm g++ libgmp-dev libssl-dev
+sudo apt update 
+sudo apt install -y golang-go cmake llvm g++ libgmp-dev libssl-dev
 ```
 
 **step4.** compilation：
 
 ```bash
-cd PlatON-Go && make all
+cd PlatON-Go 
+make all
 ```
 
 After compiling, a series of executable files such as `platon, keytool` and so on will be generated in the `./build/bin` directory. 
@@ -124,7 +120,8 @@ After compiling, a series of executable files such as `platon, keytool` and so o
 **step5.** Copy binary:
 
 ```shell
-sudo cp -f ./build/bin/platon /usr/bin/ && sudo cp -f ./build/bin/keytool /usr/bin/
+sudo cp -f ./build/bin/platon /usr/bin/ 
+sudo cp -f ./build/bin/keytool /usr/bin/
 ```
 
 To this step, congratulations, the source code compilation completed!

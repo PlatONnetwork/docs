@@ -256,7 +256,7 @@ Example:
 
 ### **Deploy**  **a contract**
 
-This step is used to demonstrate how to publish a contract. This step need two files, one ending in **.wasm** (the contract binary) file, and another ending in **.json** ( the contract port description). About how to acquire these two files please see: **WASM contract development guide**
+This step is used to demonstrate how to publish a contract. This step need two files, one ending in **.wasm** (the contract binary) file, and another ending in **.json** ( the contract port description). About how to acquire these two files please see: **[WASM contract development guide](/docs/en/WASM_Smart_Contract)**
 
 ``` 
 $ ctool.exe deploy --abi ./demo.cpp.abi.json --code ./demo.wasm --config ./config.json

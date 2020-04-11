@@ -23,63 +23,58 @@ Windows编译环境需要符合以下条件：
 >
 > 安装git：
 >
-> ```
+> ```powershell
 > choco install git
 > ```
 >
 > 安装golang：
 >
-> ```
+> ```powershell
 > choco install golang
 > ```
 >
 > 安装mingw：
 >
-> ```
+> ```powershell
 > choco install mingw
 > ```
 >
 > 安装cmake：
 >
-> ```
-> choco install cmake
+> ```powershell
+> choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
 > ```
 >
 > 利用`chocolatey`包管理器安装的软件大部分有默认的安装路径，部分软件可能会有各种各样的路径，这取决于软件的发布者。安装这些包将修改Path环境变量。最后安装路径可查看PATH，某些机器环境可能在 PATH 中找不到这些工具的安装路径，此时需手动添加。安装完之后请确保已安装的Go版本为1.7（或更高版本）。
 >
-> 例如：安装cmake之后，在CMD命令行中键入cmake，如果提示找不到该命令，则需要在path中添加cmake安装的路径。
+> 注意：
+>
+> **<font color=red>安装完成之后需要用管理员身份重启`PowerShell`</font>**。
+
+
+
+> 以下命令均需在`Git-bash`环境运行， 在任意目录下，鼠标右键，选中`Git Bash Here`，弹出`Git Bash`运行窗口。
 
 - 获取源码
 
-在当前`%GOPATH%`目录下创建`src/github.com/PlatONnetwork/`和`bin`目录，在`PlatONnetwork`目录下克隆`PlatON-GO`的源码，其中`release-0.10.0`为分支名称，届时切换到实际的分支：
+获取源码放到GOPATH路径下，其中`release-0.11.0`为分支名称，届时切换到实际的分支：
 
 ```
-cd src/github.com/PlatONnetwork/;
-git clone -b release-0.10.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+mkdir -p $GOPATH/src/github.com/PlatONnetwork
+cd $GOPATH/src/github.com/PlatONnetwork
+git clone -b release-0.11.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+```
+
+- 添加bls依赖库到环境变量
+
+```bash
+setx PATH "$PATH;$GOPATH/src/github.com/PlatONnetwork/PlatON-Go/crypto/bls/bls_win/lib;"
 ```
 
 - 编译
 
-> 以下编译命令均需在`Git-bash`环境运行， 且步骤1中编译环境都已经成功安装！
-
-进入源码目录`PlatON-Go`：
-
-```
-cd PlatON-Go
-```
-
-在编译源码目录之前在源码目录`PlatON-Go`下执行以下脚本编译所需依赖库：
-
-```
-./build/build_deps.sh
-```
-
-由于编译依赖bls库，需要把PlatON-Go\crypto\bls\bls_win\lib配置到系统的path环境变量里面,
-否则会报`exit status 3221225781`错误。
-
-在源码目录`PlatON-Go`下执行以下编译命令可生成`platon`、`keytool`可执行文件，如下：
-
-```
+```bash
+cd $GOPATH/src/github.com/PlatONnetwork/PlatON-Go
 go run build/ci.go install ./cmd/platon
 go run build/ci.go install ./cmd/keytool
 ```
@@ -101,19 +96,21 @@ go run build/ci.go install ./cmd/keytool
 **step2.** 获取PlatON源码：
 
 ```bash
-git clone -b release-0.10.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+git clone -b release-0.11.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 ```
 
 **step3.** 安装依赖库：
 
 ```bash
-sudo apt update && sudo apt install golang-go cmake llvm g++ libgmp-dev libssl-dev
+sudo apt update 
+sudo apt install -y golang-go cmake llvm g++ libgmp-dev libssl-dev
 ```
 
 **step4.** 编译：
 
 ```bash
-cd PlatON-Go && make all
+cd PlatON-Go 
+make all
 ```
 
 编译完成之后在`./build/bin`目录下会生成`platon, keytool`等一系列可执行文件。
@@ -121,7 +118,8 @@ cd PlatON-Go && make all
 **step5.** 拷贝二进制： 
 
 ```shell
-sudo cp -f ./build/bin/platon /usr/bin/ && sudo cp -f ./build/bin/keytool /usr/bin/
+sudo cp -f ./build/bin/platon /usr/bin/
+sudo cp -f ./build/bin/keytool /usr/bin/
 ```
 
 源码编译成功！

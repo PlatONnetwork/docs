@@ -253,7 +253,7 @@ $ ctool.exe <command> [--addr contractAddress] [--type txType(default:2)] [--fun
 ### **发布合约**
 
 此步用于演示如何进行合约发布，合约发布需要两个文件，一个为后缀为`.wasm`(合约二进制)文件，
-另一个为后缀`.json`(合约接口描述)文件。如何获取这两个文件请参考：[WASM合约开发指南](/zh-cn/development/[Chinese-Simplified]-Wasm合约开发指南.md)
+另一个为后缀`.json`(合约接口描述)文件。如何获取这两个文件请参考：[WASM合约开发指南](/docs/zh-CN/WASM_Smart_Contract)
 
 
 ```shell
