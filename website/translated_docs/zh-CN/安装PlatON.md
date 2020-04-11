@@ -68,7 +68,7 @@ git clone -b release-0.11.0 https://github.com/PlatONnetwork/PlatON-Go.git --rec
 - 添加bls依赖库到环境变量
 
 ```bash
-setx PATH "$PATH;$GOPATH/src/github.com/PlatONnetwork/PlatON-Go/crypto/bls/bls_win/lib;"
+echo 'export PATH=$PATH:"$GOPATH/src/github.com/PlatONnetwork/PlatON-Go/crypto/bls/bls_win/lib"' >> /etc/profile
 ```
 
 - 编译
