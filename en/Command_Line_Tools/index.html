@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>PlatON Command Line Tools · PlatON</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="- [platon](#platon)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="PlatON Command Line Tools · PlatON"/><meta property="og:type" content="website"/><meta property="og:url" content="https://luo-dahui.github.io//docs/"/><meta property="og:description" content="- [platon](#platon)"/><meta property="og:image" content="https://luo-dahui.github.io//docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://luo-dahui.github.io//docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs/img/logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></script><script type="text/javascript" src="/docs/js/custom.js"></script><script src="/docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs/css/main.css"/><script src="/docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="https://www.platon.network/?lang=en"><img class="logo" src="/docs/img/PlatON-logo.svg" alt="PlatON"/></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/docs/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/zh-CN/Command_Line_Tools">中文</a></li></ul></div></li><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>PlatON Command Line Tools · PlatON</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Introducing the program PlatON instructions "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="PlatON Command Line Tools · PlatON"/><meta property="og:type" content="website"/><meta property="og:url" content="https://luo-dahui.github.io//docs/"/><meta property="og:description" content="## Introducing the program PlatON instructions "/><meta property="og:image" content="https://luo-dahui.github.io//docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://luo-dahui.github.io//docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs/img/logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></script><script type="text/javascript" src="/docs/js/custom.js"></script><script src="/docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs/css/main.css"/><script src="/docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="https://www.platon.network/?lang=en"><img class="logo" src="/docs/img/PlatON-logo.svg" alt="PlatON"/></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/docs/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/zh-CN/Command_Line_Tools">中文</a></li></ul></div></li><script>
         const languagesMenuItem = document.getElementById("languages-menu");
         const languagesDropDown = document.getElementById("languages-dropdown");
         languagesMenuItem.addEventListener("click", function(event) {
@@ -66,15 +66,7 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">PlatON Command Line Tools</h1></header><article><div><span><ul>
-<li><a href="#platon">platon</a></li>
-<li><a href="#ctool">ctool</a></li>
-<li><a href="#console">console</a></li>
-</ul>
-<h2><a class="anchor" aria-hidden="true" id="platon"></a><a href="#platon" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon</h2>
-<ul>
-<li>Introducing the program <code>platon</code> instructions</li>
-</ul>
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">PlatON Command Line Tools</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="introducing-the-program-platon-instructions"></a><a href="#introducing-the-program-platon-instructions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introducing the program PlatON instructions</h2>
 <pre><code class="hljs css language-conf">NAME:
    platon.exe - the go-platon command line interface
 
@@ -264,140 +256,177 @@ MISC OPTIONS:<span class="hljs-number">6</span>
 COPYRIGHT:
    Copyright <span class="hljs-number">2013</span><span class="hljs-number">-2018</span> The PlatON-<span class="hljs-keyword">Go</span> <span class="hljs-keyword">Authors</span>
 </code></pre>
-<hr>
-<h2><a class="anchor" aria-hidden="true" id="ctool"></a><a href="#ctool" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ctool</h2>
+<h2><a class="anchor" aria-hidden="true" id="common-rpc-commands"></a><a href="#common-rpc-commands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Common rpc commands</h2>
 <ul>
-<li>Easy tools for contract deploy, transaction delivery and call functions.</li>
-</ul>
-<p><strong>User Guide</strong>  <strong>of ctool</strong></p>
-<h3><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>Introduction</strong></h3>
-<p>ctool: a small tool set that can be used to quickly deploy contracts, send transactions (make contract call), and make other inquiries.</p>
+<li>Description
 <ul>
-<li>Windows version</li>
+<li>The rpc port is changed according to the actual startup command, the default is:6789</li>
+</ul></li>
 </ul>
-<p>Currently only windows version is available. Versions for other platforms are still in development.</p>
-<h3><a class="anchor" aria-hidden="true" id="user-manual"></a><a href="#user-manual" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>User Manual</strong></h3>
-<pre><code class="hljs">$ ctool.exe &lt;<span class="hljs-keyword">command</span>&gt; [<span class="hljs-params">--addr</span> contractAddress] [<span class="hljs-params">--type</span> txType<span class="hljs-params">(default:2)</span>] [<span class="hljs-params">--func</span> funcInfo] <span class="hljs-params">--abi</span> &lt;abi_path&gt; <span class="hljs-params">--code</span> &lt;wasm_path&gt; [<span class="hljs-params">--config</span> &lt;config_path&gt;]
-</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="admin"></a><a href="#admin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>admin</h3>
 <ul>
-<li><strong>command</strong>  - the command to be executed, including: deploy, invoke, getTxReceipt (get transaction receipt)</li>
-<li><strong>abi_path</strong> - path for the ABI file, which is <strong>firstdemo.cpp.abi.json</strong> in the example</li>
-<li><strong>wasm_path</strong> - path for the WASM file, which is <strong>firstdemo.wasm</strong> in the example</li>
-<li><strong>config_path</strong> - path the configuration file, which is used to configure nodes and account information</li>
+<li><p>View the current node data directory</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> admin.datadir
+</code></pre></li>
+<li><p>View the ChainID of the current node</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> admin.nodeInfo.protocols.platon.config.chainId
+</code></pre></li>
+<li><p>View the id of the current node</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> admin.nodeInfo.id
+</code></pre></li>
+<li><p>View the blsPubKey of the current node</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> admin.nodeInfo.blsPubKey
+</code></pre></li>
+<li><p>View the p2p port number of the current node</p>
+<pre><code class="hljs">platon <span class="hljs-built_in">attach</span> http:<span class="hljs-comment">//localhost:6789 -exec admin.nodeInfo.ports.listener</span>
+</code></pre></li>
+<li><p>View the connection information of peers of the current node</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> admin.peers
+</code></pre></li>
+<li><p>View the genesis block hash of the current node</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> admin.nodeInfo.protocols.platon.genesis
+</code></pre></li>
+<li><p>View the maximum number of blocks ($amount) of a single node in each consensus round of cbft consensus</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> admin.nodeInfo.protocols.platon.config.cbft.amount
+</code></pre></li>
+<li><p>View the time window of block generation by a single node in each consensus round of cbft consensus ($period, unit: ms)</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> admin.nodeInfo.protocols.platon.config.cbft.period
+</code></pre>
+<blockquote>
+<p><strong>Blocking time interval = period / 1000 / amount</strong></p>
+</blockquote></li>
+<li><p>Get the binary version number and signature information</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'admin.getProgramVersion()'</span>
+</code></pre></li>
+<li><p>Obtain zero- knowledge proof information (use the node's private key to prove whether the certificate issued by the interface is correct and used for node pledge)</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'admin.getSchnorrNIZKProve()'</span>
+</code></pre></li>
+<li><p>View the type of virtual machine used at the bottom (EVM / WASM)</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> admin.nodeInfo.protocols.platon.config.interpreter
+</code></pre></li>
 </ul>
-<p><strong>Command options</strong></p>
+<h3><a class="anchor" aria-hidden="true" id="platon"></a><a href="#platon" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon</h3>
 <ul>
-<li><strong>--addr</strong> : the contract address to be invoked</li>
-<li><strong>--type</strong> : transaction type.  Value 2 indicates normal transaction, and 5  indicates MPC transaction. Default value is 2 if nothing specified.</li>
-<li><strong>--func</strong> : function name of current contract to be invoked, such as: --func 'sayHello'</li>
-</ul>
-<p>Please note: if the configuration file's path is unspecified in the command line, the program will read the config file - <strong>config.json</strong> - in the current directory.</p>
-<h3><a class="anchor" aria-hidden="true" id="configuration-file"></a><a href="#configuration-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>Configuration file</strong></h3>
-<p>Example:</p>
-<pre><code class="hljs">{
-
- <span class="hljs-attr">"url"</span>:<span class="hljs-string">"http://127.0.0.1:8545"</span>,
-
- <span class="hljs-attr">"from"</span>:<span class="hljs-string">"0x60ceca9c1290ee56b98d4e160ef0453f7c40d219"</span>
-
-}
+<li><p>View all wallet addresses under the current node</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> platon.accounts
+</code></pre></li>
+<li><p>View the block height of the current node</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> platon.blockNumber
+</code></pre></li>
+<li><p>Check the balance of the specified account ($account is the account address)</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'platon.getBalance("$account")'</span>
+</code></pre></li>
+<li><p>Query the number of transactions in the specified block ($blockNumber is the block height or block hash of the specified block)</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'platon.getBlockTransactionCount($blockNumber)'</span>
+</code></pre></li>
+<li><p>Query transaction information ($txHash is transaction hash)</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'platon.getTransaction("$txHash")'</span>
+</code></pre></li>
+<li><p>Query transaction receipt ($txHash is transaction hash)</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'platon.getTransactionReceipt("$txHash")'</span>
+</code></pre></li>
+<li><p>Query the number of transactions in the specified account (parameter $address is the account address, used to specify the nonce of the transaction when sending the transaction)</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'platon.getTransactionCount("$address")'</span>
+</code></pre></li>
+<li><p>Query the pending transaction of the current node</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> platon.pendingTransactions
+</code></pre></li>
+<li><p>View the default gasPrice of the current node (unit: von)</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> platon.gasPrice
+</code></pre></li>
+<li><p>Estimate the gas of the transaction (parameter $transaction is the transaction details, unit: von)</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'platon.estimateGas($transaction)'</span>
 </code></pre>
+<p>Such as:</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'platon.estimateGas({from:"0x493301712671ada506ba6ca7891f436d29185821",to:"0x15fffb839e5385ad61aef90e53c4d7ff550ece7e",value:"0x10000000000000",data:"0x11",gas:"0x88888",gasprice:"0x333333",nonce:"11"})'</span>
+</code></pre></li>
+<li><p>View the p2p protocol number of the underlying version of the current node</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'web3.toDecimal(platon.protocolVersion)'</span>
+</code></pre></li>
+<li><p>See if the current node is in sync</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> platon.syncing
+</code></pre></li>
+<li><p>Get details of specified block</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'platon.getBlock($blockNumber)'</span>
+</code></pre></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="personal"></a><a href="#personal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>personal</h3>
 <ul>
-<li><strong>url</strong> - the address of PlatON <strong>JSON-RPC</strong></li>
-<li><strong>from</strong> - the wallet address of the transaction sender. Please nte that it requires the node to guarantee that the account is already unlocked</li>
-</ul>
-<h3><a class="anchor" aria-hidden="true" id="deploy--a-contract"></a><a href="#deploy--a-contract" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>Deploy</strong>  <strong>a contract</strong></h3>
-<p>This step is used to demonstrate how to publish a contract. This step need two files, one ending in <strong>.wasm</strong> (the contract binary) file, and another ending in <strong>.json</strong> ( the contract port description). About how to acquire these two files please see: <strong><a href="/docs/en/WASM_Smart_Contract">WASM contract development guide</a></strong></p>
-<pre><code class="hljs">$ ctool<span class="hljs-selector-class">.exe</span> deploy --abi ./demo<span class="hljs-selector-class">.cpp</span><span class="hljs-selector-class">.abi</span><span class="hljs-selector-class">.json</span> --<span class="hljs-selector-tag">code</span> ./demo<span class="hljs-selector-class">.wasm</span> --config ./config<span class="hljs-selector-class">.json</span>
-
-trasaction hash: <span class="hljs-number">0</span>xdb0f9a28fcd447702e8d5961f47144d1ea830979e3c984acc8f72c0dca8bdcfc
-
-contract <span class="hljs-selector-tag">address</span>: <span class="hljs-number">0</span>x43355c787c50b647c425f594b441d4bd751951c1
+<li><p>Generate wallet (parameter is wallet password)</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'personal.newAccount("88888888")'</span>
+</code></pre></li>
+<li><p>Import private key to generate wallet</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'personal.importRawKey($privateKey, $password)'</span>
 </code></pre>
-<p>After the commands executes, it returns the transaction hash and the contract address.</p>
-<h3><a class="anchor" aria-hidden="true" id="sending-the-transaction"></a><a href="#sending-the-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>Sending the transaction</strong></h3>
-<p>After successfully deployed the contract, the next step is toinvoke it. Assume that the test contract contains the method <strong>sayHello</strong>. Now we invoke this method:</p>
-<pre><code class="hljs">$ ctool.exe<span class="hljs-built_in"> invoke </span>-addr <span class="hljs-string">"0x43355c787c50b647c425f594b441d4bd751951c1"</span> --func 'sayHello(<span class="hljs-string">"HelloWorld"</span>)' --abi ./demo.cpp.abi.json --config ./config.json
-</code></pre>
-<h3><a class="anchor" aria-hidden="true" id="inquiring-the-result"></a><a href="#inquiring-the-result" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>Inquiring the result</strong></h3>
-<p>Further assume that, in the previous step we used the contract method <strong>sayHello</strong>. Then we will read the values stored by this method. This action of inquiry is called a <strong>call</strong>. Assume the test contract contains <strong>char * getWorld()</strong>, then the deployment is as follows:</p>
-<pre><code class="hljs">$ ctool.exe<span class="hljs-built_in"> invoke </span>-addr <span class="hljs-string">"0x43355c787c50b647c425f594b441d4bd751951c1"</span> --func 'getWorld()' --abi ./demo.cpp.abi.json --config ./config.json
-</code></pre>
-<p>The expected resulting output on the screen is: <strong>HelloWorld</strong>.</p>
-<h3><a class="anchor" aria-hidden="true" id="inquiring-the-transaction-receipt"></a><a href="#inquiring-the-transaction-receipt" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>Inquiring the transaction receipt</strong></h3>
-<p>Sometimes you need to inquire the receipt information after the transaction is sent. You can:</p>
-<pre><code class="hljs"><span class="hljs-meta">$</span><span class="bash"> ctool.exe getTxReceipt 0x0b8996dadd6fd821f055affd1f95dbdf718d288a17e4ac5ed4133f3393bca44d(Transaction <span class="hljs-built_in">hash</span> number)</span>
-</code></pre>
-<h3><a class="anchor" aria-hidden="true" id="faqs-and-tips"></a><a href="#faqs-and-tips" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>FAQs and Tips</strong></h3>
-<p><strong>Tips</strong></p>
-<ol>
-<li>Before using ctool please be sure that your node is functional.</li>
-<li>Usually the more obvious errors will output onto the terminal after executing ctool.</li>
-<li>Using ctool to send transactions requires the current account to be unlocked on its associated nodes.</li>
-</ol>
-<p><strong>FAQs</strong></p>
-<ol>
-<li>Cannot deploy your contract?</li>
-</ol>
-<p>A: Please make sure that Energon setting in the configuration file is reasonable, and that the account is unlocked on associating nodes.</p>
-<h3><a class="anchor" aria-hidden="true" id="more-questions"></a><a href="#more-questions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>More questions</strong></h3>
-<p>If you have other questions or you can't find the answer here, please submit an issue.</p>
-<hr>
-<h2><a class="anchor" aria-hidden="true" id="console"></a><a href="#console" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>console</h2>
+<blockquote>
+<p>Parameters:</p>
 <ul>
-<li>A javascript runtime environment (JSRE) that can be used in either interactive (console) or non-interactive (script) mode.</li>
+<li>privateKey: private key, remove the leading 0x</li>
+<li>password: wallet password</li>
 </ul>
-<p>PlatON console are based on Ethereum javascript console.</p>
-<h3><a class="anchor" aria-hidden="true" id="interactive-use-the-jsre-repl--console"></a><a href="#interactive-use-the-jsre-repl--console" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interactive use: the JSRE REPL  Console</h3>
-<p>The <code>PlatON CLI</code> executable <code>platon</code> has a JavaScript console (a <strong>Read, Evaluate &amp; Print Loop</strong> = REPL exposing the JSRE), which can be started with the <code>console</code> or <code>attach</code> subcommand. The <code>console</code> subcommands starts the platon node and then opens the console. The <code>attach</code> subcommand will not start the platon node but instead tries to open the console on a running platon instance.</p>
-<pre><code class="hljs">$ platon console
-$ platon attach
-</code></pre>
-<p>The attach node accepts an endpoint in case the platon node is running with a non default ipc endpoint or you would like to connect over the rpc interface.</p>
-<pre><code class="hljs">$ platon attach ipc:/some/custom/path
-$ platon attach http://191.168.1.1:6789
-$ platon attach ws://191.168.1.1:6790
-</code></pre>
-<p>Note that by default the platon node doesn't start the http and weboscket service and not all functionality is provided over these interfaces due to security reasons. These defaults can be overridden when the <code>--rpcapi</code> and <code>--wsapi</code> arguments when the platon node is started, or with <a href="admin_startRPC">admin.startRPC</a> and <a href="admin_startWS">admin.startWS</a>.</p>
-<p>If you need log information, start with:</p>
-<pre><code class="hljs">$ platon --verbosity 5 console 2&gt;&gt; /tmp/eth.log
-</code></pre>
-<p>Otherwise mute your logs, so that it does not pollute your console:</p>
-<pre><code class="hljs">$ platon console 2&gt;&gt; /dev/null
-</code></pre>
-<p>or</p>
-<pre><code class="hljs">$ platon --verbosity 0 console
-</code></pre>
-<p>PlatON has support to load custom JavaScript files into the console through the <code>--preload</code> argument. This can be used to load often used functions, setup web3 contract objects, or ...</p>
-<pre><code class="hljs">platon --preload <span class="hljs-string">"/my/scripts/folder/utils.js,/my/scripts/folder/contracts.js"</span><span class="hljs-built_in"> console
-</span>
-
-</code></pre>
-<h3><a class="anchor" aria-hidden="true" id="non-interactive-use-jsre-script-mode"></a><a href="#non-interactive-use-jsre-script-mode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Non-interactive use: JSRE script mode</h3>
-<p>It's also possible to execute files to the JavaScript interpreter. The <code>console</code> and <code>attach</code> subcommand accept the <code>--exec</code> argument which is a javascript statement.</p>
-<pre><code class="hljs">$ platon --exec &quot;eth.blockNumber&quot; attach
-</code></pre>
-<p>This prints the current block number of a running platon instance.</p>
-<p>Or execute a local script with more complex statements on a remote node over http:</p>
-<pre><code class="hljs">$ platon --exec 'loadScript(&quot;/tmp/checkbalances.js&quot;)' attach http://123.123.123.123:6789
-$ platon --jspath &quot;/tmp&quot; --exec 'loadScript(&quot;checkbalances.js&quot;)' attach http://123.123.123.123:6789
-</code></pre>
-<p>Use the <code>--jspath &lt;path/to/my/js/root&gt;</code> to set a libdir for your js scripts. Parameters to <code>loadScript()</code> with no absolute path will be understood relative to this directory.</p>
-<p>You can exit the console cleanly by typing <code>exit</code> or simply with <code>CTRL-C</code>.</p>
-<h3><a class="anchor" aria-hidden="true" id="caveat"></a><a href="#caveat" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Caveat</h3>
-<p>The platon JSRE uses the <a href="https://github.com/robertkrimen/otto">Otto JS VM</a> which has some limitations:</p>
+<p>Back to:</p>
 <ul>
-<li>&quot;use strict&quot; will parse, but does nothing.</li>
-<li>The regular expression engine (re2/regexp) is not fully compatible with the ECMA5 specification.</li>
+<li>Wallet address</li>
 </ul>
-<p>Note that the other known limitation of Otto (namely the lack of timers) is taken care of. PlatON JSRE implements both <code>setTimeout</code> and <code>setInterval</code>. In addition to this, the console provides <code>admin.sleep(seconds)</code> as well as a &quot;blocktime sleep&quot; method <code>admin.sleepBlocks(number)</code>.</p>
-<p>Since <code>web3.js</code> uses the <a href="https://github.com/MikeMcl/bignumber.js"><code>bignumber.js</code></a> library (MIT Expat Licence), it is also autoloded.</p>
-<h3><a class="anchor" aria-hidden="true" id="timers"></a><a href="#timers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Timers</h3>
-<p>In addition to the full functionality of JS (as per ECMA5), the platon JSRE is augmented with various timers. It implements <code>setInterval</code>, <code>clearInterval</code>, <code>setTimeout</code>, <code>clearTimeout</code> you may be used to using in browser windows. It also provides implementation for <code>admin.sleep(seconds)</code> and a block based timer, <code>admin.sleepBlocks(n)</code> which sleeps till the number of new blocks added is equal to or greater than <code>n</code>, think &quot;wait for n confirmations&quot;.</p>
-<h3><a class="anchor" aria-hidden="true" id="management-apis"></a><a href="#management-apis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Management APIs</h3>
-<p>Beside the official interface the platon node has support for additional management API's. These API's are offered using <a href="http://www.jsonrpc.org/specification">JSON-RPC</a> and follow the same conventions as used in the DApp API. The platon package comes with a console client which has support for all additional API's.</p>
-<p><a href="https://github.com/ethereum/go-ethereum/wiki/Management-APIs">For more information please visit the Ethereum's management API wiki page</a>.</p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/MTool_Manual"><span class="arrow-prev">← </span><span>MTool Tutorials</span></a><a class="docs-next button" href="/docs/en/Install_PlatON"><span class="function-name-prevnext">Intall PlatON</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#platon">platon</a></li><li><a href="#ctool">ctool</a><ul class="toc-headings"><li><a href="#introduction"><strong>Introduction</strong></a></li><li><a href="#user-manual"><strong>User Manual</strong></a></li><li><a href="#configuration-file"><strong>Configuration file</strong></a></li><li><a href="#deploy--a-contract"><strong>Deploy</strong>  <strong>a contract</strong></a></li><li><a href="#sending-the-transaction"><strong>Sending the transaction</strong></a></li><li><a href="#inquiring-the-result"><strong>Inquiring the result</strong></a></li><li><a href="#inquiring-the-transaction-receipt"><strong>Inquiring the transaction receipt</strong></a></li><li><a href="#faqs-and-tips"><strong>FAQs and Tips</strong></a></li><li><a href="#more-questions"><strong>More questions</strong></a></li></ul></li><li><a href="#console">console</a><ul class="toc-headings"><li><a href="#interactive-use-the-jsre-repl--console">Interactive use: the JSRE REPL  Console</a></li><li><a href="#non-interactive-use-jsre-script-mode">Non-interactive use: JSRE script mode</a></li><li><a href="#caveat">Caveat</a></li><li><a href="#timers">Timers</a></li><li><a href="#management-apis">Management APIs</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</blockquote>
+<p>example:</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'personal.importRawKey ("842d943dbb50a8d3fe63af2f82fda3d8f0ca817fe8d47e61698142bac7c24212", "88888888")'</span>
+</code></pre></li>
+<li><p>View account address</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'personal.listAccounts'</span>
+</code></pre></li>
+<li><p>View local wallet information, including wallet address, wallet file path, wallet status</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'personal.listWallets'</span>
+</code></pre></li>
+<li><p>Lock account</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'personal.lockAccount(platon.accounts[0])'</span>
+</code></pre></li>
+<li><p>Unlock account</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'personal.unlockAccount(platon.accounts[0], "88888888", 24*3600)'</span>
+</code></pre>
+<blockquote>
+<p>Parameters:</p>
+<ul>
+<li>Account address</li>
+<li>Wallet password</li>
+<li>Unlock time in seconds</li>
+</ul>
+</blockquote></li>
+<li><p>Send unsigned transactions</p>
+<pre><code class="hljs css language-shell">platon attach http://localhost:6789 -exec 'personal.sendTransaction({from: platon.accounts[2], to: platon.accounts[0], value:web3.toVon("0.1","lat"), nonce: platon.getTransactionCount(platon.accounts[2])}, "88888888") '
+</code></pre></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="net"></a><a href="#net" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>net</h3>
+<ul>
+<li><p>View the networkid of the current node</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> net.version
+</code></pre></li>
+<li><p>Check whether the p2p port of the current node is in the listening state</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> net.listening
+</code></pre></li>
+<li><p>View the number of peer connections of the current node</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> net.peerCount
+</code></pre></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="debug"></a><a href="#debug" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>debug</h3>
+<ul>
+<li><p>Query current node economic model configuration parameters</p>
+<pre><code class="hljs css language-bash">platon attach http://localhost:6789 -<span class="hljs-built_in">exec</span> <span class="hljs-string">'debug.economicConfig()'</span>
+</code></pre></li>
+<li><p>Set log level</p>
+<pre><code class="hljs css language-shell">platon attach http://localhost:6789 -exec 'debug.verbosity(4)'
+</code></pre>
+<blockquote>
+<p>Log level description:</p>
+<p>0: CRIT</p>
+<p>1: ERROR</p>
+<p>2: WARN</p>
+<p>3: INFO</p>
+<p>4: DEBUG</p>
+<p>5: TRACE</p>
+</blockquote></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/MTool_Manual"><span class="arrow-prev">← </span><span>MTool Tutorials</span></a><a class="docs-next button" href="/docs/en/Install_PlatON"><span class="function-name-prevnext">Intall PlatON</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introducing-the-program-platon-instructions">Introducing the program PlatON instructions</a></li><li><a href="#common-rpc-commands">Common rpc commands</a><ul class="toc-headings"><li><a href="#admin">admin</a></li><li><a href="#platon">platon</a></li><li><a href="#personal">personal</a></li><li><a href="#net">net</a></li><li><a href="#debug">debug</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
