@@ -4,13 +4,7 @@ title: PlatON命令行工具
 sidebar_label: PlatON命令行工具
 ---
 
-- [platon](#platon)
-- [ctool](#ctool)
-- [console](#console)
-
-## platon 
-
-- `Platon` 命令行参数说明。
+## PlatON命令行参数说明 
 
 ```conf
 NAME:
@@ -204,206 +198,284 @@ COPYRIGHT:
 ```
 ---
 
-## ctool
+## 常用rpc命令
 
-- 一个可以快速的进行合约发布、调用、查询的命令行工具。
+- 说明
+  - rpc端口根据实际的启动命令进行变更，默认为：6789
 
-### 简介 
+### admin
 
-`ctool`：一个可用于快速进行合约发布、交易发送（合约调用）、查询的简易工具集。
+- 查看当前节点数据目录
 
-下载地址：
+  ```bash
+  platon attach http://localhost:6789 -exec admin.datadir
+  ```
 
-* [window 版本](https://download.platon.network/ctool-windows-amd64.exe)
-* [Linux 版本](https://download.platon.network/ctool-linux-amd64)
+- 查看当前节点的ChainID
 
-### **使用说明**
+  ```bash
+  platon attach http://localhost:6789 -exec admin.nodeInfo.protocols.platon.config.chainId
+  ```
 
-```
-$ ctool.exe <command> [--addr contractAddress] [--type txType(default:2)] [--func funcInfo] --abi <abi_path> --code <wasm_path> [--config <config_path>]
-```
+- 查看当前节点的id
 
-* `command` 待执行的命令,主要有：deploy(发布合约)、invoke(合约调用)、getTxReceipt(查询回执)；
-* `abi_path` ABI文件的路径，示例中为：`firstdemo.cpp.abi.json`；
-* `wasm_path` WASM文件路径，示例中为：`firstdemo.wasm`；
-* `config_path` 配置文件路径，用于配置节点及账户信息；
+  ```bash
+  platon attach http://localhost:6789 -exec admin.nodeInfo.id
+  ```
 
-**命令行选项**
+- 查看当前节点的blsPubKey
 
-* `--addr`：调用合约时使用，用于指明需要调用的合约地址；
-* `--type`：调用合约时指定当次的交易类型，如果未指定则默认为`2`。可取值为：`2`(普通交易)、`5`(MPC交易)
-* `--func`：调用合约时用于指定调用的方法名，如：--func 'sayHello("你好")'
+  ```bash
+  platon attach http://localhost:6789 -exec admin.nodeInfo.blsPubKey
+  ```
 
-提示：如果命令行中未明确指明配置文件路径，则会在当前工作路径读取文件：`config.json`。 
+- 查看当前节点的p2p端口号
 
-### **配置文件**
+  ```
+  platon attach http://localhost:6789 -exec admin.nodeInfo.ports.listener
+  ```
 
-范例：
+- 查看当前节点的peers的连接信息
 
-```JSON
-{
-  "url":"http://127.0.0.1:8545",
-  "from":"0x60ceca9c1290ee56b98d4e160ef0453f7c40d219"
-}
-```
+  ```bash
+  platon attach http://localhost:6789 -exec admin.peers
+  ```
 
-- `url` PlatON开放的`JSON-RPC`地址信息； 
-- `from` 交易发送者的地址，注意，需要节点保证了该账户已进行了解锁动作；
+- 查看当前节点的创世区块hash
 
-### **发布合约**
+  ```bash
+  platon attach http://localhost:6789 -exec admin.nodeInfo.protocols.platon.genesis
+  ```
 
-此步用于演示如何进行合约发布，合约发布需要两个文件，一个为后缀为`.wasm`(合约二进制)文件，
-另一个为后缀`.json`(合约接口描述)文件。如何获取这两个文件请参考：[WASM合约开发指南](/docs/zh-CN/WASM_Smart_Contract)
+- 查看cbft共识每个共识轮单个节点的最大出块数($amount)
 
+  ```bash
+  platon attach http://localhost:6789 -exec admin.nodeInfo.protocols.platon.config.cbft.amount
+  ```
 
-```shell
-$ ctool.exe deploy --abi ./demo.cpp.abi.json --code ./demo.wasm --config ./config.json
-```
+- 查看cbft共识每个共识轮单个节点的出块的时间窗口（$period，单位：ms）
 
+  ```bash
+  platon attach http://localhost:6789 -exec admin.nodeInfo.protocols.platon.config.cbft.period
+  ```
 
-```
-trasaction hash: 0xdb0f9a28fcd447702e8d5961f47144d1ea830979e3c984acc8f72c0dca8bdcfc
-contract address: 0x43355c787c50b647c425f594b441d4bd751951c1
-```
+  >**出块时间间隔 = period / 1000 / amount**
 
-命令执行后，会返回交易哈希与合约地址。
+- 获取二进制版本号和签名信息
 
-### **发送交易**
+  ```bash
+  platon attach http://localhost:6789 -exec 'admin.getProgramVersion()'
+  ```
 
-合约发布成功后，接下来进行合约调用，假定测试合约中包含了方法`sayHello(string _word);`,现在对
-该方法进行调用：
+- 获取零知识证明信息（用节点私钥去证明该接口出的证明是否正确，用于节点质押）
 
+  ```bash
+  platon attach http://localhost:6789 -exec 'admin.getSchnorrNIZKProve()'
+  ```
 
-```shell 
-$ ctool.exe invoke -addr "0x43355c787c50b647c425f594b441d4bd751951c1" --func 'sayHello("HelloWorld")' --abi ./demo.cpp.abi.json --config ./config.json
-```
+- 查看底层使用的虚机类型（EVM/WASM）
 
-### **查询结果**
+  ```bash
+  platon attach http://localhost:6789 -exec admin.nodeInfo.protocols.platon.config.interpreter
+  ```
 
-继续假设，在上一步我们执行了合约方法`sayHello`,下一步我们将调用该函数将存储的值读取出来，这种动作
-我们称为查询（call）调用。假定测试合约用包含方法：`char* getWorld()`，调用如下：
+### platon
 
+- 查看当前节点下所有的钱包地址
 
-```shell 
-$ ctool.exe invoke -addr "0x43355c787c50b647c425f594b441d4bd751951c1" --func 'getWorld()' --abi ./demo.cpp.abi.json --config ./config.json
-```
+  ```bash
+  platon attach http://localhost:6789 -exec platon.accounts
+  ```
 
-> 预期结果获取到屏幕输出的结果应该为：`HelloWorld`。
+- 查看当前节点的块高
 
-### **查询交易回执**
+  ```bash
+  platon attach http://localhost:6789 -exec platon.blockNumber
+  ```
 
-有时候可能需要对交易发送后的回执信息进行查看，则：
+- 查询指定账户的余额($account为账户地址)
 
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.getBalance("$account")'
+  ```
 
-```shell 
-$ ctool.exe getTxReceipt 0x0b8996dadd6fd821f055affd1f95dbdf718d288a17e4ac5ed4133f3393bca44d(交易哈希)
-```
+- 查询指定块的交易数量($blockNumber为指定块的块高或区块hash)
 
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.getBlockTransactionCount($blockNumber)'
+  ```
 
-### 常见问题及注意事项
+- 查询交易信息($txHash为交易hash)
 
-- 注意事项
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.getTransaction("$txHash")'
+  ```
 
-1.使用命令工具前请确保您使用的节点正常可用；
+- 查询交易回执($txHash为交易hash)
 
-2.一般比较明显的错误在执行工具后会在控制台进行输出；
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.getTransactionReceipt("$txHash")'
+  ```
 
-3.使用工具进行交易发送要求当前使用的账号在对应链接的节点已进行解锁操作；
+- 查询指定账户的交易数（参数$address为账户地址，用于发交易时指定交易的nonce）
 
-- 基础问题
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.getTransactionCount("$address")'
+  ```
 
-1.合约无法发布问题？
+- 查询当前节点正在pending的交易
 
-**A**: 请确保配置文件中的能量设置合理，使用的账户已在节点侧解锁。
+  ```bash
+  platon attach http://localhost:6789 -exec platon.pendingTransactions
+  ```
 
+- 查看当前节点默认的gasPrice(单位：von)
 
-### 更多问题
+  ```bash
+  platon attach http://localhost:6789 -exec platon.gasPrice
+  ```
 
-如果你有其他问题，或者你的问题在这里找不到答案，请提交一个 [issue](https://github.com/PlatONnetwork/PlatON-Go/issues/new) 。
+- 预估交易的gas(参数$transaction为交易详情，单位：von)
 
----
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.estimateGas($transaction)'
+  ```
 
-## console
+  如：
 
-- 可以在交互式（控制台）或非交互式（脚本）模式下使用的javascript运行时环境（JSRE）.
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.estimateGas({from:"0x493301712671ada506ba6ca7891f436d29185821",to:"0x15fffb839e5385ad61aef90e53c4d7ff550ece7e",value:"0x10000000000000",data:"0x11",gas:"0x88888",gasprice:"0x333333",nonce:"11"})'
+  ```
 
-PlatON console are based on Ethereum javascript console.
+- 查看当前节点底层版本的p2p协议号
 
-### Interactive use: the JSRE REPL  Console
+  ```bash
+  platon attach http://localhost:6789 -exec 'web3.toDecimal(platon.protocolVersion)'
+  ```
 
-The `PlatON CLI` executable `platon` has a JavaScript console (a **Read, Evaluate & Print Loop** = REPL exposing the JSRE), which can be started with the `console` or `attach` subcommand. The `console` subcommands starts the platon node and then opens the console. The `attach` subcommand will not start the platon node but instead tries to open the console on a running platon instance.
+- 查看当前节点是否在同步
 
-    $ platon console
-    $ platon attach
+  ```bash
+  platon attach http://localhost:6789 -exec platon.syncing
+  ```
 
-The attach node accepts an endpoint in case the platon node is running with a non default ipc endpoint or you would like to connect over the rpc interface.
+- 获取指定区块详情
 
-    $ platon attach ipc:/some/custom/path
-    $ platon attach http://191.168.1.1:6789
-    $ platon attach ws://191.168.1.1:6790
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.getBlock($blockNumber)
+  ```
 
-Note that by default the platon node doesn't start the http and weboscket service and not all functionality is provided over these interfaces due to security reasons. These defaults can be overridden when the `--rpcapi` and `--wsapi` arguments when the platon node is started, or with [admin.startRPC](admin_startRPC) and [admin.startWS](admin_startWS).
+### personal
 
-If you need log information, start with:
+- 生成钱包(参数为钱包密码)
 
-    $ platon --verbosity 5 console 2>> /tmp/eth.log
+  ```bash
+  platon attach http://localhost:6789 -exec 'personal.newAccount("88888888")'
+  ```
 
-Otherwise mute your logs, so that it does not pollute your console:
+- 导入私钥，生成钱包
 
-    $ platon console 2>> /dev/null
+  ```bash
+  platon attach http://localhost:6789 -exec 'personal.importRawKey($privateKey,$password)'
+  ```
 
-or 
+  > 参数：
+  >
+  > - privateKey：私钥，去除开头的0x
+  > - password：钱包密码
+  >
+  > 返回：
+  >
+  > - 钱包地址
 
-    $ platon --verbosity 0 console
+  例子：
 
-PlatON has support to load custom JavaScript files into the console through the `--preload` argument. This can be used to load often used functions, setup web3 contract objects, or ...
+  ```bash
+  platon attach http://localhost:6789 -exec 'personal.importRawKey("842d943dbb50a8d3fe63af2f82fda3d8f0ca817fe8d47e61698142bac7c24212","88888888")'
+  ```
 
+- 查看账户地址
 
-```
-platon --preload "/my/scripts/folder/utils.js,/my/scripts/folder/contracts.js" console
+  ```bash
+  platon attach http://localhost:6789 -exec 'personal.listAccounts'
+  ```
 
+- 查看本地钱包信息，包括钱包地址，钱包文件路径，钱包状态
 
-```
+  ```bash
+  platon attach http://localhost:6789 -exec 'personal.listWallets'
+  ```
 
+- 锁账户
 
-### Non-interactive use: JSRE script mode
+  ```bash
+  platon attach http://localhost:6789 -exec 'personal.lockAccount(platon.accounts[0])'
+  ```
 
-It's also possible to execute files to the JavaScript interpreter. The `console` and `attach` subcommand accept the `--exec` argument which is a javascript statement. 
+- 解锁账户
 
-    $ platon --exec "eth.blockNumber" attach
+  ```bash
+  platon attach http://localhost:6789 -exec 'personal.unlockAccount(platon.accounts[0],"88888888",24*3600)'
+  ```
 
-This prints the current block number of a running platon instance.
+  > 参数：
+  >
+  > - 账户地址
+  > - 钱包密码
+  > - 解锁时间，单位：秒
 
-Or execute a local script with more complex statements on a remote node over http:
+  - 发送未签名的交易
 
-    $ platon --exec 'loadScript("/tmp/checkbalances.js")' attach http://123.123.123.123:6789
-    $ platon --jspath "/tmp" --exec 'loadScript("checkbalances.js")' attach http://123.123.123.123:6789
+  ```shell
+  platon attach http://localhost:6789 -exec 'personal.sendTransaction({from:platon.accounts[2],to:platon.accounts[0],value:web3.toVon("0.1","lat"),nonce:platon.getTransactionCount(platon.accounts[2])},"88888888")'
+  ```
 
-Use the `--jspath <path/to/my/js/root>` to set a libdir for your js scripts. Parameters to `loadScript()` with no absolute path will be understood relative to this directory.
+### net
 
-You can exit the console cleanly by typing `exit` or simply with `CTRL-C`.
+- 查看当前节点的networkid
 
-### Caveat 
+  ```bash
+  platon attach http://localhost:6789 -exec net.version
+  ```
 
-The platon JSRE uses the [Otto JS VM](https://github.com/robertkrimen/otto) which has some limitations:
+- 查看当前节点的p2p端口是否处于监听状态
 
-* "use strict" will parse, but does nothing.
-* The regular expression engine (re2/regexp) is not fully compatible with the ECMA5 specification.
+  ```bash
+  platon attach http://localhost:6789 -exec net.listening
+  ```
 
-Note that the other known limitation of Otto (namely the lack of timers) is taken care of. PlatON JSRE implements both `setTimeout` and `setInterval`. In addition to this, the console provides `admin.sleep(seconds)` as well as a "blocktime sleep" method `admin.sleepBlocks(number)`. 
+- 查看当前节点的peers连接数
 
-Since `web3.js` uses the [`bignumber.js`](https://github.com/MikeMcl/bignumber.js) library (MIT Expat Licence), it is also autoloded.
+  ```bash
+  platon attach http://localhost:6789 -exec net.peerCount
+  ```
 
-### Timers
+### debug
 
-In addition to the full functionality of JS (as per ECMA5), the platon JSRE is augmented with various timers. It implements `setInterval`, `clearInterval`, `setTimeout`, `clearTimeout` you may be used to using in browser windows. It also provides implementation for `admin.sleep(seconds)` and a block based timer, `admin.sleepBlocks(n)` which sleeps till the number of new blocks added is equal to or greater than `n`, think "wait for n confirmations". 
+- 查询当前节点经济模型配置参数
 
-### Management APIs
+  ```bash
+  platon attach http://localhost:6789 -exec 'debug.economicConfig()'
+  ```
 
-Beside the official interface the platon node has support for additional management API's. These API's are offered using [JSON-RPC](http://www.jsonrpc.org/specification) and follow the same conventions as used in the DApp API. The platon package comes with a console client which has support for all additional API's.
+- 设置日志级别
 
-[For more information please visit the Ethereum's management API wiki page](https://github.com/ethereum/go-ethereum/wiki/Management-APIs).
+  ```shell
+  platon attach http://localhost:6789 -exec 'debug.verbosity(4)'
+  ```
 
-
+  >日志级别说明：
+  >
+  >0：CRIT
+  >
+  >1：ERROR
+  >
+  >2：WARN
+  >
+  >3：INFO
+  >
+  >4：DEBUG
+  >
+  >5：TRACE
 
 

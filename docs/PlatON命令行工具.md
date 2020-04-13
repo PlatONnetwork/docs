@@ -4,13 +4,8 @@ title: PlatON Command Line Tools
 sidebar_label: PlatON Command line tools
 ---
 
-- [platon](#platon)
-- [ctool](#ctool)
-- [console](#console)
+## Introducing the program PlatON instructions 
 
-## platon 
-
-- Introducing the program `platon` instructions
 ```conf
 NAME:
    platon.exe - the go-platon command line interface
@@ -202,196 +197,281 @@ COPYRIGHT:
    Copyright 2013-2018 The PlatON-Go Authors
 ```
 
----
+## Common rpc commands
 
-## ctool
+- Description
+  - The rpc port is changed according to the actual startup command, the default is:6789
 
-- Easy tools for contract deploy, transaction delivery and call functions.
+### admin
 
-**User Guide**  **of ctool**
+- View the current node data directory
 
-### **Introduction**
+  ```bash
+  platon attach http://localhost:6789 -exec admin.datadir
+  ```
 
-ctool: a small tool set that can be used to quickly deploy contracts, send transactions (make contract call), and make other inquiries.
+- View the ChainID of the current node
 
-- Windows version
+  ```bash
+  platon attach http://localhost:6789 -exec admin.nodeInfo.protocols.platon.config.chainId
+  ```
 
-Currently only windows version is available. Versions for other platforms are still in development.
+- View the id of the current node
 
-### **User Manual**
+  ```bash
+  platon attach http://localhost:6789 -exec admin.nodeInfo.id
+  ```
 
-``` 
-$ ctool.exe <command> [--addr contractAddress] [--type txType(default:2)] [--func funcInfo] --abi <abi_path> --code <wasm_path> [--config <config_path>]
-```
+- View the blsPubKey of the current node
 
-- **command**  - the command to be executed, including: deploy, invoke, getTxReceipt (get transaction receipt)
-- **abi\_path** - path for the ABI file, which is **firstdemo.cpp.abi.json** in the example
-- **wasm\_path** - path for the WASM file, which is **firstdemo.wasm** in the example
-- **config\_path** - path the configuration file, which is used to configure nodes and account information
+  ```bash
+  platon attach http://localhost:6789 -exec admin.nodeInfo.blsPubKey
+  ```
 
-**Command options**
+- View the p2p port number of the current node
 
-- **--addr** : the contract address to be invoked
-- **--type** : transaction type.  Value 2 indicates normal transaction, and 5  indicates MPC transaction. Default value is 2 if nothing specified.
-- **--func** : function name of current contract to be invoked, such as: --func 'sayHello'
+  ```
+  platon attach http://localhost:6789 -exec admin.nodeInfo.ports.listener
+  ```
 
-Please note: if the configuration file's path is unspecified in the command line, the program will read the config file - **config.json** - in the current directory.
+- View the connection information of peers of the current node
 
-### **Configuration file**
+  ```bash
+  platon attach http://localhost:6789 -exec admin.peers
+  ```
 
-Example:
+- View the genesis block hash of the current node
 
-``` 
-{
+  ```bash
+  platon attach http://localhost:6789 -exec admin.nodeInfo.protocols.platon.genesis
+  ```
 
- "url":"http://127.0.0.1:8545",
+- View the maximum number of blocks ($amount) of a single node in each consensus round of cbft consensus
 
- "from":"0x60ceca9c1290ee56b98d4e160ef0453f7c40d219"
+  ```bash
+  platon attach http://localhost:6789 -exec admin.nodeInfo.protocols.platon.config.cbft.amount
+  ```
 
-}
-```
+- View the time window of block generation by a single node in each consensus round of cbft consensus ($period, unit: ms)
 
-- **url** - the address of PlatON **JSON-RPC**
-- **from** - the wallet address of the transaction sender. Please nte that it requires the node to guarantee that the account is already unlocked
+  ```bash
+  platon attach http://localhost:6789 -exec admin.nodeInfo.protocols.platon.config.cbft.period
+  ```
 
-### **Deploy**  **a contract**
+  > **Blocking time interval = period / 1000 / amount**
 
-This step is used to demonstrate how to publish a contract. This step need two files, one ending in **.wasm** (the contract binary) file, and another ending in **.json** ( the contract port description). About how to acquire these two files please see: **[WASM contract development guide](/docs/en/WASM_Smart_Contract)**
+- Get the binary version number and signature information
 
-``` 
-$ ctool.exe deploy --abi ./demo.cpp.abi.json --code ./demo.wasm --config ./config.json
+  ```bash
+  platon attach http://localhost:6789 -exec 'admin.getProgramVersion()'
+  ```
 
-trasaction hash: 0xdb0f9a28fcd447702e8d5961f47144d1ea830979e3c984acc8f72c0dca8bdcfc
+- Obtain zero- knowledge proof information (use the node's private key to prove whether the certificate issued by the interface is correct and used for node pledge)
 
-contract address: 0x43355c787c50b647c425f594b441d4bd751951c1
-```
+  ```bash
+  platon attach http://localhost:6789 -exec 'admin.getSchnorrNIZKProve()'
+  ```
 
-After the commands executes, it returns the transaction hash and the contract address.
+- View the type of virtual machine used at the bottom (EVM / WASM)
 
-### **Sending the transaction**
+  ```bash
+  platon attach http://localhost:6789 -exec admin.nodeInfo.protocols.platon.config.interpreter
+  ```
 
-After successfully deployed the contract, the next step is toinvoke it. Assume that the test contract contains the method **sayHello**. Now we invoke this method:
+### platon
 
-``` 
-$ ctool.exe invoke -addr "0x43355c787c50b647c425f594b441d4bd751951c1" --func 'sayHello("HelloWorld")' --abi ./demo.cpp.abi.json --config ./config.json
-```
-### **Inquiring the result**
+- View all wallet addresses under the current node
 
-Further assume that, in the previous step we used the contract method **sayHello**. Then we will read the values stored by this method. This action of inquiry is called a **call**. Assume the test contract contains **char \* getWorld()**, then the deployment is as follows:
+  ```bash
+  platon attach http://localhost:6789 -exec platon.accounts
+  ```
 
-``` 
-$ ctool.exe invoke -addr "0x43355c787c50b647c425f594b441d4bd751951c1" --func 'getWorld()' --abi ./demo.cpp.abi.json --config ./config.json
-```
-The expected resulting output on the screen is: **HelloWorld**.
+- View the block height of the current node
 
-### **Inquiring the transaction receipt**
+  ```bash
+  platon attach http://localhost:6789 -exec platon.blockNumber
+  ```
 
-Sometimes you need to inquire the receipt information after the transaction is sent. You can:
+- Check the balance of the specified account ($account is the account address)
 
-``` 
-$ ctool.exe getTxReceipt 0x0b8996dadd6fd821f055affd1f95dbdf718d288a17e4ac5ed4133f3393bca44d(Transaction hash number)
-```
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.getBalance("$account")'
+  ```
 
-### **FAQs and Tips**
+- Query the number of transactions in the specified block ($blockNumber is the block height or block hash of the specified block)
 
-**Tips**
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.getBlockTransactionCount($blockNumber)'
+  ```
 
-1. Before using ctool please be sure that your node is functional.
-2. Usually the more obvious errors will output onto the terminal after executing ctool.
-3. Using ctool to send transactions requires the current account to be unlocked on its associated nodes.
+- Query transaction information ($txHash is transaction hash)
 
-**FAQs**
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.getTransaction("$txHash")'
+  ```
 
-1. Cannot deploy your contract?
+- Query transaction receipt ($txHash is transaction hash)
 
-A: Please make sure that Energon setting in the configuration file is reasonable, and that the account is unlocked on associating nodes.
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.getTransactionReceipt("$txHash")'
+  ```
 
-### **More questions**
+- Query the number of transactions in the specified account (parameter $address is the account address, used to specify the nonce of the transaction when sending the transaction)
 
-If you have other questions or you can't find the answer here, please submit an issue.
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.getTransactionCount("$address")'
+  ```
 
----
+- Query the pending transaction of the current node
 
-## console
+  ```bash
+  platon attach http://localhost:6789 -exec platon.pendingTransactions
+  ```
 
-- A javascript runtime environment (JSRE) that can be used in either interactive (console) or non-interactive (script) mode.
+- View the default gasPrice of the current node (unit: von)
 
-PlatON console are based on Ethereum javascript console.
+  ```bash
+  platon attach http://localhost:6789 -exec platon.gasPrice
+  ```
 
-### Interactive use: the JSRE REPL  Console
+- Estimate the gas of the transaction (parameter $transaction is the transaction details, unit: von)
 
-The `PlatON CLI` executable `platon` has a JavaScript console (a **Read, Evaluate & Print Loop** = REPL exposing the JSRE), which can be started with the `console` or `attach` subcommand. The `console` subcommands starts the platon node and then opens the console. The `attach` subcommand will not start the platon node but instead tries to open the console on a running platon instance.
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.estimateGas($transaction)'
+  ```
 
-    $ platon console
-    $ platon attach
+  Such as:
 
-The attach node accepts an endpoint in case the platon node is running with a non default ipc endpoint or you would like to connect over the rpc interface.
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.estimateGas({from:"0x493301712671ada506ba6ca7891f436d29185821",to:"0x15fffb839e5385ad61aef90e53c4d7ff550ece7e",value:"0x10000000000000",data:"0x11",gas:"0x88888",gasprice:"0x333333",nonce:"11"})'
+  ```
 
-    $ platon attach ipc:/some/custom/path
-    $ platon attach http://191.168.1.1:6789
-    $ platon attach ws://191.168.1.1:6790
+- View the p2p protocol number of the underlying version of the current node
 
-Note that by default the platon node doesn't start the http and weboscket service and not all functionality is provided over these interfaces due to security reasons. These defaults can be overridden when the `--rpcapi` and `--wsapi` arguments when the platon node is started, or with [admin.startRPC](admin_startRPC) and [admin.startWS](admin_startWS).
+  ```bash
+  platon attach http://localhost:6789 -exec 'web3.toDecimal(platon.protocolVersion)'
+  ```
 
-If you need log information, start with:
+- See if the current node is in sync
 
-    $ platon --verbosity 5 console 2>> /tmp/eth.log
+  ```bash
+  platon attach http://localhost:6789 -exec platon.syncing
+  ```
 
-Otherwise mute your logs, so that it does not pollute your console:
+- Get details of specified block
 
-    $ platon console 2>> /dev/null
+  ```bash
+  platon attach http://localhost:6789 -exec 'platon.getBlock($blockNumber)'
+  ```
 
-or 
+### personal
 
-    $ platon --verbosity 0 console
+- Generate wallet (parameter is wallet password)
 
-PlatON has support to load custom JavaScript files into the console through the `--preload` argument. This can be used to load often used functions, setup web3 contract objects, or ...
+  ```bash
+  platon attach http://localhost:6789 -exec 'personal.newAccount("88888888")'
+  ```
 
+- Import private key to generate wallet
 
-```
-platon --preload "/my/scripts/folder/utils.js,/my/scripts/folder/contracts.js" console
+  ```bash
+  platon attach http://localhost:6789 -exec 'personal.importRawKey($privateKey, $password)'
+  ```
 
+  > Parameters:
+  >
+  >- privateKey: private key, remove the leading 0x
+  >- password: wallet password
+  >
+  > Back to:
+  >
+  >- Wallet address
 
-```
+  example:
 
-### Non-interactive use: JSRE script mode
+  ```bash
+  platon attach http://localhost:6789 -exec 'personal.importRawKey ("842d943dbb50a8d3fe63af2f82fda3d8f0ca817fe8d47e61698142bac7c24212", "88888888")'
+  ```
 
-It's also possible to execute files to the JavaScript interpreter. The `console` and `attach` subcommand accept the `--exec` argument which is a javascript statement. 
+- View account address
 
-    $ platon --exec "eth.blockNumber" attach
+  ```bash
+  platon attach http://localhost:6789 -exec 'personal.listAccounts'
+  ```
 
-This prints the current block number of a running platon instance.
+- View local wallet information, including wallet address, wallet file path, wallet status
 
-Or execute a local script with more complex statements on a remote node over http:
+  ```bash
+  platon attach http://localhost:6789 -exec 'personal.listWallets'
+  ```
 
-    $ platon --exec 'loadScript("/tmp/checkbalances.js")' attach http://123.123.123.123:6789
-    $ platon --jspath "/tmp" --exec 'loadScript("checkbalances.js")' attach http://123.123.123.123:6789
+- Lock account
 
-Use the `--jspath <path/to/my/js/root>` to set a libdir for your js scripts. Parameters to `loadScript()` with no absolute path will be understood relative to this directory.
+  ```bash
+  platon attach http://localhost:6789 -exec 'personal.lockAccount(platon.accounts[0])'
+  ```
 
-You can exit the console cleanly by typing `exit` or simply with `CTRL-C`.
+- Unlock account
 
-### Caveat 
+  ```bash
+  platon attach http://localhost:6789 -exec 'personal.unlockAccount(platon.accounts[0], "88888888", 24*3600)'
+  ```
 
-The platon JSRE uses the [Otto JS VM](https://github.com/robertkrimen/otto) which has some limitations:
+  > Parameters:
+  >
+  > - Account address
+  > - Wallet password
+  > - Unlock time in seconds
 
-* "use strict" will parse, but does nothing.
-* The regular expression engine (re2/regexp) is not fully compatible with the ECMA5 specification.
+- Send unsigned transactions
+  ```shell
+  platon attach http://localhost:6789 -exec 'personal.sendTransaction({from: platon.accounts[2], to: platon.accounts[0], value:web3.toVon("0.1","lat"), nonce: platon.getTransactionCount(platon.accounts[2])}, "88888888") '
+  ```
 
-Note that the other known limitation of Otto (namely the lack of timers) is taken care of. PlatON JSRE implements both `setTimeout` and `setInterval`. In addition to this, the console provides `admin.sleep(seconds)` as well as a "blocktime sleep" method `admin.sleepBlocks(number)`. 
+### net
 
-Since `web3.js` uses the [`bignumber.js`](https://github.com/MikeMcl/bignumber.js) library (MIT Expat Licence), it is also autoloded.
+- View the networkid of the current node
 
-### Timers
+  ```bash
+  platon attach http://localhost:6789 -exec net.version
+  ```
 
-In addition to the full functionality of JS (as per ECMA5), the platon JSRE is augmented with various timers. It implements `setInterval`, `clearInterval`, `setTimeout`, `clearTimeout` you may be used to using in browser windows. It also provides implementation for `admin.sleep(seconds)` and a block based timer, `admin.sleepBlocks(n)` which sleeps till the number of new blocks added is equal to or greater than `n`, think "wait for n confirmations". 
+- Check whether the p2p port of the current node is in the listening state
 
-### Management APIs
+  ```bash
+  platon attach http://localhost:6789 -exec net.listening
+  ```
 
-Beside the official interface the platon node has support for additional management API's. These API's are offered using [JSON-RPC](http://www.jsonrpc.org/specification) and follow the same conventions as used in the DApp API. The platon package comes with a console client which has support for all additional API's.
+- View the number of peer connections of the current node
 
-[For more information please visit the Ethereum's management API wiki page](https://github.com/ethereum/go-ethereum/wiki/Management-APIs).
+  ```bash
+  platon attach http://localhost:6789 -exec net.peerCount
+  ```
 
+### debug
 
+- Query current node economic model configuration parameters
 
+  ```bash
+  platon attach http://localhost:6789 -exec 'debug.economicConfig()'
+  ```
 
+- Set log level
+
+  ```shell
+  platon attach http://localhost:6789 -exec 'debug.verbosity(4)'
+  ```
+
+  > Log level description:
+  >
+  > 0: CRIT
+  >
+  > 1: ERROR
+  >
+  > 2: WARN
+  >
+  > 3: INFO
+  >
+  > 4: DEBUG
+  >
+  > 5: TRACE
