@@ -104,7 +104,7 @@
 <ul>
 <li><strong>生成创世块配置文件<code>platon.json</code></strong></li>
 </ul>
-<p>在~/platon-node目录下创建创世区块配置文件platon.json，然后将以下的创世区块配置文件模板内容拷贝到platon.json文件中，修改 <code>your-node-pubkey</code> 为之前生成的<strong><em>节点公钥(nodekey)</em></strong>，<code>your-node-blspubkey</code> 为 <strong><em>节点bls公钥(blspub)</em></strong>，<code>your-account-address</code>为 <strong><em>创建钱包的地址(Address)</em></strong>：</p>
+<p>在~/platon-node目录下创建创世区块配置文件platon.json，然后将以下的创世区块配置文件模板内容拷贝到platon.json文件中，修改 <code>your-node-pubkey</code> 为之前生成的<strong><em>节点公钥(nodeid)</em></strong>，<code>your-node-blspubkey</code> 为 <strong><em>节点bls公钥(blspub)</em></strong>，<code>your-account-address</code>为 <strong><em>创建钱包的地址(Address)</em></strong>：</p>
 <pre><code class="hljs css language-json">{
     <span class="hljs-attr">"config"</span>: {
         <span class="hljs-attr">"chainId"</span>: <span class="hljs-number">299</span>,
@@ -116,7 +116,7 @@
                 <span class="hljs-attr">"blsPubKey"</span>: <span class="hljs-string">"your-node-blspubkey"</span>
             }],
             <span class="hljs-attr">"amount"</span>: <span class="hljs-number">10</span>,
-            <span class="hljs-attr">"period"</span>: <span class="hljs-number">20000</span>,
+            <span class="hljs-attr">"period"</span>: <span class="hljs-number">10000</span>,
             <span class="hljs-attr">"validatorMode"</span>: <span class="hljs-string">"ppos"</span>
         },
         <span class="hljs-attr">"genesisVersion"</span>: <span class="hljs-number">2304</span>

@@ -104,7 +104,7 @@
 <ul>
 <li><strong>Generate the creation block configuration file <code>platon.json</code></strong></li>
 </ul>
-<p>Create the creation block configuration file platon. Json in the <code>~/platon-node</code> directory, then copy the following creation block configuration file template content to platon. Json file, modify <code>your-node-pubkey</code> as the previously generated <strong><em>node public key (nodekey)</em></strong>, <code>your-node-blspubkey</code> as <strong><em>node BLS public key (blspub)</em></strong>, <code>your-account-address</code> as <strong><em>the wallet address</em></strong> of generate wallet file:</p>
+<p>Create the creation block configuration file platon. Json in the <code>~/platon-node</code> directory, then copy the following creation block configuration file template content to platon. Json file, modify <code>your-node-pubkey</code> as the previously generated <strong><em>node public key (nodeid)</em></strong>, <code>your-node-blspubkey</code> as <strong><em>node BLS public key (blspub)</em></strong>, <code>your-account-address</code> as <strong><em>the wallet address</em></strong> of generate wallet file:</p>
 <pre><code class="hljs css language-json">{
     <span class="hljs-attr">"config"</span>: {
         <span class="hljs-attr">"chainId"</span>: <span class="hljs-number">299</span>,
@@ -116,7 +116,7 @@
                 <span class="hljs-attr">"blsPubKey"</span>: <span class="hljs-string">"your-node-blspubkey"</span>
             }],
             <span class="hljs-attr">"amount"</span>: <span class="hljs-number">10</span>,
-            <span class="hljs-attr">"period"</span>: <span class="hljs-number">20000</span>,
+            <span class="hljs-attr">"period"</span>: <span class="hljs-number">10000</span>,
             <span class="hljs-attr">"validatorMode"</span>: <span class="hljs-string">"ppos"</span>
         },
         <span class="hljs-attr">"genesisVersion"</span>: <span class="hljs-number">2304</span>
