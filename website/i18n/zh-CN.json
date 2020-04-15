@@ -74,8 +74,8 @@
         "sidebar_label": "WASM智能合约"
       },
 	  "Install_PlatON": {
-        "title": "安装PlatON",
-        "sidebar_label": "安装PlatON"
+        "title": "源码安装PlatON",
+        "sidebar_label": "源码安装PlatON"
       },
 	  "Build_Private_Chain": {
         "title": "部署私有测试网",

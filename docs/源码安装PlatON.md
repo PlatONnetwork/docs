@@ -1,7 +1,7 @@
 ---
 id: Install_PlatON
-title: Intall PlatON
-sidebar_label: Intall PlatON
+title: Source Installation PlatON
+sidebar_label: Source Installation PlatON
 ---
 
 

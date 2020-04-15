@@ -69,10 +69,6 @@
         "title": "Secure Multi Party Computation",
         "sidebar_label": "Secure Multi Party Computationn"
       },
-      "Install_PlatON": {
-        "title": "Intall PlatON",
-        "sidebar_label": "Intall PlatON"
-      },
       "Install_Node": {
         "title": "Install and Deploy a Node",
         "sidebar_label": "Install and Deploy a Node"
@@ -84,6 +80,10 @@
       "Build_Private_Chain": {
         "title": "Deploy Your Own Private Testnet",
         "sidebar_label": "Deploy Your Own Private Testnet"
+      },
+      "Install_PlatON": {
+        "title": "Source Installation PlatON",
+        "sidebar_label": "Source Installation PlatON"
       }
     },
     "links": {},

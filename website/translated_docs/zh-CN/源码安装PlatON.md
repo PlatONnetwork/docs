@@ -1,7 +1,7 @@
 ---
 id: Install_PlatON
-title: 安装PlatON
-sidebar_label: 安装PlatON
+title: 源码安装PlatON
+sidebar_label: 源码安装PlatON
 ---
 
 本文档主要是针对在PlatON区块链上构建应用程序的开发人员的入门指南。
