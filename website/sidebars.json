@@ -2,9 +2,9 @@
   "docs": {
     "PlatON Developer Docs": ["index"],
 	"Run a Node":["Install_Node","Join_PlatON_NetWork","Become_Verification_Node"],
-	"Node Tool":["MTool_Manual","Command_Line_Tools"],
-	"Start Building":["Install_PlatON","Build_Private_Chain"],
-	"Smart Contract":["EVM_Smart_Contract","WASM_Smart_Contract"],
+	"Node Tools":["MTool_Manual","Command_Line_Tools"],
+	"Environment Setup":["Install_PlatON","Build_Private_Chain"],
+	"Smart Contracts":["EVM_Smart_Contract","WASM_Smart_Contract"],
 	"Reference Docs": ["Java_SDK","JS_SDK","Json_Rpc"],
 	"Abount PlatON":["PlatON_Overall_Solution","PlatON_Solution","Economic_Model","PlatON_Governance_Solution","Secure_Multi_Party_Computation","Verifiable_Computation"],
 	"Community Projects":["community"]

@@ -90,9 +90,9 @@
     "categories": {
       "PlatON Developer Docs": "PlatON开发者文档",
       "Run a Node": "运行一个节点",
-	  "Node Tool": "节点工具",
-      "Start Building": "设置开发环境",
-	  "Smart Contract": "智能合约",
+	  "Node Tools": "节点工具",
+      "Environment Setup": "设置开发环境",
+	  "Smart Contracts": "智能合约",
       "Reference Docs": "参考文档",
       "Abount PlatON": "关于PlatON",
       "Community Projects": "社区"

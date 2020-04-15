@@ -6,7 +6,7 @@ sidebar_label: Join the PlatON network
 
 ## Overview
 
-Currently PlatON  has two public networks, one is the PlatON main network that has not yet been officially launched and operates independently. The chain ID is 100.
+Currently PlatON  has two public networks.  One is the PlatON main network that has not yet been officially launched and operates independently. The chain ID is 100.
 
 The other is the test network Baley World, which has been officially launched on 2020-2-20 Beijing time, and is open to developers. The chain ID is 101.
 
@@ -18,7 +18,7 @@ Before joining the PlatON public network, please ensure that the server has the 
 
 - The PlatON node has been installed and the wallet file and node key have been created according to the instructions of `Installing a Node`.
 
-This section assumes that the server is Ubuntu 18.04, and the working directory where the executable file is located is ~/platon-node. Note that all subsequent command line operations are performed in the working directory.
+This section assumes that the server is Ubuntu 18.04, and the working directory the executable file is `~/platon-node`. Note that all subsequent commands should be run under the same working directory.
 
 
 
@@ -31,17 +31,15 @@ The mainnet has not been officially launched yet.
 
 ## Join the Baley Network
 
-Anyone, any organization can join PlatON test network.
+Anyone or any organization can join PlatON test network.
 
-### Execute the following command to join the Baley World
+### Execute the following command to join the Baley World as a validation node
 
 ```bash
 cd ~/platon-node && nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
 ```
 
-
-
-### Become a archive node by executing the following command：
+### Become an archive node by executing the following command：
 
 ```bash
 cd ~/platon-node && nohup platon --identity platon --datadir ./data --port 16789 --db.nogc --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
@@ -61,9 +59,9 @@ cd ~/platon-node && nohup platon --identity platon --datadir ./data --port 16789
 | --cbft.blskey  | Specify the node bls private key file                        |
 | --testnet      | Specify to connect to the test network (Default: main network) |
 
-See more parameters with the `platon --help` command.
+See more parameters with the command `platon --help`
 
-When PlatON is successfully started, under normal circumstances, it will automatically establish a connection with the node closest to it through the node discovery protocol. After the connection is successful, block synchronization will be started. To determine whether the growth is getting higher.
+When PlatON is successfully started, under normal circumstances, it will automatically establish a connection with the node closest to it through the node discovery protocol. After the connection is successful, block synchronization will be started. You can determine whether joining the network successfully by looking at the peers of the node and confirming whether the block height of the node is increasing.
 
 
 
@@ -120,6 +118,6 @@ You can get the block height of the current node by executing the following comm
 
 A series of test network nodes appear in the node list and the block height is increasing, indicating that the connection is successful.
 
-> Attention:
+> Note:
 >
 > Testing Energon has no value and is limited to experiencing test network features. No need to apply if you just connect to the test network.

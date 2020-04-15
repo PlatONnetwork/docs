@@ -18,9 +18,9 @@ execute command:
 mtool-client --version
 ```
 
-If the execution result shows error message , Indicating that you do not need to perform the following operations without installing the old version.
+If the execution result shows error message, it indicates that the MTool has not been installed and you can skip the following instructions on how to uninstall the older version.
 
-If the execution result shows the version number, timestamp and other information indicating that MTool has been installed, if the MTool is an old version, you need to back up important information at this time, and then manually uninstall the old version, the steps are:
+If the execution result shows the version number, timestamp and other information, it indicates that MTool has been installed. If the MTool is an old version, you need to back up important information at this time, and then manually uninstall the old version. The instructions are as follows:
 
 **step1.** Back up all files in the directory `C:\tools\mtool\current\keystore` to the D drive or other non `C:\tools` directory. After installing the new version, you need to copy the backup file back to the `C:\tools\mtool\current\keystore` directory.
 
@@ -30,11 +30,11 @@ If the execution result shows the version number, timestamp and other informatio
 
 - Download MTool installation package
 
-  On the online machine, copy the link <https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.11.0/mtool-setup.exe> or <http://47.91.153.183/mtool/mtool-setup/0.11.0/mtool-setup.exe> go to the browser and download the MTool installation package.
+  On the online machine, copy the link <https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.11.0/mtool-setup.exe> or <http://47.91.153.183/mtool/mtool-setup/0.11.0/mtool-setup.exe> to the browser and download the MTool installation package.
 
 - Install MTool
 
-  Double-click mtool-setup.exe to install it. The default installation directory is C:\tools, it is recommended not to change this installation directory. The pop-up interface displays the message **Completing the mtool Setup Wizard**, indicating that the installation was successful. Click **Finish**.
+  Double-click mtool-setup.exe to install it. The default installation directory is C:\tools, and it is recommended not to change this installation directory. The pop-up interface displays the message **Completing the mtool Setup Wizard**, indicating that the installation was successful. Click **Finish**.
 
 ### Install MTool under Ubuntu
 
@@ -89,7 +89,7 @@ The environment variables of MTool directories under Windows and Ubuntu are diff
   - Windows:`%MTOOLDIR%`
   - Ubuntu:`$MTOOLDIR`
 
-> Explanation:**`Users choose according to their installed system.`**
+> Note:Users choose according to their installed system.
 
 ##  MTool Command Details 
 
@@ -101,13 +101,13 @@ The environment variables of MTool directories under Windows and Ubuntu are diff
 mtool-client account new staking
 ```
 
-- Variable description
+- Parameter description
 
->staking: Generated wallet name, after the successful creation of the wallet file `staking.json` in the directory `$MTOOLDIR/keystore`. 
+>staking: The name of the wallet to be created. Once the wallet is created successfully, a wallet file named `staking.json` will be generated in the directory `$MTOOLDIR/keystore`. 
 
 ### Ordinary transfer operation
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client tx transfer --keystore $MTOOLDIR/keystore/staking.json --amount "1" --recipient $ to_address --config $MTOOLDIR/validator/validator_config.json
@@ -123,7 +123,7 @@ mtool-client tx transfer --keystore $MTOOLDIR/keystore/staking.json --amount "1"
 
 ### View wallet list
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client account list
@@ -131,25 +131,25 @@ mtool-client account list
 
 ### Query balance based on wallet name
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client account balance $keystorename --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- Variable description
+- Parameter description
 
 > $ keystorename: wallet file name，example:staking.json
 
 ### Query balance based on address
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client account balance -a $address --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- Parameters
+- Parameter description
 
 > a: wallet address
 
@@ -159,13 +159,13 @@ If the deployment of the consensus node is complete and the block has been synch
 
 Note: Please keep enough LAT in the staking account, so that the transactions initiated by the subsequent node management have sufficient transaction fees, such as voting for upgrading proposals, and unsecured transactions.
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client staking --amount 1000000 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-Tip:**please input keystore password:**Enter the password of the staking wallet and press Enter. If the following information is displayed, the staking is successful:
+Prompt:**please input keystore password:**Enter the password of the staking wallet and press Enter. If the following information is displayed, the staking is successful:
 
 ```bash
 operation finished
@@ -174,21 +174,21 @@ transaction hash:
 SUCCESS
 ```
 
-- Parameter Description
+- Parameters Description
 
-> amount: staking number, not less than 1000000lat-staking threshold, no more than 8 decimal places
+> amount: staking amount, not less than 1000000lat-staking threshold, no more than 8 decimal places
 >
 > restrictedamount: not less than 1000000lat- staking threshold, no more than 8 decimal points (staking using locked balance)
 
 ### Modify validator information operation
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client update_validator --name VerifierName --url "http://www.platon.com" --identity IdentifyID --delegated-reward-rate 100 --reward 0x33d253386582f38c66cb5819bfbdaad0910339b3 --introduction "Modify the verifier information operation" --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- Parameter Description
+- Parameters Description
 
 > name: validator name, no more than 30 bytes, supports letters, numbers, spaces, underscores and #, must start with a letter
 >
@@ -206,7 +206,7 @@ mtool-client update_validator --name VerifierName --url "http://www.platon.com" 
 
 ### Decommissioning operation
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client unstaking --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
@@ -218,21 +218,21 @@ mtool-client unstaking --keystore $MTOOLDIR/keystore/staking.json --config $MTOO
 
 ### Increase staking operation
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client increasestaking --amount 5000000 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- Parameter Description
+- Parameters Description
 
 > amount: Use the account balance to increase the staking amount (LAT), the minimum added value is not less than 10, and the decimal point does not exceed 8 digits
 >
 > restrictedamount: use the account balance to increase the amount of staking, not less than 10 staking threshold, the decimal point does not exceed 8
 
-### Submit Text Proposal Action
+### Submit Text Proposal
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client submit_textproposal --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
@@ -244,13 +244,13 @@ mtool-client submit_textproposal --pid_id 100 --keystore $MTOOLDIR/keystore/stak
 
 ### Submit upgrade proposal operation
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client submit_versionproposal --newversion 0.8.0 --end_voting_rounds 345 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- Parameter Description
+- Parameters Description
 
 > newversion: target upgrade version, x.x.x, number punctuation
 >
@@ -260,13 +260,13 @@ mtool-client submit_versionproposal --newversion 0.8.0 --end_voting_rounds 345 -
 
 ### Submit Cancel Proposal
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client submit_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --end_voting_rounds 12 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR_validator/validator
 ```
 
-- Parameter Description
+- Parameters Description
 
 > proposalid: the ID of the proposal that needs to be cancelled
 >
@@ -276,13 +276,13 @@ mtool-client submit_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b
 
 ### Text proposal voting operation
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client vote_textproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- Parameter Description
+- Parameters Description
 
 > proposalid: text proposal ID, that is, the hash of the proposal transaction, 66 characters, alphanumeric
 >
@@ -290,7 +290,7 @@ mtool-client vote_textproposal --proposalid 0x444c3df404bc1ce4d869166623514b3700
 
 ### Upgrade proposal voting operation
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client vote_versionproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
@@ -302,13 +302,13 @@ mtool-client vote_versionproposal --proposalid 0x444c3df404bc1ce4d869166623514b3
 
 ### Cancel proposal voting
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client vote_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- Parameter Description
+- Parameters Description
 
 > proposalid: Cancel the proposal ID, that is, the hash of the proposed transaction, 66 characters, composed of alphanumeric characters
 >
@@ -316,13 +316,13 @@ mtool-client vote_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b37
 
 ### Submit parameter proposal operation
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client submit_paramproposal --pid_id 200 --module $ module --paramname $ paramname --paramvalue $ paramvalue --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- Parameter Description
+- Parameters Description
 
 > module: governance module parameters
 >
@@ -334,13 +334,13 @@ mtool-client submit_paramproposal --pid_id 200 --module $ module --paramname $ p
 
 ### Parameter proposal voting operation
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client vote_paramproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
-- Parameter Description
+- Parameters Description
 
 > proposalid: Cancel the proposal ID, that is, the hash of the proposed transaction, 66 characters, composed of alphanumeric characters
 >
@@ -348,7 +348,7 @@ mtool-client vote_paramproposal --proposalid 0x444c3df404bc1ce4d869166623514b370
 
 ### Version declaration operation
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client declare_version --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
@@ -360,7 +360,7 @@ mtool-client declare_version --keystore $MTOOLDIR/keystore/staking.json --config
 
 ### View help
 
-- Excuting an order
+- Excuting the command
 
 ```bash
 mtool-client -h
