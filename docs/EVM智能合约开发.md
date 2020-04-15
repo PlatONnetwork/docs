@@ -19,36 +19,14 @@ This guide introduces the development process of smart contracts and issues shou
 
 ### Introduce
 
-Smart contract, is a program, which can run in the blockchain.Smart contracts have the following characteristics:
-
-* Anybody can develop smart contract , which stored by the contract accout of blockchain.The accout controled by private key is called externel account.
-
-* Contract account cannot run by itself, before executing a smart contract, it need externel account send transaction to contract account.
-
-
-Solidity language is a contract-oriented high-level programming language created to implement smart contracts. Its syntax is similar to JavaScript's high-level programming language. It is designed to generate virtual machine code in a compiled manner. Using it is easy to create smart contracts. However, as a decentralized smart contract running on the Internet in real sense, it has the following features:
-
-* The PlatON is based on an account model,so solidity provides a special address type, which is used to locate user accounts, locate smart contracts, and locate smart contract codes.
-
-* Because solidity embedded framework supports payment, and provides some keywords, such as payable, it can directly support payment at the Solidity language level, which is very simple to use.
-
-* Data storage uses the blockchain on the network, and every state of the data can be stored permanently, so when developing the solidity contract, it is necessary to determine whether the variable uses memory or the blockchain.
-
-* The solidity operating environment is on a decentralized network, with special emphasis on the way ethereum smart contracts or function execution is called. because a simple function call turned into a node code execution on the network, it is a completely distributed programming environment.
-
-* The abnormality mechanism of the solidity language is also very different. Once an exception occurs, all executions will be retracted. This is mainly to ensure the atomicity of smart contract execution to avoid data inconsistencies in the intermediate state.
-
-This tutorial is mainly to guide users to create a simple HelloWorld smart contract using solidity language on PlatON, compile, deploy, and call this contract through platon-truffle. If you want to use a richer API you can refer to [Java SDK ](/docs/en/Java_SDK) and  [JS SDK](/docs/en/JS_SDK).
-
-- Please refer to solidity smart contract syntax: [Solidity official documentation](https://solidity.readthedocs.io/en/develop/).
-- Before developing a contract, if you need to build a private chain, please refer to:[Build a private chain](/docs/en/Build_Private_Chain).
+This tutorial is mainly to guide users to create a simple HelloWorld smart contract using solidity language on PlatON, compile, deploy, and call this contract through platon-truffle. If you want to use a richer API you can refer to [Java SDK ](/zh-cn/Development/[Chinese-Simplified]-Java-SDK.md) and  [JS SDK](/zh-cn/Development/[Chinese-Simplified]-JS-SDK.md)
 
 ### Platon-truffle Introduce 
 
 Platon-truffle is a tool provided by PlatON that can compile, deploy, and invoke smart contracts locally. For specific installation and usage manuals, refer to:
 
-- Platon-truffle develop tools [specific installation](https://github.com/PlatONnetwork/platon-truffle/tree/feature/evm)
-- Platon-truffle develop tools [usage manuals](https://platon-truffle.readthedocs.io/en/v0.1.0/index.html)
+- Platon-truffle develop tools[specific installation](https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#)
+- Platon-truffle develop tools[usage manuals](https://platon-truffle.readthedocs.io/en/v0.11.1/)
 
 ### Create HelloWorld Contract
 
@@ -103,7 +81,7 @@ mkdir HelloWorld && cd HelloWorld
 **Step2.**  Init project
 
 ```
-truffle init
+platon-truffle init
 ```
 After the command is executed, project directory structure is as follows:
 
@@ -132,7 +110,7 @@ Truffle-config.js content is  as follows:
 ```
 compilers: {
       solc: {
-            version: "^0.5.13",    // same as the version declared in HelloWorld.sol
+            version: "0.5.13",    // same as the version declared in HelloWorld.sol
       }
 }
 ```
@@ -140,7 +118,7 @@ compilers: {
 **Step5.**  Compile contract
 
 ```
-truffle compile
+platon-truffle compile
 ```
 After the command is executed, project directory structure is as follows:
 
@@ -186,7 +164,7 @@ networks: {
 **Step3.**  Deploy contract
 
 ```
-truffle migrate
+platon-truffle migrate
 ```
 
 If deploy success，you wil see log info as follows:
@@ -214,7 +192,7 @@ Total cost:     0.007462350000596988 LAT
 **Step1.**  Enter the platon-truffle console
 
 ```
-truffle console
+platon-truffle console
 ```
 - You can execute command in platon-truffle console
 
@@ -224,7 +202,7 @@ truffle console
 var abi = [{"constant":false,"inputs":[{"internalType":"string","name":"_name","type":"string"}],"name":"setName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]; //you can refet to HelloWorld/build/contracts/HelloWorld.json
 
 var contractAddr = '0x9A5015F9A3728ff64f401b9B93E98078BdD48FD1';//contract address
-var helloWorld = new web3.eth.Contract(abi,contractAddr); 
+var helloWorld = new web3.platon.Contract(abi,contractAddr);  
 ```
 
 Description： 
@@ -282,43 +260,6 @@ Description：
 - `getName` the function of the HelloWorld contract，which has no  parameter 
 - `call` specify query method
 - `function` callback result,we can use console.log to print info.
-
-### FAQ 
-
-> Q: How many commands in platon-truffle？
->
-> A: Refer to  platon-truffle develop guide [Reference here](https://platon-truffle.readthedocs.io/en/v0.1.0/index.html)
-
-> Q: Why contract syntax cannot verify?
->
-> A: Solidity 0.4.x has a great different with 0.5.x，detail info refer to [Reference here](https://solidity.readthedocs.io/en/develop/)
-
-> Q: Why truffle doesn't compile?
->
-> A: 1.Confirm the contract version same as the version specified in the truffle-config.js.
->
-> ​     2.Contract syntax be writed in a wrong way.
-
-> Q: Why the contract can not deploy by truffle migrate?
->
-> A: 1.Confrim the blockchain network info be configured correctly.
->
-> ​     2.Confirm the account address be configured correctly.
-
-> Q: Deploying a contract with a parameter constructor using the command `truffle migrate` failed.
->
-> A: For example, A.sol 
->
-> ...
-> Constructor(uint256 a, string memory b, string memory c) public {}
-> ...
->
-> 2_initial_A.js configured as follow：
->
-> const A = artifacts.require("A");  
-> module.exports = function(deployer) {
->         deployer.deploy(ERC200513Token,100,'PLA','PLAT');//pass the corresponding construction parameters
-> };
 
 ------------------
 
@@ -510,7 +451,7 @@ mkdir example && cd example
 **Step2.**  Init project
 
 ```
-truffle init
+platon-truffle init
 ```
 
 After the command is executed,project directory structure is as follows:
@@ -549,7 +490,7 @@ module.exports = {
 
   compilers: {
     solc: {
-       version: "^0.5.13",    // the version number used in compiling the contract is the same as the contract definition
+       version: "0.5.13",    // the version number used in compiling the contract is the same as the contract definition
        docker: false,        // Use "0.5.1" you've installed locally with docker
     }
   }
@@ -559,7 +500,7 @@ module.exports = {
 **Step5.** Compile contract
 
 ```
-truffle compile
+platon-truffle compile
 ```
 The following is the output of the successful compilation：
 ```
@@ -591,7 +532,7 @@ module.exports = function(deployer) {
 **Step7.** Deploy contract
 
 ```
-truffle migratte
+platon-truffle migrate
 ```
 
 If deploy success，you wil see log info as follows:
@@ -781,7 +722,7 @@ mkdir myCrowdFunding && cd myCrowdFunding
 **Step2.** Init project
 
 ```
-truffle init
+platon-truffle init
 ```
 
 After the command is executed, project directory structure is as follows:
@@ -808,7 +749,7 @@ Truffle-config.js content is  as follows:
 ```
 compilers: {
      solc: {
-        version: "^0.5.13",    //same as the version declared in CrowdFunding.sol
+        version: "0.5.13",    //same as the version declared in CrowdFunding.sol
     }
 }
 ```
@@ -816,7 +757,7 @@ compilers: {
 **Step5.** Compile contract
 
 ```
-truffle compile
+platon-truffle compile
 ```
 
 After the command is executed, project directory structure is as follows:
@@ -865,7 +806,7 @@ networks: {
 **Step3.** Deploy contract
 
 ```
-truffle migrate
+platon-truffle migrate
 ```
 
 If deploy success, you wil see log info as follows:
@@ -898,7 +839,7 @@ Compiling your contracts...
 **Step1.**  Enter the platon-truffle console
 
 ```
-truffle console
+platon-truffle console
 ```
 
 > You can execute command in platon-truffle console
@@ -908,7 +849,7 @@ truffle console
 ```
 var abi = [...]; //ABI of CrowdFunding contract,can get from build/contracts/CrowdFunding.json
 var contractAddr = '0x02D04C6fD2b0C07c43AA1a329D667f1F1Fc7a907'; //CrowdFundsing contract address
-var crowdFunding = new web3.eth.Contract(abi,contractAddr); 
+var crowdFunding = new web3.platon.Contract(abi,contractAddr);
 ```
 
 **Step3.**  Query the amount raised
@@ -1466,6 +1407,43 @@ The more people examine a piece of code, the more issues are found. Asking peopl
 
 You can find a professional third-party audit company for security audits, such as：[slow mist](https://www.slowmist.com/en/service-smart-contract-security-audit.html)。
 
+---
+
+## FAQ
+
+### About Compile
+
+1. How many commands in platon-truffle？
+
+   Refer to  platon-truffle develop guide[Reference here](https://platon-truffle.readthedocs.io/en/v0.1.0/index.html).
+
+2. Why contract syntax cannot verify?
+
+   Solidity 0.4.x has a great different with 0.5.x，detail info refer to [Reference here](https://solidity.readthedocs.io/en/develop/).
+
+3. Why truffle doesn't compile?
+
+   Confirm the contract version same as the version specified in the truffle-config.js.
+   Contract syntax be writed in a wrong way.
+
+4. Why the contract can not deploy by truffle migrate?
+
+   Confrim the blockchain network info be configured correctly.
+   Confirm the account address be configured correctly.
+
+5. Deploying a contract with a parameter constructor using the command `truffle migrate` failed.
+
+    For example, A.sol 
+    ```
+    Constructor(uint256 a, string memory b, string memory c) public {}
+    ```
+    2_initial_A.js configured as follow：
+    ```
+    const A = artifacts.require("A");  
+    module.exports = function(deployer) {
+            deployer.deploy(ERC200513Token,100,'PLA','PLAT');//pass the corresponding construction parameters
+    };
+    ```
 
 
 

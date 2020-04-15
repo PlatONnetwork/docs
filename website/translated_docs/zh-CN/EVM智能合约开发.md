@@ -19,31 +19,17 @@ sidebar_label: EVM智能合约
 
 ### 简介
 
-合约，就是一段程序，并且是一段能在区块链上运行的程序。智能合约有以下特性：
-
-- 任何人都可以在区块链上开发智能合约，这些智能合约的代码是存在于区块链的账户中的，这类存有代码的账户叫合约账户。对应地，由密钥控制的账户可称为外部账户。
-- 合约账户不能自己启动运行自己的智能合约。要运行一个智能合约，需要由外部账户对合约账户发起交易，从而启动其中的代码的执行。
-
-Solidity语言是一种面向合约的、为实现智能合约而创建的高级编程语言,其语法类似JavaScript的高级编程语言。被设计成以编译的方式生成虚拟机代码。使用它很容易创建智能合约。但作为一种真正意义上运行在互联网上的去中心化智能合约其又有以下特点：
-
-- PlatON底层是基于帐户，Solidity语言提供有一个特殊的Address类型。用于定位用户账号，定位智能合约，定位智能合约的代码。
-- 由于Solidity语言内嵌框架是支持支付的，并且提供了一些关键字，如payable，可以在Solidity语言层面直接支持支付，用起来十分简单。
-- 数据存储是使用网络上的区块链，数据的每一个状态都可以永久存储，所以Solidity语言在开发时需要确定变量是使用内存，还是区块链。
-- Solidity运行环境是在一个去中心化的网络上，特别强调以太坊智能合约或函数执行的调用方式。因为原来一个简单的函数调用变为了一个网络上的节点代码执行，完全是分布式的编程环境。
-- Solidity语言的异常机制也很不一样，一旦出现异常，所有的执行都将会被回撤，这主要是为了保证智能合约执行的原子性，以避免中间状态出现的数据不一致。
-
-
 本教程主要是指导用户在PlatON上使用solidity语言创建简单的HelloWorld智能合约，通过platon-truffle编译，部署，调用此合约。如果您想使用更加丰富的API可以参考[Java SDK开发指南](/docs/zh-CN/Java_SDK) 或者 [JS SDK开发指南](/docs/zh-CN/JS_SDK)
 
 - solidity智能合约语法请参考[Solidity官方文档](https://solidity.readthedocs.io/en/develop/)
-- 在开发合约前，如果需要搭建私链请参考：[搭建私链](/docs/zh-CN/Build_Private_Chain)
+- 在开发合约前，如果需要搭建节点连接到PlatON网络或者创建私有网络请参考：[连接 PlatON 网络](/zh-cn/Network/)
 
 ### platon-truffle开发工具介绍
 
 platon-truffle是PlatON提供的一款能够在本地编译、部署、调用智能合约的工具，具体的安装及使用手册参见
 
-- platon-truffle开发工具[安装参考](https://github.com/PlatONnetwork/platon-truffle/tree/feature/evm)
-- platon-truffle开发工具[使用手册](https://platon-truffle.readthedocs.io/en/v0.1.0/index.html)
+- platon-truffle开发工具[安装参考](https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#)
+- platon-truffle开发工具[使用手册](https://platon-truffle.readthedocs.io/en/v0.11.1/)
 
 
 ### 创建HelloWorld合约
@@ -101,7 +87,7 @@ mkdir HelloWorld && cd HelloWorld
 **step2.** 使用platon-truffle初始化一个工程
 
 ```
-truffle init
+platon-truffle init
 ```
 在操作完成之后，就有如下项目结构：
 
@@ -137,7 +123,7 @@ compilers: {
 **step5.** 编译合约
 
 ```
-truffle compile
+platon-truffle compile
 ```
 在操作完成之后，生成如下目录结构：
 
@@ -182,27 +168,38 @@ networks: {
 **step3.**  部署合约
 
 ```
-truffle migrate
+platon-truffle migrate
 ```
 
 部署成功后，将看到类似如下信息：
 ```
 2_initial_helloword.js
-Deploying 'HelloWorld'
-transaction hash:    0x2bb5c7f6202225554a823db410fb16cf0c8328a51391f24fb9052a6a8f3033e3 //部署合约对应的交易hash
-Blocks: 0            Seconds: 0
-contract address:    0x714E74eEc4b63D9DB72cbB5F78CDD5b5bb60F9dc  //合约地址（后面合约部署将会使用到）
-block number:        142522  //交易对应的块号
-block timestamp:     1581667696206
-account:             0xF644CfC3b0Dc588116D6621211a82C1Ef9c62E9e //部署合约所使用的账号
-balance:             90000000.867724449997417956  //部署合约账户对应的余额
-gas used:            149247 //本次部署gas消息
-gas price:           50.000000004 gVON
-value sent:          0 LAT
-total cost:          0.007462350000596988 LAT
-Saving migration to chain.
-Saving artifacts
-Total cost:     0.007462350000596988 LAT
+======================
+
+   Deploying 'HelloWorld'
+   ----------------------
+   > transaction hash:    0x87cd48cc467f9bc943fd096c57c8a7e7b7fa941380538d9e59797800c6c4292c
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x0680df2d6e38e5a6C89e3856836E017c6572DAb2
+   > block number:        282520
+   > block timestamp:     1585535169200
+   > account:             0xC1f330B214668beAc2E6418Dd651B09C759a4Bf5
+   > balance:             16447231233352977496646259638377769924557918764752765436645.336513079692286014
+   > gas used:            145569
+   > gas price:           10000 gvon
+   > value sent:          0 LAT
+   > total cost:          1.45569 LAT
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:             1.45569 LAT
+
+Summary
+=======
+> Total deployments:   2
+> Final cost:          2.59892 LAT
 ```
 
 ### 调用HelloWorld合约
@@ -210,7 +207,7 @@ Total cost:     0.007462350000596988 LAT
 **step1.**  进入platon-truffle控制台
 
 ```
-truffle console
+platon-truffle console
 ```
 - 以下调用查询将在truffle控制台中进行
 
@@ -236,7 +233,7 @@ helloWorld.methods.setName("hello world").send({
  }).on('receipt', function(receipt) {
  	console.log(receipt);
  }).on('error', console.error);
-
+ 
 ```
 
 调用合约命令说明：
@@ -249,21 +246,21 @@ helloWorld.methods.setName("hello world").send({
 函数调用成功，将会看到如下信息：
 
 ```
-{ 
-  blockHash:'0x3ae287d1e745e30d0d6c95d5220cc7816cda955e7b2f013c6a531ed95028a794', //交易所在的区块hash
-  blockNumber: 159726, //交易所在的块号
+{ blockHash:
+  '0xe592a4f203ed058df7515205717f167848b1a56b8bb143f9eba512facae22aa1',
+  blockNumber: 283911,
   contractAddress: null,
   cumulativeGasUsed: 44820,
-  from: '0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e', //调用者地址
-  gasUsed: 44820, //gas消耗
+  from: '0xc1f330b214668beac2e6418dd651b09c759a4bf5',
+  gasUsed: 44820,
   logsBloom:
-   '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   status: true,
-  to: '0x9a5015f9a3728ff64f401b9b93e98078bdd48fd1', //交易调用的合约地址
-  transactionHash:'0xb7a41f72d555d4a2d9f2954fbdc5bbbb4c5ce89c836f8704276419ed416b3866', //交易hash
+  to: '0x0680df2d6e38e5a6c89e3856836e017c6572dab2',//交易调用的合约地址
+  transactionHash:
+   '0x2b381a8efab4774ae029fdf2e2585b48c03c033c64d543c9c606c925689fca31',//交易hash
   transactionIndex: 0,
-  events: {} 
-}
+  events: {} }
 ```
 
 **step4.**  合约查询
@@ -278,40 +275,6 @@ helloWorld.methods.getName().call(null,function(error,result){console.log("name 
 - `getName` 是我们HelloWorld合约中的一个方法，该方法没有入参，故入参为空
 - `call` 指明是查询方法
 - `function` 是一个回调函数，将处理调用后的结果，此处我们通过console.log打印出执行结果
-
-### FAQ 
-
-> 问: platon-truffle有哪些命令如何使用？
->
-> 答: platon-truffle开发使用手册[参考这里](https://platon-truffle.readthedocs.io/en/v0.1.0/index.html)
-
-
-> 问: 合约为什么语法校验通不过？
->
-> 答: solidity合约0.4.x版本与0.5.x版本有重大变更，具体语法[参考这里](https://solidity.readthedocs.io/en/develop/)
-
-> 问:  platon-truffle执行truffle compile 失败?
->
-> 答:  1.确认编译的合约文件中的版本号与truffle-config.js中指定的版本号是否一致；
->
->  2.可能语法有误，可以根据命令行提示修复后再进行编译
-
-> 问: platon-truffle执行truffle migrate部署合约失败
->
-> 答: 1.确认truffle-config.js中连接的链的配制信息及用户的钱包地址是否正确
-
-
-> 问: truffle migrate部署带参数的构造函数合约失败
->
-> 答: 以合约A.sol为例，在migrations/2_initial_A.js文件中，确认是否添加构造参数信息如：
-> A.sol构造函数格式如下：
-> constructor(uint256 a, string memory b, string memory c) public {}
->
-> 2_initial_A.js文件配制如下：
->  const A = artifacts.require("A");  
->  module.exports = function(deployer) {
->          deployer.deploy(ERC200513Token,100,'PLA','PLAT');//需要传入对应构造函数参数
->  };
 
 ------------------
 
@@ -509,7 +472,7 @@ mkdir example && cd example
 **step2.** 使用platon-truffle初始化一个工程
 
 ```
-truffle init
+platon-truffle init
 ```
 
 在操作完成之后，就有这样的一个项目结构：
@@ -548,7 +511,7 @@ module.exports = {
 
   compilers: {
     solc: {
-       version: "^0.5.13",    // 编译合约所使用的solidity版本号，与合约定义版本一致
+       version: "0.5.13",    // 编译合约所使用的solidity版本号，与合约定义版本一致
        docker: false,        // Use "0.5.1" you've installed locally with docker
     }
   }
@@ -558,7 +521,7 @@ module.exports = {
 **step5.** 编译合约
 
 ```
-truffle compile
+platon-truffle compile
 ```
 编译成功输出如下信息：
 ```
@@ -590,7 +553,7 @@ module.exports = function(deployer) {
 **step7.** 部署合约
 
 ```
-truffle migratte
+platon-truffle migrate
 ```
 
 输出结果如下，表示迁移成功
@@ -599,24 +562,31 @@ truffle migratte
 Compiling your contracts...
 Everything is up to date, there is nothing to compile.
 2_initial_ERC200513Token.js
+===========================
+
    Deploying 'ERC200513Token'
-     transaction hash:    0xa1770aecf4cffb0e75a172e06e75a9e9cb2d36bf89291b57d504e8c054985e99
-     Blocks: 0            Seconds: 0
-     contract address:    0x5474608c5dee5039C95FEf3D7e48Fa793903Ce99//迁移后的合约地址
-     block number:        265657
-     block timestamp:     1581742216965
-     account:             0xF644CfC3b0Dc588116D6621211a82C1Ef9c62E9e
-     balance:             90000000.826385379994114416
-     gas used:            638876
-     gas price:           50.000000004 gVON
-     value sent:          0 LAT
-     total cost:          0.031943800002555504 LAT
-     Saving migration to chain.
-     Saving artifacts
-     Total cost:     0.031943800002555504 LAT
+   --------------------------
+   > transaction hash:    0x5667101234fcd3b9dadf96a19bce20d1b94d742e0fd8f3528c641fa587b17eb3
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xE6570bAc355875F7EBcBFBD59a9AB1a0485ec869
+   > block number:        2153
+   > block timestamp:     1585538899787
+   > account:             0xC1f330B214668beAc2E6418Dd651B09C759a4Bf5
+   > balance:             4499992.02433
+   > gas used:            641243
+   > gas price:           10000 gvon
+   > value sent:          0 LAT
+   > total cost:          6.41243 LAT
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:             6.41243 LAT
+
 Summary
- Total deployments:   2
- Final cost:          0.037844150003027532 LAT
+=======
+> Total deployments:   2
+> Final cost:          7.55566 LAT
 ```
 ---------
 
@@ -777,7 +747,7 @@ mkdir myCrowdFunding && cd myCrowdFunding
 **step2.** 使用platon-truffle初始化一个工程
 
 ```
-truffle init
+platon-truffle init
 ```
 
 在操作完成之后，就有这样的一个项目结构：
@@ -804,7 +774,7 @@ truffle-config.js 修改部分内容如下
 ```
 compilers: {
      solc: {
-        version: "^0.5.13",    // 此版本号与CrowdFunding.sol中声明的版本号保持一致
+        version: "0.5.13",    // 此版本号与CrowdFunding.sol中声明的版本号保持一致
     }
 }
 ```
@@ -812,7 +782,7 @@ compilers: {
 **step5.** 编译合约
 
 ```
-truffle compile
+platon-truffle compile
 ```
 
 在操作完成之后，就有这样的一个目录结构：
@@ -861,7 +831,7 @@ networks: {
 **step3.**  部署合约
 
 ```
-truffle migrate
+platon-truffle migrate
 ```
 
 部署成功将输出如下信息：
@@ -894,7 +864,7 @@ Compiling your contracts...
 **step1.**  进入platon-truffle控制台
 
 ```
-truffle console
+platon-truffle console
 ```
 - 以下调用查询将在truffle控制台中进行
 
@@ -902,7 +872,7 @@ truffle console
 ```
 var abi = [...]; //众筹合约的ABI，从编译后的文件获取
 var contractAddr = '0x02D04C6fD2b0C07c43AA1a329D667f1F1Fc7a907'; //众筹合约地址
-var crowdFunding = new web3.eth.Contract(abi,contractAddr); 
+var crowdFunding = new web3.platon.Contract(abi,contractAddr);  
 ```
 
 **step3.**  查询已筹集金额
@@ -1459,6 +1429,44 @@ function initContract() public OnlyOwner {
 
 可以找专业的第三方审计公司进行安全审计如：[慢雾](https://www.slowmist.com/service-smart-contract-security-audit.html)。
 
+---
+
+## FAQ
+
+### 编译相关
+
+1. platon-truffle有哪些命令如何使用？
+
+   platon-truffle开发使用手册[参考这里](https://platon-truffle.readthedocs.io/en/v0.1.0/index.html)。
+
+2. 合约为什么语法校验通不过？
+
+   solidity合约0.4.x版本与0.5.x版本有重大变更，具体语法[参考这里](https://solidity.readthedocs.io/en/develop/)。
+
+3. platon-truffle执行truffle compile 失败?
+
+   1.确认编译的合约文件中的版本号与truffle-config.js中指定的版本号是否一致。
+   2.可能语法有误，可以根据命令行提示修复后再进行编译。
+
+4. platon-truffle执行truffle migrate部署合约失败?
+
+  1.确认truffle-config.js中连接的链的配制信息及用户的钱包地址是否正确。
+
+5. truffle migrate部署带参数的构造函数合约失败?
+
+  以合约A.sol为例，在migrations/2_initial_A.js文件中，确认是否添加构造参数信息如：
+  A.sol构造函数格式如下：
+  ```
+  constructor(uint256 a, string memory b, string memory c) public {}
+  ```
+
+  2_initial_A.js文件配制如下：
+  ```
+   const A = artifacts.require("A");  
+   module.exports = function(deployer) {
+        deployer.deploy(ERC200513Token,100,'PLA','PLAT');//需要传入对应构造函数参数
+   };   
+  ```  
 
 
 
