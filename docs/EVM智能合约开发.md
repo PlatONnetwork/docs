@@ -14,6 +14,7 @@ This guide introduces the development process of smart contracts and issues shou
 - [Development Costs](#development-costs)
 - [Best Practice](#best-practice)
 - [Contract Security Development Guide](#contract-security-development-guide)
+- [FAQ](#faq)
 
 ## Development Manua
 
