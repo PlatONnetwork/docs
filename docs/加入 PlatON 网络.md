@@ -16,7 +16,7 @@ The other is the test network Baley World, which has been officially launched on
 
 Before joining the PlatON public network, please ensure that the server has the following conditions：
 
-- The PlatON node has been installed and the wallet file and node key have been created according to the instructions of `Installing a Node`.
+- The PlatON node has been installed and the wallet file and node key have been created according to the instructions of [Installing a Node](/docs/en/Install_PlatON).
 
 This section assumes that the server is Ubuntu 18.04, and the working directory the executable file is `~/platon-node`. Note that all subsequent commands should be run under the same working directory.
 
