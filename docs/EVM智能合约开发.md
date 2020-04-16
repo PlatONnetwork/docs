@@ -1442,7 +1442,7 @@ You can find a professional third-party audit company for security audits, such 
     ```
     const A = artifacts.require("A");  
     module.exports = function(deployer) {
-            deployer.deploy(ERC200513Token,100,'PLA','PLAT');//pass the corresponding construction parameters
+            deployer.deploy(A,100,'PLA','PLAT');//pass the corresponding construction parameters
     };
     ```
 
