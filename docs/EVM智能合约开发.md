@@ -215,11 +215,7 @@ Description：
 **Step3.**  Call contract
 
 ```javascript
-helloWorld.methods.setName("hello world").send({
-	from: '0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'
- }).on('receipt', function(receipt) {
- 	console.log(receipt);
- }).on('error', console.error);
+helloWorld.methods.setName("hello world").send({from: '0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'}).on('receipt', function(receipt) {console.log(receipt);}).on('error', console.error);
 
 ```
 

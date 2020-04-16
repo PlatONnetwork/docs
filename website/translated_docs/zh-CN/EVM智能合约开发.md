@@ -229,11 +229,7 @@ var helloWorld = new web3.platon.Contract(abi,contractAddr);
 **step3.**  调用合约
 
 ```javascript
-helloWorld.methods.setName("hello world").send({
-	from: '0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'
- }).on('receipt', function(receipt) {
- 	console.log(receipt);
- }).on('error', console.error);
+helloWorld.methods.setName("hello world").send({from: '0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'}).on('receipt', function(receipt) {console.log(receipt);}).on('error', console.error);
  
 ```
 
@@ -891,7 +887,7 @@ crowdFunding.methods.safeWithdrawal().send({from:'0xf644cfc3b0dc588116d6621211a8
 - `crowdFunding` 是我们之前构建的合约对象
 - `methods` 固定语法，指定将获取合约中的方法
 - `safeWithdrawal` 是我们众筹合约中的一个方法，用于收回资金
-- `from` 调用者的合约地址 
+- `from` 调用者的钱包地址 
 - `on` 是监听合约处理结果事件，失败输出错误日志
 
 --------------
