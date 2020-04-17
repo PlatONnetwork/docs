@@ -238,11 +238,7 @@ var helloWorld = new web3.platon.Contract(abi,contractAddr);
 <li><code>helloWorld</code>  contract object created</li>
 </ul>
 <p><strong>Step3.</strong>  Call contract</p>
-<pre><code class="hljs css language-javascript">helloWorld.methods.setName(<span class="hljs-string">"hello world"</span>).send({
-    <span class="hljs-attr">from</span>: <span class="hljs-string">'0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'</span>
- }).on(<span class="hljs-string">'receipt'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">receipt</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(receipt);
- }).on(<span class="hljs-string">'error'</span>, <span class="hljs-built_in">console</span>.error);
+<pre><code class="hljs css language-javascript">helloWorld.methods.setName(<span class="hljs-string">"hello world"</span>).send({<span class="hljs-attr">from</span>: <span class="hljs-string">'0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'</span>}).on(<span class="hljs-string">'receipt'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">receipt</span>) </span>{<span class="hljs-built_in">console</span>.log(receipt);}).on(<span class="hljs-string">'error'</span>, <span class="hljs-built_in">console</span>.error);
 
 </code></pre>
 <p>Description：</p>
@@ -1217,7 +1213,7 @@ Confirm the account address be configured correctly.</p></li>
 <p>2_initial_A.js configured as follow：</p>
 <pre><code class="hljs"><span class="hljs-keyword">const</span> A = artifacts.require(<span class="hljs-string">"A"</span>);  
 <span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">deployer</span>) </span>{
-        deployer.deploy(ERC200513Token,<span class="hljs-number">100</span>,<span class="hljs-string">'PLA'</span>,<span class="hljs-string">'PLAT'</span>);<span class="hljs-comment">//pass the corresponding construction parameters</span>
+        deployer.deploy(A,<span class="hljs-number">100</span>,<span class="hljs-string">'PLA'</span>,<span class="hljs-string">'PLAT'</span>);<span class="hljs-comment">//pass the corresponding construction parameters</span>
 };
 </code></pre></li>
 </ol>

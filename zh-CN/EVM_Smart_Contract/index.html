@@ -247,7 +247,7 @@ name = _name：此操作将外部传进来的局部变量赋值给状态变量</
 <pre><code class="hljs css language-json">var abi = [{"constant":false,"inputs":[{"internalType":"string","name":"_name","type":"string"}],"name":"setName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]; //可以从HelloWorld/build/contracts/HelloWorld.json文件中获取到
 
 var contractAddr = '0x9A5015F9A3728ff64f401b9B93E98078BdD48FD1';//部署合约时的获取的地址
-var helloWorld = new web3.eth.Contract(abi,contractAddr); 
+var helloWorld = new web3.platon.Contract(abi,contractAddr); 
 </code></pre>
 <p>说明：</p>
 <ul>
@@ -256,11 +256,7 @@ var helloWorld = new web3.eth.Contract(abi,contractAddr);
 <li><code>helloWorld</code> 就是构建出来与链上合约交互的合约对象抽象</li>
 </ul>
 <p><strong>step3.</strong>  调用合约</p>
-<pre><code class="hljs css language-javascript">helloWorld.methods.setName(<span class="hljs-string">"hello world"</span>).send({
-    <span class="hljs-attr">from</span>: <span class="hljs-string">'0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'</span>
- }).on(<span class="hljs-string">'receipt'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">receipt</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(receipt);
- }).on(<span class="hljs-string">'error'</span>, <span class="hljs-built_in">console</span>.error);
+<pre><code class="hljs css language-javascript">helloWorld.methods.setName(<span class="hljs-string">"hello world"</span>).send({<span class="hljs-attr">from</span>: <span class="hljs-string">'0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'</span>}).on(<span class="hljs-string">'receipt'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">receipt</span>) </span>{<span class="hljs-built_in">console</span>.log(receipt);}).on(<span class="hljs-string">'error'</span>, <span class="hljs-built_in">console</span>.error);
  
 </code></pre>
 <p>调用合约命令说明：</p>
@@ -832,7 +828,7 @@ contract CrowdFunding {
 <li><code>crowdFunding</code> 是我们之前构建的合约对象</li>
 <li><code>methods</code> 固定语法，指定将获取合约中的方法</li>
 <li><code>safeWithdrawal</code> 是我们众筹合约中的一个方法，用于收回资金</li>
-<li><code>from</code> 调用者的合约地址</li>
+<li><code>from</code> 调用者的钱包地址</li>
 <li><code>on</code> 是监听合约处理结果事件，失败输出错误日志</li>
 </ul>
 <hr>
@@ -1254,7 +1250,7 @@ A.sol构造函数格式如下：</p>
 <p>2_initial_A.js文件配制如下：</p>
 <pre><code class="hljs"> <span class="hljs-keyword">const</span> A = artifacts.require(<span class="hljs-string">"A"</span>);  
  <span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">deployer</span>) </span>{
-      deployer.deploy(ERC200513Token,<span class="hljs-number">100</span>,<span class="hljs-string">'PLA'</span>,<span class="hljs-string">'PLAT'</span>);<span class="hljs-comment">//需要传入对应构造函数参数</span>
+      deployer.deploy(A,<span class="hljs-number">100</span>,<span class="hljs-string">'PLA'</span>,<span class="hljs-string">'PLAT'</span>);<span class="hljs-comment">//需要传入对应构造函数参数</span>
  };   
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/Build_Private_Chain"><span class="arrow-prev">← </span><span>部署私有测试网</span></a><a class="docs-next button" href="/docs/zh-CN/WASM_Smart_Contract"><span>WASM智能合约</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#合约开发入门手册">合约开发入门手册</a><ul class="toc-headings"><li><a href="#简介">简介</a></li><li><a href="#platon-truffle开发工具介绍">platon-truffle开发工具介绍</a></li><li><a href="#创建helloworld合约">创建HelloWorld合约</a></li><li><a href="#编译helloworld合约">编译HelloWorld合约</a></li><li><a href="#部署helloworld合约">部署HelloWorld合约</a></li><li><a href="#调用helloworld合约">调用HelloWorld合约</a></li></ul></li><li><a href="#合约迁移">合约迁移</a><ul class="toc-headings"><li><a href="#简介-1">简介</a></li><li><a href="#操作步聚">操作步聚</a></li></ul></li><li><a href="#众筹合约">众筹合约</a><ul class="toc-headings"><li><a href="#简介-2">简介</a></li><li><a href="#众筹的流程">众筹的流程</a></li><li><a href="#众筹合约-1">众筹合约</a></li></ul></li><li><a href="#合约开发成本">合约开发成本</a><ul class="toc-headings"><li><a href="#介绍">介绍</a></li><li><a href="#概要">概要</a></li><li><a href="#小型合约示例">小型合约示例</a></li><li><a href="#中型合约示例">中型合约示例</a></li><li><a href="#大型合约示例">大型合约示例</a></li></ul></li><li><a href="#最佳实践">最佳实践</a><ul class="toc-headings"><li><a href="#介绍-1">介绍</a></li><li><a href="#费用合理设置">费用合理设置</a></li><li><a href="#避免超时">避免超时</a></li><li><a href="#非法操作处罚">非法操作处罚</a></li><li><a href="#编码规范">编码规范</a></li></ul></li><li><a href="#合约安全开发指南">合约安全开发指南</a><ul class="toc-headings"><li><a href="#编译器bug">编译器bug</a></li><li><a href="#标准合约开发流程">标准合约开发流程</a></li><li><a href="#常见漏洞">常见漏洞</a></li><li><a href="#安全建议">安全建议</a></li><li><a href="#安全工具">安全工具</a></li><li><a href="#第三方审计">第三方审计</a></li></ul></li><li><a href="#faq">FAQ</a><ul class="toc-headings"><li><a href="#编译相关">编译相关</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
