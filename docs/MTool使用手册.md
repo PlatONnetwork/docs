@@ -22,25 +22,29 @@ If the execution result shows error message, it indicates that the MTool has not
 
 If the execution result shows the version number, timestamp and other information, it indicates that MTool has been installed. If the MTool is an old version, you need to back up important information at this time, and then manually uninstall the old version. The instructions are as follows:
 
-**step1.** Back up all files in the directory `C:\tools\mtool\current\keystore` to the D drive or other non `C:\tools` directory. After installing the new version, you need to copy the backup file back to the `C:\tools\mtool\current\keystore` directory.
+**step1. Duplicate Catalog**
 
-**step2.** Double-click `C:\tools\unins000.exe` to uninstall all old versions of MTool and other business tools.
+Back up all files in the directory `C:\tools\mtool\current\keystore` to the D drive or other non `C:\tools` directory. After installing the new version, you need to copy the backup file back to the `C:\tools\mtool\current\keystore` directory.
+
+**step2. Uninstall old version**
+
+Double-click `C:\tools\unins000.exe` to uninstall all old versions of MTool and other business tools.
 
 #### Start installation
 
-- Download MTool installation package
+**step1. Download MTool installation package**
 
-  On the online machine, copy the link <https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.11.0/mtool-setup.exe> or <http://47.91.153.183/mtool/mtool-setup/0.11.0/mtool-setup.exe> to the browser and download the MTool installation package.
+On the online machine, copy the link <https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.11.0/mtool-setup.exe> or <http://47.91.153.183/mtool/mtool-setup/0.11.0/mtool-setup.exe> to the browser and download the MTool installation package.
 
-- Install MTool
+**step2. Install MTool**
 
-  Double-click mtool-setup.exe to install it. The default installation directory is C:\tools, and it is recommended not to change this installation directory. The pop-up interface displays the message **Completing the mtool Setup Wizard**, indicating that the installation was successful. Click **Finish**.
+Double-click mtool-setup.exe to install it. The default installation directory is C:\tools, and it is recommended not to change this installation directory. The pop-up interface displays the message **Completing the mtool Setup Wizard**, indicating that the installation was successful. Click **Finish**.
 
 ### Install MTool under Ubuntu
 
 Proceed as follows:
 
-**step1.** Download mtool toolkit
+**step1. Download mtool toolkit**
 
 ```bash
 wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.11.0/mtool-client.zip
@@ -52,13 +56,13 @@ or
 wget http://47.91.153.183/mtool/0.11.0/mtool-client.zip
 ```
 
-**step2.** Extract the mtool toolkit
+**step2. Extract the mtool toolkit**
 
 ```bash
 (if ! command -v unzip;then sudo apt install unzip; fi;) && unzip mtool-client.zip && cd mtool-client
 ```
 
-**step3.** Download script
+**step3. Download script**
 
 > The script is downloaded to the <font color=red>mtool-client</font> directory, otherwise the script cannot find the path of the new version of mtool.
 
@@ -72,14 +76,17 @@ or
 wget http://47.91.153.183/opensource/scripts/mtool_install.sh
 ```
 
-**step4.** execute command
+**step4. execute command**
 
 ```bash
 chmod +x mtool_install.sh && ./mtool_install.sh
 ```
 
 > - When the message <font color=red>Install mtool succeed.</font> is displayed, MTool is successfully installed. If it is not successfully installed, please contact our official customer service to provide feedback on specific issues.
-> - After installation is complete, you need to <font color=red>restart the terminal</font> for the newly added environment variables to take effect.
+
+**step5. Restart the terminal**
+
+After installation is complete, you need to <font color=red>restart the terminal</font> for the newly added environment variables to take effect.
 
 ## MTool Environment Variable Description 
 

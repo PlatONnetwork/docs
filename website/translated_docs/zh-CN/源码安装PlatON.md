@@ -4,7 +4,7 @@ title: 源码安装PlatON
 sidebar_label: 源码安装PlatON
 ---
 
-本文档主要是针对在PlatON区块链上构建应用程序的开发人员的入门指南。
+本文档主要是针对有能力在PlatON区块链上进行源代码编译的用户。
 
 - `PlatON`支持Windows和Ubuntu下进行源码编译安装。
 

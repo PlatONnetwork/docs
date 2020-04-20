@@ -22,25 +22,29 @@ mtool-client --version
 
 如果执行结果显示版本号，时间戳等信息表示已安装MTool，如果MTool是旧版本，此时需要备份重要信息，然后再手工卸载旧版本，操作步骤：
 
-**step1.** 备份目录 `C:\tools\mtool\current\keystore` 下的所有文件到 D 盘或其他非 `C:\tools` 的目录下。安装完新版本之后需要将备份文件拷贝回 `C:\tools\mtool\current\keystore` 目录下。
+**step1. 备份目录**
 
-**step2.** 双击 `C:\tools\unins000.exe` 卸载所有旧版本的 MTool 及其他业务工具。
+将 `C:\tools\mtool\current\keystore` 下的所有文件到 D 盘或其他非 `C:\tools` 的目录下。安装完新版本之后需要将备份文件拷贝回 `C:\tools\mtool\current\keystore` 目录下。
+
+**step2. 卸载旧版本**
+
+双击 `C:\tools\unins000.exe` 卸载所有旧版本的 MTool 及其他业务工具。
 
 #### 开始安装
 
-- 下载MTool安装包
+**step1. 下载MTool安装包**
 
-  在在线机器上，复制链接<https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.11.0/mtool-setup.exe>或者 <http://47.91.153.183/mtool/mtool-setup/0.11.0/mtool-setup.exe> 到浏览器下载MTool安装包。
+在在线机器上，复制链接<https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.11.0/mtool-setup.exe>或者 <http://47.91.153.183/mtool/mtool-setup/0.11.0/mtool-setup.exe> 到浏览器下载MTool安装包。
 
-- 安装MTool
+**step2. 安装MTool**
 
-  双击mtool-setup.exe进行安装。默认安装目录为 C:\tools，建议不要更改此安装目录。弹出界面显示**Completing the mtool Setup Wizard**信息表示安装成功，点击**Finish**即可。
+双击mtool-setup.exe进行安装。默认安装目录为 C:\tools，建议不要更改此安装目录。弹出界面显示**Completing the mtool Setup Wizard**信息表示安装成功，点击**Finish**即可。
 
 ### Ubuntu下安装MTool
 
 步骤如下：
 
-**step1.** 下载mtool工具包
+**step1. 下载mtool工具包**
 
 ``` bash
 wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.11.0/mtool-client.zip
@@ -52,13 +56,13 @@ wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.11.0/mtool-client.
 wget http://47.91.153.183/mtool/0.11.0/mtool-client.zip
 ```
 
-**step2.** 解压mtool工具包
+**step2. 解压mtool工具包**
 
 ``` bash
 (if ! command -v unzip;then sudo apt install unzip; fi;) && unzip mtool-client.zip && cd mtool-client
 ```
 
-**step3.** 下载脚本
+**step3. 下载脚本**
 
 >脚本下载到<font color=red>mtool-client</font> 目录下，否则脚本无法找到新版本mtool的路径。
 
@@ -72,14 +76,17 @@ wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/opensource/scripts/mtool_i
 wget http://47.91.153.183/opensource/scripts/mtool_install.sh
 ```
 
-**step4.** 执行命令
+**step4. 执行命令**
 
 ```
 chmod +x mtool_install.sh && ./mtool_install.sh
 ```
 
 > - 提示 <font color=red>Install mtool succeed.</font> 时，表示 MTool 安装成功，未安装成功时，请通过我们的官方客服联系方式反馈具体问题。
-> - 安装完成之后，需要<font color=red>重启终端</font>，让新添加的环境变量生效。
+
+**step5. 重启终端**
+
+安装完成之后，需要<font color=red>重启终端</font>，让新添加的环境变量生效。
 
 ## MTool环境变量说明
 
