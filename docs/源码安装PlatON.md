@@ -6,7 +6,7 @@ sidebar_label: Source Installation PlatON
 
 
 
-This document is primarily a how-to guide for developers building applications on the PlatON blockchain.
+This document is intended for users with the ability to compile source code on the PlatON blockchain.
 
 - PlatON supports source code compilation and installation under Windows and Ubuntu. 
 
