@@ -81,7 +81,7 @@
 <h3><a class="anchor" aria-hidden="true" id="how-it-works"></a><a href="#how-it-works" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How it works</h3>
 <h4><a class="anchor" aria-hidden="true" id="transforming-the-target-problem-into-quadratic-arithmetic-program-qap"></a><a href="#transforming-the-target-problem-into-quadratic-arithmetic-program-qap" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transforming the target problem into Quadratic Arithmetic Program (QAP)</h4>
 <p>For example, get the solution of the equation $x^3+x+5=35$. Suppose Alice knows the solution is $x=3$, but she doesn't want to reveal it to Bob while proving to him that she does know it.</p>
-<p><img src="./VC.assets/vc1-e.png" alt=""></p>
+<p><img src="/docs/img/en/VC.assets/vc1-e.png" alt=""></p>
 <p><br>
 Referring to Vitalik's blog<sup>[1]</sup>, it can be solved as follows:</p>
 <ol>
@@ -117,10 +117,10 @@ Referring to Vitalik's blog<sup>[1]</sup>, it can be solved as follows:</p>
 <ol>
 <li>For most $x$, given $X=E(x)$, $x$ cannot be deduced vice versa;</li>
 <li>If $x_1\neq x_2$, then $E(x_1)\neq E(x_2)$;</li>
-<li>$E(ax_1+bx_2) = a<em>E(x_1) + b</em>E(x_2)$.</li>
+<li>$E(ax_1+bx_2) = a * E(x_1) + b * E(x_2)$.</li>
 </ol>
 </blockquote>
-<p>Instead of informing Alice the sampling point directly, Bob provides a sequence of mapping values $​​ E(t_1), E(t_2), E(t_3),..., E(t_N)$ from input $t_0, t_1, t_2, t_3, ..., t_n$ respectively. The processing steps are listed below:</p>
+<p>Instead of informing Alice the sampling point directly, Bob provides a sequence of mapping values $ E(t_1), E(t_2), E(t_3),..., E(t_N)$ from input $t_0, t_1, t_2, t_3, ..., t_n$ respectively. The processing steps are listed below:</p>
 <blockquote>
 <ol>
 <li>Bob computes $​​ E(t_1), E(t_2), E(t_3),..., E(t_N)$, and sends all of them to Alice;</li>
@@ -130,8 +130,8 @@ Referring to Vitalik's blog<sup>[1]</sup>, it can be solved as follows:</p>
 </ol>
 </blockquote>
 <h4><a class="anchor" aria-hidden="true" id="kca"></a><a href="#kca" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>KCA</h4>
-<p>Suppose the prover doesn't know the solution $s$ satisfying $s\cdot C(n)-s\cdot A(n) \times s\cdot B(n)=H(n)<em>Z(n)$, but she knows another solution $s'$ satifying $s'\cdot C'(n)-s'\cdot A'(n) \times s'\cdot B'(n)=H'(n)</em>Z(n)$. Then the prover can use the coefficient vectors $A'(n)$, $B'(n)$ and $C'(n)$ to compute $P'(n)=s\cdot C'(n)-s\cdot A'(n) * s\cdot B'(n)$, then it would be sent to the verifier to get verified. How can the verifier knows the prover computes $P(n)$ does use the difined coefficient vectors $A(n)$, $B(n)$ and $C(n)$? The whole process is Knowledge of Coefficient Test and Assumption, which abbreviated by KCA. The details of KCA are described below.</p>
-<p>Firstly, we define $\alpha$ is the pair of $(a,b)$ satisfying $b=\alpha <em>a$, where $</em>$ is the multiplication operation on Elliptic Curves, meeting two properties:</p>
+<p>Suppose the prover doesn't know the solution $s$ satisfying $s\cdot C(n)-s\cdot A(n) \times s\cdot B(n)=H(n) * Z(n)$, but she knows another solution $s'$ satifying $s'\cdot C'(n)-s'\cdot A'(n) \times s'\cdot B'(n)=H'(n)*Z(n)$. Then the prover can use the coefficient vectors $A'(n)$, $B'(n)$ and $C'(n)$ to compute $P'(n)=s\cdot C'(n)-s\cdot A'(n) * s\cdot B'(n)$, then it would be sent to the verifier to get verified. How can the verifier knows the prover computes $P(n)$ does use the difined coefficient vectors $A(n)$, $B(n)$ and $C(n)$? The whole process is Knowledge of Coefficient Test and Assumption, which abbreviated by KCA. The details of KCA are described below.</p>
+<p>Firstly, we define $\alpha$ is the pair of $(a,b)$ satisfying $b=\alpha * a$, where $*$ is the multiplication operation on Elliptic Curves, meeting two properties:</p>
 <blockquote>
 <ol>
 <li>If $\alpha$ is big enough, it is nearly impossible to compute $\alpha$ from $a$ and $b$;</li>
@@ -174,7 +174,7 @@ Referring to Vitalik's blog<sup>[1]</sup>, it can be solved as follows:</p>
 <h4><a class="anchor" aria-hidden="true" id="none-interaction"></a><a href="#none-interaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>None interaction</h4>
 <p>In the example above, Bob need to send amounts of sequences of $E(A(t))$, $E(B(t))$ and $E(C(t))$ to Alice, where the sequence data is pretty massive, and is time-consuming during the transmitting process, and also is not simply enough. Here is the solution: zkSNARK packs punch of data $E(A(t))$, $E(B(t))$ and $E(C(t))$ that Bob sent to Alice to the so-called <em>Common Reference String</em> (CRS), which is generated by a kind of trusted way, and used in the process of all of transaction verification as the consensus of all nodes. Therefore, the verification way is changed from an interactive &quot;request-response&quot; way to the way of simply submitting a proof.</p>
 <h2><a class="anchor" aria-hidden="true" id="verifiable-contract"></a><a href="#verifiable-contract" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Verifiable contract</h2>
-<p><img src="./VC.assets/verifiable_contract.png" alt="VC">
+<p><img src="/docs/img/en/VC.assets/verifiable_contract.png" alt="VC">
 <center><font size="2">Figure 2: The VC architect in PlatON</font><br /> </center></p>
 <p><br>
 The workflow of VC in PlatON is:</p>
@@ -191,7 +191,7 @@ The workflow of VC in PlatON is:</p>
 <li><strong>vc_pool:</strong> The vc_pool is responsible for processing vc transaction, distributing vc computing tasks and putting computing results and proofs onto the blockchain.</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="compiling-verifiable-contract"></a><a href="#compiling-verifiable-contract" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Compiling verifiable contract</h3>
-<p><img src="./VC.assets/vc3-e.png" alt="vclang">
+<p><img src="/docs/img/en/VC.assets/vc3-e.png" alt="vclang">
 <center><font size="2">Figure 3: Compiling verifiable contract to WASM</font><br /> </center></p>
 <p><br>
 The processes of compling verifiable contract are:</p>
@@ -203,7 +203,7 @@ The processes of compling verifiable contract are:</p>
 <li>The <code>vclang</code> compiles <code>vcc.cpp</code> to obtain <code>vcc.wasm</code>.</li>
 </ol>
 <h3><a class="anchor" aria-hidden="true" id="how-it-works-1"></a><a href="#how-it-works-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How it works</h3>
-<p><img src="./VC.assets/verifiable_contract_flow.png" alt="vc-work">
+<p><img src="/docs/img/en/VC.assets/verifiable_contract_flow.png" alt="vc-work">
 <center><font size="2">Figure 4: The workflow of verifiable contract</font><br /> </center></p>
 <p><br>
 Here is the workflow of verifiable contract:</p>
