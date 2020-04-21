@@ -6,7 +6,7 @@ sidebar_label: 加入 PlatON 网络
 
 ## 简介
 
-PlatON目前有2个公有网络，一个是还未正式上线的、独立运行的PlatON主网络，ChainID为 100。
+PlatON目前有2个公有网络，一个是还未正式上线的、独立运行的 PlatON 主网络，ChainID为 100。
 
 另外一个是已经于北京时间 2020-2-20日 正式上线的用来对开发者开放的测试网络贝莱世界，ChainID为 101。
 
@@ -36,15 +36,7 @@ PlatON目前有2个公有网络，一个是还未正式上线的、独立运行�
 ### 执行以下命令即可`启动验证节点`加入贝莱世界：
 
 ```bash
-cd ~/platon-node && nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
-```
-
-
-
-### 如果要`启动归档节点加`入贝莱世界，请执行以下命令：
-
-```bash
-cd ~/platon-node && nohup platon --identity platon --datadir ./data --port 16789 --db.nogc --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
+nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
 ```
 
 **提示：**
@@ -72,6 +64,8 @@ cd ~/platon-node && nohup platon --identity platon --datadir ./data --port 16789
 ```bash
 platon attach http://localhost:6789
 ```
+
+
 
 ### 查看节点的  peers
 
@@ -119,7 +113,3 @@ platon attach http://localhost:6789
 ```
 
 节点列表中出现一系列测试网络节点并且块高在不断增长，则表示连接成功！
-
-> 注意
->
-> 测试 Energon 没有任何价值，仅限于体验测试网络功能。如只是连接测试网络，无需申请！

@@ -36,13 +36,7 @@ Anyone or any organization can join PlatON test network.
 ### Execute the following command to join the Baley World as a validation node
 
 ```bash
-cd ~/platon-node && nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
-```
-
-### Become an archive node by executing the following command：
-
-```bash
-cd ~/platon-node && nohup platon --identity platon --datadir ./data --port 16789 --db.nogc --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
+nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
 ```
 
 **Prompt：**
@@ -117,7 +111,3 @@ You can get the block height of the current node by executing the following comm
 ```
 
 A series of test network nodes appear in the node list and the block height is increasing, indicating that the connection is successful.
-
-> Note:
->
-> Testing Energon has no value and is limited to experiencing test network features. No need to apply if you just connect to the test network.
