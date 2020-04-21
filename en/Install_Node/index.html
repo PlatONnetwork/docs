@@ -68,6 +68,12 @@
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Install and Deploy a Node</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h2>
 <p>This guide demonstrates how to install the PlatON Node software on Linux.</p>
+<h2><a class="anchor" aria-hidden="true" id="system-requirements"></a><a href="#system-requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>System Requirements</h2>
+<ul>
+<li>CPU: 4 Cores</li>
+<li>Memory: 8G</li>
+<li>Disk: &gt; 100G</li>
+</ul>
 <h2><a class="anchor" aria-hidden="true" id="installation-overview"></a><a href="#installation-overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation Overview</h2>
 <p>It takes three or four steps to install a new node, which depends on the operating system used. The detailed procedures are list below.</p>
 <ul>
@@ -79,23 +85,18 @@
 sudo apt-get install -y gnupg2 curl software-properties-common ntp &amp;&amp;
 sudo systemctl <span class="hljs-built_in">enable</span> ntp &amp;&amp; sudo systemctl start ntp
 </code></pre>
+<blockquote>
+<p>Notes:</p>
+<p>NTP service is used for time synchronization, incorrect system time will affect the normal operation of PlatON</p>
+</blockquote>
 <h3><a class="anchor" aria-hidden="true" id="validate-the-ntp-time-synchronization"></a><a href="#validate-the-ntp-time-synchronization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Validate the NTP time synchronization</h3>
-<pre><code class="hljs css language-bash">ntpq -p
+<pre><code class="hljs css language-bash">ntpq -c rv | grep leap_none
+associd=0 status=0615 leap_none, sync_ntp, 1 event, clock_sync,
 </code></pre>
-<p><strong>The following information should be shown:</strong></p>
-<pre><code class="hljs css language-bash">     remote           refid      st t when poll reach   delay   offset  jitter
-==============================================================================
- 0.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
- 1.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
- 2.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
- 3.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
- ntp.ubuntu.com  .POOL.          16 p    -   64    0    0.000    0.000   0.000
-+119.28.206.193  100.122.36.4     2 u   66  256   77   35.968   -0.170   3.995
-*120.25.115.20   10.137.53.7      2 u  196  256  377   17.576   -0.234   6.044
-+111.230.189.174 100.122.36.196   2 u  210  256  377   19.766    1.478   9.766
-+203.107.6.88    10.137.38.86     2 u  143  256  377   55.908    0.578   4.413
-+119.28.183.184  100.122.36.4     2 u   60  256   57   38.193   -0.879   5.491
-</code></pre>
+<blockquote>
+<p>Notes:</p>
+<p>leap_none: normal synchronized state</p>
+</blockquote>
 <h3><a class="anchor" aria-hidden="true" id="install-platon"></a><a href="#install-platon" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install PlatON</h3>
 <pre><code class="hljs css language-bash">sudo add-apt-repository ppa:ppatwo/platon &amp;&amp;
 sudo apt-get update &amp;&amp;
@@ -103,20 +104,6 @@ sudo apt-get install platon0.11.0 &amp;&amp;
 platon version
 </code></pre>
 <p>After executing the commands above,  <code>platon</code> and<code>keytool</code> binary should be successfully installed in the <code>/usr/bin</code> directory on your system. You can execute related commands in any directory.</p>
-<h2><a class="anchor" aria-hidden="true" id="generate-wallet"></a><a href="#generate-wallet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Generate wallet</h2>
-<p>You can use the node client file to generate a wallet file. Here is an example of generating a wallet in the keystore folder under the <code>data</code> directory. You can execute the following command in the node working directory (<code>e.g.,~/platon-node</code>):</p>
-<h3><a class="anchor" aria-hidden="true" id="ubuntu"></a><a href="#ubuntu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ubuntu</h3>
-<pre><code class="hljs css language-bash">mkdir -p data &amp;&amp; platon --datadir ./data account new
-</code></pre>
-<blockquote>
-<p>Your new account is locked with a password. Please give a password. Do not forget this password.</p>
-<p>Passphrase:</p>
-<p>Repeat passphrase:</p>
-<p>Address: {550ae58b051a8e942f858ef22019c1c622292f7e}</p>
-<p><strong>Note：</strong></p>
-<p>The wallet file and password are very important for the generated account address. Losing the wallet file or forgetting the password will cause the token in the account to be lost. Please make a backup of the wallet file and remember the password.</p>
-<p>If the password is set to blank or the number of digits is less than 6 (excluding the leading and trailing spaces), it will not support importing into ATON wallet.</p>
-</blockquote>
 <h2><a class="anchor" aria-hidden="true" id="generate-keys"></a><a href="#generate-keys" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Generate keys</h2>
 <h3><a class="anchor" aria-hidden="true" id="public-and-private-keys"></a><a href="#public-and-private-keys" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Public and private keys</h3>
 <p>Each node in the network has an unique identity to distinguish it from others. This identity is a public and private key pair, generated in the node's working directory ( <code>~/platon-node</code>) by the following command:</p>
@@ -147,7 +134,7 @@ PublicKey :  4bf873a66df92ada50a8c6bacb132ffd63437bcde7fd338d2d8696170034a6332e4
 <li><p>blspub: Node BLS public key file, which holds the node's BLS public key</p></li>
 <li><p>blskey: Node BLS private key file, which holds the node's BLS private key</p></li>
 </ul>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/index"><span class="arrow-prev">← </span><span class="function-name-prevnext">PlatON Developer Docs</span></a><a class="docs-next button" href="/docs/en/Join_PlatON_NetWork"><span class="function-name-prevnext">Join the PlatON network</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a></li><li><a href="#installation-overview">Installation Overview</a></li><li><a href="#installing-on-ubuntu-1804">Installing on Ubuntu (18.04)</a><ul class="toc-headings"><li><a href="#open-a-terminal-and-run-the-following-commands">Open a terminal and run the following commands.</a></li><li><a href="#validate-the-ntp-time-synchronization">Validate the NTP time synchronization</a></li><li><a href="#install-platon">Install PlatON</a></li></ul></li><li><a href="#generate-wallet">Generate wallet</a><ul class="toc-headings"><li><a href="#ubuntu">Ubuntu</a></li></ul></li><li><a href="#generate-keys">Generate keys</a><ul class="toc-headings"><li><a href="#public-and-private-keys">Public and private keys</a></li><li><a href="#bls-public-and-private-key">BLS public and private key</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/index"><span class="arrow-prev">← </span><span class="function-name-prevnext">PlatON Developer Docs</span></a><a class="docs-next button" href="/docs/en/Join_PlatON_NetWork"><span class="function-name-prevnext">Join the PlatON network</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a></li><li><a href="#system-requirements">System Requirements</a></li><li><a href="#installation-overview">Installation Overview</a></li><li><a href="#installing-on-ubuntu-1804">Installing on Ubuntu (18.04)</a><ul class="toc-headings"><li><a href="#open-a-terminal-and-run-the-following-commands">Open a terminal and run the following commands.</a></li><li><a href="#validate-the-ntp-time-synchronization">Validate the NTP time synchronization</a></li><li><a href="#install-platon">Install PlatON</a></li></ul></li><li><a href="#generate-keys">Generate keys</a><ul class="toc-headings"><li><a href="#public-and-private-keys">Public and private keys</a></li><li><a href="#bls-public-and-private-key">BLS public and private key</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
