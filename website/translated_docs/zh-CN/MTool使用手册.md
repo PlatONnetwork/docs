@@ -103,6 +103,8 @@ Windows和Ubuntu下MTool目录使用环境变量有所区别：
 
 ##  MTool命令详解
 
+> 注意：后续命令是Ubuntu下的命令格式，Windows下需要把`$MTOOLDIR`修改成`%MTOOLDIR%`。
+
 ### 创建钱包
 
 - 执行命令
