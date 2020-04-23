@@ -16,7 +16,7 @@ The other is the test network Baley World, which has been officially launched on
 
 Before joining the PlatON public network, please ensure that the server has the following conditions：
 
-- The PlatON node has been installed and the wallet file and node key have been created according to the instructions of [Installing a Node](/docs/en/Install_PlatON).
+- The PlatON node has been installed and the wallet file and node key have been created according to the instructions of [Installing a Node](/docs/en/Install_Node).
 
 This section assumes that the server is Ubuntu 18.04, and the working directory the executable file is `~/platon-node`. Note that all subsequent commands should be run under the same working directory.
 
@@ -33,7 +33,9 @@ The mainnet has not been officially launched yet.
 
 Anyone or any organization can join PlatON test network.
 
-### Execute the following command to join the Baley World as a validation node
+###Start as a validation node
+
+**Execute the following command to join the Baley World as a validation node**
 
 ```bash
 nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
