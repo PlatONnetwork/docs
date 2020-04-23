@@ -93,12 +93,14 @@ After installation is complete, you need to <font color=red>restart the terminal
 The environment variables of MTool directories under Windows and Ubuntu are different:
 
 - MTool Catalog
-  - Windows:`%MTOOLDIR%`
-  - Ubuntu:`$MTOOLDIR`
+  - Windows: `%MTOOLDIR%`
+  - Ubuntu: `$MTOOLDIR`
 
 > Note:Users choose according to their installed system.
 
 ##  MTool Command Details 
+
+> Note: The follow-up command is the command format under Ubuntu. Under Windows, you need to modify `$MTOOLDIR` to `%MTOOLDIR%`.
 
 ### Create A Wallet 
 
