@@ -98,10 +98,13 @@
 <tr><td>--nodekey</td><td>Specify the node private key file</td></tr>
 <tr><td>--cbft.blskey</td><td>Specify the node bls private key file</td></tr>
 <tr><td>--testnet</td><td>Specify to connect to the test network (Default: main network)</td></tr>
+<tr><td>--syncmode</td><td>fast: Fast synchronization mode, full: All synchronous mode</td></tr>
+<tr><td>--db.nogc</td><td>Enable archive mode</td></tr>
 </tbody>
 </table>
 <p>See more parameters with the command <code>platon --help</code></p>
 <p>When PlatON is successfully started, under normal circumstances, it will automatically establish a connection with the node closest to it through the node discovery protocol. After the connection is successful, block synchronization will be started. You can determine whether joining the network successfully by looking at the peers of the node and confirming whether the block height of the node is increasing.</p>
+<p>If the key is not generated in advance, the node is automatically generated in the node's data directory at startup. If it is automatically generated, only the node private key and BLS private key will be generated, and the relevant public key will not be automatically generated.</p>
 <h3><a class="anchor" aria-hidden="true" id="enter-platon-console"></a><a href="#enter-platon-console" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enter <code>PlatON</code> console</h3>
 <pre><code class="hljs css language-bash">platon attach http://localhost:6789
 </code></pre>
