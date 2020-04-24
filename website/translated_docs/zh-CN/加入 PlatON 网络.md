@@ -54,6 +54,8 @@ nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport
 | --nodekey     | 指定节点私钥文件                         |
 | --cbft.blskey | 指定节点 bls 私钥文件                    |
 | --testnet     | 指定连接到测试网络，不指定默认运行主网络 |
+| --syncmode    | fast：快速同步模式，full：全同步模式     |
+| –db.nogc      | 开启归档模式                             |
 
 更多参数意义通过`platon --help`命令查看。
 

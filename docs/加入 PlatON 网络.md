@@ -54,6 +54,8 @@ nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport
 | --nodekey      | Specify the node private key file                            |
 | --cbft.blskey  | Specify the node bls private key file                        |
 | --testnet      | Specify to connect to the test network (Default: main network) |
+| --syncmode     | fast: Fast synchronization mode, full: All synchronous mode  |
+| --db.nogc      | Enable archive mode                                          |
 
 See more parameters with the command `platon --help`
 
