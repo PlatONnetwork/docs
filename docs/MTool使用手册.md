@@ -40,11 +40,15 @@ On the online machine, copy the link <https://7w6qnuo9se.s3.eu-central-1.amazona
 
 Double-click mtool-setup.exe to install it. The default installation directory is C:\tools, and it is recommended not to change this installation directory. The pop-up interface displays the message **Completing the mtool Setup Wizard**, indicating that the installation was successful. Click **Finish**.
 
+**step3. Restart the terminal**
+
+After installation is complete, you need to <font color=red>restart the terminal</font> for the newly added environment variables to take effect.
+
 ### Install MTool under Ubuntu
 
 Proceed as follows:
 
-**step1. Download mtool toolkit**
+**step1. Download MTool toolkit**
 
 ```bash
 wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.11.0/mtool-client.zip
@@ -56,7 +60,7 @@ or
 wget http://47.91.153.183/mtool/0.11.0/mtool-client.zip
 ```
 
-**step2. Extract the mtool toolkit**
+**step2. Extract the MTool toolkit**
 
 ```bash
 (if ! command -v unzip;then sudo apt install unzip; fi;) && unzip mtool-client.zip && cd mtool-client
