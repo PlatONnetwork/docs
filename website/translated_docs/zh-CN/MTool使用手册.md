@@ -40,11 +40,15 @@ mtool-client --version
 
 双击mtool-setup.exe进行安装。默认安装目录为 C:\tools，建议不要更改此安装目录。弹出界面显示**Completing the mtool Setup Wizard**信息表示安装成功，点击**Finish**即可。
 
+**step3. 重启终端**
+
+安装完成之后，需要<font color=red>重启终端</font>，让新添加的环境变量生效。
+
 ### Ubuntu下安装MTool
 
 步骤如下：
 
-**step1. 下载mtool工具包**
+**step1. 下载MTool工具包**
 
 ``` bash
 wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.11.0/mtool-client.zip
@@ -56,7 +60,7 @@ wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.11.0/mtool-client.
 wget http://47.91.153.183/mtool/0.11.0/mtool-client.zip
 ```
 
-**step2. 解压mtool工具包**
+**step2. 解压MTool工具包**
 
 ``` bash
 (if ! command -v unzip;then sudo apt install unzip; fi;) && unzip mtool-client.zip && cd mtool-client
