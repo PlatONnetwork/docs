@@ -75,11 +75,6 @@
 <li>The PlatON node has been installed and the node key have been created according to the instructions of <a href="/docs/en/Install_Node">Installing a Node</a></li>
 <li>Start the node and <a href="/docs/en/Join_PlatON_NetWork">join the PlatON network</a></li>
 </ul>
-<blockquote>
-<p>MTool environment：</p>
-<p>Ubuntu：$MTOOLDIR</p>
-<p>Windows：%MTOOLDIR%</p>
-</blockquote>
 <h2><a class="anchor" aria-hidden="true" id="configure-nginx"></a><a href="#configure-nginx" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure Nginx</h2>
 <p>For security reasons, it is not recommended to open the rpc port of the node directly (the node server defaults to Ubuntu 18.04).</p>
 <p>You can consider using Nginx for reverse proxy, and strengthen the security of Nginx ports through user authentication and HTTPS. If the user changes the node data directory when installing PlatON, the nginx_conf.sh script also needs to be modified to the same node data directory.</p>
@@ -111,24 +106,27 @@
 <pre><code class="hljs css language-bash">(<span class="hljs-keyword">if</span> ! <span class="hljs-built_in">command</span> -v unzip;<span class="hljs-keyword">then</span> sudo apt install unzip; <span class="hljs-keyword">fi</span>;) &amp;&amp; unzip mtool-client.zip &amp;&amp; <span class="hljs-built_in">cd</span> mtool-client &amp;&amp; chmod +x mtool_install.sh &amp;&amp; ./mtool_install.sh
 </code></pre>
 <blockquote>
-<p>Notes:</p>
-<p>After unarchiving and installing the MTool toolkit, you need to restart the command line to make the MTool environment variables take effect</p>
+<p>Note:</p>
+<p>After unarchiving and installing the MTool toolkit, you need to restart the terminal to make the MTool environment variables take effect</p>
+<p>MTool environment：</p>
+<p>Ubuntu：$MTOOLDIR</p>
+<p>Windows：%MTOOLDIR%</p>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="configure-mtool"></a><a href="#configure-mtool" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure MTool</h2>
 <h3><a class="anchor" aria-hidden="true" id="generate-wallet"></a><a href="#generate-wallet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Generate wallet</h3>
 <p>To participate in the verification node to produce blocks, two wallets must be created. If you already have a wallet, you can skip this step by copying the wallet file to the <code>$MTOOLDIR/keystore</code> directory.</p>
 <ul>
-<li>Staking wallet: The staking wallet is used to stake tokens. To become a candidate node, you must stake successfully. Run the following command to create a stake  wallet:</li>
+<li>Staking wallet: The staking wallet is used to stake tokens. To become a candidate node, you must stake successfully. Run the following command to create a staking wallet:</li>
 </ul>
 <pre><code class="hljs css language-bash">mtool-client account new staking
 </code></pre>
-<p>Enter the password once and confirm the password again to create a wallet file. After the creation is successful, a stake wallet file <code>staking.json</code> will be generated in the directory<code>$MTOOLDIR/keystore</code>.</p>
+<p>Enter the password once and confirm the password again to create a wallet file. After the creation is successful, a staking wallet file <code>staking.json</code> will be generated in the directory<code>$MTOOLDIR/keystore</code>.</p>
 <ul>
-<li>Reward wallet: It is used to collect block rewards and Staking rewards. Staking rewards are uniformly distributed to verification nodes, which are distributed by the verification nodes themselves. Run the following command to create a reward wallet</li>
+<li>Reward wallet: It is used to collect block rewards and staking rewards. Staking rewards are uniformly distributed to verification nodes, which are distributed by the verification nodes themselves. Run the following command to create a reward wallet</li>
 </ul>
 <pre><code class="hljs css language-bash">mtool-client account new reward
 </code></pre>
-<p>Enter the password once and confirm the password again to create the wallet file. After the creation is successful, the pledge wallet file <code>reward.json</code> will be generated in the directory<code>$MTOOLDIR/keystore</code>.</p>
+<p>Enter the password once and confirm the password again to create the wallet file. After the creation is successful, the staking wallet file <code>reward.json</code> will be generated in the directory<code>$MTOOLDIR/keystore</code>.</p>
 <h3><a class="anchor" aria-hidden="true" id="configure-verification-node-information"></a><a href="#configure-verification-node-information" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure verification node information</h3>
 <h4><a class="anchor" aria-hidden="true" id="download-the-script"></a><a href="#download-the-script" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Download the script</h4>
 <pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> <span class="hljs-variable">$MTOOLDIR</span> &amp;&amp; wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/opensource/scripts/validator_conf.sh
@@ -142,13 +140,13 @@
 <blockquote>
 <p><strong>Note:</strong></p>
 <ul>
-<li>When  the prompt shows &quot;Please enter the platon node IP address:&quot;, Please enter the PlatON node server ip address.</li>
-<li>When  the prompt shows &quot;Please enter the platon chain id:&quot;, Please enter the chain ID, and select it according to whether the connected network is the main network or test network (test network: 101).</li>
-<li>When  the prompt shows &quot;Please enter the delegatedRewardRate(0~10000):&quot;, Please enter the proportion of dividends, ranging from 0 to 10000, in units (ten thousandths of a percentage). For example, if you enter 5000, it means that the proportion of dividends is 50%.</li>
-<li>When  the prompt shows &quot;Enter your name:&quot;, Please enter the username when configuring PlatON node.</li>
-<li>When  the prompt shows &quot;Enter your password:&quot;, Please enter the password when configuring PlatON node.</li>
-<li>When  the prompt shows &quot;Enter your platon node name:&quot;, Please enter the name of the PlatON node.</li>
-<li>When  the prompt shows &quot;Enter your platon node description:&quot;, Please enter PlatON node description.</li>
+<li>When  the prompt shows &quot;Please enter the platon node IP address:&quot;, please enter the PlatON node server ip address.</li>
+<li>When  the prompt shows &quot;Please enter the platon chain id:&quot;, please  enter the chain ID, and select it according to whether the connected network is the main network or test network (test network: 101).</li>
+<li>When  the prompt shows &quot;Please enter the delegatedRewardRate(0~10000):&quot;, please enter the proportion of dividends, ranging from 0 to 10000, in units (ten thousandths of a percentage). For example, if you enter 5000, it means that the proportion of dividends is 50%.</li>
+<li>When  the prompt shows &quot;Enter your name:&quot;, please enter the username when configuring PlatON node.</li>
+<li>When  the prompt shows &quot;Enter your password:&quot;, please enter the password when configuring PlatON node.</li>
+<li>When  the prompt shows &quot;Enter your platon node name:&quot;, please enter the name of the PlatON node.</li>
+<li>When  the prompt shows &quot;Enter your platon node description:&quot;, please enter PlatON node description.</li>
 <li>When  the prompt shows &quot;validator conf success&quot;,  and when the validator_config.json content printed at the end is normal, it means that the script is executed successfully. If the script is not executed successfully, please contact our official customer service to feedback specific questions.</li>
 </ul>
 </blockquote>
@@ -181,7 +179,7 @@
 <li>nodeAddress:
 <ul>
 <li>If you use Nginx, you need to use <strong>https</strong> protocol whose format is: <code>https://test:test@domain3</code>.</li>
-<li>If you do not use Nginx, you need to use the <strong>http</strong> protocol. If MTool and the node are on the same machine or in the same local area network, you can use the intranet IP, otherwise use the public IP who format is: <code>http://18.238.183.12</code>.</li>
+<li>If you do not use Nginx, you need to use the <strong>http</strong> protocol. If MTool and the node are on the same machine or in the same local area network, you can use the intranet IP, otherwise use the public IP whose format is: <code>http://18.238.183.12</code>.</li>
 </ul></li>
 <li>nodePort: Node P2P port, default is 16789.</li>
 <li>nodeRpcPort:
@@ -197,7 +195,7 @@
 </ul>
 </blockquote>
 <h4><a class="anchor" aria-hidden="true" id="custom-platscan-avatar"></a><a href="#custom-platscan-avatar" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom PlatScan avatar</h4>
-<p>If users do not need to display their specified avatar on PlatScan, they can ignore this step. Otherwise, the following operations are required:</p>
+<p>If users do not need to display their specified avatar on PlatScan, they can skip this step. Otherwise, the following operations are required:</p>
 <ul>
 <li><p><strong>Register a keybase account</strong></p>
 <p>Users first need to register on the official website of  <a href="https://keybase.io/">keybase.io</a> . If they have already registered, they can log on the official website of keybase.</p></li>
@@ -206,18 +204,20 @@
 <li><p><strong>Generate PGP key</strong></p>
 <p>If the user has a <code>PGP key</code>, after a successful login, a series of 16-bit public keys will be displayed next to the user's avatar, such as: <code>EB621920A48D0699</code>; if the user does not already have a <code>PGP key</code>, click <code>add a PGP key</code> next to the user's avatar to generate.</p></li>
 <li><p><strong>Modify the externalId value</strong></p>
-<p>Modify the <code>externalId</code> field of the verification node information file <code>validator_config.json</code> to the <code>PGP key</code> generated in the previous step</p></li>
+<p>Modify the <code>externalId</code> field of the verification node information file <code>validator_config.json</code> to the <code>PGP key</code> generated in the previous step.</p></li>
 </ul>
 <blockquote>
-<p>Note: After the user completes the pledge operation, the user-defined avatar can be displayed on PlatScan.</p>
+<p>Note: After the user completes the staking operation, the avatar customized by the user can be displayed on PlatScan.</p>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="initiate-a-staking-operation"></a><a href="#initiate-a-staking-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initiate a staking operation</h2>
-<p>If the consensus node deployment is complete and is catching up the blocknumber of <a href="https://platscan.test.platon.network">Platscan</a>, you can use MTool for staking operations. After the staking fund application is completed, ensure that the balance of the staking account is sufficient, and replace the staking amount according to the user's situation. The minimum threshold for staking is 1 million LAT.</p>
+<p>If the consensus node deployment is complete and is catching up the blocknumber of <a href="https://platscan.test.platon.network">Platscan</a>, you can use MTool for staking operations. Please ensure that the balance of the staking account is sufficient before staking. The minimum threshold for staking is 1 million LAT.</p>
 <p>The GalaxyRally activity: <a href="https://platon.network/galaxy">https://platon.network/galaxy</a></p>
-<p>Note: Please keep at least 1 LAT in the staking account, so that the transactions initiated by the subsequent node management have sufficient transaction fees, such as voting for upgrade proposals, and unsecured transactions.</p>
+<p>Note:</p>
 <ul>
-<li>Excuting command:</li>
+<li>Testing Energon has no value and is limited to experiencing test network features.</li>
+<li>Please keep at least 1 LAT in the staking account, so that the transactions initiated by the subsequent node management have sufficient transaction fees, such as voting for upgrade proposals, and unsecured transactions.</li>
 </ul>
+<p>Excuting command</p>
 <pre><code class="hljs css language-bash">mtool-client staking --amount 1000000 --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
 </code></pre>
 <p>Enter the password of the staking wallet and press Enter. If the following information is displayed, the staking is successful:</p>
@@ -229,13 +229,9 @@ SUCCESS
 <blockquote>
 <p><strong>Parameter description:</strong></p>
 <ul>
-<li>amount: The number of staking，Not less than 1000000lat-staking threshold and decimal point does not exceed 8 digits.</li>
+<li>amount: The number of staking，not less than 1000000lat-staking threshold and decimal point does not exceed 8 digits.</li>
 <li>restrictedamount: Not less than 1000000lat-staking threshold and decimal point does not exceed 8 digits (stake with locked balance).</li>
 </ul>
-</blockquote>
-<blockquote>
-<p>Notes:</p>
-<p>Testing Energon has no value and is limited to experiencing test network features. No need to apply if you just connect to the test network.</p>
 </blockquote>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/Join_PlatON_NetWork"><span class="arrow-prev">← </span><span class="function-name-prevnext">Join the PlatON network</span></a><a class="docs-next button" href="/docs/en/MTool_Manual"><span>MTool Tutorials</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a></li><li><a href="#preparation"><em>Preparation</em></a></li><li><a href="#configure-nginx">Configure Nginx</a><ul class="toc-headings"><li><a href="#download-nginx_confsh">Download nginx_conf.sh</a></li><li><a href="#execute-the-script">Execute the script</a></li></ul></li><li><a href="#install-mtool">Install MTool</a><ul class="toc-headings"><li><a href="#download-mtool-toolkit">Download MTool toolkit</a></li><li><a href="#extract-the-tool-toolkit-and-install">Extract the tool toolkit and install</a></li></ul></li><li><a href="#configure-mtool">Configure MTool</a><ul class="toc-headings"><li><a href="#generate-wallet">Generate wallet</a></li><li><a href="#configure-verification-node-information">Configure verification node information</a></li></ul></li><li><a href="#initiate-a-staking-operation">Initiate a staking operation</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
