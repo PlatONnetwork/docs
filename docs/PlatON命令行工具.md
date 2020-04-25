@@ -200,11 +200,11 @@ COPYRIGHT:
 ## Common rpc commands
 
 - Description
-  - The rpc port is changed according to the actual startup command, the default is:6789
+  - The rpc port is changed according to the actual startup command and the default is 6789
 
 ### admin
 
-- View the current node data directory
+- View the data directory of the current node
 
   ```bash
   platon attach http://localhost:6789 -exec admin.datadir
@@ -340,7 +340,7 @@ COPYRIGHT:
   platon attach http://localhost:6789 -exec 'platon.estimateGas($transaction)'
   ```
 
-  Such as:
+  For example:
 
   ```bash
   platon attach http://localhost:6789 -exec 'platon.estimateGas({from:"0x493301712671ada506ba6ca7891f436d29185821",to:"0x15fffb839e5385ad61aef90e53c4d7ff550ece7e",value:"0x10000000000000",data:"0x11",gas:"0x88888",gasprice:"0x333333",nonce:"11"})'
@@ -387,7 +387,7 @@ COPYRIGHT:
   >
   >- Wallet address
 
-  example:
+  For example:
 
   ```bash
   platon attach http://localhost:6789 -exec 'personal.importRawKey ("842d943dbb50a8d3fe63af2f82fda3d8f0ca817fe8d47e61698142bac7c24212", "88888888")'
@@ -399,7 +399,7 @@ COPYRIGHT:
   platon attach http://localhost:6789 -exec 'personal.listAccounts'
   ```
 
-- View local wallet information, including wallet address, wallet file path, wallet status
+- View local wallet information, including wallet address, wallet file path and wallet status
 
   ```bash
   platon attach http://localhost:6789 -exec 'personal.listWallets'
@@ -450,7 +450,7 @@ COPYRIGHT:
 
 ### debug
 
-- Query current node economic model configuration parameters
+- Query the economic model configuration parameters of the current node
 
   ```bash
   platon attach http://localhost:6789 -exec 'debug.economicConfig()'
