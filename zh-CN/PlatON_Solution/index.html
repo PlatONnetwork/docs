@@ -94,7 +94,7 @@
 <p>目前区块链中使用的BFT类共识协议都可以认为是PBFT的变形，与PBFT一脉相承。</p>
 <h4><a class="anchor" aria-hidden="true" id="正常流程"></a><a href="#正常流程" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>正常流程</h4>
 <p>PBFT正常流程如下所示（图1中C为客户端，系统中有编号分别为0～3的四个节点，且节点3为拜占庭节点）:</p>
-<p><img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/PBFT_Normal_case_operation.png" alt="PBFT_Normal_case_operation"/></p>
+<p><img src="/docs/img/zh-CN/PlatON共识方案.assets/PBFT_Normal_case_operation.png" alt="PBFT_Normal_case_operation"/></p>
 <p><center>图1 PBFT正常流程</center></p>
 <p>PBFT 正常流程为3阶段协议：</p>
 <ul>
@@ -105,7 +105,7 @@
 <h4><a class="anchor" aria-hidden="true" id="视图切换流程"></a><a href="#视图切换流程" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>视图切换流程</h4>
 <p>视图切换（viewchange）是PBFT最为关键的设计，当主节点挂了（超时无响应）或者副本节点集体认为主节点是问题节点时，就会触发ViewChange事件，开始viewchange阶段。此时，系统中的节点会广播视图切换请求，当某个节点收到足够多的视图切换请求后会发送视图切换确认给新的主节点。当新的主节点收到足够多的视图切换确认后开始下一视图，每个视图切换请求都要包含该节点达到prepared状态序号的消息。</p>
 <p>在视图切换过程中，我们需要确保提交的消息序号在整个视图更改中也是一致的。简单来说，当一个消息定序为n，且收到2f+1个prepare 消息之后，在下个视图中，依然会被分配序号为n，并重新开始正常流程。</p>
-<p><img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/pbft-viewchange.png" alt="pbft-viewchange"/></p>
+<p><img src="/docs/img/zh-CN/PlatON共识方案.assets/pbft-viewchange.png" alt="pbft-viewchange"/></p>
 <p><center>图2 PBFT视图切换流程</center>
 如图2所示，viewchange会有三个阶段，分别是view-change，view-change-ack和new-view阶段。从节点认为主节点有问题时，会向其它节点发送view-change消息，当前存活的节点编号最小的节点将成为新的主节点。当新的主节点收到2f个其它节点的view-change消息，则证明有足够多人的节点认为主节点有问题，于是就会向其它节点广播。</p>
 <h4><a class="anchor" aria-hidden="true" id="通信复杂度问题"></a><a href="#通信复杂度问题" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>通信复杂度问题</h4>
@@ -176,7 +176,7 @@
 <p>对这个攻击的一种最直接的防御措施是，参与BLS聚合签名的人都需要先证明各自确实掌握了BLS私钥信息，并事先注册。这一过程可以通过使用一种简单高效的零知识证明技术(Schnorr非交互式零知识证明协议)完成。参与者在进行聚合签名之前，需要给出零知识证明，证明其持有公钥信息的同时，确实掌握了该公钥对应的私钥信息。</p>
 <h3><a class="anchor" aria-hidden="true" id="cbft协议流程"></a><a href="#cbft协议流程" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CBFT协议流程</h3>
 <h4><a class="anchor" aria-hidden="true" id="正常流程-1"></a><a href="#正常流程-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>正常流程</h4>
-<p><img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/prepareqc.jpg" alt="prepareqc"/></p>
+<p><img src="/docs/img/zh-CN/PlatON共识方案.assets/prepareqc.jpg" alt="prepareqc"/></p>
 <p><center>图3 CBFT正常流程</center></p>
 <ol>
 <li><p>提议人在成功进入到新的 View 后，会连续产生多个区块，将消息PrepareBlock&lt;ViewNumber, ProposalIndex, Block&gt;广播给验证人。</p></li>
@@ -192,11 +192,11 @@
 <li><p>当对Block(n+1)进行投票时，Block(n)需达到prepareQC</p></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="viewchange流程"></a><a href="#viewchange流程" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ViewChange流程</h4>
-<p><img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/viewchange_normal.jpg" alt="viewchange_normal"/></p>
+<p><img src="/docs/img/zh-CN/PlatON共识方案.assets/viewchange_normal.jpg" alt="viewchange_normal"/></p>
 <p><center>图4 时间窗口出块完成时切换窗口</center></p>
-<p><img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/viewchange_timeout.jpg" alt="viewchange_timeout"/></p>
+<p><img src="/docs/img/zh-CN/PlatON共识方案.assets/viewchange_timeout.jpg" alt="viewchange_timeout"/></p>
 <p><center>图5 时间窗口出块未完成但过期时切换窗口</center></p>
-<p><img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/viewchange_timeout_seq.jpg" alt="viewchange_timeout_seq"/></p>
+<p><img src="/docs/img/zh-CN/PlatON共识方案.assets/viewchange_timeout_seq.jpg" alt="viewchange_timeout_seq"/></p>
 <p><center>图6 viewchange投票流程</center></p>
 <p>假设每个时间窗口最多允许产生n个区块，viewchange 流程如下：</p>
 <p>1. 如果在时间窗口内，收到第n块的prepareQC，则更新本地view+1，进入新的正常流程，这种情况下如果是新提议人达成n的QC，则开始广播第一个区块，如图4所示，高度为BlockNumber(n)+1 ，并会携带n 区块的prepareQC。
@@ -211,7 +211,7 @@
 <li><strong>Commit：</strong> 当收到N-f个Pre-Commit投票时，表明所有节点对指定消息达成一致，提交到本地磁盘。</li>
 </ul>
 <p>根据上面的介绍，CBFT中也有类似的 Prepare 和 ViewChange 两个阶段，每个区块只有Prepare投票，没有明确的Pre-Commit 和 Commit阶段，那么如何达到区块的确认呢？CBFT可看作Pipeline版本的 BFT，每个prepareQC 都是对前面区块更高阶段的确认。</p>
-<p><img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/three_phrase.jpg" alt="three_phrase"/></p>
+<p><img src="/docs/img/zh-CN/PlatON共识方案.assets/three_phrase.jpg" alt="three_phrase"/></p>
 <p><center>图7 CBFT确认流程</center>
 如图7所示prepareQC(2)作为Block(1)的Pre-Commit阶段，prepareQC(3)作为Block(1)的Commit阶段，Block(2)的Pre-Commit阶段。</p>
 <p>因此在CBFT中，只有两种消息类型：prepare消息和view-change消息，每个消息的QC均采用聚合签名方式验证。</p>
