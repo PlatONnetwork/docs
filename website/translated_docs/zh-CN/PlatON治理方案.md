@@ -31,7 +31,7 @@ sidebar_label: PlatON治理方案
   共同建设PlatON公链及社区的核心开发者。
 
 ### 权利分配
-- ****备选节点****
+- **备选节点**
   - 发起提案
   - 对公投提案投票
   - 对非公投提案投票
@@ -63,7 +63,7 @@ sidebar_label: PlatON治理方案
 
 ### 治理流程
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON治理方案.assets/governace-flow.png" alt="governace-flow"/>
+<img src="/docs/img/zh-CN/PlatON治理方案.assets/governace-flow.png" alt="governace-flow"/>
 
 **1)** **发起提案**
 
@@ -113,7 +113,7 @@ sidebar_label: PlatON治理方案
 | 取消提案 | >50% | >=66.7% |
 | 参数提案 | >50% | >=66.7% |
 | 升级提案 | =100% | >=66.7% |
- 
+
 ### <span id="upgrade">升级机制</span>
 
 升级机制是网络能够不断迭代完善的保证。对于区块链系统运行过程中可能出现的不同情况，我们应该提供有针对性的升级方式，主要有以下四种情况：
@@ -155,7 +155,7 @@ sidebar_label: PlatON治理方案
 
 **3)** **升级提案投票结果统计**
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON治理方案.assets/upgrade-statistics.png" alt="upgrade-statistics"/>
+<img src="/docs/img/zh-CN/PlatON治理方案.assets/upgrade-statistics.png" alt="upgrade-statistics"/>
 
 在投票截止块高统计对升级提案的投票结果，若投票周期内投票情况如上图所示：
 
@@ -181,7 +181,7 @@ sidebar_label: PlatON治理方案
 
 只有候选节点和验证节点才可以发起版本声明。新加入的节点需要先成为候选人后才能发起版本声明。各个阶段版本声明条件如下：
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON治理方案.assets/version-declare.png" alt="version-declare"/>
+<img src="/docs/img/zh-CN/PlatON治理方案.assets/version-declare.png" alt="version-declare"/>
 
 当节点版本和链上版本不一致（版本号前两位不同）时，该节点不会被选入参与共识，即使质押很高，此时节点可以通过发起版本声明交易来声明自己节点与链版本一致，才能在后续结算周期中正常参与共识。当链上存在正在投票中的软件升级提案时，可以发起和升级版本一致的版本声明，版本声明不代表投票，在升级提案投票通过后，声明了与升级目的版本号一致的节点即使没有投票也可以正常参与共识。
 
@@ -202,27 +202,27 @@ sidebar_label: PlatON治理方案
 
 - slashing模块
 
-| Key | 描述|范围| 
+| Key | 描述|范围|
 | ---|---|---|
-| slashBlocksReward |	出块率为0，削减的区块奖励块数 |[0, 50000] blocks	| 
-| slashFractionDuplicateSign|双签举报处罚节点自有质押金比例| (0,10000] ‱| 
-| duplicateSignReportReward|	举报人可获得处罚金的奖励比例	| (0, 80] %	| 
-| maxEvidenceAge| 双签举报证据有效的结算周期数 |(0, 节点质押退回锁定周期）Epoch| 
+| slashBlocksReward |	出块率为0，削减的区块奖励块数 |[0, 50000] blocks	|
+| slashFractionDuplicateSign|双签举报处罚节点自有质押金比例| (0,10000] ‱|
+| duplicateSignReportReward|	举报人可获得处罚金的奖励比例	| (0, 80] %	|
+| maxEvidenceAge| 双签举报证据有效的结算周期数 |(0, 节点质押退回锁定周期）Epoch|
 
 - block模块
 
-| Key | 描述|范围| 
+| Key | 描述|范围|
 | ---|---|---|
-| MaxBlockGasLimit|区块最大Gas|[4712388, 210000000] gas| 
+| MaxBlockGasLimit|区块最大Gas|[4712388, 210000000] gas|
 
 - staking模块
 
-| Key | 描述|范围| 
+| Key | 描述|范围|
 | ---|---|---|
-| stakeThreshold|	成为备选节点候选人最低的质押Token数 | [100W,1000w] LAT| 
-| operatingThreshold	|委托人每次委托及赎回的最低Token数|	[10, 10000] LAT| 
-| unStakeFreezeDuration |节点质押退回锁定周期	| (证据有效期,112] Epoch	| 
-| maxValidators| 备选节点数量|[25, 201]	| 
+| stakeThreshold|	成为备选节点候选人最低的质押Token数 | [100W,1000w] LAT|
+| operatingThreshold	|委托人每次委托及赎回的最低Token数|	[10, 10000] LAT|
+| unStakeFreezeDuration |节点质押退回锁定周期	| (证据有效期,112] Epoch	|
+| maxValidators| 备选节点数量|[25, 201]	|
 
 
 ### 奖惩机制

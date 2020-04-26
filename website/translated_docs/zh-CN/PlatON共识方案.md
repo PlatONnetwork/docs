@@ -49,7 +49,7 @@ BFT(拜占庭容错协议)是一种即使系统中存在恶意节点也能保证
 
 PBFT正常流程如下所示（图1中C为客户端，系统中有编号分别为0～3的四个节点，且节点3为拜占庭节点）: 
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/PBFT_Normal_case_operation.png" alt="PBFT_Normal_case_operation"/>
+<img src="/docs/img/zh-CN/PlatON共识方案.assets/PBFT_Normal_case_operation.png" alt="PBFT_Normal_case_operation"/>
 
 <center>图1 PBFT正常流程</center>
 
@@ -64,7 +64,7 @@ PBFT 正常流程为3阶段协议：
 
 在视图切换过程中，我们需要确保提交的消息序号在整个视图更改中也是一致的。简单来说，当一个消息定序为n，且收到2f+1个prepare 消息之后，在下个视图中，依然会被分配序号为n，并重新开始正常流程。
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/pbft-viewchange.png" alt="pbft-viewchange"/>
+<img src="/docs/img/zh-CN/PlatON共识方案.assets/pbft-viewchange.png" alt="pbft-viewchange"/>
 
 <center>图2 PBFT视图切换流程</center>
 如图2所示，viewchange会有三个阶段，分别是view-change，view-change-ack和new-view阶段。从节点认为主节点有问题时，会向其它节点发送view-change消息，当前存活的节点编号最小的节点将成为新的主节点。当新的主节点收到2f个其它节点的view-change消息，则证明有足够多人的节点认为主节点有问题，于是就会向其它节点广播。
@@ -180,7 +180,7 @@ CBFT 有自适配的视图切换机制：在一个视图窗口内，节点接收
 
 #### 正常流程
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/prepareqc.jpg" alt="prepareqc"/>
+<img src="/docs/img/zh-CN/PlatON共识方案.assets/prepareqc.jpg" alt="prepareqc"/>
 
 <center>图3 CBFT正常流程</center>
 1. 提议人在成功进入到新的 View 后，会连续产生多个区块，将消息PrepareBlock<ViewNumber, ProposalIndex, Block>广播给验证人。
@@ -202,15 +202,15 @@ CBFT 有自适配的视图切换机制：在一个视图窗口内，节点接收
 
 #### ViewChange流程
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/viewchange_normal.jpg" alt="viewchange_normal"/>
+<img src="/docs/img/zh-CN/PlatON共识方案.assets/viewchange_normal.jpg" alt="viewchange_normal"/>
 
 <center>图4 时间窗口出块完成时切换窗口</center>
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/viewchange_timeout.jpg" alt="viewchange_timeout"/>
+<img src="/docs/img/zh-CN/PlatON共识方案.assets/viewchange_timeout.jpg" alt="viewchange_timeout"/>
 
 <center>图5 时间窗口出块未完成但过期时切换窗口</center> 
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/viewchange_timeout_seq.jpg" alt="viewchange_timeout_seq"/>
+<img src="/docs/img/zh-CN/PlatON共识方案.assets/viewchange_timeout_seq.jpg" alt="viewchange_timeout_seq"/>
 
 <center>图6 viewchange投票流程</center> 
 
@@ -232,7 +232,7 @@ CBFT 有自适配的视图切换机制：在一个视图窗口内，节点接收
 
 根据上面的介绍，CBFT中也有类似的 Prepare 和 ViewChange 两个阶段，每个区块只有Prepare投票，没有明确的Pre-Commit 和 Commit阶段，那么如何达到区块的确认呢？CBFT可看作Pipeline版本的 BFT，每个prepareQC 都是对前面区块更高阶段的确认。
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON共识方案.assets/three_phrase.jpg" alt="three_phrase"/>
+<img src="/docs/img/zh-CN/PlatON共识方案.assets/three_phrase.jpg" alt="three_phrase"/>
 
 <center>图7 CBFT确认流程</center>
 如图7所示prepareQC(2)作为Block(1)的Pre-Commit阶段，prepareQC(3)作为Block(1)的Commit阶段，Block(2)的Pre-Commit阶段。

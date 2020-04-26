@@ -20,14 +20,14 @@ This guide introduces the development process of smart contracts and issues shou
 
 ### Introduce
 
-This tutorial is mainly to guide users to create a simple HelloWorld smart contract using solidity language on PlatON, compile, deploy, and call this contract through platon-truffle. If you want to use a richer API you can refer to [Java SDK ](/zh-cn/Development/[Chinese-Simplified]-Java-SDK.md) and  [JS SDK](/zh-cn/Development/[Chinese-Simplified]-JS-SDK.md)
+This tutorial is mainly to guide users to create a simple HelloWorld smart contract using solidity language on PlatON, compile, deploy, and call this contract through platon-truffle. If you want to use a richer API you can refer to [Java SDK](/docs/en/Java_SDK) and  [JS SDK](/docs/en/JS_SDK)
 
 ### Platon-truffle Introduce 
 
 Platon-truffle is a tool provided by PlatON that can compile, deploy, and invoke smart contracts locally. For specific installation and usage manuals, refer to:
 
-- Platon-truffle develop tools[specific installation](https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#)
-- Platon-truffle develop tools[usage manuals](https://platon-truffle.readthedocs.io/en/v0.11.1/)
+- Platon-truffle develop tools [specific installation](https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#)
+- Platon-truffle develop tools [usage manuals](https://platon-truffle.readthedocs.io/en/v0.11.1/)
 
 ### Create HelloWorld Contract
 
@@ -961,7 +961,7 @@ Ethereum
 
 **Sample Code**
 
-[Click to view code](https://github.com/PlatONnetwork/Docs/blob/master/zh-cn/Development/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/account.sol)
+[Click to view code](https://github.com/PlatONnetwork/docs/blob/master/docs/SmartDevelopment.assets/account.sol)
 
 
 ByteCode
@@ -994,7 +994,7 @@ Ethereum
 
 **Sample Code**
 
-[Click to view code](https://github.com/PlatONnetwork/Docs/blob/master/zh-cn/Development/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/token.sol)
+[Click to view code](https://github.com/PlatONnetwork/docs/blob/master/docs/SmartDevelopment.assets/token.sol)
 
 
 ByteCode
@@ -1040,7 +1040,7 @@ When a user sends a transaction, GasLimit and GasPrice are set. `GasLimit * GasP
 
 The higher the GasPrice of the transaction, the higher the execution priority of the transaction and the greater the transaction cost. After each transaction is completed, the remaining unused Gas will be returned to the sender's address account. It is important to note that if the execution of the transaction fails because the GasLimit is set too low, the Gas will not be returned to the user's address at this time, and the user still needs to pay the energy cost for the failed transaction. Therefore, regardless of whether the transaction is executed successfully, the transaction sender needs to pay a certain calculation fee to the miner.
 
-In the `PlatON` network, the maximum gas limit is` 4,700,000` and the minimum is `22,000`. Too low or too high will cause transaction failure. When deploying large contracts or calling complex functions in contracts, you can increase the gas limit, for example: `1,000,000`. If it is a normal transfer, set it to the lowest value. The specific value needs to be estimated according to the size and complexity of the contract. Before the contract is released, the interface `platon_estimateGas` can be called for approximate estimation to avoid failure due to insufficient Gas. [Click to view JSON-RPC reference documentation](https://github.com/PlatONnetwork/Docs/blob/master/en-us/Development/%5BEnglish%5D-JSONRPC-SDK.md)
+In the `PlatON` network, the maximum gas limit is` 4,700,000` and the minimum is `22,000`. Too low or too high will cause transaction failure. When deploying large contracts or calling complex functions in contracts, you can increase the gas limit, for example: `1,000,000`. If it is a normal transfer, set it to the lowest value. The specific value needs to be estimated according to the size and complexity of the contract. Before the contract is released, the interface `platon_estimateGas` can be called for approximate estimation to avoid failure due to insufficient Gas. [Click to view JSON-RPC reference documentation](/docs/en/Json_Rpc)
 
 **LAT Unit Conversion**
 

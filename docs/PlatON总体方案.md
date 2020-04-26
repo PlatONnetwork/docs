@@ -17,13 +17,13 @@ The Next Generation Internet is a serverless Internet and a decentralized networ
 
 PlatON is committed to building the next generation of Privacy-Preserving Computing and data exchange network. Based on modern cryptography and blockchain technology, PlatON creates a new computing paradigm to maintain privacy of the client’s data without the need to rely on third parties for collaborative computing and Verify the integrity of the results.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/overall_architecture.png" alt="overall_architecture"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/overall_architecture.png" alt="overall_architecture"/>
 
 ### Scalable Privacy-Preserving Computing
 
 #### Blockchain: Consensus-based Strategy
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/consensus_based_computing.png" alt="consensus_based_computing"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/consensus_based_computing.png" alt="consensus_based_computing"/>
 
 In a broad sense, the existing blockchain architecture is a consensus-based schemes, which also implements a simple computation protocol based on smart contract. To assure correctness the computation must be replicated by all the nodes, manifesting the intrinsic contradiction between efficiency and trustlessness.
 
@@ -41,7 +41,7 @@ PlatON uses modern cryptographic algorithms including but not limited Zero-Knowl
 
 The scalability problem of the existing blockchain architecture is mainly due to the tight coupling of consensus and computing. PlatON's scheme based on verifiable computing uses cryptographic algorithms to weaken their endogenous binding relationship, thereby fundamentally decoupling consensus and computing.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/laye2_computing_network.png" alt="laye2_computing_network"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/laye2_computing_network.png" alt="laye2_computing_network"/>
 
 
 
@@ -55,7 +55,7 @@ On PlatON, MPC and HE are combined to achieve complete privacy-preserving comput
 
 ### Overall Logical Structure
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/overall_logical_architecture.png" alt="overall_logical_architecture"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/overall_logical_architecture.png" alt="overall_logical_architecture"/>
 
 In addition to providing the underlying chain, PlatON also provides open source implementations of a wallet, a block browser, and a node management tool:
 
@@ -65,7 +65,7 @@ In addition to providing the underlying chain, PlatON also provides open source 
 
 ### Logical Structure
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/logical_architecture.png" alt="logical_architecture"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/logical_architecture.png" alt="logical_architecture"/>
 
 PlatON's Layer1 consensus network layer is based on the Ethereum skeleton. The core components have been completely rewritten, and some new components have been extended:
 
@@ -86,7 +86,7 @@ Layer2 extends complex computing to off-chain and implements Privacy-Preserving 
 
 ### Network Structure
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/network_structure.png" alt="network_structure"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/network_structure.png" alt="network_structure"/>
 
 #### Basic Network
 
@@ -149,7 +149,7 @@ ATON is a mobile wallet which implements key management, signing transactions fo
 
 ### Validator Deployment
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/node_deployment.png" alt="node_deployment"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/node_deployment.png" alt="node_deployment"/>
 
 Appropriate measures should be taken to ensure the security of validator for running stably: 
 - RPC ports of full node and validator node are closed.
@@ -163,7 +163,7 @@ Appropriate measures should be taken to ensure the security of validator for run
 
 The basic implementation of PlatON network is a decentralized structured topology completely based on RELOAD (Resource LOcation And Discovery) protocol and the Kademlia protocol [Kademlia]. The overall PlatON network structure is shown as follows.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/P2P_network.png" alt="p2p_protocal_stack"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/P2P_network.png" alt="p2p_protocal_stack"/>
 
 #### Link Layer
 
@@ -271,11 +271,11 @@ PlatON's storage is divided into account data storage (statedb) and snapshot sto
 
 PlatON's account data storage references Ethereum's MPT tree storage model, as shown below:
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/MPT_tree_storage_model.png" alt="MPT_tree_storage_model"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/MPT_tree_storage_model.png" alt="MPT_tree_storage_model"/>
 
 In PlatON, all account-related state information is stored and retrieved through StateDB. To support fast data query and block rollback operations, StateDB uses the MPT structure as its underlying storage method. All nodes in the MPT will eventually be stored in the disk database as key-value.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/StateDB.png" alt="statedb"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/StateDB.png" alt="statedb"/>
 
 The top layer is StateDB. StateDB is responsible for making the most preliminary records of the data. The next layer is the Trie layer. Trie is responsible for structuring all data and subsequent operations such as rollback of storage queries. There are two types of Trie, State Trie and Storage Trie. The former is a status tree that records basic information such as the balance nonce of all accounts. The latter is used to record various contract storage data. There is only one state tree and many storage trees, because each contract has its own storage tree. Trie is TrieDB. TrieDB stores the order of the nodes in Trie in memory. TrieDB's main function is to act as a cache layer before finally inserting data into the hard disk. The last link in the entire structure is the database leveldb on the final hard disk.
 
@@ -283,7 +283,7 @@ The top layer is StateDB. StateDB is responsible for making the most preliminary
 
 Considering storage cost and read performance, part of the data in PlatON only retains the final state, which is stored and retrieved through snapshotdb. The data in snapshotdb will be finally stored in the disk database in the form of key-value.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/snapshotdb.jpg" alt="snapshotdb"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/snapshotdb.jpg" alt="snapshotdb"/>
 
 among them:
 - **unRecognizedBlockData:** An unconfirmed data set. Each DB write request updates the data set.
@@ -302,7 +302,7 @@ The scalability trilemma posits that blockchains in which every node processes e
 
 As a trade-off, PlatON uses a BFT-Style PoS mechanism.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/consensus_mechanism.png" alt="consensus_mechanism" style="zoom: 67%;"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/consensus_mechanism.png" alt="consensus_mechanism" style="zoom: 67%;"/>
 
 PlatON consensus runs in three stages: 
 
@@ -334,7 +334,7 @@ It can be proved that the more votes an alternative validator receives, the more
 
 From a technical perspective, PlatON is essentially a decentralized FaaS (Functions as a Service) platform. Accordingly, smart contracts can be considered as functions on FaaS. Smart contracts in PlatON fall into three categories.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/smart_contract.png" alt="smart_contract"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/smart_contract.png" alt="smart_contract"/>
 
 #### Solidity Contract
 
@@ -356,7 +356,7 @@ PlatON first supports C ++ as a smart contract writing language, and gradually p
 
 ##### WASM contract execution process
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/wasm_compile_pub_tx.jpg" alt="wasm_compile_pub_tx"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/wasm_compile_pub_tx.jpg" alt="wasm_compile_pub_tx"/>
 
 ##### GAS Billing for WASM Contracts
 
@@ -368,11 +368,11 @@ The execution of the WASM contract is performed in accordance with the called WA
 
 The privacy contract also supports high-level language development, which is compiled into llvm ir intermediate language for execution. The input data of the privacy contract is stored locally in the data node, and the data node is secretly shared to multiple random computing nodes. The computing node performs privacy computations in a secure multi-party computing manner off-chain, and submits the computation results to the chain.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/privacy_contract.png" alt="privacy_contract"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/privacy_contract.png" alt="privacy_contract"/>
 
 ##### Privacy contract execution process
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/privacy_contract_flow.png" alt="privacy_contract_flow"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/privacy_contract_flow.png" alt="privacy_contract_flow"/>
 
 #### VC Contract
 
@@ -382,7 +382,7 @@ The development and release of a verifiable contract is no different from a Wasm
 
 PlatON's verifiable solution is temporarily based on the zk-SNARK algorithm, and it is gradually replaced with a more optimized algorithm in the future.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/verifiable_contract.png" alt="verifiable_contract"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/verifiable_contract.png" alt="verifiable_contract"/>
 
 - vc-contract template: The user compiles a vc contract according to the provided template, and can enter any computation model. It mainly implements three interfaces:
   - compute (): compute request
@@ -395,7 +395,7 @@ PlatON's verifiable solution is temporarily based on the zk-SNARK algorithm, and
 
 ##### Verifiable contract execution process
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_overall_solution.assets/verifiable_contract_flow.png" alt="verifiable_contract_flow"/>
+<img src="/docs/img/en/PlatON_overall_solution.assets/verifiable_contract_flow.png" alt="verifiable_contract_flow"/>
 
 - After the contract is compiled, pk and vk have been generated. After deployment to the PlatON network, pk and vk are stored on the chain and cannot be tampered with, which can facilitate node access
 

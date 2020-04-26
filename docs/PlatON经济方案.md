@@ -78,7 +78,7 @@ In PoS, although the various systems in PoS can improve the efficiency of group 
 
 Each consensus algorithm relies on technology-based trust and institution-based trust to varying degrees, and therefore incurs technical and institutional costs, respectively. Consensus cost is the sum of technical and institutional costs. The greater the dependence on technology-based trust, the higher the cost of technology, and vice versa. This relationship is also true of institutional-based trust and institutional costs. Relying entirely on technology-based trust, or relying entirely on system-based trust, will result in relatively high consensus costs. We believe that **there is an optimal ratio between the two trust bases that minimizes the cost of consensus** (Figure 1).
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/consensus_cost.png" alt="consensus cost"/>
+<img src="/docs/img/en/PlatON_economic_plan.assets/consensus_cost.png" alt="consensus cost"/>
 
 <center>Figure 1 Consensus cost</center>
 
@@ -99,7 +99,7 @@ Fourth, endogenously inhibit the expansion of the PPoS mining pool.
 
 ### The business cycle in PlatON
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/economic_cycle.png" alt="economic_cycle"/>
+<img src="/docs/img/en/PlatON_economic_plan.assets/economic_cycle.png" alt="economic_cycle"/>
 
 Before introducing PlatON's economic plan, in order to facilitate subsequent understanding, first introduce several basic economic cycles in the PlatON economic model:
 
@@ -139,7 +139,7 @@ Assume that the account A's restricting plan is (a total of 1000Energon):
 
 The unlocking process flow is shown in the following figure:
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/unlock_the_restricting_normally.png" alt="unlock_the_restricting_normally"/>
+<img src="/docs/img/en/PlatON_economic_plan.assets/unlock_the_restricting_normally.png" alt="unlock_the_restricting_normally"/>
 
 
 Due to the existence of the locked Energon for pledge or delegate, and the pledge or delegate was returned without expiry, the unlocked block was reached. The account balance in the restricting contract was not enough to unlock the amount. At this time, the processing method is to fully unlock and record A "number of accounts owed", and check whether there is "number of accounts owed" in each settlement block, and whether the locked balance of the account in the restricting contract is recorded, and if necessary, continue to unlock until the "account owed" returns zero.
@@ -159,11 +159,11 @@ PlatON adopts the batch issuance mode, that is, one issuance per year (one addit
 
 According to the annual expected number of blocks for the additional period, Energon issuance. **Compared to Energon's total issuance at the end of the previous year**, **a fixed additional 2.5% issuance per year**. Additional issuances are made in the additional issuance block (the last block in the last additional period), and 2% of the additional issuance is transferred to the reward pool controlled by smart contracts. , And the reward is given to the validator	 by the running of the PPoS consensus algorithm. The remaining 0.5% is transferred to a trust fund, which is used by the PlatON Foundation as a trustee to reward future developers of the PlatON basic agreement.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/additional_period.png" alt="additional_period"/>
+<img src="/docs/img/en/PlatON_economic_plan.assets/additional_period.png" alt="additional_period"/>
 
 Therefore, the current additional period	 of Energon can be expressed as:
 
-$$f(x)=W\times(1+a\%)^{x-1}\times a\%$$
+$$f(x)=W\times(1+a\%)^x-1}\times a\%$$
 
 among them:
 
@@ -205,7 +205,7 @@ PlatON adopts randomly selected nodes among the small-scale candidate nodes to p
 
 The role relationship diagram is as follows. **To facilitate the subsequent description,  alternative validator candidates include alternative validators and validators.alternative validators include validator.**
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/role_description.png" alt="role_description"/>
+<img src="/docs/img/en/PlatON_economic_plan.assets/role_description.png" alt="role_description"/>
 
 #### Overview of the overall process
 
@@ -250,7 +250,7 @@ To become a  Alternative Validator Candidate, you also need to submit the true v
 - The system will initiate a period from the staking transaction block to the settlement block of the current epoch as a hesitation period. During the hesitation period, the system will initiate a revocation, and the node will immediately exit the  Alternative Validator Candidate list.
 
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/staking_hesitation_period.png" alt="staking_hesitation_period"/>
+<img src="/docs/img/en/PlatON_economic_plan.assets/staking_hesitation_period.png" alt="staking_hesitation_period"/>
 
 - When the node's version number is lower than the current chain version number or the pre-validated version number, the staking fails.
 - Once the node is successfully pledged as a Alternative Validator Candidate, the account used for the staking will correspond to the node ID one by one, and subsequent related operations need to use the staking account to initiate signed transactions. Please pay attention to the safe storage of the staking account.
@@ -271,7 +271,7 @@ All Alternative Validator Candidate can increase the number of staking Energon a
 
 The total number of  alternative validators is at most 101, and the last block (settlement block) of each epoch will be re-selected.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/election_of_validators.png" alt="election_of_validators"/>
+<img src="/docs/img/en/PlatON_economic_plan.assets/election_of_validators.png" alt="election_of_validators"/>
 
 The selection rules are based on the top 101 nodes, and the ranking rules are as follows:
 
@@ -345,15 +345,15 @@ Alternative Validator Candidates can apply for withdrawal voluntarily, and valid
 
 **Application process for withdrawal from validator:**
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/exit_the_validator_process.png" alt="exit_the_validator_process"/>
+<img src="/docs/img/en/PlatON_economic_plan.assets/exit_the_validator_process.png" alt="exit_the_validator_process"/>
 
 (1) Starting from the block applying to withdraw from the verification node, the node is immediately removed from the candidate list of candidate nodes, and the node will not be able to receive commissions and increase pledge deposits. If the node is a candidate node for the current settlement cycle, the node can continue to participate in the election of the VRF consensus round to verify the node, and at the same time can obtain Staking rewards in the settlement block.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/apply_for_withdrawal.png" alt="apply_for_withdrawal"/>
+<img src="/docs/img/en/PlatON_economic_plan.assets/apply_for_withdrawal.png" alt="apply_for_withdrawal"/>
 
 (2) When the alternative validator in the current epoch is withdrawn by the system or the minimum staking threshold required by the alternative validator candidate is not met after deducting the node's own deposit, the penalty block will move the node out of the alternative validator in the current settlement cycle in real time List and  alternative validator candidate  list. Nodes no longer continue to participate in the VRF consensus round to verify node elections. There is no Staking reward for this node in the current epoch.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/system_penalty_exit.png" alt="system_penalty_exit"/>
+<img src="/docs/img/en/PlatON_economic_plan.assets/system_penalty_exit.png" alt="system_penalty_exit"/>
 
 (3) After the execution of the exit validator command, the node's own staking Energon returned to the staking account time:
 
@@ -361,7 +361,7 @@ Alternative Validator Candidates can apply for withdrawal voluntarily, and valid
 
 - Locked staking Energon, after exiting the execution of the order, continue to freeze and lock 28 epochs (excluding the current epoch)
 
-  <img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/exit_freeze_lock_period.png" alt="exit_freeze_lock_period"/>
+  <img src="/docs/img/en/PlatON_economic_plan.assets/exit_freeze_lock_period.png" alt="exit_freeze_lock_period"/>
 
 
 >[!NOTE|style:flat|label:notice]
@@ -372,7 +372,7 @@ Alternative Validator Candidates can apply for withdrawal voluntarily, and valid
 
 - The alternative validator candidates  take the initiative to apply. In the settlement block of the current epoch, all delegated Energon received by the node are unlocked, and the principal needs to actively apply for redemption. After submitting the redemption, the delegated Energon will immediately return to the principal's account .
 
-  <img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/voluntary_withdrawal_from_delegate.png" alt="voluntary_withdrawal_from_delegate"/>
+  <img src="/docs/img/en/PlatON_economic_plan.assets/voluntary_withdrawal_from_delegate.png" alt="voluntary_withdrawal_from_delegate"/>
 
   
 
@@ -380,7 +380,7 @@ Alternative Validator Candidates can apply for withdrawal voluntarily, and valid
 
   
 
-  <img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/system_punishment_withdraw_from_delegate.png" alt="system_punishment_withdraw_from_delegate"/>
+  <img src="/docs/img/en/PlatON_economic_plan.assets/system_punishment_withdraw_from_delegate.png" alt="system_punishment_withdraw_from_delegate"/>
 
 
 (5) The withdrawal application must be initiated by the node's original staking account.
@@ -448,7 +448,7 @@ The principal can submit the redemption delegation transaction at any time, beca
 
 - The delegated Energon will be locked in the next epoch. The locked Energon will redeem the entrustment. The energon will be returned to the user's delegated account in the settlement block of the epoch.
 
-  <img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/redemption_delegate.png" alt="redemption_delegate"/>
+  <img src="/docs/img/en/PlatON_economic_plan.assets/redemption_delegate.png" alt="redemption_delegate"/>
 
 - When the delegated Energon contains unlocked and locked Energon, the unlocked Energon will be redeemed first, and the remaining part will be redeemed from the locked Energon.
 
@@ -500,7 +500,7 @@ The sources of PlatON network incentives include the following:
 
 #### Incentive rules
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/reward_distribution.png" alt="reward_distribution"/>
+<img src="/docs/img/en/PlatON_economic_plan.assets/reward_distribution.png" alt="reward_distribution"/>
 
 In PlatON, there are three types of incentive methods for the validator:
 
@@ -578,7 +578,7 @@ PlatON currently supports two penalties:
 
    Alternative validator candidate are passively withdrawn, they no longer participate in the election of alternative validators and validators, and are immediately revoked for pledges, withdrawing from the alternative validator candidate list. The Energon entrusted to this node is all invalidated and unlocked. The Energon entrusted to dismiss requires the user to apply for redemption by itself (too many principals, automatic return will greatly affect system performance). The node's remaining own pledge deposit will continue to be locked for 28 epochs and will automatically be returned to the node staking account.
 
-   <img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/remove_from_candidate_validator_list.png" alt="remove_from_candidate_validator_list"/>
+   <img src="/docs/img/en/PlatON_economic_plan.assets/remove_from_candidate_validator_list.png" alt="remove_from_candidate_validator_list"/>
 
    - Nodes that are forced to withdraw do not participate in the allocation of Staking rewards for settlement blocks in this epoch.
 
@@ -604,7 +604,7 @@ The node has a DuplicateVote behavior. If it is found by any user, it can initia
 
 - A DuplicateVote report has a validity period, and reports that are more than 28 epochs are invalid.
 
-  <img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/report_validity_period.png" alt="report_validity_period"/>
+  <img src="/docs/img/en/PlatON_economic_plan.assets/report_validity_period.png" alt="report_validity_period"/>
 
 - Reporting follows the principle of chronological order, and only the user who reports first will receive a penalty. Subsequent identical reports are invalid reports. Therefore, it is best to check whether you have been reported to have DuplicateVote before reporting.
 
@@ -622,7 +622,7 @@ The node has a DuplicateVote behavior. If it is found by any user, it can initia
 
 PlatON judges whether a node is online and whether the node's software, hardware, and network environment meets the requirements based on the level of block production. In the 230 block of each consensus round (250 blocks in one consensus round), the block rate of the last consensus round verification node is judged.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_economic_plan.assets/low_block_rate_verification.png" alt="low_block_rate_verification"/>
+<img src="/docs/img/en/PlatON_economic_plan.assets/low_block_rate_verification.png" alt="low_block_rate_verification"/>
 
 When the number of blocks produced is zero, the system forcibly quits the alternative validator candidate, no longer participates in the validator election, and there is no staking reward in the current epoch.
 

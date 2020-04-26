@@ -67,7 +67,7 @@ In our opinion, decision-making power should belong to "stakeholders", that is, 
 
 ### Governance process
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_governance_solution.assets/governace-flow.png" alt="governace-flow"/>
+<img src="/docs/img/en/PlatON_governance_solution.assets/governace-flow.png" alt="governace-flow"/>
 
 **1)** **Initiate Proposal**
 
@@ -183,7 +183,7 @@ The following parameters are required to upgrade the proposal voting transaction
 
 ##### Statistics on voting results of upgrade proposals
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_governance_solution.assets/upgrade-statistics.png" alt="upgrade-statistics"/>
+<img src="/docs/img/en/PlatON_governance_solution.assets/upgrade-statistics.png" alt="upgrade-statistics"/>
 
 The voting result of the upgrade proposal is highly counted at the voting deadline block. If the voting situation in the voting cycle is as shown above:
 
@@ -210,7 +210,7 @@ As there may be data incompatibility between different versions, in order to avo
 
 Only candidate nodes and validator nodes can initiate version declarations. Newly added nodes need to be candidates before they can launch a version statement. The conditions for each stage version declaration are as follows:
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_governance_solution.assets/version-declare.png" alt="version-declare"/>
+<img src="/docs/img/en/PlatON_governance_solution.assets/version-declare.png" alt="version-declare"/>
 
 When the node version and the version on the chain are inconsistent (the first two digits of the version number are different), the node will not be selected to participate in the consensus, even if the pledge is high, at this time, the node can declare that its node is consistent with the chain version by initiating a version declaration transaction. In order to participate in consensus in the subsequent settlement cycle. When there is a voting software upgrade proposal on the chain, a version statement consistent with the upgrade version can be issued. The version statement does not represent a vote. After the upgrade proposal is voted through, the node that has the same version number as the upgrade destination is declared without voting. Can participate in consensus normally.
 

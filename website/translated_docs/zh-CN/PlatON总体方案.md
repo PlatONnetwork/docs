@@ -19,13 +19,13 @@ sidebar_label: PlatON总体方案
 
 PlatON致力于建设下一代隐私计算架构和数据交换网络，基于现代密码技术和区块链技术，创造全新的计算范式，保证用户数据隐私的前提下，无需依赖第三方就可进行协同计算并验证结果的完整性。
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/隐私计算技术栈.png" alt="隐私计算技术栈"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/web3计算技术栈.png" alt="web3计算技术栈"/>
 
 ### 可扩展的隐私计算方案
 
 #### 区块链：基于共识的计算
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/基于共识的计算.png" alt="基于共识的计算"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/基于共识的计算.png" alt="基于共识的计算"/>
 
 广义上看，现有的区块链架构都是一种基于共识的计算，也就实现了一种简单计算（智能合约形式）协议：为了保证计算的正确性，每个计算操作都需要经过绝大多数节点的重复处理来验证计算的正确性，导致了区块链体系里效率和可信任之间的内在矛盾。
 
@@ -43,7 +43,7 @@ PlatON使用包含且不限于零知识证明（ZKP）、可验证计算（VC）
 
 现有区块链架构的问题源于两个很重要的部分：共识和计算耦合太紧密了。PlatON提出一种可验证计算的方案，能从本质上把两者拆开，对这两个问题分而治之，通过数学上可证明的密码学算法，弱化他们的内生绑定关系。
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/Layer2计算.png" alt="Layer2计算"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/Layer2计算.png" alt="Layer2计算"/>
 
 鉴于链上共识既有的局限性，链上的功能应该是”验证”而不是“计算”。虽然链上已经公认为是一个无需信任的环境，但是链下方案的实施又引入新的不信任因素。PlatON的可验证计算（VC）密码学算法将信任传递到链下。通过可验证计算，合约只需要在链下计算一次，所有节点可以快速验证计算的正确性，一方面提高了交易的处理性能，另一方面也使得PlatON支持复杂合约的Trustless计算。
 
@@ -55,7 +55,7 @@ PlatON通过叠加同态加密（HE）和安全多方计算（MPC），实现真
 
 ### 总体逻辑结构
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/总体逻辑结构.png" alt="总体逻辑结构"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/总体逻辑结构.png" alt="总体逻辑结构"/>
 
 PlatON除了提供底层链外，同时提供钱包、区块浏览器和节点工具的开源实现：
 
@@ -65,7 +65,7 @@ PlatON除了提供底层链外，同时提供钱包、区块浏览器和节点�
 
 ### 底层逻辑结构
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/逻辑结构.png" alt="逻辑结构"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/逻辑结构.png" alt="逻辑结构"/>
 
 PlatON中，Layer1共识网络在以太坊的技术框架上进行修改，核心组件重新编写，并扩展了一些新组件：
 
@@ -86,7 +86,7 @@ Layer2将复杂计算扩展到链下，并通过链下安全多方计算实现�
 
 ### 网络结构
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/网络结构.png" alt="网络结构"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/网络结构.png" alt="网络结构"/>
 
 #### 基础网络
 
@@ -154,7 +154,7 @@ ATON是一个移动端钱包，私钥在客户端管理，客户端负责签名�
 
 ### 验证节点部署结构
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/节点部署结构.png" alt="节点部署结构"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/节点部署结构.png" alt="节点部署结构"/>
 
 为保护验证节点正常通信与运行，稳定出块，对节点需要进行安全防护：
 
@@ -169,7 +169,7 @@ ATON是一个移动端钱包，私钥在客户端管理，客户端负责签名�
 
 PlatON 完全实现 RELOAD（REsource LOcation And Discovery）标准[RFC6940]的P2P基础协议  和 Kademlia协议 。下图为 PlatON 网络整体分层结构。
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/P2P协议栈.png" alt="P2P协议栈"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/P2P协议栈.png" alt="P2P协议栈"/>
 
 #### 链接层
 
@@ -266,11 +266,11 @@ PlatON的存储分为账户数据存储（statedb）和快照存储（snapshotdb
 
 PlatON的账户数据存储参考了以太坊的MPT树状存储模型，如下所示：
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/区块和交易存储结构.png" alt="区块和交易存储结构"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/区块和交易存储结构.png" alt="区块和交易存储结构"/>
 
 PlatON中，所有和账户相关的状态信息都是通过 StateDB 来存储和获取的。为了支持数据的快速查询以及区块的回滚操作，StateDB 使用 MPT 结构作为其下层的存储方式。MPT 中的所有节点最后都会以 key - value 的形式存入磁盘数据库。
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/StateDB.png" alt="StateDB"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/StateDB.png" alt="StateDB"/>
 
 最上层就是StateDB。StateDB负责将数据做最初步的记录。往下一层是Trie层，Trie负责将所有数据结构化，方便后续的存储查询回滚等操作。Trie分两种，State Trie和Storage Trie。前者是状态树，记录了所有账号的余额nonce等基本信息。后者用于记录各种合约存储数据。状态树只有一棵，存储树有很多棵，因为每个合约都有棵属于自己的存储树。Trie再往后就是TrieDB，TrieDB将Trie中的节点序列化后存储在内存中。TrieDB的主要作用是做为最终插入硬盘数据之前的缓存层。整个结构中最后一环就是最终硬盘上的数据库leveldb。
 
@@ -278,7 +278,7 @@ PlatON中，所有和账户相关的状态信息都是通过 StateDB 来存储�
 
 考虑到存储成本和读取性能，PlatON中部分数据只保留最终状态，通过snapshotdb来存储和获取，snapshotdb中的数据最后都会以key-value的形式存入磁盘数据库。
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/snapshotdb.jpg" alt="snapshotdb"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/snapshotdb.jpg" alt="snapshotdb"/>
 
 其中：
 - **unRecognizedBlockData: **一个未确认的数据集合，每个DB写入请求都更新数据集合。
@@ -291,7 +291,7 @@ PlatON中，所有和账户相关的状态信息都是通过 StateDB 来存储�
 
 “不可能三角”中，去中心化的量化指标就是参与共识的节点数量，可扩展性的量化指标是TPS或吞吐量，安全性的量化指标是作恶的经济成本，经过对这几个量化指标的权衡，PlatON采用BFT类的PoS机制。
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/共识机制.png" alt="共识机制"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/共识机制.png" alt="共识机制"/>
 
 PlatON共识运行分3个阶段：1. 备选节点选举；2. 用VRF从备选节点中选出验证节点；3. 验证节点轮流出块并运行拜占庭协议CBFT。
 
@@ -319,7 +319,7 @@ VRF将从全部备选节点中，选出一定数量的验证节点，验证节�
 
 从技术角度看，PlatON计算网络本质上是一个去中心化的FaaS(Functions as a Service)平台，相应地，智能合约可以认为就是FaaS上的function。PlatON中的智能合约分为四类。
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/智能合约.jpg" alt="智能合约"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/智能合约.jpg" alt="智能合约"/>
 
 #### Solidity合约（Solidity Contract）
 
@@ -341,7 +341,7 @@ PlatON 首先支持C++作为智能合约的编写语言，后续逐步提供Rust
 
 ##### WASM合约执行流程
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/wasm_compile_pub_tx.jpg" alt="wasm_compile_pub_tx"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/wasm_compile_pub_tx.jpg" alt="wasm_compile_pub_tx"/>
 
 ##### WASM合约GAS计费
 
@@ -353,11 +353,11 @@ WASM合约的执行按照调用的WASM指令进行GAS计费，不同WASM指令GA
 
 隐私合约同样支持高级语言开发，编译成llvm ir中间语言执行。隐私合约的输入数据保存在数据节点本地，由数据节点通过秘密分享给到多个随机计算节点，计算节点在链下以安全多方计算方式进行隐私计算，并提交计算结果到链上。
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/隐私合约.png" alt="隐私合约"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/隐私合约.png" alt="隐私合约"/>
 
 ##### 隐私合约执行流程
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/隐私合约流程.png" alt="隐私合约流程"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/隐私合约流程.png" alt="隐私合约流程"/>
 
 #### 可验证合约（VC Contract）
 
@@ -367,7 +367,7 @@ WASM合约的执行按照调用的WASM指令进行GAS计费，不同WASM指令GA
 
 PlatON的可验证方案暂时基于zk-SNARK算法，后续逐步替换为更优化算法。
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/可验证合约.png" alt="可验证合约"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/可验证合约.png" alt="可验证合约"/>
 
 - vc-contract template：用户根据提供的模板编写 vc 合约，可以输入任意计算模型，主要实现三个接口：
 
@@ -387,7 +387,7 @@ PlatON的可验证方案暂时基于zk-SNARK算法，后续逐步替换为更优
 
 ##### 可验证合约执行流程
 
-<img src="https://platonnetwork.github.io/Docs/zh-cn/Introduction/PlatON总体方案.assets/可验证合约流程.jpg" alt="可验证合约流程"/>
+<img src="/docs/img/zh-CN/PlatON总体方案.assets/可验证合约流程.jpg" alt="可验证合约流程"/>
 
 - 合约编译之后，已经生成了 pk，vk，部署至 PlatON 网络之后，pk，vk 存储至链上，无法被篡改，可方便节点访问
 - 当 vc compute 交易执行时，会创建一个 vc task，taskid 由 tx 的 nonce 组成，并以 taskid 为 key，存储输入参数 x

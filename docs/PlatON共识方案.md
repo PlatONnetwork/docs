@@ -47,7 +47,7 @@ The BFT consensus protocols currently used in blockchains can be considered as a
 
 The normal PBFT process is shown below (C is the client in Figure 1, the system has four nodes numbered 0 to 3, and node 3 is a Byzantine node):
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_consensus_solution.assets/PBFT_Normal_case_operation.png" alt="PBFT_Normal_case_operation"/>
+<img src="/docs/img/en/PlatON_consensus_solution.assets/PBFT_Normal_case_operation.png" alt="PBFT_Normal_case_operation"/>
 
 <center> Figure 1 PBFT normal process </center>
 The normal PBFT process is a three-phase protocol:
@@ -61,7 +61,7 @@ view-change is the most critical design of PBFT. When the master node hangs (no 
 
 During the view-change process, we need to ensure that the sequence number of the submitted message is also consistent throughout the view-change. In simple terms, when a message is sequenced n and 2f + 1 prepare messages are received, it will still be assigned a sequence number n in the next view and restart the normal process.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_consensus_solution.assets/pbft-viewchange.png" alt="pbft-viewchange"/>
+<img src="/docs/img/en/PlatON_consensus_solution.assets/pbft-viewchange.png" alt="pbft-viewchange"/>
 
 <center> Figure 2 PBFT view-change process </center>
 As shown in Figure 2, view-change will have three phases, namely view-change, view-change-ack and new-view phases. When the slave node thinks there is a problem with the master node, it will send a view-change message to other nodes. The node with the lowest surviving node number will become the new master node. When the new master node receives 2f view-change messages from other nodes, it proves that there are enough people that the node thinks there is a problem with the master node, and it will broadcast to other nodes.
@@ -177,7 +177,7 @@ One of the most direct defenses against this attack is that everyone participati
 
 #### Normal process
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_consensus_solution.assets/prepareqc.png" alt="prepareqc"/>
+<img src="/docs/img/en/PlatON_consensus_solution.assets/prepareqc.png" alt="prepareqc"/>
 
 <center> Figure 3 CBFT normal process </center>
 1. After the proposer successfully enters the new View, it will product multiple blocks in sequence and broadcast messages PrepareBlock <ViewNumber, ProposalIndex, Block> to the validators.
@@ -200,15 +200,15 @@ In order to vote more securely, voting must comply with the following rules:
 
 #### view-change Process
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_consensus_solution.assets/viewchange_normal.jpg" alt="viewchange_normal"/>
+<img src="/docs/img/en/PlatON_consensus_solution.assets/viewchange_normal.jpg" alt="viewchange_normal"/>
 
 <center> Figure 4 Automatically switch view</center>
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_consensus_solution.assets/viewchange_timeout.jpg" alt="viewchange_timeout"/>
+<img src="/docs/img/en/PlatON_consensus_solution.assets/viewchange_timeout.jpg" alt="viewchange_timeout"/>
 
 <center> Figure 5 View-change switch view </center>
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_consensus_solution.assets/viewchange_timeout_seq.jpg" alt="viewchange_timeout_seq"/>
+<img src="/docs/img/en/PlatON_consensus_solution.assets/viewchange_timeout_seq.jpg" alt="viewchange_timeout_seq"/>
 
 <center> Figure 6 view-change process </center>
 Assuming that each time window allows a maximum of $n$ blocks, the view-change process is as follows:
@@ -230,7 +230,7 @@ In traditional BFT (PBFT, Tendermint), each block usually needs to go through a 
 
 In contrast, CBFT also has the two phases, Prepare and ViewChange. Each block has only Prepare vote, and has no clear Pre-Commit and Commit phase. So how to achieve block confirmation? The CBFT can be regarded as the pipeline BFT, and each prepareQC is a further confirmation of the previous block.
 
-<img src="https://platonnetwork.github.io/Docs/en-us/Introduction/PlatON_consensus_solution.assets/three_phrase.jpg" alt="three_phrase"/>
+<img src="/docs/img/en/PlatON_consensus_solution.assets/three_phrase.jpg" alt="three_phrase"/>
 
 <center> Figure 7 CBFT confirmation process </center>
 As shown in FIG. 7, prepareQC (2) is used as the Pre-Commit stage of Block (1), prepareQC (3) is used as the Commit stage of Block (1), and Pre-Commit stage of Block (2).
