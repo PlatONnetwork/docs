@@ -81,7 +81,7 @@
 <p>本教程主要是指导用户在PlatON上使用solidity语言创建简单的HelloWorld智能合约，通过platon-truffle编译，部署，调用此合约。如果您想使用更加丰富的API可以参考<a href="/docs/zh-CN/Java_SDK">Java SDK开发指南</a> 或者 <a href="/docs/zh-CN/JS_SDK">JS SDK开发指南</a></p>
 <ul>
 <li>solidity智能合约语法请参考<a href="https://solidity.readthedocs.io/en/develop/">Solidity官方文档</a></li>
-<li>在开发合约前，如果需要搭建节点连接到PlatON网络或者创建私有网络请参考：<a href="/zh-cn/Network/">连接 PlatON 网络</a></li>
+<li>在开发合约前，如果需要搭建节点连接到PlatON网络或者创建私有网络请参考：<a href="/docs/zh-CN/Join_PlatON_NetWork">连接 PlatON 网络</a></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="platon-truffle开发工具介绍"></a><a href="#platon-truffle开发工具介绍" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon-truffle开发工具介绍</h3>
 <p>platon-truffle是PlatON提供的一款能够在本地编译、部署、调用智能合约的工具，具体的安装及使用手册参见</p>
@@ -961,7 +961,7 @@ contract SimpleTest {
 <p>Gas 主要由两个部分组成：GasLimit(限制)和GasPrice(单价)。其中 <code>GasLimit</code> 是用户愿意为执行某个操作或确认交易支付的最大 <code>Gas</code> 消耗量（最少21,000）。GasPrice是 <code>gVON</code> 的数量，用于愿意为每个 <code>Gas</code> 所支付的单价。</p>
 <p>用户发送一笔交易时，会设定 <code>GasLimit</code> 和 <code>GasPrice</code>，二者的乘积（<code>GasLimit * GasPrice</code>）是用户的交易成本，同时该成本会作为佣金奖励给旷工。</p>
 <p>交易设置的 <code>GasPrice</code> 越高，则交易的执行优先级更高，交易成本也会更大。每笔交易在完成后，剩余未使用的Gas都会退回到发送者的地址账户中。有一点要特别注意，如果因为 <code>GasLimit</code> 设置过低导致交易执行失败，此时的 Gas 不会被回退到用户地址，用户依然需要为这次失败的交易支付能量成本。因此，无论交易是否执行成功，交易发送者都需要向旷工支付一定的计算费用。</p>
-<p>在 <code>PlatON</code> 网络中，最高 Gas 的限制为 <code>4,700,000</code>，最低为 <code>22,000</code>，过低或者过高都会导致交易失败。在部署大型合约或者运行复杂功能时，可以将Gas的限制调高，例如：<code>1,000,000</code>。如果是普通转账则设置为最低值即可。具体的值需要根据合约的规模及复杂度进行估算，在合约发布前可以调用接口 <code>platon_estimateGas</code> 进行大概估算，避免因不足而导致失败。 <a href="https://github.com/PlatONnetwork/GalaxyRally/blob/master/technologies/4.SDKs/JSONRPC-SDK.md">点击查看JSON-RPC参考文档</a></p>
+<p>在 <code>PlatON</code> 网络中，最高 Gas 的限制为 <code>4,700,000</code>，最低为 <code>22,000</code>，过低或者过高都会导致交易失败。在部署大型合约或者运行复杂功能时，可以将Gas的限制调高，例如：<code>1,000,000</code>。如果是普通转账则设置为最低值即可。具体的值需要根据合约的规模及复杂度进行估算，在合约发布前可以调用接口 <code>platon_estimateGas</code> 进行大概估算，避免因不足而导致失败。 <a href="/docs/zh-CN/Json_Rpc">点击查看JSON-RPC参考文档</a>。</p>
 <p><strong>LAT 单位转换</strong></p>
 <table>
 <thead>
@@ -1231,7 +1231,7 @@ contract Map {
 <h3><a class="anchor" aria-hidden="true" id="编译相关"></a><a href="#编译相关" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>编译相关</h3>
 <ol>
 <li><p>platon-truffle有哪些命令如何使用？</p>
-<p>platon-truffle开发使用手册<a href="https://platon-truffle.readthedocs.io/en/v0.1.0/index.html">参考这里</a>。</p></li>
+<p>platon-truffle开发使用手册<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/">参考这里</a>。</p></li>
 <li><p>合约为什么语法校验通不过？</p>
 <p>solidity合约0.4.x版本与0.5.x版本有重大变更，具体语法<a href="https://solidity.readthedocs.io/en/develop/">参考这里</a>。</p></li>
 <li><p>platon-truffle执行truffle compile 失败?</p>
