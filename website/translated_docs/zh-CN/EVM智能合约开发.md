@@ -23,7 +23,7 @@ sidebar_label: EVM智能合约
 本教程主要是指导用户在PlatON上使用solidity语言创建简单的HelloWorld智能合约，通过platon-truffle编译，部署，调用此合约。如果您想使用更加丰富的API可以参考[Java SDK开发指南](/docs/zh-CN/Java_SDK) 或者 [JS SDK开发指南](/docs/zh-CN/JS_SDK)
 
 - solidity智能合约语法请参考[Solidity官方文档](https://solidity.readthedocs.io/en/develop/)
-- 在开发合约前，如果需要搭建节点连接到PlatON网络或者创建私有网络请参考：[连接 PlatON 网络](/zh-cn/Network/)
+- 在开发合约前，如果需要搭建节点连接到PlatON网络或者创建私有网络请参考：[连接 PlatON 网络](/docs/zh-CN/Join_PlatON_NetWork)
 
 ### platon-truffle开发工具介绍
 
@@ -1061,7 +1061,7 @@ Gas 主要由两个部分组成：GasLimit(限制)和GasPrice(单价)。其中 `
 
 交易设置的 `GasPrice` 越高，则交易的执行优先级更高，交易成本也会更大。每笔交易在完成后，剩余未使用的Gas都会退回到发送者的地址账户中。有一点要特别注意，如果因为 `GasLimit` 设置过低导致交易执行失败，此时的 Gas 不会被回退到用户地址，用户依然需要为这次失败的交易支付能量成本。因此，无论交易是否执行成功，交易发送者都需要向旷工支付一定的计算费用。
 
-在 `PlatON` 网络中，最高 Gas 的限制为 `4,700,000`，最低为 `22,000`，过低或者过高都会导致交易失败。在部署大型合约或者运行复杂功能时，可以将Gas的限制调高，例如：`1,000,000`。如果是普通转账则设置为最低值即可。具体的值需要根据合约的规模及复杂度进行估算，在合约发布前可以调用接口 `platon_estimateGas` 进行大概估算，避免因不足而导致失败。 [点击查看JSON-RPC参考文档](https://github.com/PlatONnetwork/GalaxyRally/blob/master/technologies/4.SDKs/JSONRPC-SDK.md)
+在 `PlatON` 网络中，最高 Gas 的限制为 `4,700,000`，最低为 `22,000`，过低或者过高都会导致交易失败。在部署大型合约或者运行复杂功能时，可以将Gas的限制调高，例如：`1,000,000`。如果是普通转账则设置为最低值即可。具体的值需要根据合约的规模及复杂度进行估算，在合约发布前可以调用接口 `platon_estimateGas` 进行大概估算，避免因不足而导致失败。 [点击查看JSON-RPC参考文档](/docs/zh-CN/Json_Rpc)。
 
 **LAT 单位转换**
 
@@ -1434,7 +1434,7 @@ function initContract() public OnlyOwner {
 
 1. platon-truffle有哪些命令如何使用？
 
-   platon-truffle开发使用手册[参考这里](https://platon-truffle.readthedocs.io/en/v0.1.0/index.html)。
+   platon-truffle开发使用手册[参考这里](https://platon-truffle.readthedocs.io/en/v0.11.1/)。
 
 2. 合约为什么语法校验通不过？
 
@@ -1463,7 +1463,7 @@ function initContract() public OnlyOwner {
    module.exports = function(deployer) {
         deployer.deploy(A,100,'PLA','PLAT');//需要传入对应构造函数参数
    };   
-  ```  
+  ```
 
 
 

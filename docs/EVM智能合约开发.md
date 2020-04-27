@@ -1040,7 +1040,7 @@ When a user sends a transaction, GasLimit and GasPrice are set. `GasLimit * GasP
 
 The higher the GasPrice of the transaction, the higher the execution priority of the transaction and the greater the transaction cost. After each transaction is completed, the remaining unused Gas will be returned to the sender's address account. It is important to note that if the execution of the transaction fails because the GasLimit is set too low, the Gas will not be returned to the user's address at this time, and the user still needs to pay the energy cost for the failed transaction. Therefore, regardless of whether the transaction is executed successfully, the transaction sender needs to pay a certain calculation fee to the miner.
 
-In the `PlatON` network, the maximum gas limit is` 4,700,000` and the minimum is `22,000`. Too low or too high will cause transaction failure. When deploying large contracts or calling complex functions in contracts, you can increase the gas limit, for example: `1,000,000`. If it is a normal transfer, set it to the lowest value. The specific value needs to be estimated according to the size and complexity of the contract. Before the contract is released, the interface `platon_estimateGas` can be called for approximate estimation to avoid failure due to insufficient Gas. [Click to view JSON-RPC reference documentation](/docs/en/Json_Rpc)
+In the `PlatON` network, the maximum gas limit is` 4,700,000` and the minimum is `22,000`. Too low or too high will cause transaction failure. When deploying large contracts or calling complex functions in contracts, you can increase the gas limit, for example: `1,000,000`. If it is a normal transfer, set it to the lowest value. The specific value needs to be estimated according to the size and complexity of the contract. Before the contract is released, the interface `platon_estimateGas` can be called for approximate estimation to avoid failure due to insufficient Gas. [Click to view JSON-RPC reference documentation](/docs/en/Json_Rpc).
 
 **LAT Unit Conversion**
 
@@ -1412,7 +1412,7 @@ You can find a professional third-party audit company for security audits, such 
 
 1. How many commands in platon-truffle？
 
-   Refer to  platon-truffle develop guide[Reference here](https://platon-truffle.readthedocs.io/en/v0.1.0/index.html).
+   Refer to  platon-truffle develop guide [Reference here](https://platon-truffle.readthedocs.io/en/v0.11.1/).
 
 2. Why contract syntax cannot verify?
 
