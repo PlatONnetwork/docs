@@ -199,10 +199,12 @@
 <p><img src="/docs/img/zh-CN/PlatON共识方案.assets/viewchange_timeout_seq.jpg" alt="viewchange_timeout_seq"/></p>
 <p><center>图6 viewchange投票流程</center>
 假设每个时间窗口最多允许产生n个区块，viewchange 流程如下：</p>
-<p>1. 如果在时间窗口内，收到第n块的prepareQC，则更新本地view+1，进入新的正常流程，这种情况下如果是新提议人达成n的QC，则开始广播第一个区块，如图4所示，高度为BlockNumber(n)+1 ，并会携带n 区块的prepareQC。
-　2. 如果时间窗口过期，节点首先会拒绝对当前提议人的区块产生新的投票，同时没有收到第n块的prepareQC，则发送ViewChange&lt;ViewNumber,  HighestQCBlock&gt;消息，如图5所示。
-　3. 下一个时间窗口的提议人收到 N-f 个ViewChange 消息（我们将N-f 个ViewChange 消息简称为 viewchangeQC )之后，使用BLS签名聚合成一个QC签名，然后更新本地ViewNumber+1，由于采用两轮投票锁定区块的规则，新提议人可以简单地从收到的 N-f 个viewchange 消息中选择 HighestQCBlock，将新的区块序号定为 HighestQCBlock+1，如图6所示，然后广播第一个区块给各验证人节点，并携带HighestQCBlock的QC签名和viewchange的QC签名。
-　4. 各验证人节点会根据收到的 HighestQCBlock+1 序号开始新一轮共识。</p>
+<ul>
+<li>如果在时间窗口内，收到第n块的prepareQC，则更新本地view+1，进入新的正常流程，这种情况下如果是新提议人达成n的QC，则开始广播第一个区块，如图4所示，高度为BlockNumber(n)+1 ，并会携带n 区块的prepareQC。</li>
+<li>如果时间窗口过期，节点首先会拒绝对当前提议人的区块产生新的投票，同时没有收到第n块的prepareQC，则发送ViewChange&lt;ViewNumber,  HighestQCBlock&gt;消息，如图5所示。</li>
+<li>下一个时间窗口的提议人收到 N-f 个ViewChange 消息（我们将N-f 个ViewChange 消息简称为 viewchangeQC )之后，使用BLS签名聚合成一个QC签名，然后更新本地ViewNumber+1，由于采用两轮投票锁定区块的规则，新提议人可以简单地从收到的 N-f 个viewchange 消息中选择 HighestQCBlock，将新的区块序号定为 HighestQCBlock+1，如图6所示，然后广播第一个区块给各验证人节点，并携带HighestQCBlock的QC签名和viewchange的QC签名。</li>
+<li>各验证人节点会根据收到的 HighestQCBlock+1 序号开始新一轮共识。</li>
+</ul>
 <h4><a class="anchor" aria-hidden="true" id="区块确认"></a><a href="#区块确认" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>区块确认</h4>
 <h5><a class="anchor" aria-hidden="true" id="pipelining流程"></a><a href="#pipelining流程" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pipelining流程</h5>
 <p>在传统BFT(PBFT, Tendermint)中，每个区块通常都需要经历明确的Pre-Commit 和 Commit阶段才最终确认：</p>
