@@ -213,7 +213,6 @@ CBFT 有自适配的视图切换机制：在一个视图窗口内，节点接收
 <img src="/docs/img/zh-CN/PlatON共识方案.assets/viewchange_timeout_seq.jpg" alt="viewchange_timeout_seq"/>
 
 <center>图6 viewchange投票流程</center> 
-
 假设每个时间窗口最多允许产生n个区块，viewchange 流程如下： 
 
 　1. 如果在时间窗口内，收到第n块的prepareQC，则更新本地view+1，进入新的正常流程，这种情况下如果是新提议人达成n的QC，则开始广播第一个区块，如图4所示，高度为BlockNumber(n)+1 ，并会携带n 区块的prepareQC。
