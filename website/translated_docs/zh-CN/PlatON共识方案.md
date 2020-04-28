@@ -215,10 +215,10 @@ CBFT 有自适配的视图切换机制：在一个视图窗口内，节点接收
 <center>图6 viewchange投票流程</center> 
 假设每个时间窗口最多允许产生n个区块，viewchange 流程如下： 
 
-　1. 如果在时间窗口内，收到第n块的prepareQC，则更新本地view+1，进入新的正常流程，这种情况下如果是新提议人达成n的QC，则开始广播第一个区块，如图4所示，高度为BlockNumber(n)+1 ，并会携带n 区块的prepareQC。
-　2. 如果时间窗口过期，节点首先会拒绝对当前提议人的区块产生新的投票，同时没有收到第n块的prepareQC，则发送ViewChange<ViewNumber,  HighestQCBlock>消息，如图5所示。
-　3. 下一个时间窗口的提议人收到 N-f 个ViewChange 消息（我们将N-f 个ViewChange 消息简称为 viewchangeQC )之后，使用BLS签名聚合成一个QC签名，然后更新本地ViewNumber+1，由于采用两轮投票锁定区块的规则，新提议人可以简单地从收到的 N-f 个viewchange 消息中选择 HighestQCBlock，将新的区块序号定为 HighestQCBlock+1，如图6所示，然后广播第一个区块给各验证人节点，并携带HighestQCBlock的QC签名和viewchange的QC签名。
- 　4. 各验证人节点会根据收到的 HighestQCBlock+1 序号开始新一轮共识。
+- 如果在时间窗口内，收到第n块的prepareQC，则更新本地view+1，进入新的正常流程，这种情况下如果是新提议人达成n的QC，则开始广播第一个区块，如图4所示，高度为BlockNumber(n)+1 ，并会携带n 区块的prepareQC。
+- 如果时间窗口过期，节点首先会拒绝对当前提议人的区块产生新的投票，同时没有收到第n块的prepareQC，则发送ViewChange<ViewNumber,  HighestQCBlock>消息，如图5所示。
+- 下一个时间窗口的提议人收到 N-f 个ViewChange 消息（我们将N-f 个ViewChange 消息简称为 viewchangeQC )之后，使用BLS签名聚合成一个QC签名，然后更新本地ViewNumber+1，由于采用两轮投票锁定区块的规则，新提议人可以简单地从收到的 N-f 个viewchange 消息中选择 HighestQCBlock，将新的区块序号定为 HighestQCBlock+1，如图6所示，然后广播第一个区块给各验证人节点，并携带HighestQCBlock的QC签名和viewchange的QC签名。
+- 各验证人节点会根据收到的 HighestQCBlock+1 序号开始新一轮共识。
 
 #### 区块确认
 
