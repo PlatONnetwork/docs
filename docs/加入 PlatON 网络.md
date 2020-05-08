@@ -8,7 +8,7 @@ sidebar_label: Join the PlatON network
 
 Currently PlatON  has two public networks.  One is the PlatON main network that has not yet been officially launched and operates independently. The chain ID is 100.
 
-The other is the test network Baleyworld, which has been officially launched on 2020-2-20 Beijing time, and is open to developers. The chain ID is 101.
+The other is the test network Baleyworld, which has been officially launched on 2020-2-20 Beijing time, and is open to developers. The chain ID is 102.
 
 
 
