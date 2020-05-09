@@ -1,0 +1,22 @@
+name: GitHub Actions Build and Deploy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    
+    # 生成静态文件
+    - name: Build
+      run: cd website && npm install && cp -f ../editedJs/HeaderNav.js node_modules/docusaurus/lib/core/nav/ && npm run build
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+          ACCESS_TOKEN: ${{ secrets.BUILD_DEPLOY_ACTION }}
+          BRANCH: gh-pages
+          FOLDER: website/build/Docs
