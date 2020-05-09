@@ -4,7 +4,7 @@
 
 **将`editedJs/HeaderNav.js`替换`node_modules/docusaurus/lib/core/nav/HeaderNav.js`**
 
-启动：`yarn start`
+启动命令：`yarn start`
 
 ## 部署
 先进入到`website`目录，然后在`git bash`环境下执行命令：
