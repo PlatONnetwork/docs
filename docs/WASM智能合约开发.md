@@ -1191,19 +1191,33 @@ Get the address of contract.
 
 ### account api
 
-#### make_address()
+#### make_address() 1/2
 
 ```cpp
-template <size_t M> Address make_address(const char (&str)[M])
+template <size_t M> std::pair<Address, bool> make_address(const char (&str)[M])
 ```
+The default address recognized by CDT is the main network address, that is, the address prefix is lat. If you want to recognize the test network address prefix is lax, you need to define the macro TESTNET, and you can put #define TESTNET on the first line of the contract.
 
 Converts a c-style string to an address object.
 
 * **Parameters**
   * `str：` C-style string
 * **Returns**
-  * Address object
+  * The return value is pair, whose second represents success or failure, and whose first represents an Address of type Address.
 
+#### make_address() 2/2
+
+```cpp
+std::pair<Address, bool> make_address(const std::string &str_address)
+```
+The default address recognized by CDT is the main network address, that is, the address prefix is lat. If you want to recognize the test network address prefix is lax, you need to define the macro TESTNET, and you can put #define TESTNET on the first line of the contract.
+
+Converts a string to an address object.
+
+* **Parameters**
+  * `str：` string
+* **Returns**
+  * The return value is pair, whose second represents success or failure, and whose first represents an Address of type Address.
 
 #### platon_balance()
 

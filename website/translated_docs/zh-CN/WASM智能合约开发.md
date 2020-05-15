@@ -1165,18 +1165,33 @@ Address platon::platon_address()
 
 ### 帐户Api
 
-#### make_address()
+#### make_address() 1/2
 
 ```cpp
-template <size_t M> Address make_address(const char (&str)[M])
+template <size_t M> std::pair<Address, bool> make_address(const char (&str)[M])
 ```
+CDT 默认识别的地址是主网地址也就是地址前缀为lat，如果要识别测试网地址前缀为lax，需要定义宏TESTNET，在合约第一行加上#define TESTNET即可。
 
 将C风格字符串转换为地址对象。
 
 * **参数**
   * `str：` C风格字符串
 * **返回值**
-  * 地址对象
+  * 返回值为 pair，pair 的 second 表示成功或者失败，first 表示 Address 类型的地址。
+
+#### make_address() 2/2
+
+```cpp
+std::pair<Address, bool> make_address(const std::string &str_address)
+```
+CDT 默认识别的地址是主网地址也就是地址前缀为lat，如果要识别测试网地址前缀为lax，需要定义宏TESTNET，在合约第一行加上#define TESTNET即可。
+
+将字符串转换为地址对象。
+
+* **参数**
+  * `str：` 字符串
+* **返回值**
+  * 返回值为 pair，pair 的 second 表示成功或者失败，first 表示 Address 类型的地址
 
 #### platon_balance()
 
