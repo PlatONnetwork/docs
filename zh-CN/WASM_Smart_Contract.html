@@ -1056,9 +1056,10 @@ GasPrice)是用户的交易成本, 同时该成本会作为佣金奖励给旷工
 </ul></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="帐户api"></a><a href="#帐户api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>帐户Api</h3>
-<h4><a class="anchor" aria-hidden="true" id="make_address"></a><a href="#make_address" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>make_address()</h4>
-<pre><code class="hljs css language-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">size_t</span> M&gt; <span class="hljs-function">Address <span class="hljs-title">make_address</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> (&amp;str)[M])</span>
-</span></code></pre>
+<h4><a class="anchor" aria-hidden="true" id="make_address-12"></a><a href="#make_address-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>make_address() 1/2</h4>
+<pre><code class="hljs css language-cpp">template &lt;size_t M&gt; std::pair&lt;Address, bool&gt; make_address(const char (&amp;str)[M])
+</code></pre>
+<p>CDT 默认识别的地址是主网地址也就是地址前缀为lat，如果要识别测试网地址前缀为lax，需要定义宏TESTNET，在合约第一行加上#define TESTNET即可。</p>
 <p>将C风格字符串转换为地址对象。</p>
 <ul>
 <li><strong>参数</strong>
@@ -1067,7 +1068,22 @@ GasPrice)是用户的交易成本, 同时该成本会作为佣金奖励给旷工
 </ul></li>
 <li><strong>返回值</strong>
 <ul>
-<li>地址对象</li>
+<li>返回值为 pair，pair 的 second 表示成功或者失败，first 表示 Address 类型的地址。</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="make_address-22"></a><a href="#make_address-22" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>make_address() 2/2</h4>
+<pre><code class="hljs css language-cpp">std::pair&lt;Address, bool&gt; make_address(const std::string &amp;str_address)
+</code></pre>
+<p>CDT 默认识别的地址是主网地址也就是地址前缀为lat，如果要识别测试网地址前缀为lax，需要定义宏TESTNET，在合约第一行加上#define TESTNET即可。</p>
+<p>将字符串转换为地址对象。</p>
+<ul>
+<li><strong>参数</strong>
+<ul>
+<li><code>str：</code> 字符串</li>
+</ul></li>
+<li><strong>返回值</strong>
+<ul>
+<li>返回值为 pair，pair 的 second 表示成功或者失败，first 表示 Address 类型的地址</li>
 </ul></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="platon_balance"></a><a href="#platon_balance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon_balance()</h4>
