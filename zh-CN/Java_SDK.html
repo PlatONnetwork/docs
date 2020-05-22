@@ -86,7 +86,7 @@
 <pre><code class="hljs css language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.platon.client<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.8.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.11.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="gradle"></a><a href="#gradle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>gradle</h3>
@@ -100,50 +100,50 @@
 <blockquote>
 <p>gradle引用方式:</p>
 </blockquote>
-<pre><code class="hljs"><span class="hljs-selector-tag">compile</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.client</span><span class="hljs-selector-pseudo">:core</span><span class="hljs-selector-pseudo">:0.8.0.0"</span>
+<pre><code class="hljs"><span class="hljs-selector-tag">compile</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.client</span><span class="hljs-selector-pseudo">:core</span><span class="hljs-selector-pseudo">:0.11.0.1"</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="系统合约调用"></a><a href="#系统合约调用" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>系统合约调用</h2>
-<p>系统合约主要包含经济模型和治理相关的合约：</p>
+<p>系统接口主要包含经济模型和治理相关的合约接口：</p>
 <ul>
-<li>质押合约</li>
-<li>委托合约</li>
-<li>奖励合约</li>
-<li>节点合约</li>
-<li>治理合约</li>
-<li>举报合约</li>
-<li>锁仓合约</li>
+<li>质押相关接口</li>
+<li>委托相关接口</li>
+<li>奖励相关接口</li>
+<li>节点相关接口</li>
+<li>治理相关接口</li>
+<li>举报相关接口</li>
+<li>锁仓相关接口</li>
 </ul>
-<p>如上系统合约的介绍和使用，请参考如下合约接口说明。</p>
+<p>如上接口的介绍和使用，请参考如下接口说明。</p>
 <h3><a class="anchor" aria-hidden="true" id="质押相关接口"></a><a href="#质押相关接口" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>质押相关接口</h3>
 <blockquote>
-<p>PlatON经济模型中质押合约相关的接口</p>
+<p>质押相关的接口：主要包括节点质押、修改质押信息、解除质押、查询质押信息等接口</p>
 </blockquote>
 <h4><a class="anchor" aria-hidden="true" id="加载质押合约"></a><a href="#加载质押合约" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>加载质押合约</h4>
 <pre><code class="hljs css language-java"><span class="hljs-comment">//Java 8</span>
 Web3j web3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://localhost:6789"</span>));
 String chainId = <span class="hljs-string">"100"</span>;
 Credentials credentials = WalletUtils.loadCredentials(<span class="hljs-string">"password"</span>, <span class="hljs-string">"/path/to/walletfile"</span>);
-StakingContract contract = StakingContract.load(web3j, credentials, chainId);
+StakingContract stakingContract = StakingContract.load(web3j, credentials, chainId);
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="接口说明"></a><a href="#接口说明" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>接口说明</h4>
 <h5><a class="anchor" aria-hidden="true" id="staking"></a><a href="#staking" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>staking</strong></h5>
 <blockquote>
-<p>节点候选人申请质押</p>
+<p>节点质押：适用于矿工，节点质押后才有机会参与共识，获得收益。质押前需要自己的节点接入网络，质押时rpc链接地址必须是当前需要质押的节点。如果质押成功，节点会出现在候选人列表中。</p>
 </blockquote>
 <ul>
 <li><p><strong>入参</strong></p>
 <ul>
-<li>String：nodeId   节点id,16进制格式</li>
-<li>BigInteger：amount   质押的VON，默认质押金额大于等于1000000LAT，根据治理参数调整</li>
-<li>StakingAmountType：stakingAmountType   枚举,FREE_AMOUNT_TYPE表示使用账户自由金额,RESTRICTING_AMOUNT_TYPE表示使用锁仓金额做质押</li>
-<li>String：benifitAddress   收益账户,用于接受出块奖励和质押奖励的收益账户</li>
-<li>String：nodeName   被质押节点的名称</li>
-<li>String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥</li>
+<li>String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach <a href="http://127.0.0.1:6789">http://127.0.0.1:6789</a> --exec &quot;<a href="http://admin.nodeInfo.id">admin.nodeInfo.id</a>&quot;）。</li>
+<li>BigInteger：stakingAmount  质押的金额，单位VON，默认质押金额必须大于等于1000000LAT，该大小限制可以通过治理参数动态调整，可通过治理接口获得当前值（proposalContract.getGovernParamValue(&quot;staking&quot;, &quot;stakeThreshold&quot;)）。</li>
+<li>StakingAmountType：stakingAmountType  表示使用账户自由金额还是账户的锁仓金额做质押，StakingAmountType.FREE_AMOUNT_TYPE：自由金额，StakingAmountType.RESTRICTING_AMOUNT_TYPE：锁仓金额</li>
+<li>String：benifitAddress   收益账户，用于接收出块奖励和质押奖励的收益账户。</li>
+<li>String：nodeName   节点的名称</li>
+<li>String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。</li>
 <li>String：webSite   节点的第三方主页(有长度限制，表示该节点的主页)</li>
 <li>String：details   节点的描述(有长度限制，表示该节点的描述)</li>
-<li>ProgramVersion：processVersion  程序的真实版本，治理rpc获取</li>
+<li>ProgramVersion：processVersion  程序的真实版本，通过治理rpc获取</li>
 <li>String：blsPubKey   bls的公钥</li>
-<li>String：blsProof    bls的证明，治理rpc获取</li>
+<li>String：blsProof    bls的证明，通过治理rpc获取</li>
 <li>BigInteger：rewardPer   委托所得到的奖励分成比例，1=0.01%   10000=100%</li>
 </ul></li>
 <li><p><strong>返回值</strong></p></li>
@@ -190,12 +190,12 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 </code></pre>
 <h5><a class="anchor" aria-hidden="true" id="unstaking"></a><a href="#unstaking" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>unStaking</strong></h5>
 <blockquote>
-<p>节点撤销质押(一次性发起全部撤销，多次到账)</p>
+<p>节点撤销质押(一次性发起全部撤销，多次到账)，成功后节点会从候选人列表移除。只能由该节点的质押钱包地址发起交易。</p>
 </blockquote>
 <ul>
 <li><p><strong>入参</strong></p>
 <ul>
-<li>String：nodeId   节点id，16进制格式</li>
+<li>String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach <a href="http://127.0.0.1:6789">http://127.0.0.1:6789</a> --exec &quot;<a href="http://admin.nodeInfo.id">admin.nodeInfo.id</a>&quot;）。</li>
 </ul></li>
 <li><p><strong>返回值</strong></p></li>
 </ul>
@@ -219,15 +219,15 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 </code></pre>
 <h5><a class="anchor" aria-hidden="true" id="updatestaking"></a><a href="#updatestaking" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>updateStaking</strong></h5>
 <blockquote>
-<p>修改质押信息</p>
+<p>修改质押信息，只能由该节点的质押钱包地址发起交易。</p>
 </blockquote>
 <ul>
 <li><p><strong>入参</strong></p>
 <ul>
-<li>String：nodeId   节点id,16进制格式</li>
-<li>String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id),目前为keybase账户公钥</li>
-<li>String：benifitAddress   收益账户</li>
-<li>String：nodeName   被质押节点的名称</li>
+<li>String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach <a href="http://127.0.0.1:6789">http://127.0.0.1:6789</a> --exec &quot;<a href="http://admin.nodeInfo.id">admin.nodeInfo.id</a>&quot;）。</li>
+<li>String：benifitAddress   收益账户，用于接收出块奖励和质押奖励的收益账户。</li>
+<li>String：nodeName   节点的名称</li>
+<li>String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。</li>
 <li>String：webSite   节点的第三方主页(有长度限制，表示该节点的主页)</li>
 <li>String：details   节点的描述(有长度限制，表示该节点的描述)</li>
 <li>BigInteger：rewardPer   委托所得到的奖励分成比例，1=0.01%   10000=100%</li>
@@ -248,7 +248,7 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 <li><strong>合约使用</strong></li>
 </ul>
 <pre><code class="hljs css language-java">String nodeId = <span class="hljs-string">"77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050"</span>;
-String benifitAddress = benefitCredentials.getAddress();
+String benifitAddress = <span class="hljs-string">"0x02c344817be3448c97a059473121a6679450b414"</span>;
 String externalId = <span class="hljs-string">""</span>;
 String nodeName = <span class="hljs-string">"integration-node1-u"</span>;
 String webSite = <span class="hljs-string">"https://www.platon.network/#/"</span>;
@@ -268,14 +268,14 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 </code></pre>
 <h5><a class="anchor" aria-hidden="true" id="addstaking"></a><a href="#addstaking" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>addStaking</strong></h5>
 <blockquote>
-<p>增持质押，增加已质押节点质押金</p>
+<p>增持质押，增加已质押节点质押金，只能由该节点的质押钱包地址发起交易。</p>
 </blockquote>
 <ul>
 <li><p><strong>入参</strong></p>
 <ul>
-<li>String：nodeId   节点id，16进制格式</li>
-<li>StakingAmountType：stakingAmountType  枚举,FREE_AMOUNT_TYPE表示使用账户自由金额,RESTRICTING_AMOUNT_TYPE表示使用锁仓金额做质押</li>
-<li>BigInteger：addStakingAmount   增持的金额</li>
+<li>String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach <a href="http://127.0.0.1:6789">http://127.0.0.1:6789</a> --exec &quot;<a href="http://admin.nodeInfo.id">admin.nodeInfo.id</a>&quot;）。</li>
+<li>StakingAmountType：stakingAmountType  表示使用账户自由金额还是账户的锁仓金额做质押，StakingAmountType.FREE_AMOUNT_TYPE：自由金额，StakingAmountType.RESTRICTING_AMOUNT_TYPE：锁仓金额</li>
+<li>BigInteger：addStakingAmount   增持的金额，单位VON</li>
 </ul></li>
 <li><p><strong>返回值</strong></p></li>
 </ul>
@@ -306,7 +306,7 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 <ul>
 <li><p><strong>入参</strong></p>
 <ul>
-<li>String：nodeId   节点id，16进制格式</li>
+<li>String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach <a href="http://127.0.0.1:6789">http://127.0.0.1:6789</a> --exec &quot;<a href="http://admin.nodeInfo.id">admin.nodeInfo.id</a>&quot;）。</li>
 </ul></li>
 <li><p><strong>返回值</strong></p></li>
 </ul>
@@ -323,29 +323,29 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 <ul>
 <li><p><strong>Node</strong>：保存当前节点质押信息的对象</p>
 <ul>
-<li><p>String：BenefitAddress   用于接受出块奖励和质押奖励的收益账户</p></li>
-<li><p>String：Details   节点的描述(有长度限制，表示该节点的描述)</p></li>
-<li><p>String：NodeId   被质押的节点Id(也叫候选人的节点Id)</p></li>
-<li><p>String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)</p></li>
-<li><p>BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)</p></li>
-<li><p>BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON</p></li>
-<li><p>BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON</p></li>
-<li><p>BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON</p></li>
-<li><p>BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON</p></li>
-<li><p>BigInteger：Shares   当前候选人总共质押加被委托的VON数目</p></li>
-<li><p>String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)</p></li>
-<li><p>BigInteger：StakingBlockNum    发起质押时的区块高度</p></li>
-<li><p>BigInteger：StakingEpoch   当前变更质押金额时的结算周期</p></li>
-<li><p>BigInteger：StakingTxIndex   发起质押时的交易索引</p></li>
-<li><p>BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销</p></li>
-<li><p>BigInteger：ValidatorTerm   验证人的任期</p></li>
-<li><p>String：Website   节点的第三方主页(有长度限制，表示该节点的主页)</p></li>
+<li><p>String：benifitAddress   收益账户，用于接收出块奖励和质押奖励的收益账户。</p></li>
+<li><p>String：details  节点的描述(有长度限制，表示该节点的描述)</p></li>
+<li><p>String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach <a href="http://127.0.0.1:6789">http://127.0.0.1:6789</a> --exec &quot;<a href="http://admin.nodeInfo.id">admin.nodeInfo.id</a>&quot;）。</p></li>
+<li><p>String：nodeName  节点的名称</p></li>
+<li><p>BigInteger：programVersion  程序的真实版本，通过治理rpc获取</p></li>
+<li><p>BigInteger：released   发起质押账户的自由金额的锁定期质押的VON</p></li>
+<li><p>BigInteger：releasedHes   发起质押账户的自由金额的犹豫期质押的VON</p></li>
+<li><p>BigInteger：restrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON</p></li>
+<li><p>BigInteger：restrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON</p></li>
+<li><p>BigInteger：shares   当前候选人总共质押加被委托的VON数目</p></li>
+<li><p>String：stakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)</p></li>
+<li><p>BigInteger：stakingBlockNum    发起质押时的区块高度</p></li>
+<li><p>BigInteger：stakingEpoch   当前变更质押金额时的结算周期</p></li>
+<li><p>BigInteger：stakingTxIndex   发起质押时的交易索引</p></li>
+<li><p>BigInteger：status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，4:节点的VON不足最低质押门槛，8:节点被举报双签，16:节点出块率低且达到移除条件, 32: 节点主动发起撤销</p></li>
+<li><p>BigInteger：validatorTerm   验证人的任期</p></li>
+<li><p>String：website   节点的第三方主页(有长度限制，表示该节点的主页)</p></li>
 <li><p>BigInteger：delegateEpoch  节点最后一次被委托的结算周期</p></li>
 <li><p>BigInteger：delegateTotal  节点被委托的生效总数量</p></li>
 <li><p>BigInteger：delegateTotalHes  节点被委托的未生效总数量</p></li>
 <li><p>BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励</p></li>
-<li><p>BigInteger：nextRewardPer 下一个结算周期奖励分成比例</p></li>
-<li><p>BigInteger：rewardPer 当前结算周期奖励分成比例</p></li>
+<li><p>BigInteger：nextRewardPer 下一个结算周期奖励分成比例，1=0.01%   10000=100%</p></li>
+<li><p>BigInteger：rewardPer 当前结算周期奖励分成比例，1=0.01%   10000=100%</p></li>
 </ul></li>
 <li><p><strong>Java SDK合约使用</strong></p></li>
 </ul>
@@ -415,7 +415,7 @@ CallResponse&lt;Node&gt; baseResponse = stakingContract.getStakingInfo(nodeId).s
 <li>CallResponse<BigInteger>描述
 <ul>
 <li>int：code   结果标识，0为成功</li>
-<li>BigInteger：data   打包区块的平均时间</li>
+<li>BigInteger：data   打包区块的平均时间（单位为毫秒）</li>
 <li>String：errMsg   错误信息，失败时存在</li>
 </ul></li>
 </ul>
@@ -443,9 +443,9 @@ DelegateContract delegateContract = DelegateContract.load(web3j, credentials, ch
 <ul>
 <li><p><strong>入参</strong></p>
 <ul>
-<li>String：nodeId   节点id，16进制格式，0x开头</li>
-<li>StakingAmountType：stakingAmountType  枚举,FREE_AMOUNT_TYPE表示使用账户自由金额,RESTRICTING_AMOUNT_TYPE表示使用锁仓金额做质押</li>
-<li>BigInteger：amount   委托的金额(按照最小单位算，1LAT = 10**18 VON)</li>
+<li>String：nodeId   节点id，16进制格式，即节点公钥，可以通过管理台查询（platon attach <a href="http://127.0.0.1:6789">http://127.0.0.1:6789</a> --exec &quot;<a href="http://admin.nodeInfo.id">admin.nodeInfo.id</a>&quot;）。</li>
+<li>StakingAmountType：stakingAmountType   表示使用账户自由金额还是账户的锁仓金额做质押，StakingAmountType.FREE_AMOUNT_TYPE：自由金额，StakingAmountType.RESTRICTING_AMOUNT_TYPE：锁仓金额</li>
+<li>BigInteger：amount   委托的金额，单位VON，默认委托金额必须大于等于10LAT，该大小限制可以通过治理参数动态调整，可通过治理接口获得当前值（proposalContract.getGovernParamValue(&quot;staking&quot;, &quot;operatingThreshold&quot;)）。</li>
 </ul></li>
 <li><p><strong>返回值</strong></p></li>
 </ul>
@@ -494,8 +494,8 @@ TransactionResponse baseResponse = delegateContract.getTransactionResponse(plato
 <li><p><strong>DelegationIdInfo</strong>：保存当前账户地址所委托的节点的NodeID和质押区块高度的对象</p>
 <ul>
 <li>String：address   委托人的账户地址</li>
-<li>String：NodeId   验证人的节点Id</li>
-<li>BigInteger：StakingBlockNum   发起质押时的区块高度</li>
+<li>String：nodeId   验证人的节点Id</li>
+<li>BigInteger：stakingBlockNum   发起质押时的区块高度</li>
 </ul></li>
 <li><p><strong>Java SDK合约使用</strong></p></li>
 </ul>
@@ -520,22 +520,21 @@ TransactionResponse baseResponse = delegateContract.getTransactionResponse(plato
 <li>CallResponse<Delegation>描述
 <ul>
 <li>int：code   结果标识，0为成功</li>
-<li>Delegation：Data   Delegation对象数据</li>
+<li>Delegation：data   Delegation对象数据</li>
 <li>String：errMsg   错误信息，失败时存在</li>
 </ul></li>
 </ul>
 <ul>
 <li><p><strong>Delegation</strong>：保存当前委托账户委托信息的对象</p>
 <ul>
-<li>String：Address  委托人的账户地址</li>
-<li>String：NodeId   验证人的节点Id</li>
-<li>BigInteger：StakingBlockNum    发起质押时的区块高度</li>
-<li>BigInteger：DelegateEpoch   最近一次对该候选人发起的委托时的结算周期</li>
-<li>BigInteger：Released   发起委托账户的自由金额的锁定期委托的VON</li>
-<li>BigInteger：ReleasedHes   发起委托账户的自由金额的犹豫期委托的VON</li>
-<li>BigInteger：RestrictingPlan   发起委托账户的锁仓金额的锁定期委托的VON</li>
-<li>BigInteger：RestrictingPlanHes   发起委托账户的锁仓金额的犹豫期质押的VON</li>
-<li>BigInteger：Reduction   处于撤销计划中的VON</li>
+<li>String：delegateAddress  委托人的账户地址</li>
+<li>String：nodeId   验证人的节点Id</li>
+<li>BigInteger：stakingBlockNum    发起质押时的区块高度</li>
+<li>BigInteger：delegateEpoch   最近一次对该候选人发起的委托时的结算周期</li>
+<li>BigInteger：delegateReleased   发起委托账户的自由金额的锁定期委托的VON</li>
+<li>BigInteger：delegateReleasedHes   发起委托账户的自由金额的犹豫期委托的VON</li>
+<li>BigInteger：delegateLocked   发起委托账户的锁仓金额的锁定期委托的VON</li>
+<li>BigInteger：delegateLockedHes   发起委托账户的锁仓金额的犹豫期质押的VON</li>
 <li>BigInteger：cumulativeIncome  待领取的委托收益</li>
 </ul></li>
 <li><p><strong>Java SDK合约使用</strong></p></li>
@@ -574,7 +573,8 @@ CallResponse&lt;Delegation&gt; baseResponse = delegateContract.getDelegateInfo(n
 <ul>
 <li>BigInteger：reward   获得解除委托时所提取的委托收益</li>
 </ul></li>
-<li><p><strong>合约使用</strong></p>
+<li><p><strong>合约使用</strong></p></li>
+</ul>
 <pre><code class="hljs css language-java">String nodeId = <span class="hljs-string">"77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050"</span>;
 BigDecimal stakingAmount = Convert.toVon(<span class="hljs-string">"500000"</span>, Unit.LAT);
 BigInteger stakingBlockNum = <span class="hljs-keyword">new</span> BigInteger(<span class="hljs-string">"12134"</span>);
@@ -585,8 +585,7 @@ TransactionResponse baseResponse = delegateContract.getTransactionResponse(plato
 <span class="hljs-keyword">if</span>(baseResponse.isStatusOk()){ 
     BigInteger reward = delegateContract.decodeUnDelegateLog(baseResponse.getTransactionReceipt());
 }
-</code></pre></li>
-</ul>
+</code></pre>
 <h3><a class="anchor" aria-hidden="true" id="奖励相关接口"></a><a href="#奖励相关接口" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>奖励相关接口</h3>
 <blockquote>
 <p>PlatON经济模型中奖励相关的合约接口</p>
@@ -677,7 +676,7 @@ CallResponse&lt;List&lt;Reward&gt;&gt; baseResponse = rewardContract.getDelegate
 Web3j web3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://localhost:6789"</span>));
 String chainId = <span class="hljs-string">"100"</span>;
 Credentials credentials = WalletUtils.loadCredentials(<span class="hljs-string">"password"</span>, <span class="hljs-string">"/path/to/walletfile"</span>);
-NodeContract contract = NodeContract.load(web3j, credentials, chainId);
+NodeContract nodeContract = NodeContract.load(web3j, credentials, chainId);
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="接口说明-3"></a><a href="#接口说明-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>接口说明</h4>
 <h5><a class="anchor" aria-hidden="true" id="getverifierlist"></a><a href="#getverifierlist" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>getVerifierList</strong></h5>
@@ -702,28 +701,22 @@ NodeContract contract = NodeContract.load(web3j, credentials, chainId);
 <ul>
 <li><p><strong>Node</strong>：保存单个当前结算周期验证节点信息的对象</p>
 <ul>
-<li><p>String：BenefitAddress   用于接受出块奖励和质押奖励的收益账户</p></li>
-<li><p>String：Details   节点的描述(有长度限制，表示该节点的描述)</p></li>
-<li><p>String：NodeId   被质押的节点Id(也叫候选人的节点Id)</p></li>
-<li><p>String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)</p></li>
-<li><p>BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)</p></li>
-<li><p>BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON</p></li>
-<li><p>BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON</p></li>
-<li><p>BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON</p></li>
-<li><p>BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON</p></li>
-<li><p>BigInteger：Shares   当前候选人总共质押加被委托的VON数目</p></li>
-<li><p>String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)</p></li>
-<li><p>BigInteger：StakingBlockNum    发起质押时的区块高度</p></li>
-<li><p>BigInteger：StakingEpoch   当前变更质押金额时的结算周期</p></li>
-<li><p>BigInteger：StakingTxIndex   发起质押时的交易索引</p></li>
-<li><p>BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，</p>
-<p>4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销</p></li>
-<li><p>BigInteger：ValidatorTerm   验证人的任期</p></li>
-<li><p>String：Website   节点的第三方主页(有长度限制，表示该节点的主页)</p></li>
+<li><p>String：nodeId   被质押的节点Id(也叫候选人的节点Id)</p></li>
+<li><p>String：stakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)</p></li>
+<li><p>String：benifitAddress   用于接受出块奖励和质押奖励的收益账户</p></li>
+<li><p>BigInteger：rewardPer 当前结算周期奖励分成比例</p></li>
+<li><p>BigInteger：nextRewardPer 下一个结算周期奖励分成比例</p></li>
+<li><p>BigInteger：stakingTxIndex   发起质押时的交易索引</p></li>
+<li><p>BigInteger：programVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)</p></li>
+<li><p>BigInteger：stakingBlockNum    发起质押时的区块高度</p></li>
+<li><p>BigInteger：shares   当前候选人总共质押加被委托的VON数目</p></li>
+<li><p>String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。</p></li>
+<li><p>String：nodeName   被质押节点的名称(有长度限制，表示该节点的名称)</p></li>
+<li><p>String：website   节点的第三方主页(有长度限制，表示该节点的主页)</p></li>
+<li><p>String：details   节点的描述(有长度限制，表示该节点的描述)</p></li>
+<li><p>BigInteger：validatorTerm   验证人的任期</p></li>
 <li><p>BigInteger：delegateTotal  节点被委托的生效总数量</p></li>
 <li><p>BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励</p></li>
-<li><p>BigInteger：nextRewardPer 下一个结算周期奖励分成比例</p></li>
-<li><p>BigInteger：rewardPer 当前结算周期奖励分成比例</p></li>
 </ul></li>
 <li><p><strong>Java SDK合约使用</strong></p></li>
 </ul>
@@ -751,23 +744,20 @@ NodeContract contract = NodeContract.load(web3j, credentials, chainId);
 <ul>
 <li><p><strong>Node</strong>：保存单个当前共识周期验证节点信息的对象</p>
 <ul>
-<li><p>String：BenefitAddress   用于接受出块奖励和质押奖励的收益账户</p></li>
-<li><p>String：Details   节点的描述(有长度限制，表示该节点的描述)</p></li>
-<li><p>String：NodeId   被质押的节点Id(也叫候选人的节点Id)</p></li>
-<li><p>String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)</p></li>
-<li><p>BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)</p></li>
-<li><p>BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON</p></li>
-<li><p>BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON</p></li>
-<li><p>BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON</p></li>
-<li><p>BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON</p></li>
-<li><p>BigInteger：Shares   当前候选人总共质押加被委托的VON数目</p></li>
-<li><p>String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)</p></li>
-<li><p>BigInteger：StakingBlockNum    发起质押时的区块高度</p></li>
-<li><p>BigInteger：StakingEpoch   当前变更质押金额时的结算周期</p></li>
-<li><p>BigInteger：StakingTxIndex   发起质押时的交易索引</p></li>
-<li><p>BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销</p></li>
-<li><p>BigInteger：ValidatorTerm   验证人的任期</p></li>
-<li><p>String：Website   节点的第三方主页(有长度限制，表示该节点的主页)</p></li>
+<li><p>String：nodeId   被质押的节点Id(也叫候选人的节点Id)</p></li>
+<li><p>String：stakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)</p></li>
+<li><p>String：benifitAddress   用于接受出块奖励和质押奖励的收益账户</p></li>
+<li><p>BigInteger：rewardPer 当前结算周期奖励分成比例</p></li>
+<li><p>BigInteger：nextRewardPer 下一个结算周期奖励分成比例</p></li>
+<li><p>BigInteger：stakingTxIndex   发起质押时的交易索引</p></li>
+<li><p>BigInteger：programVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)</p></li>
+<li><p>BigInteger：stakingBlockNum    发起质押时的区块高度</p></li>
+<li><p>BigInteger：shares   当前候选人总共质押加被委托的VON数目</p></li>
+<li><p>String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。</p></li>
+<li><p>String：nodeName   被质押节点的名称(有长度限制，表示该节点的名称)</p></li>
+<li><p>String：website   节点的第三方主页(有长度限制，表示该节点的主页)</p></li>
+<li><p>String：details   节点的描述(有长度限制，表示该节点的描述)</p></li>
+<li><p>BigInteger：validatorTerm   验证人的任期</p></li>
 <li><p>BigInteger：delegateTotal  节点被委托的生效总数量</p></li>
 <li><p>BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励</p></li>
 <li><p>BigInteger：nextRewardPer 下一个结算周期奖励分成比例</p></li>
@@ -799,30 +789,29 @@ NodeContract contract = NodeContract.load(web3j, credentials, chainId);
 <ul>
 <li><p><strong>Node</strong>：保存单个候选节点信息对象</p>
 <ul>
-<li><p>String：BenefitAddress   用于接受出块奖励和质押奖励的收益账户</p></li>
-<li><p>String：Details   节点的描述(有长度限制，表示该节点的描述)</p></li>
-<li><p>String：NodeId   被质押的节点Id(也叫候选人的节点Id)</p></li>
-<li><p>String：NodeName   被质押节点的名称(有长度限制，表示该节点的名称)</p></li>
-<li><p>BigInteger：ProgramVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)</p></li>
-<li><p>BigInteger：Released   发起质押账户的自由金额的锁定期质押的VON</p></li>
-<li><p>BigInteger：ReleasedHes   发起质押账户的自由金额的犹豫期质押的VON</p></li>
-<li><p>BigInteger：RestrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON</p></li>
-<li><p>BigInteger：RestrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON</p></li>
-<li><p>BigInteger：Shares   当前候选人总共质押加被委托的VON数目</p></li>
-<li><p>String：StakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)</p></li>
-<li><p>BigInteger：StakingBlockNum    发起质押时的区块高度</p></li>
-<li><p>BigInteger：StakingEpoch   当前变更质押金额时的结算周期</p></li>
-<li><p>BigInteger：StakingTxIndex   发起质押时的交易索引</p></li>
-<li><p>BigInteger：Status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，</p>
-<p>4:节点的VON不足最低质押门槛(只有倒数第三bit为1)，8:节点被举报双签，16:节点出块率低且达到移除条件(倒数第五位bit为1); 32: 节点主动发起撤销</p></li>
-<li><p>BigInteger：ValidatorTerm   验证人的任期</p></li>
-<li><p>String：Website   节点的第三方主页(有长度限制，表示该节点的主页)</p></li>
+<li><p>String：nodeId   被质押的节点Id(也叫候选人的节点Id)</p></li>
+<li><p>String：stakingAddress   发起质押时使用的账户(撤销质押时，VON会被退回该账户或者该账户的锁仓信息中)</p></li>
+<li><p>String：benifitAddress   用于接受出块奖励和质押奖励的收益账户</p></li>
+<li><p>BigInteger：rewardPer 当前结算周期奖励分成比例</p></li>
+<li><p>BigInteger：nextRewardPer 下一个结算周期奖励分成比例</p></li>
+<li><p>BigInteger：stakingTxIndex   发起质押时的交易索引</p></li>
+<li><p>BigInteger：programVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)</p></li>
+<li><p>BigInteger：status   候选人的状态，0: 节点可用，1: 节点不可用 ，2:节点出块率低但没有达到移除条件的，4:节点的VON不足最低质押门槛，8:节点被举报双签，16:节点出块率低且达到移除条件, 32: 节点主动发起撤销</p></li>
+<li><p>BigInteger：stakingEpoch   当前变更质押金额时的结算周期</p></li>
+<li><p>BigInteger：stakingBlockNum    发起质押时的区块高度</p></li>
+<li><p>BigInteger：shares   当前候选人总共质押加被委托的VON数目</p></li>
+<li><p>BigInteger：released   发起质押账户的自由金额的锁定期质押的VON</p></li>
+<li><p>BigInteger：releasedHes   发起质押账户的自由金额的犹豫期质押的VON</p></li>
+<li><p>BigInteger：restrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON</p></li>
+<li><p>BigInteger：restrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON</p></li>
+<li><p>String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。</p></li>
+<li><p>String：nodeName   被质押节点的名称(有长度限制，表示该节点的名称)</p></li>
+<li><p>String：website   节点的第三方主页(有长度限制，表示该节点的主页)</p></li>
+<li><p>String：details   节点的描述(有长度限制，表示该节点的描述)</p></li>
 <li><p>BigInteger：delegateEpoch  节点最后一次被委托的结算周期</p></li>
 <li><p>BigInteger：delegateTotal  节点被委托的生效总数量</p></li>
 <li><p>BigInteger：delegateTotalHes  节点被委托的未生效总数量</p></li>
 <li><p>BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励</p></li>
-<li><p>BigInteger：nextRewardPer 下一个结算周期奖励分成比例</p></li>
-<li><p>BigInteger：rewardPer 当前结算周期奖励分成比例</p></li>
 </ul></li>
 <li><p><strong>Java SDK合约使用</strong></p></li>
 </ul>
@@ -837,7 +826,7 @@ NodeContract contract = NodeContract.load(web3j, credentials, chainId);
 Web3j web3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://localhost:6789"</span>));
 String chainId = <span class="hljs-string">"100"</span>;
 Credentials credentials = WalletUtils.loadCredentials(<span class="hljs-string">"password"</span>, <span class="hljs-string">"/path/to/walletfile"</span>);
-ProposalContract contract = ProposalContract.load(web3j, credentials, chainId);
+ProposalContract proposalContract = ProposalContract.load(web3j, credentials, chainId);
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="接口说明-4"></a><a href="#接口说明-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>接口说明</h4>
 <h5><a class="anchor" aria-hidden="true" id="submitproposal"></a><a href="#submitproposal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>submitProposal</strong></h5>
@@ -963,7 +952,7 @@ TransactionResponse baseResponse = proposalContract.getTransactionResponse(plato
 <li>BigInteger:   endVotingBlock   提案投票结束的块高</li>
 <li>BigInteger:   newVersion   升级版本</li>
 <li>BigInteger:   toBeCanceled   提案要取消的升级提案ID</li>
-<li>BigInteger:   activeBlock   （如果投票通过）生效块高（endVotingBlock + 20 + 4<em>250 &lt; 生效块高 &lt;= endVotingBlock + 20 + 10</em>250）</li>
+<li>BigInteger:   activeBlock   提案生效块高，系统根据EndVotingBlock算出</li>
 <li>String:   verifier     提交提案的验证人</li>
 </ul></li>
 <li><p><strong>合约使用</strong></p></li>
@@ -1005,12 +994,12 @@ CallResponse&lt;Proposal&gt; baseResponse = proposalContract.getProposal(proposa
 </ul></li>
 <li><p><strong>status</strong></p>
 <ul>
-<li>Voting：0x01，投票中</li>
-<li>Pass：0x02，投票通过</li>
-<li>Failed：0x03，投票失败</li>
-<li>PreActive：0x04，（升级提案）预生效</li>
-<li>Active：0x05，（升级提案）生效</li>
-<li>Canceled：0x06，被取消</li>
+<li>1  投票中</li>
+<li>2  投票通过</li>
+<li>3  投票失败</li>
+<li>4 （升级提案）预生效</li>
+<li>5 （升级提案）生效</li>
+<li>6  被取消</li>
 </ul></li>
 <li><p><strong>合约使用</strong></p></li>
 </ul>
@@ -1048,7 +1037,7 @@ CallResponse&lt;TallyResult&gt; baseResponse = proposalContract.getTallyResult(p
 <li>BigInteger:   endVotingBlock   提案投票结束的块高</li>
 <li>BigInteger:   newVersion   升级版本</li>
 <li>String:   toBeCanceled   提案要取消的升级提案ID</li>
-<li>BigInteger:   activeBlock   （如果投票通过）生效块高（endVotingBlock + 20 + 4<em>250 &lt; 生效块高 &lt;= endVotingBlock + 20 + 10</em>250）</li>
+<li>BigInteger:   activeBlock   提案生效块高，系统根据EndVotingBlock算出</li>
 <li>String:   verifier     提交提案的验证人</li>
 </ul></li>
 <li><p><strong>合约使用</strong></p></li>
@@ -1203,7 +1192,7 @@ RestrictingPlanContract contract = RestrictingPlanContract.load(web3j, credentia
 <li>String：address   锁仓释放到账账户</li>
 <li>List<RestrictingPlan>：plan   锁仓计划列表（数组）
 <ul>
-<li>epoch：表示结算周期的倍数。与每个结算周期出块数的乘积表示在目标区块高度上释放锁定的资金。如果 account 是激励池地址， 那么 period 值是 120（即，30*4） 的倍数。另外，period,每周期的区块数至少要大于最高不可逆区块高度。</li>
+<li>epoch：锁仓的周期，表示结算周期的倍数</li>
 <li>amount：表示目标区块上待释放的金额。</li>
 </ul></li>
 </ul></li>
@@ -2414,7 +2403,7 @@ String debugEconomicConfig = req.send().getEconomicConfigStr();
 <p>将Solidity智能合约部署到区块链上时，必须先将其编译成字节码的格式，然后将其作为交易的一部分发送。Java SDK 将帮你生成Solidity智能合约对应的Java包装类，可以方便的部署Solidity智能合约以及调用Solidity智能合约中的交易方法、事件和常量方法。</p>
 <h3><a class="anchor" aria-hidden="true" id="编译solidity源代码"></a><a href="#编译solidity源代码" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>编译solidity源代码</h3>
 <ul>
-<li>通过<code>solc</code>编译器编译solidity源代码(<a href="https://github.com/PlatONnetwork/solidity/releases">solc下载</a>)：</li>
+<li>通过<code>solc</code>编译器编译solidity源代码，请根据合约声明的编译器版本下载对应solc编译器版本(<a href="https://github.com/PlatONnetwork/solidity/releases">solc下载</a>)：</li>
 </ul>
 <pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> solc &lt;contract&gt;.sol --bin --abi --optimize -o &lt;output-dir&gt;/</span>
 </code></pre>
@@ -2489,14 +2478,17 @@ Warnin<span class="hljs-variable">g:</span> This <span class="hljs-keyword">is</
 <h3><a class="anchor" aria-hidden="true" id="solidity智能合约java包装类"></a><a href="#solidity智能合约java包装类" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solidity智能合约Java包装类</h3>
 <p>Java SDK支持从<code>abi</code>文件中自动生成Solidity智能合约对应的Java包装类。</p>
 <ul>
-<li>通过命令行工具生成Java包装类：</li>
+<li>通过命令行工具生成Java包装类（<a href="https://download.platon.network/sdk/0.11.0.1-20200410/platon-web3j-0.11.0.1.zip">platon-web3j下载</a>）：</li>
 </ul>
 <pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> platon-web3j solidity generate [--javaTypes|--solidityTypes] /path/to/&lt;smart-contract&gt;.bin /path/to/&lt;smart-contract&gt;.abi -o /path/to/src/main/java -p com.your.organisation.name</span>
 </code></pre>
 <ul>
 <li>直接调用Java SDK中的工具类生成Java包装类：</li>
 </ul>
-<pre><code class="hljs css language-java">String args[] = {<span class="hljs-string">"generate"</span>, <span class="hljs-string">"/path/to/&lt;smart-contract&gt;.bin"</span>, <span class="hljs-string">"/path/to/&lt;smart-contract&gt;.abi"</span>, <span class="hljs-string">"-o"</span>, <span class="hljs-string">"/path/to/src/main/java"</span>, <span class="hljs-string">"-p"</span> , <span class="hljs-string">"com.your.organisation.name"</span>};
+<pre><code class="hljs css language-java"><span class="hljs-comment">// 通过maven或gradle导入console模块</span>
+compile <span class="hljs-string">"com.platon.client:console:{version}"</span>
+
+String args[] = {<span class="hljs-string">"generate"</span>, <span class="hljs-string">"/path/to/&lt;smart-contract&gt;.bin"</span>, <span class="hljs-string">"/path/to/&lt;smart-contract&gt;.abi"</span>, <span class="hljs-string">"-o"</span>, <span class="hljs-string">"/path/to/src/main/java"</span>, <span class="hljs-string">"-p"</span> , <span class="hljs-string">"com.your.organisation.name"</span>};
 org.web3j.codegen.SolidityFunctionWrapperGenerator.run(args);
 </code></pre>
 <p>其中<code>bin</code>和<code>abi</code>文件是编译solidity源代码以后生成的。</p>
