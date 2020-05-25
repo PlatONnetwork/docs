@@ -170,7 +170,33 @@ networks: {
 }
 ```
 
-**Step2.** Deploy contract
+**step2.**  Unlock wallet account
+
+Enter the platon-truffle console
+
+```
+platon-truffle console
+```
+
+Import the private key (you can skip this step if you have already imported it)
+```
+web3.platon.personal.importRawKey("Your wallet private key","Your wallet password");
+```
+Successful import will see information similar to the following：
+```
+'0x79daa881cab1f73b3ceef5db1869231b416d6dd9'
+```
+
+Unlock wallet account
+```
+ web3.platon.personal.unlockAccount('Your wallet address','Your wallet password',999999);
+```
+After unlocking successfully, you will see the following information：
+```
+ture
+```
+
+**Step3.** Deploy contract
 
 ```
 platon-truffle deploy --wasm --contract-name HelloWorld --params '[[["1"], "2", "3"]]'
@@ -247,7 +273,7 @@ Description：
 - `helloWorld` the contract object created
 - `methods` specify the call method
 - `add_message`  method in the HelloWorld contract with a custom my_message input
-- `from` caller's contract address 
+- `from` caller's wallet address 
 - `on` listen on the result of the contract method executed. if fail, it will print the error info. If success ,the console will print the receipt as belows:
 
 ```

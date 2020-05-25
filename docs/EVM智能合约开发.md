@@ -133,9 +133,9 @@ After the command is executed, project directory structure is as follows:
 **Step1.** Create deploy script 
 
 ```
-cd migrations/ && touch 2_initial_helloword.js
+cd migrations/ && touch 2_initial_helloworld.js
 ```
-Suggest replacing script  name  with contract name, for example the deploy script  of HelloWorld contract :2_initial_helloword.js,content is as follows：
+Suggest replacing script  name  with contract name, for example the deploy script  of HelloWorld contract :2_initial_helloworld.js,content is as follows：
 ```
 const helloWorld = artifacts.require("HelloWorld"); //artifacts.require specify deployment contract
 	module.exports = function(deployer) {
@@ -156,13 +156,39 @@ networks: {
        port: 8806,            // server port
        network_id: "*",       // Any network (default: none)
        from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", //the accout address of deploying contract
-       gas: 90000000,
+       gas: 4712388,
        gasPrice: 50000000004,
 	},
 }
 ```
 
-**Step3.**  Deploy contract
+**step3.**  Unlock wallet account
+
+Enter the platon-truffle console
+
+```
+platon-truffle console
+```
+
+Import the private key (you can skip this step if you have already imported it)
+```
+web3.platon.personal.importRawKey("Your wallet private key","Your wallet password");
+```
+Successful import will see information similar to the following：
+```
+'0x79daa881cab1f73b3ceef5db1869231b416d6dd9'
+```
+
+Unlock wallet account
+```
+ web3.platon.personal.unlockAccount('Your wallet address','Your wallet password',999999);
+```
+After unlocking successfully, you will see the following information：
+```
+ture
+```
+
+**Step4.**  Deploy contract
 
 ```
 platon-truffle migrate
@@ -170,7 +196,7 @@ platon-truffle migrate
 
 If deploy success，you wil see log info as follows:
 ```
-2_initial_helloword.js
+2_initial_helloworld.js
 Deploying 'HelloWorld'
 transaction hash:    0x2bb5c7f6202225554a823db410fb16cf0c8328a51391f24fb9052a6a8f3033e3 //the transaction hash for deploy contract
 Blocks: 0            Seconds: 0
@@ -866,7 +892,7 @@ Call contract command description:
 - `crowdFunding` is the contract object we built earlier
 - `methods` fixed syntax specifying that methods in the contract will be obtained
 - `safeWithdrawal` is a method in our Crowdfunding contract to recover funds
-- `from` caller's contract address
+- `from` caller's wallet address
 - `on` listen for contract processing result events, and output error logs for failures
 
 --------------

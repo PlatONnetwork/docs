@@ -137,9 +137,9 @@ platon-truffle compile
 **step1.** 新增合约部署脚本文件
 
 ```
-cd migrations/ && touch 2_initial_helloword.js
+cd migrations/ && touch 2_initial_helloworld.js
 ```
-部署脚本文件名建议使用合约名称便于后面维护,如HelloWorld合约对应的部署脚本文件为2_initial_helloword.js，内容如下所示：
+部署脚本文件名建议使用合约名称便于后面维护,如HelloWorld合约对应的部署脚本文件为2_initial_helloworld.js，内容如下所示：
 ```
 const helloWorld = artifacts.require("HelloWorld"); //artifacts.require告诉platon-truffle需要部署哪个合约，HelloWorld即之前写的合约类名
 	module.exports = function(deployer) {
@@ -147,12 +147,12 @@ const helloWorld = artifacts.require("HelloWorld"); //artifacts.require告诉pla
 };
 ```
 
-**step2.** 修改truffle-config.js中链的配制信息
+**step2.** 修改truffle-config.js中链的配置信息
 
 ```
 vim truffle-config.js
 ```
-将truffle-config.js中的区块链相关配制修改成您真实连接的链配制
+将truffle-config.js中的区块链相关配置修改成您真实连接的链配置
 ```
 networks: {
 	development: {
@@ -160,13 +160,38 @@ networks: {
        port: 8806,            // 链端口号
        network_id: "*",       // Any network (default: none)
        from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", //部署合约账号的钱包地址
-       gas: 90000000,
+       gas: 4712388,
        gasPrice: 50000000004,
 	},
 }
 ```
 
-**step3.**  部署合约
+**step3.**  解锁钱包账户
+
+进入platon-truffle控制台
+```
+platon-truffle console
+```
+
+导入私钥（如果之前已导入可以跳过此步骤）
+```
+web3.platon.personal.importRawKey("您的钱包私钥","您的钱包密码");
+```
+导入成功将看到类似如下交易hash信息：
+```
+'0x79daa881cab1f73b3ceef5db1869231b416d6dd9'
+```
+
+解锁钱包账户
+```
+ web3.platon.personal.unlockAccount('您的钱包地址','您的钱包密码',999999);
+```
+解锁成功将看到如下信息：
+```
+ture
+```
+
+**step4.**  部署合约
 
 ```
 platon-truffle migrate
@@ -174,7 +199,7 @@ platon-truffle migrate
 
 部署成功后，将看到类似如下信息：
 ```
-2_initial_helloword.js
+2_initial_helloworld.js
 ======================
 
    Deploying 'HelloWorld'
@@ -237,7 +262,7 @@ helloWorld.methods.setName("hello world").send({from: '0xf644cfc3b0dc588116d6621
 - `helloWorld` 是之前构建的合约对象
 - `methods` 固定语法,指量后面紧跟合约的方法名
 - `setName` 是我们HelloWorld合约中的一个方法，有一个String类型的入参，此处入参为`hello world`
-- `from` 调用者的合约地址 
+- `from` 调用者的钱包地址 
 - `on` 是监听合约处理结果事件，此处如果成功将打印回执，失败输出错误日志
 
 函数调用成功，将会看到如下信息：
@@ -491,7 +516,7 @@ ls contracts/
 - 将看到 ERC200513Token.sol
 - PlatON智能合约中的货币单位为LAT和VON。要将以太坊智能合约迁移至PlatON，请将以太币面额更改为PlatON面额。同时注意以太/LAT市场汇率（此合约我们假设市场汇率1:1，将uint256 public totalSupply = 10000000000000000000 ether; 修改成uint256 public totalSupply = 10000000000000000000 LAT; ）
 
-**step4.** 修改truffle-config.js中的编译版本号及链相关配制
+**step4.** 修改truffle-config.js中的编译版本号及链相关配置
 
 ```
 module.exports = {
@@ -533,13 +558,13 @@ Compiled successfully using: //表示编译成功
   solc: 0.5.13-develop.2020.1.2+commit.9ff23752.mod.Emscripten.clang
 ```
 
-**step6.** 添加合约部署配制文件
+**step6.** 添加合约部署配置文件
 
 ```
 cd migrations && touch 2_initial_ERC200513Token.js
 ```
 
-合约部署配制文件2_initial_ERC200513Token.js内容如下：
+合约部署配置文件2_initial_ERC200513Token.js内容如下：
 ```
 const ERC200513Token = artifacts.require("ERC200513Token"); //括号中为迁移合约类名
 module.exports = function(deployer) {
@@ -804,13 +829,13 @@ module.exports = function(deployer) {
 };
 ```
 
-**step2.** 修改truffle-config.js中链的配制信息
+**step2.** 修改truffle-config.js中链的配置信息
 
 ```
 vim truffle-config.js
 ```
 
-将truffle-config.js中的区块链相关配制修改成您真实连接的链配制
+将truffle-config.js中的区块链相关配置修改成您真实连接的链配置
 
 ```
 networks: {
@@ -1447,7 +1472,7 @@ function initContract() public OnlyOwner {
 
 4. platon-truffle执行truffle migrate部署合约失败?
 
-  1.确认truffle-config.js中连接的链的配制信息及用户的钱包地址是否正确。
+  1.确认truffle-config.js中连接的链的配置信息及用户的钱包地址是否正确。
 
 5. truffle migrate部署带参数的构造函数合约失败?
 
@@ -1457,7 +1482,7 @@ function initContract() public OnlyOwner {
   constructor(uint256 a, string memory b, string memory c) public {}
   ```
 
-  2_initial_A.js文件配制如下：
+  2_initial_A.js文件配置如下：
   ```
    const A = artifacts.require("A");  
    module.exports = function(deployer) {

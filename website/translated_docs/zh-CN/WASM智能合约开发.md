@@ -149,12 +149,12 @@ platon-truffle compile
 
 ### 部署HelloWorld合约
 
-**step1.** 修改truffle-config.js中链的配制信息
+**step1.** 修改truffle-config.js中链的配置信息
 
 ```
 vim truffle-config.js
 ```
-将truffle-config.js中的区块链相关配制修改成您真实连接的链配制
+将truffle-config.js中的区块链相关配置修改成您真实连接的链配置
 ```
 networks: {
 	development: {
@@ -162,13 +162,38 @@ networks: {
        port: 8806,            // 链端口号
        network_id: "*",       // Any network (default: none)
        from: "0x5b37dabedae06edb142257819fad207199986992",
-       gas: 90000000,
+       gas: 4712388,
        gasPrice: 50000000004,
 	},
 }
 ```
 
-**step2.** 部署HelloWorld合约
+**step2.**  解锁钱包账户
+
+进入platon-truffle控制台
+```
+platon-truffle console
+```
+
+导入私钥（如果之前已导入可以跳过此步骤）
+```
+web3.platon.personal.importRawKey("您的钱包私钥","您的钱包密码");
+```
+导入成功将看到类似如下交易hash信息：
+```
+'0x79daa881cab1f73b3ceef5db1869231b416d6dd9'
+```
+
+解锁钱包账户
+```
+ web3.platon.personal.unlockAccount('您的钱包地址','您的钱包密码',999999);
+```
+解锁成功将看到如下信息：
+```
+ture
+```
+
+**step3.** 部署HelloWorld合约
 
 ```
 platon-truffle deploy --wasm --contract-name HelloWorld --params '[[["1"], "2", "3"]]'
@@ -245,7 +270,7 @@ helloworld.methods.add_message([["5"], "6", "7"]).send({
 - `helloWorld` 是之前构建的合约对象
 - `methods` 固定语法,指量后面紧跟合约的方法名
 - `add_message` 是我们HelloWorld合约中的一个方法，有一个自定义my_message类型的入参
-- `from` 调用者的合约地址 
+- `from` 调用者的钱包地址 
 - `gas` gas值
 - `on` 是监听合约处理结果事件，此处如果成功将打印回执，失败输出错误日志
 
@@ -1666,50 +1691,55 @@ class platon::db::Map< TableName, Key, Value >
       获取值，将被添加到缓存中。
 
     * **参数**
+      
       * `k：`键
     * **返回值**
-      * 值的引用
+      
+    * 值的引用
     * **示例：**
-
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
-      assert(map.at["hello"] == "world");
+    assert(map.at["hello"] == "world");
       ```
-
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     bool platon::db::Map< TableName, Key, Value >::contains ( const Key & key )`
       检查容器中是否存在具有与key等效的键的元素。
 
     * **参数**
+      
       * `k：`键
     * **返回值**
-      * 如果存在这样的元素，则为true，否则为false。
+      
+    * 如果存在这样的元素，则为true，否则为false。
     * **示例：**
-
+    
       ```cpp
        typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
        MapStr map;
        map.["hello"] = "world";
-       assert(map.contains("hello"));
+     assert(map.contains("hello"));
       ```
-
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     void platon::db::Map< TableName, Key, Value >::erase ( const Key & k )`
       删除键值对。
 
     * **参数**
+      
       * `k：`键
-    * **示例：**
-
+  * **示例：**
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
       map.erase("hello");
-      ```
-
+    ```
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     void platon::db::Map< TableName, Key, Value >::flush ()`
     将内存中的修改数据刷新到区块链。
@@ -1719,18 +1749,20 @@ class platon::db::Map< TableName, Key, Value >
     获取Const对象，将不会加入缓存。
 
     * **参数**
+      
       * `k：`键
     * **返回值**
-      * 价值
+      
+    * 价值
     * **示例：**
-
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
-      assert(map.get_const["hello"] == "world");
+    assert(map.get_const["hello"] == "world");
       ```
-
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     bool platon::db::Map< TableName, Key, Value >::insert ( const Key & k,
     const Value & v)`
@@ -1740,16 +1772,17 @@ class platon::db::Map< TableName, Key, Value >
       * `k：`键
       * `v：`值
     * **返回值**
+      
       * true插入成功，false插入失败
-    * **示例：**
-
+  * **示例：**
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
       assert(map["hello"] == "world");
-      ```
-
+    ```
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     bool platon::db::Map< TableName, Key, Value >::insert_const ( const Key & k,
     const Value & v)`
@@ -1759,16 +1792,17 @@ class platon::db::Map< TableName, Key, Value >
       * `k：`键
       * `v：`值
     * **返回值**
+      
       * true插入成功，false插入失败
-    * **示例：**
-
+  * **示例：**
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert_const("hello", "world");
       assert(map["hello"] == "world");
-      ```
-
+    ```
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     Map<TableName, Key, Value>& platon::db::Map< TableName, Key, Value >::operator= ( const Map< TableName, Key, Value > & )`
 
@@ -1777,11 +1811,13 @@ class platon::db::Map< TableName, Key, Value >
     括号运算符。
 
     * **参数**
+      
       * `k：`键
     * **返回值**
-      * 价值与获取价值
+      
+    * 价值与获取价值
     * **示例：**
-
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
@@ -2114,6 +2150,7 @@ const Args &...  args
   * `method：`被调用合约的方法名称
   * `args：`对应于合约方法的参数
 * **返回值**
+  
   * 合约方法* **返回值**值以及执行是否成功
 * **示例：**
 
@@ -2163,6 +2200,7 @@ const Args &...  args)
   * `method：`被调用合约的方法名称
   * `args：`对应于合约方法的参数
 * **返回值**
+  
   * 合约方法* **返回值**值以及执行是否成功
 * **示例：**
 
@@ -2260,7 +2298,7 @@ Sh3算法。
     ```
 3. platon-truffle执行truffle deploy部署合约失败？
 
-  确认truffle-config.js中连接的链的配制信息及用户的钱包地址是否正确,钱包是否解锁。
+  确认truffle-config.js中连接的链的配置信息及用户的钱包地址是否正确,钱包是否解锁。
 
 4. truffle 部署带参数的构造函数合约失败？
 
