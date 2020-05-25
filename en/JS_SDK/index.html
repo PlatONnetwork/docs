@@ -865,8 +865,8 @@ web3.platon.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello world"</s
 <li><code>subscription.id</code>: The subscription id, used to identify and unsubscribing the subscription.</li>
 <li><code>subscription.subscribe([callback])</code>: Can be used to re-subscribe with the same parameters.</li>
 <li><code>subscription.unsubscribe([callback])</code>: Unsubscribes the subscription and returns TRUE in the callback if successfull.</li>
-<li><code>subscription.arguments</code>: The subscription arguments, used when re-subscribing.</li>
-<li><code>on(&quot;data&quot;)</code> returns Object:  Fires on each incoming log with the log object as argument.</li>
+<li><code>subscription.arguments</code>: The subscription arguments, used when re-subscribing.
+<code>on(&quot;data&quot;)</code> returns Object:   Fires on each incoming log with the log object as argument.</li>
 <li><code>on(&quot;changed&quot;)</code> returns Object: Fires on each log which was removed from the blockchain. The log will have the additional property <code>&quot;removed: true&quot;</code>.</li>
 <li><code>on(&quot;error&quot;)</code> returns Object: Fires when an error in the subscription occurs.</li>
 <li><code>on(&quot;connected&quot;)</code> returns String: Fires once after the subscription successfully connected. Returns the subscription id.</li>
@@ -1274,8 +1274,8 @@ myContract.deploy({
 <p>The methods of this smart contract are available through:</p>
 <ul>
 <li>The name: myContract.methods.myMethod(123)</li>
-<li>The name with parameters: myContract.methods<a href="123">'myMethod(uint256)'</a></li>
-<li>The signature: myContract.methods<a href="123">'0x58cf5f10'</a></li>
+<li>The name with parameters: myContract.methods</li>
+<li>The signature: myContract.methods</li>
 </ul>
 <p>This allows calling functions with same name but different parameters from the JavaScript contract object.</p>
 <p>Parameter:</p>
