@@ -174,9 +174,9 @@ contract HelloWorld {
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="deploly-helloworld-contract"></a><a href="#deploly-helloworld-contract" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deploly HelloWorld Contract</h3>
 <p><strong>Step1.</strong> Create deploy script</p>
-<pre><code class="hljs">cd migrations/ &amp;&amp; <span class="hljs-section">touch</span> <span class="hljs-number">2</span>_initial_helloword.js
+<pre><code class="hljs">cd migrations/ &amp;&amp; <span class="hljs-section">touch</span> <span class="hljs-number">2</span>_initial_helloworld.js
 </code></pre>
-<p>Suggest replacing script  name  with contract name, for example the deploy script  of HelloWorld contract :2_initial_helloword.js,content is as follows：</p>
+<p>Suggest replacing script  name  with contract name, for example the deploy script  of HelloWorld contract :2_initial_helloworld.js,content is as follows：</p>
 <pre><code class="hljs"><span class="hljs-keyword">const</span> helloWorld = artifacts.require(<span class="hljs-string">"HelloWorld"</span>); <span class="hljs-comment">//artifacts.require specify deployment contract</span>
     <span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">deployer</span>) </span>{
        deployer.deploy(helloWorld); 
@@ -192,16 +192,32 @@ contract HelloWorld {
 <span class="hljs-symbol">       port:</span> <span class="hljs-number">8806</span>,            <span class="hljs-comment">// server port</span>
 <span class="hljs-symbol">       network_id:</span> <span class="hljs-string">"*"</span>,       <span class="hljs-comment">// Any network (default: none)</span>
 <span class="hljs-symbol">       from:</span> <span class="hljs-string">"0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e"</span>, <span class="hljs-comment">//the accout address of deploying contract</span>
-<span class="hljs-symbol">       gas:</span> <span class="hljs-number">90000000</span>,
+<span class="hljs-symbol">       gas:</span> <span class="hljs-number">4712388</span>,
 <span class="hljs-symbol">       gasPrice:</span> <span class="hljs-number">50000000004</span>,
     },
 }
 </code></pre>
-<p><strong>Step3.</strong>  Deploy contract</p>
+<p><strong>step3.</strong>  Unlock wallet account</p>
+<p>Enter the platon-truffle console</p>
+<pre><code class="hljs">platon-truffle<span class="hljs-built_in"> console
+</span></code></pre>
+<p>Import the private key (you can skip this step if you have already imported it)</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.personal</span><span class="hljs-selector-class">.importRawKey</span>("<span class="hljs-selector-tag">Your</span> <span class="hljs-selector-tag">wallet</span> <span class="hljs-selector-tag">private</span> <span class="hljs-selector-tag">key</span>","<span class="hljs-selector-tag">Your</span> <span class="hljs-selector-tag">wallet</span> <span class="hljs-selector-tag">password</span>");
+</code></pre>
+<p>Successful import will see information similar to the following：</p>
+<pre><code class="hljs">'0x79daa881cab1f73b3ceef5db<span class="hljs-number">186923</span>1b416d6dd9'
+</code></pre>
+<p>Unlock wallet account</p>
+<pre><code class="hljs"> web3.platon.personal.unlock<span class="hljs-constructor">Account('Your <span class="hljs-params">wallet</span> <span class="hljs-params">address</span>','Your <span class="hljs-params">wallet</span> <span class="hljs-params">password</span>',999999)</span>;
+</code></pre>
+<p>After unlocking successfully, you will see the following information：</p>
+<pre><code class="hljs"><span class="hljs-attribute">ture</span>
+</code></pre>
+<p><strong>Step4.</strong>  Deploy contract</p>
 <pre><code class="hljs"><span class="hljs-attribute">platon-truffle migrate</span>
 </code></pre>
 <p>If deploy success，you wil see log info as follows:</p>
-<pre><code class="hljs"><span class="hljs-number">2</span>_initial_helloword.js
+<pre><code class="hljs"><span class="hljs-number">2</span>_initial_helloworld.js
 Deploying <span class="hljs-string">'HelloWorld'</span>
 transaction hash:    <span class="hljs-number">0x2bb5c7f6202225554a823db410fb16cf0c8328a51391f24fb9052a6a8f3033e3</span> <span class="hljs-comment">//the transaction hash for deploy contract</span>
 Blocks: <span class="hljs-number">0</span>            Seconds: <span class="hljs-number">0</span>
@@ -796,7 +812,7 @@ contract CrowdFunding {
 <li><code>crowdFunding</code> is the contract object we built earlier</li>
 <li><code>methods</code> fixed syntax specifying that methods in the contract will be obtained</li>
 <li><code>safeWithdrawal</code> is a method in our Crowdfunding contract to recover funds</li>
-<li><code>from</code> caller's contract address</li>
+<li><code>from</code> caller's wallet address</li>
 <li><code>on</code> listen for contract processing result events, and output error logs for failures</li>
 </ul>
 <hr>

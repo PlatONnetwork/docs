@@ -181,34 +181,50 @@ name = _name：此操作将外部传进来的局部变量赋值给状态变量</
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="部署helloworld合约"></a><a href="#部署helloworld合约" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>部署HelloWorld合约</h3>
 <p><strong>step1.</strong> 新增合约部署脚本文件</p>
-<pre><code class="hljs">cd migrations/ &amp;&amp; <span class="hljs-section">touch</span> <span class="hljs-number">2</span>_initial_helloword.js
+<pre><code class="hljs">cd migrations/ &amp;&amp; <span class="hljs-section">touch</span> <span class="hljs-number">2</span>_initial_helloworld.js
 </code></pre>
-<p>部署脚本文件名建议使用合约名称便于后面维护,如HelloWorld合约对应的部署脚本文件为2_initial_helloword.js，内容如下所示：</p>
+<p>部署脚本文件名建议使用合约名称便于后面维护,如HelloWorld合约对应的部署脚本文件为2_initial_helloworld.js，内容如下所示：</p>
 <pre><code class="hljs"><span class="hljs-keyword">const</span> helloWorld = artifacts.require(<span class="hljs-string">"HelloWorld"</span>); <span class="hljs-comment">//artifacts.require告诉platon-truffle需要部署哪个合约，HelloWorld即之前写的合约类名</span>
     <span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">deployer</span>) </span>{
        deployer.deploy(helloWorld); <span class="hljs-comment">//helloWorld即之前定义的合约抽象</span>
 };
 </code></pre>
-<p><strong>step2.</strong> 修改truffle-config.js中链的配制信息</p>
+<p><strong>step2.</strong> 修改truffle-config.js中链的配置信息</p>
 <pre><code class="hljs">vim truffle-<span class="hljs-built_in">config</span>.<span class="hljs-keyword">js
 </span></code></pre>
-<p>将truffle-config.js中的区块链相关配制修改成您真实连接的链配制</p>
+<p>将truffle-config.js中的区块链相关配置修改成您真实连接的链配置</p>
 <pre><code class="hljs"><span class="hljs-symbol">networks:</span> {
 <span class="hljs-symbol">    development:</span> {
 <span class="hljs-symbol">       host:</span> <span class="hljs-string">"10.1.1.6"</span>,     <span class="hljs-comment">// 区块链所在服务器主机</span>
 <span class="hljs-symbol">       port:</span> <span class="hljs-number">8806</span>,            <span class="hljs-comment">// 链端口号</span>
 <span class="hljs-symbol">       network_id:</span> <span class="hljs-string">"*"</span>,       <span class="hljs-comment">// Any network (default: none)</span>
 <span class="hljs-symbol">       from:</span> <span class="hljs-string">"0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e"</span>, <span class="hljs-comment">//部署合约账号的钱包地址</span>
-<span class="hljs-symbol">       gas:</span> <span class="hljs-number">90000000</span>,
+<span class="hljs-symbol">       gas:</span> <span class="hljs-number">4712388</span>,
 <span class="hljs-symbol">       gasPrice:</span> <span class="hljs-number">50000000004</span>,
     },
 }
 </code></pre>
-<p><strong>step3.</strong>  部署合约</p>
+<p><strong>step3.</strong>  解锁钱包账户</p>
+<p>进入platon-truffle控制台</p>
+<pre><code class="hljs">platon-truffle<span class="hljs-built_in"> console
+</span></code></pre>
+<p>导入私钥（如果之前已导入可以跳过此步骤）</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.personal</span><span class="hljs-selector-class">.importRawKey</span>("您的钱包私钥","您的钱包密码");
+</code></pre>
+<p>导入成功将看到类似如下交易hash信息：</p>
+<pre><code class="hljs">'0x79daa881cab1f73b3ceef5db<span class="hljs-number">186923</span>1b416d6dd9'
+</code></pre>
+<p>解锁钱包账户</p>
+<pre><code class="hljs"> <span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.personal</span><span class="hljs-selector-class">.unlockAccount</span>(<span class="hljs-string">'您的钱包地址'</span>,<span class="hljs-string">'您的钱包密码'</span>,<span class="hljs-number">999999</span>);
+</code></pre>
+<p>解锁成功将看到如下信息：</p>
+<pre><code class="hljs"><span class="hljs-attribute">ture</span>
+</code></pre>
+<p><strong>step4.</strong>  部署合约</p>
 <pre><code class="hljs"><span class="hljs-attribute">platon-truffle migrate</span>
 </code></pre>
 <p>部署成功后，将看到类似如下信息：</p>
-<pre><code class="hljs"><span class="hljs-string">2_initial_helloword.js</span>
+<pre><code class="hljs"><span class="hljs-string">2_initial_helloworld.js</span>
 <span class="hljs-string">======================</span>
 
    <span class="hljs-string">Deploying</span> <span class="hljs-string">'HelloWorld'</span>
@@ -264,7 +280,7 @@ var helloWorld = new web3.platon.Contract(abi,contractAddr);
 <li><code>helloWorld</code> 是之前构建的合约对象</li>
 <li><code>methods</code> 固定语法,指量后面紧跟合约的方法名</li>
 <li><code>setName</code> 是我们HelloWorld合约中的一个方法，有一个String类型的入参，此处入参为<code>hello world</code></li>
-<li><code>from</code> 调用者的合约地址</li>
+<li><code>from</code> 调用者的钱包地址</li>
 <li><code>on</code> 是监听合约处理结果事件，此处如果成功将打印回执，失败输出错误日志</li>
 </ul>
 <p>函数调用成功，将会看到如下信息：</p>
@@ -497,7 +513,7 @@ contract ERC200513Token {
 <li>将看到 ERC200513Token.sol</li>
 <li>PlatON智能合约中的货币单位为LAT和VON。要将以太坊智能合约迁移至PlatON，请将以太币面额更改为PlatON面额。同时注意以太/LAT市场汇率（此合约我们假设市场汇率1:1，将uint256 public totalSupply = 10000000000000000000 ether; 修改成uint256 public totalSupply = 10000000000000000000 LAT; ）</li>
 </ul>
-<p><strong>step4.</strong> 修改truffle-config.js中的编译版本号及链相关配制</p>
+<p><strong>step4.</strong> 修改truffle-config.js中的编译版本号及链相关配置</p>
 <pre><code class="hljs">module.exports = {
 <span class="hljs-symbol">  networks:</span> {
 <span class="hljs-symbol">     development:</span> {
@@ -532,10 +548,10 @@ Artifacts written <span class="hljs-keyword">to</span> /home/guest/example/build
 Compiled successfully using: <span class="hljs-comment">//表示编译成功</span>
   solc: <span class="hljs-number">0.5</span>.<span class="hljs-number">13</span>-develop.<span class="hljs-number">2020.1</span>.<span class="hljs-number">2</span>+commit.<span class="hljs-number">9</span>ff23752.<span class="hljs-keyword">mod</span>.<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Emscripten</span>.</span></span>clang
 </code></pre>
-<p><strong>step6.</strong> 添加合约部署配制文件</p>
+<p><strong>step6.</strong> 添加合约部署配置文件</p>
 <pre><code class="hljs">cd migrations &amp;&amp; <span class="hljs-section">touch</span> <span class="hljs-number">2</span>_initial_ERC200513Token.js
 </code></pre>
-<p>合约部署配制文件2_initial_ERC200513Token.js内容如下：</p>
+<p>合约部署配置文件2_initial_ERC200513Token.js内容如下：</p>
 <pre><code class="hljs"><span class="hljs-keyword">const</span> ERC200513Token = artifacts.require(<span class="hljs-string">"ERC200513Token"</span>); <span class="hljs-comment">//括号中为迁移合约类名</span>
 <span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">deployer</span>) </span>{
   deployer.deploy(ERC200513Token,<span class="hljs-number">100</span>,<span class="hljs-string">'PLA'</span>,<span class="hljs-string">'PLAT'</span>); <span class="hljs-comment">//ERC200513Token后面三个参数为合约构造函数参数</span>
@@ -765,10 +781,10 @@ contract CrowdFunding {
   ​    deployer.deploy(CrowdFunding);
 };
 </code></pre>
-<p><strong>step2.</strong> 修改truffle-config.js中链的配制信息</p>
+<p><strong>step2.</strong> 修改truffle-config.js中链的配置信息</p>
 <pre><code class="hljs">vim truffle-<span class="hljs-built_in">config</span>.<span class="hljs-keyword">js
 </span></code></pre>
-<p>将truffle-config.js中的区块链相关配制修改成您真实连接的链配制</p>
+<p>将truffle-config.js中的区块链相关配置修改成您真实连接的链配置</p>
 <pre><code class="hljs"><span class="hljs-symbol">networks:</span> {
 <span class="hljs-symbol">    development:</span> {
 <span class="hljs-symbol">       host:</span> <span class="hljs-string">"10.1.1.6"</span>,     <span class="hljs-comment">// 区块链所在服务器主机</span>
@@ -1239,7 +1255,7 @@ contract Map {
 2.可能语法有误，可以根据命令行提示修复后再进行编译。</p></li>
 <li><p>platon-truffle执行truffle migrate部署合约失败?</p></li>
 </ol>
-<p>1.确认truffle-config.js中连接的链的配制信息及用户的钱包地址是否正确。</p>
+<p>1.确认truffle-config.js中连接的链的配置信息及用户的钱包地址是否正确。</p>
 <ol start="5">
 <li>truffle migrate部署带参数的构造函数合约失败?</li>
 </ol>
@@ -1247,7 +1263,7 @@ contract Map {
 A.sol构造函数格式如下：</p>
 <pre><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(uint256 a, <span class="hljs-keyword">string</span> memory b, <span class="hljs-keyword">string</span> memory c)</span> <span class="hljs-title">public</span> <span class="hljs-comment">{}</span>
 </span></code></pre>
-<p>2_initial_A.js文件配制如下：</p>
+<p>2_initial_A.js文件配置如下：</p>
 <pre><code class="hljs"> <span class="hljs-keyword">const</span> A = artifacts.require(<span class="hljs-string">"A"</span>);  
  <span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">deployer</span>) </span>{
       deployer.deploy(A,<span class="hljs-number">100</span>,<span class="hljs-string">'PLA'</span>,<span class="hljs-string">'PLAT'</span>);<span class="hljs-comment">//需要传入对应构造函数参数</span>
