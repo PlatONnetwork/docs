@@ -260,7 +260,7 @@ var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 });
 
 ```javascript
 helloworld.methods.add_message([["5"], "6", "7"]).send({
-	from: '0x5b37dabedae06edb142257819fad207199986992',gas: 90000000
+	from: '0x5b37dabedae06edb142257819fad207199986992',gas: 999999
 }).on('receipt', function(receipt) {
 	console.log(receipt);
 }).on('error', console.error);

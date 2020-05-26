@@ -164,7 +164,7 @@ networks: {
        port: 8806,            // server port
        network_id: "*",       // Any network (default: none)
        from: "0x5b37dabedae06edb142257819fad207199986992",
-       gas: 4712388,
+       gas: 999999,
        gasPrice: 1000000000,
 	},
 }
@@ -263,7 +263,7 @@ Description：
 
 ```javascript
 helloworld.methods.add_message('[[["5"], "6", "7"]]').send({
-	from: '0x5b37dabedae06edb142257819fad207199986992',gas: 90000000
+	from: '0x5b37dabedae06edb142257819fad207199986992',gas: 999999
 }).on('receipt', function(receipt) {
 	console.log(receipt);
 }).on('error', console.error);
