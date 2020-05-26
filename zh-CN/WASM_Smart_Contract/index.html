@@ -269,7 +269,7 @@ var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 });
 </ul>
 <p><strong>step3.</strong>  调用合约</p>
 <pre><code class="hljs css language-javascript">helloworld.methods.add_message([[<span class="hljs-string">"5"</span>], <span class="hljs-string">"6"</span>, <span class="hljs-string">"7"</span>]).send({
-    <span class="hljs-attr">from</span>: <span class="hljs-string">'0x5b37dabedae06edb142257819fad207199986992'</span>,<span class="hljs-attr">gas</span>: <span class="hljs-number">90000000</span>
+    <span class="hljs-attr">from</span>: <span class="hljs-string">'0x5b37dabedae06edb142257819fad207199986992'</span>,<span class="hljs-attr">gas</span>: <span class="hljs-number">999999</span>
 }).on(<span class="hljs-string">'receipt'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">receipt</span>) </span>{
     <span class="hljs-built_in">console</span>.log(receipt);
 }).on(<span class="hljs-string">'error'</span>, <span class="hljs-built_in">console</span>.error);
