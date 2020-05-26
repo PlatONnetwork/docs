@@ -139,7 +139,7 @@ Suggest replacing script  name  with contract name, for example the deploy scrip
 ```
 const helloWorld = artifacts.require("HelloWorld"); //artifacts.require specify deployment contract
 	module.exports = function(deployer) {
-       deployer.deploy(helloWorld); 
+       deployer.deploy(helloWorld); //Failed to deploy contract with parameters, please refer to FAQ
 };
 ```
 
@@ -156,7 +156,7 @@ networks: {
        port: 8806,            // server port
        network_id: "*",       // Any network (default: none)
        from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", //the accout address of deploying contract
-       gas: 4712388,
+       gas: 999999,
        gasPrice: 50000000004,
 	},
 }
@@ -506,7 +506,7 @@ module.exports = {
       port: 8806,            // chain rpc port
       network_id: "*",       // Any network (default: none)
       from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", // the wallet address of deployment contract 
-      gas: 90000000,
+      gas: 999999,
       gasPrice: 50000000004,	     
      },
   },
@@ -820,7 +820,7 @@ networks: {
        port: 8806,            // server port
        network_id: "*",       // Any network (default: none)
        from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", //the accout address of deploying contract
-       gas: 90000000,
+       gas: 999999,
        gasPrice: 50000000004,
 	},
 }

@@ -162,7 +162,7 @@ networks: {
        port: 8806,            // 链端口号
        network_id: "*",       // Any network (default: none)
        from: "0x5b37dabedae06edb142257819fad207199986992",
-       gas: 4712388,
+       gas: 999999,
        gasPrice: 50000000004,
 	},
 }

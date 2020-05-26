@@ -143,10 +143,9 @@ cd migrations/ && touch 2_initial_helloworld.js
 ```
 const helloWorld = artifacts.require("HelloWorld"); //artifacts.require告诉platon-truffle需要部署哪个合约，HelloWorld即之前写的合约类名
 	module.exports = function(deployer) {
-       deployer.deploy(helloWorld); //helloWorld即之前定义的合约抽象
+       deployer.deploy(helloWorld); //helloWorld即之前定义的合约抽象（部署带参数的合约失败，请参考FAQ部署带参数合约失败说明）
 };
 ```
-
 **step2.** 修改truffle-config.js中链的配置信息
 
 ```
@@ -160,7 +159,7 @@ networks: {
        port: 8806,            // 链端口号
        network_id: "*",       // Any network (default: none)
        from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", //部署合约账号的钱包地址
-       gas: 4712388,
+       gas: 999999,
        gasPrice: 50000000004,
 	},
 }
@@ -526,7 +525,7 @@ module.exports = {
       port: 8806,            // 链使用的rpc端口
       network_id: "*",       // Any network (default: none)
       from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", //部署合约所使用的钱包地址
-      gas: 90000000,
+      gas: 999999,
       gasPrice: 50000000004,	     
      },
   },
@@ -844,7 +843,7 @@ networks: {
        port: 8806,            // 链端口号
        network_id: "*",       // Any network (default: none)
        from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", //部署合约账号的钱包地址
-       gas: 90000000,
+       gas: 999999,
        gasPrice: 50000000004,
 	},
 }
