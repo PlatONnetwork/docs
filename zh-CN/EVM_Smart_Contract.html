@@ -186,7 +186,7 @@ name = _name：此操作将外部传进来的局部变量赋值给状态变量</
 <p>部署脚本文件名建议使用合约名称便于后面维护,如HelloWorld合约对应的部署脚本文件为2_initial_helloworld.js，内容如下所示：</p>
 <pre><code class="hljs"><span class="hljs-keyword">const</span> helloWorld = artifacts.require(<span class="hljs-string">"HelloWorld"</span>); <span class="hljs-comment">//artifacts.require告诉platon-truffle需要部署哪个合约，HelloWorld即之前写的合约类名</span>
     <span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">deployer</span>) </span>{
-       deployer.deploy(helloWorld); <span class="hljs-comment">//helloWorld即之前定义的合约抽象</span>
+       deployer.deploy(helloWorld); <span class="hljs-comment">//helloWorld即之前定义的合约抽象（部署带参数的合约失败，请参考FAQ部署带参数合约失败说明）</span>
 };
 </code></pre>
 <p><strong>step2.</strong> 修改truffle-config.js中链的配置信息</p>
@@ -199,7 +199,7 @@ name = _name：此操作将外部传进来的局部变量赋值给状态变量</
 <span class="hljs-symbol">       port:</span> <span class="hljs-number">8806</span>,            <span class="hljs-comment">// 链端口号</span>
 <span class="hljs-symbol">       network_id:</span> <span class="hljs-string">"*"</span>,       <span class="hljs-comment">// Any network (default: none)</span>
 <span class="hljs-symbol">       from:</span> <span class="hljs-string">"0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e"</span>, <span class="hljs-comment">//部署合约账号的钱包地址</span>
-<span class="hljs-symbol">       gas:</span> <span class="hljs-number">4712388</span>,
+<span class="hljs-symbol">       gas:</span> <span class="hljs-number">999999</span>,
 <span class="hljs-symbol">       gasPrice:</span> <span class="hljs-number">50000000004</span>,
     },
 }
@@ -521,7 +521,7 @@ contract ERC200513Token {
 <span class="hljs-symbol">      port:</span> <span class="hljs-number">8806</span>,            <span class="hljs-comment">// 链使用的rpc端口</span>
 <span class="hljs-symbol">      network_id:</span> <span class="hljs-string">"*"</span>,       <span class="hljs-comment">// Any network (default: none)</span>
 <span class="hljs-symbol">      from:</span> <span class="hljs-string">"0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e"</span>, <span class="hljs-comment">//部署合约所使用的钱包地址</span>
-<span class="hljs-symbol">      gas:</span> <span class="hljs-number">90000000</span>,
+<span class="hljs-symbol">      gas:</span> <span class="hljs-number">999999</span>,
 <span class="hljs-symbol">      gasPrice:</span> <span class="hljs-number">50000000004</span>,         
      },
   },
@@ -791,7 +791,7 @@ contract CrowdFunding {
 <span class="hljs-symbol">       port:</span> <span class="hljs-number">8806</span>,            <span class="hljs-comment">// 链端口号</span>
 <span class="hljs-symbol">       network_id:</span> <span class="hljs-string">"*"</span>,       <span class="hljs-comment">// Any network (default: none)</span>
 <span class="hljs-symbol">       from:</span> <span class="hljs-string">"0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e"</span>, <span class="hljs-comment">//部署合约账号的钱包地址</span>
-<span class="hljs-symbol">       gas:</span> <span class="hljs-number">90000000</span>,
+<span class="hljs-symbol">       gas:</span> <span class="hljs-number">999999</span>,
 <span class="hljs-symbol">       gasPrice:</span> <span class="hljs-number">50000000004</span>,
     },
 }

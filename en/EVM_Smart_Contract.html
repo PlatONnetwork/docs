@@ -179,7 +179,7 @@ contract HelloWorld {
 <p>Suggest replacing script  name  with contract name, for example the deploy script  of HelloWorld contract :2_initial_helloworld.js,content is as follows：</p>
 <pre><code class="hljs"><span class="hljs-keyword">const</span> helloWorld = artifacts.require(<span class="hljs-string">"HelloWorld"</span>); <span class="hljs-comment">//artifacts.require specify deployment contract</span>
     <span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">deployer</span>) </span>{
-       deployer.deploy(helloWorld); 
+       deployer.deploy(helloWorld); <span class="hljs-comment">//Failed to deploy contract with parameters, please refer to FAQ</span>
 };
 </code></pre>
 <p><strong>Step2.</strong> Setting config  information for blockchain in truffle-config.js</p>
@@ -192,7 +192,7 @@ contract HelloWorld {
 <span class="hljs-symbol">       port:</span> <span class="hljs-number">8806</span>,            <span class="hljs-comment">// server port</span>
 <span class="hljs-symbol">       network_id:</span> <span class="hljs-string">"*"</span>,       <span class="hljs-comment">// Any network (default: none)</span>
 <span class="hljs-symbol">       from:</span> <span class="hljs-string">"0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e"</span>, <span class="hljs-comment">//the accout address of deploying contract</span>
-<span class="hljs-symbol">       gas:</span> <span class="hljs-number">4712388</span>,
+<span class="hljs-symbol">       gas:</span> <span class="hljs-number">999999</span>,
 <span class="hljs-symbol">       gasPrice:</span> <span class="hljs-number">50000000004</span>,
     },
 }
@@ -495,7 +495,7 @@ contract ERC200513Token {
 <span class="hljs-symbol">      port:</span> <span class="hljs-number">8806</span>,            <span class="hljs-comment">// chain rpc port</span>
 <span class="hljs-symbol">      network_id:</span> <span class="hljs-string">"*"</span>,       <span class="hljs-comment">// Any network (default: none)</span>
 <span class="hljs-symbol">      from:</span> <span class="hljs-string">"0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e"</span>, <span class="hljs-comment">// the wallet address of deployment contract </span>
-<span class="hljs-symbol">      gas:</span> <span class="hljs-number">90000000</span>,
+<span class="hljs-symbol">      gas:</span> <span class="hljs-number">999999</span>,
 <span class="hljs-symbol">      gasPrice:</span> <span class="hljs-number">50000000004</span>,         
      },
   },
@@ -759,7 +759,7 @@ contract CrowdFunding {
 <span class="hljs-symbol">       port:</span> <span class="hljs-number">8806</span>,            <span class="hljs-comment">// server port</span>
 <span class="hljs-symbol">       network_id:</span> <span class="hljs-string">"*"</span>,       <span class="hljs-comment">// Any network (default: none)</span>
 <span class="hljs-symbol">       from:</span> <span class="hljs-string">"0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e"</span>, <span class="hljs-comment">//the accout address of deploying contract</span>
-<span class="hljs-symbol">       gas:</span> <span class="hljs-number">90000000</span>,
+<span class="hljs-symbol">       gas:</span> <span class="hljs-number">999999</span>,
 <span class="hljs-symbol">       gasPrice:</span> <span class="hljs-number">50000000004</span>,
     },
 }
