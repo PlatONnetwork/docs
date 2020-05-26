@@ -268,7 +268,7 @@ helloworld.methods.add_message([["5"], "6", "7"]).send({
 
 调用合约命令说明：
 - `helloWorld` 是之前构建的合约对象
-- `methods` 固定语法,指量后面紧跟合约的方法名
+- `methods` 固定语法,后面紧跟合约的方法名
 - `add_message` 是我们HelloWorld合约中的一个方法，有一个自定义my_message类型的入参
 - `from` 调用者的钱包地址 
 - `gas` gas值
