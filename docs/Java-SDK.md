@@ -2725,7 +2725,7 @@ When deploying a Wasm smart contract on the blockchain, it must first be compile
 
 ### Compile Wasm Source Code
 
-* Compile Wasm contract source code with `CDT` compiler([CDT download](https://github.com/PlatONnetwork/PlatON-CDT))：
+* Compile Wasm contract source code with `CDT` compiler([CDT download](https://github.com/PlatONnetwork/PlatON-CDT/releases))：
 
 After the CDT installation is successful, you can compile the Wasm contract source code with the following command:
 

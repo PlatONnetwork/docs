@@ -2725,7 +2725,7 @@ Type result = contract.someMethod(<param1>, ...).send();
 
 ### 编译Wasm合约源代码
 
-* 通过`CDT`编译器编译Wasm合约源代码([CDT下载](https://github.com/PlatONnetwork/PlatON-CDT))
+* 通过`CDT`编译器编译Wasm合约源代码([CDT下载](https://github.com/PlatONnetwork/PlatON-CDT/releases))
 
 CDT安装成功以后，可通过如下命令编译Wasm合约源代码：
 
