@@ -2531,8 +2531,8 @@ org.web3j.codegen.SolidityFunctionWrapperGenerator.run(args);
 <p>除了<code>RawTransactionManager</code>之外，Java SDK还提供了一个客户端交易管理器<code>ClientTransactionManager</code>，它将你的交易签名工作交给你正在连接的PlatON客户端。
 此外，还有一个<code>ReadonlyTransactionManager</code>，用于只从智能合约中查询数据，而不与它进行交易。</p>
 <h4><a class="anchor" aria-hidden="true" id="gas提供者"></a><a href="#gas提供者" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>gas提供者</h4>
-<p>合约的手续费是通过 <code>GasProvider</code> 设置，因为合约gas消耗为动态的，和合约的逻辑相关。建议首次部署调用时使用比较大的值，如 4700000。后面根据实际情况调整。</p>
-<pre><code class="hljs css language-java">BigInteger GAS_LIMIT = BigInteger.valueOf(<span class="hljs-number">4700000</span>);
+<p>合约的手续费是通过 <code>GasProvider</code> 设置，因为合约gas消耗为动态的，和合约的逻辑相关。建议首次部署调用时使用比较大的值，如 999999。后面根据实际情况调整。</p>
+<pre><code class="hljs css language-java">BigInteger GAS_LIMIT = BigInteger.valueOf(<span class="hljs-number">999999</span>);
 BigInteger GAS_PRICE = BigInteger.valueOf(<span class="hljs-number">1000000000L</span>);
 
 GasProvider gasProvider  = <span class="hljs-keyword">new</span> ContractGasProvider(GAS_PRICE, GAS_LIMIT);
@@ -2555,7 +2555,7 @@ GasProvider gasProvider  = <span class="hljs-keyword">new</span> ContractGasProv
 <p>将Wasm智能合约部署到区块链上时，必须先将其编译成字节码的格式，然后将其作为交易的一部分发送。Java SDK 将帮你生成Wasm智能合约对应的Java包装类，可以方便的部署Wasm智能合约以及调用Wasm智能合约中的交易方法、事件和常量方法。</p>
 <h3><a class="anchor" aria-hidden="true" id="编译wasm合约源代码"></a><a href="#编译wasm合约源代码" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>编译Wasm合约源代码</h3>
 <ul>
-<li>通过<code>CDT</code>编译器编译Wasm合约源代码，请根据合约声明的编译器版本下载对应CDT编译器版本(<a href="https://github.com/PlatONnetwork/PlatON-CDT/releases">CDT下载</a>)</li>
+<li>通过<code>CDT</code>编译器编译Wasm合约源代码(<a href="https://github.com/PlatONnetwork/PlatON-CDT">CDT下载</a>)</li>
 </ul>
 <p>CDT安装成功以后，可通过如下命令编译Wasm合约源代码：</p>
 <pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> platon-cpp &lt;contract&gt;.cpp </span>
@@ -2612,8 +2612,8 @@ org.web3j.codegen.WasmFunctionWrapperGenerator.run(args);
 <p>除了<code>RawTransactionManager</code>之外，Java SDK还提供了一个客户端交易管理器<code>ClientTransactionManager</code>，它将你的交易签名工作交给你正在连接的PlatON客户端。
 此外，还有一个<code>ReadonlyTransactionManager</code>，用于只从智能合约中查询数据，而不与它进行交易。</p>
 <h4><a class="anchor" aria-hidden="true" id="gas提供者-1"></a><a href="#gas提供者-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>gas提供者</h4>
-<p>合约的手续费是通过 <code>GasProvider</code> 设置，因为合约gas消耗为动态的，和合约的逻辑相关。建议首次部署调用时使用比较大的值，如 4700000。后面根据实际情况调整。</p>
-<pre><code class="hljs css language-java">BigInteger GAS_LIMIT = BigInteger.valueOf(<span class="hljs-number">4700000</span>);
+<p>合约的手续费是通过 <code>GasProvider</code> 设置，因为合约gas消耗为动态的，和合约的逻辑相关。建议首次部署调用时使用比较大的值，如 999999。后面根据实际情况调整。</p>
+<pre><code class="hljs css language-java">BigInteger GAS_LIMIT = BigInteger.valueOf(<span class="hljs-number">999999</span>);
 BigInteger GAS_PRICE = BigInteger.valueOf(<span class="hljs-number">1000000000L</span>);
 
 GasProvider gasProvider  = <span class="hljs-keyword">new</span> ContractGasProvider(GAS_PRICE, GAS_LIMIT);
