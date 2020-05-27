@@ -54,12 +54,12 @@ You can install the above compilation environment yourself. Please make sure the
 
 - Get the source code
 
-Get the source code and put it in the GOPATH path, where release-0.11.0 is the branch name, then switch to the actual branch:
+Get the source code and put it in the GOPATH path, where `hotfix-1045` is the branch name, then switch to the actual branch:
 
 ```
 mkdir -p $GOPATH/src/github.com/PlatONnetwork
 cd $GOPATH/src/github.com/PlatONnetwork
-git clone -b release-0.11.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+git clone -b hotfix-1045 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 ```
 
 - Add bls dependent library to environment variables
@@ -94,7 +94,7 @@ After compiling, `platon`,` keytool` executable files will be generated in the` 
 **step2.** Get the PlatON source:
 
 ```bash
-git clone -b release-0.11.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+git clone -b hotfix-1045 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 ```
 
 **step3.** Install dependency library:

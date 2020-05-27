@@ -52,12 +52,12 @@ Windows编译环境需要符合以下条件：
 
 - 获取源码
 
-获取源码放到GOPATH路径下，其中`release-0.11.0`为分支名称，届时切换到实际的分支：
+获取源码放到GOPATH路径下，其中`hotfix-1045`为分支名称，届时切换到实际的分支：
 
 ```
 mkdir -p $GOPATH/src/github.com/PlatONnetwork
 cd $GOPATH/src/github.com/PlatONnetwork
-git clone -b release-0.11.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+git clone -b hotfix-1045 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 ```
 
 - 添加bls依赖库到环境变量
@@ -92,7 +92,7 @@ go run build/ci.go install ./cmd/keytool
 **step2.** 获取PlatON源码：
 
 ```bash
-git clone -b release-0.11.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+git clone -b hotfix-1045 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 ```
 
 **step3.** 安装依赖库：
