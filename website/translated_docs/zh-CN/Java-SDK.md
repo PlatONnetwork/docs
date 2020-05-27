@@ -2683,10 +2683,10 @@ TransactionManager transactionManager = new RawTransactionManager(web3j, credent
 此外，还有一个`ReadonlyTransactionManager`，用于只从智能合约中查询数据，而不与它进行交易。
 
 #### gas提供者
-合约的手续费是通过 `GasProvider` 设置，因为合约gas消耗为动态的，和合约的逻辑相关。建议首次部署调用时使用比较大的值，如 4700000。后面根据实际情况调整。
+合约的手续费是通过 `GasProvider` 设置，因为合约gas消耗为动态的，和合约的逻辑相关。建议首次部署调用时使用比较大的值，如 999999。后面根据实际情况调整。
 
 ```java
-BigInteger GAS_LIMIT = BigInteger.valueOf(4700000);
+BigInteger GAS_LIMIT = BigInteger.valueOf(999999);
 BigInteger GAS_PRICE = BigInteger.valueOf(1000000000L);
 
 GasProvider gasProvider  = new ContractGasProvider(GAS_PRICE, GAS_LIMIT);
@@ -2807,10 +2807,10 @@ TransactionManager transactionManager = new RawTransactionManager(web3j, credent
 此外，还有一个`ReadonlyTransactionManager`，用于只从智能合约中查询数据，而不与它进行交易。
 
 #### gas提供者
-合约的手续费是通过 `GasProvider` 设置，因为合约gas消耗为动态的，和合约的逻辑相关。建议首次部署调用时使用比较大的值，如 4700000。后面根据实际情况调整。
+合约的手续费是通过 `GasProvider` 设置，因为合约gas消耗为动态的，和合约的逻辑相关。建议首次部署调用时使用比较大的值，如 999999。后面根据实际情况调整。
 
 ```java
-BigInteger GAS_LIMIT = BigInteger.valueOf(4700000);
+BigInteger GAS_LIMIT = BigInteger.valueOf(999999);
 BigInteger GAS_PRICE = BigInteger.valueOf(1000000000L);
 
 GasProvider gasProvider  = new ContractGasProvider(GAS_PRICE, GAS_LIMIT);
