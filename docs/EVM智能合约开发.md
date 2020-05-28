@@ -174,7 +174,7 @@ Import the private key (you can skip this step if you have already imported it)
 ```
 web3.platon.personal.importRawKey("Your wallet private key","Your wallet password");
 ```
-Successful import will see information similar to the following：
+Successful import will see the address corresponding to the private key as follows：
 ```
 '0x79daa881cab1f73b3ceef5db1869231b416d6dd9'
 ```

@@ -182,7 +182,7 @@ Import the private key (you can skip this step if you have already imported it)
 ```
 web3.platon.personal.importRawKey("Your wallet private key","Your wallet password");
 ```
-Successful import will see information similar to the following：
+Successful import will see the address corresponding to the private key as follows：
 ```
 '0x79daa881cab1f73b3ceef5db1869231b416d6dd9'
 ```
@@ -1352,8 +1352,9 @@ class platon::WhiteList< TableName >
 Persist storage whitelist implement.
 
 * **Template Parameters**
-  * `Name:` Whitelist name, in the same contract, the name should be unique
-
+  
+* `Name:` Whitelist name, in the same contract, the name should be unique
+  
 * **Constructor & Destructor Documentation**
 
   * `template<Name::Raw TableName>
@@ -1695,8 +1696,9 @@ Implement map operations, Map templates.
     Refresh the modified data in memory to the blockchain.
 
 * **Static Public Attributes**
-  * `static const std::string  kType = "__map__"`
-
+  
+* `static const std::string  kType = "__map__"`
+  
 * **Constructor & Destructor Documentation**
 
   * `template<Name::Raw TableName, typename Key , typename Value >
@@ -1720,50 +1722,55 @@ Destroy the Map object Refresh data to the blockchain.
     Get value, will be added to the cache.
 
     * **Parameters**
+      
       * `k:` Key
     * **Returns**
-      * Value&
+      
+    * Value&
     * **Example:**
-
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
-      assert(map.at["hello"] == "world");
+    assert(map.at["hello"] == "world");
       ```
-
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     bool platon::db::Map< TableName, Key, Value >::contains ( const Key & key )`
     Checks if there is an element with key equivalent to key in the container.
 
     * **Parameters**
+      
       * `k:` Key
     * **Returns**
-      * true if there is such an element, otherwise false.
+      
+    * true if there is such an element, otherwise false.
     * **Example:**
-
+    
       ```cpp
        typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
        MapStr map;
        map.["hello"] = "world";
-       assert(map.contains("hello"));
+     assert(map.contains("hello"));
       ```
-
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     void platon::db::Map< TableName, Key, Value >::erase ( const Key & k )`
     Delete key-value pairs.
 
     * **Parameters**
+      
       * `k:` Key
-    * **Example:**
-
+  * **Example:**
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
       map.erase("hello");
-      ```
-
+    ```
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     void platon::db::Map< TableName, Key, Value >::flush ()`
     Refresh the modified data in memory to the blockchain.
@@ -1773,18 +1780,20 @@ Destroy the Map object Refresh data to the blockchain.
     Get the Const object, will not join the cache.
 
     * **Parameters**
+      
       * `k:` Key
     * **Returns**
-      * Value
+      
+    * Value
     * **Example:**
-
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
-      assert(map.get_const["hello"] == "world");
+    assert(map.get_const["hello"] == "world");
       ```
-
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     bool platon::db::Map< TableName, Key, Value >::insert ( const Key & k,
     const Value & v)`
@@ -1794,16 +1803,17 @@ Destroy the Map object Refresh data to the blockchain.
       * `k:` Key
       * `v:` Value
     * **Returns**
+      
       * true Inserted successfully, false Insert failed
-    * **Example:**
-
+  * **Example:**
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
       assert(map["hello"] == "world");
-      ```
-
+    ```
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     bool platon::db::Map< TableName, Key, Value >::insert_const ( const Key & k,
     const Value & v)`
@@ -1813,16 +1823,17 @@ Destroy the Map object Refresh data to the blockchain.
       * `k:` Key
       * `v:` Value
     * **Returns**
+      
       * true Inserted successfully, false Insert failed
-    * **Example:**
-
+  * **Example:**
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert_const("hello", "world");
       assert(map["hello"] == "world");
-      ```
-
+    ```
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     Map<TableName, Key, Value>& platon::db::Map< TableName, Key, Value >::operator= ( const Map< TableName, Key, Value > & )`
 
@@ -1831,11 +1842,13 @@ Destroy the Map object Refresh data to the blockchain.
     Bracket operator.
 
     * **Parameters**
+      
       * `k:` Key
     * **Returns**
-      * Value& Get Value
+      
+    * Value& Get Value
     * **Example:**
-
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
@@ -2169,6 +2182,7 @@ Normal cross-contract invocation.
   * `method:` The method name of the invoked contract
   * `args:` The Parameters corresponding to the contract method
 * **Returns**
+  
   * The contract method * **Returns** the value and whether the execution was successful
 * **Example:**
 
@@ -2218,6 +2232,7 @@ The proxy is invoked across contracts.
   * `method:` The method name of the invoked contract
   * `args:` The Parameters corresponding to the contract method
 * **Returns**
+  
   * The contract method * **Returns** the value and whether the execution was successful
 * **Example:**
 

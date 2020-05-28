@@ -176,7 +176,7 @@ platon-truffle console
 ```
 web3.platon.personal.importRawKey("您的钱包私钥","您的钱包密码");
 ```
-导入成功将看到类似如下交易hash信息：
+导入成功将看到私钥对应的地址：
 ```
 '0x79daa881cab1f73b3ceef5db1869231b416d6dd9'
 ```
