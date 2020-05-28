@@ -202,7 +202,7 @@ PLATON_DISPATCH(HelloWorld, (init)(add_message)(get_message_size)(get_message_bo
 <p>Import the private key (you can skip this step if you have already imported it)</p>
 <pre><code class="hljs"><span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.personal</span><span class="hljs-selector-class">.importRawKey</span>("<span class="hljs-selector-tag">Your</span> <span class="hljs-selector-tag">wallet</span> <span class="hljs-selector-tag">private</span> <span class="hljs-selector-tag">key</span>","<span class="hljs-selector-tag">Your</span> <span class="hljs-selector-tag">wallet</span> <span class="hljs-selector-tag">password</span>");
 </code></pre>
-<p>Successful import will see information similar to the following：</p>
+<p>Successful import will see the address corresponding to the private key as follows：</p>
 <pre><code class="hljs">'0x79daa881cab1f73b3ceef5db<span class="hljs-number">186923</span>1b416d6dd9'
 </code></pre>
 <p>Unlock wallet account</p>
@@ -1235,10 +1235,8 @@ Add amount of Von.</p>
 </code></pre>
 <p>Persist storage whitelist implement.</p>
 <ul>
-<li><p><strong>Template Parameters</strong></p>
-<ul>
-<li><code>Name:</code> Whitelist name, in the same contract, the name should be unique</li>
-</ul></li>
+<li><p><strong>Template Parameters</strong></p></li>
+<li><p><code>Name:</code> Whitelist name, in the same contract, the name should be unique</p></li>
 <li><p><strong>Constructor &amp; Destructor Documentation</strong></p>
 <ul>
 <li><p><code>template&lt;Name::Raw TableName&gt; platon::WhiteList&lt; TableName &gt;::WhiteList ()</code></p>
@@ -1508,10 +1506,8 @@ Checks if there is an element with key equivalent to key in the container.</p></
 <li><p><code>void flush ()</code>
 Refresh the modified data in memory to the blockchain.</p></li>
 </ul></li>
-<li><p><strong>Static Public Attributes</strong></p>
-<ul>
-<li><code>static const std::string kType = &quot;__map__&quot;</code></li>
-</ul></li>
+<li><p><strong>Static Public Attributes</strong></p></li>
+<li><p><code>static const std::string kType = &quot;__map__&quot;</code></p></li>
 <li><p><strong>Constructor &amp; Destructor Documentation</strong></p>
 <ul>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; platon::db::Map&lt; TableName, Key, Value &gt;::Map ()</code></p></li>
@@ -1531,17 +1527,17 @@ Get value, will be added to the cache.</p>
 <ul>
 <li><code>k:</code> Key</li>
 </ul></li>
-<li><p><strong>Returns</strong></p>
-<ul>
-<li>Value&amp;</li>
-</ul></li>
+<li><p><strong>Returns</strong></p></li>
+<li><p>Value&amp;</p></li>
 <li><p><strong>Example:</strong></p>
 <pre><code class="hljs css language-cpp"><span class="hljs-keyword">typedef</span> platon::db::Map&lt;<span class="hljs-string">"map_str"</span>_n, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; MapStr;
 MapStr <span class="hljs-built_in">map</span>;
 <span class="hljs-built_in">map</span>.insert(<span class="hljs-string">"hello"</span>, <span class="hljs-string">"world"</span>);
-assert(<span class="hljs-built_in">map</span>.at[<span class="hljs-string">"hello"</span>] == <span class="hljs-string">"world"</span>);
 </code></pre></li>
-</ul></li>
+</ul>
+<p>assert(map.at[&quot;hello&quot;] == &quot;world&quot;);</p>
+<pre><code class="hljs">
+</code></pre></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; bool platon::db::Map&lt; TableName, Key, Value &gt;::contains ( const Key &amp; key )</code>
 Checks if there is an element with key equivalent to key in the container.</p>
 <ul>
@@ -1549,17 +1545,17 @@ Checks if there is an element with key equivalent to key in the container.</p>
 <ul>
 <li><code>k:</code> Key</li>
 </ul></li>
-<li><p><strong>Returns</strong></p>
-<ul>
-<li>true if there is such an element, otherwise false.</li>
-</ul></li>
+<li><p><strong>Returns</strong></p></li>
+<li><p>true if there is such an element, otherwise false.</p></li>
 <li><p><strong>Example:</strong></p>
 <pre><code class="hljs css language-cpp"> <span class="hljs-keyword">typedef</span> platon::db::Map&lt;<span class="hljs-string">"map_str"</span>_n, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; MapStr;
  MapStr <span class="hljs-built_in">map</span>;
  <span class="hljs-built_in">map</span>.[<span class="hljs-string">"hello"</span>] = <span class="hljs-string">"world"</span>;
- assert(<span class="hljs-built_in">map</span>.contains(<span class="hljs-string">"hello"</span>));
 </code></pre></li>
-</ul></li>
+</ul>
+<p>assert(map.contains(&quot;hello&quot;));</p>
+<pre><code class="hljs">
+</code></pre></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; void platon::db::Map&lt; TableName, Key, Value &gt;::erase ( const Key &amp; k )</code>
 Delete key-value pairs.</p>
 <ul>
@@ -1567,13 +1563,13 @@ Delete key-value pairs.</p>
 <ul>
 <li><code>k:</code> Key</li>
 </ul></li>
+</ul></li>
 <li><p><strong>Example:</strong></p>
 <pre><code class="hljs css language-cpp"><span class="hljs-keyword">typedef</span> platon::db::Map&lt;<span class="hljs-string">"map_str"</span>_n, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; MapStr;
 MapStr <span class="hljs-built_in">map</span>;
 <span class="hljs-built_in">map</span>.insert(<span class="hljs-string">"hello"</span>, <span class="hljs-string">"world"</span>);
 <span class="hljs-built_in">map</span>.erase(<span class="hljs-string">"hello"</span>);
 </code></pre></li>
-</ul></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; void platon::db::Map&lt; TableName, Key, Value &gt;::flush ()</code>
 Refresh the modified data in memory to the blockchain.</p></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; Value platon::db::Map&lt; TableName, Key, Value &gt;::get_const ( const Key &amp; k)</code>
@@ -1583,17 +1579,17 @@ Get the Const object, will not join the cache.</p>
 <ul>
 <li><code>k:</code> Key</li>
 </ul></li>
-<li><p><strong>Returns</strong></p>
-<ul>
-<li>Value</li>
-</ul></li>
+<li><p><strong>Returns</strong></p></li>
+<li><p>Value</p></li>
 <li><p><strong>Example:</strong></p>
 <pre><code class="hljs css language-cpp"><span class="hljs-keyword">typedef</span> platon::db::Map&lt;<span class="hljs-string">"map_str"</span>_n, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; MapStr;
 MapStr <span class="hljs-built_in">map</span>;
 <span class="hljs-built_in">map</span>.insert(<span class="hljs-string">"hello"</span>, <span class="hljs-string">"world"</span>);
-assert(<span class="hljs-built_in">map</span>.get_const[<span class="hljs-string">"hello"</span>] == <span class="hljs-string">"world"</span>);
 </code></pre></li>
-</ul></li>
+</ul>
+<p>assert(map.get_const[&quot;hello&quot;] == &quot;world&quot;);</p>
+<pre><code class="hljs">
+</code></pre></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; bool platon::db::Map&lt; TableName, Key, Value &gt;::insert ( const Key &amp; k, const Value &amp; v)</code>
 Insert a new key-value pair, Update to cache.</p>
 <ul>
@@ -1606,13 +1602,13 @@ Insert a new key-value pair, Update to cache.</p>
 <ul>
 <li>true Inserted successfully, false Insert failed</li>
 </ul></li>
+</ul></li>
 <li><p><strong>Example:</strong></p>
 <pre><code class="hljs css language-cpp"><span class="hljs-keyword">typedef</span> platon::db::Map&lt;<span class="hljs-string">"map_str"</span>_n, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; MapStr;
 MapStr <span class="hljs-built_in">map</span>;
 <span class="hljs-built_in">map</span>.insert(<span class="hljs-string">"hello"</span>, <span class="hljs-string">"world"</span>);
 assert(<span class="hljs-built_in">map</span>[<span class="hljs-string">"hello"</span>] == <span class="hljs-string">"world"</span>);
 </code></pre></li>
-</ul></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; bool platon::db::Map&lt; TableName, Key, Value &gt;::insert_const ( const Key &amp; k, const Value &amp; v)</code>
 Insert a new key-value pair that will not be updated to the cache. Suitable for large number of inserts, no updates after insertion.</p>
 <ul>
@@ -1625,13 +1621,13 @@ Insert a new key-value pair that will not be updated to the cache. Suitable for 
 <ul>
 <li>true Inserted successfully, false Insert failed</li>
 </ul></li>
+</ul></li>
 <li><p><strong>Example:</strong></p>
 <pre><code class="hljs css language-cpp"><span class="hljs-keyword">typedef</span> platon::db::Map&lt;<span class="hljs-string">"map_str"</span>_n, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; MapStr;
 MapStr <span class="hljs-built_in">map</span>;
 <span class="hljs-built_in">map</span>.insert_const(<span class="hljs-string">"hello"</span>, <span class="hljs-string">"world"</span>);
 assert(<span class="hljs-built_in">map</span>[<span class="hljs-string">"hello"</span>] == <span class="hljs-string">"world"</span>);
 </code></pre></li>
-</ul></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; Map&lt;TableName, Key, Value&gt;&amp; platon::db::Map&lt; TableName, Key, Value &gt;::operator= ( const Map&lt; TableName, Key, Value &gt; &amp; )</code></p></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; Value&amp; platon::db::Map&lt; TableName, Key, Value &gt;::operator[] ( const Key &amp; k)</code>
 Bracket operator.</p>
@@ -1640,10 +1636,8 @@ Bracket operator.</p>
 <ul>
 <li><code>k:</code> Key</li>
 </ul></li>
-<li><p><strong>Returns</strong></p>
-<ul>
-<li>Value&amp; Get Value</li>
-</ul></li>
+<li><p><strong>Returns</strong></p></li>
+<li><p>Value&amp; Get Value</p></li>
 <li><p><strong>Example:</strong></p>
 <pre><code class="hljs css language-cpp"><span class="hljs-keyword">typedef</span> platon::db::Map&lt;<span class="hljs-string">"map_str"</span>_n, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; MapStr;
 MapStr <span class="hljs-built_in">map</span>;
