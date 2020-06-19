@@ -115,38 +115,38 @@ Before introducing PlatON's economic plan, in order to facilitate subsequent und
 
   Each consensus Round produces 250 blocks, of which the 230th block is an election block, used to select 25 verification nodes for the next consensus Round.
 
-### Published by Energon
+### Published by LAT
 
-The token in the PlatON public blockchain is called Energon. Energon does not have a hard cap, and is divided into initial issuance and additional issuance.
+The token in the PlatON public blockchain is called LAT. LAT does not have a hard cap, and is divided into initial issuance and additional issuance.
 
 #### Initial release
 
-Energon's initial issuance is distributed to the founding team, PlatON Foundation, academic fund, ecological fund, and private equity issuers in a certain proportion. This is achieved by writing the allocated account and balance parameter information into the genesis block configuration. And introduce the corresponding locking mechanism.
+LAT's initial issuance is distributed to the founding team, PlatON Foundation, academic fund, ecological fund, and private equity issuers in a certain proportion. This is achieved by writing the allocated account and balance parameter information into the genesis block configuration. And introduce the corresponding locking mechanism.
 
 The initial issuance of locks is controlled through the restricting contract, and the lock-up and unlocking are performed according to the set restricting period. The amount of the restricted Token	 cannot be unlocked in advance. In order to improve the processing performance of the system, the locking period must be a multiple of the Epoch (10750blocks). Therefore, the unlocking point (unlocking block height) of each locking period is the Epoch block (the last block of the Epoch).
 
-In order to protect the equity of the restricting account, the restricting Energon can be used to verify the pledge and delegate of the node. When the pledge or delegate is released, the pledged and delegate Energon returns to the restricting contract.
+In order to protect the equity of the restricting account, the restricting LAT can be used to verify the pledge and delegate of the node. When the pledge or delegate is released, the pledged and delegate LAT returns to the restricting contract.
 
-According to the restricting plan, when the unlocked block is reached, the restricting contract automatically unlocks the corresponding Energon to the restricting account address.
+According to the restricting plan, when the unlocked block is reached, the restricting contract automatically unlocks the corresponding LAT to the restricting account address.
 
-Assume that the account A's restricting plan is (a total of 1000Energon):
+Assume that the account A's restricting plan is (a total of 1000LAT):
 
-- Locked for 1 Epoch, locked quantity: 100Energon
+- Locked for 1 Epoch, locked quantity: 100LAT
 
-- Locked for 2 Epoch, locked quantity: 300Energon
+- Locked for 2 Epoch, locked quantity: 300LAT
 
-- Locked for 3 Epoch, locked quantity: 600Energon
+- Locked for 3 Epoch, locked quantity: 600LAT
 
 The unlocking process flow is shown in the following figure:
 
 <img src="/docs/img/en/PlatON_economic_plan.assets/unlock_the_restricting_normally.png" alt="unlock_the_restricting_normally"/>
 
 
-Due to the existence of the locked Energon for pledge or delegate, and the pledge or delegate was returned without expiry, the unlocked block was reached. The account balance in the restricting contract was not enough to unlock the amount. At this time, the processing method is to fully unlock and record A "number of accounts owed", and check whether there is "number of accounts owed" in each settlement block, and whether the locked balance of the account in the restricting contract is recorded, and if necessary, continue to unlock until the "account owed" returns zero.
+Due to the existence of the locked LAT for pledge or delegate, and the pledge or delegate was returned without expiry, the unlocked block was reached. The account balance in the restricting contract was not enough to unlock the amount. At this time, the processing method is to fully unlock and record A "number of accounts owed", and check whether there is "number of accounts owed" in each settlement block, and whether the locked balance of the account in the restricting contract is recorded, and if necessary, continue to unlock until the "account owed" returns zero.
 
-At the same time, it should be pointed out that when restricting Energon is used to verify the node pledge, and the Energon pledged is reduced by penalties, the system will feed back the restricting contract, and deduct the corresponding amount of "locked to be unlocked".
+At the same time, it should be pointed out that when restricting LAT is used to verify the node pledge, and the LAT pledged is reduced by penalties, the system will feed back the restricting contract, and deduct the corresponding amount of "locked to be unlocked".
 
-#### Energon issue
+#### LAT issue
 
 The additional issue is mainly to motivate miners to maintain distributed ledgers. In the case that pure transaction fees cannot be met as incentives for miners, the additional block issuance will compensate them for the costs and risks. At the same time, the continuous issuance can dilute the holder's Token, thereby promoting more people to participate in PoS consensus verification and ensuring a more stable network.
 
@@ -157,11 +157,11 @@ There are usually two ways to issue additional shares:
 
 PlatON adopts the batch issuance mode, that is, one issuance per year (one additional period). Compared to continuous issuance, batch issuance is simpler and more practical, and can improve the performance of the chain.
 
-According to the annual expected number of blocks for the additional period, Energon issuance. **Compared to Energon's total issuance at the end of the previous year**, **a fixed additional 2.5% issuance per year**. Additional issuances are made in the additional issuance block (the last block in the last additional period), and 2% of the additional issuance is transferred to the reward pool controlled by smart contracts. , And the reward is given to the validator	 by the running of the PPoS consensus algorithm. The remaining 0.5% is transferred to a trust fund, which is used by the PlatON Foundation as a trustee to reward future developers of the PlatON basic agreement.
+According to the annual expected number of blocks for the additional period, LAT issuance. **Compared to LAT's total issuance at the end of the previous year**, **a fixed additional 2.5% issuance per year**. Additional issuances are made in the additional issuance block (the last block in the last additional period), and 2% of the additional issuance is transferred to the reward pool controlled by smart contracts. , And the reward is given to the validator	 by the running of the PPoS consensus algorithm. The remaining 0.5% is transferred to a trust fund, which is used by the PlatON Foundation as a trustee to reward future developers of the PlatON basic agreement.
 
 <img src="/docs/img/en/PlatON_economic_plan.assets/additional_period.png" alt="additional_period"/>
 
-Therefore, the current additional period	 of Energon can be expressed as:
+Therefore, the current additional period	 of LAT can be expressed as:
 
 $$f(x)=W\times(1+a\%)^x-1}\times a\%$$
 
@@ -170,26 +170,26 @@ among them:
 $x$: The number of the current additional period is from the genesis block to the current number of additional periods (the genesis block begin from first year, the additional period is 1).
 
 
-$W$: The total amount of Energon in the initial issuance and circulation is the base of the additional issue in the first year of the genesis block.
+$W$: The total amount of LAT in the initial issuance and circulation is the base of the additional issue in the first year of the genesis block.
 
 $a\%$ : The issuance ratio is fixed at a fixed issuance period.
 
-The additional Energon issued by the reward pool will be used for validator block rewards and Staking rewards. The details will be detailed in the incentive mechanism section.
+The additional LAT issued by the reward pool will be used for validator block rewards and Staking rewards. The details will be detailed in the incentive mechanism section.
 
 
 ### PPoS consensus
 
-PlatON adopts randomly selected nodes among the small-scale candidate nodes to participate in the BFT consensus, and makes a trade-off between the number of verified nodes and performance. Any Energon holder can pledge to participate in the validator (alternative validator candidate	), other Energon holders continue to vote through delegation, thereby maintaining a small-scale dynamic alternative validator candidate (alternative node) list, and then In this candidate list, several validators are randomly selected for block generation and verification through VRF and probability distribution. The characteristics of VRF ensure the randomness of the selection, thereby reducing the probability of attacking the validator, and increasing the degree of decentralization. The probability distribution can make the candidate nodes with high equity be selected with a higher probability, thereby motivating the candidate nodes to find ways to increase their equity. As the number of Energon pledged by the entire system increases, the security of the entire system will be higher. . In this way, the selection range of validators is narrowed, thereby ensuring consensus efficiency and effectively avoiding the problem of too centralization.
+PlatON adopts randomly selected nodes among the small-scale candidate nodes to participate in the BFT consensus, and makes a trade-off between the number of verified nodes and performance. Any LAT holder can pledge to participate in the validator (alternative validator candidate	), other LAT holders continue to vote through delegation, thereby maintaining a small-scale dynamic alternative validator candidate (alternative node) list, and then In this candidate list, several validators are randomly selected for block generation and verification through VRF and probability distribution. The characteristics of VRF ensure the randomness of the selection, thereby reducing the probability of attacking the validator, and increasing the degree of decentralization. The probability distribution can make the candidate nodes with high equity be selected with a higher probability, thereby motivating the candidate nodes to find ways to increase their equity. As the number of LAT pledged by the entire system increases, the security of the entire system will be higher. . In this way, the selection range of validators is narrowed, thereby ensuring consensus efficiency and effectively avoiding the problem of too centralization.
 
 #### Role description
 
 - Alternative Validator Candidate	
 
-  Energon holders who want to participate in the production of the PlatON block, pledge to lock a certain number of Energon into the staking contract and become alternative validator candidate	.
+  LAT holders who want to participate in the production of the PlatON block, pledge to lock a certain number of LAT into the staking contract and become alternative validator candidate	.
 
 - Alternative Validator
 
-  Ranking (see [Alternative Node Selection] (#Alternative-Validator-selection) for the ranking rules) Alternative Validator Candidates in the top 101 are called Alternative Validator. The Alternative Validators participate in the Validator election for each consensus round to obtain the settlement epoch Energon additional distribution bonus.
+  Ranking (see [Alternative Node Selection] (#Alternative-Validator-selection) for the ranking rules) Alternative Validator Candidates in the top 101 are called Alternative Validator. The Alternative Validators participate in the Validator election for each consensus round to obtain the settlement epoch LAT additional distribution bonus.
 
 - Validator
 
@@ -201,7 +201,7 @@ PlatON adopts randomly selected nodes among the small-scale candidate nodes to p
 
 - Delegator
 
-  Energon owns Energon holders of alternative validator candidate. validators cannot delegate each other or self-delegate.
+  LAT owns LAT holders of alternative validator candidate. validators cannot delegate each other or self-delegate.
 
 The role relationship diagram is as follows. **To facilitate the subsequent description,  alternative validator candidates include alternative validators and validators.alternative validators include validator.**
 
@@ -211,11 +211,11 @@ The role relationship diagram is as follows. **To facilitate the subsequent desc
 
 1. Pledged as  Alternative Validator Candidate
 
-   Energon holders pledge more than a certain amount of Energon as a deposit to become Alternative Validator Candidate.
+   LAT holders pledge more than a certain amount of LAT as a deposit to become Alternative Validator Candidate.
 
-2. Delegate Energon
+2. Delegate LAT
 
-   Energon holders can entrust their Energon to Alternative Validator Candidate, where Alternative Validator and Validators can obtain benefits in participating in the consensus process, and the benefits can be shared with the principal based on the commissioning reward ratio set by the nodes. The principal can redeem the entrustment in part or in full at any time without additional freeze periods.
+   LAT holders can entrust their LAT to Alternative Validator Candidate, where Alternative Validator and Validators can obtain benefits in participating in the consensus process, and the benefits can be shared with the principal based on the commissioning reward ratio set by the nodes. The principal can redeem the entrustment in part or in full at any time without additional freeze periods.
 
 3. Election of Alternative Validator
 
@@ -237,14 +237,14 @@ The role relationship diagram is as follows. **To facilitate the subsequent desc
 
 ##### Pledged as Alternative Validator Candidate
 
-Any Energon holder can pledge a certain amount of Energon (must exceed a predetermined minimum amount) as a deposit to become Alternative Validator Candidate
-s, and the total number of Alternative Validator Candidates is unlimited. Energon can be pledged from two sources:
+Any LAT holder can pledge a certain amount of LAT (must exceed a predetermined minimum amount) as a deposit to become Alternative Validator Candidate
+s, and the total number of Alternative Validator Candidates is unlimited. LAT can be pledged from two sources:
 
-(1) Energon of account balance: refers to the balance of the account, which is the Energon circulated in the account and can be used at any time.
+(1) LAT of account balance: refers to the balance of the account, which is the LAT circulated in the account and can be used at any time.
 
-(2) Energon of account lockout: refers to the part of Energon that is not unlocked when the account is locked in the restricting contract.
+(2) LAT of account lockout: refers to the part of LAT that is not unlocked when the account is locked in the restricting contract.
 
-To become a  Alternative Validator Candidate, you also need to submit the true version number of the node program, the signature of the real version number of the node program, the public key of the BLS, the Proof of the public key of the BLS, and a revenue account for receiving block rewards and Staking rewards (follow-up) Support for modification), the percentage of rewards (including support for block production and staking rewards) allocated by the node to the client (subsequent support modification), description of the node (subsequent support modification), the node's official homepage (subsequent support modification), Node's third-party information disclosure ID (optional, [keybase.io] (keybase.io) 16-bit characters generated by the account-support for subsequent amendments), name of the node being pledged (subsequent support for modification), node ID of the pledged And the number of Energon pledged. The pledge needs to comply with the following rules:
+To become a  Alternative Validator Candidate, you also need to submit the true version number of the node program, the signature of the real version number of the node program, the public key of the BLS, the Proof of the public key of the BLS, and a revenue account for receiving block rewards and Staking rewards (follow-up) Support for modification), the percentage of rewards (including support for block production and staking rewards) allocated by the node to the client (subsequent support modification), description of the node (subsequent support modification), the node's official homepage (subsequent support modification), Node's third-party information disclosure ID (optional, [keybase.io] (keybase.io) 16-bit characters generated by the account-support for subsequent amendments), name of the node being pledged (subsequent support for modification), node ID of the pledged And the number of LAT pledged. The pledge needs to comply with the following rules:
 
 - Nodes cannot be repeatedly staking.
 - The system will initiate a period from the staking transaction block to the settlement block of the current epoch as a hesitation period. During the hesitation period, the system will initiate a revocation, and the node will immediately exit the  Alternative Validator Candidate list.
@@ -259,11 +259,11 @@ Alternative Validator Candidate can accept delegation. In the settlement block o
 
 ##### Increase staking
 
-All Alternative Validator Candidate can increase the number of staking Energon at any time, thereby improving the ranking of alternative validator candidates.
+All Alternative Validator Candidate can increase the number of staking LAT at any time, thereby improving the ranking of alternative validator candidates.
 
-- If the pledge is being cancelled or punished, the pledge cancellation is being processed (the return of the pledged Energon requires a period of freezing) or completed (the pledged Energon has been released to the original staking account), the pledge cannot be increased.
+- If the pledge is being cancelled or punished, the pledge cancellation is being processed (the return of the pledged LAT requires a period of freezing) or completed (the pledged LAT has been released to the original staking account), the pledge cannot be increased.
 
-- The Energon used to increase the pledge can be the Energon of the account balance or the Energon of the restricting account .
+- The LAT used to increase the pledge can be the LAT of the account balance or the LAT of the restricting account .
 
 - Pledge can only be increased from the initial staking account.
 
@@ -341,7 +341,7 @@ In order to prevent the newly selected validators from affecting the efficiency 
 
 ##### Exit Alternative Validator Candidate
 
-Alternative Validator Candidates can apply for withdrawal voluntarily, and validators can be punished or forced to quit. In order to maintain the security of the entire network, after the execution of the exit command, the staking Energon requires a long freeze period before it can be actually received. The freeze period allows malicious attacks to be detected even after they are formed and still be punished.
+Alternative Validator Candidates can apply for withdrawal voluntarily, and validators can be punished or forced to quit. In order to maintain the security of the entire network, after the execution of the exit command, the staking LAT requires a long freeze period before it can be actually received. The freeze period allows malicious attacks to be detected even after they are formed and still be punished.
 
 **Application process for withdrawal from validator:**
 
@@ -355,28 +355,28 @@ Alternative Validator Candidates can apply for withdrawal voluntarily, and valid
 
 <img src="/docs/img/en/PlatON_economic_plan.assets/system_penalty_exit.png" alt="system_penalty_exit"/>
 
-(3) After the execution of the exit validator command, the node's own staking Energon returned to the staking account time:
+(3) After the execution of the exit validator command, the node's own staking LAT returned to the staking account time:
 
-- Energon, which has not been locked in the hesitation period, will be credited immediately after the execution of the exit order.
+- LAT, which has not been locked in the hesitation period, will be credited immediately after the execution of the exit order.
 
-- Locked staking Energon, after exiting the execution of the order, continue to freeze and lock 28 epochs (excluding the current epoch)
+- Locked staking LAT, after exiting the execution of the order, continue to freeze and lock 28 epochs (excluding the current epoch)
 
   <img src="/docs/img/en/PlatON_economic_plan.assets/exit_freeze_lock_period.png" alt="exit_freeze_lock_period"/>
 
 
 >[!NOTE|style:flat|label:notice]
 >
->If the current node participates in the upgrade proposal voting and the proposal does not end voting, you need to determine whether the thawed block is greater than the voting deadline block. If it is greater, continue to pledge <font color=red>Energon</font> release according to the default thawed block. If it is smaller, the pledged <font color=red>Energon</font> is released according to the voting deadline block. The returned pledge <font color=red>Energon</font> returned the same way.
+>If the current node participates in the upgrade proposal voting and the proposal does not end voting, you need to determine whether the thawed block is greater than the voting deadline block. If it is greater, continue to pledge <font color=red>LAT</font> release according to the default thawed block. If it is smaller, the pledged <font color=red>LAT</font> is released according to the voting deadline block. The returned pledge <font color=red>LAT</font> returned the same way.
 
-(4) The alternative validator candidate withdraws, and Energon entrusts the processing instructions:
+(4) The alternative validator candidate withdraws, and LAT entrusts the processing instructions:
 
-- The alternative validator candidates  take the initiative to apply. In the settlement block of the current epoch, all delegated Energon received by the node are unlocked, and the principal needs to actively apply for redemption. After submitting the redemption, the delegated Energon will immediately return to the principal's account .
+- The alternative validator candidates  take the initiative to apply. In the settlement block of the current epoch, all delegated LAT received by the node are unlocked, and the principal needs to actively apply for redemption. After submitting the redemption, the delegated LAT will immediately return to the principal's account .
 
   <img src="/docs/img/en/PlatON_economic_plan.assets/voluntary_withdrawal_from_delegate.png" alt="voluntary_withdrawal_from_delegate"/>
 
   
 
-- The alternative validator candidates withdraw from passive penalties. Starting from the penalty block, all delegated Energons received by the nodes are unlocked, and the principal needs to actively apply for redemption. After submitting the redemption, the delegated Energon is immediately returned to the principal's account.
+- The alternative validator candidates withdraw from passive penalties. Starting from the penalty block, all delegated LATs received by the nodes are unlocked, and the principal needs to actively apply for redemption. After submitting the redemption, the delegated LAT is immediately returned to the principal's account.
 
   
 
@@ -391,22 +391,22 @@ Alternative Validator Candidates can apply for withdrawal voluntarily, and valid
 
 ##### Delegate
 
-Energon holders can earn profits by entrusting Energon in their hands to alternative validator candidates.
+LAT holders can earn profits by entrusting LAT in their hands to alternative validator candidates.
 
-- Energon delegated from two sources:
+- LAT delegated from two sources:
 
-    (1)  Energon of account balance: refers to the balance of the account, which is the Energon circulating in the account and can be used at any time.
+    (1)  LAT of account balance: refers to the balance of the account, which is the LAT circulating in the account and can be used at any time.
 
-    (2) Energon for account lockout: refers to the part of the account where the account is locked in the restricting contract.
+    (2) LAT for account lockout: refers to the part of the account where the account is locked in the restricting contract.
 
-- To prevent malicious delegation attacks, there is a minimum Energon limit for a single delegation.
-- Energon commissioned enters the next epoch and starts to lock. Energon commissioned does not actively redeem. Energon commissioned will continue to be locked. The system does not support the automatic redemption function. At the same time, only when a complete epoch is locked will it participate in sharing node revenue.
+- To prevent malicious delegation attacks, there is a minimum LAT limit for a single delegation.
+- LAT commissioned enters the next epoch and starts to lock. LAT commissioned does not actively redeem. LAT commissioned will continue to be locked. The system does not support the automatic redemption function. At the same time, only when a complete epoch is locked will it participate in sharing node revenue.
 
-- Once the alternative validator candidate applies for withdrawal or is withdrawn by the system, he cannot continue to delegate. The original entrusted Energon will be unlocked, and users need to actively redeem the entrusted Energon.
+- Once the alternative validator candidate applies for withdrawal or is withdrawn by the system, he cannot continue to delegate. The original entrusted LAT will be unlocked, and users need to actively redeem the entrusted LAT.
 
 ##### Delegated award
 
-Based on the PPoS consensus, the client entrusts Energon to the alternative validator candidates, which affects the ranking of alternative validator candidates. The alternative validator candidates ranked in the top 101 can become alternative validators for each epoch and get Staking Reward, at the same time have the opportunity to become a validator, participate in the block production and get block rewards and transaction fee rewards in the block. The principal is an important factor in maintaining thealternative validator ranking of the alternative validator. In order to improve the ranking and attract the principal to commission, the alternative validator candidates needs to generously assign the commission reward to the principal who is given the system reward. The percentage of rewards specifically allocated to the client is submitted by the node in the stage of pledge to become a alternative validator candidate.
+Based on the PPoS consensus, the client entrusts LAT to the alternative validator candidates, which affects the ranking of alternative validator candidates. The alternative validator candidates ranked in the top 101 can become alternative validators for each epoch and get Staking Reward, at the same time have the opportunity to become a validator, participate in the block production and get block rewards and transaction fee rewards in the block. The principal is an important factor in maintaining thealternative validator ranking of the alternative validator. In order to improve the ranking and attract the principal to commission, the alternative validator candidates needs to generously assign the commission reward to the principal who is given the system reward. The percentage of rewards specifically allocated to the client is submitted by the node in the stage of pledge to become a alternative validator candidate.
 
 - Delegated rewards come from two sources:
 
@@ -434,7 +434,7 @@ Based on the PPoS consensus, the client entrusts Energon to the alternative vali
 
 ##### Receive delegated award
 
-After delegating Energon to a alternative validator candidate, the delegated Energon will generate entrusted rewards when the delegating nodes generate revenue (get block rewards and Staking rewards) and entrust Energon to lock the complete epoch. The client can submit the delegated reward transaction at any time.
+After delegating LAT to a alternative validator candidate, the delegated LAT will generate entrusted rewards when the delegating nodes generate revenue (get block rewards and Staking rewards) and entrust LAT to lock the complete epoch. The client can submit the delegated reward transaction at any time.
 
 - Receive delegated rewards, support receiving all currently settled delegated rewards. Partial collection is not supported.
 
@@ -442,19 +442,19 @@ After delegating Energon to a alternative validator candidate, the delegated Ene
 
 ##### Redemption delegation
 
-The principal can submit the redemption delegation transaction at any time, because the principal can be said to be wicked to a certain extent, so the Energon after the principal redeems the commission has no additional freezing period. At the same time, it is different from the cancellation of the pledge of the candidate who has withdrawn from the candidate node. The cancellation of the pledge is all but the redemption entrustment supports partial redemption (that is, reduction of holdings) and full redemption.
+The principal can submit the redemption delegation transaction at any time, because the principal can be said to be wicked to a certain extent, so the LAT after the principal redeems the commission has no additional freezing period. At the same time, it is different from the cancellation of the pledge of the candidate who has withdrawn from the candidate node. The cancellation of the pledge is all but the redemption entrustment supports partial redemption (that is, reduction of holdings) and full redemption.
 
-- The interval between the entrusted transaction block and the settlement block of the current epoch is a hesitation period. The delegation is redeemed, and the delegated Energon immediately returns to the user's delegated account.
+- The interval between the entrusted transaction block and the settlement block of the current epoch is a hesitation period. The delegation is redeemed, and the delegated LAT immediately returns to the user's delegated account.
 
-- The delegated Energon will be locked in the next epoch. The locked Energon will redeem the entrustment. The energon will be returned to the user's delegated account in the settlement block of the epoch.
+- The delegated LAT will be locked in the next epoch. The locked LAT will redeem the entrustment. The LAT will be returned to the user's delegated account in the settlement block of the epoch.
 
   <img src="/docs/img/en/PlatON_economic_plan.assets/redemption_delegate.png" alt="redemption_delegate"/>
 
-- When the delegated Energon contains unlocked and locked Energon, the unlocked Energon will be redeemed first, and the remaining part will be redeemed from the locked Energon.
+- When the delegated LAT contains unlocked and locked LAT, the unlocked LAT will be redeemed first, and the remaining part will be redeemed from the locked LAT.
 
-- When Energon commissioned includes Energon commissioned using account balance and Energon commissioned using account lockout balance, priority is given to redemption (reduction) of Energon commissioned using account balance. If the number of redemptions specified by the user is insufficient, the remaining part will be redeemed from Energon commissioned using the account lockout.
+- When LAT commissioned includes LAT commissioned using account balance and LAT commissioned using account lockout balance, priority is given to redemption (reduction) of LAT commissioned using account balance. If the number of redemptions specified by the user is insufficient, the remaining part will be redeemed from LAT commissioned using the account lockout.
 
-- In order to prevent malicious delegation attacks, a single redemption order has a minimum Energon number limit. At the same time, to prevent a large number of small orders from remaining, after the number of redemption orders, the remaining entrustment amount is less than the minimum Energon number, and all orders are automatically redeemed.
+- In order to prevent malicious delegation attacks, a single redemption order has a minimum LAT number limit. At the same time, to prevent a large number of small orders from remaining, after the number of redemption orders, the remaining entrustment amount is less than the minimum LAT number, and all orders are automatically redeemed.
 
 - When all the delegation of a node are redeemed, all the delegated rewards that can be collected under that node will be automatically collected.
 
@@ -566,29 +566,29 @@ PlatON currently supports two penalties:
 
 1. Deduct node own pledge
 
-   A certain percentage or fixed amount of Energon is deducted from the node's own pledge (**locked own pledge**) as a penalty. After the deduction, if the node's remaining own pledge (including the locked and unlocked pledges in the hesitation period) does not meet the pledge threshold of the alternative validator candidate, the alternative validator candidate will immediately lose the qualification to participate in the validator and the system Automatically revoke its pledge. The deduction rules are as follows:
+   A certain percentage or fixed amount of LAT is deducted from the node's own pledge (**locked own pledge**) as a penalty. After the deduction, if the node's remaining own pledge (including the locked and unlocked pledges in the hesitation period) does not meet the pledge threshold of the alternative validator candidate, the alternative validator candidate will immediately lose the qualification to participate in the validator and the system Automatically revoke its pledge. The deduction rules are as follows:
 
-   - Deduction of the node's own pledge deposit will only deduct the node's own pledge Energon which has been locked in the current epoch. Unlocked pledge Energon during the hesitation period will not participate in the deduction.
+   - Deduction of the node's own pledge deposit will only deduct the node's own pledge LAT which has been locked in the current epoch. Unlocked pledge LAT during the hesitation period will not participate in the deduction.
 
-   - If a node pledges both the account balance and the locked balance of Energon, it will preferentially deduct the Energon pledged using the account balance, and then deduct the Energon of the locked balance pledge.
+   - If a node pledges both the account balance and the locked balance of LAT, it will preferentially deduct the LAT pledged using the account balance, and then deduct the LAT of the locked balance pledge.
 
-   - When deducting the Energon pledged from the account lock balance, the remaining unlocked amount of the account in the lock contract and the participating pledge amount are deducted correspondingly.
+   - When deducting the LAT pledged from the account lock balance, the remaining unlocked amount of the account in the lock contract and the participating pledge amount are deducted correspondingly.
 
 2. Force exit alternative validator candidate
 
-   Alternative validator candidate are passively withdrawn, they no longer participate in the election of alternative validators and validators, and are immediately revoked for pledges, withdrawing from the alternative validator candidate list. The Energon entrusted to this node is all invalidated and unlocked. The Energon entrusted to dismiss requires the user to apply for redemption by itself (too many principals, automatic return will greatly affect system performance). The node's remaining own pledge deposit will continue to be locked for 28 epochs and will automatically be returned to the node staking account.
+   Alternative validator candidate are passively withdrawn, they no longer participate in the election of alternative validators and validators, and are immediately revoked for pledges, withdrawing from the alternative validator candidate list. The LAT entrusted to this node is all invalidated and unlocked. The LAT entrusted to dismiss requires the user to apply for redemption by itself (too many principals, automatic return will greatly affect system performance). The node's remaining own pledge deposit will continue to be locked for 28 epochs and will automatically be returned to the node staking account.
 
    <img src="/docs/img/en/PlatON_economic_plan.assets/remove_from_candidate_validator_list.png" alt="remove_from_candidate_validator_list"/>
 
    - Nodes that are forced to withdraw do not participate in the allocation of Staking rewards for settlement blocks in this epoch.
 
-   - When the pledge is revoked, the pledged Energon that is not locked in the hesitation period does not need to continue to lock for 28 epochs and will be returned immediately.
+   - When the pledge is revoked, the pledged LAT that is not locked in the hesitation period does not need to continue to lock for 28 epochs and will be returned immediately.
 
-   - When the entrusted Energon is revoked, the entrusted Energon can be redeemed, and the entrusted Energon will be credited to the account immediately, but the principal needs to apply for redemption.
+   - When the entrusted LAT is revoked, the entrusted LAT can be redeemed, and the entrusted LAT will be credited to the account immediately, but the principal needs to apply for redemption.
 
-   - A node that is forcibly withdrawn can only use the node ID to re-pledge after the lock-up period ends and the node pledged Energon returns.
+   - A node that is forcibly withdrawn can only use the node ID to re-pledge after the lock-up period ends and the node pledged LAT returns.
 
-  - When a node that is forcibly withdrawn uses the node ID to re-pledge, the previously entrusted Energon that has expired but has not been redeemed will not be credited to the re-pledged verification node (alternative node candidate).
+  - When a node that is forcibly withdrawn uses the node ID to re-pledge, the previously entrusted LAT that has expired but has not been redeemed will not be credited to the re-pledged verification node (alternative node candidate).
 
    - When a forced withdrawal node participates in the voting of a proposal and the voting deadline of the proposal is greater than 28 settlement cycles, the unlocking block is postponed to the voting deadline block.
 

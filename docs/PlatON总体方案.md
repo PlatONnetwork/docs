@@ -308,13 +308,13 @@ PlatON consensus runs in three stages:
 
 - Phase 1: The Election of Alternative Validators; 
 
-In PlatON, every Energon holder can participate in PPoS. 
+In PlatON, every LAT holder can participate in PPoS. 
 
-For an Energon holder who wants to become a validator, it must stake more than a pre-specified minimum number of Energons to first become an alternative validator candidate. One staked Energon means one vote, which must be voted for himself and no one else. In other words, alternative validator candidates aren’t allowed to vote for each other.
+For an LAT holder who wants to become a validator, it must stake more than a pre-specified minimum number of LATs to first become an alternative validator candidate. One staked LAT means one vote, which must be voted for himself and no one else. In other words, alternative validator candidates aren’t allowed to vote for each other.
 
-Other Energon holders who want to participate in the election of alternative validators must stake Energons too. They can stake as many Energons as they wish, also with one staked Energon equaling one vote. They can vote for any alternative validator candidates they choose.
+Other LAT holders who want to participate in the election of alternative validators must stake LATs too. They can stake as many LATs as they wish, also with one staked LAT equaling one vote. They can vote for any alternative validator candidates they choose.
 
-After all the votes are cast, alternative validator candidates are ranked according to how many votes they receive. A pre-specified number of candidates receiving the most votes become alternative validators. The Energons staked by alternative validators and their supporters remain staked until the end of a pre-specified lock-up period. For other candidates and their supporters, their staked Energons can be un-staked immediately after the election. They won’t participate in current round of PPoS anymore and won’t get any compensation, either.
+After all the votes are cast, alternative validator candidates are ranked according to how many votes they receive. A pre-specified number of candidates receiving the most votes become alternative validators. The LATs staked by alternative validators and their supporters remain staked until the end of a pre-specified lock-up period. For other candidates and their supporters, their staked LATs can be un-staked immediately after the election. They won’t participate in current round of PPoS anymore and won’t get any compensation, either.
 
 - Phase 2: The Selection of Validators by the VRF
 
