@@ -5,6 +5,9 @@
     "previous": "Previous",
     "tagline": "PlatON",
     "docs": {
+      "ATON-user-manual": {
+        "title": "ATON-user-manual"
+      },
       "community": {
         "title": "Community Projects",
         "sidebar_label": "Community Projects"

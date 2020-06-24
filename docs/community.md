@@ -13,7 +13,7 @@ The LatticeX Foundation has now opened the [Grants program](https://latticex.fou
     <tr>
         <td><img alt="" src="/docs/img/ATON_logo.svg"></td>
         <td>
-            <p class="color"><a target="_blank" href="https://developer.platon.network/?lang=en">ATON</a></p>
+            <p class="color"><a target="_blank" href="/docs/en/ATON-user-manual">ATON</a></p>
             ATON is the first secure and user-friendly mobile wallet for PlatON Network.
         </td>
     </tr>

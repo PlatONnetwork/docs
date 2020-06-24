@@ -13,7 +13,7 @@ sidebar_label: 社区项目
     <tr>
         <td><img alt="" src="/docs/img/ATON_logo.svg"></td>
         <td>
-            <p class="color"><a target="_blank" href="https://developer.platon.network/?lang=zh">ATON</a></p>
+            <p class="color"><a target="_blank" href="/docs/zh-CN/ATON-user-manual">ATON</a></p>
             ATON是PlatON Network的第一个安全易用的移动钱包。
         </td>
     </tr>
