@@ -63,6 +63,7 @@ title: ATON钱包用户使用手册
 详见“设置观察钱包和冷钱包”说明
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
+
 ## 查看钱包信息
 
 <div>
