@@ -66,7 +66,7 @@ const siteConfig = {
   */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} PlatON Network`,
+  copyright: `COPYRIGHT  © ${new Date().getFullYear()} PLATON NETWORK.`,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
