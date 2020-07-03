@@ -154,7 +154,7 @@
 <p><strong>Note:</strong></p>
 <ul>
 <li>When  the prompt shows &quot;Please enter the platon node IP address:&quot;, please enter the PlatON node server ip address.</li>
-<li>When  the prompt shows &quot;Please enter the platon chain id:&quot;, please  enter the chain ID, and select it according to whether the connected network is the main network or test network (test network: 103).</li>
+<li>When  the prompt shows &quot;Please enter the platon chain id:&quot;, please  enter the chain ID, and select it according to whether the connected network is the main network or test network (test network: 102).</li>
 <li>When  the prompt shows &quot;Please enter the delegatedRewardRate(0~10000):&quot;, please enter the proportion of dividends, ranging from 0 to 10000, in units (ten thousandths of a percentage). For example, if you enter 5000, it means that the proportion of dividends is 50%.</li>
 <li>When  the prompt shows &quot;Enter your name:&quot;, please enter the username when configuring PlatON node.</li>
 <li>When  the prompt shows &quot;Enter your password:&quot;, please enter the password when configuring PlatON node.</li>
@@ -166,11 +166,11 @@
 <h4><a class="anchor" aria-hidden="true" id="verification-node-information-configuration-file-description"></a><a href="#verification-node-information-configuration-file-description" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Verification node information configuration file description</h4>
 <p>After the configuration of the verification node information is completed, the verification node information file validator_config.json will be generated in the validator subdirectory of the MTool installation directory. The file content is as follows:</p>
 <pre><code class="hljs css language-json">{
-  <span class="hljs-attr">"chainId"</span>: <span class="hljs-string">"103"</span>,
+  <span class="hljs-attr">"chainId"</span>: <span class="hljs-string">"102"</span>,
   <span class="hljs-attr">"delegatedRewardRate"</span>: <span class="hljs-string">"5000"</span>,
   <span class="hljs-attr">"nodePublicKey"</span>: <span class="hljs-string">"79ca603ef75d5954ec270802fa4e7b9bf045842bb7f3e95b849173f61d8a7cfef82b8687abef67f29645e068ff371da514f32b009b05f48062daa84f0b58ab6d"</span>,
   <span class="hljs-attr">"blsPubKey"</span>: <span class="hljs-string">"a2e1c2e60eb8bb2af05fff4d07c8fce7c408fbe944be1a58194d9e9c9078cb7bb55b63311c8af107453ac182eef22a04cb9ff28cc3367f1e8459f8dcbe9f5c965a6f377f9ff9bb39a78e4e04fd27876137bb0a9aa4066d0277464f018e989e94"</span>,
-  <span class="hljs-attr">"benefitAddress"</span>: <span class="hljs-string">"lax1rquxycp7xacmj25wy75l8mrux23tjvwxww6hcx"</span>,
+  <span class="hljs-attr">"benefitAddress"</span>: <span class="hljs-string">"0x32bec384344c2dc1ea794a4e149c1b74dd8467ef"</span>,
   <span class="hljs-attr">"nodeAddress"</span>: <span class="hljs-string">"https://test:test@domain3"</span>,
   <span class="hljs-attr">"nodePort"</span>: <span class="hljs-string">"16789"</span>,
   <span class="hljs-attr">"nodeRpcPort"</span>: <span class="hljs-string">"443"</span>,
@@ -184,7 +184,7 @@
 <blockquote>
 <p><strong>Parameter description:</strong></p>
 <ul>
-<li>chainId: The chain of Bailey World is 103.</li>
+<li>chainId: The chain of Bailey World is 102.</li>
 <li>delegatedRewardRate: Used to set the proportion of dividends to the client.</li>
 <li>nodePublicKey: Node ID, which can be viewed in the nodeid file under the node data directory data</li>
 <li>blsPubKey: BLS public key, which can be viewed in the blspub file under the node data directory data.</li>
