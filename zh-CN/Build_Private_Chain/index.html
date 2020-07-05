@@ -106,19 +106,20 @@
 <p>在~/platon-node目录下创建创世区块配置文件platon.json，然后将以下的创世区块配置文件模板内容拷贝到platon.json文件中，修改 <code>your-node-pubkey</code> 为之前生成的<strong><em>节点公钥(nodeid)</em></strong>，<code>your-node-blspubkey</code> 为 <strong><em>节点bls公钥(blspub)</em></strong>，<code>your-account-address</code>为 <strong><em>创建钱包的地址(Address)</em></strong>：</p>
 <pre><code class="hljs css language-json">{
     <span class="hljs-attr">"config"</span>: {
-        <span class="hljs-attr">"chainId"</span>: <span class="hljs-number">299</span>,
-        <span class="hljs-attr">"eip155Block"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"VMInterpreter"</span>: <span class="hljs-string">"evm"</span>,
+        <span class="hljs-attr">"chainId"</span>: <span class="hljs-number">1021</span>,
+        <span class="hljs-attr">"eip155Block"</span>: <span class="hljs-number">3</span>,
         <span class="hljs-attr">"cbft"</span>: {
-            <span class="hljs-attr">"initialNodes"</span>: [{
-                <span class="hljs-attr">"node"</span>: <span class="hljs-string">"enode://your-node-pubkey@127.0.0.1:16789"</span>,
-                <span class="hljs-attr">"blsPubKey"</span>: <span class="hljs-string">"your-node-blspubkey"</span>
-            }],
+            <span class="hljs-attr">"initialNodes"</span>: [
+              {
+                    <span class="hljs-attr">"node"</span>:<span class="hljs-string">"enode://4fcc251cf6bf3ea53a748971a223f5676225ee4380b65c7889a2b491e1551d45fe9fcc19c6af54dcf0d5323b5aa8ee1d919791695082bae1f86dd282dba4150f@0.0.0.0:16790"</span>,
+                    <span class="hljs-attr">"blsPubKey"</span>:<span class="hljs-string">"d341a0c485c9ec00cecf7ea16323c547900f6a1bacb9daacb00c2b8bacee631f75d5d31b75814b7f1ae3a4e18b71c617bc2f230daa0c893746ed87b08b2df93ca4ddde2816b3ac410b9980bcc048521562a3b2d00e900fd777d3cf88ce678719"</span>
+              }
+            ],
             <span class="hljs-attr">"amount"</span>: <span class="hljs-number">10</span>,
             <span class="hljs-attr">"period"</span>: <span class="hljs-number">10000</span>,
             <span class="hljs-attr">"validatorMode"</span>: <span class="hljs-string">"ppos"</span>
         },
-        <span class="hljs-attr">"genesisVersion"</span>: <span class="hljs-number">2304</span>
+        <span class="hljs-attr">"genesisVersion"</span>: <span class="hljs-number">3328</span>
     },
     <span class="hljs-attr">"economicModel"</span>:{
         <span class="hljs-attr">"common"</span>:{
@@ -130,7 +131,9 @@
             <span class="hljs-attr">"stakeThreshold"</span>: <span class="hljs-number">1000000000000000000000000</span>,
             <span class="hljs-attr">"operatingThreshold"</span>: <span class="hljs-number">10000000000000000000</span>,
             <span class="hljs-attr">"maxValidators"</span>: <span class="hljs-number">30</span>,
-            <span class="hljs-attr">"unStakeFreezeDuration"</span>: <span class="hljs-number">2</span>
+            <span class="hljs-attr">"unStakeFreezeDuration"</span>: <span class="hljs-number">2</span>,
+            <span class="hljs-attr">"rewardPerMaxChangeRange"</span>: <span class="hljs-number">500</span>,
+            <span class="hljs-attr">"rewardPerChangeInterval"</span>: <span class="hljs-number">10</span>
         },
         <span class="hljs-attr">"slashing"</span>:{
            <span class="hljs-attr">"slashFractionDuplicateSign"</span>: <span class="hljs-number">100</span>,
@@ -142,24 +145,25 @@
         },
          <span class="hljs-attr">"gov"</span>: {
             <span class="hljs-attr">"versionProposalVoteDurationSeconds"</span>: <span class="hljs-number">160</span>,
-            <span class="hljs-attr">"versionProposalSupportRate"</span>: <span class="hljs-number">0.667</span>,
+            <span class="hljs-attr">"versionProposalSupportRate"</span>: <span class="hljs-number">6670</span>,
             <span class="hljs-attr">"textProposalVoteDurationSeconds"</span>: <span class="hljs-number">160</span>,
-            <span class="hljs-attr">"textProposalVoteRate"</span>: <span class="hljs-number">0.5</span>,
-            <span class="hljs-attr">"textProposalSupportRate"</span>: <span class="hljs-number">0.667</span>,          
-            <span class="hljs-attr">"cancelProposalVoteRate"</span>: <span class="hljs-number">0.50</span>,
-            <span class="hljs-attr">"cancelProposalSupportRate"</span>: <span class="hljs-number">0.667</span>,
+            <span class="hljs-attr">"textProposalVoteRate"</span>: <span class="hljs-number">5000</span>,
+            <span class="hljs-attr">"textProposalSupportRate"</span>: <span class="hljs-number">6670</span>,          
+            <span class="hljs-attr">"cancelProposalVoteRate"</span>: <span class="hljs-number">5000</span>,
+            <span class="hljs-attr">"cancelProposalSupportRate"</span>: <span class="hljs-number">6670</span>,
             <span class="hljs-attr">"paramProposalVoteDurationSeconds"</span>: <span class="hljs-number">160</span>,
-            <span class="hljs-attr">"paramProposalVoteRate"</span>: <span class="hljs-number">0.50</span>,
-            <span class="hljs-attr">"paramProposalSupportRate"</span>: <span class="hljs-number">0.667</span>      
+            <span class="hljs-attr">"paramProposalVoteRate"</span>: <span class="hljs-number">5000</span>,
+            <span class="hljs-attr">"paramProposalSupportRate"</span>: <span class="hljs-number">6670</span>      
         },
         <span class="hljs-attr">"reward"</span>:{
             <span class="hljs-attr">"newBlockRate"</span>: <span class="hljs-number">50</span>,
-            <span class="hljs-attr">"platonFoundationYear"</span>: <span class="hljs-number">10</span> 
+            <span class="hljs-attr">"platonFoundationYear"</span>: <span class="hljs-number">10</span>,
+            <span class="hljs-attr">"increaseIssuanceRatio"</span>: <span class="hljs-number">250</span>
         },
         <span class="hljs-attr">"innerAcc"</span>:{
-            <span class="hljs-attr">"platonFundAccount"</span>: <span class="hljs-string">"0x493301712671ada506ba6ca7891f436d29185821"</span>,
+            <span class="hljs-attr">"platonFundAccount"</span>: <span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>,
             <span class="hljs-attr">"platonFundBalance"</span>: <span class="hljs-number">0</span>,
-            <span class="hljs-attr">"cdfAccount"</span>: <span class="hljs-string">"0xc1f330b214668beac2e6418dd651b09c759a4bf5"</span>,
+            <span class="hljs-attr">"cdfAccount"</span>: <span class="hljs-string">"lax1c8enpvs5v6974shxgxxav5dsn36e5jl4v29pec"</span>,
             <span class="hljs-attr">"cdfBalance"</span>: <span class="hljs-number">331811981000000000000000000</span>
         }
     },
@@ -168,11 +172,11 @@
     <span class="hljs-attr">"extraData"</span>: <span class="hljs-string">"0xd782070186706c61746f6e86676f312e3131856c696e757800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,
     <span class="hljs-attr">"gasLimit"</span>: <span class="hljs-string">"4712388"</span>,
     <span class="hljs-attr">"alloc"</span>: {
-        <span class="hljs-attr">"1000000000000000000000000000000000000003"</span>: {
+        <span class="hljs-attr">"lax1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqrzpqayr"</span>: {
             <span class="hljs-attr">"balance"</span>: <span class="hljs-string">"200000000000000000000000000"</span>
         },
-        <span class="hljs-attr">"your-account-address"</span>: {
-          <span class="hljs-attr">"balance"</span>: <span class="hljs-string">"999000000000000000000"</span>
+        <span class="hljs-attr">"lax17ekt83lj35zc4c7xak2f834fu2naw7rdxuz3wt"</span>: {
+            <span class="hljs-attr">"balance"</span>: <span class="hljs-string">"9718188019000000000000000000"</span>
         }
     },
     <span class="hljs-attr">"number"</span>: <span class="hljs-string">"0x0"</span>,
