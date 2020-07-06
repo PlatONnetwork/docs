@@ -86,7 +86,7 @@
 <pre><code class="hljs css language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.platon.client<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.11.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.13.0.11<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="gradle"></a><a href="#gradle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>gradle</h3>
@@ -100,9 +100,80 @@
 <blockquote>
 <p>gradle引用方式:</p>
 </blockquote>
-<pre><code class="hljs"><span class="hljs-selector-tag">compile</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.client</span><span class="hljs-selector-pseudo">:core</span><span class="hljs-selector-pseudo">:0.11.0.1"</span>
+<pre><code class="hljs"><span class="hljs-selector-tag">compile</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.client</span><span class="hljs-selector-pseudo">:core</span><span class="hljs-selector-pseudo">:0.13.0.11"</span>
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="基础api使用"></a><a href="#基础api使用" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>基础API使用</h2>
+<h2><a class="anchor" aria-hidden="true" id="基础api使用"></a><a href="#基础api使用" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>基础api使用</h2>
+<h3><a class="anchor" aria-hidden="true" id="bech32地址"></a><a href="#bech32地址" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bech32地址</h3>
+<ul>
+<li><strong>0x地址转bech32地址</strong></li>
+</ul>
+<pre><code class="hljs css language-java">String hex = <span class="hljs-string">"0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac5cf4f818"</span>;
+String bech32Address = Bech32.addressEncode(NetworkParameters.TestNetParams.getHrp(), hex);
+assertThat(bech32Address, is(<span class="hljs-string">"lax1f7wp58h65lvphgw2hurl9sa943w0f7qc3dp390"</span>));
+
+bech32Address = Bech32.addressEncode(NetworkParameters.MainNetParams.getHrp(), hex);
+assertThat(bech32Address, is(<span class="hljs-string">"lat1f7wp58h65lvphgw2hurl9sa943w0f7qc7gn7tq"</span>));
+</code></pre>
+<ul>
+<li><strong>bech32地址转0x地址</strong></li>
+</ul>
+<pre><code class="hljs css language-java">String bech32Address = <span class="hljs-string">"lax1f7wp58h65lvphgw2hurl9sa943w0f7qc3dp390"</span>;
+String hex =  Bech32.addressDecodeHex(bech32Address);
+assertThat(hex, is(<span class="hljs-string">"0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac5cf4f818"</span>));
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="网络参数"></a><a href="#网络参数" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>网络参数</h3>
+<ul>
+<li><strong>设置当前网络参数</strong></li>
+</ul>
+<blockquote>
+<p>因为加入了bech32格式地址支持，为了兼容旧的api，加入了全局设置网络参数的功能，旧的api根据当前网络参数输出相应格式地址</p>
+</blockquote>
+<pre><code class="hljs css language-java">NetworkParameters.setCurrentNetwork(<span class="hljs-number">101L</span>);  <span class="hljs-comment">// default mainnet 100L</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="钱包相关"></a><a href="#钱包相关" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>钱包相关</h3>
+<ul>
+<li><strong>生成一个PlatON标准的钱包 n=16384 p=1 r=8</strong></li>
+</ul>
+<pre><code class="hljs css language-java">String fileName = WalletUtils.generatePlatONWalletFile(PASSWORD, tempDir);
+</code></pre>
+<ul>
+<li><strong>生成一个标准的钱包 n=262144 p=1 r=8</strong></li>
+</ul>
+<pre><code class="hljs css language-java">String fileName = WalletUtils.generateNewWalletFile(PASSWORD, tempDir);
+</code></pre>
+<ul>
+<li><strong>生成一个轻量的钱包 n=4096 p=6 r=8</strong></li>
+</ul>
+<pre><code class="hljs css language-java">String fileName = WalletUtils.generateLightNewWalletFile(PASSWORD, tempDir);
+</code></pre>
+<ul>
+<li><strong>加载钱包</strong></li>
+</ul>
+<pre><code class="hljs css language-java">Credentials credentials = WalletUtils.loadCredentials(PASSWORD, <span class="hljs-keyword">new</span> File(tempDir, fileName));
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="凭证相关"></a><a href="#凭证相关" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>凭证相关</h3>
+<ul>
+<li><strong>从钱包文件创建凭证</strong></li>
+</ul>
+<pre><code class="hljs css language-java">Credentials credentials = WalletUtils.loadCredentials(PASSWORD, <span class="hljs-keyword">new</span> File(tempDir, fileName));
+</code></pre>
+<ul>
+<li><strong>从私钥创建凭证</strong></li>
+</ul>
+<pre><code class="hljs css language-java">Credentials credentials = Credentials.create(<span class="hljs-string">"0xXXXXXXXXXXXXXX..."</span>);
+</code></pre>
+<ul>
+<li><strong>获取不同网络的地址</strong></li>
+</ul>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">long</span> chainId = <span class="hljs-number">100L</span>;
+String bech32Address = credentials.getAddress(chainId);
+</code></pre>
+<ul>
+<li><strong>获取当前网络参数的地址</strong></li>
+</ul>
+<pre><code class="hljs css language-java">String bech32Address = credentials.getAddress();  <span class="hljs-comment">// NetworkParameters.CurrentNetwork</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="基础rpc接口"></a><a href="#基础rpc接口" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>基础RPC接口</h2>
 <p>基础<code>API</code>包括网络，交易，查询，节点信息，经济模型参数配置等相关的接口，具体参考如下<code>API</code>使用说明。</p>
 <h3><a class="anchor" aria-hidden="true" id="web3clientversion"></a><a href="#web3clientversion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3ClientVersion</h3>
 <blockquote>
@@ -1307,7 +1378,7 @@ StakingContract stakingContract = StakingContract.load(web3j, credentials, chain
 <pre><code class="hljs css language-java">String nodeId = <span class="hljs-string">"77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050"</span>;
 BigDecimal stakingAmount = Convert.toVon(<span class="hljs-string">"1000000"</span>, Unit.LAT);
 StakingAmountType stakingAmountType = StakingAmountType.FREE_AMOUNT_TYPE;
-String benifitAddress = <span class="hljs-string">"0x02c344817be3448c97a059473121a6679450b414"</span>;
+String benifitAddress = <span class="hljs-string">"lax1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt"</span>;
 String externalId = <span class="hljs-string">""</span>;
 String nodeName = <span class="hljs-string">"integration-node1"</span>;
 String webSite = <span class="hljs-string">"https://www.platon.network/#/"</span>;
@@ -1391,7 +1462,7 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 <li><strong>合约使用</strong></li>
 </ul>
 <pre><code class="hljs css language-java">String nodeId = <span class="hljs-string">"77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050"</span>;
-String benifitAddress = <span class="hljs-string">"0x02c344817be3448c97a059473121a6679450b414"</span>;
+String benifitAddress = <span class="hljs-string">"lax1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt"</span>;
 String externalId = <span class="hljs-string">""</span>;
 String nodeName = <span class="hljs-string">"integration-node1-u"</span>;
 String webSite = <span class="hljs-string">"https://www.platon.network/#/"</span>;
@@ -1683,7 +1754,7 @@ TransactionResponse baseResponse = delegateContract.getTransactionResponse(plato
 <li><p><strong>Java SDK合约使用</strong></p></li>
 </ul>
 <pre><code class="hljs css language-java">String nodeId = <span class="hljs-string">"77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050"</span>;
-String address = <span class="hljs-string">"0xc1f330b214668beac2e6418dd651b09c759a4bf5"</span>;
+String address = <span class="hljs-string">"lax1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt"</span>;
 BigInteger stakingBlockNum = <span class="hljs-keyword">new</span> BigInteger(<span class="hljs-string">"10888"</span>);
 
 CallResponse&lt;Delegation&gt; baseResponse = delegateContract.getDelegateInfo(nodeId, address, stakingBlockNum).send();
@@ -2311,7 +2382,7 @@ TransactionResponse baseResponse = slashContract.getTransactionResponse(platonSe
 <ul>
 <li><strong>合约使用</strong></li>
 </ul>
-<pre><code class="hljs css language-java">CallResponse&lt;String&gt; baseResponse = slashContract.checkDoubleSign(DuplicateSignType.PREPARE_BLOCK, <span class="hljs-string">"0x4F8eb0B21eb8F16C80A9B7D728EA473b8676Cbb3"</span>, BigInteger.valueOf(<span class="hljs-number">500L</span>)).send();
+<pre><code class="hljs css language-java">CallResponse&lt;String&gt; baseResponse = slashContract.checkDoubleSign(DuplicateSignType.PREPARE_BLOCK, <span class="hljs-string">"lax1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt"</span>, BigInteger.valueOf(<span class="hljs-number">500L</span>)).send();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="锁仓相关接口"></a><a href="#锁仓相关接口" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>锁仓相关接口</h3>
 <blockquote>
@@ -2410,7 +2481,7 @@ TransactionResponse baseResponse = restrictingPlanContract.getTransactionRespons
 <p><code>bin</code>，输出包含十六进制编码的solidity二进制文件以提供交易请求。
 <code>abi</code>，输出一个solidity的应用程序二进制接口（<code>ABI</code>）文件，它详细描述了所有可公开访问的合约方法及其相关参数。<code>abi</code>文件也用于生成solidity智能合约对应的Java包装类。</p>
 <ul>
-<li>使用<code>platon-truffle</code>编译solidity源代码(<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#">platon-truffle开发工具安装参考</a>|<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/">platon-truffle开发工具使用手册</a>)：</li>
+<li>使用<code>platon-truffle</code>编译solidity源代码(<a href="https://platon-truffle.readthedocs.io/en/v0.13.0/getting-started/installation.html#">platon-truffle开发工具安装参考</a>|<a href="https://platon-truffle.readthedocs.io/en/v0.13.0/">platon-truffle开发工具使用手册</a>)：</li>
 </ul>
 <blockquote>
 <p><strong>step1.</strong> 使用platon-truffle初始化项目</p>
@@ -2485,7 +2556,7 @@ Warnin<span class="hljs-variable">g:</span> This <span class="hljs-keyword">is</
 <h3><a class="anchor" aria-hidden="true" id="solidity智能合约java包装类"></a><a href="#solidity智能合约java包装类" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solidity智能合约Java包装类</h3>
 <p>Java SDK支持从<code>abi</code>文件中自动生成Solidity智能合约对应的Java包装类。</p>
 <ul>
-<li>通过命令行工具生成Java包装类（<a href="https://download.platon.network/sdk/0.11.0.1-20200410/platon-web3j-0.11.0.1.zip">platon-web3j下载</a>）：</li>
+<li>通过命令行工具生成Java包装类（<a href="https://download.platon.network/sdk/0.13.0.11-20200703/platon-web3j-0.13.0.11.zip">platon-web3j下载</a>）：</li>
 </ul>
 <pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> platon-web3j solidity generate [--javaTypes|--solidityTypes] /path/to/&lt;smart-contract&gt;.bin /path/to/&lt;smart-contract&gt;.abi -o /path/to/src/main/java -p com.your.organisation.name</span>
 </code></pre>
@@ -2509,14 +2580,25 @@ org.web3j.codegen.SolidityFunctionWrapperGenerator.run(args);
 <h4><a class="anchor" aria-hidden="true" id="构建与部署智能合约"></a><a href="#构建与部署智能合约" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>构建与部署智能合约</h4>
 <p>智能合约的构建和部署使用包装类中的deploy方法：</p>
 <pre><code class="hljs css language-java">YourSmartContract contract = YourSmartContract.deploy(
-        &lt;web3j&gt;, &lt;transactionManager&gt;, contractGasProvider,
+        &lt;web3j&gt;, &lt;transactionManager&gt;, contractGasProvider, chainId
+        [&lt;initialValue&gt;,] &lt;param1&gt;, ..., &lt;paramN&gt;).send();
+
+or
+
+YourSmartContract contract = YourSmartContract.deploy(
+        &lt;web3j&gt;, &lt;Credentials&gt;, contractGasProvider, chainId
         [&lt;initialValue&gt;,] &lt;param1&gt;, ..., &lt;paramN&gt;).send();
 </code></pre>
 <p>这个方法将在区块链上部署智能合约。部署成功以后，它将会返回一个智能合约的包装类实例，包含智能合约的地址。</p>
 <p>如果你的智能合约在构造上接受LAT转账，则需要初始化参数值<initialValue>。</p>
 <p>通过智能合约的地址也可以创建智能合约对应的Java包装类的实例：</p>
 <pre><code class="hljs css language-java">YourSmartContract contract = YourSmartContract.load(
-        <span class="hljs-string">"0x&lt;address&gt;"</span>, web3j, transactionManager, contractGasProvider);
+        <span class="hljs-string">"&lt;bech32Address&gt;"</span>, web3j, transactionManager, contractGasProvider, chainId);
+
+or
+
+YourSmartContract contract = YourSmartContract.load(
+        <span class="hljs-string">"&lt;bech32Address&gt;"</span>, web3j, credentials, contractGasProvider, chainId);
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="智能合约有效性"></a><a href="#智能合约有效性" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>智能合约有效性</h4>
 <p>使用此方法，可以验证智能合约的有效性。只有在合约地址中部署的字节码与智能合约封装包中的字节码匹配时才会返回<code>true</code>。</p>
@@ -2564,7 +2646,7 @@ GasProvider gasProvider  = <span class="hljs-keyword">new</span> ContractGasProv
 <p><code>wasm</code>，输出Wasm合约的二进制文件以提供交易请求。
 <code>abi.json</code>，详细描述了所有可公开访问的合约方法及其相关参数。<code>abi</code>文件也用于生成Wasm智能合约对应的Java包装类。</p>
 <ul>
-<li>使用<code>platon-truffle</code>编译Wasm合约源代码(<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#">platon-truffle开发工具安装参考</a>|<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/">platon-truffle开发工具使用手册</a>)</li>
+<li>使用<code>platon-truffle</code>编译Wasm合约源代码(<a href="https://platon-truffle.readthedocs.io/en/v0.13.0/getting-started/installation.html#">platon-truffle开发工具安装参考</a>|<a href="https://platon-truffle.readthedocs.io/en/v0.13.0/">platon-truffle开发工具使用手册</a>)</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="wasm智能合约java包装类"></a><a href="#wasm智能合约java包装类" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Wasm智能合约Java包装类</h3>
 <p>Java SDK支持从<code>abi.json</code>文件中自动生成Wasm智能合约对应的Java包装类。</p>
@@ -2590,14 +2672,25 @@ org.web3j.codegen.WasmFunctionWrapperGenerator.run(args);
 <h4><a class="anchor" aria-hidden="true" id="构建与部署智能合约-1"></a><a href="#构建与部署智能合约-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>构建与部署智能合约</h4>
 <p>智能合约的构建和部署使用包装类中的deploy方法：</p>
 <pre><code class="hljs css language-java">YourSmartContract contract = YourSmartContract.deploy(
-        &lt;web3j&gt;, &lt;transactionManager&gt;, contractGasProvider,
+        &lt;web3j&gt;, &lt;transactionManager&gt;, contractGasProvider, chainId,
+        [&lt;initialValue&gt;,] &lt;param1&gt;, ..., &lt;paramN&gt;).send();
+
+or
+
+YourSmartContract contract = YourSmartContract.deploy(
+        &lt;web3j&gt;, &lt;Credentials&gt;, contractGasProvider, chainId,
         [&lt;initialValue&gt;,] &lt;param1&gt;, ..., &lt;paramN&gt;).send();
 </code></pre>
 <p>这个方法将在区块链上部署智能合约。部署成功以后，它将会返回一个智能合约的包装类实例，包含智能合约的地址。</p>
 <p>如果你的智能合约在构造上接受LAT转账，则需要初始化参数值<initialValue>。</p>
 <p>通过智能合约的地址也可以创建智能合约对应的Java包装类的实例：</p>
 <pre><code class="hljs css language-java">YourSmartContract contract = YourSmartContract.load(
-        <span class="hljs-string">"0x&lt;address&gt;"</span>, web3j, transactionManager, contractGasProvider);
+        <span class="hljs-string">"&lt;bech32Address&gt;"</span>, web3j, transactionManager, contractGasProvider,chainId);
+
+or
+
+YourSmartContract contract = YourSmartContract.load(
+        <span class="hljs-string">"&lt;bech32Address&gt;"</span>, web3j, credentials, contractGasProvider,chainId);
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="智能合约有效性-1"></a><a href="#智能合约有效性-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>智能合约有效性</h4>
 <p>使用此方法，可以验证智能合约的有效性。只有在合约地址中部署的字节码与智能合约封装包中的字节码匹配时才会返回<code>true</code>。</p>
@@ -2632,7 +2725,7 @@ GasProvider gasProvider  = <span class="hljs-keyword">new</span> ContractGasProv
 <p>常量方法只做查询，而不改变智能合约的状态。</p>
 <pre><code class="hljs css language-java">Type result = contract.someMethod(&lt;param1&gt;, ...).send();
 </code></pre>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/WASM_Smart_Contract"><span class="arrow-prev">← </span><span>WASM智能合约</span></a><a class="docs-next button" href="/docs/zh-CN/JS_SDK"><span>JS SDK</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#开发库导入">开发库导入</a><ul class="toc-headings"><li><a href="#maven">maven</a></li><li><a href="#gradle">gradle</a></li></ul></li><li><a href="#基础api使用">基础API使用</a><ul class="toc-headings"><li><a href="#web3clientversion">web3ClientVersion</a></li><li><a href="#web3sha3">web3Sha3</a></li><li><a href="#netversion">netVersion</a></li><li><a href="#netlistening">netListening</a></li><li><a href="#netpeercount">netPeerCount</a></li><li><a href="#platonprotocolversion">platonProtocolVersion</a></li><li><a href="#platonsyncing">platonSyncing</a></li><li><a href="#platongasprice">platonGasPrice</a></li><li><a href="#platonaccounts">platonAccounts</a></li><li><a href="#platonblocknumber">platonBlockNumber</a></li><li><a href="#platongetbalance">platonGetBalance</a></li><li><a href="#platongetstorageat">platonGetStorageAt</a></li><li><a href="#platongetblocktransactioncountbyhash">platonGetBlockTransactionCountByHash</a></li><li><a href="#platongettransactioncount">platonGetTransactionCount</a></li><li><a href="#platongetblocktransactioncountbynumber">platonGetBlockTransactionCountByNumber</a></li><li><a href="#platongetcode">platonGetCode</a></li><li><a href="#platonsign">platonSign</a></li><li><a href="#platonsendtransaction">platonSendTransaction</a></li><li><a href="#platonsendrawtransaction">platonSendRawTransaction</a></li><li><a href="#platoncall">platonCall</a></li><li><a href="#platonestimategas">platonEstimateGas</a></li><li><a href="#platongetblockbyhash">platonGetBlockByHash</a></li><li><a href="#platongetblockbynumber">platonGetBlockByNumber</a></li><li><a href="#platongettransactionbyblockhashandindex">platonGetTransactionByBlockHashAndIndex</a></li><li><a href="#platongettransactionbyblocknumberandindex">platonGetTransactionByBlockNumberAndIndex</a></li><li><a href="#platongettransactionreceipt">platonGetTransactionReceipt</a></li><li><a href="#platonnewfilter">platonNewFilter</a></li><li><a href="#platonnewblockfilter">platonNewBlockFilter</a></li><li><a href="#platonnewpendingtransactionfilter">platonNewPendingTransactionFilter</a></li><li><a href="#platonnewpendingtransactionfilter-1">platonNewPendingTransactionFilter</a></li><li><a href="#platonuninstallfilter">platonUninstallFilter</a></li><li><a href="#platongetfilterchanges">platonGetFilterChanges</a></li><li><a href="#platongetfilterlogs">platonGetFilterLogs</a></li><li><a href="#platongetlogs">platonGetLogs</a></li><li><a href="#platonpendingtransactions">platonPendingTransactions</a></li><li><a href="#dbputstring">dbPutString</a></li><li><a href="#dbgetstring">dbGetString</a></li><li><a href="#dbputhex">dbPutHex</a></li><li><a href="#dbgethex">dbGetHex</a></li><li><a href="#platonevidences">platonEvidences</a></li><li><a href="#getprogramversion">getProgramVersion</a></li><li><a href="#getschnorrnizkprove">getSchnorrNIZKProve</a></li><li><a href="#geteconomicconfig">getEconomicConfig</a></li></ul></li><li><a href="#系统合约调用">系统合约调用</a><ul class="toc-headings"><li><a href="#质押相关接口">质押相关接口</a></li><li><a href="#委托相关接口">委托相关接口</a></li><li><a href="#奖励相关接口">奖励相关接口</a></li><li><a href="#节点相关合约">节点相关合约</a></li><li><a href="#治理相关合约">治理相关合约</a></li><li><a href="#双签举报相关接口">双签举报相关接口</a></li><li><a href="#锁仓相关接口">锁仓相关接口</a></li></ul></li><li><a href="#solidity合约调用">Solidity合约调用</a><ul class="toc-headings"><li><a href="#编译solidity源代码">编译solidity源代码</a></li><li><a href="#solidity智能合约java包装类">Solidity智能合约Java包装类</a></li></ul></li><li><a href="#wasm合约调用">Wasm合约调用</a><ul class="toc-headings"><li><a href="#编译wasm合约源代码">编译Wasm合约源代码</a></li><li><a href="#wasm智能合约java包装类">Wasm智能合约Java包装类</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2020 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/WASM_Smart_Contract"><span class="arrow-prev">← </span><span>WASM智能合约</span></a><a class="docs-next button" href="/docs/zh-CN/JS_SDK"><span>JS SDK</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#开发库导入">开发库导入</a><ul class="toc-headings"><li><a href="#maven">maven</a></li><li><a href="#gradle">gradle</a></li></ul></li><li><a href="#基础api使用">基础api使用</a><ul class="toc-headings"><li><a href="#bech32地址">Bech32地址</a></li><li><a href="#网络参数">网络参数</a></li><li><a href="#钱包相关">钱包相关</a></li><li><a href="#凭证相关">凭证相关</a></li></ul></li><li><a href="#基础rpc接口">基础RPC接口</a><ul class="toc-headings"><li><a href="#web3clientversion">web3ClientVersion</a></li><li><a href="#web3sha3">web3Sha3</a></li><li><a href="#netversion">netVersion</a></li><li><a href="#netlistening">netListening</a></li><li><a href="#netpeercount">netPeerCount</a></li><li><a href="#platonprotocolversion">platonProtocolVersion</a></li><li><a href="#platonsyncing">platonSyncing</a></li><li><a href="#platongasprice">platonGasPrice</a></li><li><a href="#platonaccounts">platonAccounts</a></li><li><a href="#platonblocknumber">platonBlockNumber</a></li><li><a href="#platongetbalance">platonGetBalance</a></li><li><a href="#platongetstorageat">platonGetStorageAt</a></li><li><a href="#platongetblocktransactioncountbyhash">platonGetBlockTransactionCountByHash</a></li><li><a href="#platongettransactioncount">platonGetTransactionCount</a></li><li><a href="#platongetblocktransactioncountbynumber">platonGetBlockTransactionCountByNumber</a></li><li><a href="#platongetcode">platonGetCode</a></li><li><a href="#platonsign">platonSign</a></li><li><a href="#platonsendtransaction">platonSendTransaction</a></li><li><a href="#platonsendrawtransaction">platonSendRawTransaction</a></li><li><a href="#platoncall">platonCall</a></li><li><a href="#platonestimategas">platonEstimateGas</a></li><li><a href="#platongetblockbyhash">platonGetBlockByHash</a></li><li><a href="#platongetblockbynumber">platonGetBlockByNumber</a></li><li><a href="#platongettransactionbyblockhashandindex">platonGetTransactionByBlockHashAndIndex</a></li><li><a href="#platongettransactionbyblocknumberandindex">platonGetTransactionByBlockNumberAndIndex</a></li><li><a href="#platongettransactionreceipt">platonGetTransactionReceipt</a></li><li><a href="#platonnewfilter">platonNewFilter</a></li><li><a href="#platonnewblockfilter">platonNewBlockFilter</a></li><li><a href="#platonnewpendingtransactionfilter">platonNewPendingTransactionFilter</a></li><li><a href="#platonnewpendingtransactionfilter-1">platonNewPendingTransactionFilter</a></li><li><a href="#platonuninstallfilter">platonUninstallFilter</a></li><li><a href="#platongetfilterchanges">platonGetFilterChanges</a></li><li><a href="#platongetfilterlogs">platonGetFilterLogs</a></li><li><a href="#platongetlogs">platonGetLogs</a></li><li><a href="#platonpendingtransactions">platonPendingTransactions</a></li><li><a href="#dbputstring">dbPutString</a></li><li><a href="#dbgetstring">dbGetString</a></li><li><a href="#dbputhex">dbPutHex</a></li><li><a href="#dbgethex">dbGetHex</a></li><li><a href="#platonevidences">platonEvidences</a></li><li><a href="#getprogramversion">getProgramVersion</a></li><li><a href="#getschnorrnizkprove">getSchnorrNIZKProve</a></li><li><a href="#geteconomicconfig">getEconomicConfig</a></li></ul></li><li><a href="#系统合约调用">系统合约调用</a><ul class="toc-headings"><li><a href="#质押相关接口">质押相关接口</a></li><li><a href="#委托相关接口">委托相关接口</a></li><li><a href="#奖励相关接口">奖励相关接口</a></li><li><a href="#节点相关合约">节点相关合约</a></li><li><a href="#治理相关合约">治理相关合约</a></li><li><a href="#双签举报相关接口">双签举报相关接口</a></li><li><a href="#锁仓相关接口">锁仓相关接口</a></li></ul></li><li><a href="#solidity合约调用">Solidity合约调用</a><ul class="toc-headings"><li><a href="#编译solidity源代码">编译solidity源代码</a></li><li><a href="#solidity智能合约java包装类">Solidity智能合约Java包装类</a></li></ul></li><li><a href="#wasm合约调用">Wasm合约调用</a><ul class="toc-headings"><li><a href="#编译wasm合约源代码">编译Wasm合约源代码</a></li><li><a href="#wasm智能合约java包装类">Wasm智能合约Java包装类</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2020 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;

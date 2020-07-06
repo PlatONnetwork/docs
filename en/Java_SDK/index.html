@@ -86,7 +86,7 @@
 <pre><code class="hljs css language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.platon.client<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.11.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.13.0.11<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="gradle"></a><a href="#gradle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>gradle</h3>
@@ -100,9 +100,80 @@
 <blockquote>
 <p>gradle way of reference:</p>
 </blockquote>
-<pre><code class="hljs"><span class="hljs-selector-tag">compile</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.client</span><span class="hljs-selector-pseudo">:core</span><span class="hljs-selector-pseudo">:0.11.0.1"</span>
+<pre><code class="hljs"><span class="hljs-selector-tag">compile</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.client</span><span class="hljs-selector-pseudo">:core</span><span class="hljs-selector-pseudo">:0.13.0.11"</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="basic-api-usage"></a><a href="#basic-api-usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic API Usage</h2>
+<h3><a class="anchor" aria-hidden="true" id="bech32-address"></a><a href="#bech32-address" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bech32 Address</h3>
+<ul>
+<li><strong>0x address to bech32 address</strong></li>
+</ul>
+<pre><code class="hljs css language-java">String hex = <span class="hljs-string">"0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac5cf4f818"</span>;
+String bech32Address = Bech32.addressEncode(NetworkParameters.TestNetParams.getHrp(), hex);
+assertThat(bech32Address, is(<span class="hljs-string">"lax1f7wp58h65lvphgw2hurl9sa943w0f7qc3dp390"</span>));
+
+bech32Address = Bech32.addressEncode(NetworkParameters.MainNetParams.getHrp(), hex);
+assertThat(bech32Address, is(<span class="hljs-string">"lat1f7wp58h65lvphgw2hurl9sa943w0f7qc7gn7tq"</span>));
+</code></pre>
+<ul>
+<li><strong>bech32 address to 0x address</strong></li>
+</ul>
+<pre><code class="hljs css language-java">String bech32Address = <span class="hljs-string">"lax1f7wp58h65lvphgw2hurl9sa943w0f7qc3dp390"</span>;
+String hex =  Bech32.addressDecodeHex(bech32Address);
+assertThat(hex, is(<span class="hljs-string">"0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac5cf4f818"</span>));
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="networkparameters"></a><a href="#networkparameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>NetworkParameters</h3>
+<ul>
+<li><strong>SetCurrentNetworkParameters</strong></li>
+</ul>
+<blockquote>
+<p>Because bech 32 format address support is added, in order to be compatible with the old API, the function of setting the network parameters globally is added, and the old API outputs the corresponding format address according to the current network parameters</p>
+</blockquote>
+<pre><code class="hljs css language-java">NetworkParameters.setCurrentNetwork(<span class="hljs-number">101L</span>);  <span class="hljs-comment">// default mainnet 100L</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="wallet-related"></a><a href="#wallet-related" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Wallet Related</h3>
+<ul>
+<li><strong>Generate PlatON StandardWallet n=16384 p=1 r=8</strong></li>
+</ul>
+<pre><code class="hljs css language-java">String fileName = WalletUtils.generatePlatONWalletFile(PASSWORD, tempDir);
+</code></pre>
+<ul>
+<li><strong>Generate StandardWallet n=262144 p=1 r=8</strong></li>
+</ul>
+<pre><code class="hljs css language-java">String fileName = WalletUtils.generateNewWalletFile(PASSWORD, tempDir);
+</code></pre>
+<ul>
+<li><strong>Generate LightWallet n=4096 p=6 r=8</strong></li>
+</ul>
+<pre><code class="hljs css language-java">String fileName = WalletUtils.generateLightNewWalletFile(PASSWORD, tempDir);
+</code></pre>
+<ul>
+<li><strong>LoadWallet</strong></li>
+</ul>
+<pre><code class="hljs css language-java">Credentials credentials = WalletUtils.loadCredentials(PASSWORD, <span class="hljs-keyword">new</span> File(tempDir, fileName));
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="credentials-related"></a><a href="#credentials-related" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Credentials Related</h3>
+<ul>
+<li><strong>loadCredentials from keystore</strong></li>
+</ul>
+<pre><code class="hljs css language-java">Credentials credentials = WalletUtils.loadCredentials(PASSWORD, <span class="hljs-keyword">new</span> File(tempDir, fileName));
+</code></pre>
+<ul>
+<li><strong>loadCredentials from key</strong></li>
+</ul>
+<pre><code class="hljs css language-java">Credentials credentials = Credentials.create(<span class="hljs-string">"0xXXXXXXXXXXXXXX..."</span>);
+</code></pre>
+<ul>
+<li><strong>getBech32AddressFromChainId</strong></li>
+</ul>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">long</span> chainId = <span class="hljs-number">100L</span>;
+String bech32Address = credentials.getAddress(chainId);
+</code></pre>
+<ul>
+<li><strong>getBech32AddressFromNetworkParameters</strong></li>
+</ul>
+<pre><code class="hljs css language-java">String bech32Address = credentials.getAddress();  <span class="hljs-comment">// NetworkParameters.CurrentNetwork</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="basic-rpc-interface"></a><a href="#basic-rpc-interface" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic RPC Interface</h2>
 <p>The basic <code>API</code> includes network, transaction, query, node information, economic model parameter configuration and other related interfaces. For details, refer to the following<code>API</code> instructions.</p>
 <h3><a class="anchor" aria-hidden="true" id="web3clientversion"></a><a href="#web3clientversion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3ClientVersion</h3>
 <blockquote>
@@ -1292,7 +1363,7 @@ StakingContract contract = StakingContract.load(web3j, credentials, chainId);
 <pre><code class="hljs css language-java">String nodeId = <span class="hljs-string">"77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050"</span>;
 BigDecimal stakingAmount = Convert.toVon(<span class="hljs-string">"1000000"</span>, Unit.LAT);
 StakingAmountType stakingAmountType = StakingAmountType.FREE_AMOUNT_TYPE;
-String benifitAddress = <span class="hljs-string">"0x02c344817be3448c97a059473121a6679450b414"</span>;
+String benifitAddress = <span class="hljs-string">"lax1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt"</span>;
 String externalId = <span class="hljs-string">""</span>;
 String nodeName = <span class="hljs-string">"integration-node1"</span>;
 String webSite = <span class="hljs-string">"https://www.platon.network/#/"</span>;
@@ -1372,7 +1443,7 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 <li><p><strong>Contract use</strong></p></li>
 </ul>
 <pre><code class="hljs css language-java">String nodeId = <span class="hljs-string">"77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050"</span>;
-String benifitAddress = benefitCredentials.getAddress();
+String benifitAddress = <span class="hljs-string">"lax1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt"</span>;
 String externalId = <span class="hljs-string">""</span>;
 String nodeName = <span class="hljs-string">"integration-node1-u"</span>;
 String webSite = <span class="hljs-string">"https://www.platon.network/#/"</span>;
@@ -1656,7 +1727,7 @@ TransactionResponse baseResponse = delegateContract.getTransactionResponse(plato
 <li><p><strong>Java SDK contract use</strong></p></li>
 </ul>
 <pre><code class="hljs css language-java">String nodeId = <span class="hljs-string">"77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050"</span>;
-String address = <span class="hljs-string">"0xc1f330b214668beac2e6418dd651b09c759a4bf5"</span>;
+String address = <span class="hljs-string">"lax1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt"</span>;
 BigInteger stakingBlockNum = <span class="hljs-keyword">new</span> BigInteger(<span class="hljs-string">"10888"</span>);
 
 CallResponse&lt;Delegation&gt; baseResponse = delegateContract.getDelegateInfo(nodeId, address, stakingBlockNum).send();
@@ -2365,7 +2436,7 @@ TransactionResponse baseResponse = restrictingPlanContract.getTransactionRespons
 <p><code>bin</code>，Output a hex-encoded solidity binary file to provide transaction requests.
 <code>abi</code>，Output a solidity application binary interface (<code>ABI</code>) file, which details all publicly accessible contract methods and their related parameters. The <code>abi</code> file is also used to generate the Java wrapper class corresponding to the solidity smart contract.</p>
 <ul>
-<li>Compile solidity source code with <code>platon-truffle</code>(<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#">platon-truffle development tool installation reference</a>|<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/">platon-truffle Development tool manual</a>)：</li>
+<li>Compile solidity source code with <code>platon-truffle</code>(<a href="https://platon-truffle.readthedocs.io/en/v0.13.0/getting-started/installation.html#">platon-truffle development tool installation reference</a>|<a href="https://platon-truffle.readthedocs.io/en/v0.13.0/">platon-truffle Development tool manual</a>)：</li>
 </ul>
 <blockquote>
 <p><strong>step1.</strong> Initialize the project with platon-truffle</p>
@@ -2440,7 +2511,7 @@ Put <span class="hljs-keyword">the</span> bytecode attribute <span class="hljs-k
 <h3><a class="anchor" aria-hidden="true" id="solidity-smart-contract-java-packaging-class"></a><a href="#solidity-smart-contract-java-packaging-class" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solidity Smart Contract Java Packaging Class</h3>
 <p>The Java SDK supports automatic generation of Java wrapper classes for Solidity smart contracts from an <code>abi</code> file.</p>
 <ul>
-<li>Generate Java wrapper classes via command line tools（<a href="https://download.platon.network/sdk/0.11.0.1-20200410/platon-web3j-0.11.0.1.zip">platon-web3j download</a>）:</li>
+<li>Generate Java wrapper classes via command line tools（<a href="https://download.platon.network/sdk/0.13.0.11-20200703/platon-web3j-0.13.0.11.zip">platon-web3j download</a>）:</li>
 </ul>
 <pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> platon-web3j solidity generate [--javaTypes|--solidityTypes] /path/to/&lt;smart-contract&gt;.bin /path/to/&lt;smart-contract&gt;.abi -o /path/to/src/main/java -p com.your.organisation.name</span>
 </code></pre>
@@ -2464,14 +2535,25 @@ org.web3j.codegen.SolidityFunctionWrapperGenerator.run(args);
 <h4><a class="anchor" aria-hidden="true" id="building-and-deploying-smart-contracts"></a><a href="#building-and-deploying-smart-contracts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building And Deploying Smart Contracts</h4>
 <p>The construction and deployment of smart contracts use the deploy method in the wrapper class：</p>
 <pre><code class="hljs css language-java">YourSmartContract contract = YourSmartContract.deploy(
-        &lt;web3j&gt;, &lt;transactionManager&gt;, contractGasProvider,
+        &lt;web3j&gt;, &lt;transactionManager&gt;, contractGasProvider, chainId
+        [&lt;initialValue&gt;,] &lt;param1&gt;, ..., &lt;paramN&gt;).send();
+
+or
+
+YourSmartContract contract = YourSmartContract.deploy(
+        &lt;web3j&gt;, &lt;Credentials&gt;, contractGasProvider, chainId
         [&lt;initialValue&gt;,] &lt;param1&gt;, ..., &lt;paramN&gt;).send();
 </code></pre>
 <p>This method will deploy smart contracts on the blockchain. After successful deployment, it will return a wrapper class instance of the smart contract, which contains the address of the smart contract.</p>
 <p>If your smart contract accepts LAT transfers on the structure, you need to initialize the parameter value <initialValue>.</p>
 <p>You can also create an instance of the Java wrapper class corresponding to the smart contract by using the address of the smart contract:</p>
 <pre><code class="hljs css language-java">YourSmartContract contract = YourSmartContract.load(
-        <span class="hljs-string">"0x&lt;address&gt;"</span>, web3j, transactionManager, contractGasProvider);
+        <span class="hljs-string">"&lt;bech32Address&gt;"</span>, web3j, transactionManager, contractGasProvider, chainId);
+
+or
+
+YourSmartContract contract = YourSmartContract.load(
+        <span class="hljs-string">"&lt;bech32Address&gt;"</span>, web3j, credentials, contractGasProvider, chainId);
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="smart-contract-validity"></a><a href="#smart-contract-validity" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Smart Contract Validity</h4>
 <p>Using this method, the validity of the smart contract can be verified. <code>True</code> will only be returned if the bytecode deployed in the contract address matches the bytecode in the smart contract package.</p>
@@ -2519,7 +2601,7 @@ GasProvider gasProvider  = <span class="hljs-keyword">new</span> ContractGasProv
 <p><code>wasm</code>，Output binary file of Wasm contract to provide transaction request.
 <code>abi.json</code>，Which details all publicly accessible contract methods and their related parameters. The <code>abi</code> file is also used to generate the Java wrapper class corresponding to the Wasm smart contract.</p>
 <ul>
-<li>Compile Wasm source code with <code>platon-truffle</code>(<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#">platon-truffle development tool installation reference</a>|<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/">platon-truffle Development tool manual</a>)</li>
+<li>Compile Wasm source code with <code>platon-truffle</code>(<a href="https://platon-truffle.readthedocs.io/en/v0.13.0/getting-started/installation.html#">platon-truffle development tool installation reference</a>|<a href="https://platon-truffle.readthedocs.io/en/v0.13.0/">platon-truffle Development tool manual</a>)</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="wasm-smart-contract-java-packaging-class"></a><a href="#wasm-smart-contract-java-packaging-class" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Wasm Smart Contract Java Packaging Class</h3>
 <p>The Java SDK supports automatic generation of Java wrapper classes for Wasm smart contracts from an <code>abi</code> file.</p>
@@ -2545,14 +2627,25 @@ org.web3j.codegen.WasmFunctionWrapperGenerator.run(args);
 <h4><a class="anchor" aria-hidden="true" id="building-and-deploying-smart-contracts-1"></a><a href="#building-and-deploying-smart-contracts-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building And Deploying Smart Contracts</h4>
 <p>The construction and deployment of smart contracts use the deploy method in the wrapper class：</p>
 <pre><code class="hljs css language-java">YourSmartContract contract = YourSmartContract.deploy(
-        &lt;web3j&gt;, &lt;transactionManager&gt;, contractGasProvider,
+        &lt;web3j&gt;, &lt;transactionManager&gt;, contractGasProvider, chainId,
+        [&lt;initialValue&gt;,] &lt;param1&gt;, ..., &lt;paramN&gt;).send();
+
+or
+
+YourSmartContract contract = YourSmartContract.deploy(
+        &lt;web3j&gt;, &lt;Credentials&gt;, contractGasProvider, chainId,
         [&lt;initialValue&gt;,] &lt;param1&gt;, ..., &lt;paramN&gt;).send();
 </code></pre>
 <p>This method will deploy smart contracts on the blockchain. After successful deployment, it will return a wrapper class instance of the smart contract, which contains the address of the smart contract.</p>
 <p>If your smart contract accepts LAT transfers on the structure, you need to initialize the parameter value <initialValue>.</p>
 <p>You can also create an instance of the Java wrapper class corresponding to the smart contract by using the address of the smart contract:</p>
 <pre><code class="hljs css language-java">YourSmartContract contract = YourSmartContract.load(
-        <span class="hljs-string">"0x&lt;address&gt;"</span>, web3j, transactionManager, contractGasProvider);
+        <span class="hljs-string">"&lt;bech32Address&gt;"</span>, web3j, transactionManager, contractGasProvider,chainId);
+
+or
+
+YourSmartContract contract = YourSmartContract.load(
+        <span class="hljs-string">"&lt;bech32Address&gt;"</span>, web3j, credentials, contractGasProvider,chainId);
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="smart-contract-validity-1"></a><a href="#smart-contract-validity-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Smart Contract Validity</h4>
 <p>Using this method, the validity of the smart contract can be verified. <code>True</code> will only be returned if the bytecode deployed in the contract address matches the bytecode in the smart contract package.</p>
@@ -2587,7 +2680,7 @@ GasProvider gasProvider  = <span class="hljs-keyword">new</span> ContractGasProv
 <p>Constant methods only do queries without changing the state of the smart contract.</p>
 <pre><code class="hljs css language-java">Type result = contract.someMethod(&lt;param1&gt;, ...).send();
 </code></pre>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/WASM_Smart_Contract"><span class="arrow-prev">← </span><span>WASM Smart Contract</span></a><a class="docs-next button" href="/docs/en/JS_SDK"><span>JS SDK</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#import-development-library">Import Development Library</a><ul class="toc-headings"><li><a href="#maven">maven</a></li><li><a href="#gradle">gradle</a></li></ul></li><li><a href="#basic-api-usage">Basic API Usage</a><ul class="toc-headings"><li><a href="#web3clientversion">web3ClientVersion</a></li><li><a href="#web3sha3">web3Sha3</a></li><li><a href="#netversion">netVersion</a></li><li><a href="#netlistening">netListening</a></li><li><a href="#netpeercount">netPeerCount</a></li><li><a href="#platonprotocolversion">platonProtocolVersion</a></li><li><a href="#platonsyncing">PlatonSyncing</a></li><li><a href="#platongasprice">platonGasPrice</a></li><li><a href="#platonaccounts">platonAccounts</a></li><li><a href="#platonblocknumber">platonBlockNumber</a></li><li><a href="#platongetbalance">platonGetBalance</a></li><li><a href="#platongetstorageat">platonGetStorageAt</a></li><li><a href="#platongetblocktransactioncountbyhash">platonGetBlockTransactionCountByHash</a></li><li><a href="#platongettransactioncount">platonGetTransactionCount</a></li><li><a href="#platongetblocktransactioncountbynumber">platonGetBlockTransactionCountByNumber</a></li><li><a href="#platongetcode">platonGetCode</a></li><li><a href="#platonsign">platonSign</a></li><li><a href="#platonsendtransaction">platonSendTransaction</a></li><li><a href="#platonsendrawtransaction">platonSendRawTransaction</a></li><li><a href="#platoncall">platonCall</a></li><li><a href="#platonestimategas">platonEstimateGas</a></li><li><a href="#platongetblockbyhash">platonGetBlockByHash</a></li><li><a href="#platongetblockbynumber">platonGetBlockByNumber</a></li><li><a href="#platongettransactionbyblockhashandindex">platonGetTransactionByBlockHashAndIndex</a></li><li><a href="#platongettransactionbyblocknumberandindex">platonGetTransactionByBlockNumberAndIndex</a></li><li><a href="#platongettransactionreceipt">platonGetTransactionReceipt</a></li><li><a href="#platonnewfilter">platonNewFilter</a></li><li><a href="#platonnewblockfilter">platonNewBlockFilter</a></li><li><a href="#platonnewpendingtransactionfilter">platonNewPendingTransactionFilter</a></li><li><a href="#platonnewpendingtransactionfilter-1">platonNewPendingTransactionFilter</a></li><li><a href="#platonuninstallfilter">platonUninstallFilter</a></li><li><a href="#platongetfilterchanges">platonGetFilterChanges</a></li><li><a href="#platongetfilterlogs">platonGetFilterLogs</a></li><li><a href="#platongetlogs">platonGetLogs</a></li><li><a href="#platonpendingtransactions">platonPendingTransactions</a></li><li><a href="#dbputstring">dbPutString</a></li><li><a href="#dbgetstring">dbGetString</a></li><li><a href="#dbputhex">dbPutHex</a></li><li><a href="#dbgethex">dbGetHex</a></li><li><a href="#platonevidences">platonEvidences</a></li><li><a href="#getprogramversion">getProgramVersion</a></li><li><a href="#getschnorrnizkprove">getSchnorrNIZKProve</a></li><li><a href="#geteconomicconfig">getEconomicConfig</a></li></ul></li><li><a href="#system-contract-call">System Contract Call</a><ul class="toc-headings"><li><a href="#pledge-related-interface">Pledge Related Interface</a></li><li><a href="#delegation-related-interface">Delegation Related Interface</a></li><li><a href="#reward-related-interface">Reward Related Interface</a></li><li><a href="#node-related-contracts">Node-related Contracts</a></li><li><a href="#governance-related-contracts">Governance Related Contracts</a></li><li><a href="#double-sign-report-related-interface">Double Sign Report Related Interface</a></li><li><a href="#lock-related-interface">Lock Related Interface</a></li></ul></li><li><a href="#solidity-contract-call">Solidity Contract Call</a><ul class="toc-headings"><li><a href="#compile-solidity-source-code">Compile Solidity Source Code</a></li><li><a href="#solidity-smart-contract-java-packaging-class">Solidity Smart Contract Java Packaging Class</a></li></ul></li><li><a href="#wasm-contract-call">Wasm Contract Call</a><ul class="toc-headings"><li><a href="#compile-wasm-source-code">Compile Wasm Source Code</a></li><li><a href="#wasm-smart-contract-java-packaging-class">Wasm Smart Contract Java Packaging Class</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2020 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/WASM_Smart_Contract"><span class="arrow-prev">← </span><span>WASM Smart Contract</span></a><a class="docs-next button" href="/docs/en/JS_SDK"><span>JS SDK</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#import-development-library">Import Development Library</a><ul class="toc-headings"><li><a href="#maven">maven</a></li><li><a href="#gradle">gradle</a></li></ul></li><li><a href="#basic-api-usage">Basic API Usage</a><ul class="toc-headings"><li><a href="#bech32-address">Bech32 Address</a></li><li><a href="#networkparameters">NetworkParameters</a></li><li><a href="#wallet-related">Wallet Related</a></li><li><a href="#credentials-related">Credentials Related</a></li></ul></li><li><a href="#basic-rpc-interface">Basic RPC Interface</a><ul class="toc-headings"><li><a href="#web3clientversion">web3ClientVersion</a></li><li><a href="#web3sha3">web3Sha3</a></li><li><a href="#netversion">netVersion</a></li><li><a href="#netlistening">netListening</a></li><li><a href="#netpeercount">netPeerCount</a></li><li><a href="#platonprotocolversion">platonProtocolVersion</a></li><li><a href="#platonsyncing">PlatonSyncing</a></li><li><a href="#platongasprice">platonGasPrice</a></li><li><a href="#platonaccounts">platonAccounts</a></li><li><a href="#platonblocknumber">platonBlockNumber</a></li><li><a href="#platongetbalance">platonGetBalance</a></li><li><a href="#platongetstorageat">platonGetStorageAt</a></li><li><a href="#platongetblocktransactioncountbyhash">platonGetBlockTransactionCountByHash</a></li><li><a href="#platongettransactioncount">platonGetTransactionCount</a></li><li><a href="#platongetblocktransactioncountbynumber">platonGetBlockTransactionCountByNumber</a></li><li><a href="#platongetcode">platonGetCode</a></li><li><a href="#platonsign">platonSign</a></li><li><a href="#platonsendtransaction">platonSendTransaction</a></li><li><a href="#platonsendrawtransaction">platonSendRawTransaction</a></li><li><a href="#platoncall">platonCall</a></li><li><a href="#platonestimategas">platonEstimateGas</a></li><li><a href="#platongetblockbyhash">platonGetBlockByHash</a></li><li><a href="#platongetblockbynumber">platonGetBlockByNumber</a></li><li><a href="#platongettransactionbyblockhashandindex">platonGetTransactionByBlockHashAndIndex</a></li><li><a href="#platongettransactionbyblocknumberandindex">platonGetTransactionByBlockNumberAndIndex</a></li><li><a href="#platongettransactionreceipt">platonGetTransactionReceipt</a></li><li><a href="#platonnewfilter">platonNewFilter</a></li><li><a href="#platonnewblockfilter">platonNewBlockFilter</a></li><li><a href="#platonnewpendingtransactionfilter">platonNewPendingTransactionFilter</a></li><li><a href="#platonnewpendingtransactionfilter-1">platonNewPendingTransactionFilter</a></li><li><a href="#platonuninstallfilter">platonUninstallFilter</a></li><li><a href="#platongetfilterchanges">platonGetFilterChanges</a></li><li><a href="#platongetfilterlogs">platonGetFilterLogs</a></li><li><a href="#platongetlogs">platonGetLogs</a></li><li><a href="#platonpendingtransactions">platonPendingTransactions</a></li><li><a href="#dbputstring">dbPutString</a></li><li><a href="#dbgetstring">dbGetString</a></li><li><a href="#dbputhex">dbPutHex</a></li><li><a href="#dbgethex">dbGetHex</a></li><li><a href="#platonevidences">platonEvidences</a></li><li><a href="#getprogramversion">getProgramVersion</a></li><li><a href="#getschnorrnizkprove">getSchnorrNIZKProve</a></li><li><a href="#geteconomicconfig">getEconomicConfig</a></li></ul></li><li><a href="#system-contract-call">System Contract Call</a><ul class="toc-headings"><li><a href="#pledge-related-interface">Pledge Related Interface</a></li><li><a href="#delegation-related-interface">Delegation Related Interface</a></li><li><a href="#reward-related-interface">Reward Related Interface</a></li><li><a href="#node-related-contracts">Node-related Contracts</a></li><li><a href="#governance-related-contracts">Governance Related Contracts</a></li><li><a href="#double-sign-report-related-interface">Double Sign Report Related Interface</a></li><li><a href="#lock-related-interface">Lock Related Interface</a></li></ul></li><li><a href="#solidity-contract-call">Solidity Contract Call</a><ul class="toc-headings"><li><a href="#compile-solidity-source-code">Compile Solidity Source Code</a></li><li><a href="#solidity-smart-contract-java-packaging-class">Solidity Smart Contract Java Packaging Class</a></li></ul></li><li><a href="#wasm-contract-call">Wasm Contract Call</a><ul class="toc-headings"><li><a href="#compile-wasm-source-code">Compile Wasm Source Code</a></li><li><a href="#wasm-smart-contract-java-packaging-class">Wasm Smart Contract Java Packaging Class</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2020 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
