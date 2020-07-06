@@ -57,7 +57,7 @@ Example:
 
 ```js
 web3.version;
-> "0.11.0"
+> "0.13.0"
 ```
 
 ***
@@ -228,8 +228,8 @@ Example:
 var contract = new web3.platon.Contract(abi, address);
 
 var batch = new web3.BatchRequest();
-batch.add(web3.platon.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback));
-batch.add(contract.methods.balance(address).call.request({from: '0x0000000000000000000000000000000000000000'}, callback2));
+batch.add(web3.platon.getBalance.request('lax1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqmscn5j', 'latest', callback));
+batch.add(contract.methods.balance(address).call.request({from: 'lax1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqmscn5j'}, callback2));
 batch.execute();
 ```
 
@@ -261,7 +261,7 @@ web3.platon.defaultAccount;
 > undefined
 
 // set the default account
-web3.platon.defaultAccount = '0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe';
+web3.platon.defaultAccount = 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6';
 ```
 
 ***
@@ -407,7 +407,7 @@ Example:
 
 ```js
 web3.platon.getAccounts().then(console.log);
-> ["0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe", "0xDCc6960376d6C6dEa93647383FfB245CfCed97Cf"]
+> ["lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6", "lax1kg7y7wfwzqsyxppyxcdvhkkkwlf64ccl8x93ut"]
 ```
 
 ***
@@ -458,7 +458,7 @@ Returns:
 Example:
 
 ```js
-web3.platon.getBalance("0x407d73d8a49eeb85d32cf465507dd71d507100c1")
+web3.platon.getBalance("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > "1000000000000"
 ```
@@ -489,7 +489,7 @@ Returns:
 Example:
 
 ```js
-web3.platon.getStorageAt("0x407d73d8a49eeb85d32cf465507dd71d507100c1", 0)
+web3.platon.getStorageAt("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6", 0)
 .then(console.log);
 > "0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234"
 ```
@@ -519,7 +519,7 @@ Returns:
 Example:
 
 ```js
-web3.platon.getCode("0xd5677cf67b5aa051bb40496e68ad359eb97cfbf8")
+web3.platon.getCode("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > "0x600160008035811a818181146012578301005b601b6001356025565b8060005260206000f25b600060078202905091905056"
 ```
@@ -580,7 +580,7 @@ web3.platon.getBlock(3150)
     "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "transactionsRoot": "0x3a1b03875115b79539e5bd33fb00d8f7b7cd61929d5a3c574f507b8acf415bee",
     "stateRoot": "0xf1133199d44695dfa8fd1bcfe424d82854b5cebef75bddd7e40ea94cda515bcb",
-    "miner": "0x8888f1f195afa192cfee860698584c030f4c9db1",
+    "miner": "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6",
     "difficulty": '21345678965432',
     "totalDifficulty": '324567845321',
     "size": 616,
@@ -619,7 +619,7 @@ Returns:
 Example:
 
 ```js
-web3.platon.getBlockTransactionCount("0x407d73d8a49eeb85d32cf465507dd71d507100c1")
+web3.platon.getBlockTransactionCount("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > 1
 ```
@@ -668,8 +668,8 @@ web3.platon.getTransaction('0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4
     "blockHash": "0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
     "blockNumber": 3,
     "transactionIndex": 0,
-    "from": "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
-    "to": "0x6295ee1b4f6dd65047762f924ecd367c17eabf8f",
+    "from": "lax14984xa8uuhkmer32s6tuz5e3valxa0ct68a0c5",
+    "to": "lax1v227ux60dht9q3mk97fyanfk0st740u0x25f88",
     "value": '123450000000000000',
     "gas": 314159,
     "gasPrice": '2000000000000',
@@ -754,7 +754,7 @@ var receipt = web3.platon.getTransactionReceipt('0x9fc76417374aa880d4449a1f7f31e
   "transactionIndex": 0,
   "blockHash": "0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
   "blockNumber": 3,
-  "contractAddress": "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe",
+  "contractAddress": "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6",
   "cumulativeGasUsed": 314159,
   "gasUsed": 30234,
   "logs": [{
@@ -788,7 +788,7 @@ Returns:
 Example:
 
 ```js
-web3.platon.getTransactionCount("0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe")
+web3.platon.getTransactionCount("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > 1
 ```
@@ -836,7 +836,7 @@ var code = "603d80600c6000396000f3007c010000000000000000000000000000000000000000
 
 // using the callback
 web3.platon.sendTransaction({
-    from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
+    from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv',
     data: code // deploying a contracrt
 }, function(error, hash){
     ...
@@ -844,8 +844,8 @@ web3.platon.sendTransaction({
 
 // using the promise
 web3.platon.sendTransaction({
-    from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
-    to: '0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe',
+    from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv',
+    to: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6',
     value: '1000000000000000'
 })
 .then(function(receipt){
@@ -855,8 +855,8 @@ web3.platon.sendTransaction({
 
 // using the event emitter
 web3.platon.sendTransaction({
-    from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
-    to: '0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe',
+    from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv',
+    to: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6',
     value: '1000000000000000'
 })
 .on('transactionHash', function(hash){
@@ -903,7 +903,7 @@ var rawTx = {
   nonce: '0x00',
   gasPrice: '0x09184e72a000',
   gasLimit: '0x2710',
-  to: '0x0000000000000000000000000000000000000000',
+  to: 'lax1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqmscn5j',
   value: '0x00',
   data: '0x7f7465737432000000000000000000000000000000000000000000000000000000600057'
 }
@@ -956,12 +956,12 @@ Returns:
 Example:
 
 ```js
-web3.platon.sign("Hello world", "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe")
+web3.platon.sign("Hello world", "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"
 
 // the below is the same
-web3.platon.sign(web3.utils.utf8ToHex("Hello world"), "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe")
+web3.platon.sign(web3.utils.utf8ToHex("Hello world"), "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"
 ```
@@ -992,10 +992,10 @@ Example:
 
 ```js
 web3.platon.signTransaction({
-    from: "0xEB014f8c8B418Db6b45774c326A0E64C78914dC0",
+    from: "lax1avq5lrytgxxmddzhwnpjdg8xf3ufznwqrjn60v",
     gasPrice: "20000000000",
     gas: "21000",
-    to: '0x3535353535353535353535353535353535353535',
+    to: 'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
     value: "1000000000000000000",
     data: ""
 }).then(console.log);
@@ -1005,7 +1005,7 @@ web3.platon.signTransaction({
         nonce: '0x0',
         gasPrice: '0x4a817c800',
         gas: '0x5208',
-        to: '0x3535353535353535353535353535353535353535',
+        to: 'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
         value: '0xde0b6b3a7640000',
         input: '0x',
         v: '0x25',
@@ -1041,7 +1041,7 @@ Example:
 
 ```js
 web3.platon.estimateGas({
-    to: "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe",
+    to: "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6",
     data: "0xc6888fa10000000000000000000000000000000000000000000000000000000000000003"
 })
 .then(console.log);
@@ -1087,7 +1087,7 @@ Example:
 
 ```js
 web3.platon.getPastLogs({
-    address: "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe",
+    address: "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6",
     topics: ["0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234"]
 })
 .then(console.log);
@@ -1100,7 +1100,7 @@ web3.platon.getPastLogs({
     transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
     blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
     blockNumber: 1234,
-    address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
+    address: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'
 },{...}]
 ```
 
@@ -1143,8 +1143,8 @@ Example:
 
 ```js
 var subscription = web3.platon.subscribe('logs', {
-    address: '0x123456..',
-    topics: ['0x12345...']
+    address: 'lax..',
+    topics: ['lax...']
 }, function(error, result){
     if (!error)
         console.log(log);
@@ -1395,8 +1395,8 @@ Example:
 
 ```js
 var subscription = web3.platon.subscribe('logs', {
-    address: '0x123456..',
-    topics: ['0x12345...']
+    address: 'lax..',
+    topics: ['lax...']
 }, function(error, result){
     if (!error)
         console.log(result);
@@ -1446,8 +1446,8 @@ Returns:
 Example:
 
 ```js
-var myContract = new web3.platon.Contract([...], '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe', {
-    from: '0x1234567890123456789012345678901234567891', // default from address
+var myContract = new web3.platon.Contract([...], 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv', {
+    from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf', // default from address
     gasPrice: '20000000000' // default gas price in wei, 20 gwei in this case
 });
 ```
@@ -1478,14 +1478,14 @@ Example:
 ```js
 myContract.options;
 > {
-    address: '0x1234567890123456789012345678901234567891',
+    address: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf',
     jsonInterface: [...],
-    from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
+    from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv',
     gasPrice: '10000000000000',
     gas: 1000000
 }
 
-myContract.options.from = '0x1234567890123456789012345678901234567891'; // default from address
+myContract.options.from = 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'; // default from address
 myContract.options.gasPrice = '20000000000000'; // default gas price in wei
 myContract.options.gas = 5000000; // provide as fallback always 5M gas
 ```
@@ -1510,10 +1510,10 @@ Example:
 
 ```js
 myContract.options.address;
-> '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae'
+> 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'
 
 // set a new address
-myContract.options.address = '0x1234FFDD...';
+myContract.options.address = 'lax...';
 ```
 
 ***
@@ -1587,7 +1587,7 @@ myContract.deploy({
     arguments: [123, 'My String']
 })
 .send({
-    from: '0x1234567890123456789012345678901234567891',
+    from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf',
     gas: 1500000,
     gasPrice: '30000000000000'
 }, function(error, transactionHash){ ... })
@@ -1609,7 +1609,7 @@ myContract.deploy({
     arguments: [123, 'My String']
 })
 .send({
-    from: '0x1234567890123456789012345678901234567891',
+    from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf',
     gas: 1500000,
     gasPrice: '30000000000000'
 })
@@ -1677,18 +1677,18 @@ Example:
 
 ```js
 // calling a method
-myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, result){
+myContract.methods.myMethod(123).call({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'}, function(error, result){
     ...
 });
 
 // or sending and using a promise
-myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
+myContract.methods.myMethod(123).send({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'})
 .then(function(receipt){
     // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
 });
 
 // or sending and using the events
-myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
+myContract.methods.myMethod(123).send({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'})
 .on('transactionHash', function(hash){
     ...
 })
@@ -1728,12 +1728,12 @@ Example:
 
 ```js
 // using the callback
-myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, result){
+myContract.methods.myMethod(123).call({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'}, function(error, result){
     ...
 });
 
 // using the promise
-myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
+myContract.methods.myMethod(123).call({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'})
 .then(function(result){
     ...
 });
@@ -1821,19 +1821,19 @@ Example:
 
 ```js
 // using the callback
-myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, transactionHash){
+myContract.methods.myMethod(123).send({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'}, function(error, transactionHash){
     ...
 });
 
 // using the promise
-myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
+myContract.methods.myMethod(123).send({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'})
 .then(function(receipt){
     // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
 });
 
 
 // using the event emitter
-myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
+myContract.methods.myMethod(123).send({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'})
 .on('transactionHash', function(hash){
     ...
 })
@@ -1848,7 +1848,7 @@ myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4
         "transactionIndex": 0,
         "blockHash": "0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
         "blockNumber": 3,
-        "contractAddress": "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe",
+        "contractAddress": "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6",
         "cumulativeGasUsed": 314159,
         "gasUsed": 30234,
         "events": {
@@ -1869,7 +1869,7 @@ myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4
                 transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
                 blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
                 blockNumber: 1234,
-                address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
+                address: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'
             },
             "MyOtherEvent": {
                 ...
@@ -1916,7 +1916,7 @@ myContract.methods.myMethod(123).estimateGas({gas: 5000000}, function(error, gas
 });
 
 // using the promise
-myContract.methods.myMethod(123).estimateGas({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
+myContract.methods.myMethod(123).estimateGas({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'})
 .then(function(gasAmount){
     ...
 })
@@ -2028,7 +2028,7 @@ myContract.events.MyEvent({
     transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
     blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
     blockNumber: 1234,
-    address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
+    address: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'
 }
 ```
 
@@ -2099,7 +2099,7 @@ myContract.getPastEvents('MyEvent', {
     transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
     blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
     blockNumber: 1234,
-    address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
+    address: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'
 },{
     ...
 }]
@@ -2158,7 +2158,7 @@ Example:
 ```js
 web3.platon.personal.newAccount('!@superpassword')
 .then(console.log);
-> '0x1234567891011121314151617181920212223456'
+> 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'
 ```
 
 ***
@@ -2189,12 +2189,12 @@ Returns:
 Example:
 
 ```js
-web3.platon.personal.sign("Hello world", "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe", "test password!")
+web3.platon.personal.sign("Hello world", "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6", "test password!")
 .then(console.log);
 > "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"
 
 // the below is the same
-web3.platon.personal.sign(web3.utils.utf8ToHex("Hello world"), "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe", "test password!")
+web3.platon.personal.sign(web3.utils.utf8ToHex("Hello world"), "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6", "test password!")
 .then(console.log);
 > "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"
 ```
@@ -2225,7 +2225,7 @@ Example:
 
 ```js
 web3.platon.personal.ecRecover("Hello world", "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400").then(console.log);
-> "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe"
+> "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"
 ```
 
 ***
@@ -2256,10 +2256,10 @@ Example:
 
 ```js
 web3.platon.signTransaction({
-    from: "0xEB014f8c8B418Db6b45774c326A0E64C78914dC0",
+    from: "lax1avq5lrytgxxmddzhwnpjdg8xf3ufznwqrjn60v",
     gasPrice: "20000000000",
     gas: "21000",
-    to: '0x3535353535353535353535353535353535353535',
+    to: 'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
     value: "1000000000000000000",
     data: ""
 }, 'MyPassword!').then(console.log);
@@ -2269,7 +2269,7 @@ web3.platon.signTransaction({
         nonce: '0x0',
         gasPrice: '0x4a817c800',
         gas: '0x5208',
-        to: '0x3535353535353535353535353535353535353535',
+        to: 'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
         value: '0xde0b6b3a7640000',
         input: '0x',
         v: '0x25',
@@ -2810,18 +2810,18 @@ web3.utils.soliditySha3({t: 'uint', v: new BN('234')})); // same as above
 > "0x61c831beab28d67d1bb40b5ae1a11e2757fa842f031a2d0bc94a7867bc5d26c2"
 
 
-web3.utils.soliditySha3('0x407D73d8a49eeb85D32Cf465507dd71d507100c1');
+web3.utils.soliditySha3('lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6');
 > "0x4e8ebbefa452077428f93c9520d3edd60594ff452a29ac7d2ccc11d47f3ab95b"
 
-web3.utils.soliditySha3({t: 'bytes', v: '0x407D73d8a49eeb85D32Cf465507dd71d507100c1'});
+web3.utils.soliditySha3({t: 'bytes', v: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'});
 > "0x4e8ebbefa452077428f93c9520d3edd60594ff452a29ac7d2ccc11d47f3ab95b" // same result as above
 
 
-web3.utils.soliditySha3({t: 'address', v: '0x407D73d8a49eeb85D32Cf465507dd71d507100c1'});
+web3.utils.soliditySha3({t: 'address', v: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'});
 > "0x4e8ebbefa452077428f93c9520d3edd60594ff452a29ac7d2ccc11d47f3ab95b" //same as above, but will do a checksum check, if its multi case
 
 
-web3.utils.soliditySha3({t: 'bytes32', v: '0x407D73d8a49eeb85D32Cf465507dd71d507100c1'});
+web3.utils.soliditySha3({t: 'bytes32', v: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'});
 > "0x3c69a194aaf415ba5d6afca734660d0a3d45acdc05d54cd1ca89a8988e7625b4" // different result as above
 
 
@@ -2953,6 +2953,106 @@ web3.utils.isAddress('0xC1912fEE45d61C87Cc5EA59DaE31190FFFFf232d');
 ```
 
 ***
+
+#### web3.utils.isBech32Address
+
+ Check whether the specified character string is a valid address in bech32 format. 
+
+ Method: 
+
+```js
+web3.utils.isBech32Address(bech32Address)
+```
+
+ Parameter: 
+
+`bech32Address` - String:  The address string to be checked in bech32 format; lax represents the test network address, and lat represents the main network address. 
+
+Returns:
+
+`Boolean`: Valid address returns true, otherwise returns false.
+
+ Sample code: 
+
+```js
+web3.utils.isBech32Address('lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf');
+> true
+
+web3.utils.isBech32Address('lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf');
+> false
+
+web3.utils.isBech32Address('lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
+> true
+
+web3.utils.isBech32Address('lax1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
+> false
+```
+
+------
+
+#### web3.utils.toBech32Address
+
+ Convert a valid Ethereum address to a bech32 format address of the designated network. 
+
+Method:
+
+```js
+web3.utils.toBech32Address(hrp, address)
+```
+
+Parameters:
+
+`hrp` - String:  Specify the network parameters, lax indicates the test network address, and lat indicates the main network address.
+
+`address` - String:  Ethereum address format string. 
+
+Returns:
+
+`String`: Returns address string in bech32 format
+
+ Sample code: 
+
+```js
+web3.utils.toBech32Address('lax', '0x1234567890123456789012345678901234567891');
+> 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'
+
+web3.utils.toBech32Address('lat', '0x1234567890123456789012345678901234567891');
+> 'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx'
+```
+
+------
+
+#### web3.utils.decodeBech32Address
+
+ Resolve the bech32 format address of the specified network into a valid Ethereum address. 
+
+Method:
+
+```js
+web3.utils.decodeBech32Address(hrp, bech32Address)
+```
+
+Parameters:
+
+`hrp` - String:  Specify the network parameters, lax indicates the test network address, and lat indicates the main network address.
+
+`bech32Address` - String:   Address string in bech32 format. 
+
+Returns:
+
+`String`:  The resolution correctly returns a valid Ethereum address, otherwise it returns null. 
+
+Sample code: 
+
+```js
+web3.utils.decodeBech32Address('lax', 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf');
+> '0x1234567890123456789012345678901234567891'
+
+web3.utils.decodeBech32Address('lat', 'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
+> '0x1234567890123456789012345678901234567891'
+```
+
+------
 
 #### web3.utils.toChecksumAddress
 
@@ -3440,7 +3540,7 @@ Of course, in order to satisfy multiple ppos that can be instantiated arbitraril
     let data, reply;
 
     // Passing parameters to send transactions in the form of objects: 1000. createStaking (): initiate a pledge.
-    const benefitAddress = '0xe6F2ce1aaF9EBf2fE3fbA8763bABaDf25e3fb5FA';
+    const benefitAddress = 'lax1umevux40n6ljlclm4pmrh2ad7f0rld06hkzx3u';
     const nodeId = '80f1fcee54de74dbf7587450f31c31c0e057bedd4faaa2a10c179d52c900ca01f0fb255a630c49d83b39f970d175c42b12a341a37504be248d76ecf592d32bc0';
     const amount = '10000000000000000000000000000';
     const blsPubKey = 'd2459db974f49ca9cbf944d4d04c2d17888aef90858b62d6aec166341a6e886e8c0c0cfae9e469c2f618f5d9b7a249130d10047899da6154288c9cde07b576acacd75fef07ba0cfeb4eaa7510704e77a9007eff5f1a5f8d099e6ea664129780c';
@@ -3519,11 +3619,11 @@ createStaking params object reply:  {
   "blockNumber": "0xb",
   "contractAddress": null,
   "cumulativeGasUsed": "0x14f34",
-  "from": "0x714de266a0effa39fcaca1442b927e5f1053eaa3",
+  "from": "lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35",
   "gasUsed": "0x14f34",
   "logs": [
     {
-      "address": "0x1000000000000000000000000000000000000002",
+      "address": "lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35",
       "topics": [
         "0xd63087bea9f1800eed943829fc1d61e7869764805baa3259078c1caf3d4f5a48"
       ],
@@ -3543,7 +3643,7 @@ createStaking params object reply:  {
   ],
   "logsBloom": "",
   "root": "0x3b7a41cea97f90196039586a3068f6a64c09aa7597898440c3c241a095e37984",
-  "to": "0x1000000000000000000000000000000000000002",
+  "to": "lax1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3",
   "transactionHash": "0x4bee71e351076a81482e2576e469a8dfaa76da9b6cc848265c10968d6de67364",
   "transactionIndex": "0x0"
 }
@@ -3553,10 +3653,10 @@ createStaking params array reply:  { blockHash:
   blockNumber: '0x10',
   contractAddress: null,
   cumulativeGasUsed: '0x14f34',
-  from: '0x714de266a0effa39fcaca1442b927e5f1053eaa3',
+  from: 'lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35',
   gasUsed: '0x14f34',
   logs:
-   [ { address: '0x1000000000000000000000000000000000000002',
+   [ { address: 'lax1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3',
        topics: [Array],
        data:
         '0xf846b8447b22436f6465223a3330313130312c2244617461223a22222c224572724d7367223a22546869732063616e64696461746520697320616c7265616479206578697374227d',
@@ -3572,7 +3672,7 @@ createStaking params array reply:  { blockHash:
   logsBloom:'',
   root:
    '0x45ffeda340b68a0d54c5556a51f925b0787307eab1fb120ed141fd8ba81183d4',
-  to: '0x1000000000000000000000000000000000000002',
+  to: 'lax1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3',
   transactionHash:
    '0xe5cbc728d6e284464c30ce6f0bbee5fb2b30351a591424f3a0edd37cc1bbdc05',
   transactionIndex: '0x0' }
@@ -3689,7 +3789,7 @@ let reply = await ppos.rpc('admin_getProgramVersion');
 let reply = await ppos.rpc('platon_accounts')
 
 // Get the amount of the specified account.
-let reply = await ppos.rpc('platon_getBalance', ["0x714de266a0effa39fcaca1442b927e5f1053eaa3","latest"])
+let reply = await ppos.rpc('platon_getBalance', ["lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35","latest"])
 ```
 
 ***
@@ -3774,12 +3874,12 @@ let params, reply;
 // Called by passing in an object (the order is not required for the key)
 params = {
     funcType: 1103,
-    addr: ppos.hexStrBuf("0xe6F2ce1aaF9EBf2fE3fbA8763bABaDf25e3fb5FA")
+    addr: ppos.hexStrBuf("lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35")
 }
 reply = await ppos.call(params);
 
 // Calling as an array object.
-params = [1103, ppos.hexStrBuf("0xe6F2ce1aaF9EBf2fE3fbA8763bABaDf25e3fb5FA")];
+params = [1103, ppos.hexStrBuf("lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35")];
 reply = await ppos.call(params);
 ```
 
