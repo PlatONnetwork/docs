@@ -127,10 +127,13 @@ mtool-client account new staking
 >>
 >> **Important** write this Private Key in a safe place.
 >> It is the important way to recover your account if you ever forget your password.
->> 4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+>>
+>> `4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07`
+>>
 >> **Important** write this mnemonic phrase in a safe place.
 >> It is the important way to recover your account if you ever forget your password.
->> worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
+>>
+>> `worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney`
 >
 > among them: 
 >
@@ -138,7 +141,7 @@ mtool-client account new staking
 >
 >`worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney`: the mnemonic words.
 >
-> For security reasons, users need to make backups (both can be backed up or one of them can be backed up). When the wallet is lost, it can be used for recovery. 
+> For security reasons, users need to make backups (both can be backed up or one of them can be backed up). When the wallet is lost, it can be used for recovery,  It is recommended that users back up mnemonic words or private keys to secure storage media, such as offline machines. 
 
 ### Recover wallet file
 

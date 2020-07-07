@@ -130,10 +130,13 @@ mtool-client account new staking
 >>
 >>**Important** write this Private Key in a safe place.
 >>It is the important way to recover your account if you ever forget your password.
->>4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+>>
+>>`4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07`
+>>
 >>**Important** write this mnemonic phrase in a safe place.
 >>It is the important way to recover your account if you ever forget your password.
->>worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
+>>
+>>`worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney`
 >
 >其中：
 >
@@ -141,7 +144,7 @@ mtool-client account new staking
 >
 >`worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney` 为助记词。
 >
->出于安全考虑，用户需进行备份（可都进行备份，也可备份其中一个），钱包丢失时，可用于恢复。
+>出于安全考虑，用户需进行备份（可都进行备份，也可备份其中一个），钱包丢失时，可用于恢复。建议用户将助记词或者私钥备份到安全的存储介质上，如离线机器等。
 
 ### 恢复钱包
 
