@@ -2992,7 +2992,7 @@ web3.utils.isBech32Address('lax1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
 
 #### web3.utils.toBech32Address
 
- Convert a valid Ethereum address to a bech32 format address of the designated network. 
+ Convert a valid Ethereum address to a bech32 format address of the designated network.  
 
 Method:
 

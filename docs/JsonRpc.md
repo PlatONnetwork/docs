@@ -257,7 +257,7 @@ none
 
 ##### Returns
 
-`Array of DATA`, 20 Bytes - addresses owned by the client.
+`Array of DATA`, string - address string in bech32 format owned by the client.
 
 ##### Example
 ```js
@@ -268,7 +268,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_accounts","params":[],"id
 {
   "id":1,
   "jsonrpc": "2.0",
-  "result": ["0x407d73d8a49eeb85d32cf465507dd71d507100c1"]
+  "result": ["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3"]
 }
 ```
 
@@ -306,12 +306,12 @@ Returns the balance of the account of given address.
 
 ##### Parameters
 
-1. `DATA`, 20 Bytes - address to check for balance.
+1. `DATA`, string - address string in bech32 format to check for balance.
 2. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`.
 
 ```js
 params: [
-   '0x407d73d8a49eeb85d32cf465507dd71d507100c1',
+   'lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3',
    'latest'
 ]
 ```
@@ -324,7 +324,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBalance","params":["0x407d73d8a49eeb85d32cf465507dd71d507100c1", "latest"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBalance","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3", "latest"],"id":1}'
 
 // Result
 {
@@ -342,14 +342,14 @@ Returns the value from a storage position at a given address.
 
 ##### Parameters
 
-1. `DATA`, 20 Bytes - address of the storage.
+1. `DATA`, string - address string in bech32 format of the storage.
 2. `QUANTITY` - integer of the position in the storage.
 3. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`.
 
 
 ```js
 params: [
-   '0x407d73d8a49eeb85d32cf465507dd71d507100c1',
+   'lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3',
    '0x0', // storage position at 0
    '0x2' // state at block number 2
 ]
@@ -363,7 +363,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getStorageAt","params":["0x407d73d8a49eeb85d32cf465507dd71d507100c1", "0x0", "0x2"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getStorageAt","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3", "0x0", "0x2"],"id":1}'
 
 // Result
 {
@@ -382,12 +382,12 @@ Returns the number of transactions *sent* from an address.
 
 ##### Parameters
 
-1. `DATA`, 20 Bytes - address.
+1. `DATA`, string - address string in bech32 format.
 2. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`.
 
 ```js
 params: [
-   '0x407d73d8a49eeb85d32cf465507dd71d507100c1',
+   'lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3',
    'latest' // state at the latest block
 ]
 ```
@@ -400,7 +400,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionCount","params":["0x407d73d8a49eeb85d32cf465507dd71d507100c1","latest"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionCount","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3","latest"],"id":1}'
 
 // Result
 {
@@ -488,12 +488,12 @@ Returns code at a given address.
 
 ##### Parameters
 
-1. `DATA`, 20 Bytes - address.
+1. `DATA`, string - address string in bech32 format .
 2. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`.
 
 ```js
 params: [
-   '0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b',
+   'lax14984xa8uuhkmer32s6tuz5e3valxa0ct68a0c5',
    '0x2'  // 2
 ]
 ```
@@ -506,7 +506,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getCode","params":["lax14984xa8uuhkmer32s6tuz5e3valxa0ct68a0c5", "0x2"],"id":1}'
 
 // Result
 {
@@ -526,7 +526,7 @@ Signs data with a given address.
 
 ##### Parameters
 
-1. `DATA`, 20 Bytes - address.
+1. `DATA`, string - address string in bech32 format .
 2. `DATA`, Data to sign.
 
 ##### Returns
@@ -537,7 +537,7 @@ Signs data with a given address.
 
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_sign","params":["0xd1ade25ccd3d550a7eb532ac759cac7be09c2719", "Schoolbus"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_sign","params":["lax16xk7yhxd842s5l44x2k8t89v00sfcfcej8gsug", "Schoolbus"],"id":1}'
 
 // Result
 {
@@ -556,8 +556,8 @@ Creates new message call transaction or a contract creation, if the data field c
 ##### Parameters
 
 1. `Object` - The transaction object.
-  - `from`: `DATA`, 20 Bytes - The address the transaction is send from.
-  - `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
+  - `from`: `DATA`, string - address string in bech32 format of the transaction is send from.
+  - `to`: `DATA`, string - address string in bech32 format - (optional when creating new contract) The address the transaction is directed to.
   - `gas`: `QUANTITY`  - (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas.
   - `gasPrice`: `QUANTITY`  - (optional, default: To-Be-Determined) Integer of the gasPrice used for each paid gas.
   - `value`: `QUANTITY`  - (optional) Integer of the value send with this transaction.
@@ -566,8 +566,8 @@ Creates new message call transaction or a contract creation, if the data field c
 
 ```js
 params: [{
-  "from": "0xb60e8dd61c5d32be8058bb8eb970870f07233155",
-  "to": "0xd46e8dd67c5d32be8058bb8eb970870f072445675",
+  "from": "lax1kc8gm4sut5etaqzchw8tjuy8purjxv245450s0",
+  "to": "lax163hgm4nut5etaqzchw8tjuy8purjg3t87dtrgq",
   "gas": "0x76c0", // 30400,
   "gasPrice": "0x9184e72a000", // 10000000000000
   "value": "0x9184e72a", // 2441406250
@@ -640,8 +640,8 @@ Executes a new message call immediately without creating a transaction on the bl
 ##### Parameters
 
 1. `Object` - The transaction call object
-  - `from`: `DATA`, 20 Bytes - (optional) The address the transaction is send from.
-  - `to`: `DATA`, 20 Bytes  - The address the transaction is directed to.
+  - `from`: `DATA`, string - address string in bech32 format - (optional) The address the transaction is send from.
+  - `to`: `DATA`, string - address string in bech32 format - The address the transaction is directed to.
   - `gas`: `QUANTITY`  - (optional) Integer of the gas provided for the transaction execution. platon_call consumes zero gas, but this parameter may be needed by some executions.
   - `gasPrice`: `QUANTITY`  - (optional) Integer of the gasPrice used for each paid gas.
   - `value`: `QUANTITY`  - (optional) Integer of the value send with this transaction.
@@ -724,7 +724,7 @@ params: [
   - `transactionsRoot`: `DATA`, 32 Bytes - the root of the transaction trie of the block.
   - `stateRoot`: `DATA`, 32 Bytes - the root of the final state trie of the block.
   - `receiptsRoot`: `DATA`, 32 Bytes - the root of the receipts trie of the block.
-  - `miner`: `DATA`, 20 Bytes - the address of the beneficiary to whom the mining rewards were given.
+  - `miner`: `DATA`, string - address string in bech32 format - the address of the beneficiary to whom the mining rewards were given.
   - `difficulty`: `QUANTITY` - integer of the difficulty for this block.
   - `totalDifficulty`: `QUANTITY` - integer of the total difficulty of the chain until this block.
   - `extraData`: `DATA` - the "extra data" field of this block.
@@ -754,7 +754,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockByHash","params":
     "logsBloom": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331",
     "transactionsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
     "stateRoot": "0xd5855eb08b3387c0af375e9cdb6acfc05eb8f519e419b874b6ff2ffda7ed1dff",
-    "miner": "0x4e65fda2159562a496f9f3522f89122a3088497a",
+    "miner": "lax1fejlmgs4j432f9he7dfzlzgj9gcgsjt6c4ujsh",
     "difficulty": "0x027f07", // 163591
     "totalDifficulty":  "0x027f07", // 163591
     "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -825,8 +825,8 @@ params: [
   - `blockHash`: `DATA`, 32 Bytes - hash of the block where this transaction was in. `null` when its pending.
   - `blockNumber`: `QUANTITY` - block number where this transaction was in. `null` when its pending.
   - `transactionIndex`: `QUANTITY` - integer of the transactions index position in the block. `null` when its pending.
-  - `from`: `DATA`, 20 Bytes - address of the sender.
-  - `to`: `DATA`, 20 Bytes - address of the receiver. `null` when its a contract creation transaction.
+  - `from`: `DATA`, string - address string in bech32 format of the sender.
+  - `to`: `DATA`, string - address string in bech32 format of the receiver. `null` when its a contract creation transaction.
   - `value`: `QUANTITY` - value transferred in von.
   - `gasPrice`: `QUANTITY` - gas price provided by the sender in von.
   - `gas`: `QUANTITY` - gas provided by the sender.
@@ -847,8 +847,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionByHash","pa
     "blockHash": "0xbeab0aa2411b7ab17f30a99d3cb9c6ef2fc5426d6ad6fd9e2a26a6aed1d1055b",
     "blockNumber": "0x15df", // 5599
     "transactionIndex":  "0x1", // 1
-    "from":"0x407d73d8a49eeb85d32cf465507dd71d507100c1",
-    "to":"0x85h43d8a49eeb85d32cf465507dd71d507100c1",
+    "from":"lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3",
+    "to":"lax163hgm4nut5etaqzchw8tjuy8purjg3t87dtrgq",
     "value":"0x7f110" // 520464
     "gas": "0x7f110" // 520464
     "gasPrice":"0x09184e72a000",
@@ -948,7 +948,7 @@ params: [
   - `blockNumber`: `QUANTITY` - block number where this transaction was in.
   - `cumulativeGasUsed `: `QUANTITY ` - The total amount of gas used when this transaction was executed in the block.
   - `gasUsed `: `QUANTITY ` - The amount of gas used by this specific transaction alone.
-  - `contractAddress `: `DATA`, 20 Bytes - The contract address created, if the transaction was a contract creation, otherwise `null`.
+  - `contractAddress `: `DATA`, string - address string in bech32 format - The contract address created, if the transaction was a contract creation, otherwise `null`.
   - `logs`: `Array` - Array of log objects, which this transaction generated.
 
 ##### Example
@@ -967,7 +967,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionReceipt","p
      blockHash: '0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b',
      cumulativeGasUsed: '0x33bc', // 13244
      gasUsed: '0x4dc', // 1244
-     contractAddress: '0xb60e8dd61c5d32be8058bb8eb970870f07233155' // or null, if none was created
+     contractAddress: 'lax1kc8gm4sut5etaqzchw8tjuy8purjxv245450s0' // or null, if none was created
      logs: [{
          // logs as returned by getFilterLogs, etc.
      }, ...]
@@ -987,14 +987,14 @@ To check if the state has changed, call platon_getFilterChanges.
 1. `Object` - The filter options:
   - `fromBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions.
   - `toBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions.
-  - `address`: `DATA|Array`, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
+  - `address`: `DATA|Array`, string - address string in bech32 format  - (optional) Contract address or a list of addresses from which logs should originate.
   - `topics`: `Array of DATA`,  - (optional) Array of 32 Bytes `DATA` topics. Each topic can also be an array of DATA with "or" options.
 
 ```js
 params: [{
   "fromBlock": "0x1",
   "toBlock": "0x2",
-  "address": "0x8888f1f195afa192cfee860698584c030f4c9db1",
+  "address": "lax13zy0ruv447se9nlwscrfskzvqv85e8d35gau40",
   "topics": ["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b", null, [0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b, 0x000000000000000000000000aff3454fce5edbc8cca8697c15331677e6ebccc]]
 }]
 ```
@@ -1136,7 +1136,7 @@ params: [
   - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. `null` when its pending log.
   - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. `null` when its pending. `null` when its pending log.
   - `blockNumber`: `QUANTITY` - the block number where this log was in. `null` when its pending. `null` when its pending log.
-  - `address`: `DATA`, 20 Bytes - address from which this log originated.
+  - `address`: `DATA`, address string in bech32 format - address from which this log originated.
   - `data`: `DATA` - contains one or more 32 Bytes non-indexed arguments of the log.
   - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In *solidity*: The first topic is the *hash* of the signature of the event (e.g. `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.).
 
@@ -1155,7 +1155,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getFilterChanges","params
     "blockHash": "0x8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcfdf829c5a142f1fccd7d",
     "transactionHash":  "0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf",
     "transactionIndex": "0x0", // 0
-    "address": "0x16c5785ac562ff41e2dcfdf829c5a142f1fccd7d",
+    "address": "lax1zmzhskk9vtl5rckulhuzn3dpgtclenta5fjs08",
     "data":"0x0000000000000000000000000000000000000000000000000000000000000000",
     "topics": ["0x59ebeb90bc63057b6515673c3ecf9438e5058bca0f92585014eced636878c9a5"]
     },{
