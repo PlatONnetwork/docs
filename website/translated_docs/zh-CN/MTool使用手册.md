@@ -119,7 +119,69 @@ mtool-client account new staking
 
 - 参数说明
 
->staking: 生成的钱包名称，创建成功后会在目录`$MTOOLDIR/keystore`下生成钱包文件`staking.json`。
+>staking: 生成的钱包名称，输入两次相同密码之后，创建成功后会在目录`$MTOOLDIR/keystore`下生成钱包文件`staking.json`，并打印如下信息：
+>
+>>-name: staking
+>>-type: NORMAL
+>>-address:
+>> mainnet: lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr
+>> testnet: lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v
+>>-public key: 0x9521cd81ba28d5d1c23bb7ddb7042d146375203d35000c0289178027abd4dc09bca30257739df166201e73497485242f41d5f50d46bc3c7e4385f81bde560db0
+>>
+>>**Important** write this Private Key in a safe place.
+>>It is the important way to recover your account if you ever forget your password.
+>>4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+>>**Important** write this mnemonic phrase in a safe place.
+>>It is the important way to recover your account if you ever forget your password.
+>>worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
+>
+>其中：
+>
+>`4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07` 为钱包私钥；
+>
+>`worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney` 为助记词。
+>
+>出于安全考虑，用户需进行备份（可都进行备份，也可备份其中一个），钱包丢失时，可用于恢复。
+
+### 恢复钱包
+
+如果钱包文件丢失了，可以通过上述备份的私钥或助记词进行恢复，操作如下：
+
+- 执行命令
+
+  通过私钥恢复：
+
+  ```shell
+  mtool-client account recover -k staking
+  ```
+
+  > 提示输入新的钱包密码和备份的私钥，如下：
+  >
+  > Enter a passphrase to encrypt your key to disk:
+  > Repeat the passphrase:
+  > Enter your 64bit Private Key:
+  > 4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+
+  或
+
+  通过助记词恢复：
+
+  ```shell
+  mtool-client account recover -m staking
+  ```
+
+  >提示输入新的钱包密码和备份的助记词，如下：
+  >
+  >Enter a passphrase to encrypt your key to disk:
+  >Repeat the passphrase:
+  >Enter your bip39 mnemonic:
+  >worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
+
+- 参数说明
+
+  staking：钱包名称。
+
+  恢复成功后会在目录`$MTOOLDIR/keystore`下生成钱包文件`staking.json`。
 
 ### 普通转账操作
 

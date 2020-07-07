@@ -116,7 +116,69 @@ mtool-client account new staking
 
 - Parameter description
 
->staking: The name of the wallet to be created. Once the wallet is created successfully, a wallet file named `staking.json` will be generated in the directory `$MTOOLDIR/keystore`. 
+>staking: The name of the wallet to be created. Once the wallet is created successfully, a wallet file named `staking.json` will be generated in the directory `$MTOOLDIR/keystore`, And print the following information:
+>
+>> -name: staking
+>> -type: NORMAL
+>> -address:
+>>  mainnet: lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr
+>>  testnet: lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v
+>> -public key: 0x9521cd81ba28d5d1c23bb7ddb7042d146375203d35000c0289178027abd4dc09bca30257739df166201e73497485242f41d5f50d46bc3c7e4385f81bde560db0
+>>
+>> **Important** write this Private Key in a safe place.
+>> It is the important way to recover your account if you ever forget your password.
+>> 4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+>> **Important** write this mnemonic phrase in a safe place.
+>> It is the important way to recover your account if you ever forget your password.
+>> worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
+>
+> among them: 
+>
+>`4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07` : the private key of the wallet;
+>
+>`worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney`: the mnemonic words.
+>
+> For security reasons, users need to make backups (both can be backed up or one of them can be backed up). When the wallet is lost, it can be used for recovery. 
+
+### Recover wallet file
+
+ If the wallet file is lost, you can restore it with the backed up private key or mnemonic as follows: 
+
+- Execute the command:
+
+   Recovery via private key: 
+
+  ```shell
+  mtool-client account recover -k staking
+  ```
+
+  > Prompt to enter the new wallet password and backup private key, as follows: 
+  >
+  > Enter a passphrase to encrypt your key to disk:
+  > Repeat the passphrase:
+  > Enter your 64bit Private Key:
+  > 4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+
+  or
+
+   Recovery through mnemonics: 
+
+  ```shell
+  mtool-client account recover -m staking
+  ```
+
+  >  Prompt to enter a new wallet password and backup mnemonic words, as follows: 
+  >
+  > Enter a passphrase to encrypt your key to disk:
+  > Repeat the passphrase:
+  > Enter your bip39 mnemonic:
+  > worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
+
+- Parameter description
+
+  staking：wallet name.
+
+   After successful restoration, the wallet file staking.json will be generated under the directory `$MTOOLDIR/keystore`.
 
 ### Ordinary transfer operation
 
@@ -260,7 +322,7 @@ mtool-client submit_textproposal --pid_id 100 --keystore $MTOOLDIR/keystore/stak
 - Excuting the command
 
 ```bash
-mtool-client submit_versionproposal --newversion 0.8.0 --end_voting_rounds 345 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
+mtool-client submit_versionproposal --newversion 0.13.0 --end_voting_rounds 345 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameters Description
