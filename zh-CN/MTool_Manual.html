@@ -142,8 +142,55 @@
 <li>参数说明</li>
 </ul>
 <blockquote>
-<p>staking: 生成的钱包名称，创建成功后会在目录<code>$MTOOLDIR/keystore</code>下生成钱包文件<code>staking.json</code>。</p>
+<p>staking: 生成的钱包名称，输入两次相同密码之后，创建成功后会在目录<code>$MTOOLDIR/keystore</code>下生成钱包文件<code>staking.json</code>，并打印如下信息：</p>
+<blockquote>
+<p>-name: staking
+-type: NORMAL
+-address:
+mainnet: lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr
+testnet: lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v
+-public key: 0x9521cd81ba28d5d1c23bb7ddb7042d146375203d35000c0289178027abd4dc09bca30257739df166201e73497485242f41d5f50d46bc3c7e4385f81bde560db0</p>
+<p><strong>Important</strong> write this Private Key in a safe place.
+It is the important way to recover your account if you ever forget your password.
+4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+<strong>Important</strong> write this mnemonic phrase in a safe place.
+It is the important way to recover your account if you ever forget your password.
+worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney</p>
 </blockquote>
+<p>其中：</p>
+<p><code>4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07</code> 为钱包私钥；</p>
+<p><code>worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney</code> 为助记词。</p>
+<p>出于安全考虑，用户需进行备份（可都进行备份，也可备份其中一个），钱包丢失时，可用于恢复。</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="恢复钱包"></a><a href="#恢复钱包" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>恢复钱包</h3>
+<p>如果钱包文件丢失了，可以通过上述备份的私钥或助记词进行恢复，操作如下：</p>
+<ul>
+<li><p>执行命令</p>
+<p>通过私钥恢复：</p>
+<pre><code class="hljs css language-shell">mtool-client account recover -k staking
+</code></pre>
+<blockquote>
+<p>提示输入新的钱包密码和备份的私钥，如下：</p>
+<p>Enter a passphrase to encrypt your key to disk:
+Repeat the passphrase:
+Enter your 64bit Private Key:
+4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07</p>
+</blockquote>
+<p>或</p>
+<p>通过助记词恢复：</p>
+<pre><code class="hljs css language-shell">mtool-client account recover -m staking
+</code></pre>
+<blockquote>
+<p>提示输入新的钱包密码和备份的助记词，如下：</p>
+<p>Enter a passphrase to encrypt your key to disk:
+Repeat the passphrase:
+Enter your bip39 mnemonic:
+worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney</p>
+</blockquote></li>
+<li><p>参数说明</p>
+<p>staking：钱包名称。</p>
+<p>恢复成功后会在目录<code>$MTOOLDIR/keystore</code>下生成钱包文件<code>staking.json</code>。</p></li>
+</ul>
 <h3><a class="anchor" aria-hidden="true" id="普通转账操作"></a><a href="#普通转账操作" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>普通转账操作</h3>
 <ul>
 <li>执行命令</li>
@@ -382,7 +429,7 @@ SUCCESS
 <blockquote>
 <p>无</p>
 </blockquote>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/Become_Verification_Node"><span class="arrow-prev">← </span><span>成为验证节点</span></a><a class="docs-next button" href="/docs/zh-CN/Command_Line_Tools"><span class="function-name-prevnext">PlatON命令行工具</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#安装mtool">安装MTool</a><ul class="toc-headings"><li><a href="#windows下安装mtool">Windows下安装MTool</a></li><li><a href="#ubuntu下安装mtool">Ubuntu下安装MTool</a></li></ul></li><li><a href="#mtool环境变量说明">MTool环境变量说明</a></li><li><a href="#mtool命令详解">MTool命令详解</a><ul class="toc-headings"><li><a href="#创建钱包">创建钱包</a></li><li><a href="#普通转账操作">普通转账操作</a></li><li><a href="#查看钱包列表">查看钱包列表</a></li><li><a href="#根据钱包名称查询余额">根据钱包名称查询余额</a></li><li><a href="#根据地址查询余额">根据地址查询余额</a></li><li><a href="#发起质押操作">发起质押操作</a></li><li><a href="#修改验证人信息操作">修改验证人信息操作</a></li><li><a href="#解质押操作">解质押操作</a></li><li><a href="#增加质押操作">增加质押操作</a></li><li><a href="#提交文本提案操作">提交文本提案操作</a></li><li><a href="#提交升级提案操作">提交升级提案操作</a></li><li><a href="#提交取消提案操作">提交取消提案操作</a></li><li><a href="#文本提案投票操作">文本提案投票操作</a></li><li><a href="#升级提案投票操作">升级提案投票操作</a></li><li><a href="#取消提案投票操作">取消提案投票操作</a></li><li><a href="#提交参数提案操作">提交参数提案操作</a></li><li><a href="#参数提案投票操作">参数提案投票操作</a></li><li><a href="#版本声明操作">版本声明操作</a></li><li><a href="#查看帮助">查看帮助</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2020 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/Become_Verification_Node"><span class="arrow-prev">← </span><span>成为验证节点</span></a><a class="docs-next button" href="/docs/zh-CN/Command_Line_Tools"><span class="function-name-prevnext">PlatON命令行工具</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#安装mtool">安装MTool</a><ul class="toc-headings"><li><a href="#windows下安装mtool">Windows下安装MTool</a></li><li><a href="#ubuntu下安装mtool">Ubuntu下安装MTool</a></li></ul></li><li><a href="#mtool环境变量说明">MTool环境变量说明</a></li><li><a href="#mtool命令详解">MTool命令详解</a><ul class="toc-headings"><li><a href="#创建钱包">创建钱包</a></li><li><a href="#恢复钱包">恢复钱包</a></li><li><a href="#普通转账操作">普通转账操作</a></li><li><a href="#查看钱包列表">查看钱包列表</a></li><li><a href="#根据钱包名称查询余额">根据钱包名称查询余额</a></li><li><a href="#根据地址查询余额">根据地址查询余额</a></li><li><a href="#发起质押操作">发起质押操作</a></li><li><a href="#修改验证人信息操作">修改验证人信息操作</a></li><li><a href="#解质押操作">解质押操作</a></li><li><a href="#增加质押操作">增加质押操作</a></li><li><a href="#提交文本提案操作">提交文本提案操作</a></li><li><a href="#提交升级提案操作">提交升级提案操作</a></li><li><a href="#提交取消提案操作">提交取消提案操作</a></li><li><a href="#文本提案投票操作">文本提案投票操作</a></li><li><a href="#升级提案投票操作">升级提案投票操作</a></li><li><a href="#取消提案投票操作">取消提案投票操作</a></li><li><a href="#提交参数提案操作">提交参数提案操作</a></li><li><a href="#参数提案投票操作">参数提案投票操作</a></li><li><a href="#版本声明操作">版本声明操作</a></li><li><a href="#查看帮助">查看帮助</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2020 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
