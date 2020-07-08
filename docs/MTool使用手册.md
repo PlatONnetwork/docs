@@ -134,7 +134,7 @@ mtool-client account new staking
 >worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
 >```
 >
-> among them: 
+>  Wallet address format adjusted to Bech32, among them: 
 >
 >`lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr`: Main network account address, beginning with LAT;
 >

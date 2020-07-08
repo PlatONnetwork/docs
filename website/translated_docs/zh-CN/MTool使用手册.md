@@ -138,7 +138,7 @@ mtool-client account new staking
 >worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
 >```
 >
->其中：
+>钱包地址格式调整为Bech32，其中：
 >
 >`lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr`：为主网账户地址，以lat开头；
 >
