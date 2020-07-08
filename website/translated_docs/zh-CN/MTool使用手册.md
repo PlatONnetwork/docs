@@ -121,22 +121,22 @@ mtool-client account new staking
 
 >staking: 生成的钱包名称，输入两次相同密码之后，创建成功后会在目录`$MTOOLDIR/keystore`下生成钱包文件`staking.json`，并打印如下信息：
 >
->>-name: staking
->>-type: NORMAL
->>-address:
->> mainnet: lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr
->> testnet: lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v
->>-public key: 0x9521cd81ba28d5d1c23bb7ddb7042d146375203d35000c0289178027abd4dc09bca30257739df166201e73497485242f41d5f50d46bc3c7e4385f81bde560db0
->>
->>**Important** write this Private Key in a safe place.
->>It is the important way to recover your account if you ever forget your password.
->>
->>`4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07`
->>
->>**Important** write this mnemonic phrase in a safe place.
->>It is the important way to recover your account if you ever forget your password.
->>
->>`worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney`
+>```shell
+>-name: staking
+>-type: NORMAL
+>-address:
+> mainnet: lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr
+> testnet: lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v
+>-public key: 0x9521cd81ba28d5d1c23bb7ddb7042d146375203d35000c0289178027abd4dc09bca30257739df166201e73497485242f41d5f50d46bc3c7e4385f81bde560db0
+>
+>Important write this Private Key in a safe place.
+>It is the important way to recover your account if you ever forget your password.
+>4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+>
+>Important write this mnemonic phrase in a safe place.
+>It is the important way to recover your account if you ever forget your password.
+>worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
+>```
 >
 >其中：
 >
@@ -160,10 +160,12 @@ mtool-client account new staking
 
   > 提示输入新的钱包密码和备份的私钥，如下：
   >
+  > ```shell
   > Enter a passphrase to encrypt your key to disk:
   > Repeat the passphrase:
   > Enter your 64bit Private Key:
   > 4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+  > ```
 
   或
 
@@ -175,10 +177,12 @@ mtool-client account new staking
 
   >提示输入新的钱包密码和备份的助记词，如下：
   >
+  >```shell
   >Enter a passphrase to encrypt your key to disk:
   >Repeat the passphrase:
   >Enter your bip39 mnemonic:
   >worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
+  >```
 
 - 参数说明
 
