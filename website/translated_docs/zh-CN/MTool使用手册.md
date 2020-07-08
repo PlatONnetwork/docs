@@ -148,7 +148,7 @@ mtool-client account new staking
 >
 >`worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney` 为助记词。
 >
->出于安全考虑，用户需进行备份（可都进行备份，也可备份其中一个），钱包丢失时，可用于恢复。建议用户将助记词或者私钥备份到安全的存储介质上，如离线机器等。
+>出于安全考虑，用户需对钱包私钥或助记词进行备份（可都进行备份，也可备份其中一个），钱包丢失时，可用于恢复。建议用户将助记词或者私钥备份到安全的存储介质上，如离线机器等。
 
 ### 恢复钱包
 

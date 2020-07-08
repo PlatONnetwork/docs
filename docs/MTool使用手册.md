@@ -144,7 +144,7 @@ mtool-client account new staking
 >
 >`worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney`: the mnemonic words.
 >
-> For security reasons, users need to make backups (both can be backed up or one of them can be backed up). When the wallet is lost, it can be used for recovery,  It is recommended that users back up mnemonic words or private keys to secure storage media, such as offline machines. 
+>  For security reasons, users need to back up the wallet private key or mnemonic words (both can be backed up, or one of them can be backed up). When the wallet is lost, it can be used for recovery. It is recommended that users back up mnemonic words or private keys to a secure storage medium, such as an offline machine. 
 
 ### Recover wallet file
 
