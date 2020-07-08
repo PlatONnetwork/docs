@@ -136,6 +136,10 @@ mtool-client account new staking
 >
 > among them: 
 >
+>`lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr`: Main network account address, beginning with LAT;
+>
+>`lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v`: Test newwork account address, start with LAX;
+>
 >`4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07` : the private key of the wallet;
 >
 >`worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney`: the mnemonic words.

@@ -140,6 +140,10 @@ mtool-client account new staking
 >
 >其中：
 >
+>`lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr`：为主网账户地址，以lat开头；
+>
+>`lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v`：为测试网账户地址，以lax开头；
+>
 >`4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07` 为钱包私钥；
 >
 >`worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney` 为助记词。
