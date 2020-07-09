@@ -101,10 +101,10 @@
 <ul>
 <li>Get the source code</li>
 </ul>
-<p>Get the source code and put it in the GOPATH path, where <code>hotfix-1045</code> is the branch name, then switch to the actual branch:</p>
+<p>Get the source code and put it in the GOPATH path, where <code>develop</code> is the branch name, then switch to the actual branch:</p>
 <pre><code class="hljs"><span class="hljs-built_in">mkdir</span> -<span class="hljs-keyword">p</span> $GOPATH/src/github.<span class="hljs-keyword">com</span>/PlatONnetwork
 <span class="hljs-keyword">cd</span> $GOPATH/src/github.<span class="hljs-keyword">com</span>/PlatONnetwork
-git clone -<span class="hljs-keyword">b</span> hotfix-<span class="hljs-number">1045</span> http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com</span>/PlatONnetwork/PlatON-Go.git --recursive
+git clone -<span class="hljs-keyword">b</span> develop http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com</span>/PlatONnetwork/PlatON-Go.git --recursive
 </code></pre>
 <ul>
 <li>Add bls dependent library to environment variables</li>
@@ -133,7 +133,7 @@ go <span class="hljs-keyword">run</span> build/<span class="hljs-keyword">ci</sp
 <li>cmake: <code>3.0 +</code></li>
 </ul>
 <p><strong>step2.</strong> Get the PlatON source:</p>
-<pre><code class="hljs css language-bash">git <span class="hljs-built_in">clone</span> -b hotfix-1045 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+<pre><code class="hljs css language-bash">git <span class="hljs-built_in">clone</span> -b develop https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 </code></pre>
 <p><strong>step3.</strong> Install dependency library:</p>
 <pre><code class="hljs css language-bash">sudo apt update 
