@@ -26,8 +26,8 @@ This tutorial is mainly to guide users to create a simple HelloWorld smart contr
 
 Platon-truffle is a tool provided by PlatON that can compile, deploy, and invoke smart contracts locally. For specific installation and usage manuals, refer to:
 
-- Platon-truffle develop tools [specific installation](https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#)
-- Platon-truffle develop tools [usage manuals](https://platon-truffle.readthedocs.io/en/v0.11.1/)
+- Platon-truffle develop tools [specific installation](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html)
+- Platon-truffle develop tools [usage manuals](https://platon-truffle.readthedocs.io/en/v0.13.1/)
 
 ### Create HelloWorld Contract
 
@@ -111,7 +111,7 @@ Truffle-config.js content is  as follows:
 ```
 compilers: {
       solc: {
-            version: "0.5.13",    // same as the version declared in HelloWorld.sol
+            version: "^0.5.13",    // same as the version declared in HelloWorld.sol
       }
 }
 ```
@@ -155,7 +155,7 @@ networks: {
        host: "10.1.1.6",     // blockchain server address
        port: 8806,            // server port
        network_id: "*",       // Any network (default: none)
-       from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", //the accout address of deploying contract
+       from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", //the accout address of deploying contract
        gas: 999999,
        gasPrice: 50000000004,
 	},
@@ -176,7 +176,7 @@ web3.platon.personal.importRawKey("Your wallet private key","Your wallet passwor
 ```
 Successful import will see the address corresponding to the private key as follows：
 ```
-'0x79daa881cab1f73b3ceef5db1869231b416d6dd9'
+'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'
 ```
 
 Unlock wallet account
@@ -197,21 +197,32 @@ platon-truffle migrate
 If deploy success，you wil see log info as follows:
 ```
 2_initial_helloworld.js
-Deploying 'HelloWorld'
-transaction hash:    0x2bb5c7f6202225554a823db410fb16cf0c8328a51391f24fb9052a6a8f3033e3 //the transaction hash for deploy contract
-Blocks: 0            Seconds: 0
-contract address:    0x714E74eEc4b63D9DB72cbB5F78CDD5b5bb60F9dc  //contract address
-block number:        142522  //the number of block which stores the transaction 
-block timestamp:     1581667696206
-account:             0xF644CfC3b0Dc588116D6621211a82C1Ef9c62E9e //the account for deploy contract
-balance:             90000000.867724449997417956  //the balance of the account
-gas used:            149247 //gas cost of the transaction
-gas price:           50.000000004 gVON
-value sent:          0 LAT
-total cost:          0.007462350000596988 LAT
-Saving migration to chain.
-Saving artifacts
-Total cost:     0.007462350000596988 LAT
+======================
+
+   Deploying 'HelloWorld'
+   ----------------------
+   > transaction hash:    0x87cd48cc467f9bc943fd096c57c8a7e7b7fa941380538d9e59797800c6c4292c
+   > Blocks: 0            Seconds: 0
+   > contract address:    lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07
+   > block number:        282520
+   > block timestamp:     1585535169200
+   > account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
+   > balance:             16447231233352977496646259638377769924557918764752765436645.336513079692286014
+   > gas used:            145569
+   > gas price:           1 gvon
+   > value sent:          0 LAT
+   > total cost:          0.000145569 LAT
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.000145569 LAT
+
+Summary
+=======
+> Total deployments:   2
+> Final cost:          0.000259892 LAT
 ```
 
 ### Call HelloWorld Contract
@@ -228,7 +239,7 @@ platon-truffle console
 ```json
 var abi = [{"constant":false,"inputs":[{"internalType":"string","name":"_name","type":"string"}],"name":"setName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]; //you can refet to HelloWorld/build/contracts/HelloWorld.json
 
-var contractAddr = '0x9A5015F9A3728ff64f401b9B93E98078BdD48FD1';//contract address
+var contractAddr = 'lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07';//contract address
 var helloWorld = new web3.platon.Contract(abi,contractAddr);  
 ```
 
@@ -241,7 +252,7 @@ Description：
 **Step3.**  Call contract
 
 ```javascript
-helloWorld.methods.setName("hello world").send({from: '0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'}).on('receipt', function(receipt) {console.log(receipt);}).on('error', console.error);
+helloWorld.methods.setName("hello world").send({from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'}).on('receipt', function(receipt) {console.log(receipt);}).on('error', console.error);
 
 ```
 
@@ -259,12 +270,12 @@ Description：
   blockNumber: 159726, 
   contractAddress: null,
   cumulativeGasUsed: 44820,
-  from: '0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e', //the address of caller
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl', //the address of caller
   gasUsed: 44820, //gas cost
   logsBloom:
    '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   status: true,
-  to: '0x9a5015f9a3728ff64f401b9b93e98078bdd48fd1', //contract address
+  to: 'lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07', //contract address
   transactionHash:'0xb7a41f72d555d4a2d9f2954fbdc5bbbb4c5ce89c836f8704276419ed416b3866', 
   transactionIndex: 0,
   events: {} 
@@ -505,7 +516,7 @@ module.exports = {
       host: "10.1.1.6",     // chain address
       port: 8806,            // chain rpc port
       network_id: "*",       // Any network (default: none)
-      from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", // the wallet address of deployment contract 
+      from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", // the wallet address of deployment contract 
       gas: 999999,
       gasPrice: 50000000004,	     
      },
@@ -567,10 +578,10 @@ Everything is up to date, there is nothing to compile.
    Deploying 'ERC200513Token'
      transaction hash:    0xa1770aecf4cffb0e75a172e06e75a9e9cb2d36bf89291b57d504e8c054985e99
      Blocks: 0            Seconds: 0
-     contract address:    0x5474608c5dee5039C95FEf3D7e48Fa793903Ce99//new contract address
+     contract address:    lax1uetshtp4tp6l067tl02e4x435py9ajrfdhsrd4//new contract address
      block number:        265657
      block timestamp:     1581742216965
-     account:             0xF644CfC3b0Dc588116D6621211a82C1Ef9c62E9e
+     account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
      balance:             90000000.826385379994114416
      gas used:            638876
      gas price:           50.000000004 gVON
@@ -819,7 +830,7 @@ networks: {
        host: "10.1.1.6",     // blockchain server address
        port: 8806,            // server port
        network_id: "*",       // Any network (default: none)
-       from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", //the accout address of deploying contract
+       from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", //the accout address of deploying contract
        gas: 999999,
        gasPrice: 50000000004,
 	},
@@ -841,10 +852,10 @@ Compiling your contracts...
     Deploying 'CrowdFunding'
      transaction hash:    0x3a6419cd4169d7cfb430a1fc5632239ac4a01845827f20df9b3229a334c5488b
      Blocks: 0            Seconds: 0
-     contract address:    0x02D04C6fD2b0C07c43AA1a329D667f1F1Fc7a907 //contract address
+     contract address:    lax1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt //contract address
      block number:        280532
      block timestamp:     1581751224032
-     account:             0xF644CfC3b0Dc588116D6621211a82C1Ef9c62E9e
+     account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
      balance:             90000000.806077629992489796
      gas used:            379154
      gas price:           50.000000004 gVON
@@ -871,7 +882,7 @@ platon-truffle console
 
 ```
 var abi = [...]; //ABI of CrowdFunding contract,can get from build/contracts/CrowdFunding.json
-var contractAddr = '0x02D04C6fD2b0C07c43AA1a329D667f1F1Fc7a907'; //CrowdFundsing contract address
+var contractAddr = 'lax1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt'; //CrowdFundsing contract address
 var crowdFunding = new web3.platon.Contract(abi,contractAddr);
 ```
 
@@ -884,7 +895,7 @@ crowdFunding.methods.amountRaised().call(null,function(error,result){console.log
 **Step4.**  Crowdfunder judge the success of crowdfunding
 
 ```
-crowdFunding.methods.safeWithdrawal().send({from:'0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'}).on('data', function(event){ console.log(event);}).on('error', console.error); 
+crowdFunding.methods.safeWithdrawal().send({from:'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'}).on('data', function(event){ console.log(event);}).on('error', console.error); 
 ```
 
 Call contract command description:
