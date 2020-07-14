@@ -82,8 +82,8 @@
 <h3><a class="anchor" aria-hidden="true" id="platon-truffle开发工具介绍"></a><a href="#platon-truffle开发工具介绍" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon-truffle开发工具介绍</h3>
 <p>platon-truffle是PlatON提供的一款能够在本地编译、部署、调用智能合约的工具，具体的安装及使用手册参见</p>
 <ul>
-<li>platon-truffle开发工具<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#">安装参考</a></li>
-<li>platon-truffle开发工具<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/">使用手册</a></li>
+<li>platon-truffle开发工具<a href="https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html">安装参考</a></li>
+<li>platon-truffle开发工具<a href="https://platon-truffle.readthedocs.io/en/v0.13.1/">使用手册</a></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="创建helloworld合约"></a><a href="#创建helloworld合约" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>创建HelloWorld合约</h3>
 <pre><code class="hljs css language-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;platon/platon.hpp&gt;</span></span>
@@ -189,7 +189,7 @@ PLATON_DISPATCH(HelloWorld, (init)(add_message)(get_message_size)(get_message_bo
 <span class="hljs-symbol">       host:</span> <span class="hljs-string">"10.1.1.6"</span>,     <span class="hljs-comment">// 区块链所在服务器主机</span>
 <span class="hljs-symbol">       port:</span> <span class="hljs-number">8806</span>,            <span class="hljs-comment">// 链端口号</span>
 <span class="hljs-symbol">       network_id:</span> <span class="hljs-string">"*"</span>,       <span class="hljs-comment">// Any network (default: none)</span>
-<span class="hljs-symbol">       from:</span> <span class="hljs-string">"0x5b37dabedae06edb142257819fad207199986992"</span>,
+<span class="hljs-symbol">       from:</span> <span class="hljs-string">"lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl"</span>,
 <span class="hljs-symbol">       gas:</span> <span class="hljs-number">999999</span>,
 <span class="hljs-symbol">       gasPrice:</span> <span class="hljs-number">50000000004</span>,
     },
@@ -203,7 +203,7 @@ PLATON_DISPATCH(HelloWorld, (init)(add_message)(get_message_size)(get_message_bo
 <pre><code class="hljs"><span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.personal</span><span class="hljs-selector-class">.importRawKey</span>("您的钱包私钥","您的钱包密码");
 </code></pre>
 <p>导入成功将看到私钥对应的地址：</p>
-<pre><code class="hljs">'0x79daa881cab1f73b3ceef5db<span class="hljs-number">186923</span>1b416d6dd9'
+<pre><code class="hljs"><span class="hljs-symbol">'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl</span>'
 </code></pre>
 <p>解锁钱包账户</p>
 <pre><code class="hljs"> <span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.personal</span><span class="hljs-selector-class">.unlockAccount</span>(<span class="hljs-string">'您的钱包地址'</span>,<span class="hljs-string">'您的钱包密码'</span>,<span class="hljs-number">999999</span>);
@@ -222,9 +222,9 @@ PLATON_DISPATCH(HelloWorld, (init)(add_message)(get_message_size)(get_message_bo
 <pre><code class="hljs">receipt:  { blockHash:
    '0x<span class="hljs-number">266733</span>b693ba<span class="hljs-number">650315</span>a59c34e<span class="hljs-number">7280</span>4c06ca3e27fab<span class="hljs-number">14562579</span>7bd<span class="hljs-number">4225</span>9b572c5',
   blockNumber: <span class="hljs-number">70441</span>,
-  contractAddress: '0x0bf<span class="hljs-number">4539</span>0B<span class="hljs-number">48689048</span>6e6eB3F1D5C8e<span class="hljs-number">0840</span>FD8B56',
+  contractAddress: 'lax1p<span class="hljs-number">0698</span>y95s6ysfphxavl36hywppq0mz6ks673np',
   cumulativeGasUsed: <span class="hljs-number">291314</span>,
-  from: '0x5b37dabedae06edb<span class="hljs-number">14225781</span>9fad<span class="hljs-number">207199986992</span>',
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
   gasUsed: <span class="hljs-number">291314</span>,
   logs: [],
   logsBloom:
@@ -238,10 +238,10 @@ PLATON_DISPATCH(HelloWorld, (init)(add_message)(get_message_size)(get_message_bo
 ======================
 
    &gt; transactionHash:     <span class="hljs-number">0</span>x60946ebf0ccddc76a0234353435de73e7901888227fb2f03922fb0ce265a4e9d
-   &gt; contract address:    <span class="hljs-number">0</span>x0bf45390B486890486e6eB3F1D5C8e0840FD8B56
+   &gt; contract address:    lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np
    &gt; block number:        <span class="hljs-number">70441</span>
    &gt; block timestamp:     <span class="hljs-number">1583247148341</span>
-   &gt; account:             <span class="hljs-number">0</span>x5b37dabedae06edb142257819fad207199986992
+   &gt; account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
    &gt; balance:             <span class="hljs-number">3533694129556768659166595001485837031654967793751237866225582808584074296</span>
    &gt; gas limit:           <span class="hljs-number">100000000</span>
    &gt; gas used:            <span class="hljs-number">291314</span>
@@ -257,7 +257,7 @@ PLATON_DISPATCH(HelloWorld, (init)(add_message)(get_message_size)(get_message_bo
 </ul>
 <p><strong>step2.</strong>  构建合约对象</p>
 <pre><code class="hljs css language-json">var abi = [{"baseclass":[],"fields":[{"name":"head","type":"string"}],"name":"message","type":"struct"},{"baseclass":["message"],"fields":[{"name":"body","type":"string"},{"name":"end","type":"string"}],"name":"my_message","type":"struct"},{"constant":false,"input":[{"name":"one_message","type":"my_message"}],"name":"init","output":"void","type":"Action"},{"constant":false,"input":[{"name":"one_message","type":"my_message"}],"name":"add_message","output":"void","type":"Action"},{"constant":true,"input":[],"name":"get_message_size","output":"uint8","type":"Action"},{"constant":true,"input":[{"name":"index","type":"uint8"}],"name":"get_message_body","output":"string","type":"Action"}];
-var contractAddr = '0x0bf45390B486890486e6eB3F1D5C8e0840FD8B56';
+var contractAddr = 'lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np';
  
 var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 }); 
 </code></pre>
@@ -269,7 +269,7 @@ var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 });
 </ul>
 <p><strong>step3.</strong>  调用合约</p>
 <pre><code class="hljs css language-javascript">helloworld.methods.add_message([[<span class="hljs-string">"5"</span>], <span class="hljs-string">"6"</span>, <span class="hljs-string">"7"</span>]).send({
-    <span class="hljs-attr">from</span>: <span class="hljs-string">'0x5b37dabedae06edb142257819fad207199986992'</span>,<span class="hljs-attr">gas</span>: <span class="hljs-number">999999</span>
+    <span class="hljs-attr">from</span>: <span class="hljs-string">'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'</span>,<span class="hljs-attr">gas</span>: <span class="hljs-number">999999</span>
 }).on(<span class="hljs-string">'receipt'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">receipt</span>) </span>{
     <span class="hljs-built_in">console</span>.log(receipt);
 }).on(<span class="hljs-string">'error'</span>, <span class="hljs-built_in">console</span>.error);
@@ -289,12 +289,12 @@ var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 });
   blockNumber: <span class="hljs-number">74665</span>,
   contractAddress: <span class="hljs-literal">null</span>,
   cumulativeGasUsed: <span class="hljs-number">108549</span>,
-  from: '0x5b37dabedae06edb<span class="hljs-number">14225781</span>9fad<span class="hljs-number">207199986992</span>',
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
   gasUsed: <span class="hljs-number">108549</span>,
   logsBloom:
    '0x<span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000</span>',
   status: true,
-  to: '0x0bf<span class="hljs-number">4539</span>0b<span class="hljs-number">48689048</span>6e6eb3f1d5c8e<span class="hljs-number">0840</span>fd8b56',
+  to: 'lax1p<span class="hljs-number">0698</span>y95s6ysfphxavl36hywppq0mz6ks673np',
   transactionHash:
    '0x2b5e590df7e70ad428b1ccb06bda5dcce47f84c4d981c2fb475aca9ec9d<span class="hljs-number">0000</span>a',
   transactionIndex: <span class="hljs-number">0</span>,
@@ -304,12 +304,12 @@ var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 });
   blockNumber: <span class="hljs-number">74665</span>,
   contractAddress: <span class="hljs-literal">null</span>,
   cumulativeGasUsed: <span class="hljs-number">108549</span>,
-  from: '0x5b37dabedae06edb<span class="hljs-number">14225781</span>9fad<span class="hljs-number">207199986992</span>',
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
   gasUsed: <span class="hljs-number">108549</span>,
   logsBloom:
    '0x<span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000</span>',
   status: true,
-  to: '0x0bf<span class="hljs-number">4539</span>0b<span class="hljs-number">48689048</span>6e6eb3f1d5c8e<span class="hljs-number">0840</span>fd8b56',
+  to: 'lax1p<span class="hljs-number">0698</span>y95s6ysfphxavl36hywppq0mz6ks673np',
   transactionHash:
    '0x2b5e590df7e70ad428b1ccb06bda5dcce47f84c4d981c2fb475aca9ec9d<span class="hljs-number">0000</span>a',
   transactionIndex: <span class="hljs-number">0</span>,

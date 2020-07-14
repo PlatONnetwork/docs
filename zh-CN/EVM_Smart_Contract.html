@@ -86,8 +86,8 @@
 <h3><a class="anchor" aria-hidden="true" id="platon-truffle开发工具介绍"></a><a href="#platon-truffle开发工具介绍" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon-truffle开发工具介绍</h3>
 <p>platon-truffle是PlatON提供的一款能够在本地编译、部署、调用智能合约的工具，具体的安装及使用手册参见</p>
 <ul>
-<li>platon-truffle开发工具<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#">安装参考</a></li>
-<li>platon-truffle开发工具<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/">使用手册</a></li>
+<li>platon-truffle开发工具<a href="https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html">安装参考</a></li>
+<li>platon-truffle开发工具<a href="https://platon-truffle.readthedocs.io/en/v0.13.1/">使用手册</a></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="创建helloworld合约"></a><a href="#创建helloworld合约" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>创建HelloWorld合约</h3>
 <pre><code class="hljs css language-solidity">pragma solidity ^<span class="hljs-number">0.5</span><span class="hljs-number">.13</span>;
@@ -198,7 +198,7 @@ name = _name：此操作将外部传进来的局部变量赋值给状态变量</
 <span class="hljs-symbol">       host:</span> <span class="hljs-string">"10.1.1.6"</span>,     <span class="hljs-comment">// 区块链所在服务器主机</span>
 <span class="hljs-symbol">       port:</span> <span class="hljs-number">8806</span>,            <span class="hljs-comment">// 链端口号</span>
 <span class="hljs-symbol">       network_id:</span> <span class="hljs-string">"*"</span>,       <span class="hljs-comment">// Any network (default: none)</span>
-<span class="hljs-symbol">       from:</span> <span class="hljs-string">"0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e"</span>, <span class="hljs-comment">//部署合约账号的钱包地址</span>
+<span class="hljs-symbol">       from:</span> <span class="hljs-string">"lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl"</span>, <span class="hljs-comment">//部署合约账号的钱包地址</span>
 <span class="hljs-symbol">       gas:</span> <span class="hljs-number">999999</span>,
 <span class="hljs-symbol">       gasPrice:</span> <span class="hljs-number">50000000004</span>,
     },
@@ -212,7 +212,7 @@ name = _name：此操作将外部传进来的局部变量赋值给状态变量</
 <pre><code class="hljs"><span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.personal</span><span class="hljs-selector-class">.importRawKey</span>("您的钱包私钥","您的钱包密码");
 </code></pre>
 <p>导入成功将看到私钥对应的地址：</p>
-<pre><code class="hljs">'0x79daa881cab1f73b3ceef5db<span class="hljs-number">186923</span>1b416d6dd9'
+<pre><code class="hljs"><span class="hljs-symbol">'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl</span>'
 </code></pre>
 <p>解锁钱包账户</p>
 <pre><code class="hljs"> <span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.personal</span><span class="hljs-selector-class">.unlockAccount</span>(<span class="hljs-string">'您的钱包地址'</span>,<span class="hljs-string">'您的钱包密码'</span>,<span class="hljs-number">999999</span>);
@@ -231,26 +231,26 @@ name = _name：此操作将外部传进来的局部变量赋值给状态变量</
    <span class="hljs-string">----------------------</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-attr">transaction hash:</span>    <span class="hljs-number">0x87cd48cc467f9bc943fd096c57c8a7e7b7fa941380538d9e59797800c6c4292c</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-attr">Blocks: 0            Seconds:</span> <span class="hljs-number">0</span>
-   <span class="hljs-string">&gt;</span> <span class="hljs-attr">contract address:</span>    <span class="hljs-number">0x0680df2d6e38e5a6C89e3856836E017c6572DAb2</span>
+   <span class="hljs-string">&gt;</span> <span class="hljs-attr">contract address:</span>    <span class="hljs-string">lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-attr">block number:</span>        <span class="hljs-number">282520</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-attr">block timestamp:</span>     <span class="hljs-number">1585535169200</span>
-   <span class="hljs-string">&gt;</span> <span class="hljs-attr">account:</span>             <span class="hljs-number">0xC1f330B214668beAc2E6418Dd651B09C759a4Bf5</span>
+   <span class="hljs-string">&gt;</span> <span class="hljs-attr">account:</span>             <span class="hljs-string">lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-attr">balance:</span>             <span class="hljs-number">16447231233352977496646259638377769924557918764752765436645.336513079692286014</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-attr">gas used:</span>            <span class="hljs-number">145569</span>
-   <span class="hljs-string">&gt;</span> <span class="hljs-attr">gas price:</span>           <span class="hljs-number">10000</span> <span class="hljs-string">gvon</span>
+   <span class="hljs-string">&gt;</span> <span class="hljs-attr">gas price:</span>           <span class="hljs-number">1</span> <span class="hljs-string">gvon</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-attr">value sent:</span>          <span class="hljs-number">0</span> <span class="hljs-string">LAT</span>
-   <span class="hljs-string">&gt;</span> <span class="hljs-attr">total cost:</span>          <span class="hljs-number">1.45569</span> <span class="hljs-string">LAT</span>
+   <span class="hljs-string">&gt;</span> <span class="hljs-attr">total cost:</span>          <span class="hljs-number">0.000145569</span> <span class="hljs-string">LAT</span>
 
 
    <span class="hljs-string">&gt;</span> <span class="hljs-string">Saving</span> <span class="hljs-string">migration</span> <span class="hljs-string">to</span> <span class="hljs-string">chain.</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-string">Saving</span> <span class="hljs-string">artifacts</span>
    <span class="hljs-string">-------------------------------------</span>
-   <span class="hljs-string">&gt;</span> <span class="hljs-attr">Total cost:</span>             <span class="hljs-number">1.45569</span> <span class="hljs-string">LAT</span>
+   <span class="hljs-string">&gt;</span> <span class="hljs-attr">Total cost:</span>          <span class="hljs-number">0.000145569</span> <span class="hljs-string">LAT</span>
 
 <span class="hljs-string">Summary</span>
 <span class="hljs-string">=======</span>
 <span class="hljs-string">&gt;</span> <span class="hljs-attr">Total deployments:</span>   <span class="hljs-number">2</span>
-<span class="hljs-string">&gt;</span> <span class="hljs-attr">Final cost:</span>          <span class="hljs-number">2.59892</span> <span class="hljs-string">LAT</span>
+<span class="hljs-string">&gt;</span> <span class="hljs-attr">Final cost:</span>          <span class="hljs-number">0.000259892</span> <span class="hljs-string">LAT</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="调用helloworld合约"></a><a href="#调用helloworld合约" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>调用HelloWorld合约</h3>
 <p><strong>step1.</strong>  进入platon-truffle控制台</p>
@@ -262,7 +262,7 @@ name = _name：此操作将外部传进来的局部变量赋值给状态变量</
 <p><strong>step2.</strong>  构建合约对象</p>
 <pre><code class="hljs css language-json">var abi = [{"constant":false,"inputs":[{"internalType":"string","name":"_name","type":"string"}],"name":"setName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]; //可以从HelloWorld/build/contracts/HelloWorld.json文件中获取到
 
-var contractAddr = '0x9A5015F9A3728ff64f401b9B93E98078BdD48FD1';//部署合约时的获取的地址
+var contractAddr = 'lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07';//部署合约时的获取的地址
 var helloWorld = new web3.platon.Contract(abi,contractAddr); 
 </code></pre>
 <p>说明：</p>
@@ -272,7 +272,7 @@ var helloWorld = new web3.platon.Contract(abi,contractAddr);
 <li><code>helloWorld</code> 就是构建出来与链上合约交互的合约对象抽象</li>
 </ul>
 <p><strong>step3.</strong>  调用合约</p>
-<pre><code class="hljs css language-javascript">helloWorld.methods.setName(<span class="hljs-string">"hello world"</span>).send({<span class="hljs-attr">from</span>: <span class="hljs-string">'0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'</span>}).on(<span class="hljs-string">'receipt'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">receipt</span>) </span>{<span class="hljs-built_in">console</span>.log(receipt);}).on(<span class="hljs-string">'error'</span>, <span class="hljs-built_in">console</span>.error);
+<pre><code class="hljs css language-javascript">helloWorld.methods.setName(<span class="hljs-string">"hello world"</span>).send({<span class="hljs-attr">from</span>: <span class="hljs-string">'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'</span>}).on(<span class="hljs-string">'receipt'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">receipt</span>) </span>{<span class="hljs-built_in">console</span>.log(receipt);}).on(<span class="hljs-string">'error'</span>, <span class="hljs-built_in">console</span>.error);
  
 </code></pre>
 <p>调用合约命令说明：</p>
@@ -289,7 +289,7 @@ var helloWorld = new web3.platon.Contract(abi,contractAddr);
   blockNumber: <span class="hljs-number">283911</span>,
   contractAddress: <span class="hljs-literal">null</span>,
   cumulativeGasUsed: <span class="hljs-number">44820</span>,
-  from: '0xc1f330b<span class="hljs-number">214668</span>beac2e<span class="hljs-number">6418</span>dd651b09c759a4bf5',
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
   gasUsed: <span class="hljs-number">44820</span>,
   logsBloom:
 '0x<span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000</span>',
@@ -520,7 +520,7 @@ contract ERC200513Token {
 <span class="hljs-symbol">      host:</span> <span class="hljs-string">"10.1.1.6"</span>,     <span class="hljs-comment">// 链地址</span>
 <span class="hljs-symbol">      port:</span> <span class="hljs-number">8806</span>,            <span class="hljs-comment">// 链使用的rpc端口</span>
 <span class="hljs-symbol">      network_id:</span> <span class="hljs-string">"*"</span>,       <span class="hljs-comment">// Any network (default: none)</span>
-<span class="hljs-symbol">      from:</span> <span class="hljs-string">"0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e"</span>, <span class="hljs-comment">//部署合约所使用的钱包地址</span>
+<span class="hljs-symbol">      from:</span> <span class="hljs-string">"lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl"</span>, <span class="hljs-comment">//部署合约所使用的钱包地址</span>
 <span class="hljs-symbol">      gas:</span> <span class="hljs-number">999999</span>,
 <span class="hljs-symbol">      gasPrice:</span> <span class="hljs-number">50000000004</span>,         
      },
@@ -528,7 +528,7 @@ contract ERC200513Token {
 <span class="hljs-symbol">
   compilers:</span> {
 <span class="hljs-symbol">    solc:</span> {
-<span class="hljs-symbol">       version:</span> <span class="hljs-string">"0.5.13"</span>,    <span class="hljs-comment">// 编译合约所使用的solidity版本号，与合约定义版本一致</span>
+<span class="hljs-symbol">       version:</span> <span class="hljs-string">"^0.5.13"</span>,    <span class="hljs-comment">// 编译合约所使用的solidity版本号，与合约定义版本一致</span>
 <span class="hljs-symbol">       docker:</span> false,        <span class="hljs-comment">// Use "0.5.1" you've installed locally with docker</span>
     }
   }
@@ -570,25 +570,25 @@ Compiled successfully using: <span class="hljs-comment">//表示编译成功</sp
    <span class="hljs-string">--------------------------</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-attr">transaction hash:</span>    <span class="hljs-number">0x5667101234fcd3b9dadf96a19bce20d1b94d742e0fd8f3528c641fa587b17eb3</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-attr">Blocks: 0            Seconds:</span> <span class="hljs-number">0</span>
-   <span class="hljs-string">&gt;</span> <span class="hljs-attr">contract address:</span>    <span class="hljs-number">0xE6570bAc355875F7EBcBFBD59a9AB1a0485ec869</span>
+   <span class="hljs-string">&gt;</span> <span class="hljs-attr">contract address:</span>    <span class="hljs-string">lax1uetshtp4tp6l067tl02e4x435py9ajrfdhsrd4</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-attr">block number:</span>        <span class="hljs-number">2153</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-attr">block timestamp:</span>     <span class="hljs-number">1585538899787</span>
-   <span class="hljs-string">&gt;</span> <span class="hljs-attr">account:</span>             <span class="hljs-number">0xC1f330B214668beAc2E6418Dd651B09C759a4Bf5</span>
+   <span class="hljs-string">&gt;</span> <span class="hljs-attr">account:</span>             <span class="hljs-string">lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-attr">balance:</span>             <span class="hljs-number">4499992.02433</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-attr">gas used:</span>            <span class="hljs-number">641243</span>
-   <span class="hljs-string">&gt;</span> <span class="hljs-attr">gas price:</span>           <span class="hljs-number">10000</span> <span class="hljs-string">gvon</span>
+   <span class="hljs-string">&gt;</span> <span class="hljs-attr">gas price:</span>           <span class="hljs-number">1</span> <span class="hljs-string">gvon</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-attr">value sent:</span>          <span class="hljs-number">0</span> <span class="hljs-string">LAT</span>
-   <span class="hljs-string">&gt;</span> <span class="hljs-attr">total cost:</span>          <span class="hljs-number">6.41243</span> <span class="hljs-string">LAT</span>
+   <span class="hljs-string">&gt;</span> <span class="hljs-attr">total cost:</span>          <span class="hljs-number">0.000641243</span> <span class="hljs-string">LAT</span>
 
    <span class="hljs-string">&gt;</span> <span class="hljs-string">Saving</span> <span class="hljs-string">migration</span> <span class="hljs-string">to</span> <span class="hljs-string">chain.</span>
    <span class="hljs-string">&gt;</span> <span class="hljs-string">Saving</span> <span class="hljs-string">artifacts</span>
    <span class="hljs-string">-------------------------------------</span>
-   <span class="hljs-string">&gt;</span> <span class="hljs-attr">Total cost:</span>             <span class="hljs-number">6.41243</span> <span class="hljs-string">LAT</span>
+   <span class="hljs-string">&gt;</span> <span class="hljs-attr">Total cost:</span>          <span class="hljs-number">0.000641243</span> <span class="hljs-string">LAT</span>
 
 <span class="hljs-string">Summary</span>
 <span class="hljs-string">=======</span>
 <span class="hljs-string">&gt;</span> <span class="hljs-attr">Total deployments:</span>   <span class="hljs-number">2</span>
-<span class="hljs-string">&gt;</span> <span class="hljs-attr">Final cost:</span>          <span class="hljs-number">7.55566</span> <span class="hljs-string">LAT</span>
+<span class="hljs-string">&gt;</span> <span class="hljs-attr">Final cost:</span>          <span class="hljs-number">0.000755566</span> <span class="hljs-string">LAT</span>
 </code></pre>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="众筹合约"></a><a href="#众筹合约" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>众筹合约</h2>
@@ -778,7 +778,7 @@ contract CrowdFunding {
 <p>部署脚本文件为:2_initial_crowdFunding.js，内容如下所示：</p>
 <pre><code class="hljs"><span class="hljs-keyword">const</span> CrowdFunding = artifacts.require(<span class="hljs-string">"CrowdFunding"</span>); <span class="hljs-comment">//需要部署的合约名称 </span>
 <span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">deployer</span>) </span>{
-  ​    deployer.deploy(CrowdFunding);
+      deployer.deploy(CrowdFunding);
 };
 </code></pre>
 <p><strong>step2.</strong> 修改truffle-config.js中链的配置信息</p>
@@ -790,7 +790,7 @@ contract CrowdFunding {
 <span class="hljs-symbol">       host:</span> <span class="hljs-string">"10.1.1.6"</span>,     <span class="hljs-comment">// 区块链所在服务器主机</span>
 <span class="hljs-symbol">       port:</span> <span class="hljs-number">8806</span>,            <span class="hljs-comment">// 链端口号</span>
 <span class="hljs-symbol">       network_id:</span> <span class="hljs-string">"*"</span>,       <span class="hljs-comment">// Any network (default: none)</span>
-<span class="hljs-symbol">       from:</span> <span class="hljs-string">"0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e"</span>, <span class="hljs-comment">//部署合约账号的钱包地址</span>
+<span class="hljs-symbol">       from:</span> <span class="hljs-string">"lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl"</span>, <span class="hljs-comment">//部署合约账号的钱包地址</span>
 <span class="hljs-symbol">       gas:</span> <span class="hljs-number">999999</span>,
 <span class="hljs-symbol">       gasPrice:</span> <span class="hljs-number">50000000004</span>,
     },
@@ -807,10 +807,10 @@ contract CrowdFunding {
     <span class="hljs-string">Deploying</span> <span class="hljs-string">'CrowdFunding'</span>
      <span class="hljs-attr">transaction hash:</span>    <span class="hljs-number">0x3a6419cd4169d7cfb430a1fc5632239ac4a01845827f20df9b3229a334c5488b</span>
      <span class="hljs-attr">Blocks: 0            Seconds:</span> <span class="hljs-number">0</span>
-     <span class="hljs-attr">contract address:</span>    <span class="hljs-number">0x02D04C6fD2b0C07c43AA1a329D667f1F1Fc7a907</span> <span class="hljs-string">//部署后的合约地址</span>
+     <span class="hljs-attr">contract address:</span>    <span class="hljs-string">lax1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt</span> <span class="hljs-string">//部署后的合约地址</span>
      <span class="hljs-attr">block number:</span>        <span class="hljs-number">280532</span>
      <span class="hljs-attr">block timestamp:</span>     <span class="hljs-number">1581751224032</span>
-     <span class="hljs-attr">account:</span>             <span class="hljs-number">0xF644CfC3b0Dc588116D6621211a82C1Ef9c62E9e</span>
+     <span class="hljs-attr">account:</span>             <span class="hljs-string">lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl</span>
      <span class="hljs-attr">balance:</span>             <span class="hljs-number">90000000.806077629992489796</span>
      <span class="hljs-attr">gas used:</span>            <span class="hljs-number">379154</span>
      <span class="hljs-attr">gas price:</span>           <span class="hljs-number">50.000000004</span> <span class="hljs-string">gVON</span>
@@ -830,14 +830,14 @@ contract CrowdFunding {
 </ul>
 <p><strong>step2.</strong>  构建的众筹合约对象</p>
 <pre><code class="hljs"><span class="hljs-keyword">var</span> abi = [...]; <span class="hljs-comment">//众筹合约的ABI，从编译后的文件获取</span>
-<span class="hljs-keyword">var</span> contractAddr = <span class="hljs-string">'0x02D04C6fD2b0C07c43AA1a329D667f1F1Fc7a907'</span>; <span class="hljs-comment">//众筹合约地址</span>
+<span class="hljs-keyword">var</span> contractAddr = <span class="hljs-string">'lax1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt'</span>; <span class="hljs-comment">//众筹合约地址</span>
 <span class="hljs-keyword">var</span> crowdFunding = <span class="hljs-keyword">new</span> <span class="hljs-type">web3</span>.platon.Contract(abi,contractAddr);  
 </code></pre>
 <p><strong>step3.</strong>  查询已筹集金额</p>
 <pre><code class="hljs">crowdFunding.methods.amountRaised().call(<span class="hljs-literal">null</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,result</span>)</span>{<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"result:"</span> + result);}); <span class="hljs-comment">//查询已筹集金额</span>
 </code></pre>
 <p><strong>step4.</strong>  众筹者判断众筹是否成功</p>
-<pre><code class="hljs">crowdFunding.methods.safeWithdrawal().send({<span class="hljs-keyword">from</span>:'<span class="hljs-number">0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e</span>'}).<span class="hljs-keyword">on</span><span class="hljs-params">('data', function<span class="hljs-params">(event)</span>{ console.log<span class="hljs-params">(event)</span>;})</span>.<span class="hljs-keyword">on</span><span class="hljs-params">('error', console.error)</span>; 
+<pre><code class="hljs">crowdFunding.methods.safeWithdrawal().send({<span class="hljs-keyword">from</span>:'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'}).<span class="hljs-keyword">on</span><span class="hljs-params">('data', function<span class="hljs-params">(event)</span>{ console.log<span class="hljs-params">(event)</span>;})</span>.<span class="hljs-keyword">on</span><span class="hljs-params">('error', console.error)</span>; 
 </code></pre>
 <p>调用合约命令说明：</p>
 <ul>
