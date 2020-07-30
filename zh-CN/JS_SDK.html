@@ -269,7 +269,7 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platongetprotocolversion"></a><a href="#web3platongetprotocolversion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.getProtocolVersion</h4>
-<p>返回节点旳以太坊协议版本。</p>
+<p>返回节点的以太坊协议版本。</p>
 <p>调用：</p>
 <pre><code class="hljs"><span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.getProtocolVersion</span>(<span class="hljs-selector-attr">[callback]</span>)
 </code></pre>
@@ -1115,12 +1115,13 @@ subscription.unsubscribe(<span class="hljs-function"><span class="hljs-keyword">
 <li>address - String: 可选，要调用的合约的地址，也可以在之后使用 myContract.options.address = '0x1234..' 来指定该地址</li>
 <li>options - Object : 可选，合约的配置对象，其中某些字段用作调用和交易的回调：
 <ul>
-<li>from - String: 交易发送方地址</li>
-<li>gasPrice - String: 用于交易的gas价格，单位：VON</li>
-<li>gas - Number: 交易可用的最大gas量，即gas limit</li>
-<li>data - String: 合约的字节码，部署合约时需要</li>
-<li>vmType - Number: 合约类型。0表示solidity合约，1表示wasm合约。不传默认是solidity合约。(新增字段)
-返回值：</li>
+<li><p>from - String: 交易发送方地址</p></li>
+<li><p>gasPrice - String: 用于交易的gas价格，单位：VON</p></li>
+<li><p>gas - Number: 交易可用的最大gas量，即gas limit</p></li>
+<li><p>data - String: 合约的字节码，部署合约时需要</p></li>
+<li><p>vmType - Number: 合约类型。0表示solidity合约，1表示wasm合约。不传默认是solidity合约。(新增字段)</p></li>
+<li><p>net_type - String: 网络类型。<code>lat</code>表示主网，<code>lax</code>表示测试网。不传默认是测试网。(新增字段)</p>
+<p>返回值：</p></li>
 </ul></li>
 </ul>
 <p><code>Object</code>: The contract instance with all its methods and events.</p>
@@ -1657,6 +1658,72 @@ myContract.methods.myMethod(<span class="hljs-number">123</span>).estimateGas({<
     ...
 }]
 </code></pre>
+<hr>
+<h4><a class="anchor" aria-hidden="true" id="newfilter---创建一个新的过滤器"></a><a href="#newfilter---创建一个新的过滤器" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>newFilter - 创建一个新的过滤器</h4>
+<p>创建一个新的过滤器并返回过滤器id。当状态改变时，它可以用来检索日志。</p>
+<p>调用:</p>
+<pre><code class="hljs">myContract.newFilter(event[<span class="hljs-string">, options</span>][<span class="hljs-symbol">, callback</span>])
+</code></pre>
+<p>参数：</p>
+<ul>
+<li>event - String: 事件名，或者使用 &quot;allEvents&quot; 来读取所有的事件</li>
+<li>options - Object: 用于部署的选项，包含以下字段：
+<ul>
+<li>filter - Object : 可选，按索引参数过滤事件，例如 {filter: {myNumber: [12,13]}} 表示所有“myNumber” 为12 或 13的事件</li>
+<li>fromBlock - Number : 可选，仅读取从该编号开始的块中的历史事件。</li>
+<li>toBlock - Number : 可选，仅读取截止到该编号的块中的历史事件，默认值为&quot;latest&quot;</li>
+<li>topics - Array : 可选，用来手动设置事件过滤器的主题。如果设置了filter属性和事件签名，那么(topic[0])将不会自动设置</li>
+</ul></li>
+<li>callback - Function : 可选的回调参数，触发时其第一个参数为错误对象，第二个参数为历史事件数组</li>
+</ul>
+<p>返回值：</p>
+<p>返回一个String类型的过滤器id</p>
+<p>示例代码：</p>
+<pre><code class="hljs css language-js">myContract.newFilter(eventName, {
+   <span class="hljs-attr">filter</span>: eventFilter,
+   <span class="hljs-attr">fromBlock</span>: fromBlockNum,
+   <span class="hljs-attr">toBlock</span>: <span class="hljs-string">"latest"</span>
+}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, rpcId</span>)</span>{ 
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"rpcId:"</span>, rpcId); 
+})
+
+&gt; rpcId: <span class="hljs-number">0xa081d1f00117ade0e08769bb053ae7e</span>
+</code></pre>
+<hr>
+<h4><a class="anchor" aria-hidden="true" id="getfilterlogs---返回具有给定id的过滤器的日志"></a><a href="#getfilterlogs---返回具有给定id的过滤器的日志" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getFilterLogs - 返回具有给定id的过滤器的日志</h4>
+<p>返回具有给定id的过滤器的日志。如果找不到过滤器，将返回一个空的日志数组。</p>
+<p>调用:</p>
+<pre><code class="hljs">myContract.get<span class="hljs-constructor">FilterLogs(<span class="hljs-params">rpcId</span>[, <span class="hljs-params">callback</span>])</span>
+</code></pre>
+<p>参数：</p>
+<ul>
+<li>rpcId- String: 过滤器id，通过调newFilter接口返回</li>
+</ul>
+<p>返回值：</p>
+<p>一个Promise对象，其解析值为历史事件对象数组</p>
+<p>示例代码：</p>
+<pre><code class="hljs css language-js">contract.getFilterLogs(<span class="hljs-string">"0xa081d1f00117ade0e08769bb053ae7e"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, events</span>)</span>{ 
+     <span class="hljs-built_in">console</span>.log(events); 
+})
+
+&gt; [
+  {
+    <span class="hljs-attr">address</span>: <span class="hljs-string">'lat1dw8t6q5jy6r3xqqkgc43nn403gpuzwx7penk3q'</span>,
+    <span class="hljs-attr">topics</span>: [
+      <span class="hljs-string">'0x0000000000000000000000000000000000000000007374727563744576656e74'</span>,
+      <span class="hljs-string">'0x000000000000000000000000000000000000000000000000000000000000c180'</span>
+    ],
+    <span class="hljs-attr">data</span>: <span class="hljs-string">'0xc0'</span>,
+    <span class="hljs-attr">blockNumber</span>: <span class="hljs-string">'0x16375a'</span>,
+    <span class="hljs-attr">transactionHash</span>: <span class="hljs-string">'0x59d68e32b6566877fb024f3ab356d9c5d2947f6f7a89bc4b34432496c34193d5'</span>,
+    <span class="hljs-attr">transactionIndex</span>: <span class="hljs-string">'0x0'</span>,
+    <span class="hljs-attr">blockHash</span>: <span class="hljs-string">'0x2843f645de8147cce62e6d18bb287c4cf06bbb6a3f3f5ec97917a7a09e300eee'</span>,
+    <span class="hljs-attr">logIndex</span>: <span class="hljs-string">'0x0'</span>,
+    <span class="hljs-attr">removed</span>: <span class="hljs-literal">false</span>
+  }
+]
+</code></pre>
+<p>注：读取合约历史事件，可通过newFilter和getFilterLogs接口配合使用获取。</p>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platonpersonal"></a><a href="#web3platonpersonal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.personal</h4>
 <p>使用web3-eth-personal包和以太坊节点账户进行交互。</p>

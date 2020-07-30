@@ -68,7 +68,7 @@
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">WASM Smart Contract</h1></header><article><div><span><p>WebAssembly (wasm for short) is a binary instruction set designed for stacked virtual machines. Wasm was designed to be a compile target for platforms such as C / C ++ / Rust, and was originally designed to solve JavaScript performance issues. Wasm is a web standard being led by the W3C and supported by browser vendors such as Google, Microsoft, and Mozilla.</p>
 <p>This tutorial is mainly to guide users to create a WASM smart contract using wasm language on PlatON.</p>
-<p>Mainly from the following aspects to explain：</p>
+<p>It is mainly explained from the following aspects：</p>
 <ul>
 <li><a href="#getting-started">Getting Started</a></li>
 <li><a href="#development-costs">Development Costs</a></li>
@@ -77,9 +77,9 @@
 <li><a href="#faq">FAQ</a></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="getting-started"></a><a href="#getting-started" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting Started</h2>
-<h3><a class="anchor" aria-hidden="true" id="introduce"></a><a href="#introduce" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduce</h3>
-<p>This tutorial is mainly to guide users to create a simple HelloWorld smart contract using wasm language on PlatON, compile, deploy, and call this contract through platinum-truffle.If you want to use a richer API.</p>
-<h3><a class="anchor" aria-hidden="true" id="platon-truffle-introduce"></a><a href="#platon-truffle-introduce" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Platon-truffle Introduce</h3>
+<h3><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h3>
+<p>This tutorial is mainly to guide users to create a simple HelloWorld smart contract using wasm language on PlatON, compile, deploy, and call this contract through platon-truffle.If you want to use a richer API.</p>
+<h3><a class="anchor" aria-hidden="true" id="platon-truffle-introduction"></a><a href="#platon-truffle-introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Platon-truffle Introduction</h3>
 <p>Platon-truffle is a tool provided by PlatON that can compile, deploy, and invoke smart contracts locally. For specific installation and usage manuals, refer to:</p>
 <ul>
 <li>Platon-truffle develop tools<a href="https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html">specific installation</a></li>
@@ -218,7 +218,7 @@ PLATON_DISPATCH(HelloWorld, (init)(add_message)(get_message_size)(get_message_bo
 <li><code>HelloWorld</code> deployed contract</li>
 <li><code>params</code> parameters of contract init function</li>
 </ul>
-<p>If deploy success，you wil see log info as follows:</p>
+<p>If deploying successfully，you will see log info as follows:</p>
 <pre><code class="hljs">receipt:  { blockHash:
    '0x<span class="hljs-number">266733</span>b693ba<span class="hljs-number">650315</span>a59c34e<span class="hljs-number">7280</span>4c06ca3e27fab<span class="hljs-number">14562579</span>7bd<span class="hljs-number">4225</span>9b572c5',
   blockNumber: <span class="hljs-number">70441</span>,
@@ -280,7 +280,7 @@ var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 });
 <li><code>methods</code> specify the call method</li>
 <li><code>add_message</code>  method in the HelloWorld contract with a custom my_message input</li>
 <li><code>from</code> caller's wallet address</li>
-<li><code>on</code> listen on the result of the contract method executed. if fail, it will print the error info. If success ,the console will print the receipt as belows:</li>
+<li><code>on</code> listen to the result of the contract method executed. If failed, it will print the error info. If succeeded, the console will print the receipt as belows:</li>
 </ul>
 <pre><code class="hljs">{ blockHash:
    '0x669c7b8cb938cc<span class="hljs-number">3084</span>5e08dc4ceda08f2e<span class="hljs-number">1720</span>7c267ade97dc<span class="hljs-number">5458</span>b<span class="hljs-number">44540573</span>6',
@@ -774,7 +774,7 @@ PLATON_DISPATCH(LATToken,(init)(balanceOf)(<span class="hljs-built_in">transfer<
 </ul>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="best-practice"></a><a href="#best-practice" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Best Practice</h2>
-<h3><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h3>
+<h3><a class="anchor" aria-hidden="true" id="introduction-1"></a><a href="#introduction-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h3>
 <p>This guide introduces users to some key points that need to be paid attention to
 in the development of smart contracts, mainly in the practice of actual
 development. Users can use this guide to quickly understand how to set a
@@ -808,10 +808,10 @@ maintenance networks. One <code>LAT</code> is divided into: <code>mLAT/uLAT/gVON
 </table>
 <h3><a class="anchor" aria-hidden="true" id="avoid-timeouts"></a><a href="#avoid-timeouts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Avoid Timeouts</h3>
 <p>Sending transactions on the PlatON network does not have the concept of timeout, but it will eventually stop according to the set gas limit value. If the limit value is lower than the consumption required for contract deployment, the transaction execution fails and the corresponding processing fee will be deducted. The fee setting cannot be infinite, because in the network, the block itself has a maximum GasLimit value. When the GasLimit of the transaction exceeds this value, the transaction will not be accepted.</p>
-<p>If the call function of a published contract is called (a call is a stateless operation in the contract logic), there is a 5s timeout limit. If the contract logic is not executed within 5s, a timeout will occur and the virtual machine will forcely exit , Causing the query to fail.</p>
+<p>If the call function of a published contract is called (a call is a stateless operation in the contract logic), there is a 5s timeout limit. If the contract logic is not executed within 5s, a timeout will occur and the virtual machine will forcely exit , causing the query to fail.</p>
 <p>To avoid contract-related transaction failures, try breaking large contracts into smaller pieces and referencing each other as needed. To avoid infinite loops, be aware of common pitfalls and recursive calls.</p>
 <h3><a class="anchor" aria-hidden="true" id="punishment-for-illegal-operations"></a><a href="#punishment-for-illegal-operations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Punishment For Illegal Operations</h3>
-<p>If the smart contract is not compiled by a standard valid compiler, or the instruction code is changed at will, the opcode will be invalid. This type of contract not only fails to be deployed and executed successfully, but also generates a full amount (GasLimit * GasPrice) penalty. The transaction fee for the current transaction will be deducted. This is a very strong penalty. If the operator does not pay attention At this point, keep retrying, then the cost will be higher and the cost will be heavier.</p>
+<p>If the smart contract is not compiled by a standard valid compiler, or the instruction code is changed at will, the opcode will be invalid. This type of contract not only fails to be deployed and executed successfully, but also generates a full amount (GasLimit * GasPrice) penalty. The transaction fee for the current transaction will be deducted. This is a very strong penalty. If the operator does not pay attention to this point and keep retrying, then the cost will be higher and the cost will be heavier.</p>
 <p>In general, invalid opcodes have the following conditions:</p>
 <ul>
 <li>Manually changed the instruction code for the normally compiled contract</li>
@@ -898,13 +898,13 @@ level, and finally the private level.</li>
 scope or access permissions.</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="feature-uses-advice"></a><a href="#feature-uses-advice" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Feature Uses Advice</h4>
-<h5><a class="anchor" aria-hidden="true" id="structs-vs-classes"></a><a href="#structs-vs-classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Structs vs. Classes</h5>
+<h5><a class="anchor" aria-hidden="true" id="structs-vs-classes"></a><a href="#structs-vs-classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Structs vs Classes</h5>
 <p>Use a struct only for passive objects that carry data; everything else is a
 class.</p>
 <p>The struct and class keywords behave almost identically in C++. We add our own
 semantic meanings to each keyword, so you should use the appropriate keyword for
 the data-type you're defining.</p>
-<p>structs should be used for passive objects that carry data, and may have
+<p>Structs should be used for passive objects that carry data, and may have
 associated constants, but lack any functionality other than access/setting the
 data members. All fields must be public, and accessed directly rather than
 through getter/setter methods. The struct must not have invariants that imply
@@ -920,7 +920,7 @@ make it <code>public</code>.</p>
 <p>All inheritance should be public. If you want to do private inheritance, you
 should be including an instance of the base class as a member instead.</p>
 <p>Do not overuse implementation inheritance. Composition is often more
-appropriate. Try to restrict use of inheritance to the &quot;is-a&quot; case: Bar
+appropriate. Try to restrict the use of inheritance to the &quot;is-a&quot; case: Bar
 subclasses Foo if it can reasonably be said that Bar &quot;is a kind of&quot; Foo.</p>
 <h5><a class="anchor" aria-hidden="true" id="multiple-inheritance"></a><a href="#multiple-inheritance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Multiple Inheritance</h5>
 <p>Multiple inheritance is especially problematic, because it often imposes a
@@ -1061,7 +1061,7 @@ WASM virtual machines, memory allocation is an expensive operation.</p>
 <ul>
 <li><strong>Returns</strong>
 <ul>
-<li>The address of calle</li>
+<li>The address of caller</li>
 </ul></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="platon_origin"></a><a href="#platon_origin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon_origin()</h4>
@@ -1240,12 +1240,12 @@ Add amount of Von.</p>
 <li><p><strong>Constructor &amp; Destructor Documentation</strong></p>
 <ul>
 <li><p><code>template&lt;Name::Raw TableName&gt; platon::WhiteList&lt; TableName &gt;::WhiteList ()</code></p>
-<p>Construct a new whitlist.</p></li>
+<p>Construct a new whitelist.</p></li>
 </ul></li>
 <li><p><strong>public Member Functions</strong></p>
 <ul>
 <li><p><code>WhiteList ()</code>
-Construct a new whitlist.</p></li>
+Construct a new whitelist.</p></li>
 <li><p><code>void Add (const std::string &amp;addr)</code>
 Add the address to whitelist.</p></li>
 <li><p><code>void Add (const Address &amp;addr)</code>
@@ -1600,7 +1600,7 @@ Insert a new key-value pair, Update to cache.</p>
 </ul></li>
 <li><p><strong>Returns</strong></p>
 <ul>
-<li>true Inserted successfully, false Insert failed</li>
+<li>true if insert successfully,false otherwise.</li>
 </ul></li>
 </ul></li>
 <li><p><strong>Example:</strong></p>
@@ -1619,7 +1619,7 @@ Insert a new key-value pair that will not be updated to the cache. Suitable for 
 </ul></li>
 <li><p><strong>Returns</strong></p>
 <ul>
-<li>true Inserted successfully, false Insert failed</li>
+<li>true if insert successfully,false otherwise.</li>
 </ul></li>
 </ul></li>
 <li><p><strong>Example:</strong></p>
@@ -1956,7 +1956,7 @@ const gas_type &amp; gas)
 </ul></li>
 <li><strong>Returns</strong>
 <ul>
-<li>The call succeeds or fails</li>
+<li>The call succeed or failed</li>
 </ul></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="platon_call-22"></a><a href="#platon_call-22" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon_call() 2/2</h4>
@@ -2008,7 +2008,7 @@ platon_call&lt;<span class="hljs-keyword">int</span>&gt;(Address(<span class="hl
 </ul></li>
 <li><strong>Returns</strong>
 <ul>
-<li>The call succeeds or fails</li>
+<li>The call succeed or failed</li>
 </ul></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="platon_delegate_call-22"></a><a href="#platon_delegate_call-22" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon_delegate_call() 2/2</h4>
@@ -2244,7 +2244,7 @@ supported?</p>
 };
 </code></pre></li>
 </ol>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/EVM_Smart_Contract"><span class="arrow-prev">← </span><span>EVM Smart Contract</span></a><a class="docs-next button" href="/docs/en/Java_SDK"><span>Java SDK</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#getting-started">Getting Started</a><ul class="toc-headings"><li><a href="#introduce">Introduce</a></li><li><a href="#platon-truffle-introduce">Platon-truffle Introduce</a></li><li><a href="#create-helloworld-contract">Create HelloWorld Contract</a></li><li><a href="#compile-helloworld-contract">Compile HelloWorld Contract</a></li><li><a href="#deploly-helloworld-contract">Deploly HelloWorld Contract</a></li><li><a href="#call-helloworld-contract">Call HelloWorld Contract</a></li></ul></li><li><a href="#development-costs">Development Costs</a><ul class="toc-headings"><li><a href="#summary">Summary</a></li><li><a href="#small-sized-contract">Small-sized Contract</a></li><li><a href="#medium-sized-contract">Medium-sized Contract</a></li><li><a href="#large-sized-contract">Large-sized Contract</a></li></ul></li><li><a href="#best-practice">Best Practice</a><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#reasonable-cost-setting">Reasonable Cost Setting</a></li><li><a href="#avoid-timeouts">Avoid Timeouts</a></li><li><a href="#punishment-for-illegal-operations">Punishment For Illegal Operations</a></li><li><a href="#cc-language-limit">C/C++ Language Limit</a></li><li><a href="#coding-standards">Coding Standards</a></li></ul></li><li><a href="#api">API</a><ul class="toc-headings"><li><a href="#block-api">block api</a></li><li><a href="#transaction-api">transaction api</a></li><li><a href="#account-api">account api</a></li><li><a href="#storage-api">storage api</a></li><li><a href="#contract-api">contract api</a></li><li><a href="#exception-api">exception api</a></li><li><a href="#other-api">other api</a></li></ul></li><li><a href="#faq">FAQ</a><ul class="toc-headings"><li><a href="#about-compile">About Compile</a></li><li><a href="#about-contract">About Contract</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2020 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/EVM_Smart_Contract"><span class="arrow-prev">← </span><span>EVM Smart Contract</span></a><a class="docs-next button" href="/docs/en/Java_SDK"><span>Java SDK</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#getting-started">Getting Started</a><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#platon-truffle-introduction">Platon-truffle Introduction</a></li><li><a href="#create-helloworld-contract">Create HelloWorld Contract</a></li><li><a href="#compile-helloworld-contract">Compile HelloWorld Contract</a></li><li><a href="#deploly-helloworld-contract">Deploly HelloWorld Contract</a></li><li><a href="#call-helloworld-contract">Call HelloWorld Contract</a></li></ul></li><li><a href="#development-costs">Development Costs</a><ul class="toc-headings"><li><a href="#summary">Summary</a></li><li><a href="#small-sized-contract">Small-sized Contract</a></li><li><a href="#medium-sized-contract">Medium-sized Contract</a></li><li><a href="#large-sized-contract">Large-sized Contract</a></li></ul></li><li><a href="#best-practice">Best Practice</a><ul class="toc-headings"><li><a href="#introduction-1">Introduction</a></li><li><a href="#reasonable-cost-setting">Reasonable Cost Setting</a></li><li><a href="#avoid-timeouts">Avoid Timeouts</a></li><li><a href="#punishment-for-illegal-operations">Punishment For Illegal Operations</a></li><li><a href="#cc-language-limit">C/C++ Language Limit</a></li><li><a href="#coding-standards">Coding Standards</a></li></ul></li><li><a href="#api">API</a><ul class="toc-headings"><li><a href="#block-api">block api</a></li><li><a href="#transaction-api">transaction api</a></li><li><a href="#account-api">account api</a></li><li><a href="#storage-api">storage api</a></li><li><a href="#contract-api">contract api</a></li><li><a href="#exception-api">exception api</a></li><li><a href="#other-api">other api</a></li></ul></li><li><a href="#faq">FAQ</a><ul class="toc-headings"><li><a href="#about-compile">About Compile</a></li><li><a href="#about-contract">About Contract</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2020 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;

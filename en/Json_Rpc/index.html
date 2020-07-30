@@ -239,7 +239,7 @@ curl -X POST --data <span class="hljs-string">'{"jsonrpc":"2.0","method":"platon
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="platon_accounts"></a><a href="#platon_accounts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon_accounts</h4>
-<p>Returns a list of addresses owned by client.</p>
+<p>Returns a list of addresses owned client.</p>
 <h5><a class="anchor" aria-hidden="true" id="parameters-8"></a><a href="#parameters-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h5>
 <p>none</p>
 <h5><a class="anchor" aria-hidden="true" id="returns-8"></a><a href="#returns-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h5>
@@ -581,12 +581,12 @@ curl -X POST --data <span class="hljs-string">'{"jsonrpc":"2.0","method":"platon
 <h5><a class="anchor" aria-hidden="true" id="returns-21"></a><a href="#returns-21" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Returns</h5>
 <p><code>Object</code> - A block object, or <code>null</code> when no block was found:</p>
 <ul>
-<li><code>number</code>: <code>QUANTITY</code> - the block number. <code>null</code> when its pending block.</li>
-<li><code>hash</code>: <code>DATA</code>, 32 Bytes - hash of the block. <code>null</code> when its pending block.</li>
+<li><code>number</code>: <code>QUANTITY</code> - the block number. <code>null</code> when it's pending block.</li>
+<li><code>hash</code>: <code>DATA</code>, 32 Bytes - hash of the block. <code>null</code> when it's pending block.</li>
 <li><code>parentHash</code>: <code>DATA</code>, 32 Bytes - hash of the parent block.</li>
-<li><code>nonce</code>: <code>DATA</code>, 8 Bytes - hash of the generated proof-of-work. <code>null</code> when its pending block.</li>
+<li><code>nonce</code>: <code>DATA</code>, 8 Bytes - hash of the generated proof-of-work. <code>null</code> when it's pending block.</li>
 <li><code>sha3Uncles</code>: <code>DATA</code>, 32 Bytes - SHA3 of the uncles data in the block.</li>
-<li><code>logsBloom</code>: <code>DATA</code>, 256 Bytes - the bloom filter for the logs of the block. <code>null</code> when its pending block.</li>
+<li><code>logsBloom</code>: <code>DATA</code>, 256 Bytes - the bloom filter for the logs of the block. <code>null</code> when it's pending block.</li>
 <li><code>transactionsRoot</code>: <code>DATA</code>, 32 Bytes - the root of the transaction trie of the block.</li>
 <li><code>stateRoot</code>: <code>DATA</code>, 32 Bytes - the root of the final state trie of the block.</li>
 <li><code>receiptsRoot</code>: <code>DATA</code>, 32 Bytes - the root of the receipts trie of the block.</li>
@@ -668,11 +668,11 @@ curl -X POST --data <span class="hljs-string">'{"jsonrpc":"2.0","method":"platon
 <ul>
 <li><code>hash</code>: <code>DATA</code>, 32 Bytes - hash of the transaction.</li>
 <li><code>nonce</code>: <code>QUANTITY</code> - the number of transactions made by the sender prior to this one.</li>
-<li><code>blockHash</code>: <code>DATA</code>, 32 Bytes - hash of the block where this transaction was in. <code>null</code> when its pending.</li>
-<li><code>blockNumber</code>: <code>QUANTITY</code> - block number where this transaction was in. <code>null</code> when its pending.</li>
-<li><code>transactionIndex</code>: <code>QUANTITY</code> - integer of the transactions index position in the block. <code>null</code> when its pending.</li>
+<li><code>blockHash</code>: <code>DATA</code>, 32 Bytes - hash of the block where this transaction was in. <code>null</code> when it's pending.</li>
+<li><code>blockNumber</code>: <code>QUANTITY</code> - block number where this transaction was in. <code>null</code> when it's pending.</li>
+<li><code>transactionIndex</code>: <code>QUANTITY</code> - integer of the transactions index position in the block. <code>null</code> when it's pending.</li>
 <li><code>from</code>: <code>DATA</code>, string - address string in bech32 format of the sender.</li>
-<li><code>to</code>: <code>DATA</code>, string - address string in bech32 format of the receiver. <code>null</code> when its a contract creation transaction.</li>
+<li><code>to</code>: <code>DATA</code>, string - address string in bech32 format of the receiver. <code>null</code> when it's a contract creation transaction.</li>
 <li><code>value</code>: <code>QUANTITY</code> - value transferred in von.</li>
 <li><code>gasPrice</code>: <code>QUANTITY</code> - gas price provided by the sender in von.</li>
 <li><code>gas</code>: <code>QUANTITY</code> - gas provided by the sender.</li>
@@ -903,11 +903,11 @@ curl -X POST --data <span class="hljs-string">'{"jsonrpc":"2.0","method":"platon
 <li><p>For filters created with <code>platon_newFilter</code> logs are objects with following params:</p>
 <ul>
 <li><code>type</code>: <code>TAG</code> - <code>pending</code> when the log is pending. <code>mined</code> if log is already mined.</li>
-<li><code>logIndex</code>: <code>QUANTITY</code> - integer of the log index position in the block. <code>null</code> when its pending log.</li>
-<li><code>transactionIndex</code>: <code>QUANTITY</code> - integer of the transactions index position log was created from. <code>null</code> when its pending log.</li>
-<li><code>transactionHash</code>: <code>DATA</code>, 32 Bytes - hash of the transactions this log was created from. <code>null</code> when its pending log.</li>
-<li><code>blockHash</code>: <code>DATA</code>, 32 Bytes - hash of the block where this log was in. <code>null</code> when its pending. <code>null</code> when its pending log.</li>
-<li><code>blockNumber</code>: <code>QUANTITY</code> - the block number where this log was in. <code>null</code> when its pending. <code>null</code> when its pending log.</li>
+<li><code>logIndex</code>: <code>QUANTITY</code> - integer of the log index position in the block. <code>null</code> when it's pending log.</li>
+<li><code>transactionIndex</code>: <code>QUANTITY</code> - integer of the transactions index position log was created from. <code>null</code> when it's pending log.</li>
+<li><code>transactionHash</code>: <code>DATA</code>, 32 Bytes - hash of the transactions this log was created from. <code>null</code> when it's pending log.</li>
+<li><code>blockHash</code>: <code>DATA</code>, 32 Bytes - hash of the block where this log was in. <code>null</code> when it's pending. <code>null</code> when it's pending log.</li>
+<li><code>blockNumber</code>: <code>QUANTITY</code> - the block number where this log was in. <code>null</code> when it's pending. <code>null</code> when it's pending log.</li>
 <li><code>address</code>: <code>DATA</code>, address string in bech32 format - address from which this log originated.</li>
 <li><code>data</code>: <code>DATA</code> - contains one or more 32 Bytes non-indexed arguments of the log.</li>
 <li><code>topics</code>: <code>Array of DATA</code> - Array of 0 to 4 32 Bytes <code>DATA</code> of indexed log arguments. (In <em>solidity</em>: The first topic is the <em>hash</em> of the signature of the event (e.g. <code>Deposit(address,bytes32,uint256)</code>), except you declared the event with the <code>anonymous</code> specifier.).</li>
