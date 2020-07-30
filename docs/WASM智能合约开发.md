@@ -8,7 +8,7 @@ WebAssembly (wasm for short) is a binary instruction set designed for stacked vi
 
 This tutorial is mainly to guide users to create a WASM smart contract using wasm language on PlatON.
 
-Mainly from the following aspects to explain： 
+It is mainly explained from the following aspects： 
 
 - [Getting Started](#getting-started)
 - [Development Costs](#development-costs)
@@ -18,11 +18,11 @@ Mainly from the following aspects to explain：
 
 ## Getting Started
 
-### Introduce
+### Introduction
 
-This tutorial is mainly to guide users to create a simple HelloWorld smart contract using wasm language on PlatON, compile, deploy, and call this contract through platinum-truffle.If you want to use a richer API. 
+This tutorial is mainly to guide users to create a simple HelloWorld smart contract using wasm language on PlatON, compile, deploy, and call this contract through platon-truffle.If you want to use a richer API. 
 
-### Platon-truffle Introduce 
+### Platon-truffle Introduction 
 
 Platon-truffle is a tool provided by PlatON that can compile, deploy, and invoke smart contracts locally. For specific installation and usage manuals, refer to:
 
@@ -204,7 +204,7 @@ platon-truffle deploy --wasm --contract-name HelloWorld --params '[[["1"], "2", 
 - `HelloWorld` deployed contract
 - `params` parameters of contract init function
 
-If deploy success，you wil see log info as follows:
+If deploying successfully，you will see log info as follows:
 ```
 receipt:  { blockHash:
    '0x266733b693ba650315a59c34e72804c06ca3e27fab145625797bd42259b572c5',
@@ -274,7 +274,7 @@ Description：
 - `methods` specify the call method
 - `add_message`  method in the HelloWorld contract with a custom my_message input
 - `from` caller's wallet address 
-- `on` listen on the result of the contract method executed. if fail, it will print the error info. If success ,the console will print the receipt as belows:
+- `on` listen to the result of the contract method executed. If failed, it will print the error info. If succeeded, the console will print the receipt as belows:
 
 ```
 { blockHash:
@@ -874,13 +874,13 @@ In the PlatON network, the maximum gas limit is `100,800,000` and the minimum is
 
 Sending transactions on the PlatON network does not have the concept of timeout, but it will eventually stop according to the set gas limit value. If the limit value is lower than the consumption required for contract deployment, the transaction execution fails and the corresponding processing fee will be deducted. The fee setting cannot be infinite, because in the network, the block itself has a maximum GasLimit value. When the GasLimit of the transaction exceeds this value, the transaction will not be accepted.
 
-If the call function of a published contract is called (a call is a stateless operation in the contract logic), there is a 5s timeout limit. If the contract logic is not executed within 5s, a timeout will occur and the virtual machine will forcely exit , Causing the query to fail.
+If the call function of a published contract is called (a call is a stateless operation in the contract logic), there is a 5s timeout limit. If the contract logic is not executed within 5s, a timeout will occur and the virtual machine will forcely exit , causing the query to fail.
 
 To avoid contract-related transaction failures, try breaking large contracts into smaller pieces and referencing each other as needed. To avoid infinite loops, be aware of common pitfalls and recursive calls.
 
 ### Punishment For Illegal Operations
 
-If the smart contract is not compiled by a standard valid compiler, or the instruction code is changed at will, the opcode will be invalid. This type of contract not only fails to be deployed and executed successfully, but also generates a full amount (GasLimit * GasPrice) penalty. The transaction fee for the current transaction will be deducted. This is a very strong penalty. If the operator does not pay attention At this point, keep retrying, then the cost will be higher and the cost will be heavier.
+If the smart contract is not compiled by a standard valid compiler, or the instruction code is changed at will, the opcode will be invalid. This type of contract not only fails to be deployed and executed successfully, but also generates a full amount (GasLimit * GasPrice) penalty. The transaction fee for the current transaction will be deducted. This is a very strong penalty. If the operator does not pay attention to this point and keep retrying, then the cost will be higher and the cost will be heavier.
 
 In general, invalid opcodes have the following conditions:
 
@@ -984,7 +984,7 @@ Order Of Files:
 
 #### Feature Uses Advice
 
-##### Structs vs. Classes
+##### Structs vs Classes
 
 Use a struct only for passive objects that carry data; everything else is a
 class.
@@ -993,7 +993,7 @@ The struct and class keywords behave almost identically in C++. We add our own
 semantic meanings to each keyword, so you should use the appropriate keyword for
 the data-type you're defining.
 
-structs should be used for passive objects that carry data, and may have
+Structs should be used for passive objects that carry data, and may have
 associated constants, but lack any functionality other than access/setting the
 data members. All fields must be public, and accessed directly rather than
 through getter/setter methods. The struct must not have invariants that imply
@@ -1014,7 +1014,7 @@ All inheritance should be public. If you want to do private inheritance, you
 should be including an instance of the base class as a member instead.
 
 Do not overuse implementation inheritance. Composition is often more
-appropriate. Try to restrict use of inheritance to the "is-a" case: Bar
+appropriate. Try to restrict the use of inheritance to the "is-a" case: Bar
 subclasses Foo if it can reasonably be said that Bar "is a kind of" Foo.
 
 
@@ -1191,7 +1191,7 @@ Address platon::platon_caller()
 Get the address of caller.
 
 * **Returns**
-  * The address of calle
+  * The address of caller
 
 #### platon_origin()
 
@@ -1360,11 +1360,11 @@ Persist storage whitelist implement.
   * `template<Name::Raw TableName>
     platon::WhiteList< TableName >::WhiteList ()`
 
-    Construct a new whitlist.
+    Construct a new whitelist.
 
 * **public Member Functions**
   * `WhiteList ()`
-    Construct a new whitlist.
+    Construct a new whitelist.
 
   * `void Add (const std::string &addr)`
     Add the address to whitelist.
@@ -1804,7 +1804,7 @@ Destroy the Map object Refresh data to the blockchain.
       * `v:` Value
     * **Returns**
       
-      * true Inserted successfully, false Insert failed
+      * true if insert successfully,false otherwise.
   * **Example:**
     
       ```cpp
@@ -1824,7 +1824,7 @@ Destroy the Map object Refresh data to the blockchain.
       * `v:` Value
     * **Returns**
       
-      * true Inserted successfully, false Insert failed
+      * true if insert successfully,false otherwise.
   * **Example:**
     
       ```cpp
@@ -2159,7 +2159,7 @@ Normal cross-contract invocation.
   * `gas:` The called contract method estimates the gas consumed
   * `value:` The amount transferred to the contract
 * **Returns**
-  * The call succeeds or fails
+  * The call succeed or failed
 
 #### platon_call() 2/2
 
@@ -2212,7 +2212,7 @@ Cross contract delegation call.
   * `paras:` A contract parameter constructed using the function cross_call_args
   * `gas:` The called contract method estimates the gas consumed
 * **Returns**
-  * The call succeeds or fails
+  * The call succeed or failed
 
 #### platon_delegate_call() 2/2
 

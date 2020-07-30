@@ -249,7 +249,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_gasPrice","params":[],"id
 
 #### platon_accounts
 
-Returns a list of addresses owned by client.
+Returns a list of addresses owned client.
 
 
 ##### Parameters
@@ -715,12 +715,12 @@ params: [
 
 `Object` - A block object, or `null` when no block was found:
 
-  - `number`: `QUANTITY` - the block number. `null` when its pending block.
-  - `hash`: `DATA`, 32 Bytes - hash of the block. `null` when its pending block.
+  - `number`: `QUANTITY` - the block number. `null` when it's pending block.
+  - `hash`: `DATA`, 32 Bytes - hash of the block. `null` when it's pending block.
   - `parentHash`: `DATA`, 32 Bytes - hash of the parent block.
-  - `nonce`: `DATA`, 8 Bytes - hash of the generated proof-of-work. `null` when its pending block.
+  - `nonce`: `DATA`, 8 Bytes - hash of the generated proof-of-work. `null` when it's pending block.
   - `sha3Uncles`: `DATA`, 32 Bytes - SHA3 of the uncles data in the block.
-  - `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. `null` when its pending block.
+  - `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. `null` when it's pending block.
   - `transactionsRoot`: `DATA`, 32 Bytes - the root of the transaction trie of the block.
   - `stateRoot`: `DATA`, 32 Bytes - the root of the final state trie of the block.
   - `receiptsRoot`: `DATA`, 32 Bytes - the root of the receipts trie of the block.
@@ -822,11 +822,11 @@ params: [
 
   - `hash`: `DATA`, 32 Bytes - hash of the transaction.
   - `nonce`: `QUANTITY` - the number of transactions made by the sender prior to this one.
-  - `blockHash`: `DATA`, 32 Bytes - hash of the block where this transaction was in. `null` when its pending.
-  - `blockNumber`: `QUANTITY` - block number where this transaction was in. `null` when its pending.
-  - `transactionIndex`: `QUANTITY` - integer of the transactions index position in the block. `null` when its pending.
+  - `blockHash`: `DATA`, 32 Bytes - hash of the block where this transaction was in. `null` when it's pending.
+  - `blockNumber`: `QUANTITY` - block number where this transaction was in. `null` when it's pending.
+  - `transactionIndex`: `QUANTITY` - integer of the transactions index position in the block. `null` when it's pending.
   - `from`: `DATA`, string - address string in bech32 format of the sender.
-  - `to`: `DATA`, string - address string in bech32 format of the receiver. `null` when its a contract creation transaction.
+  - `to`: `DATA`, string - address string in bech32 format of the receiver. `null` when it's a contract creation transaction.
   - `value`: `QUANTITY` - value transferred in von.
   - `gasPrice`: `QUANTITY` - gas price provided by the sender in von.
   - `gas`: `QUANTITY` - gas provided by the sender.
@@ -1131,11 +1131,11 @@ params: [
 - For filters created with `platon_newFilter` logs are objects with following params:
 
   - `type`: `TAG` - `pending` when the log is pending. `mined` if log is already mined.
-  - `logIndex`: `QUANTITY` - integer of the log index position in the block. `null` when its pending log.
-  - `transactionIndex`: `QUANTITY` - integer of the transactions index position log was created from. `null` when its pending log.
-  - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. `null` when its pending log.
-  - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. `null` when its pending. `null` when its pending log.
-  - `blockNumber`: `QUANTITY` - the block number where this log was in. `null` when its pending. `null` when its pending log.
+  - `logIndex`: `QUANTITY` - integer of the log index position in the block. `null` when it's pending log.
+  - `transactionIndex`: `QUANTITY` - integer of the transactions index position log was created from. `null` when it's pending log.
+  - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. `null` when it's pending log.
+  - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. `null` when it's pending. `null` when it's pending log.
+  - `blockNumber`: `QUANTITY` - the block number where this log was in. `null` when it's pending. `null` when it's pending log.
   - `address`: `DATA`, address string in bech32 format - address from which this log originated.
   - `data`: `DATA` - contains one or more 32 Bytes non-indexed arguments of the log.
   - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In *solidity*: The first topic is the *hash* of the signature of the event (e.g. `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.).

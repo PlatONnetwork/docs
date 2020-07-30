@@ -310,7 +310,7 @@ web3.platon.defaultBlock = 231;
 
 #### web3.platon.getProtocolVersion
 
-返回节点旳以太坊协议版本。
+返回节点的以太坊协议版本。
 
 调用：
 
@@ -1433,15 +1433,22 @@ new web3.platon.Contract(jsonInterface[, address][, options])
 
 参数：
 
-*  jsonInterface - Object: 要实例化的合约的json接口
-*  address - String: 可选，要调用的合约的地址，也可以在之后使用 myContract.options.address = '0x1234..' 来指定该地址
-*  options - Object : 可选，合约的配置对象，其中某些字段用作调用和交易的回调：
-   *  from - String: 交易发送方地址
-   *  gasPrice - String: 用于交易的gas价格，单位：VON
-   *  gas - Number: 交易可用的最大gas量，即gas limit
-   *  data - String: 合约的字节码，部署合约时需要
-   *  vmType - Number: 合约类型。0表示solidity合约，1表示wasm合约。不传默认是solidity合约。(新增字段)
-返回值：
+* jsonInterface - Object: 要实例化的合约的json接口
+* address - String: 可选，要调用的合约的地址，也可以在之后使用 myContract.options.address = '0x1234..' 来指定该地址
+* options - Object : 可选，合约的配置对象，其中某些字段用作调用和交易的回调：
+   * from - String: 交易发送方地址
+
+   * gasPrice - String: 用于交易的gas价格，单位：VON
+
+   * gas - Number: 交易可用的最大gas量，即gas limit
+
+   * data - String: 合约的字节码，部署合约时需要
+
+   * vmType - Number: 合约类型。0表示solidity合约，1表示wasm合约。不传默认是solidity合约。(新增字段)
+
+   * net_type - String: 网络类型。`lat`表示主网，`lax`表示测试网。不传默认是测试网。(新增字段)
+
+     返回值：
 
 `Object`: The contract instance with all its methods and events.
 
@@ -2113,6 +2120,92 @@ myContract.getPastEvents('MyEvent', {
 
 ***
 
+#### newFilter - 创建一个新的过滤器
+
+创建一个新的过滤器并返回过滤器id。当状态改变时，它可以用来检索日志。
+
+调用:
+
+```
+myContract.newFilter(event[, options][, callback])
+```
+
+参数：
+
+- event - String: 事件名，或者使用 "allEvents" 来读取所有的事件
+- options - Object: 用于部署的选项，包含以下字段：
+  - filter - Object : 可选，按索引参数过滤事件，例如 {filter: {myNumber: [12,13]}} 表示所有“myNumber” 为12 或 13的事件
+  - fromBlock - Number : 可选，仅读取从该编号开始的块中的历史事件。
+  - toBlock - Number : 可选，仅读取截止到该编号的块中的历史事件，默认值为"latest"
+  - topics - Array : 可选，用来手动设置事件过滤器的主题。如果设置了filter属性和事件签名，那么(topic[0])将不会自动设置
+- callback - Function : 可选的回调参数，触发时其第一个参数为错误对象，第二个参数为历史事件数组
+
+返回值：
+
+返回一个String类型的过滤器id
+
+示例代码：
+
+```js
+myContract.newFilter(eventName, {
+   filter: eventFilter,
+   fromBlock: fromBlockNum,
+   toBlock: "latest"
+}, function(error, rpcId){ 
+    console.log("rpcId:", rpcId); 
+})
+
+> rpcId: 0xa081d1f00117ade0e08769bb053ae7e
+```
+
+------
+
+#### getFilterLogs - 返回具有给定id的过滤器的日志
+
+返回具有给定id的过滤器的日志。如果找不到过滤器，将返回一个空的日志数组。 
+
+调用:
+
+```
+myContract.getFilterLogs(rpcId[, callback])
+```
+
+参数：
+
+- rpcId- String: 过滤器id，通过调newFilter接口返回
+
+返回值：
+
+一个Promise对象，其解析值为历史事件对象数组
+
+示例代码：
+
+```js
+contract.getFilterLogs("0xa081d1f00117ade0e08769bb053ae7e", function(error, events){ 
+     console.log(events); 
+})
+
+> [
+  {
+    address: 'lat1dw8t6q5jy6r3xqqkgc43nn403gpuzwx7penk3q',
+    topics: [
+      '0x0000000000000000000000000000000000000000007374727563744576656e74',
+      '0x000000000000000000000000000000000000000000000000000000000000c180'
+    ],
+    data: '0xc0',
+    blockNumber: '0x16375a',
+    transactionHash: '0x59d68e32b6566877fb024f3ab356d9c5d2947f6f7a89bc4b34432496c34193d5',
+    transactionIndex: '0x0',
+    blockHash: '0x2843f645de8147cce62e6d18bb287c4cf06bbb6a3f3f5ec97917a7a09e300eee',
+    logIndex: '0x0',
+    removed: false
+  }
+]
+```
+
+注：读取合约历史事件，可通过newFilter和getFilterLogs接口配合使用获取。
+
+------
 
 #### web3.platon.personal
 

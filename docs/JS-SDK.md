@@ -10,9 +10,9 @@ Interact with nodes through web3 objects provided by web3.js. On the underlying 
 
 ### Usage
 
-First, make sure the nodeJS environment is successfully installed locally. `WEB3.JS` uses the [lerna](https://github.com/lerna/lerna) management tool to optimize the workflow of the multi-package code base hosted on `git/npm`, so you make sure before installing The lerna package has been installed globally. If not, execute the command `npm i lerna -g` for global installation. 
+First, make sure the nodeJS environment is successfully installed locally. `WEB3.JS` uses the [lerna](https://github.com/lerna/lerna) management tool to optimize the workflow of the multi-package code base hosted on `git/npm`, so you should make sure the lerna package has been installed globally before installing. If not, execute the command `npm i lerna -g` for global installation. 
 
-Then you can integrate client-sdk-js into the project project through package management tools such as npm or yarn, the steps are as follows:
+Then you can integrate client-sdk-js into the project through package management tools such as npm or yarn, the steps are as follows:
 
 - npm: `npm i PlatONnetwork/client-sdk-js`
 - yarn: `yarn add PlatONnetwork/client-sdk-js`
@@ -96,7 +96,7 @@ web3.modules
 
 #### web3.setProvider
 
-`web3.setProvider()` Will change the provider for its module.
+`web3.setProvider()` Will change the provider for it's module.
 
 Method:
 
@@ -237,7 +237,7 @@ batch.execute();
 
 #### web3.platon.defaultAccount
 
-`web3.platon.defaultAccount` This default address is used as the default "from" property, if no "from" property is specified in for the following methods:
+`web3.platon.defaultAccount` This default address is used as the default "from" property, if no "from" property is specified in the following methods:
 
 *  web3.platon.sendTransaction()
 *  web3.platon.call()
@@ -514,7 +514,7 @@ Parameter:
 
 Returns:
 
-`Promise` returns `String` - The data at given address address.
+`Promise` returns `String` - The data at given address.
 
 Example:
 
@@ -546,12 +546,12 @@ Returns:
 
 Promise returns Object - The block object:
 
-* `number` - `Number`: The block number. null when its pending block.
-* `hash` 32 Bytes - `String`: Hash of the block. null when its pending block.
+* `number` - `Number`: The block number. null when it's pending block.
+* `hash` 32 Bytes - `String`: Hash of the block. null when it's pending block.
 * `parentHash` 32 Bytes - `String`: Hash of the parent block.
-* `nonce` 8 Bytes - `String`: Hash of the generated proof-of-work. null when its pending block.
+* `nonce` 8 Bytes - `String`: Hash of the generated proof-of-work. null when it's pending block.
 * `sha3Uncles` 32 Bytes - `String`: SHA3 of the uncles data in the block.
-* `logsBloom` 256 Bytes - `String`: The bloom filter for the logs of the block. null when its pending block.
+* `logsBloom` 256 Bytes - `String`: The bloom filter for the logs of the block. null when it's pending block.
 * `transactionsRoot` 32 Bytes - `String`: The root of the transaction trie of the block
 * `stateRoot` 32 Bytes - `String`: The root of the final state trie of the block.
 * `miner` - `String`: The address of the beneficiary to whom the mining rewards were given.
@@ -643,15 +643,15 @@ Parameter:
 
 Returns:
 
-`Promise` returns `Object` - A transaction object its hash `transactionHash`:
+`Promise` returns `Object` - A transaction object it's hash `transactionHash`:
 
 * `hash` 32 Bytes - `String:` Hash of the transaction.
 * `nonce` - `Number`: The number of transactions made by the sender prior to this one.
-* `blockHash` 32 Bytes - `String`: Hash of the block where this transaction was in. null when its pending.
-* `blockNumber` - `Number`: Block number where this transaction was in. null when its pending.
-* `transactionIndex` - `Number`: Integer of the transactions index position in the block. null when its pending.
+* `blockHash` 32 Bytes - `String`: Hash of the block where this transaction was in. null when it's pending.
+* `blockNumber` - `Number`: Block number where this transaction was in. null when it's pending.
+* `transactionIndex` - `Number`: Integer of the transactions index position in the block. null when it's pending.
 * `from` - `String`: Address of the sender.
-* `to` - `String`: Address of the receiver. null when its a contract creation transaction.
+* `to` - `String`: Address of the receiver. null when it's a contract creation transaction.
 * `value` - `String`: Value transferred in von.
 * `gasPrice` - `String`: Gas price provided by the sender in von.
 * `gas` - `Number`: Gas provided by the sender.
@@ -736,7 +736,7 @@ Returns:
 * `transactionHash` 32 Bytes - `String`: Hash of the transaction.
 * `transactionIndex`- `Number`: Integer of the transactions index position in the block.
 * `from` - `String`: Address of the sender.
-* `to` - `String`: Address of the receiver. null when its a contract creation transaction.
+* `to` - `String`: Address of the receiver. null when it's a contract creation transaction.
 * `contractAddress` - `String`: The contract address created, if the transaction was a contract creation, otherwise null.
 * `cumulativeGasUsed` - `Number`: The total amount of gas used when this transaction was executed in the block.
 * `gasUsed` - `Number`: The amount of gas used by this specific transaction alone.
@@ -825,7 +825,7 @@ PromiEvent:  A promise combined event emitter. Will be resolved when the transac
 
 *  "transactionHash" returns String: Is fired right after the transaction is sent and a transaction hash is available.
 *  "receipt"  returns `Object`: Is fired when the transaction receipt is available.
-*  "confirmation" returns Number, Object: Is fired for every confirmation up to the 12th confirmation. Receives the confirmation number as the first and the receipt as the second argument. Fired from confirmation 0 on, which is the block where its minded.
+*  "confirmation" returns Number, Object: Is fired for every confirmation up to the 12th confirmation. Receives the confirmation number as the first and the receipt as the second argument. Fired from confirmation 0 on, which is the block where it's minded.
 *  "error" returns Error and Object|undefined: Is fired if an error occurs during sending. If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.
 
 Example:
@@ -1080,8 +1080,8 @@ The structure of the returned event `Object` in the `Array` looks as follows:
 * `logIndex` - `Number`: Integer of the event index position in the block.
 * `transactionIndex` - `Number`: Integer of the transaction’s index position, the event was created in.
 * `transactionHash` 32 Bytes - `String`: Hash of the transaction this event was created in.
-* `blockHash` 32 Bytes - `String`: Hash of the block where this event was created in. null when its still pending.
-* `blockNumber` - `Number`: The block number where this log was created in. null when still pending.
+* `blockHash` 32 Bytes - `String`: Hash of the block where this event was created in. null when it's still pending.
+* `blockNumber` - `Number`: The block number where this log was created in. null when it's still pending.
 
 Example:
 
@@ -1260,12 +1260,12 @@ Returns:
 
 The structure of a returned block header is as follows:
 
-* `number` - `Number`: The block number. null when its pending block.
-* `hash` 32 Bytes - `String`: Hash of the block. null when its pending block.
+* `number` - `Number`: The block number. null when it's pending block.
+* `hash` 32 Bytes - `String`: Hash of the block. null when it's pending block.
 * `parentHash` 32 Bytes - `String`: Hash of the parent block.
-* `nonce` 8 Bytes - `String`: Hash of the generated proof-of-work. null when its pending block.
+* `nonce` 8 Bytes - `String`: Hash of the generated proof-of-work. null when it's pending block.
 * `sha3Uncles` 32 Bytes - `String`: SHA3 of the uncles data in the block.
-* `logsBloom` 256 Bytes - `String`: The bloom filter for the logs of the block. null when its pending block.
+* `logsBloom` 256 Bytes - `String`: The bloom filter for the logs of the block. null when it's pending block.
 * `transactionsRoot` 32 Bytes - `String`: The root of the transaction trie of the block
 * `stateRoot` 32 Bytes - `String`: The root of the final state trie of the block.
 * `receiptsRoot` 32 Bytes - `String`: The root of the receipts.
@@ -1302,7 +1302,7 @@ subscription.unsubscribe(function(error, success){
 
 #### web3.platon.subscribe('syncing')
 
-`syncing` Subscribe to syncing events. This will return an object when the node is syncing and when its finished syncing will return FALSE.
+`syncing` Subscribe to syncing events. This will return an object when the node is syncing and when it's finished syncing will return FALSE.
 
 Method:
 
@@ -1437,11 +1437,12 @@ Parameter:
    * `gasPrice` - `String`: The gas price in von to use for transactions.
    * `gas` - `Number`: The maximum gas provided for a transaction (gas limit).
    * `data` - `String`: The byte code of the contract. Used when the contract gets deployed.
-   * `vmType` - `Number`: The contract type。0 means solidity contract, 1 means wasm contract. The default is the solidity contract. (New field)
+   * `vmType` - `Number`: The contract type. 0 means solidity contract, 1 means WASM contract. The default is the solidity contract. (New field)
+   * `net_type ` - `String`: The network type. `lat` represents the primary network, `lax` represents the test network. The default is to the test network.  (New field)
 
 Returns:
 
-`Object`: The contract instance with all its methods and events.
+`Object`: The contract instance with all it's methods and events.
 
 Example:
 
@@ -1568,7 +1569,7 @@ Parameter:
 `options` - Object: The options used for deployment.
 
 * `data` - `String`: The byte code of the contract.
-* `arguments` - `Array`: (optional): The arguments which get passed to the constructor on deployment. If you deploy a wasm contract, you can refer to [wasm contract parameter passing reference](https://github.com/PlatONnetwork/client-sdk-js/blob/feature/wasm/test/1_platon_wasm.js)。
+* `arguments` - `Array`: (optional): The arguments which get passed to the constructor on deployment. If you deploy a WASM contract, you can refer to [WASM contract parameter passing reference](https://github.com/PlatONnetwork/client-sdk-js/blob/feature/wasm/test/1_platon_wasm.js)。
 
 Returns:
 
@@ -1643,7 +1644,7 @@ myContract.deploy({
 
 Creates a transaction object for that method, which then can be called, send, estimated.
 
-If it is a wasm contract, you can refer to [wasm contract parameter passing reference](https://github.com/PlatONnetwork/client-sdk-js/blob/feature/wasm/test/1_platon_wasm.js)。
+If it is a WASM contract, you can refer to [WASM contract parameter passing reference](https://github.com/PlatONnetwork/client-sdk-js/blob/feature/wasm/test/1_platon_wasm.js)。
 
 Method:
 
@@ -1668,8 +1669,8 @@ Returns:
 Object: The transaction object:
 
 *  `arguments`: Array - The arguments passed to the method before. They can be changed.
-*  `call`: Function -  Will call the “constant” method and execute its smart contract method in the EVM without sending a transaction (Can’t alter the smart contract state).
-*  `send`: Function - Will send a transaction to the smart contract and execute its method (Can alter the smart contract state).
+*  `call`: Function -  Will call the “constant” method and execute it's smart contract method in the EVM without sending a transaction (Can’t alter the smart contract state).
+*  `send`: Function - Will send a transaction to the smart contract and execute it's method (Can alter the smart contract state).
 *  `estimateGas`: Function - Will estimate the gas used when the method would be executed on chain.
 *  `encodeABI`: Function -  Encodes the ABI for this method. This can be send using a transaction, call the method or passing into another smart contracts method as argument.
 
@@ -1705,7 +1706,7 @@ myContract.methods.myMethod(123).send({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7
 
 #### methods.myMethod.call
 
-Will call a “constant” method and execute its smart contract method in the EVM without sending any transaction. Note calling can not alter the smart contract state.
+Will call a “constant” method and execute it's smart contract method in the EVM without sending any transaction. Note calling can not alter the smart contract state.
 
 Method:
 
@@ -1789,7 +1790,7 @@ MyContract.methods.myFunction().call()
 
 #### send - methods.myMethod.send
 
-Will send a transaction to the smart contract and execute its method. Note this can alter the smart contract state.
+Will send a transaction to the smart contract and execute it's method. Note this can alter the smart contract state.
 
 Method:
 
@@ -1991,7 +1992,7 @@ The structure of the returned event `Object` looks as follows:
 * `transactionIndex` - `Number`: Integer of the transaction’s index position the event was created in.
 * `transactionHash` 32 Bytes - `String` Hash of the transaction this event was created in.
 * `blockHash` 32 Bytes - `String`: Hash of the block this event was created in. null when it’s still pending.
-* `blockNumber` - `Number`: The block number this log was created in. null when still pending.
+* `blockNumber` - `Number`: The block number this log was created in. null when it's still pending.
 * `raw.data` - `String`: The data containing non-indexed log parameter.
 * `raw.topics` - `Array`: An array with max 4 32 Byte topics, topic 1-3 contains indexed parameters of the event.
 
@@ -2107,6 +2108,92 @@ myContract.getPastEvents('MyEvent', {
 
 ***
 
+#### newFilter
+
+newFilter creates a new filter and returns the filter id. It can be used to retrieve logs when the state changes. 
+
+Method:
+
+```
+myContract.newFilter(event[, options][, callback])
+```
+
+Parameter：
+
+- `event` - `String`: The name of the event in the contract, or "allEvents" to get all events.
+- `options` - `Object` (optional): The options used for deployment.
+  - `filter` - `Object` (optional): Lets you filter events by indexed parameters, e.g. {filter: {myNumber: [12,13]}} means all events where “myNumber” is 12 or 13.
+  - `fromBlock` - `Number|String|BN|BigNumber` (optional): The block number (greater than or equal to) from which to get events on. Pre-defined block numbers as "latest", "earlist", "pending", and "genesis" can also be used.
+  - `toBlock` - `Number|String|BN|BigNumber` (optional): The block number (less than or equal to) to get events up to (Defaults to "latest"). Pre-defined block numbers as "latest", "earlist", "pending", and "genesis" can also be used.
+  - `topics` - `Array` (optional): This allows manually setting the topics for the event filter. If given the filter property and event signature, (topic[0]) will not be set automatically.
+- `callback` - `Function` (optional): This callback will be fired with an array of event logs as the second argument, or an error as the first argument.
+
+Returns:
+
+- Returns a filter ID of type String.
+
+Example:
+
+```js
+myContract.newFilter(eventName, {
+   filter: eventFilter,
+   fromBlock: fromBlockNum,
+   toBlock: "latest"
+}, function(error, rpcId){ 
+    console.log("rpcId:", rpcId); 
+})
+
+> rpcId: 0xa081d1f00117ade0e08769bb053ae7e
+```
+
+------
+
+#### getFilterLogs
+
+getFilterLogs returns the logs for the filter with the given id. If the filter could not be found an empty array of logs is returned.
+
+Method:
+
+```
+myContract.getFilterLogs(rpcId[, callback])
+```
+
+Parameter：
+
+- rpcId- String:  Filter ID, returned by calling the `newFilter` interface .
+
+Returns:
+
+- Promise returns Array: An array with the past event Objects, matching the given event name and filter.
+
+Example：
+
+```js
+contract.getFilterLogs("0xa081d1f00117ade0e08769bb053ae7e", function(error, events){ 
+     console.log(events); 
+})
+
+> [
+  {
+    address: 'lat1dw8t6q5jy6r3xqqkgc43nn403gpuzwx7penk3q',
+    topics: [
+      '0x0000000000000000000000000000000000000000007374727563744576656e74',
+      '0x000000000000000000000000000000000000000000000000000000000000c180'
+    ],
+    data: '0xc0',
+    blockNumber: '0x16375a',
+    transactionHash: '0x59d68e32b6566877fb024f3ab356d9c5d2947f6f7a89bc4b34432496c34193d5',
+    transactionIndex: '0x0',
+    blockHash: '0x2843f645de8147cce62e6d18bb287c4cf06bbb6a3f3f5ec97917a7a09e300eee',
+    logIndex: '0x0',
+    removed: false
+  }
+]
+```
+
+Note: Read contract history events, which can be obtained using the `newFilter` and `getFilterLogs` interfaces. 
+
+------
 
 #### web3.platon.personal
 
@@ -2137,7 +2224,7 @@ var web3 = new Web3(Web3.givenProvider || 'ws://some.local-or-remote.node:8546')
 
 Creates a new account.
 
-Notes: Never call this function over a unsecured Websocket or HTTP provider, as your password will be send in plain text!
+Notes: Never call this function over a unsecured Websocket or HTTP provider, as your password will be sent in plain text!
 
 Method:
 
@@ -2301,7 +2388,7 @@ Function List:
 
 #### web3.platon.abi.encodeFunctionSignature
 
-Encodes the function name to its ABI signature, which are the first 4 bytes of the sha3 hash of the function name including types.
+Encodes the function name to it's ABI signature, which are the first 4 bytes of the sha3 hash of the function name including types.
 
 Method:
 
@@ -2343,7 +2430,7 @@ web3.platon.abi.encodeFunctionSignature('myMethod(uint256,string)')
 
 #### web3.platon.abi.encodeEventSignature
 
-Encodes the event name to its ABI signature, which are the sha3 hash of the event name including input types.
+Encodes the event name to it's ABI signature, which are the sha3 hash of the event name including input types.
 
 Method:
 
@@ -2385,7 +2472,7 @@ web3.platon.abi.encodeEventSignature({
 
 #### web3.platon.abi.encodeFunctionCall
 
-Encodes a function call using its JSON interface object and given paramaters.
+Encodes a function call using it's JSON interface object and given paramaters.
 
 Method:
 
@@ -2423,7 +2510,7 @@ web3.platon.abi.encodeFunctionCall({
 
 #### web3.platon.abi.decodeParameter
 
-Decodes an ABI encoded parameter to its JavaScript type.
+Decodes an ABI encoded parameter to it's JavaScript type.
 
 Method:
 
@@ -2454,7 +2541,7 @@ web3.platon.abi.decodeParameter('string', '0x00000000000000000000000000000000000
 
 #### web3.platon.abi.decodeParameters
 
-Decodes ABI encoded parameters to its JavaScript types.
+Decodes ABI encoded parameters to it's JavaScript types.
 
 Method:
 
@@ -2508,7 +2595,7 @@ Parameter:
 
 *  inputs - Object: A JSON interface inputs array. See the solidity documentation for a list of types.
 *  hexString - String: The ABI byte code in the data field of a log.
-*  topics - Array: An array with the index parameter topics of the log, without the topic[0] if its a non-anonymous event, otherwise with topic[0].
+*  topics - Array: An array with the index parameter topics of the log, without the topic[0] if it's a non-anonymous event, otherwise with topic[0].
 
 Returns:
 
@@ -2818,7 +2905,7 @@ web3.utils.soliditySha3({t: 'bytes', v: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj
 
 
 web3.utils.soliditySha3({t: 'address', v: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'});
-> "0x4e8ebbefa452077428f93c9520d3edd60594ff452a29ac7d2ccc11d47f3ab95b" //same as above, but will do a checksum check, if its multi case
+> "0x4e8ebbefa452077428f93c9520d3edd60594ff452a29ac7d2ccc11d47f3ab95b" //same as above, but will do a checksum check, if it's multi case
 
 
 web3.utils.soliditySha3({t: 'bytes32', v: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'});
@@ -3100,7 +3187,7 @@ Parameter:
 
 Returns:
 
-`Boolean`: `true` when the checksum of the address is valid, `false` if its not a checksum address, or the checksum is invalid.
+`Boolean`: `true` when the checksum of the address is valid, `false` if it's not a checksum address, or the checksum is invalid.
 
 Example:
 
@@ -3702,7 +3789,7 @@ getCandidateList params array reply:  {
 
 #### updateSetting(setting)
 
-Update the configuration parameters of the `ppos` object. If you only need to send a call, you only need to pass in the parameter `provider`. If you passed in the provider when instantiating web3. Then the `provider` of` ppos` is the provider that you instantiate from web3 by default. Of course you can also update the provider at any time.
+Update the configuration parameters of the `ppos` object. If you only need to send a call, you only need to pass in the parameter `provider`. If you passed in the provider when instantiating web3, then the `provider` of` ppos` is the provider that you instantiate from web3 by default. Of course you can also update the provider at any time.
 
 If you want to send a transaction via send, you need to pass in the parameters `provider`, the private key, and the chain id. Of course, sending transactions requires setting four parameters: `gas`,` gasPrice`, `retry`, and` interval`. See the `async send (params, [other])` description for details.
 
@@ -4228,7 +4315,7 @@ Returns: List
 
 #### Submit Text Proposal
 
-Submit a text proposal by send a transaction.
+Submit a text proposal by sending a transaction.
 
 Parameters:
 
@@ -4300,7 +4387,7 @@ Parameters:
 
 #### Query Proposal
 
-Query proposal by call.
+Query proposal by calling.
 
 Parameters:
 
@@ -4316,7 +4403,7 @@ JSON string of object implementing interface Proposal.
 
 #### Query Proposal Results
 
-Query proposal results through call operation.
+Query proposal results through calling operation.
 
 Parameters:
 
@@ -4332,7 +4419,7 @@ Returns:
 
 #### Query Proposal List
 
-Query proposal list through call operation.
+Query proposal list through calling operation.
 
 Parameters:
 
@@ -4347,7 +4434,7 @@ Returns:
 
 #### Query Version In Effect
 
-Query the version in effect through call operation.
+Query the version in effect through calling operation.
 
 Parameters:
 
@@ -4363,7 +4450,7 @@ When parsing, ver needs to be converted into 4 bytes. Major version: second byte
 
 #### Query The Cumulative Voteable Number Of Proposals
 
-Query the cumulative voteable number of proposals through call operation.
+Query the cumulative voteable number of proposals through calling operation.
 
 Parameters:
 
@@ -4532,7 +4619,7 @@ Parameters:
 
 #### Get Lock Information
 
-Get lock information by call.
+Get lock information by calling.
 
 Note: This interface supports the acquisition of historical data. The block height can be attached to the request. By default, the latest block data is queried.
 

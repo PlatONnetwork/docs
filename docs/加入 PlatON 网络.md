@@ -8,13 +8,13 @@ sidebar_label: Join the PlatON network
 
 Currently PlatON  has two public networks.  One is the PlatON main network that has not yet been officially launched and operates independently. The chain ID is 100.
 
-The other is the test network Baleyworld, which has been officially launched on 2020-2-20 Beijing time, and is open to developers. The chain ID is 103.
+The other is the test network Baleyworld, which has been officially launched on 2020-2-20 Beijing time, and is open to developers. The chain ID is 103.
 
 
 
 ## Preparation
 
-Before joining the PlatON public network, please ensure that the server has the following conditions：
+Before joining the PlatON public network, please ensure that the server has the following conditions:
 
 - The PlatON node has been installed and the wallet file and node key have been created according to the instructions of [Installing a Node](/docs/en/Install_Node).
 
@@ -33,15 +33,15 @@ The mainnet has not been officially launched yet.
 
 Anyone or any organization can join PlatON test network.
 
-### Start as a validation node
+### Start as a validator node
 
-**Execute the following command to join the Baleyworld as a validation node**
+**Execute the following command to join the Baleyworld as a validator node**
 
 ```bash
 nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
 ```
 
-**Prompt：**
+**Prompt:**
 
 | **Parameters** | **Description**                                              |
 | -------------- | ------------------------------------------------------------ |
