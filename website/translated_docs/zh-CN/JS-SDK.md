@@ -55,7 +55,7 @@ web3.version
 
 ```js
 web3.version;
-> "0.13.0"
+> "0.13.1"
 ```
 
 ***

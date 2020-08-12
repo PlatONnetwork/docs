@@ -34,7 +34,7 @@ Double-click `C:\tools\unins000.exe` to uninstall all old versions of MTool and 
 
 **Step1. Download MTool installation package**
 
-On the online machine, copy the link <https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.13.0/mtool-setup.exe> or <http://47.91.153.183/mtool/mtool-setup/0.13.0/mtool-setup.exe> to the browser and download the MTool installation package.
+On the online machine, copy the link <https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.13.1/mtool-setup.exe> or <http://47.91.153.183/mtool/mtool-setup/0.13.1/mtool-setup.exe> to the browser and download the MTool installation package.
 
 **Step2. Install MTool**
 
@@ -51,13 +51,13 @@ Proceed as follows:
 **Step1. Download MTool toolkit**
 
 ```bash
-wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.13.0/mtool-client.zip
+wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.13.1/mtool-client.zip
 ```
 
 or
 
 ```bash
-wget http://47.91.153.183/mtool/0.13.0/mtool-client.zip
+wget http://47.91.153.183/mtool/0.13.1/mtool-client.zip
 ```
 
 **Step2. Extract the MTool toolkit**
@@ -332,7 +332,7 @@ mtool-client submit_textproposal --pid_id 100 --keystore $MTOOLDIR/keystore/stak
 - Excuting the command
 
 ```bash
-mtool-client submit_versionproposal --newversion 0.13.0 --end_voting_rounds 345 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
+mtool-client submit_versionproposal --newversion 0.13.1 --end_voting_rounds 345 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameters Description
