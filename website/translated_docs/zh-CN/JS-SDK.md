@@ -912,7 +912,7 @@ const customCommon = Common.default.forCustomChain(
   {
     name: 'platon',
     networkId: 1,
-    chainId: 101,
+    chainId: 104,
   },
   'petersburg'
 );
@@ -3638,7 +3638,7 @@ web3.utils.padLeft('Hello', 20, 'x');
     // 由于在实例化web3的时候已传入了 provider, 可以不传入provider了。
     ppos.updateSetting({
         privateKey: 'acc73b693b79bbb56f89f63ccc3a0c00bf1b8380111965bfe8ab22e32045600c',
-        chainId: 101,
+        chainId: 104,
     })
 
     let data, reply;
@@ -3709,7 +3709,7 @@ web3.utils.padLeft('Hello', 20, 'x');
     const ppos1 = new web3.PPOS({
         provider: 'http://127.0.0.1:6789',
         privateKey: '9f9b18c72f8e5154a9c59af2a35f73d1bdad37b049387fc6cea2bac89804293b',
-        chainId: 101,
+        chainId: 104,
     })
     reply = await ppos1.call(data);
 })()
@@ -3828,7 +3828,7 @@ getCandidateList params array reply:  {
 // 同时更新 privateKey，chainId
 ppos.updateSetting({
     privateKey: 'acc73b693b79bbb56f89f63ccc3a0c00bf1b8380111965bfe8ab22e32045600c',
-    chainId: 101,
+    chainId: 104,
 })
 
 // 只更新 privateKey
