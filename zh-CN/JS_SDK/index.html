@@ -704,7 +704,7 @@ web3.platon.sendTransaction({
   {
     <span class="hljs-attr">name</span>: <span class="hljs-string">'platon'</span>,
     <span class="hljs-attr">networkId</span>: <span class="hljs-number">1</span>,
-    <span class="hljs-attr">chainId</span>: <span class="hljs-number">101</span>,
+    <span class="hljs-attr">chainId</span>: <span class="hljs-number">104</span>,
   },
   <span class="hljs-string">'petersburg'</span>
 );
@@ -2675,7 +2675,7 @@ web3.utils.padLeft(<span class="hljs-string">'Hello'</span>, <span class="hljs-n
     <span class="hljs-comment">// 由于在实例化web3的时候已传入了 provider, 可以不传入provider了。</span>
     ppos.updateSetting({
         <span class="hljs-attr">privateKey</span>: <span class="hljs-string">'acc73b693b79bbb56f89f63ccc3a0c00bf1b8380111965bfe8ab22e32045600c'</span>,
-        <span class="hljs-attr">chainId</span>: <span class="hljs-number">101</span>,
+        <span class="hljs-attr">chainId</span>: <span class="hljs-number">104</span>,
     })
 
     <span class="hljs-keyword">let</span> data, reply;
@@ -2746,7 +2746,7 @@ web3.utils.padLeft(<span class="hljs-string">'Hello'</span>, <span class="hljs-n
     <span class="hljs-keyword">const</span> ppos1 = <span class="hljs-keyword">new</span> web3.PPOS({
         <span class="hljs-attr">provider</span>: <span class="hljs-string">'http://127.0.0.1:6789'</span>,
         <span class="hljs-attr">privateKey</span>: <span class="hljs-string">'9f9b18c72f8e5154a9c59af2a35f73d1bdad37b049387fc6cea2bac89804293b'</span>,
-        <span class="hljs-attr">chainId</span>: <span class="hljs-number">101</span>,
+        <span class="hljs-attr">chainId</span>: <span class="hljs-number">104</span>,
     })
     reply = <span class="hljs-keyword">await</span> ppos1.call(data);
 })()
@@ -2858,7 +2858,7 @@ getCandidateList params array reply:  {
 <pre><code class="hljs css language-JavaScript"><span class="hljs-comment">// 同时更新 privateKey，chainId</span>
 ppos.updateSetting({
     <span class="hljs-attr">privateKey</span>: <span class="hljs-string">'acc73b693b79bbb56f89f63ccc3a0c00bf1b8380111965bfe8ab22e32045600c'</span>,
-    <span class="hljs-attr">chainId</span>: <span class="hljs-number">101</span>,
+    <span class="hljs-attr">chainId</span>: <span class="hljs-number">104</span>,
 })
 
 <span class="hljs-comment">// 只更新 privateKey</span>
