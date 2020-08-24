@@ -74,7 +74,7 @@
 <p>Windows编译环境需要符合以下条件：</p>
 <ul>
 <li>git：<code>2.19.1以上</code></li>
-<li>go语言开发包：<code>go(1.7+)</code></li>
+<li>go语言开发包：<code>go(1.11+)</code></li>
 <li>mingw：<code>mingw（V8.1.0）</code></li>
 <li>cmake: <code>3.0+</code></li>
 </ul>
@@ -93,7 +93,7 @@
 <p>安装cmake：</p>
 <pre><code class="hljs css language-powershell">choco install cmake -<span class="hljs-literal">-installargs</span> <span class="hljs-string">'ADD_CMAKE_TO_PATH=System'</span>
 </code></pre>
-<p>利用<code>chocolatey</code>包管理器安装的软件大部分有默认的安装路径，部分软件可能会有各种各样的路径，这取决于软件的发布者。安装这些包将修改Path环境变量。最后安装路径可查看PATH，某些机器环境可能在 PATH 中找不到这些工具的安装路径，此时需手动添加。安装完之后请确保已安装的Go版本为1.7（或更高版本）。</p>
+<p>利用<code>chocolatey</code>包管理器安装的软件大部分有默认的安装路径，部分软件可能会有各种各样的路径，这取决于软件的发布者。安装这些包将修改Path环境变量。最后安装路径可查看PATH，某些机器环境可能在 PATH 中找不到这些工具的安装路径，此时需手动添加。安装完之后请确保已安装的Go版本为1.11（或更高版本）。</p>
 </blockquote>
 <blockquote>
 <p>注意：以下命令均需在<code>Git-bash</code>环境运行， 在任意目录下，鼠标右键，选中<code>Git Bash Here</code>，弹出<code>Git Bash</code>运行窗口。</p>
@@ -129,7 +129,7 @@ go run build/ci.go install ./cmd/keytool
 <li>系统版本：<code>Ubuntu 18.04.1 及以上</code></li>
 <li>git：<code>2.19.1及以上</code></li>
 <li>编译器：<code>gcc(4.9.2+)</code>、<code>g++(5.0+)</code></li>
-<li>go语言开发包：<code>go(1.7+)</code></li>
+<li>go语言开发包：<code>go(1.11+)</code></li>
 <li>cmake:<code>3.0+</code></li>
 </ul>
 <p><strong>step2.</strong> 获取PlatON源码：</p>
