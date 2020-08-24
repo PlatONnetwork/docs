@@ -86,7 +86,7 @@
 <pre><code class="hljs css language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.platon.client<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.13.0.11<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.13.1.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="gradle"></a><a href="#gradle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>gradle</h3>
@@ -100,7 +100,7 @@
 <blockquote>
 <p>gradle引用方式:</p>
 </blockquote>
-<pre><code class="hljs"><span class="hljs-selector-tag">compile</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.client</span><span class="hljs-selector-pseudo">:core</span><span class="hljs-selector-pseudo">:0.13.0.11"</span>
+<pre><code class="hljs"><span class="hljs-selector-tag">compile</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.client</span><span class="hljs-selector-pseudo">:core</span><span class="hljs-selector-pseudo">:0.13.1.4"</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="基础api使用"></a><a href="#基础api使用" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>基础api使用</h2>
 <h3><a class="anchor" aria-hidden="true" id="bech32地址"></a><a href="#bech32地址" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bech32地址</h3>
@@ -2481,7 +2481,7 @@ TransactionResponse baseResponse = restrictingPlanContract.getTransactionRespons
 <p><code>bin</code>，输出包含十六进制编码的solidity二进制文件以提供交易请求。
 <code>abi</code>，输出一个solidity的应用程序二进制接口（<code>ABI</code>）文件，它详细描述了所有可公开访问的合约方法及其相关参数。<code>abi</code>文件也用于生成solidity智能合约对应的Java包装类。</p>
 <ul>
-<li>使用<code>platon-truffle</code>编译solidity源代码(<a href="https://platon-truffle.readthedocs.io/en/v0.13.0/getting-started/installation.html#">platon-truffle开发工具安装参考</a>|<a href="https://platon-truffle.readthedocs.io/en/v0.13.0/">platon-truffle开发工具使用手册</a>)：</li>
+<li>使用<code>platon-truffle</code>编译solidity源代码(<a href="https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html#">platon-truffle开发工具安装参考</a>|<a href="https://platon-truffle.readthedocs.io/en/v0.13.1/">platon-truffle开发工具使用手册</a>)：</li>
 </ul>
 <blockquote>
 <p><strong>step1.</strong> 使用platon-truffle初始化项目</p>
@@ -2556,7 +2556,7 @@ Warnin<span class="hljs-variable">g:</span> This <span class="hljs-keyword">is</
 <h3><a class="anchor" aria-hidden="true" id="solidity智能合约java包装类"></a><a href="#solidity智能合约java包装类" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solidity智能合约Java包装类</h3>
 <p>Java SDK支持从<code>abi</code>文件中自动生成Solidity智能合约对应的Java包装类。</p>
 <ul>
-<li>通过命令行工具生成Java包装类（<a href="https://download.platon.network/sdk/0.13.0.11-20200703/platon-web3j-0.13.0.11.zip">platon-web3j下载</a>）：</li>
+<li>通过命令行工具生成Java包装类（<a href="https://download.platon.network/sdk/0.13.1.4-20200824/platon-web3j-0.13.1.4.zip">platon-web3j下载</a>）：</li>
 </ul>
 <pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> platon-web3j solidity generate [--javaTypes|--solidityTypes] /path/to/&lt;smart-contract&gt;.bin /path/to/&lt;smart-contract&gt;.abi -o /path/to/src/main/java -p com.your.organisation.name</span>
 </code></pre>
@@ -2646,7 +2646,7 @@ GasProvider gasProvider  = <span class="hljs-keyword">new</span> ContractGasProv
 <p><code>wasm</code>，输出Wasm合约的二进制文件以提供交易请求。
 <code>abi.json</code>，详细描述了所有可公开访问的合约方法及其相关参数。<code>abi</code>文件也用于生成Wasm智能合约对应的Java包装类。</p>
 <ul>
-<li>使用<code>platon-truffle</code>编译Wasm合约源代码(<a href="https://platon-truffle.readthedocs.io/en/v0.13.0/getting-started/installation.html#">platon-truffle开发工具安装参考</a>|<a href="https://platon-truffle.readthedocs.io/en/v0.13.0/">platon-truffle开发工具使用手册</a>)</li>
+<li>使用<code>platon-truffle</code>编译Wasm合约源代码(<a href="https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html#">platon-truffle开发工具安装参考</a>|<a href="https://platon-truffle.readthedocs.io/en/v0.13.1/">platon-truffle开发工具使用手册</a>)</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="wasm智能合约java包装类"></a><a href="#wasm智能合约java包装类" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Wasm智能合约Java包装类</h3>
 <p>Java SDK支持从<code>abi.json</code>文件中自动生成Wasm智能合约对应的Java包装类。</p>
