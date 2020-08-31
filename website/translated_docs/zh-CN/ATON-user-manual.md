@@ -2,24 +2,21 @@
 id: ATON-user-manual
 title: ATON钱包用户使用手册
 ---
-## ATON下载
+
+## ATON 下载
 
 <div><br/><a href="https://platon.network/developer/?lang=zh#aton" target="_blank" >点击下载ATON最新版本 </a></div>
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 
-
-
 ## 创建钱包
 
 <div>
-<div style="float:left;"><img src="/docs/img/zh-CN/ATON-manual-cn.assets/aton2.png" width="500" height="350" style=";" /></div> <div><br>1. 点击【创建钱包】。<br>2. 选择钱包类型（普通或HD），设置符合规则的钱包名称和钱包密码。<br>3. 点击【创建钱包】按钮即可创建钱包。<br>4. 钱包创建成功后可以点击【钱包备份】开始备份，或者点击【跳过】后续进行备份。<br> <br><b>注意</b><br>1.钱包密码是您操作此钱包的凭证，服务器不会存储您的钱包密码，请务必牢记。<br>2.强烈建议您在创建钱包时即时备份。
+<div style="float:left;"><img src="/docs/img/zh-CN/ATON-manual-cn.assets/aton2.png" width="500" style="padding-bottom:50px;" /></div> <div><br>1. 点击【创建钱包】。<br>2. 选择钱包类型（普通或HD），设置符合规则的钱包名称和钱包密码。<br>3. 点击【创建钱包】按钮即可创建钱包。<br>4. 钱包创建成功后可以点击【钱包备份】开始备份，或者点击【跳过】后续进行备份。<br> <br><b>注意</b><br>1.钱包密码是您操作此钱包的凭证，服务器不会存储您的钱包密码，请务必牢记。<br>2.强烈建议您在创建钱包时即时备份。
 </div>
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
-
-
 
 ## 钱包备份
 
@@ -29,7 +26,6 @@ title: ATON钱包用户使用手册
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
-
 
 ## 导入钱包
 
@@ -42,9 +38,6 @@ title: ATON钱包用户使用手册
 <div style="margin-top:40px;"></div>
 </div>
 
-
-
-
 ### 使用助记词导入
 
 <div>
@@ -53,9 +46,6 @@ title: ATON钱包用户使用手册
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
-
-
-
 
 ### 使用私钥导入
 
@@ -66,13 +56,10 @@ title: ATON钱包用户使用手册
 <div style="margin-top:40px;"></div>
 </div>
 
-
-
-
-
 ### 导入观察钱包
 
 详见“设置观察钱包和冷钱包”说明
+
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 
@@ -85,7 +72,6 @@ title: ATON钱包用户使用手册
 <div style="margin-top:40px;"></div>
 </div>
 
-
 ## 选择钱包
 
 <div>
@@ -94,9 +80,6 @@ title: ATON钱包用户使用手册
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
-
-
-
 
 ## 接收
 
@@ -107,9 +90,6 @@ title: ATON钱包用户使用手册
 <div style="margin-top:40px;"></div>
 </div>
 
-
-
-
 ## 发送
 
 <div>
@@ -118,8 +98,6 @@ title: ATON钱包用户使用手册
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
-
-
 
 ## 节点
 
@@ -132,7 +110,6 @@ title: ATON钱包用户使用手册
 <div style="margin-top:40px;"></div>
 </div>
 
-
 ### 查看验证节点详情
 
 <div>
@@ -141,8 +118,6 @@ title: ATON钱包用户使用手册
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
-
-
 
 ## 委托
 
@@ -155,8 +130,6 @@ title: ATON钱包用户使用手册
 <div style="margin-top:40px;"></div>
 </div>
 
-
-
 ### 查看我的委托
 
 <div>
@@ -165,8 +138,6 @@ title: ATON钱包用户使用手册
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
-
-
 
 ### 赎回委托
 
@@ -177,21 +148,18 @@ title: ATON钱包用户使用手册
 <div style="margin-top:40px;"></div>
 </div>
 
-
-
 ## 设置观察钱包与冷钱包
 
 准备工作：
-1. 准备2台手机，安装最新版的ATON钱包。
-2. 确保一台手机永不联网，建议开启飞行模式，关闭WiFi，作为冷钱包设备；另一台手机联网作为观察钱包设备。
+
+1. 准备 2 台手机，安装最新版的 ATON 钱包。
+2. 确保一台手机永不联网，建议开启飞行模式，关闭 WiFi，作为冷钱包设备；另一台手机联网作为观察钱包设备。
 <div>
 <div style="float:left;"><img src="/docs/img/zh-CN/ATON-manual-cn.assets/aton28.png" width="300" style="zoom:80%;" /></div><div><br>1. 不联网手机创建一个钱包，此钱包则为冷钱包。点击“接收”打开钱包二维码<br>2. 联网手机点击【导入钱包-观察钱包】，扫描不联网手机的二维码或者输入钱包地址，点击【完成】，观察钱包设置成功。<br><br><b>注意</b><br>1. 观察钱包：联网但不存有私钥的钱包，仅做观察使用。如需进行交易，需要配合冷钱包操作。<br>2. 冷钱包：不联网但存有私钥的钱包，需做安全隔离保管。
 </div>
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
-
-
 
 ## 使用冷钱包进行交易
 
@@ -205,6 +173,7 @@ title: ATON钱包用户使用手册
 <div style="clear:both"></div>
 <div style="margin-top:20px;"></div>
 </div>
+
 **2. 冷钱包操作**
 
 <div>
@@ -216,8 +185,6 @@ title: ATON钱包用户使用手册
 （2）页面展示交易的详细信息，如确认无误则可以点击【授权签名】，输入钱包密码。
 （3）钱包密码输入正确后，页面会展示已签名的交易二维码信息，供观察钱包扫描。
 
-
-
 **3. 观察钱包操作**
 
 <div>
@@ -225,8 +192,6 @@ title: ATON钱包用户使用手册
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
-
-
 
 ## 设置/帮助与反馈
 
@@ -236,4 +201,3 @@ title: ATON钱包用户使用手册
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
-
