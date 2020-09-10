@@ -506,6 +506,7 @@ ls contracts/
 
 - ERC200513Token.sol
 - PlatON's smart contract unit is LAT,VON. To migrate the Ethereum smart contract to PlatON,please change the Ethereum denomination to PlatON denomination.also note the ether /LAT market rate（for this contract, we assume the market exchange rate1:1,uint256 public totalSupply = 10000000000000000000 ether; change to uint256 public totalSupply = 10000000000000000000 LAT; ）
+- PlatON's smart contract block.timestamp is current block timestamp as milliseconds since unix epoch, and Ethereum smart contract is seconds.
 
 **Step4.** Modify the compilation version number and chain-dependent configuration in truffle-config.js
 
