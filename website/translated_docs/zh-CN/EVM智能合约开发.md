@@ -303,6 +303,8 @@ helloWorld.methods.getName().call(null,function(error,result){console.log("name 
 
 ### 简介 
 
+PlatON支持的solidity最高版本号是0.5.13，如果迁移0.5.13以上版本的合约，需要降低版本号，去除高版本相关语法。
+
 如果您希望将以太坊的智能合约迁移到PlatON上，可以通过platon-truffle开发工具来进行。首先确保您正确安装了platon-truffle,只需按照以下步骤操作即可。
 
 以下将演示将以太坊的ERC200513Token合约迁移至PlatON上，ERC200513Token.sol合约文件如下
