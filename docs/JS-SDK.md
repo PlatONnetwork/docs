@@ -263,9 +263,10 @@ web3.platon.defaultAccount;
 // set the default account
 web3.platon.defaultAccount = 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6';
 ```
-
+> Note:
+>
+> **All addresses must be quoted, as above: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'.**
 ***
-
 #### web3.platon.defaultBlock
 
 `web3.platon.defaultBlock` The default block is used for certain methods. 
