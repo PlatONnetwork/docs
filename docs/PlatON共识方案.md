@@ -86,11 +86,11 @@ After that, some public chain projects, such as **Zilliqa** [5], etc., based on 
 
 #### Communication mechanism optimization
 
-PBFT uses all-to-all messages that creates $O(n^2)$ communication complexity.
+PBFT uses all-to-all messages that creates $O(n)$ communication complexity.
 
-SBFT (Scale optimized PBFT) [6] proposed a linear communication mode using a collector. In this mode, the message is no longer sent to each node, but to the collector, and then broadcasted by the collector to all nodes. Further more, the message length can be reduced from linear to constant by using threshold signatures, which reduces the total overhead to $O(n^2)$.
+SBFT (Scale optimized PBFT) [6] proposed a linear communication mode using a collector. In this mode, the message is no longer sent to each node, but to the collector, and then broadcasted by the collector to all nodes. Further more, the message length can be reduced from linear to constant by using threshold signatures, which reduces the total overhead to $O(n)$.
 
-Tendermint [7] uses a gossip all-to-all mechanism, so $O(nlogn)$ messages and $O(n^2)$ words under optimistic conditions.
+Tendermint [7] uses a gossip all-to-all mechanism, so $O(nlogn)$ messages and $O(n)$ words under optimistic conditions.
 
 #### view-change process optimization
 
