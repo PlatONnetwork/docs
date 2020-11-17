@@ -244,8 +244,8 @@ ReDiR 树节点使用 RELOAD 的 dictionary 结构存储服务提供节点，每
 <p><img src="/docs/img/zh-CN/PlatON总体方案.assets/snapshotdb.jpg" alt="snapshotdb"/></p>
 <p>其中：</p>
 <ul>
-<li>**unRecognizedBlockData: **一个未确认的数据集合，每个DB写入请求都更新数据集合。</li>
-<li>**RecognizedBlockData: **被确认的区块数据，BlockData经过Flush后即变成RecognizedBlockData，RecognizedBlockData与区块hash和number有对应关系，同一块高可以有多个RecognizedBlockData，commit后删除同一块高及以下的其他RecognizedBlockData。</li>
+<li>**unRecognizedBlockData: ** 一个未确认的数据集合，每个DB写入请求都更新数据集合。</li>
+<li>**RecognizedBlockData: ** 被确认的区块数据，BlockData经过Flush后即变成RecognizedBlockData，RecognizedBlockData与区块hash和number有对应关系，同一块高可以有多个RecognizedBlockData，commit后删除同一块高及以下的其他RecognizedBlockData。</li>
 <li><strong>CommitedBlockData:</strong> 等待Compaction的区块数据，有且只有一条路径（区块关联）。</li>
 <li><strong>WAL:</strong> 日志文件,所有数据记录之前先写log。存储k，v，hash数据，hash = hash（k+v+hash）</li>
 <li><strong>current:</strong> 用于存储当前最高提交区块（highest）和最高合并区块(base)区块的高度</li>
