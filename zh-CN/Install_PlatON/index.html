@@ -101,10 +101,10 @@
 <ul>
 <li>获取源码</li>
 </ul>
-<p>获取源码放到GOPATH路径下，其中<code>0.13.1_alpha</code>为分支名称，届时切换到实际的分支：</p>
+<p>获取源码放到GOPATH路径下，其中<code>develop</code>为分支名称，届时切换到实际的分支：</p>
 <pre><code class="hljs"><span class="hljs-built_in">mkdir</span> -<span class="hljs-keyword">p</span> $GOPATH/src/github.<span class="hljs-keyword">com</span>/PlatONnetwork
 <span class="hljs-keyword">cd</span> $GOPATH/src/github.<span class="hljs-keyword">com</span>/PlatONnetwork
-git clone -<span class="hljs-keyword">b</span> <span class="hljs-number">0.13</span>.<span class="hljs-number">1</span>_alpha http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com</span>/PlatONnetwork/PlatON-Go.git --recursive
+git clone -<span class="hljs-keyword">b</span> develop http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com</span>/PlatONnetwork/PlatON-Go.git --recursive
 </code></pre>
 <ul>
 <li>添加bls依赖库到环境变量</li>
@@ -117,9 +117,9 @@ git clone -<span class="hljs-keyword">b</span> <span class="hljs-number">0.13</s
 </ul>
 <pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> <span class="hljs-variable">$GOPATH</span>/src/github.com/PlatONnetwork/PlatON-Go
 go run build/ci.go install ./cmd/platon
-go run build/ci.go install ./cmd/keytool
+go run build/ci.go install ./cmd/platonkey
 </code></pre>
-<p>编译完成之后在<code>PlatON-Go/build/bin</code>目录下会生成<code>platon</code>、<code>keytool</code>可执行文件，将这两个可执行文件拷贝到自己工作目录运行即可。</p>
+<p>编译完成之后在<code>PlatON-Go/build/bin</code>目录下会生成<code>platon</code>、<code>platonkey</code>可执行文件，将这两个可执行文件拷贝到自己工作目录运行即可。</p>
 <blockquote>
 <p>重复编译会覆盖之前生成的可执行文件。</p>
 </blockquote>
@@ -133,7 +133,7 @@ go run build/ci.go install ./cmd/keytool
 <li>cmake:<code>3.0+</code></li>
 </ul>
 <p><strong>step2.</strong> 获取PlatON源码：</p>
-<pre><code class="hljs css language-bash">git <span class="hljs-built_in">clone</span> -b 0.13.1_alpha https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+<pre><code class="hljs css language-bash">git <span class="hljs-built_in">clone</span> -b develop https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 </code></pre>
 <p><strong>step3.</strong> 安装依赖库：</p>
 <pre><code class="hljs css language-bash">sudo apt update 
@@ -143,10 +143,10 @@ sudo apt install -y golang-go cmake llvm g++ libgmp-dev libssl-dev
 <pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> PlatON-Go 
 make all
 </code></pre>
-<p>编译完成之后在<code>./build/bin</code>目录下会生成<code>platon, keytool</code>等一系列可执行文件。</p>
+<p>编译完成之后在<code>./build/bin</code>目录下会生成<code>platon, platonkey</code>等一系列可执行文件。</p>
 <p><strong>step5.</strong> 拷贝二进制：</p>
 <pre><code class="hljs css language-shell">sudo cp -f ./build/bin/platon /usr/bin/
-sudo cp -f ./build/bin/keytool /usr/bin/
+sudo cp -f ./build/bin/platonkey /usr/bin/
 </code></pre>
 <p>源码编译成功！</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/Command_Line_Tools"><span class="arrow-prev">← </span><span class="function-name-prevnext">PlatON命令行工具</span></a><a class="docs-next button" href="/docs/zh-CN/Build_Private_Chain"><span>部署私有测试网</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#windows源码编译">Windows源码编译</a></li><li><a href="#ubuntu源码编译">Ubuntu源码编译</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2020 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>

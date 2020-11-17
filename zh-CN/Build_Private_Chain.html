@@ -76,7 +76,7 @@
 <ul>
 <li><strong>生成nodekey和blskey等相关文件</strong></li>
 </ul>
-<pre><code class="hljs css language-shell">mkdir -p ~/platon-node/data &amp;&amp; keytool genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ~/platon-node/data/nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ~/platon-node/data/nodeid) &amp;&amp; keytool genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ~/platon-node/data/blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ~/platon-node/data/blspub)
+<pre><code class="hljs css language-shell">mkdir -p ~/platon-node/data &amp;&amp; platonkey genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ~/platon-node/data/nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ~/platon-node/data/nodeid) &amp;&amp; platonkey genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ~/platon-node/data/blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ~/platon-node/data/blspub)
 </code></pre>
 <blockquote>
 <p>说明：</p>
@@ -222,9 +222,9 @@
 </code></pre>
 <p><strong>2.生成密钥对</strong></p>
 <p>分别将2个节点的nodekey和blskey保存到'data0'和'data1'</p>
-<pre><code class="hljs css language-shell">cd ~/platon-node/data0 &amp;&amp; keytool genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./nodeid) &amp;&amp; keytool genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./blspub)
+<pre><code class="hljs css language-shell">cd ~/platon-node/data0 &amp;&amp; platonkey genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./nodeid) &amp;&amp; platonkey genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./blspub)
 
-cd ~/platon-node/data1 &amp;&amp; keytool genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./nodeid) &amp;&amp; keytool genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./blspub)
+cd ~/platon-node/data1 &amp;&amp; platonkey genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./nodeid) &amp;&amp; platonkey genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./blspub)
 </code></pre>
 <p><strong>3.编辑创世文件</strong></p>
 <p>修改创世块配置文件<code>platon.json</code>。</p>
