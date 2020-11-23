@@ -76,7 +76,7 @@
 <ul>
 <li><strong>Generate nodekey and blskey files</strong></li>
 </ul>
-<pre><code class="hljs css language-shell">mkdir -p ~/platon-node/data &amp;&amp; platonkey genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ~/platon-node/data/nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ~/platon-node/data/nodeid) &amp;&amp; platonkey genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ~/platon-node/data/blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ~/platon-node/data/blspub)
+<pre><code class="hljs css language-shell">mkdir -p ~/platon-node/data &amp;&amp; keytool genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ~/platon-node/data/nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ~/platon-node/data/nodeid) &amp;&amp; keytool genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ~/platon-node/data/blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ~/platon-node/data/blspub)
 </code></pre>
 <blockquote>
 <p>Note:</p>
@@ -221,9 +221,9 @@
 </code></pre>
 <p><strong>2. Generate key pair</strong></p>
 <p>Save the nodekey and blskey of the two nodes to 'data0' and 'data1' respectively.</p>
-<pre><code class="hljs css language-shell">cd ~/platon-node/data0 &amp;&amp; platonkey genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./nodeid) &amp;&amp; platonkey genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./blspub)
+<pre><code class="hljs css language-shell">cd ~/platon-node/data0 &amp;&amp; keytool genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./nodeid) &amp;&amp; keytool genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./blspub)
 
-cd ~/platon-node/data1 &amp;&amp; platonkey genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./nodeid) &amp;&amp; platonkey genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./blspub)
+cd ~/platon-node/data1 &amp;&amp; keytool genkeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./nodekey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./nodeid) &amp;&amp; keytool genblskeypair | tee &gt;(grep "PrivateKey" | awk '{print $2}' &gt; ./blskey) &gt;(grep "PublicKey" | awk '{print $3}' &gt; ./blspub)
 </code></pre>
 <p><strong>3. Editing genesis files</strong></p>
 <p>Modify the genesis block configuration file <code>platon.json</code>.</p>
