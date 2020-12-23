@@ -82,8 +82,8 @@
 <h3><a class="anchor" aria-hidden="true" id="platon-truffle开发工具介绍"></a><a href="#platon-truffle开发工具介绍" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon-truffle开发工具介绍</h3>
 <p>platon-truffle是PlatON提供的一款能够在本地编译、部署、调用智能合约的工具，具体的安装及使用手册参见</p>
 <ul>
-<li>platon-truffle开发工具<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#">安装参考</a></li>
-<li>platon-truffle开发工具<a href="https://platon-truffle.readthedocs.io/en/v0.11.1/">使用手册</a></li>
+<li>platon-truffle开发工具<a href="https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html">安装参考</a></li>
+<li>platon-truffle开发工具<a href="https://platon-truffle.readthedocs.io/en/v0.13.1/">使用手册</a></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="创建helloworld合约"></a><a href="#创建helloworld合约" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>创建HelloWorld合约</h3>
 <pre><code class="hljs css language-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;platon/platon.hpp&gt;</span></span>
@@ -180,22 +180,38 @@ PLATON_DISPATCH(HelloWorld, (init)(add_message)(get_message_size)(get_message_bo
 <li><code>build/contracts/HelloWorld.wasm</code>  HelloWorld合约编译后的二进制文件</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="部署helloworld合约"></a><a href="#部署helloworld合约" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>部署HelloWorld合约</h3>
-<p><strong>step1.</strong> 修改truffle-config.js中链的配制信息</p>
+<p><strong>step1.</strong> 修改truffle-config.js中链的配置信息</p>
 <pre><code class="hljs">vim truffle-<span class="hljs-built_in">config</span>.<span class="hljs-keyword">js
 </span></code></pre>
-<p>将truffle-config.js中的区块链相关配制修改成您真实连接的链配制</p>
+<p>将truffle-config.js中的区块链相关配置修改成您真实连接的链配置</p>
 <pre><code class="hljs"><span class="hljs-symbol">networks:</span> {
 <span class="hljs-symbol">    development:</span> {
 <span class="hljs-symbol">       host:</span> <span class="hljs-string">"10.1.1.6"</span>,     <span class="hljs-comment">// 区块链所在服务器主机</span>
 <span class="hljs-symbol">       port:</span> <span class="hljs-number">8806</span>,            <span class="hljs-comment">// 链端口号</span>
 <span class="hljs-symbol">       network_id:</span> <span class="hljs-string">"*"</span>,       <span class="hljs-comment">// Any network (default: none)</span>
-<span class="hljs-symbol">       from:</span> <span class="hljs-string">"0x5b37dabedae06edb142257819fad207199986992"</span>,
-<span class="hljs-symbol">       gas:</span> <span class="hljs-number">90000000</span>,
+<span class="hljs-symbol">       from:</span> <span class="hljs-string">"lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl"</span>,
+<span class="hljs-symbol">       gas:</span> <span class="hljs-number">999999</span>,
 <span class="hljs-symbol">       gasPrice:</span> <span class="hljs-number">50000000004</span>,
     },
 }
 </code></pre>
-<p><strong>step2.</strong> 部署HelloWorld合约</p>
+<p><strong>step2.</strong>  解锁钱包账户</p>
+<p>进入platon-truffle控制台</p>
+<pre><code class="hljs">platon-truffle<span class="hljs-built_in"> console
+</span></code></pre>
+<p>导入私钥（如果之前已导入可以跳过此步骤）</p>
+<pre><code class="hljs"><span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.personal</span><span class="hljs-selector-class">.importRawKey</span>("您的钱包私钥","您的钱包密码");
+</code></pre>
+<p>导入成功将看到私钥对应的地址：</p>
+<pre><code class="hljs"><span class="hljs-symbol">'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl</span>'
+</code></pre>
+<p>解锁钱包账户</p>
+<pre><code class="hljs"> <span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.personal</span><span class="hljs-selector-class">.unlockAccount</span>(<span class="hljs-string">'您的钱包地址'</span>,<span class="hljs-string">'您的钱包密码'</span>,<span class="hljs-number">999999</span>);
+</code></pre>
+<p>解锁成功将看到如下信息：</p>
+<pre><code class="hljs"><span class="hljs-attribute">ture</span>
+</code></pre>
+<p><strong>step3.</strong> 部署HelloWorld合约</p>
 <pre><code class="hljs">platon-truffle <span class="hljs-keyword">deploy</span> <span class="hljs-params">--wasm</span> <span class="hljs-params">--contract-name</span> HelloWorld <span class="hljs-params">--params</span> '[[[<span class="hljs-string">"1"</span>], <span class="hljs-string">"2"</span>, <span class="hljs-string">"3"</span>]]'
 </code></pre>
 <ul>
@@ -206,9 +222,9 @@ PLATON_DISPATCH(HelloWorld, (init)(add_message)(get_message_size)(get_message_bo
 <pre><code class="hljs">receipt:  { blockHash:
    '0x<span class="hljs-number">266733</span>b693ba<span class="hljs-number">650315</span>a59c34e<span class="hljs-number">7280</span>4c06ca3e27fab<span class="hljs-number">14562579</span>7bd<span class="hljs-number">4225</span>9b572c5',
   blockNumber: <span class="hljs-number">70441</span>,
-  contractAddress: '0x0bf<span class="hljs-number">4539</span>0B<span class="hljs-number">48689048</span>6e6eB3F1D5C8e<span class="hljs-number">0840</span>FD8B56',
+  contractAddress: 'lax1p<span class="hljs-number">0698</span>y95s6ysfphxavl36hywppq0mz6ks673np',
   cumulativeGasUsed: <span class="hljs-number">291314</span>,
-  from: '0x5b37dabedae06edb<span class="hljs-number">14225781</span>9fad<span class="hljs-number">207199986992</span>',
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
   gasUsed: <span class="hljs-number">291314</span>,
   logs: [],
   logsBloom:
@@ -222,10 +238,10 @@ PLATON_DISPATCH(HelloWorld, (init)(add_message)(get_message_size)(get_message_bo
 ======================
 
    &gt; transactionHash:     <span class="hljs-number">0</span>x60946ebf0ccddc76a0234353435de73e7901888227fb2f03922fb0ce265a4e9d
-   &gt; contract address:    <span class="hljs-number">0</span>x0bf45390B486890486e6eB3F1D5C8e0840FD8B56
+   &gt; contract address:    lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np
    &gt; block number:        <span class="hljs-number">70441</span>
    &gt; block timestamp:     <span class="hljs-number">1583247148341</span>
-   &gt; account:             <span class="hljs-number">0</span>x5b37dabedae06edb142257819fad207199986992
+   &gt; account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
    &gt; balance:             <span class="hljs-number">3533694129556768659166595001485837031654967793751237866225582808584074296</span>
    &gt; gas limit:           <span class="hljs-number">100000000</span>
    &gt; gas used:            <span class="hljs-number">291314</span>
@@ -241,7 +257,7 @@ PLATON_DISPATCH(HelloWorld, (init)(add_message)(get_message_size)(get_message_bo
 </ul>
 <p><strong>step2.</strong>  构建合约对象</p>
 <pre><code class="hljs css language-json">var abi = [{"baseclass":[],"fields":[{"name":"head","type":"string"}],"name":"message","type":"struct"},{"baseclass":["message"],"fields":[{"name":"body","type":"string"},{"name":"end","type":"string"}],"name":"my_message","type":"struct"},{"constant":false,"input":[{"name":"one_message","type":"my_message"}],"name":"init","output":"void","type":"Action"},{"constant":false,"input":[{"name":"one_message","type":"my_message"}],"name":"add_message","output":"void","type":"Action"},{"constant":true,"input":[],"name":"get_message_size","output":"uint8","type":"Action"},{"constant":true,"input":[{"name":"index","type":"uint8"}],"name":"get_message_body","output":"string","type":"Action"}];
-var contractAddr = '0x0bf45390B486890486e6eB3F1D5C8e0840FD8B56';
+var contractAddr = 'lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np';
  
 var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 }); 
 </code></pre>
@@ -253,7 +269,7 @@ var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 });
 </ul>
 <p><strong>step3.</strong>  调用合约</p>
 <pre><code class="hljs css language-javascript">helloworld.methods.add_message([[<span class="hljs-string">"5"</span>], <span class="hljs-string">"6"</span>, <span class="hljs-string">"7"</span>]).send({
-    <span class="hljs-attr">from</span>: <span class="hljs-string">'0x5b37dabedae06edb142257819fad207199986992'</span>,<span class="hljs-attr">gas</span>: <span class="hljs-number">90000000</span>
+    <span class="hljs-attr">from</span>: <span class="hljs-string">'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'</span>,<span class="hljs-attr">gas</span>: <span class="hljs-number">999999</span>
 }).on(<span class="hljs-string">'receipt'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">receipt</span>) </span>{
     <span class="hljs-built_in">console</span>.log(receipt);
 }).on(<span class="hljs-string">'error'</span>, <span class="hljs-built_in">console</span>.error);
@@ -261,9 +277,9 @@ var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 });
 <p>调用合约命令说明：</p>
 <ul>
 <li><code>helloWorld</code> 是之前构建的合约对象</li>
-<li><code>methods</code> 固定语法,指量后面紧跟合约的方法名</li>
+<li><code>methods</code> 固定语法,后面紧跟合约的方法名</li>
 <li><code>add_message</code> 是我们HelloWorld合约中的一个方法，有一个自定义my_message类型的入参</li>
-<li><code>from</code> 调用者的合约地址</li>
+<li><code>from</code> 调用者的钱包地址</li>
 <li><code>gas</code> gas值</li>
 <li><code>on</code> 是监听合约处理结果事件，此处如果成功将打印回执，失败输出错误日志</li>
 </ul>
@@ -273,12 +289,12 @@ var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 });
   blockNumber: <span class="hljs-number">74665</span>,
   contractAddress: <span class="hljs-literal">null</span>,
   cumulativeGasUsed: <span class="hljs-number">108549</span>,
-  from: '0x5b37dabedae06edb<span class="hljs-number">14225781</span>9fad<span class="hljs-number">207199986992</span>',
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
   gasUsed: <span class="hljs-number">108549</span>,
   logsBloom:
    '0x<span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000</span>',
   status: true,
-  to: '0x0bf<span class="hljs-number">4539</span>0b<span class="hljs-number">48689048</span>6e6eb3f1d5c8e<span class="hljs-number">0840</span>fd8b56',
+  to: 'lax1p<span class="hljs-number">0698</span>y95s6ysfphxavl36hywppq0mz6ks673np',
   transactionHash:
    '0x2b5e590df7e70ad428b1ccb06bda5dcce47f84c4d981c2fb475aca9ec9d<span class="hljs-number">0000</span>a',
   transactionIndex: <span class="hljs-number">0</span>,
@@ -288,12 +304,12 @@ var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 });
   blockNumber: <span class="hljs-number">74665</span>,
   contractAddress: <span class="hljs-literal">null</span>,
   cumulativeGasUsed: <span class="hljs-number">108549</span>,
-  from: '0x5b37dabedae06edb<span class="hljs-number">14225781</span>9fad<span class="hljs-number">207199986992</span>',
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
   gasUsed: <span class="hljs-number">108549</span>,
   logsBloom:
    '0x<span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">00000000</span>',
   status: true,
-  to: '0x0bf<span class="hljs-number">4539</span>0b<span class="hljs-number">48689048</span>6e6eb3f1d5c8e<span class="hljs-number">0840</span>fd8b56',
+  to: 'lax1p<span class="hljs-number">0698</span>y95s6ysfphxavl36hywppq0mz6ks673np',
   transactionHash:
    '0x2b5e590df7e70ad428b1ccb06bda5dcce47f84c4d981c2fb475aca9ec9d<span class="hljs-number">0000</span>a',
   transactionIndex: <span class="hljs-number">0</span>,
@@ -1056,9 +1072,10 @@ GasPrice)是用户的交易成本, 同时该成本会作为佣金奖励给旷工
 </ul></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="帐户api"></a><a href="#帐户api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>帐户Api</h3>
-<h4><a class="anchor" aria-hidden="true" id="make_address"></a><a href="#make_address" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>make_address()</h4>
-<pre><code class="hljs css language-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">size_t</span> M&gt; <span class="hljs-function">Address <span class="hljs-title">make_address</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> (&amp;str)[M])</span>
-</span></code></pre>
+<h4><a class="anchor" aria-hidden="true" id="make_address-12"></a><a href="#make_address-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>make_address() 1/2</h4>
+<pre><code class="hljs css language-cpp">template &lt;size_t M&gt; std::pair&lt;Address, bool&gt; make_address(const char (&amp;str)[M])
+</code></pre>
+<p>CDT 默认识别的地址是主网地址也就是地址前缀为lat，如果要识别测试网地址前缀为lax，需要定义宏TESTNET，在合约第一行加上#define TESTNET即可。</p>
 <p>将C风格字符串转换为地址对象。</p>
 <ul>
 <li><strong>参数</strong>
@@ -1067,7 +1084,22 @@ GasPrice)是用户的交易成本, 同时该成本会作为佣金奖励给旷工
 </ul></li>
 <li><strong>返回值</strong>
 <ul>
-<li>地址对象</li>
+<li>返回值为 pair，pair 的 second 表示成功或者失败，first 表示 Address 类型的地址。</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="make_address-22"></a><a href="#make_address-22" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>make_address() 2/2</h4>
+<pre><code class="hljs css language-cpp">std::pair&lt;Address, bool&gt; make_address(const std::string &amp;str_address)
+</code></pre>
+<p>CDT 默认识别的地址是主网地址也就是地址前缀为lat，如果要识别测试网地址前缀为lax，需要定义宏TESTNET，在合约第一行加上#define TESTNET即可。</p>
+<p>将字符串转换为地址对象。</p>
+<ul>
+<li><strong>参数</strong>
+<ul>
+<li><code>str：</code> 字符串</li>
+</ul></li>
+<li><strong>返回值</strong>
+<ul>
+<li>返回值为 pair，pair 的 second 表示成功或者失败，first 表示 Address 类型的地址</li>
 </ul></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="platon_balance"></a><a href="#platon_balance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platon_balance()</h4>
@@ -1486,17 +1518,17 @@ bool operator&gt; (const P &amp;t) const</p></li>
 <ul>
 <li><code>k：</code>键</li>
 </ul></li>
-<li><p><strong>返回值</strong></p>
-<ul>
-<li>值的引用</li>
-</ul></li>
+<li><p><strong>返回值</strong></p></li>
+<li><p>值的引用</p></li>
 <li><p><strong>示例：</strong></p>
 <pre><code class="hljs css language-cpp"><span class="hljs-keyword">typedef</span> platon::db::Map&lt;<span class="hljs-string">"map_str"</span>_n, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; MapStr;
 MapStr <span class="hljs-built_in">map</span>;
 <span class="hljs-built_in">map</span>.insert(<span class="hljs-string">"hello"</span>, <span class="hljs-string">"world"</span>);
-assert(<span class="hljs-built_in">map</span>.at[<span class="hljs-string">"hello"</span>] == <span class="hljs-string">"world"</span>);
 </code></pre></li>
-</ul></li>
+</ul>
+<p>assert(map.at[&quot;hello&quot;] == &quot;world&quot;);</p>
+<pre><code class="hljs">
+</code></pre></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; bool platon::db::Map&lt; TableName, Key, Value &gt;::contains ( const Key &amp; key )</code>
 检查容器中是否存在具有与key等效的键的元素。</p>
 <ul>
@@ -1504,17 +1536,17 @@ assert(<span class="hljs-built_in">map</span>.at[<span class="hljs-string">"hell
 <ul>
 <li><code>k：</code>键</li>
 </ul></li>
-<li><p><strong>返回值</strong></p>
-<ul>
-<li>如果存在这样的元素，则为true，否则为false。</li>
-</ul></li>
+<li><p><strong>返回值</strong></p></li>
+<li><p>如果存在这样的元素，则为true，否则为false。</p></li>
 <li><p><strong>示例：</strong></p>
 <pre><code class="hljs css language-cpp"> <span class="hljs-keyword">typedef</span> platon::db::Map&lt;<span class="hljs-string">"map_str"</span>_n, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; MapStr;
  MapStr <span class="hljs-built_in">map</span>;
  <span class="hljs-built_in">map</span>.[<span class="hljs-string">"hello"</span>] = <span class="hljs-string">"world"</span>;
- assert(<span class="hljs-built_in">map</span>.contains(<span class="hljs-string">"hello"</span>));
 </code></pre></li>
-</ul></li>
+</ul>
+<p>assert(map.contains(&quot;hello&quot;));</p>
+<pre><code class="hljs">
+</code></pre></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; void platon::db::Map&lt; TableName, Key, Value &gt;::erase ( const Key &amp; k )</code>
 删除键值对。</p>
 <ul>
@@ -1522,13 +1554,13 @@ assert(<span class="hljs-built_in">map</span>.at[<span class="hljs-string">"hell
 <ul>
 <li><code>k：</code>键</li>
 </ul></li>
+</ul></li>
 <li><p><strong>示例：</strong></p>
 <pre><code class="hljs css language-cpp"><span class="hljs-keyword">typedef</span> platon::db::Map&lt;<span class="hljs-string">"map_str"</span>_n, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; MapStr;
 MapStr <span class="hljs-built_in">map</span>;
 <span class="hljs-built_in">map</span>.insert(<span class="hljs-string">"hello"</span>, <span class="hljs-string">"world"</span>);
 <span class="hljs-built_in">map</span>.erase(<span class="hljs-string">"hello"</span>);
 </code></pre></li>
-</ul></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; void platon::db::Map&lt; TableName, Key, Value &gt;::flush ()</code>
 将内存中的修改数据刷新到区块链。</p></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; Value platon::db::Map&lt; TableName, Key, Value &gt;::get_const ( const Key &amp; k)</code>
@@ -1538,17 +1570,17 @@ MapStr <span class="hljs-built_in">map</span>;
 <ul>
 <li><code>k：</code>键</li>
 </ul></li>
-<li><p><strong>返回值</strong></p>
-<ul>
-<li>价值</li>
-</ul></li>
+<li><p><strong>返回值</strong></p></li>
+<li><p>价值</p></li>
 <li><p><strong>示例：</strong></p>
 <pre><code class="hljs css language-cpp"><span class="hljs-keyword">typedef</span> platon::db::Map&lt;<span class="hljs-string">"map_str"</span>_n, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; MapStr;
 MapStr <span class="hljs-built_in">map</span>;
 <span class="hljs-built_in">map</span>.insert(<span class="hljs-string">"hello"</span>, <span class="hljs-string">"world"</span>);
-assert(<span class="hljs-built_in">map</span>.get_const[<span class="hljs-string">"hello"</span>] == <span class="hljs-string">"world"</span>);
 </code></pre></li>
-</ul></li>
+</ul>
+<p>assert(map.get_const[&quot;hello&quot;] == &quot;world&quot;);</p>
+<pre><code class="hljs">
+</code></pre></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; bool platon::db::Map&lt; TableName, Key, Value &gt;::insert ( const Key &amp; k, const Value &amp; v)</code>
 插入新的键值对，更新为缓存。</p>
 <ul>
@@ -1561,13 +1593,13 @@ assert(<span class="hljs-built_in">map</span>.get_const[<span class="hljs-string
 <ul>
 <li>true插入成功，false插入失败</li>
 </ul></li>
+</ul></li>
 <li><p><strong>示例：</strong></p>
 <pre><code class="hljs css language-cpp"><span class="hljs-keyword">typedef</span> platon::db::Map&lt;<span class="hljs-string">"map_str"</span>_n, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; MapStr;
 MapStr <span class="hljs-built_in">map</span>;
 <span class="hljs-built_in">map</span>.insert(<span class="hljs-string">"hello"</span>, <span class="hljs-string">"world"</span>);
 assert(<span class="hljs-built_in">map</span>[<span class="hljs-string">"hello"</span>] == <span class="hljs-string">"world"</span>);
 </code></pre></li>
-</ul></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; bool platon::db::Map&lt; TableName, Key, Value &gt;::insert_const ( const Key &amp; k, const Value &amp; v)</code>
 插入将不会更新到缓存的新键值对。适用于大量插入，插入后无需更新。</p>
 <ul>
@@ -1580,13 +1612,13 @@ assert(<span class="hljs-built_in">map</span>[<span class="hljs-string">"hello"<
 <ul>
 <li>true插入成功，false插入失败</li>
 </ul></li>
+</ul></li>
 <li><p><strong>示例：</strong></p>
 <pre><code class="hljs css language-cpp"><span class="hljs-keyword">typedef</span> platon::db::Map&lt;<span class="hljs-string">"map_str"</span>_n, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; MapStr;
 MapStr <span class="hljs-built_in">map</span>;
 <span class="hljs-built_in">map</span>.insert_const(<span class="hljs-string">"hello"</span>, <span class="hljs-string">"world"</span>);
 assert(<span class="hljs-built_in">map</span>[<span class="hljs-string">"hello"</span>] == <span class="hljs-string">"world"</span>);
 </code></pre></li>
-</ul></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; Map&lt;TableName, Key, Value&gt;&amp; platon::db::Map&lt; TableName, Key, Value &gt;::operator= ( const Map&lt; TableName, Key, Value &gt; &amp; )</code></p></li>
 <li><p><code>template&lt;Name::Raw TableName, typename Key , typename Value &gt; Value&amp; platon::db::Map&lt; TableName, Key, Value &gt;::operator[] ( const Key &amp; k)</code>
 括号运算符。</p>
@@ -1595,10 +1627,8 @@ assert(<span class="hljs-built_in">map</span>[<span class="hljs-string">"hello"<
 <ul>
 <li><code>k：</code>键</li>
 </ul></li>
-<li><p><strong>返回值</strong></p>
-<ul>
-<li>价值与获取价值</li>
-</ul></li>
+<li><p><strong>返回值</strong></p></li>
+<li><p>价值与获取价值</p></li>
 <li><p><strong>示例：</strong></p>
 <pre><code class="hljs css language-cpp"><span class="hljs-keyword">typedef</span> platon::db::Map&lt;<span class="hljs-string">"map_str"</span>_n, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt; MapStr;
 MapStr <span class="hljs-built_in">map</span>;
@@ -2068,7 +2098,7 @@ platon_delegate_call&lt;<span class="hljs-keyword">int</span>&gt;(Address(<span 
 </code></pre></li>
 <li><p>platon-truffle执行truffle deploy部署合约失败？</p></li>
 </ol>
-<p>确认truffle-config.js中连接的链的配制信息及用户的钱包地址是否正确,钱包是否解锁。</p>
+<p>确认truffle-config.js中连接的链的配置信息及用户的钱包地址是否正确,钱包是否解锁。</p>
 <ol start="4">
 <li>truffle 部署带参数的构造函数合约失败？</li>
 </ol>
@@ -2215,7 +2245,7 @@ K/V 存储到数据库. 对于大规模数据, <code>platon::db::Map</code> 和 
 };
 </code></pre></li>
 </ol>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/EVM_Smart_Contract"><span class="arrow-prev">← </span><span>EVM智能合约</span></a><a class="docs-next button" href="/docs/zh-CN/Java_SDK"><span>Java SDK</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#入门">入门</a><ul class="toc-headings"><li><a href="#概要">概要</a></li><li><a href="#platon-truffle开发工具介绍">platon-truffle开发工具介绍</a></li><li><a href="#创建helloworld合约">创建HelloWorld合约</a></li><li><a href="#编译helloworld合约">编译HelloWorld合约</a></li><li><a href="#部署helloworld合约">部署HelloWorld合约</a></li><li><a href="#调用helloworld合约">调用HelloWorld合约</a></li></ul></li><li><a href="#合约开发成本">合约开发成本</a><ul class="toc-headings"><li><a href="#概要-1">概要</a></li><li><a href="#小型合约示例">小型合约示例</a></li><li><a href="#中型合约示例">中型合约示例</a></li><li><a href="#大型合约示例">大型合约示例</a></li></ul></li><li><a href="#最佳实践">最佳实践</a><ul class="toc-headings"><li><a href="#介绍">介绍</a></li><li><a href="#费用合理设置">费用合理设置</a></li><li><a href="#避免超时">避免超时</a></li><li><a href="#非法操作处罚">非法操作处罚</a></li><li><a href="#cc语言限制">C/C++语言限制</a></li><li><a href="#编程规范">编程规范</a></li></ul></li><li><a href="#api">API</a><ul class="toc-headings"><li><a href="#区块api">区块Api</a></li><li><a href="#交易api">交易API</a></li><li><a href="#帐户api">帐户Api</a></li><li><a href="#存储api">存储API</a></li><li><a href="#合约api">合约API</a></li><li><a href="#异常api">异常API</a></li><li><a href="#其他api">其他API</a></li></ul></li><li><a href="#faq">FAQ</a><ul class="toc-headings"><li><a href="#编译相关">编译相关</a></li><li><a href="#合约相关">合约相关</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/EVM_Smart_Contract"><span class="arrow-prev">← </span><span>EVM智能合约</span></a><a class="docs-next button" href="/docs/zh-CN/Java_SDK"><span>Java SDK</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#入门">入门</a><ul class="toc-headings"><li><a href="#概要">概要</a></li><li><a href="#platon-truffle开发工具介绍">platon-truffle开发工具介绍</a></li><li><a href="#创建helloworld合约">创建HelloWorld合约</a></li><li><a href="#编译helloworld合约">编译HelloWorld合约</a></li><li><a href="#部署helloworld合约">部署HelloWorld合约</a></li><li><a href="#调用helloworld合约">调用HelloWorld合约</a></li></ul></li><li><a href="#合约开发成本">合约开发成本</a><ul class="toc-headings"><li><a href="#概要-1">概要</a></li><li><a href="#小型合约示例">小型合约示例</a></li><li><a href="#中型合约示例">中型合约示例</a></li><li><a href="#大型合约示例">大型合约示例</a></li></ul></li><li><a href="#最佳实践">最佳实践</a><ul class="toc-headings"><li><a href="#介绍">介绍</a></li><li><a href="#费用合理设置">费用合理设置</a></li><li><a href="#避免超时">避免超时</a></li><li><a href="#非法操作处罚">非法操作处罚</a></li><li><a href="#cc语言限制">C/C++语言限制</a></li><li><a href="#编程规范">编程规范</a></li></ul></li><li><a href="#api">API</a><ul class="toc-headings"><li><a href="#区块api">区块Api</a></li><li><a href="#交易api">交易API</a></li><li><a href="#帐户api">帐户Api</a></li><li><a href="#存储api">存储API</a></li><li><a href="#合约api">合约API</a></li><li><a href="#异常api">异常API</a></li><li><a href="#其他api">其他API</a></li></ul></li><li><a href="#faq">FAQ</a><ul class="toc-headings"><li><a href="#编译相关">编译相关</a></li><li><a href="#合约相关">合约相关</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2020 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;

@@ -81,7 +81,7 @@
 <p>Double-click <code>C:\tools\unins000.exe</code> to uninstall all old versions of MTool and other business tools.</p>
 <h4><a class="anchor" aria-hidden="true" id="start-installation"></a><a href="#start-installation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Start installation</h4>
 <p><strong>Step1. Download MTool installation package</strong></p>
-<p>On the online machine, copy the link <a href="https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.11.0/mtool-setup.exe">https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.11.0/mtool-setup.exe</a> or <a href="http://47.91.153.183/mtool/mtool-setup/0.11.0/mtool-setup.exe">http://47.91.153.183/mtool/mtool-setup/0.11.0/mtool-setup.exe</a> to the browser and download the MTool installation package.</p>
+<p>On the online machine, copy the link <a href="https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.13.1/mtool-setup.exe">https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.13.1/mtool-setup.exe</a> or <a href="http://47.91.153.183/mtool/mtool-setup/0.13.1/mtool-setup.exe">http://47.91.153.183/mtool/mtool-setup/0.13.1/mtool-setup.exe</a> to the browser and download the MTool installation package.</p>
 <p><strong>Step2. Install MTool</strong></p>
 <p>Double-click mtool-setup.exe to install it. The default installation directory is C:\tools, and it is recommended not to change this installation directory. The pop-up interface displays the message <strong>Completing the mtool Setup Wizard</strong>, indicating that the installation was successful. Click <strong>Finish</strong>.</p>
 <p><strong>Step3. Restart the terminal</strong></p>
@@ -89,10 +89,10 @@
 <h3><a class="anchor" aria-hidden="true" id="install-mtool-under-ubuntu"></a><a href="#install-mtool-under-ubuntu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install MTool under Ubuntu</h3>
 <p>Proceed as follows:</p>
 <p><strong>Step1. Download MTool toolkit</strong></p>
-<pre><code class="hljs css language-bash">wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.11.0/mtool-client.zip
+<pre><code class="hljs css language-bash">wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.13.1/mtool-client.zip
 </code></pre>
 <p>or</p>
-<pre><code class="hljs css language-bash">wget http://47.91.153.183/mtool/0.11.0/mtool-client.zip
+<pre><code class="hljs css language-bash">wget http://47.91.153.183/mtool/0.13.1/mtool-client.zip
 </code></pre>
 <p><strong>Step2. Extract the MTool toolkit</strong></p>
 <pre><code class="hljs css language-bash">(<span class="hljs-keyword">if</span> ! <span class="hljs-built_in">command</span> -v unzip;<span class="hljs-keyword">then</span> sudo apt install unzip; <span class="hljs-keyword">fi</span>;) &amp;&amp; unzip mtool-client.zip &amp;&amp; <span class="hljs-built_in">cd</span> mtool-client
@@ -142,8 +142,59 @@
 <li>Parameter description</li>
 </ul>
 <blockquote>
-<p>staking: The name of the wallet to be created. Once the wallet is created successfully, a wallet file named <code>staking.json</code> will be generated in the directory <code>$MTOOLDIR/keystore</code>.</p>
+<p>staking: The name of the wallet to be created. Once the wallet is created successfully, a wallet file named <code>staking.json</code> will be generated in the directory <code>$MTOOLDIR/keystore</code>, And print the following information:</p>
+<pre><code class="hljs css language-shell">-name: staking
+-type: NORMAL
+-address:
+mainnet: lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr
+testnet: lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v
+-public key: 0x9521cd81ba28d5d1c23bb7ddb7042d146375203d35000c0289178027abd4dc09bca30257739df166201e73497485242f41d5f50d46bc3c7e4385f81bde560db0
+Important write this Private Key in a safe place.
+It is the important way to recover your account if you ever forget your password.
+4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+
+Important write this mnemonic phrase in a safe place.
+It is the important way to recover your account if you ever forget your password.
+worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
+</code></pre>
+<p>Wallet address format adjusted to Bech32, among them:</p>
+<p><code>lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr</code>: Main network account address, beginning with LAT;</p>
+<p><code>lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v</code>: Test newwork account address, start with LAX;</p>
+<p><code>4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07</code> : the private key of the wallet;</p>
+<p><code>worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney</code>: the mnemonic words.</p>
+<p>For security reasons, users need to back up the wallet private key or mnemonic words (both can be backed up, or one of them can be backed up). When the wallet is lost, it can be used for recovery. It is recommended that users back up mnemonic words or private keys to a secure storage medium, such as an offline machine.</p>
 </blockquote>
+<h3><a class="anchor" aria-hidden="true" id="recover-wallet-file"></a><a href="#recover-wallet-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Recover wallet file</h3>
+<p>If the wallet file is lost, you can restore it with the backed up private key or mnemonic as follows:</p>
+<ul>
+<li><p>Execute the command:</p>
+<p>Recovery via private key:</p>
+<pre><code class="hljs css language-shell">mtool-client account recover -k staking
+</code></pre>
+<blockquote>
+<p>Prompt to enter the new wallet password and backup private key, as follows:</p>
+<pre><code class="hljs css language-shell">Enter a passphrase to encrypt your key to disk:
+Repeat the passphrase:
+Enter your 64bit Private Key:
+4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+</code></pre>
+</blockquote>
+<p>or</p>
+<p>Recovery through mnemonics:</p>
+<pre><code class="hljs css language-shell">mtool-client account recover -m staking
+</code></pre>
+<blockquote>
+<p>Prompt to enter a new wallet password and backup mnemonic words, as follows:</p>
+<pre><code class="hljs css language-shell"> Enter a passphrase to encrypt your key to disk:
+ Repeat the passphrase:
+ Enter your bip39 mnemonic:
+ worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
+</code></pre>
+</blockquote></li>
+<li><p>Parameter description</p>
+<p>staking：wallet name.</p>
+<p>After successful restoration, the wallet file staking.json will be generated under the directory <code>$MTOOLDIR/keystore</code>.</p></li>
+</ul>
 <h3><a class="anchor" aria-hidden="true" id="ordinary-transfer-operation"></a><a href="#ordinary-transfer-operation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ordinary transfer operation</h3>
 <ul>
 <li>Excuting the command</li>
@@ -213,7 +264,7 @@ SUCCESS
 <ul>
 <li>Excuting the command</li>
 </ul>
-<pre><code class="hljs css language-bash">mtool-client update_validator --name VerifierName --url <span class="hljs-string">"http://www.platon.com"</span> --identity IdentifyID --delegated-reward-rate 100 --reward 0x33d253386582f38c66cb5819bfbdaad0910339b3 --introduction <span class="hljs-string">"Modify the verifier information operation"</span> --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+<pre><code class="hljs css language-bash">mtool-client update_validator --name VerifierName --url <span class="hljs-string">"http://www.platon.com"</span> --identity IdentifyID --delegated-reward-rate 100 --reward lax1rquxycp7xacmj25wy75l8mrux23tjvwxww6hcx --introduction <span class="hljs-string">"Modify the verifier information operation"</span> --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
 </code></pre>
 <ul>
 <li>Parameters Description</li>
@@ -268,7 +319,7 @@ SUCCESS
 <ul>
 <li>Excuting the command</li>
 </ul>
-<pre><code class="hljs css language-bash">mtool-client submit_versionproposal --newversion 0.8.0 --end_voting_rounds 345 --pid_id 100 --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
+<pre><code class="hljs css language-bash">mtool-client submit_versionproposal --newversion 0.13.1 --end_voting_rounds 345 --pid_id 100 --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json
 </code></pre>
 <ul>
 <li>Parameters Description</li>
@@ -382,7 +433,7 @@ SUCCESS
 <blockquote>
 <p>None</p>
 </blockquote>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/Become_Verification_Node"><span class="arrow-prev">← </span><span>Upgrade to Validator Node</span></a><a class="docs-next button" href="/docs/en/Command_Line_Tools"><span class="function-name-prevnext">PlatON Command line tools</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#install-mtool">Install MTool</a><ul class="toc-headings"><li><a href="#install-mtool-under-windows">Install MTool under Windows</a></li><li><a href="#install-mtool-under-ubuntu">Install MTool under Ubuntu</a></li></ul></li><li><a href="#mtool-environment-variable-description">MTool Environment Variable Description</a></li><li><a href="#mtool-command-details">MTool Command Details</a><ul class="toc-headings"><li><a href="#create-a-wallet">Create A Wallet</a></li><li><a href="#ordinary-transfer-operation">Ordinary transfer operation</a></li><li><a href="#view-wallet-list">View wallet list</a></li><li><a href="#query-balance-based-on-wallet-name">Query balance based on wallet name</a></li><li><a href="#query-balance-based-on-address">Query balance based on address</a></li><li><a href="#initiate-a-staking-operation">Initiate a staking operation</a></li><li><a href="#modify-validator-information-operation">Modify validator information operation</a></li><li><a href="#decommissioning-operation">Decommissioning operation</a></li><li><a href="#increase-staking-operation">Increase staking operation</a></li><li><a href="#submit-text-proposal">Submit Text Proposal</a></li><li><a href="#submit-upgrade-proposal-operation">Submit upgrade proposal operation</a></li><li><a href="#submit-cancel-proposal">Submit Cancel Proposal</a></li><li><a href="#text-proposal-voting-operation">Text proposal voting operation</a></li><li><a href="#upgrade-proposal-voting-operation">Upgrade proposal voting operation</a></li><li><a href="#cancel-proposal-voting">Cancel proposal voting</a></li><li><a href="#submit-parameter-proposal-operation">Submit parameter proposal operation</a></li><li><a href="#parameter-proposal-voting-operation">Parameter proposal voting operation</a></li><li><a href="#version-declaration-operation">Version declaration operation</a></li><li><a href="#view-help">View help</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/Become_Verification_Node"><span class="arrow-prev">← </span><span>Upgrade to Validator Node</span></a><a class="docs-next button" href="/docs/en/Command_Line_Tools"><span class="function-name-prevnext">PlatON Command line tools</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#install-mtool">Install MTool</a><ul class="toc-headings"><li><a href="#install-mtool-under-windows">Install MTool under Windows</a></li><li><a href="#install-mtool-under-ubuntu">Install MTool under Ubuntu</a></li></ul></li><li><a href="#mtool-environment-variable-description">MTool Environment Variable Description</a></li><li><a href="#mtool-command-details">MTool Command Details</a><ul class="toc-headings"><li><a href="#create-a-wallet">Create A Wallet</a></li><li><a href="#recover-wallet-file">Recover wallet file</a></li><li><a href="#ordinary-transfer-operation">Ordinary transfer operation</a></li><li><a href="#view-wallet-list">View wallet list</a></li><li><a href="#query-balance-based-on-wallet-name">Query balance based on wallet name</a></li><li><a href="#query-balance-based-on-address">Query balance based on address</a></li><li><a href="#initiate-a-staking-operation">Initiate a staking operation</a></li><li><a href="#modify-validator-information-operation">Modify validator information operation</a></li><li><a href="#decommissioning-operation">Decommissioning operation</a></li><li><a href="#increase-staking-operation">Increase staking operation</a></li><li><a href="#submit-text-proposal">Submit Text Proposal</a></li><li><a href="#submit-upgrade-proposal-operation">Submit upgrade proposal operation</a></li><li><a href="#submit-cancel-proposal">Submit Cancel Proposal</a></li><li><a href="#text-proposal-voting-operation">Text proposal voting operation</a></li><li><a href="#upgrade-proposal-voting-operation">Upgrade proposal voting operation</a></li><li><a href="#cancel-proposal-voting">Cancel proposal voting</a></li><li><a href="#submit-parameter-proposal-operation">Submit parameter proposal operation</a></li><li><a href="#parameter-proposal-voting-operation">Parameter proposal voting operation</a></li><li><a href="#version-declaration-operation">Version declaration operation</a></li><li><a href="#view-help">View help</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2020 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;

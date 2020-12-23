@@ -69,8 +69,8 @@
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">JS SDK</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="web3js-interface"></a><a href="#web3js-interface" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Web3.js Interface</h2>
 <p>Interact with nodes through web3 objects provided by web3.js. On the underlying implementation, it communicates with the local node through RPC calls. web3.js can connect to any PlatON node that exposes the RPC interface.</p>
 <h3><a class="anchor" aria-hidden="true" id="usage"></a><a href="#usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h3>
-<p>First, make sure the nodeJS environment is successfully installed locally. <code>WEB3.JS</code> uses the <a href="https://github.com/lerna/lerna">lerna</a> management tool to optimize the workflow of the multi-package code base hosted on <code>git/npm</code>, so you make sure before installing The lerna package has been installed globally. If not, execute the command <code>npm i lerna -g</code> for global installation.</p>
-<p>Then you can integrate client-sdk-js into the project project through package management tools such as npm or yarn, the steps are as follows:</p>
+<p>First, make sure the nodeJS environment is successfully installed locally. <code>WEB3.JS</code> uses the <a href="https://github.com/lerna/lerna">lerna</a> management tool to optimize the workflow of the multi-package code base hosted on <code>git/npm</code>, so you should make sure the lerna package has been installed globally before installing. If not, execute the command <code>npm i lerna -g</code> for global installation.</p>
+<p>Then you can integrate client-sdk-js into the project through package management tools such as npm or yarn, the steps are as follows:</p>
 <ul>
 <li>npm: <code>npm i PlatONnetwork/client-sdk-js</code></li>
 <li>yarn: <code>yarn add PlatONnetwork/client-sdk-js</code></li>
@@ -100,7 +100,7 @@ web3.version
 <p><code>String</code>: Current version number.</p>
 <p>Example:</p>
 <pre><code class="hljs css language-js">web3.version;
-&gt; <span class="hljs-string">"0.11.0"</span>
+&gt; <span class="hljs-string">"0.13.1"</span>
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3modules"></a><a href="#web3modules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.modules</h4>
@@ -126,7 +126,7 @@ web3.modules
 </span></code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3setprovider"></a><a href="#web3setprovider" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.setProvider</h4>
-<p><code>web3.setProvider()</code> Will change the provider for its module.</p>
+<p><code>web3.setProvider()</code> Will change the provider for it's module.</p>
 <p>Method:</p>
 <pre><code class="hljs">web3.set<span class="hljs-constructor">Provider(<span class="hljs-params">myProvider</span>)</span>
 web3.platon.set<span class="hljs-constructor">Provider(<span class="hljs-params">myProvider</span>)</span><span class="hljs-operator">
@@ -208,13 +208,13 @@ web3.setProvider(<span class="hljs-keyword">new</span> Web3.providers.WebsocketP
 <pre><code class="hljs css language-js"><span class="hljs-keyword">var</span> contract = <span class="hljs-keyword">new</span> web3.platon.Contract(abi, address);
 
 <span class="hljs-keyword">var</span> batch = <span class="hljs-keyword">new</span> web3.BatchRequest();
-batch.add(web3.platon.getBalance.request(<span class="hljs-string">'0x0000000000000000000000000000000000000000'</span>, <span class="hljs-string">'latest'</span>, callback));
-batch.add(contract.methods.balance(address).call.request({<span class="hljs-attr">from</span>: <span class="hljs-string">'0x0000000000000000000000000000000000000000'</span>}, callback2));
+batch.add(web3.platon.getBalance.request(<span class="hljs-string">'lax1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqmscn5j'</span>, <span class="hljs-string">'latest'</span>, callback));
+batch.add(contract.methods.balance(address).call.request({<span class="hljs-attr">from</span>: <span class="hljs-string">'lax1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqmscn5j'</span>}, callback2));
 batch.execute();
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platondefaultaccount"></a><a href="#web3platondefaultaccount" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.defaultAccount</h4>
-<p><code>web3.platon.defaultAccount</code> This default address is used as the default &quot;from&quot; property, if no &quot;from&quot; property is specified in for the following methods:</p>
+<p><code>web3.platon.defaultAccount</code> This default address is used as the default &quot;from&quot; property, if no &quot;from&quot; property is specified in the following methods:</p>
 <ul>
 <li>web3.platon.sendTransaction()</li>
 <li>web3.platon.call()</li>
@@ -231,8 +231,12 @@ batch.execute();
 &gt; <span class="hljs-literal">undefined</span>
 
 <span class="hljs-comment">// set the default account</span>
-web3.platon.defaultAccount = <span class="hljs-string">'0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe'</span>;
+web3.platon.defaultAccount = <span class="hljs-string">'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'</span>;
 </code></pre>
+<blockquote>
+<p>Note:</p>
+<p><strong>All addresses must be quoted, as above: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'.</strong></p>
+</blockquote>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platondefaultblock"></a><a href="#web3platondefaultblock" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.defaultBlock</h4>
 <p><code>web3.platon.defaultBlock</code> The default block is used for certain methods.</p>
@@ -323,7 +327,7 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
 <p><code>Promise</code> returns <code>Array</code> - An array of addresses controlled by node.</p>
 <p>Example:</p>
 <pre><code class="hljs css language-js">web3.platon.getAccounts().then(<span class="hljs-built_in">console</span>.log);
-&gt; [<span class="hljs-string">"0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe"</span>, <span class="hljs-string">"0xDCc6960376d6C6dEa93647383FfB245CfCed97Cf"</span>]
+&gt; [<span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>, <span class="hljs-string">"lax1kg7y7wfwzqsyxppyxcdvhkkkwlf64ccl8x93ut"</span>]
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platongetblocknumber"></a><a href="#web3platongetblocknumber" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.getBlockNumber</h4>
@@ -352,7 +356,7 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
 <p>Returns:</p>
 <p><code>Promise</code> returns <code>String</code> - The current balance for the given address in von.</p>
 <p>Example:</p>
-<pre><code class="hljs css language-js">web3.platon.getBalance(<span class="hljs-string">"0x407d73d8a49eeb85d32cf465507dd71d507100c1"</span>)
+<pre><code class="hljs css language-js">web3.platon.getBalance(<span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>)
 .then(<span class="hljs-built_in">console</span>.log);
 &gt; <span class="hljs-string">"1000000000000"</span>
 </code></pre>
@@ -372,7 +376,7 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
 <p>Returns:</p>
 <p><code>Promise</code> returns <code>String</code> - The value in storage at the given position.</p>
 <p>Example:</p>
-<pre><code class="hljs css language-js">web3.platon.getStorageAt(<span class="hljs-string">"0x407d73d8a49eeb85d32cf465507dd71d507100c1"</span>, <span class="hljs-number">0</span>)
+<pre><code class="hljs css language-js">web3.platon.getStorageAt(<span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>, <span class="hljs-number">0</span>)
 .then(<span class="hljs-built_in">console</span>.log);
 &gt; <span class="hljs-string">"0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234"</span>
 </code></pre>
@@ -389,9 +393,9 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
 <li><code>callback</code> - <code>Function</code>: (optional) Optional callback, returns an error object as first parameter and the result as second.</li>
 </ul>
 <p>Returns:</p>
-<p><code>Promise</code> returns <code>String</code> - The data at given address address.</p>
+<p><code>Promise</code> returns <code>String</code> - The data at given address.</p>
 <p>Example:</p>
-<pre><code class="hljs css language-js">web3.platon.getCode(<span class="hljs-string">"0xd5677cf67b5aa051bb40496e68ad359eb97cfbf8"</span>)
+<pre><code class="hljs css language-js">web3.platon.getCode(<span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>)
 .then(<span class="hljs-built_in">console</span>.log);
 &gt; <span class="hljs-string">"0x600160008035811a818181146012578301005b601b6001356025565b8060005260206000f25b600060078202905091905056"</span>
 </code></pre>
@@ -410,12 +414,12 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
 <p>Returns:</p>
 <p>Promise returns Object - The block object:</p>
 <ul>
-<li><code>number</code> - <code>Number</code>: The block number. null when its pending block.</li>
-<li><code>hash</code> 32 Bytes - <code>String</code>: Hash of the block. null when its pending block.</li>
+<li><code>number</code> - <code>Number</code>: The block number. null when it's pending block.</li>
+<li><code>hash</code> 32 Bytes - <code>String</code>: Hash of the block. null when it's pending block.</li>
 <li><code>parentHash</code> 32 Bytes - <code>String</code>: Hash of the parent block.</li>
-<li><code>nonce</code> 8 Bytes - <code>String</code>: Hash of the generated proof-of-work. null when its pending block.</li>
+<li><code>nonce</code> 8 Bytes - <code>String</code>: Hash of the generated proof-of-work. null when it's pending block.</li>
 <li><code>sha3Uncles</code> 32 Bytes - <code>String</code>: SHA3 of the uncles data in the block.</li>
-<li><code>logsBloom</code> 256 Bytes - <code>String</code>: The bloom filter for the logs of the block. null when its pending block.</li>
+<li><code>logsBloom</code> 256 Bytes - <code>String</code>: The bloom filter for the logs of the block. null when it's pending block.</li>
 <li><code>transactionsRoot</code> 32 Bytes - <code>String</code>: The root of the transaction trie of the block</li>
 <li><code>stateRoot</code> 32 Bytes - <code>String</code>: The root of the final state trie of the block.</li>
 <li><code>miner</code> - <code>String</code>: The address of the beneficiary to whom the mining rewards were given.</li>
@@ -442,7 +446,7 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
     <span class="hljs-string">"logsBloom"</span>: <span class="hljs-string">"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,
     <span class="hljs-string">"transactionsRoot"</span>: <span class="hljs-string">"0x3a1b03875115b79539e5bd33fb00d8f7b7cd61929d5a3c574f507b8acf415bee"</span>,
     <span class="hljs-string">"stateRoot"</span>: <span class="hljs-string">"0xf1133199d44695dfa8fd1bcfe424d82854b5cebef75bddd7e40ea94cda515bcb"</span>,
-    <span class="hljs-string">"miner"</span>: <span class="hljs-string">"0x8888f1f195afa192cfee860698584c030f4c9db1"</span>,
+    <span class="hljs-string">"miner"</span>: <span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>,
     <span class="hljs-string">"difficulty"</span>: <span class="hljs-string">'21345678965432'</span>,
     <span class="hljs-string">"totalDifficulty"</span>: <span class="hljs-string">'324567845321'</span>,
     <span class="hljs-string">"size"</span>: <span class="hljs-number">616</span>,
@@ -470,7 +474,7 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
 <p>Returns:</p>
 <p><code>Promise</code> returns <code>Number</code> - The number of transactions in the given block.</p>
 <p>Example:</p>
-<pre><code class="hljs css language-js">web3.platon.getBlockTransactionCount(<span class="hljs-string">"0x407d73d8a49eeb85d32cf465507dd71d507100c1"</span>)
+<pre><code class="hljs css language-js">web3.platon.getBlockTransactionCount(<span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>)
 .then(<span class="hljs-built_in">console</span>.log);
 &gt; <span class="hljs-number">1</span>
 </code></pre>
@@ -486,15 +490,15 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
 <li><code>callback</code> - <code>Function</code>:  (optional) Optional callback, returns an error object as first parameter and the result as second.</li>
 </ul>
 <p>Returns:</p>
-<p><code>Promise</code> returns <code>Object</code> - A transaction object its hash <code>transactionHash</code>:</p>
+<p><code>Promise</code> returns <code>Object</code> - A transaction object it's hash <code>transactionHash</code>:</p>
 <ul>
 <li><code>hash</code> 32 Bytes - <code>String:</code> Hash of the transaction.</li>
 <li><code>nonce</code> - <code>Number</code>: The number of transactions made by the sender prior to this one.</li>
-<li><code>blockHash</code> 32 Bytes - <code>String</code>: Hash of the block where this transaction was in. null when its pending.</li>
-<li><code>blockNumber</code> - <code>Number</code>: Block number where this transaction was in. null when its pending.</li>
-<li><code>transactionIndex</code> - <code>Number</code>: Integer of the transactions index position in the block. null when its pending.</li>
+<li><code>blockHash</code> 32 Bytes - <code>String</code>: Hash of the block where this transaction was in. null when it's pending.</li>
+<li><code>blockNumber</code> - <code>Number</code>: Block number where this transaction was in. null when it's pending.</li>
+<li><code>transactionIndex</code> - <code>Number</code>: Integer of the transactions index position in the block. null when it's pending.</li>
 <li><code>from</code> - <code>String</code>: Address of the sender.</li>
-<li><code>to</code> - <code>String</code>: Address of the receiver. null when its a contract creation transaction.</li>
+<li><code>to</code> - <code>String</code>: Address of the receiver. null when it's a contract creation transaction.</li>
 <li><code>value</code> - <code>String</code>: Value transferred in von.</li>
 <li><code>gasPrice</code> - <code>String</code>: Gas price provided by the sender in von.</li>
 <li><code>gas</code> - <code>Number</code>: Gas provided by the sender.</li>
@@ -509,8 +513,8 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
     <span class="hljs-string">"blockHash"</span>: <span class="hljs-string">"0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46"</span>,
     <span class="hljs-string">"blockNumber"</span>: <span class="hljs-number">3</span>,
     <span class="hljs-string">"transactionIndex"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-string">"from"</span>: <span class="hljs-string">"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"</span>,
-    <span class="hljs-string">"to"</span>: <span class="hljs-string">"0x6295ee1b4f6dd65047762f924ecd367c17eabf8f"</span>,
+    <span class="hljs-string">"from"</span>: <span class="hljs-string">"lax14984xa8uuhkmer32s6tuz5e3valxa0ct68a0c5"</span>,
+    <span class="hljs-string">"to"</span>: <span class="hljs-string">"lax1v227ux60dht9q3mk97fyanfk0st740u0x25f88"</span>,
     <span class="hljs-string">"value"</span>: <span class="hljs-string">'123450000000000000'</span>,
     <span class="hljs-string">"gas"</span>: <span class="hljs-number">314159</span>,
     <span class="hljs-string">"gasPrice"</span>: <span class="hljs-string">'2000000000000'</span>,
@@ -557,7 +561,7 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
 <li><code>transactionHash</code> 32 Bytes - <code>String</code>: Hash of the transaction.</li>
 <li><code>transactionIndex</code>- <code>Number</code>: Integer of the transactions index position in the block.</li>
 <li><code>from</code> - <code>String</code>: Address of the sender.</li>
-<li><code>to</code> - <code>String</code>: Address of the receiver. null when its a contract creation transaction.</li>
+<li><code>to</code> - <code>String</code>: Address of the receiver. null when it's a contract creation transaction.</li>
 <li><code>contractAddress</code> - <code>String</code>: The contract address created, if the transaction was a contract creation, otherwise null.</li>
 <li><code>cumulativeGasUsed</code> - <code>Number</code>: The total amount of gas used when this transaction was executed in the block.</li>
 <li><code>gasUsed</code> - <code>Number</code>: The amount of gas used by this specific transaction alone.</li>
@@ -572,7 +576,7 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
   <span class="hljs-string">"transactionIndex"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-string">"blockHash"</span>: <span class="hljs-string">"0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46"</span>,
   <span class="hljs-string">"blockNumber"</span>: <span class="hljs-number">3</span>,
-  <span class="hljs-string">"contractAddress"</span>: <span class="hljs-string">"0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe"</span>,
+  <span class="hljs-string">"contractAddress"</span>: <span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>,
   <span class="hljs-string">"cumulativeGasUsed"</span>: <span class="hljs-number">314159</span>,
   <span class="hljs-string">"gasUsed"</span>: <span class="hljs-number">30234</span>,
   <span class="hljs-string">"logs"</span>: [{
@@ -595,7 +599,7 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
 <p>Returns:</p>
 <p><code>Promise</code> returns <code>Number</code> - The number of transactions sent from the given address.</p>
 <p>Example:</p>
-<pre><code class="hljs css language-js">web3.platon.getTransactionCount(<span class="hljs-string">"0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe"</span>)
+<pre><code class="hljs css language-js">web3.platon.getTransactionCount(<span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>)
 .then(<span class="hljs-built_in">console</span>.log);
 &gt; <span class="hljs-number">1</span>
 </code></pre>
@@ -625,7 +629,7 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
 <ul>
 <li>&quot;transactionHash&quot; returns String: Is fired right after the transaction is sent and a transaction hash is available.</li>
 <li>&quot;receipt&quot;  returns <code>Object</code>: Is fired when the transaction receipt is available.</li>
-<li>&quot;confirmation&quot; returns Number, Object: Is fired for every confirmation up to the 12th confirmation. Receives the confirmation number as the first and the receipt as the second argument. Fired from confirmation 0 on, which is the block where its minded.</li>
+<li>&quot;confirmation&quot; returns Number, Object: Is fired for every confirmation up to the 12th confirmation. Receives the confirmation number as the first and the receipt as the second argument. Fired from confirmation 0 on, which is the block where it's minded.</li>
 <li>&quot;error&quot; returns Error and Object|undefined: Is fired if an error occurs during sending. If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.</li>
 </ul>
 <p>Example:</p>
@@ -634,7 +638,7 @@ web3.platon.defaultBlock = <span class="hljs-number">231</span>;
 
 <span class="hljs-comment">// using the callback</span>
 web3.platon.sendTransaction({
-    <span class="hljs-attr">from</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>,
+    <span class="hljs-attr">from</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>,
     <span class="hljs-attr">data</span>: code <span class="hljs-comment">// deploying a contracrt</span>
 }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, hash</span>)</span>{
     ...
@@ -642,8 +646,8 @@ web3.platon.sendTransaction({
 
 <span class="hljs-comment">// using the promise</span>
 web3.platon.sendTransaction({
-    <span class="hljs-attr">from</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>,
-    <span class="hljs-attr">to</span>: <span class="hljs-string">'0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe'</span>,
+    <span class="hljs-attr">from</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>,
+    <span class="hljs-attr">to</span>: <span class="hljs-string">'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'</span>,
     <span class="hljs-attr">value</span>: <span class="hljs-string">'1000000000000000'</span>
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">receipt</span>)</span>{
@@ -653,8 +657,8 @@ web3.platon.sendTransaction({
 
 <span class="hljs-comment">// using the event emitter</span>
 web3.platon.sendTransaction({
-    <span class="hljs-attr">from</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>,
-    <span class="hljs-attr">to</span>: <span class="hljs-string">'0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe'</span>,
+    <span class="hljs-attr">from</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>,
+    <span class="hljs-attr">to</span>: <span class="hljs-string">'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'</span>,
     <span class="hljs-attr">value</span>: <span class="hljs-string">'1000000000000000'</span>
 })
 .on(<span class="hljs-string">'transactionHash'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">hash</span>)</span>{
@@ -689,7 +693,7 @@ web3.platon.sendTransaction({
   <span class="hljs-attr">nonce</span>: <span class="hljs-string">'0x00'</span>,
   <span class="hljs-attr">gasPrice</span>: <span class="hljs-string">'0x09184e72a000'</span>,
   <span class="hljs-attr">gasLimit</span>: <span class="hljs-string">'0x2710'</span>,
-  <span class="hljs-attr">to</span>: <span class="hljs-string">'0x0000000000000000000000000000000000000000'</span>,
+  <span class="hljs-attr">to</span>: <span class="hljs-string">'lax1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqmscn5j'</span>,
   <span class="hljs-attr">value</span>: <span class="hljs-string">'0x00'</span>,
   <span class="hljs-attr">data</span>: <span class="hljs-string">'0x7f7465737432000000000000000000000000000000000000000000000000000000600057'</span>
 }
@@ -699,7 +703,7 @@ web3.platon.sendTransaction({
   {
     <span class="hljs-attr">name</span>: <span class="hljs-string">'platon'</span>,
     <span class="hljs-attr">networkId</span>: <span class="hljs-number">1</span>,
-    <span class="hljs-attr">chainId</span>: <span class="hljs-number">101</span>,
+    <span class="hljs-attr">chainId</span>: <span class="hljs-number">104</span>,
   },
   <span class="hljs-string">'petersburg'</span>
 );
@@ -731,12 +735,12 @@ web3.platon.sendSignedTransaction(<span class="hljs-string">'0x'</span> + serial
 <p>Returns:</p>
 <p><code>Promise</code> returns <code>String</code> - The signature.</p>
 <p>Example:</p>
-<pre><code class="hljs css language-js">web3.platon.sign(<span class="hljs-string">"Hello world"</span>, <span class="hljs-string">"0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe"</span>)
+<pre><code class="hljs css language-js">web3.platon.sign(<span class="hljs-string">"Hello world"</span>, <span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>)
 .then(<span class="hljs-built_in">console</span>.log);
 &gt; <span class="hljs-string">"0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"</span>
 
 <span class="hljs-comment">// the below is the same</span>
-web3.platon.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello world"</span>), <span class="hljs-string">"0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe"</span>)
+web3.platon.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello world"</span>), <span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>)
 .then(<span class="hljs-built_in">console</span>.log);
 &gt; <span class="hljs-string">"0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"</span>
 </code></pre>
@@ -756,10 +760,10 @@ web3.platon.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello world"</s
 <p>Promise returns Object - The RLP encoded transaction. The raw property can be used to send the transaction using web3.platon.sendSignedTransaction.</p>
 <p>Example:</p>
 <pre><code class="hljs css language-js">web3.platon.signTransaction({
-    <span class="hljs-attr">from</span>: <span class="hljs-string">"0xEB014f8c8B418Db6b45774c326A0E64C78914dC0"</span>,
+    <span class="hljs-attr">from</span>: <span class="hljs-string">"lax1avq5lrytgxxmddzhwnpjdg8xf3ufznwqrjn60v"</span>,
     <span class="hljs-attr">gasPrice</span>: <span class="hljs-string">"20000000000"</span>,
     <span class="hljs-attr">gas</span>: <span class="hljs-string">"21000"</span>,
-    <span class="hljs-attr">to</span>: <span class="hljs-string">'0x3535353535353535353535353535353535353535'</span>,
+    <span class="hljs-attr">to</span>: <span class="hljs-string">'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c'</span>,
     <span class="hljs-attr">value</span>: <span class="hljs-string">"1000000000000000000"</span>,
     <span class="hljs-attr">data</span>: <span class="hljs-string">""</span>
 }).then(<span class="hljs-built_in">console</span>.log);
@@ -769,7 +773,7 @@ web3.platon.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello world"</s
         <span class="hljs-attr">nonce</span>: <span class="hljs-string">'0x0'</span>,
         <span class="hljs-attr">gasPrice</span>: <span class="hljs-string">'0x4a817c800'</span>,
         <span class="hljs-attr">gas</span>: <span class="hljs-string">'0x5208'</span>,
-        <span class="hljs-attr">to</span>: <span class="hljs-string">'0x3535353535353535353535353535353535353535'</span>,
+        <span class="hljs-attr">to</span>: <span class="hljs-string">'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c'</span>,
         <span class="hljs-attr">value</span>: <span class="hljs-string">'0xde0b6b3a7640000'</span>,
         <span class="hljs-attr">input</span>: <span class="hljs-string">'0x'</span>,
         <span class="hljs-attr">v</span>: <span class="hljs-string">'0x25'</span>,
@@ -794,7 +798,7 @@ web3.platon.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello world"</s
 <p><code>Promise</code> returns <code>Number</code> - the used gas for the simulated call/transaction.</p>
 <p>Example:</p>
 <pre><code class="hljs css language-js">web3.platon.estimateGas({
-    <span class="hljs-attr">to</span>: <span class="hljs-string">"0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe"</span>,
+    <span class="hljs-attr">to</span>: <span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>,
     <span class="hljs-attr">data</span>: <span class="hljs-string">"0xc6888fa10000000000000000000000000000000000000000000000000000000000000003"</span>
 })
 .then(<span class="hljs-built_in">console</span>.log);
@@ -826,12 +830,12 @@ web3.platon.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello world"</s
 <li><code>logIndex</code> - <code>Number</code>: Integer of the event index position in the block.</li>
 <li><code>transactionIndex</code> - <code>Number</code>: Integer of the transaction’s index position, the event was created in.</li>
 <li><code>transactionHash</code> 32 Bytes - <code>String</code>: Hash of the transaction this event was created in.</li>
-<li><code>blockHash</code> 32 Bytes - <code>String</code>: Hash of the block where this event was created in. null when its still pending.</li>
-<li><code>blockNumber</code> - <code>Number</code>: The block number where this log was created in. null when still pending.</li>
+<li><code>blockHash</code> 32 Bytes - <code>String</code>: Hash of the block where this event was created in. null when it's still pending.</li>
+<li><code>blockNumber</code> - <code>Number</code>: The block number where this log was created in. null when it's still pending.</li>
 </ul>
 <p>Example:</p>
 <pre><code class="hljs css language-js">web3.platon.getPastLogs({
-    <span class="hljs-attr">address</span>: <span class="hljs-string">"0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe"</span>,
+    <span class="hljs-attr">address</span>: <span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>,
     <span class="hljs-attr">topics</span>: [<span class="hljs-string">"0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234"</span>]
 })
 .then(<span class="hljs-built_in">console</span>.log);
@@ -844,7 +848,7 @@ web3.platon.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello world"</s
     <span class="hljs-attr">transactionHash</span>: <span class="hljs-string">'0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385'</span>,
     <span class="hljs-attr">blockHash</span>: <span class="hljs-string">'0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7'</span>,
     <span class="hljs-attr">blockNumber</span>: <span class="hljs-number">1234</span>,
-    <span class="hljs-attr">address</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>
+    <span class="hljs-attr">address</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>
 },{...}]
 </code></pre>
 <hr>
@@ -865,8 +869,8 @@ web3.platon.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello world"</s
 <li><code>subscription.id</code>: The subscription id, used to identify and unsubscribing the subscription.</li>
 <li><code>subscription.subscribe([callback])</code>: Can be used to re-subscribe with the same parameters.</li>
 <li><code>subscription.unsubscribe([callback])</code>: Unsubscribes the subscription and returns TRUE in the callback if successfull.</li>
-<li><code>subscription.arguments</code>: The subscription arguments, used when re-subscribing.</li>
-<li><code>on(&quot;data&quot;)</code> returns Object:  Fires on each incoming log with the log object as argument.</li>
+<li><code>subscription.arguments</code>: The subscription arguments, used when re-subscribing.
+<code>on(&quot;data&quot;)</code> returns Object:   Fires on each incoming log with the log object as argument.</li>
 <li><code>on(&quot;changed&quot;)</code> returns Object: Fires on each log which was removed from the blockchain. The log will have the additional property <code>&quot;removed: true&quot;</code>.</li>
 <li><code>on(&quot;error&quot;)</code> returns Object: Fires when an error in the subscription occurs.</li>
 <li><code>on(&quot;connected&quot;)</code> returns String: Fires once after the subscription successfully connected. Returns the subscription id.</li>
@@ -875,8 +879,8 @@ web3.platon.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello world"</s
 <p>Mixed -  depends on the subscription, see the different subscriptions for more.</p>
 <p>Example:</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">var</span> subscription = web3.platon.subscribe(<span class="hljs-string">'logs'</span>, {
-    <span class="hljs-attr">address</span>: <span class="hljs-string">'0x123456..'</span>,
-    <span class="hljs-attr">topics</span>: [<span class="hljs-string">'0x12345...'</span>]
+    <span class="hljs-attr">address</span>: <span class="hljs-string">'lax..'</span>,
+    <span class="hljs-attr">topics</span>: [<span class="hljs-string">'lax...'</span>]
 }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, result</span>)</span>{
     <span class="hljs-keyword">if</span> (!error)
         <span class="hljs-built_in">console</span>.log(log);
@@ -963,12 +967,12 @@ subscription.unsubscribe(<span class="hljs-function"><span class="hljs-keyword">
 </ul>
 <p>The structure of a returned block header is as follows:</p>
 <ul>
-<li><code>number</code> - <code>Number</code>: The block number. null when its pending block.</li>
-<li><code>hash</code> 32 Bytes - <code>String</code>: Hash of the block. null when its pending block.</li>
+<li><code>number</code> - <code>Number</code>: The block number. null when it's pending block.</li>
+<li><code>hash</code> 32 Bytes - <code>String</code>: Hash of the block. null when it's pending block.</li>
 <li><code>parentHash</code> 32 Bytes - <code>String</code>: Hash of the parent block.</li>
-<li><code>nonce</code> 8 Bytes - <code>String</code>: Hash of the generated proof-of-work. null when its pending block.</li>
+<li><code>nonce</code> 8 Bytes - <code>String</code>: Hash of the generated proof-of-work. null when it's pending block.</li>
 <li><code>sha3Uncles</code> 32 Bytes - <code>String</code>: SHA3 of the uncles data in the block.</li>
-<li><code>logsBloom</code> 256 Bytes - <code>String</code>: The bloom filter for the logs of the block. null when its pending block.</li>
+<li><code>logsBloom</code> 256 Bytes - <code>String</code>: The bloom filter for the logs of the block. null when it's pending block.</li>
 <li><code>transactionsRoot</code> 32 Bytes - <code>String</code>: The root of the transaction trie of the block</li>
 <li><code>stateRoot</code> 32 Bytes - <code>String</code>: The root of the final state trie of the block.</li>
 <li><code>receiptsRoot</code> 32 Bytes - <code>String</code>: The root of the receipts.</li>
@@ -999,7 +1003,7 @@ subscription.unsubscribe(<span class="hljs-function"><span class="hljs-keyword">
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platonsubscribesyncing"></a><a href="#web3platonsubscribesyncing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.subscribe('syncing')</h4>
-<p><code>syncing</code> Subscribe to syncing events. This will return an object when the node is syncing and when its finished syncing will return FALSE.</p>
+<p><code>syncing</code> Subscribe to syncing events. This will return an object when the node is syncing and when it's finished syncing will return FALSE.</p>
 <p>Method:</p>
 <pre><code class="hljs"><span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.subscribe</span>(<span class="hljs-string">'syncing'</span> [, callback]);
 </code></pre>
@@ -1075,8 +1079,8 @@ subscription.unsubscribe(<span class="hljs-function"><span class="hljs-keyword">
 </ul>
 <p>Example:</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">var</span> subscription = web3.platon.subscribe(<span class="hljs-string">'logs'</span>, {
-    <span class="hljs-attr">address</span>: <span class="hljs-string">'0x123456..'</span>,
-    <span class="hljs-attr">topics</span>: [<span class="hljs-string">'0x12345...'</span>]
+    <span class="hljs-attr">address</span>: <span class="hljs-string">'lax..'</span>,
+    <span class="hljs-attr">topics</span>: [<span class="hljs-string">'lax...'</span>]
 }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, result</span>)</span>{
     <span class="hljs-keyword">if</span> (!error)
         <span class="hljs-built_in">console</span>.log(result);
@@ -1110,14 +1114,15 @@ subscription.unsubscribe(<span class="hljs-function"><span class="hljs-keyword">
 <li><code>gasPrice</code> - <code>String</code>: The gas price in von to use for transactions.</li>
 <li><code>gas</code> - <code>Number</code>: The maximum gas provided for a transaction (gas limit).</li>
 <li><code>data</code> - <code>String</code>: The byte code of the contract. Used when the contract gets deployed.</li>
-<li><code>vmType</code> - <code>Number</code>: The contract type。0 means solidity contract, 1 means wasm contract. The default is the solidity contract. (New field)</li>
+<li><code>vmType</code> - <code>Number</code>: The contract type. 0 means solidity contract, 1 means WASM contract. The default is the solidity contract. (New field)</li>
+<li><code>net_type</code> - <code>String</code>: The network type. <code>lat</code> represents the primary network, <code>lax</code> represents the test network. The default is to the test network.  (New field)</li>
 </ul></li>
 </ul>
 <p>Returns:</p>
-<p><code>Object</code>: The contract instance with all its methods and events.</p>
+<p><code>Object</code>: The contract instance with all it's methods and events.</p>
 <p>Example:</p>
-<pre><code class="hljs css language-js"><span class="hljs-keyword">var</span> myContract = <span class="hljs-keyword">new</span> web3.platon.Contract([...], <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>, {
-    <span class="hljs-attr">from</span>: <span class="hljs-string">'0x1234567890123456789012345678901234567891'</span>, <span class="hljs-comment">// default from address</span>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">var</span> myContract = <span class="hljs-keyword">new</span> web3.platon.Contract([...], <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>, {
+    <span class="hljs-attr">from</span>: <span class="hljs-string">'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'</span>, <span class="hljs-comment">// default from address</span>
     <span class="hljs-attr">gasPrice</span>: <span class="hljs-string">'20000000000'</span> <span class="hljs-comment">// default gas price in wei, 20 gwei in this case</span>
 });
 </code></pre>
@@ -1139,14 +1144,14 @@ subscription.unsubscribe(<span class="hljs-function"><span class="hljs-keyword">
 <p>Example:</p>
 <pre><code class="hljs css language-js">myContract.options;
 &gt; {
-    <span class="hljs-attr">address</span>: <span class="hljs-string">'0x1234567890123456789012345678901234567891'</span>,
+    <span class="hljs-attr">address</span>: <span class="hljs-string">'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'</span>,
     <span class="hljs-attr">jsonInterface</span>: [...],
-    <span class="hljs-attr">from</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>,
+    <span class="hljs-attr">from</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>,
     <span class="hljs-attr">gasPrice</span>: <span class="hljs-string">'10000000000000'</span>,
     <span class="hljs-attr">gas</span>: <span class="hljs-number">1000000</span>
 }
 
-myContract.options.from = <span class="hljs-string">'0x1234567890123456789012345678901234567891'</span>; <span class="hljs-comment">// default from address</span>
+myContract.options.from = <span class="hljs-string">'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'</span>; <span class="hljs-comment">// default from address</span>
 myContract.options.gasPrice = <span class="hljs-string">'20000000000000'</span>; <span class="hljs-comment">// default gas price in wei</span>
 myContract.options.gas = <span class="hljs-number">5000000</span>; <span class="hljs-comment">// provide as fallback always 5M gas</span>
 </code></pre>
@@ -1160,10 +1165,10 @@ myContract.options.gas = <span class="hljs-number">5000000</span>; <span class="
 <p><code>address</code> - <code>String|null</code>:  The address for this contract, or null if it’s not yet set.</p>
 <p>Example:</p>
 <pre><code class="hljs css language-js">myContract.options.address;
-&gt; <span class="hljs-string">'0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae'</span>
+&gt; <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>
 
 <span class="hljs-comment">// set a new address</span>
-myContract.options.address = <span class="hljs-string">'0x1234FFDD...'</span>;
+myContract.options.address = <span class="hljs-string">'lax...'</span>;
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="optionsjsoninterface"></a><a href="#optionsjsoninterface" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>options.jsonInterface</h4>
@@ -1199,7 +1204,7 @@ myContract.options.jsonInterface = [...];
 <p><code>options</code> - Object: The options used for deployment.</p>
 <ul>
 <li><code>data</code> - <code>String</code>: The byte code of the contract.</li>
-<li><code>arguments</code> - <code>Array</code>: (optional): The arguments which get passed to the constructor on deployment. If you deploy a wasm contract, you can refer to <a href="https://github.com/PlatONnetwork/client-sdk-js/blob/feature/wasm/test/1_platon_wasm.js">wasm contract parameter passing reference</a>。</li>
+<li><code>arguments</code> - <code>Array</code>: (optional): The arguments which get passed to the constructor on deployment. If you deploy a WASM contract, you can refer to <a href="https://github.com/PlatONnetwork/client-sdk-js/blob/feature/wasm/test/1_platon_wasm.js">WASM contract parameter passing reference</a>。</li>
 </ul>
 <p>Returns:</p>
 <p><code>Object</code>: The transaction object:</p>
@@ -1215,7 +1220,7 @@ myContract.options.jsonInterface = [...];
     <span class="hljs-attr">arguments</span>: [<span class="hljs-number">123</span>, <span class="hljs-string">'My String'</span>]
 })
 .send({
-    <span class="hljs-attr">from</span>: <span class="hljs-string">'0x1234567890123456789012345678901234567891'</span>,
+    <span class="hljs-attr">from</span>: <span class="hljs-string">'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'</span>,
     <span class="hljs-attr">gas</span>: <span class="hljs-number">1500000</span>,
     <span class="hljs-attr">gasPrice</span>: <span class="hljs-string">'30000000000000'</span>
 }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, transactionHash</span>)</span>{ ... })
@@ -1237,7 +1242,7 @@ myContract.deploy({
     <span class="hljs-attr">arguments</span>: [<span class="hljs-number">123</span>, <span class="hljs-string">'My String'</span>]
 })
 .send({
-    <span class="hljs-attr">from</span>: <span class="hljs-string">'0x1234567890123456789012345678901234567891'</span>,
+    <span class="hljs-attr">from</span>: <span class="hljs-string">'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'</span>,
     <span class="hljs-attr">gas</span>: <span class="hljs-number">1500000</span>,
     <span class="hljs-attr">gasPrice</span>: <span class="hljs-string">'30000000000000'</span>
 })
@@ -1267,15 +1272,15 @@ myContract.deploy({
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="methods"></a><a href="#methods" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>methods</h4>
 <p>Creates a transaction object for that method, which then can be called, send, estimated.</p>
-<p>If it is a wasm contract, you can refer to <a href="https://github.com/PlatONnetwork/client-sdk-js/blob/feature/wasm/test/1_platon_wasm.js">wasm contract parameter passing reference</a>。</p>
+<p>If it is a WASM contract, you can refer to <a href="https://github.com/PlatONnetwork/client-sdk-js/blob/feature/wasm/test/1_platon_wasm.js">WASM contract parameter passing reference</a>。</p>
 <p>Method:</p>
 <pre><code class="hljs"><span class="hljs-selector-tag">myContract</span><span class="hljs-selector-class">.methods</span><span class="hljs-selector-class">.myMethod</span>(<span class="hljs-selector-attr">[param1[, param2[, ...]</span>]])
 </code></pre>
 <p>The methods of this smart contract are available through:</p>
 <ul>
 <li>The name: myContract.methods.myMethod(123)</li>
-<li>The name with parameters: myContract.methods<a href="123">'myMethod(uint256)'</a></li>
-<li>The signature: myContract.methods<a href="123">'0x58cf5f10'</a></li>
+<li>The name with parameters: myContract.methods['myMethod(uint256)'](123)</li>
+<li>The signature: myContract.methods['0x58cf5f10'](123)</li>
 </ul>
 <p>This allows calling functions with same name but different parameters from the JavaScript contract object.</p>
 <p>Parameter:</p>
@@ -1284,25 +1289,25 @@ myContract.deploy({
 <p>Object: The transaction object:</p>
 <ul>
 <li><code>arguments</code>: Array - The arguments passed to the method before. They can be changed.</li>
-<li><code>call</code>: Function -  Will call the “constant” method and execute its smart contract method in the EVM without sending a transaction (Can’t alter the smart contract state).</li>
-<li><code>send</code>: Function - Will send a transaction to the smart contract and execute its method (Can alter the smart contract state).</li>
+<li><code>call</code>: Function -  Will call the “constant” method and execute it's smart contract method in the EVM without sending a transaction (Can’t alter the smart contract state).</li>
+<li><code>send</code>: Function - Will send a transaction to the smart contract and execute it's method (Can alter the smart contract state).</li>
 <li><code>estimateGas</code>: Function - Will estimate the gas used when the method would be executed on chain.</li>
 <li><code>encodeABI</code>: Function -  Encodes the ABI for this method. This can be send using a transaction, call the method or passing into another smart contracts method as argument.</li>
 </ul>
 <p>Example:</p>
 <pre><code class="hljs css language-js"><span class="hljs-comment">// calling a method</span>
-myContract.methods.myMethod(<span class="hljs-number">123</span>).call({<span class="hljs-attr">from</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, result</span>)</span>{
+myContract.methods.myMethod(<span class="hljs-number">123</span>).call({<span class="hljs-attr">from</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, result</span>)</span>{
     ...
 });
 
 <span class="hljs-comment">// or sending and using a promise</span>
-myContract.methods.myMethod(<span class="hljs-number">123</span>).send({<span class="hljs-attr">from</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>})
+myContract.methods.myMethod(<span class="hljs-number">123</span>).send({<span class="hljs-attr">from</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>})
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">receipt</span>)</span>{
     <span class="hljs-comment">// receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"</span>
 });
 
 <span class="hljs-comment">// or sending and using the events</span>
-myContract.methods.myMethod(<span class="hljs-number">123</span>).send({<span class="hljs-attr">from</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>})
+myContract.methods.myMethod(<span class="hljs-number">123</span>).send({<span class="hljs-attr">from</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>})
 .on(<span class="hljs-string">'transactionHash'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">hash</span>)</span>{
     ...
 })
@@ -1316,7 +1321,7 @@ myContract.methods.myMethod(<span class="hljs-number">123</span>).send({<span cl
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="methodsmymethodcall"></a><a href="#methodsmymethodcall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>methods.myMethod.call</h4>
-<p>Will call a “constant” method and execute its smart contract method in the EVM without sending any transaction. Note calling can not alter the smart contract state.</p>
+<p>Will call a “constant” method and execute it's smart contract method in the EVM without sending any transaction. Note calling can not alter the smart contract state.</p>
 <p>Method:</p>
 <pre><code class="hljs"><span class="hljs-selector-tag">myContract</span><span class="hljs-selector-class">.methods</span><span class="hljs-selector-class">.myMethod</span>(<span class="hljs-selector-attr">[param1[, param2[, ...]</span>]])<span class="hljs-selector-class">.call</span>(<span class="hljs-selector-tag">options</span><span class="hljs-selector-attr">[, callback]</span>)
 </code></pre>
@@ -1334,12 +1339,12 @@ myContract.methods.myMethod(<span class="hljs-number">123</span>).send({<span cl
 <p>Promise returns Mixed: The return value(s) of the smart contract method. If it returns a single value, it’s returned as is. If it has multiple return values they are returned as an object with properties and indices:
 Example:</p>
 <pre><code class="hljs css language-js"><span class="hljs-comment">// using the callback</span>
-myContract.methods.myMethod(<span class="hljs-number">123</span>).call({<span class="hljs-attr">from</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, result</span>)</span>{
+myContract.methods.myMethod(<span class="hljs-number">123</span>).call({<span class="hljs-attr">from</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, result</span>)</span>{
     ...
 });
 
 <span class="hljs-comment">// using the promise</span>
-myContract.methods.myMethod(<span class="hljs-number">123</span>).call({<span class="hljs-attr">from</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>})
+myContract.methods.myMethod(<span class="hljs-number">123</span>).call({<span class="hljs-attr">from</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>})
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>)</span>{
     ...
 });
@@ -1380,7 +1385,7 @@ var MyContract = <span class="hljs-keyword">new</span> web3.platon.contract(abi,
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="send---methodsmymethodsend"></a><a href="#send---methodsmymethodsend" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>send - methods.myMethod.send</h4>
-<p>Will send a transaction to the smart contract and execute its method. Note this can alter the smart contract state.</p>
+<p>Will send a transaction to the smart contract and execute it's method. Note this can alter the smart contract state.</p>
 <p>Method:</p>
 <pre><code class="hljs"><span class="hljs-selector-tag">myContract</span><span class="hljs-selector-class">.methods</span><span class="hljs-selector-class">.myMethod</span>(<span class="hljs-selector-attr">[param1[, param2[, ...]</span>]])<span class="hljs-selector-class">.send</span>(<span class="hljs-selector-tag">options</span><span class="hljs-selector-attr">[, callback]</span>)
 </code></pre>
@@ -1406,19 +1411,19 @@ var MyContract = <span class="hljs-keyword">new</span> web3.platon.contract(abi,
 </ul>
 <p>Example:</p>
 <pre><code class="hljs css language-js"><span class="hljs-comment">// using the callback</span>
-myContract.methods.myMethod(<span class="hljs-number">123</span>).send({<span class="hljs-attr">from</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, transactionHash</span>)</span>{
+myContract.methods.myMethod(<span class="hljs-number">123</span>).send({<span class="hljs-attr">from</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, transactionHash</span>)</span>{
     ...
 });
 
 <span class="hljs-comment">// using the promise</span>
-myContract.methods.myMethod(<span class="hljs-number">123</span>).send({<span class="hljs-attr">from</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>})
+myContract.methods.myMethod(<span class="hljs-number">123</span>).send({<span class="hljs-attr">from</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>})
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">receipt</span>)</span>{
     <span class="hljs-comment">// receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"</span>
 });
 
 
 <span class="hljs-comment">// using the event emitter</span>
-myContract.methods.myMethod(<span class="hljs-number">123</span>).send({<span class="hljs-attr">from</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>})
+myContract.methods.myMethod(<span class="hljs-number">123</span>).send({<span class="hljs-attr">from</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>})
 .on(<span class="hljs-string">'transactionHash'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">hash</span>)</span>{
     ...
 })
@@ -1433,7 +1438,7 @@ myContract.methods.myMethod(<span class="hljs-number">123</span>).send({<span cl
         <span class="hljs-string">"transactionIndex"</span>: <span class="hljs-number">0</span>,
         <span class="hljs-string">"blockHash"</span>: <span class="hljs-string">"0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46"</span>,
         <span class="hljs-string">"blockNumber"</span>: <span class="hljs-number">3</span>,
-        <span class="hljs-string">"contractAddress"</span>: <span class="hljs-string">"0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe"</span>,
+        <span class="hljs-string">"contractAddress"</span>: <span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>,
         <span class="hljs-string">"cumulativeGasUsed"</span>: <span class="hljs-number">314159</span>,
         <span class="hljs-string">"gasUsed"</span>: <span class="hljs-number">30234</span>,
         <span class="hljs-string">"events"</span>: {
@@ -1454,7 +1459,7 @@ myContract.methods.myMethod(<span class="hljs-number">123</span>).send({<span cl
                 <span class="hljs-attr">transactionHash</span>: <span class="hljs-string">'0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385'</span>,
                 <span class="hljs-attr">blockHash</span>: <span class="hljs-string">'0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7'</span>,
                 <span class="hljs-attr">blockNumber</span>: <span class="hljs-number">1234</span>,
-                <span class="hljs-attr">address</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>
+                <span class="hljs-attr">address</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>
             },
             <span class="hljs-string">"MyOtherEvent"</span>: {
                 ...
@@ -1491,7 +1496,7 @@ myContract.methods.myMethod(<span class="hljs-number">123</span>).estimateGas({<
 });
 
 <span class="hljs-comment">// using the promise</span>
-myContract.methods.myMethod(<span class="hljs-number">123</span>).estimateGas({<span class="hljs-attr">from</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>})
+myContract.methods.myMethod(<span class="hljs-number">123</span>).estimateGas({<span class="hljs-attr">from</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>})
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">gasAmount</span>)</span>{
     ...
 })
@@ -1546,7 +1551,7 @@ myContract.methods.myMethod(<span class="hljs-number">123</span>).estimateGas({<
 <li><code>transactionIndex</code> - <code>Number</code>: Integer of the transaction’s index position the event was created in.</li>
 <li><code>transactionHash</code> 32 Bytes - <code>String</code> Hash of the transaction this event was created in.</li>
 <li><code>blockHash</code> 32 Bytes - <code>String</code>: Hash of the block this event was created in. null when it’s still pending.</li>
-<li><code>blockNumber</code> - <code>Number</code>: The block number this log was created in. null when still pending.</li>
+<li><code>blockNumber</code> - <code>Number</code>: The block number this log was created in. null when it's still pending.</li>
 <li><code>raw.data</code> - <code>String</code>: The data containing non-indexed log parameter.</li>
 <li><code>raw.topics</code> - <code>Array</code>: An array with max 4 32 Byte topics, topic 1-3 contains indexed parameters of the event.</li>
 </ul>
@@ -1581,7 +1586,7 @@ myContract.methods.myMethod(<span class="hljs-number">123</span>).estimateGas({<
     <span class="hljs-attr">transactionHash</span>: <span class="hljs-string">'0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385'</span>,
     <span class="hljs-attr">blockHash</span>: <span class="hljs-string">'0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7'</span>,
     <span class="hljs-attr">blockNumber</span>: <span class="hljs-number">1234</span>,
-    <span class="hljs-attr">address</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>
+    <span class="hljs-attr">address</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>
 }
 </code></pre>
 <hr>
@@ -1637,11 +1642,81 @@ myContract.methods.myMethod(<span class="hljs-number">123</span>).estimateGas({<
     <span class="hljs-attr">transactionHash</span>: <span class="hljs-string">'0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385'</span>,
     <span class="hljs-attr">blockHash</span>: <span class="hljs-string">'0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7'</span>,
     <span class="hljs-attr">blockNumber</span>: <span class="hljs-number">1234</span>,
-    <span class="hljs-attr">address</span>: <span class="hljs-string">'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'</span>
+    <span class="hljs-attr">address</span>: <span class="hljs-string">'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'</span>
 },{
     ...
 }]
 </code></pre>
+<hr>
+<h4><a class="anchor" aria-hidden="true" id="newfilter"></a><a href="#newfilter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>newFilter</h4>
+<p>newFilter creates a new filter and returns the filter id. It can be used to retrieve logs when the state changes.</p>
+<p>Method:</p>
+<pre><code class="hljs">myContract.newFilter(event[<span class="hljs-string">, options</span>][<span class="hljs-symbol">, callback</span>])
+</code></pre>
+<p>Parameter：</p>
+<ul>
+<li><code>event</code> - <code>String</code>: The name of the event in the contract, or &quot;allEvents&quot; to get all events.</li>
+<li><code>options</code> - <code>Object</code> (optional): The options used for deployment.
+<ul>
+<li><code>filter</code> - <code>Object</code> (optional): Lets you filter events by indexed parameters, e.g. {filter: {myNumber: [12,13]}} means all events where “myNumber” is 12 or 13.</li>
+<li><code>fromBlock</code> - <code>Number|String|BN|BigNumber</code> (optional): The block number (greater than or equal to) from which to get events on. Pre-defined block numbers as &quot;latest&quot;, &quot;earlist&quot;, &quot;pending&quot;, and &quot;genesis&quot; can also be used.</li>
+<li><code>toBlock</code> - <code>Number|String|BN|BigNumber</code> (optional): The block number (less than or equal to) to get events up to (Defaults to &quot;latest&quot;). Pre-defined block numbers as &quot;latest&quot;, &quot;earlist&quot;, &quot;pending&quot;, and &quot;genesis&quot; can also be used.</li>
+<li><code>topics</code> - <code>Array</code> (optional): This allows manually setting the topics for the event filter. If given the filter property and event signature, (topic[0]) will not be set automatically.</li>
+</ul></li>
+<li><code>callback</code> - <code>Function</code> (optional): This callback will be fired with an array of event logs as the second argument, or an error as the first argument.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>Returns a filter ID of type String.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="hljs css language-js">myContract.newFilter(eventName, {
+   <span class="hljs-attr">filter</span>: eventFilter,
+   <span class="hljs-attr">fromBlock</span>: fromBlockNum,
+   <span class="hljs-attr">toBlock</span>: <span class="hljs-string">"latest"</span>
+}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, rpcId</span>)</span>{ 
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"rpcId:"</span>, rpcId); 
+})
+
+&gt; rpcId: <span class="hljs-number">0xa081d1f00117ade0e08769bb053ae7e</span>
+</code></pre>
+<hr>
+<h4><a class="anchor" aria-hidden="true" id="getfilterlogs"></a><a href="#getfilterlogs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getFilterLogs</h4>
+<p>getFilterLogs returns the logs for the filter with the given id. If the filter could not be found an empty array of logs is returned.</p>
+<p>Method:</p>
+<pre><code class="hljs">myContract.get<span class="hljs-constructor">FilterLogs(<span class="hljs-params">rpcId</span>[, <span class="hljs-params">callback</span>])</span>
+</code></pre>
+<p>Parameter：</p>
+<ul>
+<li>rpcId- String:  Filter ID, returned by calling the <code>newFilter</code> interface .</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>Promise returns Array: An array with the past event Objects, matching the given event name and filter.</li>
+</ul>
+<p>Example：</p>
+<pre><code class="hljs css language-js">contract.getFilterLogs(<span class="hljs-string">"0xa081d1f00117ade0e08769bb053ae7e"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, events</span>)</span>{ 
+     <span class="hljs-built_in">console</span>.log(events); 
+})
+
+&gt; [
+  {
+    <span class="hljs-attr">address</span>: <span class="hljs-string">'lat1dw8t6q5jy6r3xqqkgc43nn403gpuzwx7penk3q'</span>,
+    <span class="hljs-attr">topics</span>: [
+      <span class="hljs-string">'0x0000000000000000000000000000000000000000007374727563744576656e74'</span>,
+      <span class="hljs-string">'0x000000000000000000000000000000000000000000000000000000000000c180'</span>
+    ],
+    <span class="hljs-attr">data</span>: <span class="hljs-string">'0xc0'</span>,
+    <span class="hljs-attr">blockNumber</span>: <span class="hljs-string">'0x16375a'</span>,
+    <span class="hljs-attr">transactionHash</span>: <span class="hljs-string">'0x59d68e32b6566877fb024f3ab356d9c5d2947f6f7a89bc4b34432496c34193d5'</span>,
+    <span class="hljs-attr">transactionIndex</span>: <span class="hljs-string">'0x0'</span>,
+    <span class="hljs-attr">blockHash</span>: <span class="hljs-string">'0x2843f645de8147cce62e6d18bb287c4cf06bbb6a3f3f5ec97917a7a09e300eee'</span>,
+    <span class="hljs-attr">logIndex</span>: <span class="hljs-string">'0x0'</span>,
+    <span class="hljs-attr">removed</span>: <span class="hljs-literal">false</span>
+  }
+]
+</code></pre>
+<p>Note: Read contract history events, which can be obtained using the <code>newFilter</code> and <code>getFilterLogs</code> interfaces.</p>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platonpersonal"></a><a href="#web3platonpersonal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.personal</h4>
 <p>The web3-platon-personal package allows you to interact with the PlatON node’s accounts.</p>
@@ -1663,7 +1738,7 @@ var web3 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platonpersonalnewaccount"></a><a href="#web3platonpersonalnewaccount" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.personal.newAccount</h4>
 <p>Creates a new account.</p>
-<p>Notes: Never call this function over a unsecured Websocket or HTTP provider, as your password will be send in plain text!</p>
+<p>Notes: Never call this function over a unsecured Websocket or HTTP provider, as your password will be sent in plain text!</p>
 <p>Method:</p>
 <pre><code class="hljs"><span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.personal</span><span class="hljs-selector-class">.newAccount</span>(<span class="hljs-selector-tag">password</span>, <span class="hljs-selector-attr">[callback]</span>)
 </code></pre>
@@ -1674,7 +1749,7 @@ var web3 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">
 <p>Example:</p>
 <pre><code class="hljs css language-js">web3.platon.personal.newAccount(<span class="hljs-string">'!@superpassword'</span>)
 .then(<span class="hljs-built_in">console</span>.log);
-&gt; <span class="hljs-string">'0x1234567891011121314151617181920212223456'</span>
+&gt; <span class="hljs-string">'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'</span>
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platonpersonalsign"></a><a href="#web3platonpersonalsign" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.personal.sign</h4>
@@ -1693,12 +1768,12 @@ var web3 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">
 <p>Returns:</p>
 <p><code>Promise</code> returns <code>String</code> - The signature.</p>
 <p>Example:</p>
-<pre><code class="hljs css language-js">web3.platon.personal.sign(<span class="hljs-string">"Hello world"</span>, <span class="hljs-string">"0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe"</span>, <span class="hljs-string">"test password!"</span>)
+<pre><code class="hljs css language-js">web3.platon.personal.sign(<span class="hljs-string">"Hello world"</span>, <span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>, <span class="hljs-string">"test password!"</span>)
 .then(<span class="hljs-built_in">console</span>.log);
 &gt; <span class="hljs-string">"0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"</span>
 
 <span class="hljs-comment">// the below is the same</span>
-web3.platon.personal.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello world"</span>), <span class="hljs-string">"0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe"</span>, <span class="hljs-string">"test password!"</span>)
+web3.platon.personal.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello world"</span>), <span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>, <span class="hljs-string">"test password!"</span>)
 .then(<span class="hljs-built_in">console</span>.log);
 &gt; <span class="hljs-string">"0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"</span>
 </code></pre>
@@ -1718,7 +1793,7 @@ web3.platon.personal.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello 
 <p><code>Promise</code> returns <code>String</code> - The account.</p>
 <p>Example:</p>
 <pre><code class="hljs css language-js">web3.platon.personal.ecRecover(<span class="hljs-string">"Hello world"</span>, <span class="hljs-string">"0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"</span>).then(<span class="hljs-built_in">console</span>.log);
-&gt; <span class="hljs-string">"0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe"</span>
+&gt; <span class="hljs-string">"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"</span>
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platonpersonalsigntransaction"></a><a href="#web3platonpersonalsigntransaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.personal.signTransaction</h4>
@@ -1737,10 +1812,10 @@ web3.platon.personal.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello 
 <p>Promise returns Object - The RLP encoded transaction. The raw property can be used to send the transaction using web3.platon.sendSignedTransaction.</p>
 <p>Example:</p>
 <pre><code class="hljs css language-js">web3.platon.signTransaction({
-    <span class="hljs-attr">from</span>: <span class="hljs-string">"0xEB014f8c8B418Db6b45774c326A0E64C78914dC0"</span>,
+    <span class="hljs-attr">from</span>: <span class="hljs-string">"lax1avq5lrytgxxmddzhwnpjdg8xf3ufznwqrjn60v"</span>,
     <span class="hljs-attr">gasPrice</span>: <span class="hljs-string">"20000000000"</span>,
     <span class="hljs-attr">gas</span>: <span class="hljs-string">"21000"</span>,
-    <span class="hljs-attr">to</span>: <span class="hljs-string">'0x3535353535353535353535353535353535353535'</span>,
+    <span class="hljs-attr">to</span>: <span class="hljs-string">'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c'</span>,
     <span class="hljs-attr">value</span>: <span class="hljs-string">"1000000000000000000"</span>,
     <span class="hljs-attr">data</span>: <span class="hljs-string">""</span>
 }, <span class="hljs-string">'MyPassword!'</span>).then(<span class="hljs-built_in">console</span>.log);
@@ -1750,7 +1825,7 @@ web3.platon.personal.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello 
         <span class="hljs-attr">nonce</span>: <span class="hljs-string">'0x0'</span>,
         <span class="hljs-attr">gasPrice</span>: <span class="hljs-string">'0x4a817c800'</span>,
         <span class="hljs-attr">gas</span>: <span class="hljs-string">'0x5208'</span>,
-        <span class="hljs-attr">to</span>: <span class="hljs-string">'0x3535353535353535353535353535353535353535'</span>,
+        <span class="hljs-attr">to</span>: <span class="hljs-string">'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c'</span>,
         <span class="hljs-attr">value</span>: <span class="hljs-string">'0xde0b6b3a7640000'</span>,
         <span class="hljs-attr">input</span>: <span class="hljs-string">'0x'</span>,
         <span class="hljs-attr">v</span>: <span class="hljs-string">'0x25'</span>,
@@ -1776,7 +1851,7 @@ web3.platon.personal.sign(web3.utils.utf8ToHex(<span class="hljs-string">"Hello 
 </ul>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platonabiencodefunctionsignature"></a><a href="#web3platonabiencodefunctionsignature" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.abi.encodeFunctionSignature</h4>
-<p>Encodes the function name to its ABI signature, which are the first 4 bytes of the sha3 hash of the function name including types.</p>
+<p>Encodes the function name to it's ABI signature, which are the first 4 bytes of the sha3 hash of the function name including types.</p>
 <p>Method:</p>
 <pre><code class="hljs"><span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.abi</span><span class="hljs-selector-class">.encodeFunctionSignature</span>(<span class="hljs-selector-tag">functionName</span>);
 </code></pre>
@@ -1805,7 +1880,7 @@ web3.platon.abi.encodeFunctionSignature(<span class="hljs-string">'myMethod(uint
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platonabiencodeeventsignature"></a><a href="#web3platonabiencodeeventsignature" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.abi.encodeEventSignature</h4>
-<p>Encodes the event name to its ABI signature, which are the sha3 hash of the event name including input types.</p>
+<p>Encodes the event name to it's ABI signature, which are the sha3 hash of the event name including input types.</p>
 <p>Method:</p>
 <pre><code class="hljs"><span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.abi</span><span class="hljs-selector-class">.encodeEventSignature</span>(<span class="hljs-selector-tag">eventName</span>);
 </code></pre>
@@ -1834,7 +1909,7 @@ web3.platon.abi.encodeEventSignature({
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platonabiencodefunctioncall"></a><a href="#web3platonabiencodefunctioncall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.abi.encodeFunctionCall</h4>
-<p>Encodes a function call using its JSON interface object and given paramaters.</p>
+<p>Encodes a function call using it's JSON interface object and given paramaters.</p>
 <p>Method:</p>
 <pre><code class="hljs"><span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.abi</span><span class="hljs-selector-class">.encodeFunctionCall</span>(<span class="hljs-selector-tag">jsonInterface</span>, <span class="hljs-selector-tag">parameters</span>);
 </code></pre>
@@ -1863,7 +1938,7 @@ web3.platon.abi.encodeEventSignature({
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platonabidecodeparameter"></a><a href="#web3platonabidecodeparameter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.abi.decodeParameter</h4>
-<p>Decodes an ABI encoded parameter to its JavaScript type.</p>
+<p>Decodes an ABI encoded parameter to it's JavaScript type.</p>
 <p>Method:</p>
 <pre><code class="hljs"><span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.abi</span><span class="hljs-selector-class">.decodeParameter</span>(<span class="hljs-selector-tag">type</span>, <span class="hljs-selector-tag">hexString</span>);
 </code></pre>
@@ -1883,7 +1958,7 @@ web3.platon.abi.decodeParameter(<span class="hljs-string">'string'</span>, <span
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="web3platonabidecodeparameters"></a><a href="#web3platonabidecodeparameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.platon.abi.decodeParameters</h4>
-<p>Decodes ABI encoded parameters to its JavaScript types.</p>
+<p>Decodes ABI encoded parameters to it's JavaScript types.</p>
 <p>Method:</p>
 <pre><code class="hljs"><span class="hljs-selector-tag">web3</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.abi</span><span class="hljs-selector-class">.decodeParameters</span>(<span class="hljs-selector-tag">typesArray</span>, <span class="hljs-selector-tag">hexString</span>);
 </code></pre>
@@ -1922,7 +1997,7 @@ web3.platon.abi.decodeParameters([{
 <ul>
 <li>inputs - Object: A JSON interface inputs array. See the solidity documentation for a list of types.</li>
 <li>hexString - String: The ABI byte code in the data field of a log.</li>
-<li>topics - Array: An array with the index parameter topics of the log, without the topic[0] if its a non-anonymous event, otherwise with topic[0].</li>
+<li>topics - Array: An array with the index parameter topics of the log, without the topic[0] if it's a non-anonymous event, otherwise with topic[0].</li>
 </ul>
 <p>Returns:</p>
 <p><code>Object</code> - The result object containing the decoded parameters.</p>
@@ -2129,18 +2204,18 @@ web3.utils.soliditySha3({<span class="hljs-attr">t</span>: <span class="hljs-str
 &gt; <span class="hljs-string">"0x61c831beab28d67d1bb40b5ae1a11e2757fa842f031a2d0bc94a7867bc5d26c2"</span>
 
 
-web3.utils.soliditySha3(<span class="hljs-string">'0x407D73d8a49eeb85D32Cf465507dd71d507100c1'</span>);
+web3.utils.soliditySha3(<span class="hljs-string">'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'</span>);
 &gt; <span class="hljs-string">"0x4e8ebbefa452077428f93c9520d3edd60594ff452a29ac7d2ccc11d47f3ab95b"</span>
 
-web3.utils.soliditySha3({<span class="hljs-attr">t</span>: <span class="hljs-string">'bytes'</span>, <span class="hljs-attr">v</span>: <span class="hljs-string">'0x407D73d8a49eeb85D32Cf465507dd71d507100c1'</span>});
+web3.utils.soliditySha3({<span class="hljs-attr">t</span>: <span class="hljs-string">'bytes'</span>, <span class="hljs-attr">v</span>: <span class="hljs-string">'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'</span>});
 &gt; <span class="hljs-string">"0x4e8ebbefa452077428f93c9520d3edd60594ff452a29ac7d2ccc11d47f3ab95b"</span> <span class="hljs-comment">// same result as above</span>
 
 
-web3.utils.soliditySha3({<span class="hljs-attr">t</span>: <span class="hljs-string">'address'</span>, <span class="hljs-attr">v</span>: <span class="hljs-string">'0x407D73d8a49eeb85D32Cf465507dd71d507100c1'</span>});
-&gt; <span class="hljs-string">"0x4e8ebbefa452077428f93c9520d3edd60594ff452a29ac7d2ccc11d47f3ab95b"</span> <span class="hljs-comment">//same as above, but will do a checksum check, if its multi case</span>
+web3.utils.soliditySha3({<span class="hljs-attr">t</span>: <span class="hljs-string">'address'</span>, <span class="hljs-attr">v</span>: <span class="hljs-string">'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'</span>});
+&gt; <span class="hljs-string">"0x4e8ebbefa452077428f93c9520d3edd60594ff452a29ac7d2ccc11d47f3ab95b"</span> <span class="hljs-comment">//same as above, but will do a checksum check, if it's multi case</span>
 
 
-web3.utils.soliditySha3({<span class="hljs-attr">t</span>: <span class="hljs-string">'bytes32'</span>, <span class="hljs-attr">v</span>: <span class="hljs-string">'0x407D73d8a49eeb85D32Cf465507dd71d507100c1'</span>});
+web3.utils.soliditySha3({<span class="hljs-attr">t</span>: <span class="hljs-string">'bytes32'</span>, <span class="hljs-attr">v</span>: <span class="hljs-string">'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'</span>});
 &gt; <span class="hljs-string">"0x3c69a194aaf415ba5d6afca734660d0a3d45acdc05d54cd1ca89a8988e7625b4"</span> <span class="hljs-comment">// different result as above</span>
 
 
@@ -2232,6 +2307,65 @@ web3.utils.isAddress(<span class="hljs-string">'0xC1912fEE45d61C87Cc5EA59DaE3119
 &gt; <span class="hljs-literal">false</span> <span class="hljs-comment">// wrong checksum</span>
 </code></pre>
 <hr>
+<h4><a class="anchor" aria-hidden="true" id="web3utilsisbech32address"></a><a href="#web3utilsisbech32address" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.utils.isBech32Address</h4>
+<p>Check whether the specified character string is a valid address in bech32 format.</p>
+<p>Method:</p>
+<pre><code class="hljs css language-js">web3.utils.isBech32Address(bech32Address)
+</code></pre>
+<p>Parameter:</p>
+<p><code>bech32Address</code> - String:  The address string to be checked in bech32 format; lax represents the test network address, and lat represents the main network address.</p>
+<p>Returns:</p>
+<p><code>Boolean</code>: Valid address returns true, otherwise returns false.</p>
+<p>Sample code:</p>
+<pre><code class="hljs css language-js">web3.utils.isBech32Address(<span class="hljs-string">'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'</span>);
+&gt; <span class="hljs-literal">true</span>
+
+web3.utils.isBech32Address(<span class="hljs-string">'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'</span>);
+&gt; <span class="hljs-literal">false</span>
+
+web3.utils.isBech32Address(<span class="hljs-string">'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx'</span>);
+&gt; <span class="hljs-literal">true</span>
+
+web3.utils.isBech32Address(<span class="hljs-string">'lax1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx'</span>);
+&gt; <span class="hljs-literal">false</span>
+</code></pre>
+<hr>
+<h4><a class="anchor" aria-hidden="true" id="web3utilstobech32address"></a><a href="#web3utilstobech32address" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.utils.toBech32Address</h4>
+<p>Convert a valid Ethereum address to a bech32 format address of the designated network.</p>
+<p>Method:</p>
+<pre><code class="hljs css language-js">web3.utils.toBech32Address(hrp, address)
+</code></pre>
+<p>Parameters:</p>
+<p><code>hrp</code> - String:  Specify the network parameters, lax indicates the test network address, and lat indicates the main network address.</p>
+<p><code>address</code> - String:  Ethereum address format string.</p>
+<p>Returns:</p>
+<p><code>String</code>: Returns address string in bech32 format</p>
+<p>Sample code:</p>
+<pre><code class="hljs css language-js">web3.utils.toBech32Address(<span class="hljs-string">'lax'</span>, <span class="hljs-string">'0x1234567890123456789012345678901234567891'</span>);
+&gt; <span class="hljs-string">'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'</span>
+
+web3.utils.toBech32Address(<span class="hljs-string">'lat'</span>, <span class="hljs-string">'0x1234567890123456789012345678901234567891'</span>);
+&gt; <span class="hljs-string">'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx'</span>
+</code></pre>
+<hr>
+<h4><a class="anchor" aria-hidden="true" id="web3utilsdecodebech32address"></a><a href="#web3utilsdecodebech32address" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.utils.decodeBech32Address</h4>
+<p>Resolve the bech32 format address of the specified network into a valid Ethereum address.</p>
+<p>Method:</p>
+<pre><code class="hljs css language-js">web3.utils.decodeBech32Address(hrp, bech32Address)
+</code></pre>
+<p>Parameters:</p>
+<p><code>hrp</code> - String:  Specify the network parameters, lax indicates the test network address, and lat indicates the main network address.</p>
+<p><code>bech32Address</code> - String:   Address string in bech32 format.</p>
+<p>Returns:</p>
+<p><code>String</code>:  The resolution correctly returns a valid Ethereum address, otherwise it returns null.</p>
+<p>Sample code:</p>
+<pre><code class="hljs css language-js">web3.utils.decodeBech32Address(<span class="hljs-string">'lax'</span>, <span class="hljs-string">'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'</span>);
+&gt; <span class="hljs-string">'0x1234567890123456789012345678901234567891'</span>
+
+web3.utils.decodeBech32Address(<span class="hljs-string">'lat'</span>, <span class="hljs-string">'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx'</span>);
+&gt; <span class="hljs-string">'0x1234567890123456789012345678901234567891'</span>
+</code></pre>
+<hr>
 <h4><a class="anchor" aria-hidden="true" id="web3utilstochecksumaddress"></a><a href="#web3utilstochecksumaddress" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3.utils.toChecksumAddress</h4>
 <p>Will convert an upper or lowercase Ethereum address to a checksum address.</p>
 <p>Method:</p>
@@ -2257,7 +2391,7 @@ web3.utils.toChecksumAddress(<span class="hljs-string">'0XC1912FEE45D61C87CC5EA5
 <p>Parameter:</p>
 <p><code>address</code> - <code>String</code>: An address string.</p>
 <p>Returns:</p>
-<p><code>Boolean</code>: <code>true</code> when the checksum of the address is valid, <code>false</code> if its not a checksum address, or the checksum is invalid.</p>
+<p><code>Boolean</code>: <code>true</code> when the checksum of the address is valid, <code>false</code> if it's not a checksum address, or the checksum is invalid.</p>
 <p>Example:</p>
 <pre><code class="hljs css language-js">web3.utils.checkAddressChecksum(<span class="hljs-string">'0xc1912fEE45d61C87Cc5EA59DaE31190FFFFf232d'</span>);
 &gt; <span class="hljs-literal">true</span>
@@ -2524,13 +2658,13 @@ web3.utils.padLeft(<span class="hljs-string">'Hello'</span>, <span class="hljs-n
     <span class="hljs-comment">// Since the provider has been passed in when instantiating web3, it is not necessary to pass in the provider.</span>
     ppos.updateSetting({
         <span class="hljs-attr">privateKey</span>: <span class="hljs-string">'acc73b693b79bbb56f89f63ccc3a0c00bf1b8380111965bfe8ab22e32045600c'</span>,
-        <span class="hljs-attr">chainId</span>: <span class="hljs-number">101</span>,
+        <span class="hljs-attr">chainId</span>: <span class="hljs-number">104</span>,
     })
 
     <span class="hljs-keyword">let</span> data, reply;
 
     <span class="hljs-comment">// Passing parameters to send transactions in the form of objects: 1000. createStaking (): initiate a pledge.</span>
-    <span class="hljs-keyword">const</span> benefitAddress = <span class="hljs-string">'0xe6F2ce1aaF9EBf2fE3fbA8763bABaDf25e3fb5FA'</span>;
+    <span class="hljs-keyword">const</span> benefitAddress = <span class="hljs-string">'lax1umevux40n6ljlclm4pmrh2ad7f0rld06hkzx3u'</span>;
     <span class="hljs-keyword">const</span> nodeId = <span class="hljs-string">'80f1fcee54de74dbf7587450f31c31c0e057bedd4faaa2a10c179d52c900ca01f0fb255a630c49d83b39f970d175c42b12a341a37504be248d76ecf592d32bc0'</span>;
     <span class="hljs-keyword">const</span> amount = <span class="hljs-string">'10000000000000000000000000000'</span>;
     <span class="hljs-keyword">const</span> blsPubKey = <span class="hljs-string">'d2459db974f49ca9cbf944d4d04c2d17888aef90858b62d6aec166341a6e886e8c0c0cfae9e469c2f618f5d9b7a249130d10047899da6154288c9cde07b576acacd75fef07ba0cfeb4eaa7510704e77a9007eff5f1a5f8d099e6ea664129780c'</span>;
@@ -2595,7 +2729,7 @@ web3.utils.padLeft(<span class="hljs-string">'Hello'</span>, <span class="hljs-n
     <span class="hljs-keyword">const</span> ppos1 = <span class="hljs-keyword">new</span> web3.PPOS({
         <span class="hljs-attr">provider</span>: <span class="hljs-string">'http://127.0.0.1:6789'</span>,
         <span class="hljs-attr">privateKey</span>: <span class="hljs-string">'9f9b18c72f8e5154a9c59af2a35f73d1bdad37b049387fc6cea2bac89804293b'</span>,
-        <span class="hljs-attr">chainId</span>: <span class="hljs-number">101</span>,
+        <span class="hljs-attr">chainId</span>: <span class="hljs-number">104</span>,
     })
     reply = <span class="hljs-keyword">await</span> ppos1.call(data);
 })()
@@ -2606,11 +2740,11 @@ web3.utils.padLeft(<span class="hljs-string">'Hello'</span>, <span class="hljs-n
   <span class="hljs-string">"blockNumber"</span>: <span class="hljs-string">"0xb"</span>,
   <span class="hljs-string">"contractAddress"</span>: <span class="hljs-literal">null</span>,
   <span class="hljs-string">"cumulativeGasUsed"</span>: <span class="hljs-string">"0x14f34"</span>,
-  <span class="hljs-string">"from"</span>: <span class="hljs-string">"0x714de266a0effa39fcaca1442b927e5f1053eaa3"</span>,
+  <span class="hljs-string">"from"</span>: <span class="hljs-string">"lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35"</span>,
   <span class="hljs-string">"gasUsed"</span>: <span class="hljs-string">"0x14f34"</span>,
   <span class="hljs-string">"logs"</span>: [
     {
-      <span class="hljs-string">"address"</span>: <span class="hljs-string">"0x1000000000000000000000000000000000000002"</span>,
+      <span class="hljs-string">"address"</span>: <span class="hljs-string">"lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35"</span>,
       <span class="hljs-string">"topics"</span>: [
         <span class="hljs-string">"0xd63087bea9f1800eed943829fc1d61e7869764805baa3259078c1caf3d4f5a48"</span>
       ],
@@ -2630,7 +2764,7 @@ web3.utils.padLeft(<span class="hljs-string">'Hello'</span>, <span class="hljs-n
   ],
   <span class="hljs-string">"logsBloom"</span>: <span class="hljs-string">""</span>,
   <span class="hljs-string">"root"</span>: <span class="hljs-string">"0x3b7a41cea97f90196039586a3068f6a64c09aa7597898440c3c241a095e37984"</span>,
-  <span class="hljs-string">"to"</span>: <span class="hljs-string">"0x1000000000000000000000000000000000000002"</span>,
+  <span class="hljs-string">"to"</span>: <span class="hljs-string">"lax1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3"</span>,
   <span class="hljs-string">"transactionHash"</span>: <span class="hljs-string">"0x4bee71e351076a81482e2576e469a8dfaa76da9b6cc848265c10968d6de67364"</span>,
   <span class="hljs-string">"transactionIndex"</span>: <span class="hljs-string">"0x0"</span>
 }
@@ -2640,10 +2774,10 @@ createStaking params array reply:  { blockHash:
   blockNumber: '0x10',
   contractAddress: <span class="hljs-literal">null</span>,
   cumulativeGasUsed: '0x14f34',
-  from: '0x714de266a0effa39fcaca<span class="hljs-number">1442</span>b927e5f<span class="hljs-number">1053</span>eaa3',
+  from: 'lax1w9x7ye4qalarnl9v59zzhyn7tug<span class="hljs-number">9864</span>rr2fc35',
   gasUsed: '0x14f34',
   logs:
-   [ { address: '0x<span class="hljs-number">10000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">000000000002</span>',
+   [ { address: 'lax1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3',
        topics: [Array],
        data:
         '0xf846b<span class="hljs-number">8447</span>b<span class="hljs-number">2243</span>6f<span class="hljs-number">646522</span>3a<span class="hljs-number">333031313031</span>2c<span class="hljs-number">224461746122</span>3a<span class="hljs-number">2222</span>2c<span class="hljs-number">22457272</span>4d<span class="hljs-number">736722</span>3a<span class="hljs-number">22546869732063</span>616e<span class="hljs-number">64696461746520</span><span class="hljs-number">69732061</span>6c<span class="hljs-number">72656164792065</span><span class="hljs-number">7869737422</span>7d',
@@ -2659,7 +2793,7 @@ createStaking params array reply:  { blockHash:
   logsBloom:'',
   root:
    '0x45ffeda340b68a0d54c<span class="hljs-number">5556</span>a51f925b<span class="hljs-number">078730</span>7eab1fb120ed141fd8ba<span class="hljs-number">8118</span>3d4',
-  to: '0x<span class="hljs-number">10000000000000</span><span class="hljs-number">00000000000000</span><span class="hljs-number">000000000002</span>',
+  to: 'lax1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3',
   transactionHash:
    '0xe5cbc728d6e<span class="hljs-number">284464</span>c30ce6f0bbee5fb2b<span class="hljs-number">3035</span>1a<span class="hljs-number">591424</span>f3a0edd37cc1bbdc05',
   transactionIndex: '0x0' }
@@ -2686,7 +2820,7 @@ getCandidateList params array reply:  {
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="api-usage"></a><a href="#api-usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API Usage</h3>
 <h4><a class="anchor" aria-hidden="true" id="updatesettingsetting"></a><a href="#updatesettingsetting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>updateSetting(setting)</h4>
-<p>Update the configuration parameters of the <code>ppos</code> object. If you only need to send a call, you only need to pass in the parameter <code>provider</code>. If you passed in the provider when instantiating web3. Then the <code>provider</code> of<code>ppos</code> is the provider that you instantiate from web3 by default. Of course you can also update the provider at any time.</p>
+<p>Update the configuration parameters of the <code>ppos</code> object. If you only need to send a call, you only need to pass in the parameter <code>provider</code>. If you passed in the provider when instantiating web3, then the <code>provider</code> of<code>ppos</code> is the provider that you instantiate from web3 by default. Of course you can also update the provider at any time.</p>
 <p>If you want to send a transaction via send, you need to pass in the parameters <code>provider</code>, the private key, and the chain id. Of course, sending transactions requires setting four parameters: <code>gas</code>,<code>gasPrice</code>, <code>retry</code>, and<code>interval</code>. See the <code>async send (params, [other])</code> description for details.</p>
 <p>For the parameters passed in, you can choose partial update. For example, if you want to use the private key A when sending a transaction to a ppos object, then you execute <code>ppos.updateSetting before calling</code> send (params, [other]) <code>({privateKey: youPrivateKeyA})</code> to update the private key. Once updated, the current configuration will be overwritten, and the send transaction interface will be called later, with the last updated configuration as the default.</p>
 <p>Parameters:</p>
@@ -2707,7 +2841,7 @@ getCandidateList params array reply:  {
 <p>Example:</p>
 <pre><code class="hljs css language-JavaScript">ppos.updateSetting({
     <span class="hljs-attr">privateKey</span>: <span class="hljs-string">'acc73b693b79bbb56f89f63ccc3a0c00bf1b8380111965bfe8ab22e32045600c'</span>,
-    <span class="hljs-attr">chainId</span>: <span class="hljs-number">101</span>,
+    <span class="hljs-attr">chainId</span>: <span class="hljs-number">104</span>,
 })
 
 ppos.updateSetting({
@@ -2755,7 +2889,7 @@ ppos.updateSetting({
 <span class="hljs-keyword">let</span> reply = <span class="hljs-keyword">await</span> ppos.rpc(<span class="hljs-string">'platon_accounts'</span>)
 
 <span class="hljs-comment">// Get the amount of the specified account.</span>
-<span class="hljs-keyword">let</span> reply = <span class="hljs-keyword">await</span> ppos.rpc(<span class="hljs-string">'platon_getBalance'</span>, [<span class="hljs-string">"0x714de266a0effa39fcaca1442b927e5f1053eaa3"</span>,<span class="hljs-string">"latest"</span>])
+<span class="hljs-keyword">let</span> reply = <span class="hljs-keyword">await</span> ppos.rpc(<span class="hljs-string">'platon_getBalance'</span>, [<span class="hljs-string">"lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35"</span>,<span class="hljs-string">"latest"</span>])
 </code></pre>
 <hr>
 <h4><a class="anchor" aria-hidden="true" id="bignumbufintstr"></a><a href="#bignumbufintstr" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bigNumBuf(intStr)</h4>
@@ -2821,12 +2955,12 @@ ppos.updateSetting({
 <span class="hljs-comment">// Called by passing in an object (the order is not required for the key)</span>
 params = {
     <span class="hljs-attr">funcType</span>: <span class="hljs-number">1103</span>,
-    <span class="hljs-attr">addr</span>: ppos.hexStrBuf(<span class="hljs-string">"0xe6F2ce1aaF9EBf2fE3fbA8763bABaDf25e3fb5FA"</span>)
+    <span class="hljs-attr">addr</span>: ppos.hexStrBuf(<span class="hljs-string">"lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35"</span>)
 }
 reply = <span class="hljs-keyword">await</span> ppos.call(params);
 
 <span class="hljs-comment">// Calling as an array object.</span>
-params = [<span class="hljs-number">1103</span>, ppos.hexStrBuf(<span class="hljs-string">"0xe6F2ce1aaF9EBf2fE3fbA8763bABaDf25e3fb5FA"</span>)];
+params = [<span class="hljs-number">1103</span>, ppos.hexStrBuf(<span class="hljs-string">"lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35"</span>)];
 reply = <span class="hljs-keyword">await</span> ppos.call(params);
 </code></pre>
 <hr>
@@ -3199,7 +3333,7 @@ reply = <span class="hljs-keyword">await</span> ppos.send(params, other);
 </table>
 <h3><a class="anchor" aria-hidden="true" id="governance-module"></a><a href="#governance-module" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Governance Module</h3>
 <h4><a class="anchor" aria-hidden="true" id="submit-text-proposal"></a><a href="#submit-text-proposal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Submit Text Proposal</h4>
-<p>Submit a text proposal by send a transaction.</p>
+<p>Submit a text proposal by sending a transaction.</p>
 <p>Parameters:</p>
 <table>
 <thead>
@@ -3272,7 +3406,7 @@ reply = <span class="hljs-keyword">await</span> ppos.send(params, other);
 </tbody>
 </table>
 <h4><a class="anchor" aria-hidden="true" id="query-proposal"></a><a href="#query-proposal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Query Proposal</h4>
-<p>Query proposal by call.</p>
+<p>Query proposal by calling.</p>
 <p>Parameters:</p>
 <table>
 <thead>
@@ -3286,7 +3420,7 @@ reply = <span class="hljs-keyword">await</span> ppos.send(params, other);
 <p>Returns:</p>
 <p>JSON string of object implementing interface Proposal.</p>
 <h4><a class="anchor" aria-hidden="true" id="query-proposal-results"></a><a href="#query-proposal-results" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Query Proposal Results</h4>
-<p>Query proposal results through call operation.</p>
+<p>Query proposal results through calling operation.</p>
 <p>Parameters:</p>
 <table>
 <thead>
@@ -3300,7 +3434,7 @@ reply = <span class="hljs-keyword">await</span> ppos.send(params, other);
 <p>Returns:</p>
 <p><code>TallyResult</code>: Json string of TallyResult object.</p>
 <h4><a class="anchor" aria-hidden="true" id="query-proposal-list"></a><a href="#query-proposal-list" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Query Proposal List</h4>
-<p>Query proposal list through call operation.</p>
+<p>Query proposal list through calling operation.</p>
 <p>Parameters:</p>
 <table>
 <thead>
@@ -3313,7 +3447,7 @@ reply = <span class="hljs-keyword">await</span> ppos.send(params, other);
 <p>Returns:</p>
 <p><code>Proposal</code>: A json string of an object that implements the interface Proposal.</p>
 <h4><a class="anchor" aria-hidden="true" id="query-version-in-effect"></a><a href="#query-version-in-effect" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Query Version In Effect</h4>
-<p>Query the version in effect through call operation.</p>
+<p>Query the version in effect through calling operation.</p>
 <p>Parameters:</p>
 <table>
 <thead>
@@ -3327,7 +3461,7 @@ reply = <span class="hljs-keyword">await</span> ppos.send(params, other);
 <p><code>String</code>: The json string of the version number, such as <code>{65536}</code>, indicates that the version is: <code>1.0.0</code>.
 When parsing, ver needs to be converted into 4 bytes. Major version: second byte; minor version: third byte, patch version, fourth byte.</p>
 <h4><a class="anchor" aria-hidden="true" id="query-the-cumulative-voteable-number-of-proposals"></a><a href="#query-the-cumulative-voteable-number-of-proposals" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Query The Cumulative Voteable Number Of Proposals</h4>
-<p>Query the cumulative voteable number of proposals through call operation.</p>
+<p>Query the cumulative voteable number of proposals through calling operation.</p>
 <p>Parameters:</p>
 <table>
 <thead>
@@ -3516,7 +3650,7 @@ For cancellation proposals, there are three states: <code>0x01</code>, <code>0x0
 </tbody>
 </table>
 <h4><a class="anchor" aria-hidden="true" id="get-lock-information"></a><a href="#get-lock-information" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get Lock Information</h4>
-<p>Get lock information by call.</p>
+<p>Get lock information by calling.</p>
 <p>Note: This interface supports the acquisition of historical data. The block height can be attached to the request. By default, the latest block data is queried.</p>
 <p>Parameters:</p>
 <table>
@@ -3631,7 +3765,7 @@ For cancellation proposals, there are three states: <code>0x01</code>, <code>0x0
 <tr><td>301205</td><td>Query delegate info failed</td></tr>
 </tbody>
 </table>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/Java_SDK"><span class="arrow-prev">← </span><span>Java SDK</span></a><a class="docs-next button" href="/docs/en/Json_Rpc"><span>JSON RPC</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#web3js-interface">Web3.js Interface</a><ul class="toc-headings"><li><a href="#usage">Usage</a></li><li><a href="#api-reference">API Reference</a></li></ul></li><li><a href="#built-in-contract-call">Built-in Contract Call</a><ul class="toc-headings"><li><a href="#overview">Overview</a></li><li><a href="#usage-1">Usage</a></li><li><a href="#api-usage">API Usage</a></li><li><a href="#pledge-module">Pledge Module</a></li><li><a href="#governance-module">Governance Module</a></li><li><a href="#definition">Definition</a></li><li><a href="#exposurepunishment-module">Exposure/Punishment Module</a></li><li><a href="#lockout-module">Lockout Module</a></li><li><a href="#reward-interface">Reward Interface</a></li><li><a href="#error-code-description">Error Code Description</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 PlatON Network</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/Java_SDK"><span class="arrow-prev">← </span><span>Java SDK</span></a><a class="docs-next button" href="/docs/en/Json_Rpc"><span>JSON RPC</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#web3js-interface">Web3.js Interface</a><ul class="toc-headings"><li><a href="#usage">Usage</a></li><li><a href="#api-reference">API Reference</a></li></ul></li><li><a href="#built-in-contract-call">Built-in Contract Call</a><ul class="toc-headings"><li><a href="#overview">Overview</a></li><li><a href="#usage-1">Usage</a></li><li><a href="#api-usage">API Usage</a></li><li><a href="#pledge-module">Pledge Module</a></li><li><a href="#governance-module">Governance Module</a></li><li><a href="#definition">Definition</a></li><li><a href="#exposurepunishment-module">Exposure/Punishment Module</a></li><li><a href="#lockout-module">Lockout Module</a></li><li><a href="#reward-interface">Reward Interface</a></li><li><a href="#error-code-description">Error Code Description</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=en" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=en">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2020 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
