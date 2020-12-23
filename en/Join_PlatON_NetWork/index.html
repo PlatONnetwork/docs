@@ -81,7 +81,7 @@
 <p>Anyone or any organization can join PlatON test network.</p>
 <h3><a class="anchor" aria-hidden="true" id="start-as-a-validator-node"></a><a href="#start-as-a-validator-node" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Start as a validator node</h3>
 <p><strong>Execute the following command to join the Baleyworld as a validator node</strong></p>
-<pre><code class="hljs css language-bash">nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi <span class="hljs-string">"db,platon,net,web3,admin,personal"</span> --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode <span class="hljs-string">"full"</span> &gt; ./data/platon.log 2&gt;&amp;1 &amp;
+<pre><code class="hljs css language-bash">nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi <span class="hljs-string">"db,platon,net,web3,admin,personal"</span> --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode <span class="hljs-string">"full"</span> &gt; ./data/platon.log 2&gt;&amp;1 &amp;
 </code></pre>
 <p><strong>Prompt:</strong></p>
 <table>
@@ -91,12 +91,14 @@
 <tbody>
 <tr><td>--identity</td><td>Specify the network name</td></tr>
 <tr><td>--datadir</td><td>Specify the data directory path</td></tr>
+<tr><td>--port</td><td>Specifying the P2P protocol communication port</td></tr>
 <tr><td>--rpcaddr</td><td>Specify rpc server address</td></tr>
 <tr><td>--rpcport</td><td>Specifying the RPC protocol communication port</td></tr>
 <tr><td>--rpcapi</td><td>Specify the rpcapi name open by the node</td></tr>
 <tr><td>--rpc</td><td>Specify http-rpc communication method</td></tr>
 <tr><td>--nodekey</td><td>Specify the node private key file</td></tr>
 <tr><td>--cbft.blskey</td><td>Specify the node bls private key file</td></tr>
+<tr><td>--verbosity</td><td>The level of logging, 0: CRIT;  1: ERROR; 2: WARN;  3: INFO;  4: DEBUG; 5: TRACE</td></tr>
 <tr><td>--testnet</td><td>Specify to connect to the test network (Default: main network)</td></tr>
 <tr><td>--syncmode</td><td>fast: Fast synchronization mode, full: All synchronous mode</td></tr>
 <tr><td>--db.nogc</td><td>Enable archive mode</td></tr>

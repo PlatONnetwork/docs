@@ -81,7 +81,7 @@
 <p>任何人、任何组织都可以加入 PlatON 测试网络贝莱世界。</p>
 <h3><a class="anchor" aria-hidden="true" id="启动验证节点"></a><a href="#启动验证节点" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>启动验证节点</h3>
 <p>执行以下命令即可启动验证节点加入贝莱世界：</p>
-<pre><code class="hljs css language-bash">nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi <span class="hljs-string">"db,platon,net,web3,admin,personal"</span> --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode <span class="hljs-string">"full"</span> &gt; ./data/platon.log 2&gt;&amp;1 &amp;
+<pre><code class="hljs css language-bash">nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi <span class="hljs-string">"db,platon,net,web3,admin,personal"</span> --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode <span class="hljs-string">"full"</span> &gt; ./data/platon.log 2&gt;&amp;1 &amp;
 </code></pre>
 <p><strong>提示：</strong></p>
 <table>
@@ -91,12 +91,14 @@
 <tbody>
 <tr><td>--identity</td><td>指定网络名称</td></tr>
 <tr><td>--datadir</td><td>指定 data 目录路径</td></tr>
+<tr><td>--port</td><td>p2p端口号</td></tr>
 <tr><td>--rpcaddr</td><td>指定 rpc 服务器地址</td></tr>
 <tr><td>--rpcport</td><td>指定 rpc 协议通信端口</td></tr>
 <tr><td>--rpcapi</td><td>指定节点开放的 rpcapi 名称</td></tr>
 <tr><td>--rpc</td><td>指定 http-rpc 通讯方式</td></tr>
 <tr><td>--nodekey</td><td>指定节点私钥文件</td></tr>
 <tr><td>--cbft.blskey</td><td>指定节点 bls 私钥文件</td></tr>
+<tr><td>--verbosity</td><td>日志级别，0: CRIT;  1: ERROR； 2: WARN;  3: INFO;  4: DEBUG； 5: TRACE</td></tr>
 <tr><td>--testnet</td><td>指定连接到测试网络，不指定默认运行主网络</td></tr>
 <tr><td>--syncmode</td><td>fast：快速同步模式，full：全同步模式</td></tr>
 <tr><td>–db.nogc</td><td>开启归档模式</td></tr>
