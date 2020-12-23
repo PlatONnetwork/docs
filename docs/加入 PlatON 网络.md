@@ -38,7 +38,7 @@ Anyone or any organization can join PlatON test network.
 **Execute the following command to join the Baleyworld as a validator node**
 
 ```bash
-nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 3 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
+nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
 ```
 
 **Prompt:**
@@ -47,12 +47,14 @@ nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport
 | -------------- | ------------------------------------------------------------ |
 | --identity     | Specify the network name                                     |
 | --datadir      | Specify the data directory path                              |
+| --port         | Specifying the P2P protocol communication port               |
 | --rpcaddr      | Specify rpc server address                                   |
 | --rpcport      | Specifying the RPC protocol communication port               |
 | --rpcapi       | Specify the rpcapi name open by the node                     |
 | --rpc          | Specify http-rpc communication method                        |
 | --nodekey      | Specify the node private key file                            |
 | --cbft.blskey  | Specify the node bls private key file                        |
+| --verbosity    | The level of logging, 0: CRIT;  1: ERROR; 2: WARN;  3: INFO;  4: DEBUG; 5: TRACE |
 | --testnet      | Specify to connect to the test network (Default: main network) |
 | --syncmode     | fast: Fast synchronization mode, full: All synchronous mode  |
 | --db.nogc      | Enable archive mode                                          |
