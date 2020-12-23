@@ -34,7 +34,7 @@ Double-click `C:\tools\unins000.exe` to uninstall all old versions of MTool and 
 
 **Step1. Download MTool installation package**
 
-On the online machine, copy the link <https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.11.0/mtool-setup.exe> or <http://47.91.153.183/mtool/mtool-setup/0.11.0/mtool-setup.exe> to the browser and download the MTool installation package.
+On the online machine, copy the link <https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.13.1/mtool-setup.exe> or <http://47.91.153.183/mtool/mtool-setup/0.13.1/mtool-setup.exe> to the browser and download the MTool installation package.
 
 **Step2. Install MTool**
 
@@ -51,13 +51,13 @@ Proceed as follows:
 **Step1. Download MTool toolkit**
 
 ```bash
-wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.11.0/mtool-client.zip
+wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.13.1/mtool-client.zip
 ```
 
 or
 
 ```bash
-wget http://47.91.153.183/mtool/0.11.0/mtool-client.zip
+wget http://47.91.153.183/mtool/0.13.1/mtool-client.zip
 ```
 
 **Step2. Extract the MTool toolkit**
@@ -116,7 +116,79 @@ mtool-client account new staking
 
 - Parameter description
 
->staking: The name of the wallet to be created. Once the wallet is created successfully, a wallet file named `staking.json` will be generated in the directory `$MTOOLDIR/keystore`. 
+>staking: The name of the wallet to be created. Once the wallet is created successfully, a wallet file named `staking.json` will be generated in the directory `$MTOOLDIR/keystore`, And print the following information:
+>
+>```shell
+>-name: staking
+>-type: NORMAL
+>-address:
+> mainnet: lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr
+> testnet: lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v
+>-public key: 0x9521cd81ba28d5d1c23bb7ddb7042d146375203d35000c0289178027abd4dc09bca30257739df166201e73497485242f41d5f50d46bc3c7e4385f81bde560db0
+>Important write this Private Key in a safe place.
+>It is the important way to recover your account if you ever forget your password.
+>4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+>
+>Important write this mnemonic phrase in a safe place.
+>It is the important way to recover your account if you ever forget your password.
+>worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
+>```
+>
+>  Wallet address format adjusted to Bech32, among them: 
+>
+>`lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr`: Main network account address, beginning with LAT;
+>
+>`lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v`: Test newwork account address, start with LAX;
+>
+>`4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07` : the private key of the wallet;
+>
+>`worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney`: the mnemonic words.
+>
+>  For security reasons, users need to back up the wallet private key or mnemonic words (both can be backed up, or one of them can be backed up). When the wallet is lost, it can be used for recovery. It is recommended that users back up mnemonic words or private keys to a secure storage medium, such as an offline machine. 
+
+### Recover wallet file
+
+ If the wallet file is lost, you can restore it with the backed up private key or mnemonic as follows: 
+
+- Execute the command:
+
+   Recovery via private key: 
+
+  ```shell
+  mtool-client account recover -k staking
+  ```
+
+  > Prompt to enter the new wallet password and backup private key, as follows: 
+  >
+  > ```shell
+  > Enter a passphrase to encrypt your key to disk:
+  > Repeat the passphrase:
+  > Enter your 64bit Private Key:
+  > 4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+  > ```
+
+  or
+
+   Recovery through mnemonics: 
+
+  ```shell
+  mtool-client account recover -m staking
+  ```
+
+  >  Prompt to enter a new wallet password and backup mnemonic words, as follows: 
+  >
+  >  ```shell
+  >   Enter a passphrase to encrypt your key to disk:
+  >   Repeat the passphrase:
+  >   Enter your bip39 mnemonic:
+  >   worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
+  >  ```
+
+- Parameter description
+
+  staking：wallet name.
+
+   After successful restoration, the wallet file staking.json will be generated under the directory `$MTOOLDIR/keystore`.
 
 ### Ordinary transfer operation
 
@@ -198,7 +270,7 @@ SUCCESS
 - Excuting the command
 
 ```bash
-mtool-client update_validator --name VerifierName --url "http://www.platon.com" --identity IdentifyID --delegated-reward-rate 100 --reward 0x33d253386582f38c66cb5819bfbdaad0910339b3 --introduction "Modify the verifier information operation" --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
+mtool-client update_validator --name VerifierName --url "http://www.platon.com" --identity IdentifyID --delegated-reward-rate 100 --reward lax1rquxycp7xacmj25wy75l8mrux23tjvwxww6hcx --introduction "Modify the verifier information operation" --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameters Description
@@ -260,7 +332,7 @@ mtool-client submit_textproposal --pid_id 100 --keystore $MTOOLDIR/keystore/stak
 - Excuting the command
 
 ```bash
-mtool-client submit_versionproposal --newversion 0.8.0 --end_voting_rounds 345 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
+mtool-client submit_versionproposal --newversion 0.13.1 --end_voting_rounds 345 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameters Description

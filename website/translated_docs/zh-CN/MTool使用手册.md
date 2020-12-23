@@ -34,7 +34,7 @@ mtool-client --version
 
 **step1. 下载MTool安装包**
 
-在在线机器上，复制链接<https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.11.0/mtool-setup.exe>或者 <http://47.91.153.183/mtool/mtool-setup/0.11.0/mtool-setup.exe> 到浏览器下载MTool安装包。
+在在线机器上，复制链接<https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.13.1/mtool-setup.exe>或者 <http://47.91.153.183/mtool/mtool-setup/0.13.1/mtool-setup.exe> 到浏览器下载MTool安装包。
 
 **step2. 安装MTool**
 
@@ -51,13 +51,13 @@ mtool-client --version
 **step1. 下载MTool工具包**
 
 ``` bash
-wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.11.0/mtool-client.zip
+wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.13.1/mtool-client.zip
 ```
 
 或者
 
 ``` bash
-wget http://47.91.153.183/mtool/0.11.0/mtool-client.zip
+wget http://47.91.153.183/mtool/0.13.1/mtool-client.zip
 ```
 
 **step2. 解压MTool工具包**
@@ -119,7 +119,80 @@ mtool-client account new staking
 
 - 参数说明
 
->staking: 生成的钱包名称，创建成功后会在目录`$MTOOLDIR/keystore`下生成钱包文件`staking.json`。
+>staking: 生成的钱包名称，输入两次相同密码之后，创建成功后会在目录`$MTOOLDIR/keystore`下生成钱包文件`staking.json`，并打印如下信息：
+>
+>```shell
+>-name: staking
+>-type: NORMAL
+>-address:
+> mainnet: lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr
+> testnet: lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v
+>-public key: 0x9521cd81ba28d5d1c23bb7ddb7042d146375203d35000c0289178027abd4dc09bca30257739df166201e73497485242f41d5f50d46bc3c7e4385f81bde560db0
+>
+>Important write this Private Key in a safe place.
+>It is the important way to recover your account if you ever forget your password.
+>4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+>
+>Important write this mnemonic phrase in a safe place.
+>It is the important way to recover your account if you ever forget your password.
+>worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
+>```
+>
+>钱包地址格式调整为Bech32，其中：
+>
+>`lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr`：为主网账户地址，以lat开头；
+>
+>`lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v`：为测试网账户地址，以lax开头；
+>
+>`4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07` 为钱包私钥；
+>
+>`worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney` 为助记词。
+>
+>出于安全考虑，用户需对钱包私钥或助记词进行备份（可都进行备份，也可备份其中一个），钱包丢失时，可用于恢复。建议用户将助记词或者私钥备份到安全的存储介质上，如离线机器等。
+
+### 恢复钱包
+
+如果钱包文件丢失了，可以通过上述备份的私钥或助记词进行恢复，操作如下：
+
+- 执行命令
+
+  通过私钥恢复：
+
+  ```shell
+  mtool-client account recover -k staking
+  ```
+
+  > 提示输入新的钱包密码和备份的私钥，如下：
+  >
+  > ```shell
+  > Enter a passphrase to encrypt your key to disk:
+  > Repeat the passphrase:
+  > Enter your 64bit Private Key:
+  > 4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07
+  > ```
+
+  或
+
+  通过助记词恢复：
+
+  ```shell
+  mtool-client account recover -m staking
+  ```
+
+  >提示输入新的钱包密码和备份的助记词，如下：
+  >
+  >```shell
+  >Enter a passphrase to encrypt your key to disk:
+  >Repeat the passphrase:
+  >Enter your bip39 mnemonic:
+  >worry jewel penalty jealous expect embark outer eternal verb rebuild rice kidney
+  >```
+
+- 参数说明
+
+  staking：钱包名称。
+
+  恢复成功后会在目录`$MTOOLDIR/keystore`下生成钱包文件`staking.json`。
 
 ### 普通转账操作
 
@@ -200,7 +273,7 @@ SUCCESS
 - 执行命令
 
 ```bash
-mtool-client update_validator --name VerifierName --url "http://www.platon.com" --identity IdentifyID --delegated-reward-rate 100 --reward 0x33d253386582f38c66cb5819bfbdaad0910339b3 --introduction "Modify the verifier information operation" --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
+mtool-client update_validator --name VerifierName --url "http://www.platon.com" --identity IdentifyID --delegated-reward-rate 100 --reward lax1x0f9xwr9steccekttqvml0d26zgsxwdnhq3fkv --introduction "Modify the verifier information operation" --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
@@ -262,7 +335,7 @@ mtool-client submit_textproposal --pid_id 100 --keystore $MTOOLDIR/keystore/stak
 - 执行命令
 
 ```bash
-mtool-client submit_versionproposal --newversion 0.8.0 --end_voting_rounds 345 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
+mtool-client submit_versionproposal --newversion 0.13.1 --end_voting_rounds 345 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明

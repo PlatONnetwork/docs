@@ -5,6 +5,9 @@
     "previous": "Previous",
     "tagline": "PlatON",
     "docs": {
+      "ATON-user-manual": {
+        "title": "ATON Wallet User Manual"
+      },
       "community": {
         "title": "Community Projects",
         "sidebar_label": "Community Projects"

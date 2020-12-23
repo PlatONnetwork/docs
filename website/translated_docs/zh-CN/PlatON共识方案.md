@@ -89,9 +89,9 @@ E.Kokoris-Kogias等在其论文中提出了在共识机制中使用聚合签名�
 
 #### 通信机制优化
 
-PBFT使用多对多(all-to-all)的消息模式，因此需要 $O(n^2)$ 的通信复杂度。
+PBFT使用多对多(all-to-all)的消息模式，因此需要 $O(n)$ 的通信复杂度。
 
-SBFT(Scale optimized PBFT)[6]提出了一个使用收集器(collector)的线性通信模式。这种模式下不再将消息发给每一个副本节点，而是发给收集器，然后再由收集器广播给所有副本节点，同时通过使用门限签名(threshold signatures)可以将消息长度从线性降低到常数，从而总的开销降低到$O(n^2)$。
+SBFT(Scale optimized PBFT)[6]提出了一个使用收集器(collector)的线性通信模式。这种模式下不再将消息发给每一个副本节点，而是发给收集器，然后再由收集器广播给所有副本节点，同时通过使用门限签名(threshold signatures)可以将消息长度从线性降低到常数，从而总的开销降低到$O(n)$。
 
 Tendermint[7]使用gossip通信机制，乐观情况下可以将通信复杂度降低到$O(nlogn)$。
 

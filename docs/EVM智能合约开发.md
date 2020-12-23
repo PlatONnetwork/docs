@@ -16,18 +16,18 @@ This guide introduces the development process of smart contracts and issues shou
 - [Contract Security Development Guide](#contract-security-development-guide)
 - [FAQ](#faq)
 
-## Development Manua
+## Development Manual
 
-### Introduce
+### Introduction
 
 This tutorial is mainly to guide users to create a simple HelloWorld smart contract using solidity language on PlatON, compile, deploy, and call this contract through platon-truffle. If you want to use a richer API you can refer to [Java SDK](/docs/en/Java_SDK) and  [JS SDK](/docs/en/JS_SDK)
 
-### Platon-truffle Introduce 
+### Platon-truffle Introduction 
 
 Platon-truffle is a tool provided by PlatON that can compile, deploy, and invoke smart contracts locally. For specific installation and usage manuals, refer to:
 
-- Platon-truffle develop tools [specific installation](https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#)
-- Platon-truffle develop tools [usage manuals](https://platon-truffle.readthedocs.io/en/v0.11.1/)
+- Platon-truffle develop tools [specific installation](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html)
+- Platon-truffle develop tools [usage manuals](https://platon-truffle.readthedocs.io/en/v0.13.1/)
 
 ### Create HelloWorld Contract
 
@@ -69,7 +69,7 @@ Contract Files Description:
      	`public`：declare the visibility of the function
      	`name` = _name：Assignment the local variable to state variable
 - function getName() public view returns(string memory)
-  -	`view`: this keyword means the function cannot change the blockchain state，which Mainly used for query
+  -	`view`: this keyword means the function cannot change the blockchain state, which mainly used for query
 
 ### Compile HelloWorld Contract 
 
@@ -111,7 +111,7 @@ Truffle-config.js content is  as follows:
 ```
 compilers: {
       solc: {
-            version: "0.5.13",    // same as the version declared in HelloWorld.sol
+            version: "^0.5.13",    // same as the version declared in HelloWorld.sol
       }
 }
 ```
@@ -133,13 +133,13 @@ After the command is executed, project directory structure is as follows:
 **Step1.** Create deploy script 
 
 ```
-cd migrations/ && touch 2_initial_helloword.js
+cd migrations/ && touch 2_initial_helloworld.js
 ```
-Suggest replacing script  name  with contract name, for example the deploy script  of HelloWorld contract :2_initial_helloword.js,content is as follows：
+Suggest replacing script  name  with contract name, for example the deploy script  of HelloWorld contract :2_initial_helloworld.js,content is as follows：
 ```
 const helloWorld = artifacts.require("HelloWorld"); //artifacts.require specify deployment contract
 	module.exports = function(deployer) {
-       deployer.deploy(helloWorld); 
+       deployer.deploy(helloWorld); //Failed to deploy contract with parameters, please refer to FAQ
 };
 ```
 
@@ -155,37 +155,74 @@ networks: {
        host: "10.1.1.6",     // blockchain server address
        port: 8806,            // server port
        network_id: "*",       // Any network (default: none)
-       from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", //the accout address of deploying contract
-       gas: 90000000,
+       from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", //the accout address of deploying contract
+       gas: 999999,
        gasPrice: 50000000004,
 	},
 }
 ```
 
-**Step3.**  Deploy contract
+**step3.**  Unlock wallet account
+
+Enter the platon-truffle console
+
+```
+platon-truffle console
+```
+
+Import the private key (you can skip this step if you have already imported it)
+```
+web3.platon.personal.importRawKey("Your wallet private key","Your wallet password");
+```
+After importing successfully, you will see the address corresponding to the private key as follows：
+```
+'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'
+```
+
+Unlock wallet account
+```
+ web3.platon.personal.unlockAccount('Your wallet address','Your wallet password',999999);
+```
+After unlocking successfully, you will see the following information：
+```
+ture
+```
+
+**Step4.**  Deploy contract
 
 ```
 platon-truffle migrate
 ```
 
-If deploy success，you wil see log info as follows:
+After deploying successfully, you will see log info as follows:
 ```
-2_initial_helloword.js
-Deploying 'HelloWorld'
-transaction hash:    0x2bb5c7f6202225554a823db410fb16cf0c8328a51391f24fb9052a6a8f3033e3 //the transaction hash for deploy contract
-Blocks: 0            Seconds: 0
-contract address:    0x714E74eEc4b63D9DB72cbB5F78CDD5b5bb60F9dc  //contract address
-block number:        142522  //the number of block which stores the transaction 
-block timestamp:     1581667696206
-account:             0xF644CfC3b0Dc588116D6621211a82C1Ef9c62E9e //the account for deploy contract
-balance:             90000000.867724449997417956  //the balance of the account
-gas used:            149247 //gas cost of the transaction
-gas price:           50.000000004 gVON
-value sent:          0 LAT
-total cost:          0.007462350000596988 LAT
-Saving migration to chain.
-Saving artifacts
-Total cost:     0.007462350000596988 LAT
+2_initial_helloworld.js
+======================
+
+   Deploying 'HelloWorld'
+   ----------------------
+   > transaction hash:    0x87cd48cc467f9bc943fd096c57c8a7e7b7fa941380538d9e59797800c6c4292c
+   > Blocks: 0            Seconds: 0
+   > contract address:    lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07
+   > block number:        282520
+   > block timestamp:     1585535169200
+   > account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
+   > balance:             16447231233352977496646259638377769924557918764752765436645.336513079692286014
+   > gas used:            145569
+   > gas price:           1 gvon
+   > value sent:          0 LAT
+   > total cost:          0.000145569 LAT
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.000145569 LAT
+
+Summary
+=======
+> Total deployments:   2
+> Final cost:          0.000259892 LAT
 ```
 
 ### Call HelloWorld Contract
@@ -202,20 +239,20 @@ platon-truffle console
 ```json
 var abi = [{"constant":false,"inputs":[{"internalType":"string","name":"_name","type":"string"}],"name":"setName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]; //you can refet to HelloWorld/build/contracts/HelloWorld.json
 
-var contractAddr = '0x9A5015F9A3728ff64f401b9B93E98078BdD48FD1';//contract address
+var contractAddr = 'lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07';//contract address
 var helloWorld = new web3.platon.Contract(abi,contractAddr);  
 ```
 
 Description： 
 
-- `abi` the interface provided by the contract to external calls，the abi  in the file compiled ：`HelloWorld/build/contracts/HelloWorld.json` 
+- `abi` the interface provided by the contract to external calls, the abi  in the file compiled ：`HelloWorld/build/contracts/HelloWorld.json` 
 - `contractAddr` contract address
 - `helloWorld`  contract object created
 
 **Step3.**  Call contract
 
 ```javascript
-helloWorld.methods.setName("hello world").send({from: '0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'}).on('receipt', function(receipt) {console.log(receipt);}).on('error', console.error);
+helloWorld.methods.setName("hello world").send({from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'}).on('receipt', function(receipt) {console.log(receipt);}).on('error', console.error);
 
 ```
 
@@ -223,9 +260,9 @@ Description：
 
 - `helloWorld` the contract object created
 - `methods`  specify the call method
-- `setName` the function of the HelloWorld contract，which has a parameter as `hello world`
+- `setName` the function of the HelloWorld contract, which has a parameter as `hello world`
 - `from` the address of caller 
-- `on` listen on the result of the contract method executed. if fail, it will print the error info. If success ,the console will print the receipt as belows:
+- `on` listen to the result of the contract method executed. If failed, it will print the error info. If succeeds ,the console will print the receipt as belows:
 
 ```
 { 
@@ -233,12 +270,12 @@ Description：
   blockNumber: 159726, 
   contractAddress: null,
   cumulativeGasUsed: 44820,
-  from: '0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e', //the address of caller
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl', //the address of caller
   gasUsed: 44820, //gas cost
   logsBloom:
    '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   status: true,
-  to: '0x9a5015f9a3728ff64f401b9b93e98078bdd48fd1', //contract address
+  to: 'lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07', //contract address
   transactionHash:'0xb7a41f72d555d4a2d9f2954fbdc5bbbb4c5ce89c836f8704276419ed416b3866', 
   transactionIndex: 0,
   events: {} 
@@ -254,7 +291,7 @@ Description：
 
 - `helloWorld` the contract object created
 - `methods` specify the call method
-- `getName` the function of the HelloWorld contract，which has no  parameter 
+- `getName` the function of the HelloWorld contract, which has no  parameter 
 - `call` specify query method
 - `function` callback result,we can use console.log to print info.
 
@@ -262,11 +299,13 @@ Description：
 
 ## Migrate Contract
 
-### Introduce 
+### Introduction 
 
-If you want to migrate ethereum's smart contract to PlatON, you can do this with the `platon-truffle` development tool. First make sure you have `platon-truffle` installed correctly, just follow these steps.
+The highest solidity version number supported by PlatON is 0.5.13. If you migrate contracts with versions above 0.5.13, you need to lower the version number and remove the syntax related to the higher version.
 
-The migration of ethereum's ERC200513Token contract to PlatON is demonstrated below，`ERC200513Token.sol` contract are as follows:
+If you want to migrate Ethereum's smart contract to PlatON, you can do this with the `platon-truffle` development tool. First, to make sure have `platon-truffle` installed correctly, just follow these steps.
+
+The migration of Ethereum's ERC200513Token contract to PlatON is demonstrated below，`ERC200513Token.sol` contract are as follows:
 ```
 pragma solidity 0.5.13;
 
@@ -326,7 +365,7 @@ contract ERC200513Token {
      * Transfer tokens from other address
      */
     function _transfer(address _from, address _to, uint _value) internal returns (bool success){
-        // Make sure the destination address is not 0x0，Because address 0x0 represents destruction
+        // Make sure the destination address is not 0x0, Because address 0x0 represents destruction
         require(_to != address(0x0));
         // Check the sender balance
         require(balanceOf[_from] >= _value);
@@ -468,7 +507,8 @@ ls contracts/
 ```
 
 - ERC200513Token.sol
-- PlatON smart contract unit LAT,VON. To migrate the ethereum smart contract to PlatON,please change the ethereum denomination to PlatON denomination.also note the ether /LAT market rate（for this contract, we assume the market exchange rate1:1,uint256 public totalSupply = 10000000000000000000 ether; change to uint256 public totalSupply = 10000000000000000000 LAT; ）
+- PlatON's smart contract unit is LAT,VON. To migrate the Ethereum smart contract to PlatON,please change the Ethereum denomination to PlatON denomination.also note the ether /LAT market rate（for this contract, we assume the market exchange rate1:1,uint256 public totalSupply = 10000000000000000000 ether; change to uint256 public totalSupply = 10000000000000000000 LAT; ）
+- PlatON's smart contract block.timestamp is current block timestamp as milliseconds since unix epoch, and Ethereum smart contract is seconds.
 
 **Step4.** Modify the compilation version number and chain-dependent configuration in truffle-config.js
 
@@ -479,8 +519,8 @@ module.exports = {
       host: "10.1.1.6",     // chain address
       port: 8806,            // chain rpc port
       network_id: "*",       // Any network (default: none)
-      from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", // the wallet address of deployment contract 
-      gas: 90000000,
+      from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", // the wallet address of deployment contract 
+      gas: 999999,
       gasPrice: 50000000004,	     
      },
   },
@@ -532,7 +572,7 @@ module.exports = function(deployer) {
 platon-truffle migrate
 ```
 
-If deploy success，you wil see log info as follows:
+After deploying successfully, you will see log info as follows:
 
 ```
 Compiling your contracts...
@@ -541,10 +581,10 @@ Everything is up to date, there is nothing to compile.
    Deploying 'ERC200513Token'
      transaction hash:    0xa1770aecf4cffb0e75a172e06e75a9e9cb2d36bf89291b57d504e8c054985e99
      Blocks: 0            Seconds: 0
-     contract address:    0x5474608c5dee5039C95FEf3D7e48Fa793903Ce99//new contract address
+     contract address:    lax1uetshtp4tp6l067tl02e4x435py9ajrfdhsrd4//new contract address
      block number:        265657
      block timestamp:     1581742216965
-     account:             0xF644CfC3b0Dc588116D6621211a82C1Ef9c62E9e
+     account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
      balance:             90000000.826385379994114416
      gas used:            638876
      gas price:           50.000000004 gVON
@@ -564,9 +604,9 @@ Summary
 
 ## Crowdfunding Contract
 
-### Introduce
+### Introduction
 
-In the following example, we will use smart contract for a crowdfunding campaign. The creator of the contract started crowdfunding, and initializes the number of tokens and the duration of the crowdfunding. If the crowdfunding is completed within the specified time, the crowdfunding will be successful. If the crowdfunding switch is turned off, a certain number of tokens based on a fixed exchange rate will be cast and credited to the name of the investor. Otherwise, the crowdfunding fails and the amount of the crowdfunding is returned to the investors.
+In the following example, we will use smart contract for a crowdfunding campaign. The creator of the contract started crowdfunding, and initialized the number of tokens and the duration of the crowdfunding. If the crowdfunding is completed within a specified time, the crowdfunding will be successful. If the crowdfunding switch is turned off, a certain number of tokens based on a fixed exchange rate will be cast and credited to the name of the investor. Otherwise, the crowdfunding fails and the amount of the crowdfunding is returned to the investors.
 
 There are two roles in the contract
 
@@ -579,11 +619,11 @@ There are two roles in the contract
 - 2.Deployment crowdfunding contract initializes the number and duration of crowdfunding tokens.
 - 3.Investors invest.
 - 4.Determine if crowdfunding is over.
-  - If the crowdfunding time is not up and the number of crowdfunding tokens has been completed, turn off the crowdfunding switch. Investors are allocated tokens proportionally. Crowdfunding success.
-  - If the crowdfunding time is up and the amount of crowdfunding tokens has been completed, investors will be allocated tokens in proportion. crowdfunding success.
-  - If the crowdfunding time is up and the number of crowdfunding tokens is not completed, the investor tokens will be returned. crowdfunding failure.
+  - If the crowdfunding time is not up and the number of crowdfunding tokens has been completed, turn off the crowdfunding switch, investors will be allocated tokens in proportion. Crowdfunding success.
+  - If the crowdfunding time is up and the amount of crowdfunding tokens has been completed, investors will be allocated tokens in proportion. Crowdfunding success.
+  - If the crowdfunding time is up and the number of crowdfunding tokens is not completed, the investor tokens will be returned. Crowdfunding failure.
 
-### CrowdFunding Contract
+### Crowdfunding Contract
 
 ```
 pragma solidity ^0.5.13;
@@ -706,9 +746,9 @@ contract CrowdFunding {
 }
 ```
 
-**Compile CrowdFunding Contract**
+**Compile Crowdfunding Contract**
 
-**Step1.** Create new directory for CrowdFunding project 
+**Step1.** Create new directory for Crowdfunding project 
 
 ```
 mkdir myCrowdFunding && cd myCrowdFunding
@@ -729,7 +769,7 @@ After the command is executed, project directory structure is as follows:
 - `test/`: test script directory
 - `truffle-config.js`: platon-truffle config
 
-**Step3.** Move CrowdFunding contract compiled in to `myCrowdFunding/contracts/`
+**Step3.** Move crowdfunding contract compiled in to `myCrowdFunding/contracts/`
 
 ```
 ls myCrowdFunding/contracts/
@@ -760,9 +800,9 @@ platon-truffle compile
 After the command is executed, project directory structure is as follows:
 
 - `build/`: solidity contract directory after compiled
-- `build/contracts/CrowdFunding.json`: the compiled file Corresponding with CrowdFunding.sol
+- `build/contracts/CrowdFunding.json`: the compiled file corresponding with CrowdFunding.sol
 
-**Deploly CrowdFunding Contract**
+**Deploly crowdfunding Contract**
 
 **Step1.** Create deploy script 
 
@@ -793,8 +833,8 @@ networks: {
        host: "10.1.1.6",     // blockchain server address
        port: 8806,            // server port
        network_id: "*",       // Any network (default: none)
-       from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", //the accout address of deploying contract
-       gas: 90000000,
+       from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", //the accout address of deploying contract
+       gas: 999999,
        gasPrice: 50000000004,
 	},
 }
@@ -806,7 +846,7 @@ networks: {
 platon-truffle migrate
 ```
 
-If deploy success, you wil see log info as follows:
+After deploying successfully, you will see log info as follows:
 ```
 Compiling your contracts...
  Everything is up to date, there is nothing to compile.
@@ -815,10 +855,10 @@ Compiling your contracts...
     Deploying 'CrowdFunding'
      transaction hash:    0x3a6419cd4169d7cfb430a1fc5632239ac4a01845827f20df9b3229a334c5488b
      Blocks: 0            Seconds: 0
-     contract address:    0x02D04C6fD2b0C07c43AA1a329D667f1F1Fc7a907 //contract address
+     contract address:    lax1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt //contract address
      block number:        280532
      block timestamp:     1581751224032
-     account:             0xF644CfC3b0Dc588116D6621211a82C1Ef9c62E9e
+     account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
      balance:             90000000.806077629992489796
      gas used:            379154
      gas price:           50.000000004 gVON
@@ -831,7 +871,7 @@ Compiling your contracts...
 ```
 
 
-**Crowdfunder Query Crowdfunding：**
+**Crowdfounding Query：**
 
 **Step1.**  Enter the platon-truffle console
 
@@ -845,7 +885,7 @@ platon-truffle console
 
 ```
 var abi = [...]; //ABI of CrowdFunding contract,can get from build/contracts/CrowdFunding.json
-var contractAddr = '0x02D04C6fD2b0C07c43AA1a329D667f1F1Fc7a907'; //CrowdFundsing contract address
+var contractAddr = 'lax1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt'; //CrowdFundsing contract address
 var crowdFunding = new web3.platon.Contract(abi,contractAddr);
 ```
 
@@ -858,15 +898,15 @@ crowdFunding.methods.amountRaised().call(null,function(error,result){console.log
 **Step4.**  Crowdfunder judge the success of crowdfunding
 
 ```
-crowdFunding.methods.safeWithdrawal().send({from:'0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'}).on('data', function(event){ console.log(event);}).on('error', console.error); 
+crowdFunding.methods.safeWithdrawal().send({from:'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'}).on('data', function(event){ console.log(event);}).on('error', console.error); 
 ```
 
 Call contract command description:
 
 - `crowdFunding` is the contract object we built earlier
 - `methods` fixed syntax specifying that methods in the contract will be obtained
-- `safeWithdrawal` is a method in our Crowdfunding contract to recover funds
-- `from` caller's contract address
+- `safeWithdrawal` is a method in our crowdfunding contract to recover funds
+- `from` caller's wallet address
 - `on` listen for contract processing result events, and output error logs for failures
 
 --------------
@@ -879,7 +919,7 @@ In a blockchain system, developing smart contracts based on any public chain sys
 
 ### Summary
 
-This article will use a table to compare the different development costs of small, medium and large contracts, and compare PlatON with Ethereum. In terms of contracts, a simple `SET/GET` function contract is used as a small test contract. The medium-sized contract example will use an open source([eth-tweet](https://github.com/yep/eth-tweet)) contract The large contract is a smart contract that complies with the ERC20 standard.
+This article will use a table to compare different development costs of small, medium and large contracts, and compare PlatON with Ethereum. In terms of contracts, a simple `SET/GET` function contract is used as a small test contract. The medium-sized contract example will use an open source([eth-tweet](https://github.com/yep/eth-tweet)) contract The large contract is a smart contract that complies with the ERC20 standard.
 
 
 #### Data Overview
@@ -1025,7 +1065,7 @@ Ethereum
 
 ### Introduction 
 
-This guide introduces users to some key points that need to be paid attention to in the development of smart contracts, mainly in the practice of actual development. Users can use this guide to quickly understand how to set a reasonable fee for a transaction, how to avoid losing the fee due to transaction failure, and how to encode a more standardized smart contract.
+This guide introduces users with some key points that need to be paid attention in the development of smart contracts, mainly in the practice of actual development. Users can use this guide to quickly understand how to set a reasonable fee for a transaction, how to avoid losing the fee due to transaction failure, and how to encode a more standardized smart contract.
 
 
 ### Reasonable Cost Setting
@@ -1038,7 +1078,7 @@ Gas consists of two parts: GasLimit and GasPrice. `GasLimit` is the maximum` Gas
 
 When a user sends a transaction, GasLimit and GasPrice are set. `GasLimit * GasPrice` is the user's transaction cost, and the cost is rewarded to the miner as a commission.
 
-The higher the GasPrice of the transaction, the higher the execution priority of the transaction and the greater the transaction cost. After each transaction is completed, the remaining unused Gas will be returned to the sender's address account. It is important to note that if the execution of the transaction fails because the GasLimit is set too low, the Gas will not be returned to the user's address at this time, and the user still needs to pay the energy cost for the failed transaction. Therefore, regardless of whether the transaction is executed successfully, the transaction sender needs to pay a certain calculation fee to the miner.
+The higher the GasPrice of the transaction, the higher the execution priority of the transaction and the greater the transaction cost. After each transaction is completed, the remaining unused Gas will be returned to the sender's address account. It is important to note that if the execution of the transaction fails due to the GasLimit is too low, the Gas will not be returned to the user's address at this time, and the user still needs to pay the energy cost for the failed transaction. Therefore, regardless of whether the transaction is executed successfully, the transaction sender needs to pay a certain calculation fee to the miner.
 
 In the `PlatON` network, the maximum gas limit is` 4,700,000` and the minimum is `22,000`. Too low or too high will cause transaction failure. When deploying large contracts or calling complex functions in contracts, you can increase the gas limit, for example: `1,000,000`. If it is a normal transfer, set it to the lowest value. The specific value needs to be estimated according to the size and complexity of the contract. Before the contract is released, the interface `platon_estimateGas` can be called for approximate estimation to avoid failure due to insufficient Gas. [Click to view JSON-RPC reference documentation](/docs/en/Json_Rpc).
 
@@ -1058,13 +1098,13 @@ In the `PlatON` network, the maximum gas limit is` 4,700,000` and the minimum is
 
 Sending transactions on the PlatON network does not have the concept of timeout, but it will eventually stop according to the set gas limit value. If the limit value is lower than the consumption required for contract deployment, the transaction execution fails and the corresponding processing fee will be deducted. The fee setting cannot be infinite, because in the network, the block itself has a maximum `GasLimit` value. When the GasLimit of the transaction exceeds this value, the transaction will not be accepted.
 
-If the call function of a published contract is called (a call is a stateless operation in the contract logic), there is a 5s timeout limit. If the contract logic is not executed within 5s, a timeout will occur and the virtual machine will forcely exit , Causing the query to fail.
+If the call function of a published contract is called (a call is a stateless operation in the contract logic), there is a 5s timeout limit. If the contract logic is not executed within 5s, a timeout will occur and the virtual machine will forcely exit , causing the query to fail.
 
 To avoid contract-related transaction failures, try breaking large contracts into smaller pieces and referencing each other as needed. To avoid infinite loops, be aware of common pitfalls and recursive calls.
 
 ### Punishment For Illegal Operations
 
-If the smart contract is not compiled by a standard valid compiler, or the instruction code is changed at will, the opcode will be invalid. This type of contract not only fails to be deployed and executed successfully, but also generates a full amount (`GasLimit * GasPrice`) penalty. The transaction fee for the current transaction will be deducted. This is a very strong penalty. If the operator does not pay attention At this point, keep retrying, then the cost will be higher and the cost will be heavier.
+If the smart contract is not compiled by a standard valid compiler, or the instruction code is changed at will, the opcode will be invalid. This type of contract not only fails to be deployed and executed successfully, but also generates a full amount (`GasLimit * GasPrice`) penalty. The transaction fee for the current transaction will be deducted. This is a very strong penalty. If the operator does not pay attention to this point and keep retrying, then the cost will be higher and the cost will be heavier.
 
 In general, invalid opcodes have the following conditions:
 
@@ -1137,7 +1177,7 @@ If you want to solve the security problem of smart contracts, you must develop c
 
 Everything you use in a smart contract is publicly visible, even local variables and state variables marked `private`.
 
-Using random numbers in smart contracts is quite tricky if you do not want miners to be able to cheat(The use of random numbers in smart contracts is difficult to ensure that nodes do not cheat. This is because random numbers in smart contracts generally rely on the local time of the computing node, and local time can be forged by malicious nodes. Therefore, this method does not Safety. A common practice is to use off-chain third-party services such as Oraclize to obtain random numbers).
+Using random numbers in smart contracts is quite tricky if you do not want miners to be able to cheat(The use of random numbers in smart contracts is difficult to ensure that nodes do not cheat. This is because random numbers in smart contracts generally rely on the local time of the computing node, and local time can be forged by malicious nodes. Therefore, this method is not safe. A common practice is to use off-chain third-party services such as Oraclize to obtain random numbers).
 
 #### Re-Entrancy
 
@@ -1274,7 +1314,7 @@ Code such as `require((balanceOf[_to] + _value) >= balanceOf[_to])` can also hel
 
 #### Clearing Mappings
 
-The Solidity type `mapping` (see [Mapping Types](https://solidity.readthedocs.io/en/latest/types.html#mapping-types)) is a storage-only key-value data structure that does not keep track of the keys that were assigned a non-zero value. Because of that, cleaning a mapping without extra information about the written keys is not possible. If a `mapping` is used as the base type of a dynamic storage array, deleting or popping the array will have no effect over the `mapping` elements. The same happens, for example, if a `mapping` is used as the type of a member field of a `struct` that is the base type of a dynamic storage array. The `mapping` is also ignored in assignments of structs or arrays containing a `mapping`.
+The Solidity type `mapping` (see [Mapping Types](https://solidity.readthedocs.io/en/latest/types.html#mapping-types)) is a storage-only key-value data structure that does not keep track of the keys that were assigned a non-zero value. Because of that, cleaning a mapping without extra information about the written keys is not possible. If a `mapping` is used as the base type of a dynamic storage array, deleting or popping the array will have no effect over the `mapping` elements. The same happens, for example, if a `mapping` is used as the type of a member field of a `struct` that is the base type of a dynamic storage array. The `mapping` is also ignored in assignments of structs or arrays that containing a `mapping`.
 
 ```
 pragma solidity >=0.5.0 <0.7.0;
@@ -1303,11 +1343,11 @@ contract Map {
 
 Consider the example above and the following sequence of calls: `allocate(10)`, `writeMap(4, 128, 256)`. At this point, calling `readMap(4, 128)` returns 256. If we call `eraseMaps`, the length of state variable `array` is zeroed, but since its `mapping` elements cannot be zeroed, their information stays alive in the contract’s storage. After deleting `array`, calling `allocate(5)` allows us to access `array[4]` again, and calling `readMap(4, 128)` returns 256 even without another call to `writeMap`.
 
-If your `mapping` information must be deleted, consider using a library similar to [iterable mapping](https://github.com/ethereum/dapp-bin/blob/master/library/iterable_mapping.sol), allowing you to traverse the keys and delete their values in the appropriate `mapping`.
+If your `mapping` information must be deleted, consider using a library similar to [iterable mapping](https://github.com/ethereum/dapp-bin/blob/master/library/iterable_mapping.sol), which allows you to traverse the keys and delete their values in the appropriate `mapping`.
 
 #### Permission Control Error
 
-In smart contracts, contract developers usually set some for the contract owner, but if the developer negligently writes wrong function permissions, it may lead to serious consequences such as transfer of the owner.
+In smart contracts, contract developers usually set some permission for the contract owner, but if the developer negligently writes wrong function permissions, it may lead to serious consequences such as transfer of the owner.
 
 ```
 function initContract() public {
@@ -1333,7 +1373,7 @@ For functions that involve addresses, it is recommended to add require (_to! = A
 
 Since transactions are first stored in mempool in a short period of time, it is possible to know what action will take place before miners package them into blocks. This is troublesome for a decentralized market, because the transaction information of the token can be viewed, and the transaction order can be changed before it is packaged into a block. Avoiding this is difficult because it comes down to the specific contract itself.
 
-For example, in the market, it is best to implement batch auctions (this also prevents high frequency trading issues). Another method using a pre-commit scheme.
+For example, in the market, it is best to implement batch auctions (this also prevents high frequency trading issues). Another method is using a pre-commit scheme.
 
 #### Minor Details
 
@@ -1414,16 +1454,16 @@ You can find a professional third-party audit company for security audits, such 
 
    Refer to  platon-truffle develop guide [Reference here](https://platon-truffle.readthedocs.io/en/v0.11.1/).
 
-2. Why contract syntax cannot verify?
+2. Why contract syntax cannot be verified?
 
-   Solidity 0.4.x has a great different with 0.5.x，detail info refer to [Reference here](https://solidity.readthedocs.io/en/develop/).
+   Solidity 0.4.x has a great different with 0.5.x, detail info refer to [Reference here](https://solidity.readthedocs.io/en/develop/).
 
 3. Why truffle doesn't compile?
 
    Confirm the contract version same as the version specified in the truffle-config.js.
    Contract syntax be writed in a wrong way.
 
-4. Why the contract can not deploy by truffle migrate?
+4. Why the contract can not be deployed by truffle migrate?
 
    Confrim the blockchain network info be configured correctly.
    Confirm the account address be configured correctly.

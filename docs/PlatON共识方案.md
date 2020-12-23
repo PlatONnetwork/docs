@@ -39,7 +39,7 @@ Byzantine Fault Tolerance Protocol (BFT) is a protocol that can guarantee the se
 
 ### PBFT
 
-The practical Byzantine fault tolerance algorithm (PBFT [3]) is one of the first Byzantine fault tolerance protocols in the real world to be able to handle the first and second types of errors at the same time. Based on the partial synchronization model, it solves the problem of low efficiency of previous BFT algorithms By reducing the complexity of the algorithm from the exponential order of the number of nodes to the square order of the number of nodes, the Byzantine fault tolerance algorithm becomes feasible in practical system applications.
+The practical Byzantine fault tolerance algorithm (PBFT [3]) is one of the first Byzantine fault tolerance protocols in the real world to be able to handle the first and second types of errors at the same time. Based on the partial synchronization model, it solves the problem of low efficiency of previous BFT algorithms by reducing the complexity of the algorithm from the exponential order of the number of nodes to the square order of the number of nodes, the Byzantine fault tolerance algorithm becomes feasible in practical system applications.
 
 The BFT consensus protocols currently used in blockchains can be considered as a variant of PBFT, which is in the same vein as PBFT.
 
@@ -86,11 +86,11 @@ After that, some public chain projects, such as **Zilliqa** [5], etc., based on 
 
 #### Communication mechanism optimization
 
-PBFT uses all-to-all messages that creates $O(n^2)$ communication complexity.
+PBFT uses all-to-all messages that creates $O(n)$ communication complexity.
 
-SBFT (Scale optimized PBFT) [6] proposed a linear communication mode using a collector. In this mode, the message is no longer sent to each node, but to the collector, and then broadcasted by the collector to all nodes. Further more, the message length can be reduced from linear to constant by using threshold signatures, which reduces the total overhead to $O(n^2)$.
+SBFT (Scale optimized PBFT) [6] proposed a linear communication mode using a collector. In this mode, the message is no longer sent to each node, but to the collector, and then broadcasted by the collector to all nodes. Further more, the message length can be reduced from linear to constant by using threshold signatures, which reduces the total overhead to $O(n)$.
 
-Tendermint [7] uses a gossip all-to-all mechanism, so $O(nlogn)$ messages and $O(n^2)$ words under optimistic conditions.
+Tendermint [7] uses a gossip all-to-all mechanism, so $O(nlogn)$ messages and $O(n)$ words under optimistic conditions.
 
 #### view-change process optimization
 
@@ -124,9 +124,9 @@ In the previous content, we analyzed the problems of the BFT consensus protocol 
 
 - Compared to previous BFT, Although PBFT is more practical, due to the view-change overhead of $O(n^3)$, there is a big problem in scalability.
 
-- Tendermint merges round change with normal processes, simplifies view-change logic, and reduces the communication complexity of view-change to $ O(n^2) $, but needs to wait for a relatively large network delay to ensure activity.  Further more, Tendermint is still serially producting and confirming blocks. 
+- Tendermint merges round change with normal processes, simplifies view-change logic, and reduces the communication complexity of view-change to $ O(n^2) $, but needs to wait for a relatively large network delay to ensure activity.  Further more, Tendermint is still serially producing and confirming blocks. 
 
-- In EOS's BFT-DPOS consensus protocol, block producers can continuously product several blocks, and the blocks are confirmed in parallel, which increases the block production speed. The block is confirmed using the BFT protocol, but only suitable for strong synchronized communication model.
+- In EOS's BFT-DPOS consensus protocol, block producers can continuously produce several blocks, and the blocks are confirmed in parallel, which increases the block production speed. The block is confirmed using the BFT protocol, but only suitable for strong synchronized communication model.
 
 - HotStuff innovatively proposed a three-phase submission BFT consensus protocol based on the leader node, absorbing the advantages of Tendermint, merging view-change with normal processes, and reducing the communication complexity of view-change to linear. By simplifying the message type, the block can be confirmed in a pipeline manner. However, the introduction of a new voting stage will also increase the communication complexity. In addition, a view window only confirms one block. This undoubtedly requires more communication complexity in view-change. In addition, the star-like topology based on the collection of votes by leader nodes is more suitable for a good alliance chain such as Libra. In a weak network environment, it is more likely to be affected by a single point of failure, resulting in a large leader node switching overhead.
 
@@ -243,7 +243,7 @@ Assume each view allows $n$ blocks to be generated. The current view $ V_i $ tim
 
 - Blocks reached Pre-Commit state will be locked and cannot be reorganized. That is, if the current node has a Pre-Commit state block at height h, the current node cannot generate new blocks at height h, and cannot Vote on other blocks with height h.
 
-- Blocks with Prepared state can be reorganized, that is, if the current node has a Prepare state block at height h, the current node can generate new blocks at height h, or vote for other blocks at height h (can only vote for Blocks with higher viewnumber)
+- Blocks with Prepared state can be reorganized, that is, if the current node has a Prepared state block at height h, the current node can generate new blocks at height h, or vote for other blocks at height h (can only vote for Blocks with higher viewnumber)
 
 ### Validator Replacement Mechanism
 

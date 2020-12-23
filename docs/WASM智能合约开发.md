@@ -8,7 +8,7 @@ WebAssembly (wasm for short) is a binary instruction set designed for stacked vi
 
 This tutorial is mainly to guide users to create a WASM smart contract using wasm language on PlatON.
 
-Mainly from the following aspects to explain： 
+It is mainly explained from the following aspects： 
 
 - [Getting Started](#getting-started)
 - [Development Costs](#development-costs)
@@ -18,16 +18,16 @@ Mainly from the following aspects to explain：
 
 ## Getting Started
 
-### Introduce
+### Introduction
 
-This tutorial is mainly to guide users to create a simple HelloWorld smart contract using wasm language on PlatON, compile, deploy, and call this contract through platinum-truffle.If you want to use a richer API. 
+This tutorial is mainly to guide users to create a simple HelloWorld smart contract using wasm language on PlatON, compile, deploy, and call this contract through platon-truffle.If you want to use a richer API. 
 
-### Platon-truffle Introduce 
+### Platon-truffle Introduction 
 
 Platon-truffle is a tool provided by PlatON that can compile, deploy, and invoke smart contracts locally. For specific installation and usage manuals, refer to:
 
-- Platon-truffle develop tools[specific installation](https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#)
-- Platon-truffle develop tools[usage manuals](https://platon-truffle.readthedocs.io/en/v0.11.1/)
+- Platon-truffle develop tools[specific installation](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html)
+- Platon-truffle develop tools[usage manuals](https://platon-truffle.readthedocs.io/en/v0.13.1/)
 
 
 ### Create HelloWorld Contract
@@ -163,14 +163,40 @@ networks: {
        host: "10.1.1.6",     // blockchain server address
        port: 8806,            // server port
        network_id: "*",       // Any network (default: none)
-       from: "0x5b37dabedae06edb142257819fad207199986992",
-       gas: 4712388,
+       from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl",
+       gas: 999999,
        gasPrice: 1000000000,
 	},
 }
 ```
 
-**Step2.** Deploy contract
+**step2.**  Unlock wallet account
+
+Enter the platon-truffle console
+
+```
+platon-truffle console
+```
+
+Import the private key (you can skip this step if you have already imported it)
+```
+web3.platon.personal.importRawKey("Your wallet private key","Your wallet password");
+```
+Successful import will see the address corresponding to the private key as follows：
+```
+'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'
+```
+
+Unlock wallet account
+```
+ web3.platon.personal.unlockAccount('Your wallet address','Your wallet password',999999);
+```
+After unlocking successfully, you will see the following information：
+```
+ture
+```
+
+**Step3.** Deploy contract
 
 ```
 platon-truffle deploy --wasm --contract-name HelloWorld --params '[[["1"], "2", "3"]]'
@@ -178,14 +204,14 @@ platon-truffle deploy --wasm --contract-name HelloWorld --params '[[["1"], "2", 
 - `HelloWorld` deployed contract
 - `params` parameters of contract init function
 
-If deploy success，you wil see log info as follows:
+If deploying successfully，you will see log info as follows:
 ```
 receipt:  { blockHash:
    '0x266733b693ba650315a59c34e72804c06ca3e27fab145625797bd42259b572c5',
   blockNumber: 70441,
-  contractAddress: '0x0bf45390B486890486e6eB3F1D5C8e0840FD8B56',
+  contractAddress: 'lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np',
   cumulativeGasUsed: 291314,
-  from: '0x5b37dabedae06edb142257819fad207199986992',
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
   gasUsed: 291314,
   logs: [],
   logsBloom:
@@ -199,10 +225,10 @@ receipt:  { blockHash:
 ======================
 
    > transactionHash:     0x60946ebf0ccddc76a0234353435de73e7901888227fb2f03922fb0ce265a4e9d
-   > contract address:    0x0bf45390B486890486e6eB3F1D5C8e0840FD8B56
+   > contract address:    lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np
    > block number:        70441
    > block timestamp:     1583247148341
-   > account:             0x5b37dabedae06edb142257819fad207199986992
+   > account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
    > balance:             3533694129556768659166595001485837031654967793751237866225582808584074296
    > gas limit:           100000000
    > gas used:            291314
@@ -223,8 +249,8 @@ platon-truffle console
 
 ```json
 var abi = [{"baseclass":[],"fields":[{"name":"head","type":"string"}],"name":"message","type":"struct"},{"baseclass":["message"],"fields":[{"name":"body","type":"string"},{"name":"end","type":"string"}],"name":"my_message","type":"struct"},{"constant":false,"input":[{"name":"one_message","type":"my_message"}],"name":"init","output":"void","type":"Action"},{"constant":false,"input":[{"name":"one_message","type":"my_message"}],"name":"add_message","output":"void","type":"Action"},{"constant":true,"input":[],"name":"get_message_size","output":"uint8","type":"Action"},{"constant":true,"input":[{"name":"index","type":"uint8"}],"name":"get_message_body","output":"string","type":"Action"}];
-var contractAddr = '0x0bf45390B486890486e6eB3F1D5C8e0840FD8B56';
- 
+var contractAddr = 'lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np';
+
 var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 }); 
 ```
 
@@ -237,7 +263,7 @@ Description：
 
 ```javascript
 helloworld.methods.add_message('[[["5"], "6", "7"]]').send({
-	from: '0x5b37dabedae06edb142257819fad207199986992',gas: 90000000
+	from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',gas: 999999
 }).on('receipt', function(receipt) {
 	console.log(receipt);
 }).on('error', console.error);
@@ -247,8 +273,8 @@ Description：
 - `helloWorld` the contract object created
 - `methods` specify the call method
 - `add_message`  method in the HelloWorld contract with a custom my_message input
-- `from` caller's contract address 
-- `on` listen on the result of the contract method executed. if fail, it will print the error info. If success ,the console will print the receipt as belows:
+- `from` caller's wallet address 
+- `on` listen to the result of the contract method executed. If failed, it will print the error info. If succeeded, the console will print the receipt as belows:
 
 ```
 { blockHash:
@@ -256,12 +282,12 @@ Description：
   blockNumber: 74665,
   contractAddress: null,
   cumulativeGasUsed: 108549,
-  from: '0x5b37dabedae06edb142257819fad207199986992',
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
   gasUsed: 108549,
   logsBloom:
    '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   status: true,
-  to: '0x0bf45390b486890486e6eb3f1d5c8e0840fd8b56',
+  to: 'lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np',
   transactionHash:
    '0x2b5e590df7e70ad428b1ccb06bda5dcce47f84c4d981c2fb475aca9ec9d0000a',
   transactionIndex: 0,
@@ -271,12 +297,12 @@ Description：
   blockNumber: 74665,
   contractAddress: null,
   cumulativeGasUsed: 108549,
-  from: '0x5b37dabedae06edb142257819fad207199986992',
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
   gasUsed: 108549,
   logsBloom:
    '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   status: true,
-  to: '0x0bf45390b486890486e6eb3f1d5c8e0840fd8b56',
+  to: 'lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np',
   transactionHash:
    '0x2b5e590df7e70ad428b1ccb06bda5dcce47f84c4d981c2fb475aca9ec9d0000a',
   transactionIndex: 0,
@@ -848,13 +874,13 @@ In the PlatON network, the maximum gas limit is `100,800,000` and the minimum is
 
 Sending transactions on the PlatON network does not have the concept of timeout, but it will eventually stop according to the set gas limit value. If the limit value is lower than the consumption required for contract deployment, the transaction execution fails and the corresponding processing fee will be deducted. The fee setting cannot be infinite, because in the network, the block itself has a maximum GasLimit value. When the GasLimit of the transaction exceeds this value, the transaction will not be accepted.
 
-If the call function of a published contract is called (a call is a stateless operation in the contract logic), there is a 5s timeout limit. If the contract logic is not executed within 5s, a timeout will occur and the virtual machine will forcely exit , Causing the query to fail.
+If the call function of a published contract is called (a call is a stateless operation in the contract logic), there is a 5s timeout limit. If the contract logic is not executed within 5s, a timeout will occur and the virtual machine will forcely exit , causing the query to fail.
 
 To avoid contract-related transaction failures, try breaking large contracts into smaller pieces and referencing each other as needed. To avoid infinite loops, be aware of common pitfalls and recursive calls.
 
 ### Punishment For Illegal Operations
 
-If the smart contract is not compiled by a standard valid compiler, or the instruction code is changed at will, the opcode will be invalid. This type of contract not only fails to be deployed and executed successfully, but also generates a full amount (GasLimit * GasPrice) penalty. The transaction fee for the current transaction will be deducted. This is a very strong penalty. If the operator does not pay attention At this point, keep retrying, then the cost will be higher and the cost will be heavier.
+If the smart contract is not compiled by a standard valid compiler, or the instruction code is changed at will, the opcode will be invalid. This type of contract not only fails to be deployed and executed successfully, but also generates a full amount (GasLimit * GasPrice) penalty. The transaction fee for the current transaction will be deducted. This is a very strong penalty. If the operator does not pay attention to this point and keep retrying, then the cost will be higher and the cost will be heavier.
 
 In general, invalid opcodes have the following conditions:
 
@@ -958,7 +984,7 @@ Order Of Files:
 
 #### Feature Uses Advice
 
-##### Structs vs. Classes
+##### Structs vs Classes
 
 Use a struct only for passive objects that carry data; everything else is a
 class.
@@ -967,7 +993,7 @@ The struct and class keywords behave almost identically in C++. We add our own
 semantic meanings to each keyword, so you should use the appropriate keyword for
 the data-type you're defining.
 
-structs should be used for passive objects that carry data, and may have
+Structs should be used for passive objects that carry data, and may have
 associated constants, but lack any functionality other than access/setting the
 data members. All fields must be public, and accessed directly rather than
 through getter/setter methods. The struct must not have invariants that imply
@@ -988,7 +1014,7 @@ All inheritance should be public. If you want to do private inheritance, you
 should be including an instance of the base class as a member instead.
 
 Do not overuse implementation inheritance. Composition is often more
-appropriate. Try to restrict use of inheritance to the "is-a" case: Bar
+appropriate. Try to restrict the use of inheritance to the "is-a" case: Bar
 subclasses Foo if it can reasonably be said that Bar "is a kind of" Foo.
 
 
@@ -1165,7 +1191,7 @@ Address platon::platon_caller()
 Get the address of caller.
 
 * **Returns**
-  * The address of calle
+  * The address of caller
 
 #### platon_origin()
 
@@ -1191,19 +1217,33 @@ Get the address of contract.
 
 ### account api
 
-#### make_address()
+#### make_address() 1/2
 
 ```cpp
-template <size_t M> Address make_address(const char (&str)[M])
+template <size_t M> std::pair<Address, bool> make_address(const char (&str)[M])
 ```
+The default address recognized by CDT is the main network address, that is, the address prefix is lat. If you want to recognize the test network address prefix is lax, you need to define the macro TESTNET, and you can put #define TESTNET on the first line of the contract.
 
 Converts a c-style string to an address object.
 
 * **Parameters**
   * `str：` C-style string
 * **Returns**
-  * Address object
+  * The return value is pair, whose second represents success or failure, and whose first represents an Address of type Address.
 
+#### make_address() 2/2
+
+```cpp
+std::pair<Address, bool> make_address(const std::string &str_address)
+```
+The default address recognized by CDT is the main network address, that is, the address prefix is lat. If you want to recognize the test network address prefix is lax, you need to define the macro TESTNET, and you can put #define TESTNET on the first line of the contract.
+
+Converts a string to an address object.
+
+* **Parameters**
+  * `str：` string
+* **Returns**
+  * The return value is pair, whose second represents success or failure, and whose first represents an Address of type Address.
 
 #### platon_balance()
 
@@ -1312,18 +1352,19 @@ class platon::WhiteList< TableName >
 Persist storage whitelist implement.
 
 * **Template Parameters**
-  * `Name:` Whitelist name, in the same contract, the name should be unique
-
+  
+* `Name:` Whitelist name, in the same contract, the name should be unique
+  
 * **Constructor & Destructor Documentation**
 
   * `template<Name::Raw TableName>
     platon::WhiteList< TableName >::WhiteList ()`
 
-    Construct a new whitlist.
+    Construct a new whitelist.
 
 * **public Member Functions**
   * `WhiteList ()`
-    Construct a new whitlist.
+    Construct a new whitelist.
 
   * `void Add (const std::string &addr)`
     Add the address to whitelist.
@@ -1655,8 +1696,9 @@ Implement map operations, Map templates.
     Refresh the modified data in memory to the blockchain.
 
 * **Static Public Attributes**
-  * `static const std::string  kType = "__map__"`
-
+  
+* `static const std::string  kType = "__map__"`
+  
 * **Constructor & Destructor Documentation**
 
   * `template<Name::Raw TableName, typename Key , typename Value >
@@ -1680,50 +1722,55 @@ Destroy the Map object Refresh data to the blockchain.
     Get value, will be added to the cache.
 
     * **Parameters**
+      
       * `k:` Key
     * **Returns**
-      * Value&
+      
+    * Value&
     * **Example:**
-
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
-      assert(map.at["hello"] == "world");
+    assert(map.at["hello"] == "world");
       ```
-
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     bool platon::db::Map< TableName, Key, Value >::contains ( const Key & key )`
     Checks if there is an element with key equivalent to key in the container.
 
     * **Parameters**
+      
       * `k:` Key
     * **Returns**
-      * true if there is such an element, otherwise false.
+      
+    * true if there is such an element, otherwise false.
     * **Example:**
-
+    
       ```cpp
        typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
        MapStr map;
        map.["hello"] = "world";
-       assert(map.contains("hello"));
+     assert(map.contains("hello"));
       ```
-
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     void platon::db::Map< TableName, Key, Value >::erase ( const Key & k )`
     Delete key-value pairs.
 
     * **Parameters**
+      
       * `k:` Key
-    * **Example:**
-
+  * **Example:**
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
       map.erase("hello");
-      ```
-
+    ```
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     void platon::db::Map< TableName, Key, Value >::flush ()`
     Refresh the modified data in memory to the blockchain.
@@ -1733,18 +1780,20 @@ Destroy the Map object Refresh data to the blockchain.
     Get the Const object, will not join the cache.
 
     * **Parameters**
+      
       * `k:` Key
     * **Returns**
-      * Value
+      
+    * Value
     * **Example:**
-
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
-      assert(map.get_const["hello"] == "world");
+    assert(map.get_const["hello"] == "world");
       ```
-
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     bool platon::db::Map< TableName, Key, Value >::insert ( const Key & k,
     const Value & v)`
@@ -1754,16 +1803,17 @@ Destroy the Map object Refresh data to the blockchain.
       * `k:` Key
       * `v:` Value
     * **Returns**
-      * true Inserted successfully, false Insert failed
-    * **Example:**
-
+      
+      * true if insert successfully,false otherwise.
+  * **Example:**
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
       assert(map["hello"] == "world");
-      ```
-
+    ```
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     bool platon::db::Map< TableName, Key, Value >::insert_const ( const Key & k,
     const Value & v)`
@@ -1773,16 +1823,17 @@ Destroy the Map object Refresh data to the blockchain.
       * `k:` Key
       * `v:` Value
     * **Returns**
-      * true Inserted successfully, false Insert failed
-    * **Example:**
-
+      
+      * true if insert successfully,false otherwise.
+  * **Example:**
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert_const("hello", "world");
       assert(map["hello"] == "world");
-      ```
-
+    ```
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     Map<TableName, Key, Value>& platon::db::Map< TableName, Key, Value >::operator= ( const Map< TableName, Key, Value > & )`
 
@@ -1791,11 +1842,13 @@ Destroy the Map object Refresh data to the blockchain.
     Bracket operator.
 
     * **Parameters**
+      
       * `k:` Key
     * **Returns**
-      * Value& Get Value
+      
+    * Value& Get Value
     * **Example:**
-
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
@@ -2106,7 +2159,7 @@ Normal cross-contract invocation.
   * `gas:` The called contract method estimates the gas consumed
   * `value:` The amount transferred to the contract
 * **Returns**
-  * The call succeeds or fails
+  * The call succeed or failed
 
 #### platon_call() 2/2
 
@@ -2129,6 +2182,7 @@ Normal cross-contract invocation.
   * `method:` The method name of the invoked contract
   * `args:` The Parameters corresponding to the contract method
 * **Returns**
+  
   * The contract method * **Returns** the value and whether the execution was successful
 * **Example:**
 
@@ -2158,7 +2212,7 @@ Cross contract delegation call.
   * `paras:` A contract parameter constructed using the function cross_call_args
   * `gas:` The called contract method estimates the gas consumed
 * **Returns**
-  * The call succeeds or fails
+  * The call succeed or failed
 
 #### platon_delegate_call() 2/2
 
@@ -2178,6 +2232,7 @@ The proxy is invoked across contracts.
   * `method:` The method name of the invoked contract
   * `args:` The Parameters corresponding to the contract method
 * **Returns**
+  
   * The contract method * **Returns** the value and whether the execution was successful
 * **Example:**
 

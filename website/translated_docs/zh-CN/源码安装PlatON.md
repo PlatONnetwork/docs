@@ -13,7 +13,7 @@ sidebar_label: 源码安装PlatON
 Windows编译环境需要符合以下条件：
 
 - git：`2.19.1以上`
-- go语言开发包：`go(1.7+)`
+- go语言开发包：`go(1.11+)`
 - mingw：`mingw（V8.1.0）`
 - cmake: `3.0+`
 
@@ -45,19 +45,19 @@ Windows编译环境需要符合以下条件：
 > choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
 > ```
 >
-> 利用`chocolatey`包管理器安装的软件大部分有默认的安装路径，部分软件可能会有各种各样的路径，这取决于软件的发布者。安装这些包将修改Path环境变量。最后安装路径可查看PATH，某些机器环境可能在 PATH 中找不到这些工具的安装路径，此时需手动添加。安装完之后请确保已安装的Go版本为1.7（或更高版本）。
+> 利用`chocolatey`包管理器安装的软件大部分有默认的安装路径，部分软件可能会有各种各样的路径，这取决于软件的发布者。安装这些包将修改Path环境变量。最后安装路径可查看PATH，某些机器环境可能在 PATH 中找不到这些工具的安装路径，此时需手动添加。安装完之后请确保已安装的Go版本为1.11（或更高版本）。
 >
 
 > 注意：以下命令均需在`Git-bash`环境运行， 在任意目录下，鼠标右键，选中`Git Bash Here`，弹出`Git Bash`运行窗口。
 
 - 获取源码
 
-获取源码放到GOPATH路径下，其中`release-0.11.0`为分支名称，届时切换到实际的分支：
+获取源码放到GOPATH路径下，其中`0.13.1_alpha`为分支名称，届时切换到实际的分支：
 
 ```
 mkdir -p $GOPATH/src/github.com/PlatONnetwork
 cd $GOPATH/src/github.com/PlatONnetwork
-git clone -b release-0.11.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+git clone -b 0.13.1_alpha https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 ```
 
 - 添加bls依赖库到环境变量
@@ -86,13 +86,13 @@ go run build/ci.go install ./cmd/keytool
 - 系统版本：`Ubuntu 18.04.1 及以上`
 - git：`2.19.1及以上`
 - 编译器：`gcc(4.9.2+)`、`g++(5.0+)`
-- go语言开发包：`go(1.7+)`
+- go语言开发包：`go(1.11+)`
 - cmake:`3.0+`
 
 **step2.** 获取PlatON源码：
 
 ```bash
-git clone -b release-0.11.0 https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+git clone -b 0.13.1_alpha https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 ```
 
 **step3.** 安装依赖库：

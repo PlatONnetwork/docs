@@ -10,9 +10,9 @@ Interact with nodes through web3 objects provided by web3.js. On the underlying 
 
 ### Usage
 
-First, make sure the nodeJS environment is successfully installed locally. `WEB3.JS` uses the [lerna](https://github.com/lerna/lerna) management tool to optimize the workflow of the multi-package code base hosted on `git/npm`, so you make sure before installing The lerna package has been installed globally. If not, execute the command `npm i lerna -g` for global installation. 
+First, make sure the nodeJS environment is successfully installed locally. `WEB3.JS` uses the [lerna](https://github.com/lerna/lerna) management tool to optimize the workflow of the multi-package code base hosted on `git/npm`, so you should make sure the lerna package has been installed globally before installing. If not, execute the command `npm i lerna -g` for global installation. 
 
-Then you can integrate client-sdk-js into the project project through package management tools such as npm or yarn, the steps are as follows:
+Then you can integrate client-sdk-js into the project through package management tools such as npm or yarn, the steps are as follows:
 
 - npm: `npm i PlatONnetwork/client-sdk-js`
 - yarn: `yarn add PlatONnetwork/client-sdk-js`
@@ -57,7 +57,7 @@ Example:
 
 ```js
 web3.version;
-> "0.11.0"
+> "0.13.1"
 ```
 
 ***
@@ -96,7 +96,7 @@ web3.modules
 
 #### web3.setProvider
 
-`web3.setProvider()` Will change the provider for its module.
+`web3.setProvider()` Will change the provider for it's module.
 
 Method:
 
@@ -228,8 +228,8 @@ Example:
 var contract = new web3.platon.Contract(abi, address);
 
 var batch = new web3.BatchRequest();
-batch.add(web3.platon.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback));
-batch.add(contract.methods.balance(address).call.request({from: '0x0000000000000000000000000000000000000000'}, callback2));
+batch.add(web3.platon.getBalance.request('lax1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqmscn5j', 'latest', callback));
+batch.add(contract.methods.balance(address).call.request({from: 'lax1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqmscn5j'}, callback2));
 batch.execute();
 ```
 
@@ -237,7 +237,7 @@ batch.execute();
 
 #### web3.platon.defaultAccount
 
-`web3.platon.defaultAccount` This default address is used as the default "from" property, if no "from" property is specified in for the following methods:
+`web3.platon.defaultAccount` This default address is used as the default "from" property, if no "from" property is specified in the following methods:
 
 *  web3.platon.sendTransaction()
 *  web3.platon.call()
@@ -261,11 +261,12 @@ web3.platon.defaultAccount;
 > undefined
 
 // set the default account
-web3.platon.defaultAccount = '0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe';
+web3.platon.defaultAccount = 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6';
 ```
-
+> Note:
+>
+> **All addresses must be quoted, as above: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'.**
 ***
-
 #### web3.platon.defaultBlock
 
 `web3.platon.defaultBlock` The default block is used for certain methods. 
@@ -407,7 +408,7 @@ Example:
 
 ```js
 web3.platon.getAccounts().then(console.log);
-> ["0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe", "0xDCc6960376d6C6dEa93647383FfB245CfCed97Cf"]
+> ["lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6", "lax1kg7y7wfwzqsyxppyxcdvhkkkwlf64ccl8x93ut"]
 ```
 
 ***
@@ -458,7 +459,7 @@ Returns:
 Example:
 
 ```js
-web3.platon.getBalance("0x407d73d8a49eeb85d32cf465507dd71d507100c1")
+web3.platon.getBalance("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > "1000000000000"
 ```
@@ -489,7 +490,7 @@ Returns:
 Example:
 
 ```js
-web3.platon.getStorageAt("0x407d73d8a49eeb85d32cf465507dd71d507100c1", 0)
+web3.platon.getStorageAt("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6", 0)
 .then(console.log);
 > "0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234"
 ```
@@ -514,12 +515,12 @@ Parameter:
 
 Returns:
 
-`Promise` returns `String` - The data at given address address.
+`Promise` returns `String` - The data at given address.
 
 Example:
 
 ```js
-web3.platon.getCode("0xd5677cf67b5aa051bb40496e68ad359eb97cfbf8")
+web3.platon.getCode("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > "0x600160008035811a818181146012578301005b601b6001356025565b8060005260206000f25b600060078202905091905056"
 ```
@@ -546,12 +547,12 @@ Returns:
 
 Promise returns Object - The block object:
 
-* `number` - `Number`: The block number. null when its pending block.
-* `hash` 32 Bytes - `String`: Hash of the block. null when its pending block.
+* `number` - `Number`: The block number. null when it's pending block.
+* `hash` 32 Bytes - `String`: Hash of the block. null when it's pending block.
 * `parentHash` 32 Bytes - `String`: Hash of the parent block.
-* `nonce` 8 Bytes - `String`: Hash of the generated proof-of-work. null when its pending block.
+* `nonce` 8 Bytes - `String`: Hash of the generated proof-of-work. null when it's pending block.
 * `sha3Uncles` 32 Bytes - `String`: SHA3 of the uncles data in the block.
-* `logsBloom` 256 Bytes - `String`: The bloom filter for the logs of the block. null when its pending block.
+* `logsBloom` 256 Bytes - `String`: The bloom filter for the logs of the block. null when it's pending block.
 * `transactionsRoot` 32 Bytes - `String`: The root of the transaction trie of the block
 * `stateRoot` 32 Bytes - `String`: The root of the final state trie of the block.
 * `miner` - `String`: The address of the beneficiary to whom the mining rewards were given.
@@ -580,7 +581,7 @@ web3.platon.getBlock(3150)
     "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "transactionsRoot": "0x3a1b03875115b79539e5bd33fb00d8f7b7cd61929d5a3c574f507b8acf415bee",
     "stateRoot": "0xf1133199d44695dfa8fd1bcfe424d82854b5cebef75bddd7e40ea94cda515bcb",
-    "miner": "0x8888f1f195afa192cfee860698584c030f4c9db1",
+    "miner": "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6",
     "difficulty": '21345678965432',
     "totalDifficulty": '324567845321',
     "size": 616,
@@ -619,7 +620,7 @@ Returns:
 Example:
 
 ```js
-web3.platon.getBlockTransactionCount("0x407d73d8a49eeb85d32cf465507dd71d507100c1")
+web3.platon.getBlockTransactionCount("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > 1
 ```
@@ -643,15 +644,15 @@ Parameter:
 
 Returns:
 
-`Promise` returns `Object` - A transaction object its hash `transactionHash`:
+`Promise` returns `Object` - A transaction object it's hash `transactionHash`:
 
 * `hash` 32 Bytes - `String:` Hash of the transaction.
 * `nonce` - `Number`: The number of transactions made by the sender prior to this one.
-* `blockHash` 32 Bytes - `String`: Hash of the block where this transaction was in. null when its pending.
-* `blockNumber` - `Number`: Block number where this transaction was in. null when its pending.
-* `transactionIndex` - `Number`: Integer of the transactions index position in the block. null when its pending.
+* `blockHash` 32 Bytes - `String`: Hash of the block where this transaction was in. null when it's pending.
+* `blockNumber` - `Number`: Block number where this transaction was in. null when it's pending.
+* `transactionIndex` - `Number`: Integer of the transactions index position in the block. null when it's pending.
 * `from` - `String`: Address of the sender.
-* `to` - `String`: Address of the receiver. null when its a contract creation transaction.
+* `to` - `String`: Address of the receiver. null when it's a contract creation transaction.
 * `value` - `String`: Value transferred in von.
 * `gasPrice` - `String`: Gas price provided by the sender in von.
 * `gas` - `Number`: Gas provided by the sender.
@@ -668,8 +669,8 @@ web3.platon.getTransaction('0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4
     "blockHash": "0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
     "blockNumber": 3,
     "transactionIndex": 0,
-    "from": "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
-    "to": "0x6295ee1b4f6dd65047762f924ecd367c17eabf8f",
+    "from": "lax14984xa8uuhkmer32s6tuz5e3valxa0ct68a0c5",
+    "to": "lax1v227ux60dht9q3mk97fyanfk0st740u0x25f88",
     "value": '123450000000000000',
     "gas": 314159,
     "gasPrice": '2000000000000',
@@ -736,7 +737,7 @@ Returns:
 * `transactionHash` 32 Bytes - `String`: Hash of the transaction.
 * `transactionIndex`- `Number`: Integer of the transactions index position in the block.
 * `from` - `String`: Address of the sender.
-* `to` - `String`: Address of the receiver. null when its a contract creation transaction.
+* `to` - `String`: Address of the receiver. null when it's a contract creation transaction.
 * `contractAddress` - `String`: The contract address created, if the transaction was a contract creation, otherwise null.
 * `cumulativeGasUsed` - `Number`: The total amount of gas used when this transaction was executed in the block.
 * `gasUsed` - `Number`: The amount of gas used by this specific transaction alone.
@@ -754,7 +755,7 @@ var receipt = web3.platon.getTransactionReceipt('0x9fc76417374aa880d4449a1f7f31e
   "transactionIndex": 0,
   "blockHash": "0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
   "blockNumber": 3,
-  "contractAddress": "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe",
+  "contractAddress": "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6",
   "cumulativeGasUsed": 314159,
   "gasUsed": 30234,
   "logs": [{
@@ -788,7 +789,7 @@ Returns:
 Example:
 
 ```js
-web3.platon.getTransactionCount("0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe")
+web3.platon.getTransactionCount("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > 1
 ```
@@ -825,7 +826,7 @@ PromiEvent:  A promise combined event emitter. Will be resolved when the transac
 
 *  "transactionHash" returns String: Is fired right after the transaction is sent and a transaction hash is available.
 *  "receipt"  returns `Object`: Is fired when the transaction receipt is available.
-*  "confirmation" returns Number, Object: Is fired for every confirmation up to the 12th confirmation. Receives the confirmation number as the first and the receipt as the second argument. Fired from confirmation 0 on, which is the block where its minded.
+*  "confirmation" returns Number, Object: Is fired for every confirmation up to the 12th confirmation. Receives the confirmation number as the first and the receipt as the second argument. Fired from confirmation 0 on, which is the block where it's minded.
 *  "error" returns Error and Object|undefined: Is fired if an error occurs during sending. If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.
 
 Example:
@@ -836,7 +837,7 @@ var code = "603d80600c6000396000f3007c010000000000000000000000000000000000000000
 
 // using the callback
 web3.platon.sendTransaction({
-    from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
+    from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv',
     data: code // deploying a contracrt
 }, function(error, hash){
     ...
@@ -844,8 +845,8 @@ web3.platon.sendTransaction({
 
 // using the promise
 web3.platon.sendTransaction({
-    from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
-    to: '0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe',
+    from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv',
+    to: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6',
     value: '1000000000000000'
 })
 .then(function(receipt){
@@ -855,8 +856,8 @@ web3.platon.sendTransaction({
 
 // using the event emitter
 web3.platon.sendTransaction({
-    from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
-    to: '0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe',
+    from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv',
+    to: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6',
     value: '1000000000000000'
 })
 .on('transactionHash', function(hash){
@@ -903,7 +904,7 @@ var rawTx = {
   nonce: '0x00',
   gasPrice: '0x09184e72a000',
   gasLimit: '0x2710',
-  to: '0x0000000000000000000000000000000000000000',
+  to: 'lax1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqmscn5j',
   value: '0x00',
   data: '0x7f7465737432000000000000000000000000000000000000000000000000000000600057'
 }
@@ -913,7 +914,7 @@ const customCommon = Common.default.forCustomChain(
   {
     name: 'platon',
     networkId: 1,
-    chainId: 101,
+    chainId: 104,
   },
   'petersburg'
 );
@@ -956,12 +957,12 @@ Returns:
 Example:
 
 ```js
-web3.platon.sign("Hello world", "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe")
+web3.platon.sign("Hello world", "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"
 
 // the below is the same
-web3.platon.sign(web3.utils.utf8ToHex("Hello world"), "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe")
+web3.platon.sign(web3.utils.utf8ToHex("Hello world"), "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"
 ```
@@ -992,10 +993,10 @@ Example:
 
 ```js
 web3.platon.signTransaction({
-    from: "0xEB014f8c8B418Db6b45774c326A0E64C78914dC0",
+    from: "lax1avq5lrytgxxmddzhwnpjdg8xf3ufznwqrjn60v",
     gasPrice: "20000000000",
     gas: "21000",
-    to: '0x3535353535353535353535353535353535353535',
+    to: 'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
     value: "1000000000000000000",
     data: ""
 }).then(console.log);
@@ -1005,7 +1006,7 @@ web3.platon.signTransaction({
         nonce: '0x0',
         gasPrice: '0x4a817c800',
         gas: '0x5208',
-        to: '0x3535353535353535353535353535353535353535',
+        to: 'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
         value: '0xde0b6b3a7640000',
         input: '0x',
         v: '0x25',
@@ -1041,7 +1042,7 @@ Example:
 
 ```js
 web3.platon.estimateGas({
-    to: "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe",
+    to: "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6",
     data: "0xc6888fa10000000000000000000000000000000000000000000000000000000000000003"
 })
 .then(console.log);
@@ -1080,14 +1081,14 @@ The structure of the returned event `Object` in the `Array` looks as follows:
 * `logIndex` - `Number`: Integer of the event index position in the block.
 * `transactionIndex` - `Number`: Integer of the transaction’s index position, the event was created in.
 * `transactionHash` 32 Bytes - `String`: Hash of the transaction this event was created in.
-* `blockHash` 32 Bytes - `String`: Hash of the block where this event was created in. null when its still pending.
-* `blockNumber` - `Number`: The block number where this log was created in. null when still pending.
+* `blockHash` 32 Bytes - `String`: Hash of the block where this event was created in. null when it's still pending.
+* `blockNumber` - `Number`: The block number where this log was created in. null when it's still pending.
 
 Example:
 
 ```js
 web3.platon.getPastLogs({
-    address: "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe",
+    address: "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6",
     topics: ["0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234"]
 })
 .then(console.log);
@@ -1100,7 +1101,7 @@ web3.platon.getPastLogs({
     transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
     blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
     blockNumber: 1234,
-    address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
+    address: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'
 },{...}]
 ```
 
@@ -1130,7 +1131,7 @@ EventEmitter -  A Subscription instance:
 * `subscription.subscribe([callback])`: Can be used to re-subscribe with the same parameters.
 * `subscription.unsubscribe([callback])`: Unsubscribes the subscription and returns TRUE in the callback if successfull.
 * `subscription.arguments`: The subscription arguments, used when re-subscribing.
-* `on("data")` returns Object: 	Fires on each incoming log with the log object as argument.
+	 `on("data")` returns Object: 	Fires on each incoming log with the log object as argument.
 * `on("changed")` returns Object: Fires on each log which was removed from the blockchain. The log will have the additional property `"removed: true"`.
 * `on("error")` returns Object: Fires when an error in the subscription occurs.
 * `on("connected")` returns String: Fires once after the subscription successfully connected. Returns the subscription id.
@@ -1143,8 +1144,8 @@ Example:
 
 ```js
 var subscription = web3.platon.subscribe('logs', {
-    address: '0x123456..',
-    topics: ['0x12345...']
+    address: 'lax..',
+    topics: ['lax...']
 }, function(error, result){
     if (!error)
         console.log(log);
@@ -1260,12 +1261,12 @@ Returns:
 
 The structure of a returned block header is as follows:
 
-* `number` - `Number`: The block number. null when its pending block.
-* `hash` 32 Bytes - `String`: Hash of the block. null when its pending block.
+* `number` - `Number`: The block number. null when it's pending block.
+* `hash` 32 Bytes - `String`: Hash of the block. null when it's pending block.
 * `parentHash` 32 Bytes - `String`: Hash of the parent block.
-* `nonce` 8 Bytes - `String`: Hash of the generated proof-of-work. null when its pending block.
+* `nonce` 8 Bytes - `String`: Hash of the generated proof-of-work. null when it's pending block.
 * `sha3Uncles` 32 Bytes - `String`: SHA3 of the uncles data in the block.
-* `logsBloom` 256 Bytes - `String`: The bloom filter for the logs of the block. null when its pending block.
+* `logsBloom` 256 Bytes - `String`: The bloom filter for the logs of the block. null when it's pending block.
 * `transactionsRoot` 32 Bytes - `String`: The root of the transaction trie of the block
 * `stateRoot` 32 Bytes - `String`: The root of the final state trie of the block.
 * `receiptsRoot` 32 Bytes - `String`: The root of the receipts.
@@ -1302,7 +1303,7 @@ subscription.unsubscribe(function(error, success){
 
 #### web3.platon.subscribe('syncing')
 
-`syncing` Subscribe to syncing events. This will return an object when the node is syncing and when its finished syncing will return FALSE.
+`syncing` Subscribe to syncing events. This will return an object when the node is syncing and when it's finished syncing will return FALSE.
 
 Method:
 
@@ -1395,8 +1396,8 @@ Example:
 
 ```js
 var subscription = web3.platon.subscribe('logs', {
-    address: '0x123456..',
-    topics: ['0x12345...']
+    address: 'lax..',
+    topics: ['lax...']
 }, function(error, result){
     if (!error)
         console.log(result);
@@ -1437,17 +1438,18 @@ Parameter:
    * `gasPrice` - `String`: The gas price in von to use for transactions.
    * `gas` - `Number`: The maximum gas provided for a transaction (gas limit).
    * `data` - `String`: The byte code of the contract. Used when the contract gets deployed.
-   * `vmType` - `Number`: The contract type。0 means solidity contract, 1 means wasm contract. The default is the solidity contract. (New field)
+   * `vmType` - `Number`: The contract type. 0 means solidity contract, 1 means WASM contract. The default is the solidity contract. (New field)
+   * `net_type ` - `String`: The network type. `lat` represents the primary network, `lax` represents the test network. The default is to the test network.  (New field)
 
 Returns:
 
-`Object`: The contract instance with all its methods and events.
+`Object`: The contract instance with all it's methods and events.
 
 Example:
 
 ```js
-var myContract = new web3.platon.Contract([...], '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe', {
-    from: '0x1234567890123456789012345678901234567891', // default from address
+var myContract = new web3.platon.Contract([...], 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv', {
+    from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf', // default from address
     gasPrice: '20000000000' // default gas price in wei, 20 gwei in this case
 });
 ```
@@ -1478,14 +1480,14 @@ Example:
 ```js
 myContract.options;
 > {
-    address: '0x1234567890123456789012345678901234567891',
+    address: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf',
     jsonInterface: [...],
-    from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
+    from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv',
     gasPrice: '10000000000000',
     gas: 1000000
 }
 
-myContract.options.from = '0x1234567890123456789012345678901234567891'; // default from address
+myContract.options.from = 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'; // default from address
 myContract.options.gasPrice = '20000000000000'; // default gas price in wei
 myContract.options.gas = 5000000; // provide as fallback always 5M gas
 ```
@@ -1510,10 +1512,10 @@ Example:
 
 ```js
 myContract.options.address;
-> '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae'
+> 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'
 
 // set a new address
-myContract.options.address = '0x1234FFDD...';
+myContract.options.address = 'lax...';
 ```
 
 ***
@@ -1568,7 +1570,7 @@ Parameter:
 `options` - Object: The options used for deployment.
 
 * `data` - `String`: The byte code of the contract.
-* `arguments` - `Array`: (optional): The arguments which get passed to the constructor on deployment. If you deploy a wasm contract, you can refer to [wasm contract parameter passing reference](https://github.com/PlatONnetwork/client-sdk-js/blob/feature/wasm/test/1_platon_wasm.js)。
+* `arguments` - `Array`: (optional): The arguments which get passed to the constructor on deployment. If you deploy a WASM contract, you can refer to [WASM contract parameter passing reference](https://github.com/PlatONnetwork/client-sdk-js/blob/feature/wasm/test/1_platon_wasm.js)。
 
 Returns:
 
@@ -1587,7 +1589,7 @@ myContract.deploy({
     arguments: [123, 'My String']
 })
 .send({
-    from: '0x1234567890123456789012345678901234567891',
+    from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf',
     gas: 1500000,
     gasPrice: '30000000000000'
 }, function(error, transactionHash){ ... })
@@ -1609,7 +1611,7 @@ myContract.deploy({
     arguments: [123, 'My String']
 })
 .send({
-    from: '0x1234567890123456789012345678901234567891',
+    from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf',
     gas: 1500000,
     gasPrice: '30000000000000'
 })
@@ -1643,7 +1645,7 @@ myContract.deploy({
 
 Creates a transaction object for that method, which then can be called, send, estimated.
 
-If it is a wasm contract, you can refer to [wasm contract parameter passing reference](https://github.com/PlatONnetwork/client-sdk-js/blob/feature/wasm/test/1_platon_wasm.js)。
+If it is a WASM contract, you can refer to [WASM contract parameter passing reference](https://github.com/PlatONnetwork/client-sdk-js/blob/feature/wasm/test/1_platon_wasm.js)。
 
 Method:
 
@@ -1654,8 +1656,8 @@ myContract.methods.myMethod([param1[, param2[, ...]]])
 The methods of this smart contract are available through:
 
 * The name: myContract.methods.myMethod(123)
-* The name with parameters: myContract.methods['myMethod(uint256)'](123)
-* The signature: myContract.methods['0x58cf5f10'](123)
+* The name with parameters: myContract.methods\['myMethod(uint256)'\](123)
+* The signature: myContract.methods\['0x58cf5f10'\](123)
 
 This allows calling functions with same name but different parameters from the JavaScript contract object.
 
@@ -1668,8 +1670,8 @@ Returns:
 Object: The transaction object:
 
 *  `arguments`: Array - The arguments passed to the method before. They can be changed.
-*  `call`: Function -  Will call the “constant” method and execute its smart contract method in the EVM without sending a transaction (Can’t alter the smart contract state).
-*  `send`: Function - Will send a transaction to the smart contract and execute its method (Can alter the smart contract state).
+*  `call`: Function -  Will call the “constant” method and execute it's smart contract method in the EVM without sending a transaction (Can’t alter the smart contract state).
+*  `send`: Function - Will send a transaction to the smart contract and execute it's method (Can alter the smart contract state).
 *  `estimateGas`: Function - Will estimate the gas used when the method would be executed on chain.
 *  `encodeABI`: Function -  Encodes the ABI for this method. This can be send using a transaction, call the method or passing into another smart contracts method as argument.
 
@@ -1677,18 +1679,18 @@ Example:
 
 ```js
 // calling a method
-myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, result){
+myContract.methods.myMethod(123).call({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'}, function(error, result){
     ...
 });
 
 // or sending and using a promise
-myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
+myContract.methods.myMethod(123).send({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'})
 .then(function(receipt){
     // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
 });
 
 // or sending and using the events
-myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
+myContract.methods.myMethod(123).send({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'})
 .on('transactionHash', function(hash){
     ...
 })
@@ -1705,7 +1707,7 @@ myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4
 
 #### methods.myMethod.call
 
-Will call a “constant” method and execute its smart contract method in the EVM without sending any transaction. Note calling can not alter the smart contract state.
+Will call a “constant” method and execute it's smart contract method in the EVM without sending any transaction. Note calling can not alter the smart contract state.
 
 Method:
 
@@ -1728,12 +1730,12 @@ Example:
 
 ```js
 // using the callback
-myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, result){
+myContract.methods.myMethod(123).call({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'}, function(error, result){
     ...
 });
 
 // using the promise
-myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
+myContract.methods.myMethod(123).call({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'})
 .then(function(result){
     ...
 });
@@ -1789,7 +1791,7 @@ MyContract.methods.myFunction().call()
 
 #### send - methods.myMethod.send
 
-Will send a transaction to the smart contract and execute its method. Note this can alter the smart contract state.
+Will send a transaction to the smart contract and execute it's method. Note this can alter the smart contract state.
 
 Method:
 
@@ -1821,19 +1823,19 @@ Example:
 
 ```js
 // using the callback
-myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, transactionHash){
+myContract.methods.myMethod(123).send({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'}, function(error, transactionHash){
     ...
 });
 
 // using the promise
-myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
+myContract.methods.myMethod(123).send({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'})
 .then(function(receipt){
     // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
 });
 
 
 // using the event emitter
-myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
+myContract.methods.myMethod(123).send({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'})
 .on('transactionHash', function(hash){
     ...
 })
@@ -1848,7 +1850,7 @@ myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4
         "transactionIndex": 0,
         "blockHash": "0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
         "blockNumber": 3,
-        "contractAddress": "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe",
+        "contractAddress": "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6",
         "cumulativeGasUsed": 314159,
         "gasUsed": 30234,
         "events": {
@@ -1869,7 +1871,7 @@ myContract.methods.myMethod(123).send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4
                 transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
                 blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
                 blockNumber: 1234,
-                address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
+                address: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'
             },
             "MyOtherEvent": {
                 ...
@@ -1916,7 +1918,7 @@ myContract.methods.myMethod(123).estimateGas({gas: 5000000}, function(error, gas
 });
 
 // using the promise
-myContract.methods.myMethod(123).estimateGas({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
+myContract.methods.myMethod(123).estimateGas({from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'})
 .then(function(gasAmount){
     ...
 })
@@ -1991,7 +1993,7 @@ The structure of the returned event `Object` looks as follows:
 * `transactionIndex` - `Number`: Integer of the transaction’s index position the event was created in.
 * `transactionHash` 32 Bytes - `String` Hash of the transaction this event was created in.
 * `blockHash` 32 Bytes - `String`: Hash of the block this event was created in. null when it’s still pending.
-* `blockNumber` - `Number`: The block number this log was created in. null when still pending.
+* `blockNumber` - `Number`: The block number this log was created in. null when it's still pending.
 * `raw.data` - `String`: The data containing non-indexed log parameter.
 * `raw.topics` - `Array`: An array with max 4 32 Byte topics, topic 1-3 contains indexed parameters of the event.
 
@@ -2028,7 +2030,7 @@ myContract.events.MyEvent({
     transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
     blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
     blockNumber: 1234,
-    address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
+    address: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'
 }
 ```
 
@@ -2099,7 +2101,7 @@ myContract.getPastEvents('MyEvent', {
     transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
     blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
     blockNumber: 1234,
-    address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
+    address: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv'
 },{
     ...
 }]
@@ -2107,6 +2109,92 @@ myContract.getPastEvents('MyEvent', {
 
 ***
 
+#### newFilter
+
+newFilter creates a new filter and returns the filter id. It can be used to retrieve logs when the state changes. 
+
+Method:
+
+```
+myContract.newFilter(event[, options][, callback])
+```
+
+Parameter：
+
+- `event` - `String`: The name of the event in the contract, or "allEvents" to get all events.
+- `options` - `Object` (optional): The options used for deployment.
+  - `filter` - `Object` (optional): Lets you filter events by indexed parameters, e.g. {filter: {myNumber: [12,13]}} means all events where “myNumber” is 12 or 13.
+  - `fromBlock` - `Number|String|BN|BigNumber` (optional): The block number (greater than or equal to) from which to get events on. Pre-defined block numbers as "latest", "earlist", "pending", and "genesis" can also be used.
+  - `toBlock` - `Number|String|BN|BigNumber` (optional): The block number (less than or equal to) to get events up to (Defaults to "latest"). Pre-defined block numbers as "latest", "earlist", "pending", and "genesis" can also be used.
+  - `topics` - `Array` (optional): This allows manually setting the topics for the event filter. If given the filter property and event signature, (topic[0]) will not be set automatically.
+- `callback` - `Function` (optional): This callback will be fired with an array of event logs as the second argument, or an error as the first argument.
+
+Returns:
+
+- Returns a filter ID of type String.
+
+Example:
+
+```js
+myContract.newFilter(eventName, {
+   filter: eventFilter,
+   fromBlock: fromBlockNum,
+   toBlock: "latest"
+}, function(error, rpcId){ 
+    console.log("rpcId:", rpcId); 
+})
+
+> rpcId: 0xa081d1f00117ade0e08769bb053ae7e
+```
+
+------
+
+#### getFilterLogs
+
+getFilterLogs returns the logs for the filter with the given id. If the filter could not be found an empty array of logs is returned.
+
+Method:
+
+```
+myContract.getFilterLogs(rpcId[, callback])
+```
+
+Parameter：
+
+- rpcId- String:  Filter ID, returned by calling the `newFilter` interface .
+
+Returns:
+
+- Promise returns Array: An array with the past event Objects, matching the given event name and filter.
+
+Example：
+
+```js
+contract.getFilterLogs("0xa081d1f00117ade0e08769bb053ae7e", function(error, events){ 
+     console.log(events); 
+})
+
+> [
+  {
+    address: 'lat1dw8t6q5jy6r3xqqkgc43nn403gpuzwx7penk3q',
+    topics: [
+      '0x0000000000000000000000000000000000000000007374727563744576656e74',
+      '0x000000000000000000000000000000000000000000000000000000000000c180'
+    ],
+    data: '0xc0',
+    blockNumber: '0x16375a',
+    transactionHash: '0x59d68e32b6566877fb024f3ab356d9c5d2947f6f7a89bc4b34432496c34193d5',
+    transactionIndex: '0x0',
+    blockHash: '0x2843f645de8147cce62e6d18bb287c4cf06bbb6a3f3f5ec97917a7a09e300eee',
+    logIndex: '0x0',
+    removed: false
+  }
+]
+```
+
+Note: Read contract history events, which can be obtained using the `newFilter` and `getFilterLogs` interfaces. 
+
+------
 
 #### web3.platon.personal
 
@@ -2137,7 +2225,7 @@ var web3 = new Web3(Web3.givenProvider || 'ws://some.local-or-remote.node:8546')
 
 Creates a new account.
 
-Notes: Never call this function over a unsecured Websocket or HTTP provider, as your password will be send in plain text!
+Notes: Never call this function over a unsecured Websocket or HTTP provider, as your password will be sent in plain text!
 
 Method:
 
@@ -2158,7 +2246,7 @@ Example:
 ```js
 web3.platon.personal.newAccount('!@superpassword')
 .then(console.log);
-> '0x1234567891011121314151617181920212223456'
+> 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'
 ```
 
 ***
@@ -2189,12 +2277,12 @@ Returns:
 Example:
 
 ```js
-web3.platon.personal.sign("Hello world", "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe", "test password!")
+web3.platon.personal.sign("Hello world", "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6", "test password!")
 .then(console.log);
 > "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"
 
 // the below is the same
-web3.platon.personal.sign(web3.utils.utf8ToHex("Hello world"), "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe", "test password!")
+web3.platon.personal.sign(web3.utils.utf8ToHex("Hello world"), "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6", "test password!")
 .then(console.log);
 > "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"
 ```
@@ -2225,7 +2313,7 @@ Example:
 
 ```js
 web3.platon.personal.ecRecover("Hello world", "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400").then(console.log);
-> "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe"
+> "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6"
 ```
 
 ***
@@ -2256,10 +2344,10 @@ Example:
 
 ```js
 web3.platon.signTransaction({
-    from: "0xEB014f8c8B418Db6b45774c326A0E64C78914dC0",
+    from: "lax1avq5lrytgxxmddzhwnpjdg8xf3ufznwqrjn60v",
     gasPrice: "20000000000",
     gas: "21000",
-    to: '0x3535353535353535353535353535353535353535',
+    to: 'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
     value: "1000000000000000000",
     data: ""
 }, 'MyPassword!').then(console.log);
@@ -2269,7 +2357,7 @@ web3.platon.signTransaction({
         nonce: '0x0',
         gasPrice: '0x4a817c800',
         gas: '0x5208',
-        to: '0x3535353535353535353535353535353535353535',
+        to: 'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
         value: '0xde0b6b3a7640000',
         input: '0x',
         v: '0x25',
@@ -2301,7 +2389,7 @@ Function List:
 
 #### web3.platon.abi.encodeFunctionSignature
 
-Encodes the function name to its ABI signature, which are the first 4 bytes of the sha3 hash of the function name including types.
+Encodes the function name to it's ABI signature, which are the first 4 bytes of the sha3 hash of the function name including types.
 
 Method:
 
@@ -2343,7 +2431,7 @@ web3.platon.abi.encodeFunctionSignature('myMethod(uint256,string)')
 
 #### web3.platon.abi.encodeEventSignature
 
-Encodes the event name to its ABI signature, which are the sha3 hash of the event name including input types.
+Encodes the event name to it's ABI signature, which are the sha3 hash of the event name including input types.
 
 Method:
 
@@ -2385,7 +2473,7 @@ web3.platon.abi.encodeEventSignature({
 
 #### web3.platon.abi.encodeFunctionCall
 
-Encodes a function call using its JSON interface object and given paramaters.
+Encodes a function call using it's JSON interface object and given paramaters.
 
 Method:
 
@@ -2423,7 +2511,7 @@ web3.platon.abi.encodeFunctionCall({
 
 #### web3.platon.abi.decodeParameter
 
-Decodes an ABI encoded parameter to its JavaScript type.
+Decodes an ABI encoded parameter to it's JavaScript type.
 
 Method:
 
@@ -2454,7 +2542,7 @@ web3.platon.abi.decodeParameter('string', '0x00000000000000000000000000000000000
 
 #### web3.platon.abi.decodeParameters
 
-Decodes ABI encoded parameters to its JavaScript types.
+Decodes ABI encoded parameters to it's JavaScript types.
 
 Method:
 
@@ -2508,7 +2596,7 @@ Parameter:
 
 *  inputs - Object: A JSON interface inputs array. See the solidity documentation for a list of types.
 *  hexString - String: The ABI byte code in the data field of a log.
-*  topics - Array: An array with the index parameter topics of the log, without the topic[0] if its a non-anonymous event, otherwise with topic[0].
+*  topics - Array: An array with the index parameter topics of the log, without the topic[0] if it's a non-anonymous event, otherwise with topic[0].
 
 Returns:
 
@@ -2810,18 +2898,18 @@ web3.utils.soliditySha3({t: 'uint', v: new BN('234')})); // same as above
 > "0x61c831beab28d67d1bb40b5ae1a11e2757fa842f031a2d0bc94a7867bc5d26c2"
 
 
-web3.utils.soliditySha3('0x407D73d8a49eeb85D32Cf465507dd71d507100c1');
+web3.utils.soliditySha3('lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6');
 > "0x4e8ebbefa452077428f93c9520d3edd60594ff452a29ac7d2ccc11d47f3ab95b"
 
-web3.utils.soliditySha3({t: 'bytes', v: '0x407D73d8a49eeb85D32Cf465507dd71d507100c1'});
+web3.utils.soliditySha3({t: 'bytes', v: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'});
 > "0x4e8ebbefa452077428f93c9520d3edd60594ff452a29ac7d2ccc11d47f3ab95b" // same result as above
 
 
-web3.utils.soliditySha3({t: 'address', v: '0x407D73d8a49eeb85D32Cf465507dd71d507100c1'});
-> "0x4e8ebbefa452077428f93c9520d3edd60594ff452a29ac7d2ccc11d47f3ab95b" //same as above, but will do a checksum check, if its multi case
+web3.utils.soliditySha3({t: 'address', v: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'});
+> "0x4e8ebbefa452077428f93c9520d3edd60594ff452a29ac7d2ccc11d47f3ab95b" //same as above, but will do a checksum check, if it's multi case
 
 
-web3.utils.soliditySha3({t: 'bytes32', v: '0x407D73d8a49eeb85D32Cf465507dd71d507100c1'});
+web3.utils.soliditySha3({t: 'bytes32', v: 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'});
 > "0x3c69a194aaf415ba5d6afca734660d0a3d45acdc05d54cd1ca89a8988e7625b4" // different result as above
 
 
@@ -2954,6 +3042,106 @@ web3.utils.isAddress('0xC1912fEE45d61C87Cc5EA59DaE31190FFFFf232d');
 
 ***
 
+#### web3.utils.isBech32Address
+
+ Check whether the specified character string is a valid address in bech32 format. 
+
+ Method: 
+
+```js
+web3.utils.isBech32Address(bech32Address)
+```
+
+ Parameter: 
+
+`bech32Address` - String:  The address string to be checked in bech32 format; lax represents the test network address, and lat represents the main network address. 
+
+Returns:
+
+`Boolean`: Valid address returns true, otherwise returns false.
+
+ Sample code: 
+
+```js
+web3.utils.isBech32Address('lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf');
+> true
+
+web3.utils.isBech32Address('lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf');
+> false
+
+web3.utils.isBech32Address('lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
+> true
+
+web3.utils.isBech32Address('lax1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
+> false
+```
+
+------
+
+#### web3.utils.toBech32Address
+
+ Convert a valid Ethereum address to a bech32 format address of the designated network.  
+
+Method:
+
+```js
+web3.utils.toBech32Address(hrp, address)
+```
+
+Parameters:
+
+`hrp` - String:  Specify the network parameters, lax indicates the test network address, and lat indicates the main network address.
+
+`address` - String:  Ethereum address format string. 
+
+Returns:
+
+`String`: Returns address string in bech32 format
+
+ Sample code: 
+
+```js
+web3.utils.toBech32Address('lax', '0x1234567890123456789012345678901234567891');
+> 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'
+
+web3.utils.toBech32Address('lat', '0x1234567890123456789012345678901234567891');
+> 'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx'
+```
+
+------
+
+#### web3.utils.decodeBech32Address
+
+ Resolve the bech32 format address of the specified network into a valid Ethereum address. 
+
+Method:
+
+```js
+web3.utils.decodeBech32Address(hrp, bech32Address)
+```
+
+Parameters:
+
+`hrp` - String:  Specify the network parameters, lax indicates the test network address, and lat indicates the main network address.
+
+`bech32Address` - String:   Address string in bech32 format. 
+
+Returns:
+
+`String`:  The resolution correctly returns a valid Ethereum address, otherwise it returns null. 
+
+Sample code: 
+
+```js
+web3.utils.decodeBech32Address('lax', 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf');
+> '0x1234567890123456789012345678901234567891'
+
+web3.utils.decodeBech32Address('lat', 'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
+> '0x1234567890123456789012345678901234567891'
+```
+
+------
+
 #### web3.utils.toChecksumAddress
 
 Will convert an upper or lowercase Ethereum address to a checksum address.
@@ -3000,7 +3188,7 @@ Parameter:
 
 Returns:
 
-`Boolean`: `true` when the checksum of the address is valid, `false` if its not a checksum address, or the checksum is invalid.
+`Boolean`: `true` when the checksum of the address is valid, `false` if it's not a checksum address, or the checksum is invalid.
 
 Example:
 
@@ -3434,13 +3622,13 @@ Of course, in order to satisfy multiple ppos that can be instantiated arbitraril
     // Since the provider has been passed in when instantiating web3, it is not necessary to pass in the provider.
     ppos.updateSetting({
         privateKey: 'acc73b693b79bbb56f89f63ccc3a0c00bf1b8380111965bfe8ab22e32045600c',
-        chainId: 101,
+        chainId: 104,
     })
 
     let data, reply;
 
     // Passing parameters to send transactions in the form of objects: 1000. createStaking (): initiate a pledge.
-    const benefitAddress = '0xe6F2ce1aaF9EBf2fE3fbA8763bABaDf25e3fb5FA';
+    const benefitAddress = 'lax1umevux40n6ljlclm4pmrh2ad7f0rld06hkzx3u';
     const nodeId = '80f1fcee54de74dbf7587450f31c31c0e057bedd4faaa2a10c179d52c900ca01f0fb255a630c49d83b39f970d175c42b12a341a37504be248d76ecf592d32bc0';
     const amount = '10000000000000000000000000000';
     const blsPubKey = 'd2459db974f49ca9cbf944d4d04c2d17888aef90858b62d6aec166341a6e886e8c0c0cfae9e469c2f618f5d9b7a249130d10047899da6154288c9cde07b576acacd75fef07ba0cfeb4eaa7510704e77a9007eff5f1a5f8d099e6ea664129780c';
@@ -3505,7 +3693,7 @@ Of course, in order to satisfy multiple ppos that can be instantiated arbitraril
     const ppos1 = new web3.PPOS({
         provider: 'http://127.0.0.1:6789',
         privateKey: '9f9b18c72f8e5154a9c59af2a35f73d1bdad37b049387fc6cea2bac89804293b',
-        chainId: 101,
+        chainId: 104,
     })
     reply = await ppos1.call(data);
 })()
@@ -3519,11 +3707,11 @@ createStaking params object reply:  {
   "blockNumber": "0xb",
   "contractAddress": null,
   "cumulativeGasUsed": "0x14f34",
-  "from": "0x714de266a0effa39fcaca1442b927e5f1053eaa3",
+  "from": "lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35",
   "gasUsed": "0x14f34",
   "logs": [
     {
-      "address": "0x1000000000000000000000000000000000000002",
+      "address": "lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35",
       "topics": [
         "0xd63087bea9f1800eed943829fc1d61e7869764805baa3259078c1caf3d4f5a48"
       ],
@@ -3543,7 +3731,7 @@ createStaking params object reply:  {
   ],
   "logsBloom": "",
   "root": "0x3b7a41cea97f90196039586a3068f6a64c09aa7597898440c3c241a095e37984",
-  "to": "0x1000000000000000000000000000000000000002",
+  "to": "lax1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3",
   "transactionHash": "0x4bee71e351076a81482e2576e469a8dfaa76da9b6cc848265c10968d6de67364",
   "transactionIndex": "0x0"
 }
@@ -3553,10 +3741,10 @@ createStaking params array reply:  { blockHash:
   blockNumber: '0x10',
   contractAddress: null,
   cumulativeGasUsed: '0x14f34',
-  from: '0x714de266a0effa39fcaca1442b927e5f1053eaa3',
+  from: 'lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35',
   gasUsed: '0x14f34',
   logs:
-   [ { address: '0x1000000000000000000000000000000000000002',
+   [ { address: 'lax1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3',
        topics: [Array],
        data:
         '0xf846b8447b22436f6465223a3330313130312c2244617461223a22222c224572724d7367223a22546869732063616e64696461746520697320616c7265616479206578697374227d',
@@ -3572,7 +3760,7 @@ createStaking params array reply:  { blockHash:
   logsBloom:'',
   root:
    '0x45ffeda340b68a0d54c5556a51f925b0787307eab1fb120ed141fd8ba81183d4',
-  to: '0x1000000000000000000000000000000000000002',
+  to: 'lax1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3',
   transactionHash:
    '0xe5cbc728d6e284464c30ce6f0bbee5fb2b30351a591424f3a0edd37cc1bbdc05',
   transactionIndex: '0x0' }
@@ -3602,7 +3790,7 @@ getCandidateList params array reply:  {
 
 #### updateSetting(setting)
 
-Update the configuration parameters of the `ppos` object. If you only need to send a call, you only need to pass in the parameter `provider`. If you passed in the provider when instantiating web3. Then the `provider` of` ppos` is the provider that you instantiate from web3 by default. Of course you can also update the provider at any time.
+Update the configuration parameters of the `ppos` object. If you only need to send a call, you only need to pass in the parameter `provider`. If you passed in the provider when instantiating web3, then the `provider` of` ppos` is the provider that you instantiate from web3 by default. Of course you can also update the provider at any time.
 
 If you want to send a transaction via send, you need to pass in the parameters `provider`, the private key, and the chain id. Of course, sending transactions requires setting four parameters: `gas`,` gasPrice`, `retry`, and` interval`. See the `async send (params, [other])` description for details.
 
@@ -3628,7 +3816,7 @@ Example:
 ```JavaScript
 ppos.updateSetting({
     privateKey: 'acc73b693b79bbb56f89f63ccc3a0c00bf1b8380111965bfe8ab22e32045600c',
-    chainId: 101,
+    chainId: 104,
 })
 
 ppos.updateSetting({
@@ -3689,7 +3877,7 @@ let reply = await ppos.rpc('admin_getProgramVersion');
 let reply = await ppos.rpc('platon_accounts')
 
 // Get the amount of the specified account.
-let reply = await ppos.rpc('platon_getBalance', ["0x714de266a0effa39fcaca1442b927e5f1053eaa3","latest"])
+let reply = await ppos.rpc('platon_getBalance', ["lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35","latest"])
 ```
 
 ***
@@ -3774,12 +3962,12 @@ let params, reply;
 // Called by passing in an object (the order is not required for the key)
 params = {
     funcType: 1103,
-    addr: ppos.hexStrBuf("0xe6F2ce1aaF9EBf2fE3fbA8763bABaDf25e3fb5FA")
+    addr: ppos.hexStrBuf("lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35")
 }
 reply = await ppos.call(params);
 
 // Calling as an array object.
-params = [1103, ppos.hexStrBuf("0xe6F2ce1aaF9EBf2fE3fbA8763bABaDf25e3fb5FA")];
+params = [1103, ppos.hexStrBuf("lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35")];
 reply = await ppos.call(params);
 ```
 
@@ -4128,7 +4316,7 @@ Returns: List
 
 #### Submit Text Proposal
 
-Submit a text proposal by send a transaction.
+Submit a text proposal by sending a transaction.
 
 Parameters:
 
@@ -4200,7 +4388,7 @@ Parameters:
 
 #### Query Proposal
 
-Query proposal by call.
+Query proposal by calling.
 
 Parameters:
 
@@ -4216,7 +4404,7 @@ JSON string of object implementing interface Proposal.
 
 #### Query Proposal Results
 
-Query proposal results through call operation.
+Query proposal results through calling operation.
 
 Parameters:
 
@@ -4232,7 +4420,7 @@ Returns:
 
 #### Query Proposal List
 
-Query proposal list through call operation.
+Query proposal list through calling operation.
 
 Parameters:
 
@@ -4247,7 +4435,7 @@ Returns:
 
 #### Query Version In Effect
 
-Query the version in effect through call operation.
+Query the version in effect through calling operation.
 
 Parameters:
 
@@ -4263,7 +4451,7 @@ When parsing, ver needs to be converted into 4 bytes. Major version: second byte
 
 #### Query The Cumulative Voteable Number Of Proposals
 
-Query the cumulative voteable number of proposals through call operation.
+Query the cumulative voteable number of proposals through calling operation.
 
 Parameters:
 
@@ -4432,7 +4620,7 @@ Parameters:
 
 #### Get Lock Information
 
-Get lock information by call.
+Get lock information by calling.
 
 Note: This interface supports the acquisition of historical data. The block height can be attached to the request. By default, the latest block data is queried.
 

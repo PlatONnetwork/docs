@@ -27,8 +27,8 @@ PlatON区块链支持使用WebAssembly (WASM)来执行用户编写的智能合�
 
 platon-truffle是PlatON提供的一款能够在本地编译、部署、调用智能合约的工具，具体的安装及使用手册参见
 
-- platon-truffle开发工具[安装参考](https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#)
-- platon-truffle开发工具[使用手册](https://platon-truffle.readthedocs.io/en/v0.11.1/)
+- platon-truffle开发工具[安装参考](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html)
+- platon-truffle开发工具[使用手册](https://platon-truffle.readthedocs.io/en/v0.13.1/)
 
 
 ### 创建HelloWorld合约
@@ -149,26 +149,51 @@ platon-truffle compile
 
 ### 部署HelloWorld合约
 
-**step1.** 修改truffle-config.js中链的配制信息
+**step1.** 修改truffle-config.js中链的配置信息
 
 ```
 vim truffle-config.js
 ```
-将truffle-config.js中的区块链相关配制修改成您真实连接的链配制
+将truffle-config.js中的区块链相关配置修改成您真实连接的链配置
 ```
 networks: {
 	development: {
        host: "10.1.1.6",     // 区块链所在服务器主机
        port: 8806,            // 链端口号
        network_id: "*",       // Any network (default: none)
-       from: "0x5b37dabedae06edb142257819fad207199986992",
-       gas: 90000000,
+       from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl",
+       gas: 999999,
        gasPrice: 50000000004,
 	},
 }
 ```
 
-**step2.** 部署HelloWorld合约
+**step2.**  解锁钱包账户
+
+进入platon-truffle控制台
+```
+platon-truffle console
+```
+
+导入私钥（如果之前已导入可以跳过此步骤）
+```
+web3.platon.personal.importRawKey("您的钱包私钥","您的钱包密码");
+```
+导入成功将看到私钥对应的地址：
+```
+'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'
+```
+
+解锁钱包账户
+```
+ web3.platon.personal.unlockAccount('您的钱包地址','您的钱包密码',999999);
+```
+解锁成功将看到如下信息：
+```
+ture
+```
+
+**step3.** 部署HelloWorld合约
 
 ```
 platon-truffle deploy --wasm --contract-name HelloWorld --params '[[["1"], "2", "3"]]'
@@ -181,9 +206,9 @@ platon-truffle deploy --wasm --contract-name HelloWorld --params '[[["1"], "2", 
 receipt:  { blockHash:
    '0x266733b693ba650315a59c34e72804c06ca3e27fab145625797bd42259b572c5',
   blockNumber: 70441,
-  contractAddress: '0x0bf45390B486890486e6eB3F1D5C8e0840FD8B56',
+  contractAddress: 'lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np',
   cumulativeGasUsed: 291314,
-  from: '0x5b37dabedae06edb142257819fad207199986992',
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
   gasUsed: 291314,
   logs: [],
   logsBloom:
@@ -197,10 +222,10 @@ receipt:  { blockHash:
 ======================
 
    > transactionHash:     0x60946ebf0ccddc76a0234353435de73e7901888227fb2f03922fb0ce265a4e9d
-   > contract address:    0x0bf45390B486890486e6eB3F1D5C8e0840FD8B56
+   > contract address:    lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np
    > block number:        70441
    > block timestamp:     1583247148341
-   > account:             0x5b37dabedae06edb142257819fad207199986992
+   > account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
    > balance:             3533694129556768659166595001485837031654967793751237866225582808584074296
    > gas limit:           100000000
    > gas used:            291314
@@ -221,7 +246,7 @@ platon-truffle console
 
 ```json
 var abi = [{"baseclass":[],"fields":[{"name":"head","type":"string"}],"name":"message","type":"struct"},{"baseclass":["message"],"fields":[{"name":"body","type":"string"},{"name":"end","type":"string"}],"name":"my_message","type":"struct"},{"constant":false,"input":[{"name":"one_message","type":"my_message"}],"name":"init","output":"void","type":"Action"},{"constant":false,"input":[{"name":"one_message","type":"my_message"}],"name":"add_message","output":"void","type":"Action"},{"constant":true,"input":[],"name":"get_message_size","output":"uint8","type":"Action"},{"constant":true,"input":[{"name":"index","type":"uint8"}],"name":"get_message_body","output":"string","type":"Action"}];
-var contractAddr = '0x0bf45390B486890486e6eB3F1D5C8e0840FD8B56';
+var contractAddr = 'lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np';
  
 var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 }); 
 ```
@@ -235,7 +260,7 @@ var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 });
 
 ```javascript
 helloworld.methods.add_message([["5"], "6", "7"]).send({
-	from: '0x5b37dabedae06edb142257819fad207199986992',gas: 90000000
+	from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',gas: 999999
 }).on('receipt', function(receipt) {
 	console.log(receipt);
 }).on('error', console.error);
@@ -243,9 +268,9 @@ helloworld.methods.add_message([["5"], "6", "7"]).send({
 
 调用合约命令说明：
 - `helloWorld` 是之前构建的合约对象
-- `methods` 固定语法,指量后面紧跟合约的方法名
+- `methods` 固定语法,后面紧跟合约的方法名
 - `add_message` 是我们HelloWorld合约中的一个方法，有一个自定义my_message类型的入参
-- `from` 调用者的合约地址 
+- `from` 调用者的钱包地址 
 - `gas` gas值
 - `on` 是监听合约处理结果事件，此处如果成功将打印回执，失败输出错误日志
 
@@ -257,12 +282,12 @@ helloworld.methods.add_message([["5"], "6", "7"]).send({
   blockNumber: 74665,
   contractAddress: null,
   cumulativeGasUsed: 108549,
-  from: '0x5b37dabedae06edb142257819fad207199986992',
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
   gasUsed: 108549,
   logsBloom:
    '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   status: true,
-  to: '0x0bf45390b486890486e6eb3f1d5c8e0840fd8b56',
+  to: 'lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np',
   transactionHash:
    '0x2b5e590df7e70ad428b1ccb06bda5dcce47f84c4d981c2fb475aca9ec9d0000a',
   transactionIndex: 0,
@@ -272,12 +297,12 @@ helloworld.methods.add_message([["5"], "6", "7"]).send({
   blockNumber: 74665,
   contractAddress: null,
   cumulativeGasUsed: 108549,
-  from: '0x5b37dabedae06edb142257819fad207199986992',
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
   gasUsed: 108549,
   logsBloom:
    '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   status: true,
-  to: '0x0bf45390b486890486e6eb3f1d5c8e0840fd8b56',
+  to: 'lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np',
   transactionHash:
    '0x2b5e590df7e70ad428b1ccb06bda5dcce47f84c4d981c2fb475aca9ec9d0000a',
   transactionIndex: 0,
@@ -1165,18 +1190,33 @@ Address platon::platon_address()
 
 ### 帐户Api
 
-#### make_address()
+#### make_address() 1/2
 
 ```cpp
-template <size_t M> Address make_address(const char (&str)[M])
+template <size_t M> std::pair<Address, bool> make_address(const char (&str)[M])
 ```
+CDT 默认识别的地址是主网地址也就是地址前缀为lat，如果要识别测试网地址前缀为lax，需要定义宏TESTNET，在合约第一行加上#define TESTNET即可。
 
 将C风格字符串转换为地址对象。
 
 * **参数**
   * `str：` C风格字符串
 * **返回值**
-  * 地址对象
+  * 返回值为 pair，pair 的 second 表示成功或者失败，first 表示 Address 类型的地址。
+
+#### make_address() 2/2
+
+```cpp
+std::pair<Address, bool> make_address(const std::string &str_address)
+```
+CDT 默认识别的地址是主网地址也就是地址前缀为lat，如果要识别测试网地址前缀为lax，需要定义宏TESTNET，在合约第一行加上#define TESTNET即可。
+
+将字符串转换为地址对象。
+
+* **参数**
+  * `str：` 字符串
+* **返回值**
+  * 返回值为 pair，pair 的 second 表示成功或者失败，first 表示 Address 类型的地址
 
 #### platon_balance()
 
@@ -1651,50 +1691,55 @@ class platon::db::Map< TableName, Key, Value >
       获取值，将被添加到缓存中。
 
     * **参数**
+      
       * `k：`键
     * **返回值**
-      * 值的引用
+      
+    * 值的引用
     * **示例：**
-
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
-      assert(map.at["hello"] == "world");
+    assert(map.at["hello"] == "world");
       ```
-
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     bool platon::db::Map< TableName, Key, Value >::contains ( const Key & key )`
       检查容器中是否存在具有与key等效的键的元素。
 
     * **参数**
+      
       * `k：`键
     * **返回值**
-      * 如果存在这样的元素，则为true，否则为false。
+      
+    * 如果存在这样的元素，则为true，否则为false。
     * **示例：**
-
+    
       ```cpp
        typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
        MapStr map;
        map.["hello"] = "world";
-       assert(map.contains("hello"));
+     assert(map.contains("hello"));
       ```
-
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     void platon::db::Map< TableName, Key, Value >::erase ( const Key & k )`
       删除键值对。
 
     * **参数**
+      
       * `k：`键
-    * **示例：**
-
+  * **示例：**
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
       map.erase("hello");
-      ```
-
+    ```
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     void platon::db::Map< TableName, Key, Value >::flush ()`
     将内存中的修改数据刷新到区块链。
@@ -1704,18 +1749,20 @@ class platon::db::Map< TableName, Key, Value >
     获取Const对象，将不会加入缓存。
 
     * **参数**
+      
       * `k：`键
     * **返回值**
-      * 价值
+      
+    * 价值
     * **示例：**
-
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
-      assert(map.get_const["hello"] == "world");
+    assert(map.get_const["hello"] == "world");
       ```
-
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     bool platon::db::Map< TableName, Key, Value >::insert ( const Key & k,
     const Value & v)`
@@ -1725,16 +1772,17 @@ class platon::db::Map< TableName, Key, Value >
       * `k：`键
       * `v：`值
     * **返回值**
+      
       * true插入成功，false插入失败
-    * **示例：**
-
+  * **示例：**
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert("hello", "world");
       assert(map["hello"] == "world");
-      ```
-
+    ```
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     bool platon::db::Map< TableName, Key, Value >::insert_const ( const Key & k,
     const Value & v)`
@@ -1744,16 +1792,17 @@ class platon::db::Map< TableName, Key, Value >
       * `k：`键
       * `v：`值
     * **返回值**
+      
       * true插入成功，false插入失败
-    * **示例：**
-
+  * **示例：**
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
       map.insert_const("hello", "world");
       assert(map["hello"] == "world");
-      ```
-
+    ```
+    
   * `template<Name::Raw TableName, typename Key , typename Value >
     Map<TableName, Key, Value>& platon::db::Map< TableName, Key, Value >::operator= ( const Map< TableName, Key, Value > & )`
 
@@ -1762,11 +1811,13 @@ class platon::db::Map< TableName, Key, Value >
     括号运算符。
 
     * **参数**
+      
       * `k：`键
     * **返回值**
-      * 价值与获取价值
+      
+    * 价值与获取价值
     * **示例：**
-
+    
       ```cpp
       typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
       MapStr map;
@@ -2099,6 +2150,7 @@ const Args &...  args
   * `method：`被调用合约的方法名称
   * `args：`对应于合约方法的参数
 * **返回值**
+  
   * 合约方法* **返回值**值以及执行是否成功
 * **示例：**
 
@@ -2148,6 +2200,7 @@ const Args &...  args)
   * `method：`被调用合约的方法名称
   * `args：`对应于合约方法的参数
 * **返回值**
+  
   * 合约方法* **返回值**值以及执行是否成功
 * **示例：**
 
@@ -2245,7 +2298,7 @@ Sh3算法。
     ```
 3. platon-truffle执行truffle deploy部署合约失败？
 
-  确认truffle-config.js中连接的链的配制信息及用户的钱包地址是否正确,钱包是否解锁。
+  确认truffle-config.js中连接的链的配置信息及用户的钱包地址是否正确,钱包是否解锁。
 
 4. truffle 部署带参数的构造函数合约失败？
 

@@ -29,8 +29,8 @@ sidebar_label: EVM智能合约
 
 platon-truffle是PlatON提供的一款能够在本地编译、部署、调用智能合约的工具，具体的安装及使用手册参见
 
-- platon-truffle开发工具[安装参考](https://platon-truffle.readthedocs.io/en/v0.11.1/getting-started/installation.html#)
-- platon-truffle开发工具[使用手册](https://platon-truffle.readthedocs.io/en/v0.11.1/)
+- platon-truffle开发工具[安装参考](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html)
+- platon-truffle开发工具[使用手册](https://platon-truffle.readthedocs.io/en/v0.13.1/)
 
 
 ### 创建HelloWorld合约
@@ -137,36 +137,60 @@ platon-truffle compile
 **step1.** 新增合约部署脚本文件
 
 ```
-cd migrations/ && touch 2_initial_helloword.js
+cd migrations/ && touch 2_initial_helloworld.js
 ```
-部署脚本文件名建议使用合约名称便于后面维护,如HelloWorld合约对应的部署脚本文件为2_initial_helloword.js，内容如下所示：
+部署脚本文件名建议使用合约名称便于后面维护,如HelloWorld合约对应的部署脚本文件为2_initial_helloworld.js，内容如下所示：
 ```
 const helloWorld = artifacts.require("HelloWorld"); //artifacts.require告诉platon-truffle需要部署哪个合约，HelloWorld即之前写的合约类名
 	module.exports = function(deployer) {
-       deployer.deploy(helloWorld); //helloWorld即之前定义的合约抽象
+       deployer.deploy(helloWorld); //helloWorld即之前定义的合约抽象（部署带参数的合约失败，请参考FAQ部署带参数合约失败说明）
 };
 ```
-
-**step2.** 修改truffle-config.js中链的配制信息
+**step2.** 修改truffle-config.js中链的配置信息
 
 ```
 vim truffle-config.js
 ```
-将truffle-config.js中的区块链相关配制修改成您真实连接的链配制
+将truffle-config.js中的区块链相关配置修改成您真实连接的链配置
 ```
 networks: {
 	development: {
        host: "10.1.1.6",     // 区块链所在服务器主机
        port: 8806,            // 链端口号
        network_id: "*",       // Any network (default: none)
-       from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", //部署合约账号的钱包地址
-       gas: 90000000,
+       from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", //部署合约账号的钱包地址
+       gas: 999999,
        gasPrice: 50000000004,
 	},
 }
 ```
 
-**step3.**  部署合约
+**step3.**  解锁钱包账户
+
+进入platon-truffle控制台
+```
+platon-truffle console
+```
+
+导入私钥（如果之前已导入可以跳过此步骤）
+```
+web3.platon.personal.importRawKey("您的钱包私钥","您的钱包密码");
+```
+导入成功将看到私钥对应的地址：
+```
+'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'
+```
+
+解锁钱包账户
+```
+ web3.platon.personal.unlockAccount('您的钱包地址','您的钱包密码',999999);
+```
+解锁成功将看到如下信息：
+```
+ture
+```
+
+**step4.**  部署合约
 
 ```
 platon-truffle migrate
@@ -174,33 +198,33 @@ platon-truffle migrate
 
 部署成功后，将看到类似如下信息：
 ```
-2_initial_helloword.js
+2_initial_helloworld.js
 ======================
 
    Deploying 'HelloWorld'
    ----------------------
    > transaction hash:    0x87cd48cc467f9bc943fd096c57c8a7e7b7fa941380538d9e59797800c6c4292c
    > Blocks: 0            Seconds: 0
-   > contract address:    0x0680df2d6e38e5a6C89e3856836E017c6572DAb2
+   > contract address:    lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07
    > block number:        282520
    > block timestamp:     1585535169200
-   > account:             0xC1f330B214668beAc2E6418Dd651B09C759a4Bf5
+   > account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
    > balance:             16447231233352977496646259638377769924557918764752765436645.336513079692286014
    > gas used:            145569
-   > gas price:           10000 gvon
+   > gas price:           1 gvon
    > value sent:          0 LAT
-   > total cost:          1.45569 LAT
+   > total cost:          0.000145569 LAT
 
 
    > Saving migration to chain.
    > Saving artifacts
    -------------------------------------
-   > Total cost:             1.45569 LAT
+   > Total cost:          0.000145569 LAT
 
 Summary
 =======
 > Total deployments:   2
-> Final cost:          2.59892 LAT
+> Final cost:          0.000259892 LAT
 ```
 
 ### 调用HelloWorld合约
@@ -217,7 +241,7 @@ platon-truffle console
 ```json
 var abi = [{"constant":false,"inputs":[{"internalType":"string","name":"_name","type":"string"}],"name":"setName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]; //可以从HelloWorld/build/contracts/HelloWorld.json文件中获取到
 
-var contractAddr = '0x9A5015F9A3728ff64f401b9B93E98078BdD48FD1';//部署合约时的获取的地址
+var contractAddr = 'lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07';//部署合约时的获取的地址
 var helloWorld = new web3.platon.Contract(abi,contractAddr); 
 ```
 
@@ -229,7 +253,7 @@ var helloWorld = new web3.platon.Contract(abi,contractAddr);
 **step3.**  调用合约
 
 ```javascript
-helloWorld.methods.setName("hello world").send({from: '0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'}).on('receipt', function(receipt) {console.log(receipt);}).on('error', console.error);
+helloWorld.methods.setName("hello world").send({from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'}).on('receipt', function(receipt) {console.log(receipt);}).on('error', console.error);
  
 ```
 
@@ -237,7 +261,7 @@ helloWorld.methods.setName("hello world").send({from: '0xf644cfc3b0dc588116d6621
 - `helloWorld` 是之前构建的合约对象
 - `methods` 固定语法,指量后面紧跟合约的方法名
 - `setName` 是我们HelloWorld合约中的一个方法，有一个String类型的入参，此处入参为`hello world`
-- `from` 调用者的合约地址 
+- `from` 调用者的钱包地址 
 - `on` 是监听合约处理结果事件，此处如果成功将打印回执，失败输出错误日志
 
 函数调用成功，将会看到如下信息：
@@ -248,7 +272,7 @@ helloWorld.methods.setName("hello world").send({from: '0xf644cfc3b0dc588116d6621
   blockNumber: 283911,
   contractAddress: null,
   cumulativeGasUsed: 44820,
-  from: '0xc1f330b214668beac2e6418dd651b09c759a4bf5',
+  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
   gasUsed: 44820,
   logsBloom:
 '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
@@ -278,6 +302,8 @@ helloWorld.methods.getName().call(null,function(error,result){console.log("name 
 ## 合约迁移
 
 ### 简介 
+
+PlatON支持的solidity最高版本号是0.5.13，如果迁移0.5.13以上版本的合约，需要降低版本号，去除高版本相关语法。
 
 如果您希望将以太坊的智能合约迁移到PlatON上，可以通过platon-truffle开发工具来进行。首先确保您正确安装了platon-truffle,只需按照以下步骤操作即可。
 
@@ -490,8 +516,9 @@ ls contracts/
 
 - 将看到 ERC200513Token.sol
 - PlatON智能合约中的货币单位为LAT和VON。要将以太坊智能合约迁移至PlatON，请将以太币面额更改为PlatON面额。同时注意以太/LAT市场汇率（此合约我们假设市场汇率1:1，将uint256 public totalSupply = 10000000000000000000 ether; 修改成uint256 public totalSupply = 10000000000000000000 LAT; ）
+- PlatON智能合约中block.timestamp表示的是当前区块以毫秒为单位的时间戳，以太坊是以秒为单位。
 
-**step4.** 修改truffle-config.js中的编译版本号及链相关配制
+**step4.** 修改truffle-config.js中的编译版本号及链相关配置
 
 ```
 module.exports = {
@@ -500,15 +527,15 @@ module.exports = {
       host: "10.1.1.6",     // 链地址
       port: 8806,            // 链使用的rpc端口
       network_id: "*",       // Any network (default: none)
-      from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", //部署合约所使用的钱包地址
-      gas: 90000000,
+      from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", //部署合约所使用的钱包地址
+      gas: 999999,
       gasPrice: 50000000004,	     
      },
   },
 
   compilers: {
     solc: {
-       version: "0.5.13",    // 编译合约所使用的solidity版本号，与合约定义版本一致
+       version: "^0.5.13",    // 编译合约所使用的solidity版本号，与合约定义版本一致
        docker: false,        // Use "0.5.1" you've installed locally with docker
     }
   }
@@ -533,13 +560,13 @@ Compiled successfully using: //表示编译成功
   solc: 0.5.13-develop.2020.1.2+commit.9ff23752.mod.Emscripten.clang
 ```
 
-**step6.** 添加合约部署配制文件
+**step6.** 添加合约部署配置文件
 
 ```
 cd migrations && touch 2_initial_ERC200513Token.js
 ```
 
-合约部署配制文件2_initial_ERC200513Token.js内容如下：
+合约部署配置文件2_initial_ERC200513Token.js内容如下：
 ```
 const ERC200513Token = artifacts.require("ERC200513Token"); //括号中为迁移合约类名
 module.exports = function(deployer) {
@@ -565,25 +592,25 @@ Everything is up to date, there is nothing to compile.
    --------------------------
    > transaction hash:    0x5667101234fcd3b9dadf96a19bce20d1b94d742e0fd8f3528c641fa587b17eb3
    > Blocks: 0            Seconds: 0
-   > contract address:    0xE6570bAc355875F7EBcBFBD59a9AB1a0485ec869
+   > contract address:    lax1uetshtp4tp6l067tl02e4x435py9ajrfdhsrd4
    > block number:        2153
    > block timestamp:     1585538899787
-   > account:             0xC1f330B214668beAc2E6418Dd651B09C759a4Bf5
+   > account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
    > balance:             4499992.02433
    > gas used:            641243
-   > gas price:           10000 gvon
+   > gas price:           1 gvon
    > value sent:          0 LAT
-   > total cost:          6.41243 LAT
+   > total cost:          0.000641243 LAT
 
    > Saving migration to chain.
    > Saving artifacts
    -------------------------------------
-   > Total cost:             6.41243 LAT
+   > Total cost:          0.000641243 LAT
 
 Summary
 =======
 > Total deployments:   2
-> Final cost:          7.55566 LAT
+> Final cost:          0.000755566 LAT
 ```
 ---------
 
@@ -800,17 +827,17 @@ cd migrations/ && touch 2_initial_CrowdFunding.js
 ```
 const CrowdFunding = artifacts.require("CrowdFunding"); //需要部署的合约名称 
 module.exports = function(deployer) {
-  ​    deployer.deploy(CrowdFunding);
+      deployer.deploy(CrowdFunding);
 };
 ```
 
-**step2.** 修改truffle-config.js中链的配制信息
+**step2.** 修改truffle-config.js中链的配置信息
 
 ```
 vim truffle-config.js
 ```
 
-将truffle-config.js中的区块链相关配制修改成您真实连接的链配制
+将truffle-config.js中的区块链相关配置修改成您真实连接的链配置
 
 ```
 networks: {
@@ -818,8 +845,8 @@ networks: {
        host: "10.1.1.6",     // 区块链所在服务器主机
        port: 8806,            // 链端口号
        network_id: "*",       // Any network (default: none)
-       from: "0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e", //部署合约账号的钱包地址
-       gas: 90000000,
+       from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", //部署合约账号的钱包地址
+       gas: 999999,
        gasPrice: 50000000004,
 	},
 }
@@ -840,10 +867,10 @@ Compiling your contracts...
     Deploying 'CrowdFunding'
      transaction hash:    0x3a6419cd4169d7cfb430a1fc5632239ac4a01845827f20df9b3229a334c5488b
      Blocks: 0            Seconds: 0
-     contract address:    0x02D04C6fD2b0C07c43AA1a329D667f1F1Fc7a907 //部署后的合约地址
+     contract address:    lax1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt //部署后的合约地址
      block number:        280532
      block timestamp:     1581751224032
-     account:             0xF644CfC3b0Dc588116D6621211a82C1Ef9c62E9e
+     account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
      balance:             90000000.806077629992489796
      gas used:            379154
      gas price:           50.000000004 gVON
@@ -868,7 +895,7 @@ platon-truffle console
 **step2.**  构建的众筹合约对象
 ```
 var abi = [...]; //众筹合约的ABI，从编译后的文件获取
-var contractAddr = '0x02D04C6fD2b0C07c43AA1a329D667f1F1Fc7a907'; //众筹合约地址
+var contractAddr = 'lax1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt'; //众筹合约地址
 var crowdFunding = new web3.platon.Contract(abi,contractAddr);  
 ```
 
@@ -879,7 +906,7 @@ crowdFunding.methods.amountRaised().call(null,function(error,result){console.log
 
 **step4.**  众筹者判断众筹是否成功
 ```
-crowdFunding.methods.safeWithdrawal().send({from:'0xf644cfc3b0dc588116d6621211a82c1ef9c62e9e'}).on('data', function(event){ console.log(event);}).on('error', console.error); 
+crowdFunding.methods.safeWithdrawal().send({from:'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'}).on('data', function(event){ console.log(event);}).on('error', console.error); 
 ```
 
 调用合约命令说明：
@@ -1447,7 +1474,7 @@ function initContract() public OnlyOwner {
 
 4. platon-truffle执行truffle migrate部署合约失败?
 
-  1.确认truffle-config.js中连接的链的配制信息及用户的钱包地址是否正确。
+  1.确认truffle-config.js中连接的链的配置信息及用户的钱包地址是否正确。
 
 5. truffle migrate部署带参数的构造函数合约失败?
 
@@ -1457,7 +1484,7 @@ function initContract() public OnlyOwner {
   constructor(uint256 a, string memory b, string memory c) public {}
   ```
 
-  2_initial_A.js文件配制如下：
+  2_initial_A.js文件配置如下：
   ```
    const A = artifacts.require("A");  
    module.exports = function(deployer) {

@@ -5,6 +5,9 @@
     "previous": "Previous",
     "tagline": "PlatON",
     "docs": {
+      "ATON-user-manual": {
+        "title": "ATON钱包用户使用手册"
+      },
       "community": {
         "title": "社区项目",
         "sidebar_label": "社区项目"

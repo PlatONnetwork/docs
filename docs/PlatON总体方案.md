@@ -15,7 +15,7 @@ The Next Generation Internet is a serverless Internet and a decentralized networ
 - Any individual can only get hold of a small subset of the massive amount of data. It is impossible for any entity to stream the whole set of data valuable to them, handicapping their full grasp of the landscape. Every participant of the digitalized world is partially blind, blocked in a certain angle towards the full picture. 
 - Participants are weakly trusted or even untrusted, and they cannot use "trusted third parties" for data collection and validity verification, as well as the sharing of value, information and assets. Emerging cloud computing platforms are now typical "trusted third party".
 
-PlatON is committed to building the next generation of Privacy-Preserving Computing and data exchange network. Based on modern cryptography and blockchain technology, PlatON creates a new computing paradigm to maintain privacy of the client’s data without the need to rely on third parties for collaborative computing and Verify the integrity of the results.
+PlatON is committed to building the next generation of Privacy-Preserving Computing and data exchange network. Based on modern cryptography and blockchain technology, PlatON creates a new computing paradigm to maintain privacy of the client’s data without the need to rely on third parties for collaborative computing and verify the integrity of the results.
 
 <img src="/docs/img/en/PlatON_overall_solution.assets/overall_architecture.png" alt="overall_architecture"/>
 
@@ -45,7 +45,7 @@ The scalability problem of the existing blockchain architecture is mainly due to
 
 
 
-To avoid the trade off in efficiency, people in the industry have increasingly come to an agreement: the proper use of blockchain is for verification only; the computing tasks must be separated from the consensus layer and migrated off-chain, but the untrusted off-chain is new problem.  PlatON's Verifiable Computation (VC) cryptographic algorithm passes trust off-chain. Through verifiable computation, the contract only needs to be processed off-chain once, and all nodes can quickly verify the correctness, on the one hand, it improves the transaction processing performance, and on the other hand, it makes PlatON support complex contracts.
+To avoid the trade off in efficiency, people in the industry have increasingly come to an agreement: the proper use of blockchain is for verification only; the computing tasks must be separated from the consensus layer and migrated off-chain, but the untrusted off-chain is new problem.  PlatON's Verifiable Computation (VC) cryptographic algorithm passes trust off-chain. Through verifiable computation, the contract only needs to be processed off-chain once, and all nodes can quickly verify the correctness.On the one hand, it improves the transaction processing performance, and on the other hand, it makes PlatON support complex contracts.
 
 ##### Privacy
 
@@ -161,7 +161,7 @@ Appropriate measures should be taken to ensure the security of validator for run
 
 ### P2P Network
 
-The basic implementation of PlatON network is a decentralized structured topology completely based on RELOAD (Resource LOcation And Discovery) protocol and the Kademlia protocol [Kademlia]. The overall PlatON network structure is shown as follows.
+The basic implementation of PlatON network is a decentralized structured topology completely based on RELOAD (Resource Location And Discovery) protocol and the Kademlia protocol [Kademlia]. The overall PlatON network structure is shown as follows.
 
 <img src="/docs/img/en/PlatON_overall_solution.assets/P2P_network.png" alt="p2p_protocal_stack"/>
 
@@ -207,9 +207,9 @@ PlatON uses ReDiR (Recursive Distributed Rendezvous) [RFC7374] to implement the 
 
 ReDiR uses a tree structure to implement the P2P service discovery mechanism. At the same time, the storage capacity of the RELOAD overlay network is used to save the data. Each type of service is stored as a ReDiR tree, and the tree nodes save the information of the service providing nodes. When a node requests to find a specified service provider, a limited number of searches in the ReDiR tree can find the service provider node that best matches the requesting node.
 
-Each tree node in the ReDiR tree contains a dictionary of entries of peers providing a particular service. Each tree node in the ReDiR tree also belongs to some level in the tree. The root node of the ReDiR tree is located at level 0. The child nodes of the root node are located at level 1 of the ReDiR tree. The children of the tree nodes at level 1 are located at level 2, and so forth.
+Each tree node in the ReDiR tree contains a dictionary of entries of peers providing a particular service. Each tree node in the ReDiR tree also belongs to some level in the tree. The root node of the ReDiR tree is located at level 0. The child nodes of the root nodes are located at level 1 of the ReDiR tree. The child nodes of the tree nodes at level 1 are located at level 2, and so forth.
 
-The number of nodes in each layer of the ReDiR tree depends on the branching factor b. Each layer can hold up to $b^{level}$ nodes. Each node is uniquely identified by $(level, j)$, where $level$ is the node location The number of layers, $j$ means that the node is the $j$ node in the corresponding layer. In each layer, $b^{level}$ tree nodes divide the $level$ layer into $b^{level}$ KEY spaces.
+The number of nodes in each layer of the ReDiR tree depends on the branching factor b. Each layer can hold up to $b^{level}$ nodes. Each node is uniquely identified by $(level, j)$, where $level$ is the node location.The number of layers, $j$ means that the node is the $j$ node in the corresponding layer. In each layer, $b^{level}$ tree nodes divide the $level$ layer into $b^{level}$ KEY spaces.
 
 All services providers are mapped into corresponding key space. A tree node is responsible for the storage of each key space. Tree node contains key space
 
@@ -287,7 +287,7 @@ Considering storage cost and read performance, part of the data in PlatON only r
 
 among them:
 - **unRecognizedBlockData:** An unconfirmed data set. Each DB write request updates the data set.
-- **RecognizedBlockData:** Confirmed block data. BlockData will become RecognizedBlockData after Flush. RecognizedBlockData has a corresponding relationship with block hash and number. There can be multiple RecognizedBlockData for the same block height. After committing, delete the same block height and The following other RecognizedBlockData.
+- **RecognizedBlockData:** Confirmed block data. BlockData will become RecognizedBlockData after Flush. RecognizedBlockData has a corresponding relationship with block hash and number. There can be multiple RecognizedBlockData for the same block height. After committing, delete the same block height and the following other RecognizedBlockData.
 - **CommitedBlockData:** Block data waiting for Compaction, there is only one path (block association).
 - **WAL:** log file, write log before all data is recorded. Store k, v, hash data, hash = hash (k + v + hash)
 - **current:** is used to store the height of the current highest commit block and the highest merge block (base) block
@@ -308,13 +308,13 @@ PlatON consensus runs in three stages:
 
 - Phase 1: The Election of Alternative Validators; 
 
-In PlatON, every Energon holder can participate in PPoS. 
+In PlatON, every LAT holder can participate in PPoS. 
 
-For an Energon holder who wants to become a validator, it must stake more than a pre-specified minimum number of Energons to first become an alternative validator candidate. One staked Energon means one vote, which must be voted for himself and no one else. In other words, alternative validator candidates aren’t allowed to vote for each other.
+For an LAT holder who wants to become a validator, he/she must stakes more than a pre-specified minimum number of LATs to first become an alternative validator candidate. One staked LAT means one vote, which must be voted for himself and no one else. In other words, alternative validator candidates aren’t allowed to vote for each other.
 
-Other Energon holders who want to participate in the election of alternative validators must stake Energons too. They can stake as many Energons as they wish, also with one staked Energon equaling one vote. They can vote for any alternative validator candidates they choose.
+Other LAT holders who want to participate in the election of alternative validators must stake LATs too. They can stake as many LATs as they wish, also with one staked LAT equaling one vote. They can vote for any alternative validator candidates they choose.
 
-After all the votes are cast, alternative validator candidates are ranked according to how many votes they receive. A pre-specified number of candidates receiving the most votes become alternative validators. The Energons staked by alternative validators and their supporters remain staked until the end of a pre-specified lock-up period. For other candidates and their supporters, their staked Energons can be un-staked immediately after the election. They won’t participate in current round of PPoS anymore and won’t get any compensation, either.
+After all the votes are cast, alternative validator candidates are ranked according to how many votes they received. A pre-specified number of candidates receiving the most votes become alternative validators. The LATs staked by alternative validators and their supporters remain staked until the end of a pre-specified lock-up period. For other candidates and their supporters, their staked LATs can be un-staked immediately after the election. They won’t participate in current round of PPoS anymore and won’t get any compensation, either.
 
 - Phase 2: The Selection of Validators by the VRF
 
@@ -342,7 +342,7 @@ From a technical perspective, PlatON is essentially a decentralized FaaS (Functi
 
 #### WASM Contract
 
-**Wasm contract** Supports high-level language development, compiled into wasm bytecode for execution. The transactions that trigger the Wasm contract are packaged by validators, and nodes across the network repeatedly perform verification. The status of the Wasm contract is kept in the statedb.
+**Wasm contract** Supports high-level language development, compiled into WASM bytecode for execution. The transactions that trigger the Wasm contract are packaged by validators, and nodes across the network repeatedly perform verification. The status of the Wasm contract is kept in the statedb.
 
 ##### WASM Virtual Machine
 
@@ -376,7 +376,7 @@ The privacy contract also supports high-level language development, which is com
 
 #### VC Contract
 
-The development and release of a verifiable contract is no different from a Wasm contract, and it is eventually compiled into a wasm implementation. The state transition of the verifiable contract is performed asynchronously by the computing nodes off-chain. After the computation is completed, new states and state transition certificates are submitted to the chain. The nodes on the entire network can quickly verify the correctness and update the new state to the public ledger. Verifiable contracts can support complex and heavy computation logic without affecting the performance of the entire chain.
+The development and release of a verifiable contract is no different from a Wasm contract, and it is eventually compiled into a WASM implementation. The state transition of the verifiable contract is performed asynchronously by the computing nodes off-chain. After the computation is completed, new states and state transition certificates are submitted to the chain. The nodes on the entire network can quickly verify the correctness and update the new state to the public ledger. Verifiable contracts can support complex and heavy computation logic without affecting the performance of the entire chain.
 
 ##### Verifiable contract scheme
 
@@ -388,8 +388,8 @@ PlatON's verifiable solution is temporarily based on the zk-SNARK algorithm, and
   - compute (): compute request
   - real_compute (): Generate computation results and proofs
   - set_result (): verify computation result and proof
-- vclang: compile the vc contract written by the user to generate an executable file supported by wasm vm. Contract developers do not need to care about the specific use of libsnark api, they only need to write their own computation model code.
-- vcc-reslover: built-in interface layer to support access to libcsnark in wasm virtual machine, calling libcsnark interface in c-go mode
+- vclang: compile the vc contract written by the user to generate an executable file supported by WASM vm. Contract developers do not need to care about the specific use of libsnark api, they only need to write their own computation model code.
+- vcc-reslover: built-in interface layer to support access to libcsnark in WASM virtual machine, calling libcsnark interface in c-go mode
 - libcsnark: encapsulates the libsnark api, libsnark implemented by c ++ can be accessed by the c interface
 - vc_pool: responsible for vc's transaction processing, distributing vc computation tasks, and uploading the computation results and proofs to the chain
 
@@ -409,4 +409,4 @@ PlatON's verifiable solution is temporarily based on the zk-SNARK algorithm, and
 
 ##### Incentive model
 
-Users who need computing outsourcing need to mortgage the appropriate fees to the contract account first, and each computing node can compete for the computing task by itself (the order-changing model will be changed to the random ordering model later). Once the computation is successful, the result and proof are generated, and set_result is initiated For a transaction request, the computing node needs to pay the miner fee for the transaction first. The node receives the request and executes set_result. Once the proof and result parameters carried in the transaction are verified, the transaction requester successfully calculates the result and the contract account will be mortgaged. Fees are transferred to the requester's account, failure will not be rewarded.
+Users who need computing outsourcing need to mortgage the appropriate fees to the contract account first, and each computing node can compete for the computing task by itself (the order-changing model will be changed to the random ordering model later). Once the computation is successful, the result and proof are generated, and set_result is initiated. For a transaction request, the computing node needs to pay the miner fee for the transaction first. The node receives the request and executes set_result. Once the proof and result parameters carried in the transaction are verified, the transaction requester successfully calculates the result and the contract account will be mortgaged. Fees are transferred to the requester's account, failure will not be rewarded.
