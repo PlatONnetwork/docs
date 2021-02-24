@@ -13,8 +13,8 @@ sidebar_label: JS SDK
 
 然后你就可以通过 npm 包管理工具或者 yarn 包管理工具将client-sdk-js引入到项目工程中，通过如下步骤：
 
-- npm: `npm i PlatONnetwork/client-sdk-js`
-- yarn: `yarn add PlatONnetwork/client-sdk-js`
+- npm: `npm i PlatONnetwork/client-sdk-js#0.15.1-develop`
+- yarn: `yarn add PlatONnetwork/client-sdk-js#0.15.1-develop`
 
 然后需要创建web3的实例，设置一个provider。可参考如下代码：
 
@@ -76,9 +76,9 @@ web3.modules
 
 `Object`: 子模块列表:
 
-*  `Platon` - Function: Platon模块类，用来与以太坊网络进行交互。参见web3.platon。
+*  `Platon` - Function: Platon模块类，用来与PlatON网络进行交互。参见web3.platon。
 *  `Net` - Function: Net模块类，用来与网络属性进行交互。参见web3.platon.net。
-*  `Personal` - Function: Personal模块类，用来与以太坊账户进行交互。参见web3.platon.personal。
+*  `Personal` - Function: Personal模块类，用来与PlatON账户进行交互。参见web3.platon.personal。
 
 示例代码：
 
@@ -896,40 +896,28 @@ PromiEvent: 一个整合了事件发生器的Promise对象。当交易收据生�
 示例代码：
 
 ```js
-var Tx = require('ethereumjs-tx');
-var Common = require('ethereumjs-common');
-var privateKey = new Buffer('e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109', 'hex')
-
-var rawTx = {
-  nonce: '0x00',
-  gasPrice: '0x09184e72a000',
-  gasLimit: '0x2710',
-  to: 'lax1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqmscn5j',
-  value: '0x00',
-  data: '0x7f7465737432000000000000000000000000000000000000000000000000000000600057'
+var Web3 = require("web3");
+const transaction_demo = async function () {
+    web3 = new Web3("http://127.0.0.1:6789");
+    var privateKey="0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba";
+    // 主网地址
+    let from = web3.platon.accounts.privateKeyToAccount(privateKey).address.mainnet;
+    let nonce = web3.utils.numberToHex(await web3.platon.getTransactionCount(from));
+    let tx = {
+        from:from,
+        to: "atp1j9x482k50kl86qvx5cyw7hp48qcx5mezayxj8t",
+        value: "1000000000000000000",
+        chainId: 201018,
+        gasPrice: "10000000000000", 
+        gas: "21000", 
+        nonce: nonce,
+    };
+    // 签名交易
+    let signTx = await web3.platon.accounts.signTransaction(tx, privateKey);
+    // 发送交易
+    let receipt = await web3.platon.sendSignedTransaction(signTx.rawTransaction);
+    console.log("sign tx data:\n", signTx.rawTransaction)
 }
-
-const customCommon = Common.default.forCustomChain(
-  'mainnet',
-  {
-    name: 'platon',
-    networkId: 1,
-    chainId: 104,
-  },
-  'petersburg'
-);
-var tx = new Tx.Transaction(rawTx, { common: customCommon }	);
-tx.sign(privateKey);
-
-var serializedTx = tx.serialize();
-
-// console.log(serializedTx.toString('hex'));
-// 0xf889808609184e72a00082271094000000000000000000000000000000000000000080a47f74657374320000000000000000000000000000000000000000000000000000006000571ca08a8bbf888cfa37bbf0bb965423625641fc956967b81d12e23709cead01446075a01ce999b56a8a88504be365442ea61239198e23d1fce7d00fcfc5cd3b44b7215f
-
-web3.platon.sendSignedTransaction('0x' + serializedTx.toString('hex'))
-.on('receipt', console.log);
-
-> // see platon.getTransactionReceipt() for details
 ```
 
 ***

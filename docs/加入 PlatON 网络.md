@@ -6,9 +6,7 @@ sidebar_label: Join the PlatON network
 
 ## Overview
 
-Currently PlatON  has two public networks.  One is the PlatON main network that has not yet been officially launched and operates independently. The chain ID is 100.
-
-The other is the test network Baleyworld, which has been officially launched on 2020-2-20 Beijing time, and is open to developers. The chain ID is 103.
+The PlatON mainnet was officially launched on April 12, 2021 Beijing time, with ChainID of 100.
 
 
 
@@ -25,20 +23,14 @@ This section assumes that the server is Ubuntu 18.04, and the working directory 
 
 ## Join the Main Network
 
-The mainnet has not been officially launched yet.
-
-
-
-## Join the Baley Network
-
-Anyone or any organization can join PlatON test network.
+Anyone or any organization can join PlatON main network.
 
 ### Start as a validator node
 
 **Execute the following command to join the Baleyworld as a validator node**
 
 ```bash
-nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
+nohup platon --identity platon --datadir ./data --port 16789 --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "fast" > ./data/platon.log 2>&1 &
 ```
 
 **Prompt:**
@@ -118,4 +110,4 @@ You can get the block height of the current node by executing the following comm
 2235
 ```
 
-A series of test network nodes appear in the node list and the block height is increasing, indicating that the connection is successful.
+A series of network nodes appear in the node list and the block height is increasing, indicating that the connection is successful.

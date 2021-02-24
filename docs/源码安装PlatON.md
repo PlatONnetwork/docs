@@ -74,10 +74,10 @@ source ~/.bashrc
 ```
 cd $GOPATH/src/github.com/PlatONnetwork/PlatON-Go
 go run build/ci.go install ./cmd/platon
-go run build/ci.go install ./cmd/keytool
+go run build/ci.go install ./cmd/platonkey
 ```
 
-After compiling, `platon`,` keytool` executable files will be generated in the` PlatON-Go/build/bin` directory. Copy these executable files to your working directory and run.
+After compiling, `platon`,` platonkey` executable files will be generated in the` PlatON-Go/build/bin` directory. Copy these executable files to your working directory and run.
 
 > Repeated compilation will overwrite the previously generated executable file.
 
@@ -111,13 +111,13 @@ cd PlatON-Go
 make all
 ```
 
-After compiling, a series of executable files such as `platon, keytool` and so on will be generated in the `./build/bin` directory. 
+After compiling, a series of executable files such as `platon, platonkey` and so on will be generated in the `./build/bin` directory. 
 
 **step5.** Copy binary:
 
 ```shell
 sudo cp -f ./build/bin/platon /usr/bin/ 
-sudo cp -f ./build/bin/keytool /usr/bin/
+sudo cp -f ./build/bin/platonkey /usr/bin/
 ```
 
 To this step, congratulations, the source code compilation completed!

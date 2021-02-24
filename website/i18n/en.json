@@ -32,9 +32,13 @@
         "title": "JSON RPC API",
         "sidebar_label": "JSON RPC"
       },
-      "MTool_Manual": {
-        "title": "MTool Tutorials",
-        "sidebar_label": "MTool Tutorials"
+      "OnLine_MTool_Manual": {
+        "title": "OnLine MTool Tutorials",
+        "sidebar_label": "OnLine MTool Tutorials"
+      },
+      "OffLine_MTool_Manual": {
+        "title": "OffLine MTool Tutorials",
+        "sidebar_label": "OffLine MTool Tutorials"
       },
       "PlatON_Solution": {
         "title": "PlatON Consensus Solution",

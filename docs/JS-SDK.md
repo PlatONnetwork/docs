@@ -14,8 +14,8 @@ First, make sure the nodeJS environment is successfully installed locally. `WEB3
 
 Then you can integrate client-sdk-js into the project through package management tools such as npm or yarn, the steps are as follows:
 
-- npm: `npm i PlatONnetwork/client-sdk-js`
-- yarn: `yarn add PlatONnetwork/client-sdk-js`
+- npm: `npm i PlatONnetwork/client-sdk-js#0.15.1-develop`
+- yarn: `yarn add PlatONnetwork/client-sdk-js#0.15.1-develop`
 
 Create a web3 instance and set up a provider. You can refer to the following code:
 
@@ -165,7 +165,7 @@ var web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider('
 
 #### web3.givenProvider
 
-When using web3.js in an Ethereum compatible browser, it will set with the current native provider by that browser. Will return the given provider by the (browser) environment, otherwise null.
+When using web3.js in an PlatON compatible browser, it will set with the current native provider by that browser. Will return the given provider by the (browser) environment, otherwise null.
 
 Method:
 
@@ -311,7 +311,7 @@ web3.platon.defaultBlock = 231;
 
 #### web3.platon.getProtocolVersion
 
-Returns the ethereum protocol version of the node.
+Returns the PlatON protocol version of the node.
 
 Method:
 
@@ -896,40 +896,28 @@ Please see the return values for web3.platon.sendTransaction for details.
 Example:
 
 ```js
-var Tx = require('ethereumjs-tx');
-var Common = require('ethereumjs-common');
-var privateKey = new Buffer('e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109', 'hex')
-
-var rawTx = {
-  nonce: '0x00',
-  gasPrice: '0x09184e72a000',
-  gasLimit: '0x2710',
-  to: 'lax1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqmscn5j',
-  value: '0x00',
-  data: '0x7f7465737432000000000000000000000000000000000000000000000000000000600057'
+var Web3 = require("web3");
+const transaction_demo = async function () {
+    web3 = new Web3("http://127.0.0.1:6789");
+    var privateKey="0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba";
+    // 主网地址
+    let from = web3.platon.accounts.privateKeyToAccount(privateKey).address.mainnet;
+    let nonce = web3.utils.numberToHex(await web3.platon.getTransactionCount(from));
+    let tx = {
+        from:from,
+        to: "atp1j9x482k50kl86qvx5cyw7hp48qcx5mezayxj8t",
+        value: "1000000000000000000",
+        chainId: 201018,
+        gasPrice: "10000000000000", 
+        gas: "21000", 
+        nonce: nonce,
+    };
+    // 签名交易
+    let signTx = await web3.platon.accounts.signTransaction(tx, privateKey);
+    // 发送交易
+    let receipt = await web3.platon.sendSignedTransaction(signTx.rawTransaction);
+    console.log("sign tx data:\n", signTx.rawTransaction)
 }
-
-const customCommon = Common.default.forCustomChain(
-  'mainnet',
-  {
-    name: 'platon',
-    networkId: 1,
-    chainId: 104,
-  },
-  'petersburg'
-);
-var tx = new Tx.Transaction(rawTx, { common: customCommon }	);
-tx.sign(privateKey);
-
-var serializedTx = tx.serialize();
-
-// console.log(serializedTx.toString('hex'));
-// 0xf889808609184e72a00082271094000000000000000000000000000000000000000080a47f74657374320000000000000000000000000000000000000000000000000000006000571ca08a8bbf888cfa37bbf0bb965423625641fc956967b81d12e23709cead01446075a01ce999b56a8a88504be365442ea61239198e23d1fce7d00fcfc5cd3b44b7215f
-
-web3.platon.sendSignedTransaction('0x' + serializedTx.toString('hex'))
-.on('receipt', console.log);
-
-> // see platon.getTransactionReceipt() for details
 ```
 
 ***
@@ -2253,7 +2241,7 @@ web3.platon.personal.newAccount('!@superpassword')
 
 #### web3.platon.personal.sign
 
-The sign method calculates an Ethereum specific signature with:
+The sign method calculates an PlatON specific signature with:
 
 Notes: Sending your account password over an unsecured HTTP RPC connection is highly unsecure.
 
@@ -3080,7 +3068,7 @@ web3.utils.isBech32Address('lax1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
 
 #### web3.utils.toBech32Address
 
- Convert a valid Ethereum address to a bech32 format address of the designated network.  
+ Convert a valid PlatON address to a bech32 format address of the designated network.  
 
 Method:
 
@@ -3092,7 +3080,7 @@ Parameters:
 
 `hrp` - String:  Specify the network parameters, lax indicates the test network address, and lat indicates the main network address.
 
-`address` - String:  Ethereum address format string. 
+`address` - String:  PlatON address format string. 
 
 Returns:
 
@@ -3112,7 +3100,7 @@ web3.utils.toBech32Address('lat', '0x1234567890123456789012345678901234567891');
 
 #### web3.utils.decodeBech32Address
 
- Resolve the bech32 format address of the specified network into a valid Ethereum address. 
+ Resolve the bech32 format address of the specified network into a valid PlatON address. 
 
 Method:
 
@@ -3128,7 +3116,7 @@ Parameters:
 
 Returns:
 
-`String`:  The resolution correctly returns a valid Ethereum address, otherwise it returns null. 
+`String`:  The resolution correctly returns a valid PlatON address, otherwise it returns null. 
 
 Sample code: 
 
@@ -3144,7 +3132,7 @@ web3.utils.decodeBech32Address('lat', 'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluq
 
 #### web3.utils.toChecksumAddress
 
-Will convert an upper or lowercase Ethereum address to a checksum address.
+Will convert an upper or lowercase PlatON address to a checksum address.
 
 Method:
 

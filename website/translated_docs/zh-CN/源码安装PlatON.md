@@ -72,10 +72,10 @@ source ~/.bashrc
 ```bash
 cd $GOPATH/src/github.com/PlatONnetwork/PlatON-Go
 go run build/ci.go install ./cmd/platon
-go run build/ci.go install ./cmd/keytool
+go run build/ci.go install ./cmd/platonkey
 ```
 
-编译完成之后在`PlatON-Go/build/bin`目录下会生成`platon`、`keytool`可执行文件，将这两个可执行文件拷贝到自己工作目录运行即可。
+编译完成之后在`PlatON-Go/build/bin`目录下会生成`platon`、`platonkey`可执行文件，将这两个可执行文件拷贝到自己工作目录运行即可。
 
 > 重复编译会覆盖之前生成的可执行文件。
 
@@ -109,13 +109,13 @@ cd PlatON-Go
 make all
 ```
 
-编译完成之后在`./build/bin`目录下会生成`platon, keytool`等一系列可执行文件。
+编译完成之后在`./build/bin`目录下会生成`platon, platonkey`等一系列可执行文件。
 
 **step5.** 拷贝二进制： 
 
 ```shell
 sudo cp -f ./build/bin/platon /usr/bin/
-sudo cp -f ./build/bin/keytool /usr/bin/
+sudo cp -f ./build/bin/platonkey /usr/bin/
 ```
 
 源码编译成功！

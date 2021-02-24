@@ -6,9 +6,7 @@ sidebar_label: 加入 PlatON 网络
 
 ## 简介
 
-PlatON目前有2个公有网络，一个是还未正式上线的、独立运行的 PlatON 主网络，ChainID为 100。
-
-另外一个是已经于北京时间 2020-2-20日 正式上线的用来对开发者开放的测试网络贝莱世界，ChainID为 104。
+PlatON主网于北京时间2021年4月12日正式上线，ChainID为100。
 
 
 
@@ -25,20 +23,14 @@ PlatON目前有2个公有网络，一个是还未正式上线的、独立运行�
 
 ## 加入主网
 
-主网目前还没正式上线，敬请期待。
-
-
-
-## 加入贝莱世界
-
-任何人、任何组织都可以加入 PlatON 测试网络贝莱世界。
+任何人、任何组织都可以加入 PlatON 主网络。
 
 ### 启动验证节点
 
 执行以下命令即可启动验证节点加入贝莱世界：
 
 ```bash
-nohup platon --identity platon --datadir ./data --port 16789 --testnet --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "full" > ./data/platon.log 2>&1 &
+nohup platon --identity platon --datadir ./data --port 16789 --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "fast" > ./data/platon.log 2>&1 &
 ```
 
 **提示：**
@@ -120,4 +112,4 @@ platon attach http://localhost:6789
 2235
 ```
 
-节点列表中出现一系列测试网络节点并且块高在不断增长，则表示连接成功！
+节点列表中出现一系列主网络节点并且块高在不断增长，则表示连接成功！
