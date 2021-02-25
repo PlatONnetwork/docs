@@ -35,7 +35,7 @@ The LatticeX Foundation has now opened the [Grants program](https://latticex.fou
     <tr>
         <td><img alt="" src="/docs/img/MTool_logo.svg"></td>
         <td>
-            <p class="color"><a target="_blank" href="https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.15.1/mtool-setup.exe">MTool</a></p>
+            <p class="color"><a target="_blank" href="https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/1.0.0/mtool-setup.exe">MTool</a></p>
             Node Management Tool.
         </td>
     </tr>

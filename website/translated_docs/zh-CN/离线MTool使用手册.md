@@ -42,7 +42,7 @@ mtool-client --version
 
 **step1. 下载MTool安装包**
 
-在在线机器上，复制链接<http://download.platon.network/platon/mtool/windows/0.15.1/mtool-setup.exe> 到浏览器下载MTool安装包。
+在在线机器上，复制链接<http://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe> 到浏览器下载MTool安装包。
 
 **step2. 安装MTool**
 
@@ -59,7 +59,7 @@ mtool-client --version
 **step1. 下载MTool工具包**
 
 ``` bash
-wget http://download.platon.network/platon/mtool/linux/0.15.1/mtool-client.zip
+wget http://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
 ```
 
 **step2. 解压MTool工具包**
@@ -533,7 +533,7 @@ mtool-client submit_textproposal --pid_id 100 --address $MTOOLDIR/keystore/staki
 - 执行命令
 
 ```bash
-mtool-client submit_versionproposal --newversion 0.15.0 --end_voting_rounds 345 --pid_id 100 --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+mtool-client submit_versionproposal --newversion 0.15.1 --end_voting_rounds 345 --pid_id 100 --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
