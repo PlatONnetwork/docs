@@ -52,12 +52,12 @@ Windows编译环境需要符合以下条件：
 
 - 获取源码
 
-获取源码放到GOPATH路径下，其中`0.13.1_alpha`为分支名称，届时切换到实际的分支：
+获取源码放到GOPATH路径下，其中`feature-mainnet-launch`为分支名称，届时切换到实际的分支：
 
 ```
 mkdir -p $GOPATH/src/github.com/PlatONnetwork
 cd $GOPATH/src/github.com/PlatONnetwork
-git clone -b 0.13.1_alpha https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+git clone -b feature-mainnet-launch https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 ```
 
 - 添加bls依赖库到环境变量
@@ -92,7 +92,7 @@ go run build/ci.go install ./cmd/platonkey
 **step2.** 获取PlatON源码：
 
 ```bash
-git clone -b 0.13.1_alpha https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+git clone -b feature-mainnet-launch https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 ```
 
 **step3.** 安装依赖库：
