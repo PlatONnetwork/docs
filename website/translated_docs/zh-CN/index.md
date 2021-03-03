@@ -36,7 +36,7 @@ sidebar_label: PlatON开发者文档
     </div>
     <div class="homepage-card">
         <img src="/docs/img/nodeTool.svg">
-        <a href="/docs/zh-CN/MTool_Manual" class="card-title">节点工具</a>
+        <a href="/docs/zh-CN/OnLine_MTool_Manual" class="card-title">节点工具</a>
         <div class="card-description">
         了解节点相关工具的命令和操作说明。
         </div>

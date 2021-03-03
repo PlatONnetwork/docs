@@ -54,12 +54,12 @@ You can install the above compilation environment yourself. Please make sure the
 
 - Get the source code
 
-Get the source code and put it in the GOPATH path, where `0.13.1_alpha` is the branch name, then switch to the actual branch:
+Get the source code and put it in the GOPATH path, where `feature-mainnet-launch` is the branch name, then switch to the actual branch:
 
 ```
 mkdir -p $GOPATH/src/github.com/PlatONnetwork
 cd $GOPATH/src/github.com/PlatONnetwork
-git clone -b 0.13.1_alpha https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+git clone -b feature-mainnet-launch https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 ```
 
 - Add bls dependent library to environment variables
@@ -74,10 +74,10 @@ source ~/.bashrc
 ```
 cd $GOPATH/src/github.com/PlatONnetwork/PlatON-Go
 go run build/ci.go install ./cmd/platon
-go run build/ci.go install ./cmd/keytool
+go run build/ci.go install ./cmd/platonkey
 ```
 
-After compiling, `platon`,` keytool` executable files will be generated in the` PlatON-Go/build/bin` directory. Copy these executable files to your working directory and run.
+After compiling, `platon`,` platonkey` executable files will be generated in the` PlatON-Go/build/bin` directory. Copy these executable files to your working directory and run.
 
 > Repeated compilation will overwrite the previously generated executable file.
 
@@ -94,7 +94,7 @@ After compiling, `platon`,` keytool` executable files will be generated in the` 
 **step2.** Get the PlatON source:
 
 ```bash
-git clone -b 0.13.1_alpha https://github.com/PlatONnetwork/PlatON-Go.git --recursive
+git clone -b feature-mainnet-launch https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 ```
 
 **step3.** Install dependency library:
@@ -111,13 +111,13 @@ cd PlatON-Go
 make all
 ```
 
-After compiling, a series of executable files such as `platon, keytool` and so on will be generated in the `./build/bin` directory. 
+After compiling, a series of executable files such as `platon, platonkey` and so on will be generated in the `./build/bin` directory. 
 
 **step5.** Copy binary:
 
 ```shell
 sudo cp -f ./build/bin/platon /usr/bin/ 
-sudo cp -f ./build/bin/keytool /usr/bin/
+sudo cp -f ./build/bin/platonkey /usr/bin/
 ```
 
 To this step, congratulations, the source code compilation completed!

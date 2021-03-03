@@ -113,7 +113,7 @@ Before introducing PlatON's economic plan, in order to facilitate subsequent und
 
 - Round
 
-  Each consensus Round produces 250 blocks, of which the 230th block is an election block, used to select 25 validator nodes for the next consensus Round.
+  Each consensus Round produces 430 blocks, of which the 410th block is an election block, used to select 43 validator nodes for the next consensus Round.
 
 ### Published by LAT
 
@@ -189,15 +189,15 @@ PlatON adopts randomly selected nodes among the small-scale candidate nodes to p
 
 - Alternative Validator
 
-  Ranking (see [Alternative Node Selection] (#Alternative-Validator-selection) for the ranking rules) Alternative Validator Candidates in the top 101 are called Alternative Validator. The Alternative Validators participate in the Validator election for each consensus round to obtain the settlement epoch LAT additional distribution bonus.
+  Ranking (see [Alternative Node Selection] (#Alternative-Validator-selection) for the ranking rules) Alternative Validator Candidates in the top 201 are called Alternative Validator. The Alternative Validators participate in the Validator election for each consensus round to obtain the settlement epoch LAT additional distribution bonus.
 
 - Validator
 
-  The system randomly selects 25 (normal state) nodes from 101 alternative validators as the consensus round validator through the VRF random function.
+  The system randomly selects 43 (normal state) nodes from 201 alternative validators as the consensus round validator through the VRF random function.
 
 - Proposer
 
-  A consensus round produces 250 (25 validator * each validator produces 10 blocks in succession) blocks, 25 validators take turns to become proposers, and each validator has a block generation time of 20 seconds.
+  A consensus round produces 430 (43 validator * each validator produces 10 blocks in succession) blocks, 43 validators take turns to become proposers, and each validator has a block generation time of 20 seconds.
 
 - Delegator
 
@@ -219,19 +219,19 @@ The role relationship diagram is as follows. **To facilitate the subsequent desc
 
 3. Election of Alternative Validator
 
-   For the last block of each settlement epoch (that is, the settlement block), the system takes the top 101 nodes as alternative validators for the next  epoch according to the current alternative validator candidate ranking and participates in the consensus of the next settlement round. Alternative validators can get Staking rewards.
+   For the last block of each settlement epoch (that is, the settlement block), the system takes the top 201 nodes as alternative validators for the next  epoch according to the current alternative validator candidate ranking and participates in the consensus of the next settlement round. Alternative validators can get Staking rewards.
 
 4. Election Validators
 
-   Each round of consensus requires 25 validators. The system will use VRF to randomly select 25 validators from the current alternative validators to participate in the next round of consensus.
+   Each round of consensus requires 43 validators. The system will use VRF to randomly select 43 validators from the current alternative validators to participate in the next round of consensus.
 
 5. Consensus block
 
-   The validators take turns to become the proposer to produce blocks, other validators perform block validator, and jointly run the CBFT protocol to complete a round of consensus (a total of 250 blocks per round), and the block producing nodes receive transaction fees and block rewards.
+   The validators take turns to become the proposer to produce blocks, other validators perform block validator, and jointly run the CBFT protocol to complete a round of consensus (a total of 430 blocks per round), and the block producing nodes receive transaction fees and block rewards.
 
 6. Exit Alternative Validator Candidate
 
-   Obtain a new ranking in the settlement block of the epoch. The nodes after the 101st ranking become  alternative validator candidates and no longer get Staking rewards. In cases where multiple reports are reported and the report is true or the consensus round-off block rate is 0, the node will be immediately eliminated from the Alternative Validator Candidate list.
+   Obtain a new ranking in the settlement block of the epoch. The nodes after the 201st ranking become  alternative validator candidates and no longer get Staking rewards. In cases where multiple reports are reported and the report is true or the consensus round-off block rate is 0, the node will be immediately eliminated from the Alternative Validator Candidate list.
 
 #### Election of Validator
 
@@ -255,7 +255,7 @@ To become a  Alternative Validator Candidate, you also need to submit the true v
 - When the node's version number is lower than the current chain version number or the pre-validated version number, the staking fails.
 - Once the node is successfully pledged as a Alternative Validator Candidate, the account used for the staking will correspond to the node ID one by one, and subsequent related operations need to use the staking account to initiate signed transactions. Please pay attention to the safe storage of the staking account.
 
-Alternative Validator Candidate can accept delegation. In the settlement block of the current epoch, if it ranks 101st according to the current total staking amount (the sum of self-pledged and delegate quantities), it can be elected as an alternative validatorfor the next epoch.
+Alternative Validator Candidate can accept delegation. In the settlement block of the current epoch, if it ranks 201st according to the current total staking amount (the sum of self-pledged and delegate quantities), it can be elected as an alternative validatorfor the next epoch.
 
 ##### Increase staking
 
@@ -269,11 +269,11 @@ All Alternative Validator Candidate can increase the number of staking LAT at an
 
 ##### <span id="ElectionAlternativeValidators">Alternative Validator selection</span>
 
-The total number of  alternative validators is at most 101, and the last block (settlement block) of each epoch will be re-selected.
+The total number of  alternative validators is at most 201, and the last block (settlement block) of each epoch will be re-selected.
 
 <img src="/docs/img/en/PlatON_economic_plan.assets/election_of_validators.png" alt="election_of_validators"/>
 
-The selection rules are based on the top 101 nodes, and the ranking rules are as follows:
+The selection rules are based on the top 201 nodes, and the ranking rules are as follows:
 
 1. First, sort from highest to lowest version of the running system.
 2. Then sort according to the total staking amount (the sum of self-staking and delegate amount) from high to low.
@@ -282,11 +282,11 @@ The selection rules are based on the top 101 nodes, and the ranking rules are as
 
 ##### Validator selection
 
-Each consensus round is responsible for the production of 250 blocks. In the 230th block of the consensus round, the next round of consensus round validator is elected from 101 alternative validators. The first consensus  round validator is in the genesis block Built-in.
+Each consensus round is responsible for the production of 430 blocks. In the 410th block of the consensus round, the next round of consensus round validator is elected from 201 alternative validators. The first consensus  round validator is in the genesis block Built-in.
 
-In order to prevent the newly selected validators from affecting the efficiency of the consensus due to slow network connections and out-of-synchronization of blocks, to ensure the fault tolerance of the consensus, not all of the 25 nodes are replaced at a time, and only some of the validator nodes are replaced.
+In order to prevent the newly selected validators from affecting the efficiency of the consensus due to slow network connections and out-of-synchronization of blocks, to ensure the fault tolerance of the consensus, not all of the 43 nodes are replaced at a time, and only some of the validator nodes are replaced.
 
-  - Eliminate some validators from the 25 validators in the current consensus round
+  - Eliminate some validators from the 43 validators in the current consensus round
 
   - Priority elimination of validators with abnormal status (assuming the number is $F_1$) must be eliminated, including those that are reported to be double-signature validator, whose block rate is 0, and whose version is lower than the pre-validated version (if the voting for the upgrade proposal is successful, The version number in the upgrade proposal is a pre-validated version, and for details refer to the PlatON governance plan), the application is withdrawn and is not on the Alternative Validator  list.
 
@@ -316,11 +316,11 @@ In order to prevent the newly selected validators from affecting the efficiency 
   
   - The initial designated validator node in the genesis block is responsible for packaging all the blocks in the first round and generating a random seed in each block. Calculated by VRF function.
   
-  The proposer of the 230th block of each round is responsible for selecting the validator node for the next consensus round. Assuming the current $n$ block, the selection rules are as follows:
+  The proposer of the 410th block of each round is responsible for selecting the validator node for the next consensus round. Assuming the current $n$ block, the selection rules are as follows:
   
   - The block proposer generates a random seed of the current block and its proof based on the random seed of the previous block $(r_n, \pi_n)$ 
   
-  - Consider a candidate node. Assume that the ranking is $i$ and there are $w_i$ votes. The total number of votes for all candidate nodes is $W=\sum_{k=1}^{101}w_k$, choose a positive The integer $m<W$,  so  $p=\frac{m}{W}$.For this node, finding $X$ makes
+  - Consider a candidate node. Assume that the ranking is $i$ and there are $w_i$ votes. The total number of votes for all candidate nodes is $W=\sum_{k=1}^{201}w_k$, choose a positive The integer $m<W$,  so  $p=\frac{m}{W}$.For this node, finding $X$ makes
   
     $$\sum_{k=0}^XB(k,w_i,p)\leq\frac{r_{n-i} \oplus r_n}{2^l-1}<\sum_{k=0}^{X+1}B(k,w_i,p)$$                               (2)
   
@@ -359,7 +359,7 @@ Alternative Validator Candidates can apply for withdrawal voluntarily, and valid
 
 - LAT, which has not been locked in the hesitation period, will be credited immediately after the execution of the exit order.
 
-- Locked staking LAT, after exiting the execution of the order, continue to freeze and lock 28 epochs (excluding the current epoch)
+- Locked staking LAT, after exiting the execution of the order, continue to freeze and lock 168 epochs (excluding the current epoch)
 
   <img src="/docs/img/en/PlatON_economic_plan.assets/exit_freeze_lock_period.png" alt="exit_freeze_lock_period"/>
 
@@ -406,7 +406,7 @@ LAT holders can earn profits by entrusting LAT in their hands to alternative val
 
 ##### Delegated award
 
-Based on the PPoS consensus, the client entrusts LAT to the alternative validator candidates, which affects the ranking of alternative validator candidates. The alternative validator candidates ranked in the top 101 can become alternative validators for each epoch and get Staking Reward, at the same time have the opportunity to become a validator, participate in the block production and get block rewards and transaction fee rewards in the block. The principal is an important factor in maintaining thealternative validator ranking of the alternative validator. In order to improve the ranking and attract the principal to commission, the alternative validator candidates needs to generously assign the commission reward to the principal who is given the system reward. The percentage of rewards specifically allocated to the client is submitted by the node in the stage of pledge to become a alternative validator candidate.
+Based on the PPoS consensus, the client entrusts LAT to the alternative validator candidates, which affects the ranking of alternative validator candidates. The alternative validator candidates ranked in the top 201 can become alternative validators for each epoch and get Staking Reward, at the same time have the opportunity to become a validator, participate in the block production and get block rewards and transaction fee rewards in the block. The principal is an important factor in maintaining thealternative validator ranking of the alternative validator. In order to improve the ranking and attract the principal to commission, the alternative validator candidates needs to generously assign the commission reward to the principal who is given the system reward. The percentage of rewards specifically allocated to the client is submitted by the node in the stage of pledge to become a alternative validator candidate.
 
 - Delegated rewards come from two sources:
 
@@ -462,7 +462,7 @@ The principal can submit the redemption delegation transaction at any time, beca
 
 #### Consensus
 
-Each validator node turns into a proposer, and each proposer has a 20-second window period and can produce up to 10 blocks. That is, if 10 blocks are produced within 20 seconds, the next proposer will immediately turn out to produce blocks. If 10 blocks are not produced within 20 seconds, it is still the turn of the next proposer to produce blocks. If the round has not produced 250 blocks, the cycle will continue.
+Each validator node turns into a proposer, and each proposer has a 20-second window period and can produce up to 10 blocks. That is, if 10 blocks are produced within 20 seconds, the next proposer will immediately turn out to produce blocks. If 10 blocks are not produced within 20 seconds, it is still the turn of the next proposer to produce blocks. If the round has not produced 430 blocks, the cycle will continue.
 
 For the specific consensus scheme, see PlatON consensus scheme.
 
@@ -576,13 +576,13 @@ PlatON currently supports two penalties:
 
 2. Force exit alternative validator candidate
 
-   Alternative validator candidate are passively withdrawn, they no longer participate in the election of alternative validators and validators, and are immediately revoked for pledges, withdrawing from the alternative validator candidate list. The LAT entrusted to this node is all invalidated and unlocked. The LAT entrusted to dismiss requires the user to apply for redemption by itself (too many principals, automatic return will greatly affect system performance). The node's remaining own pledge deposit will continue to be locked for 28 epochs and will automatically be returned to the node staking account.
+   Alternative validator candidate are passively withdrawn, they no longer participate in the election of alternative validators and validators, and are immediately revoked for pledges, withdrawing from the alternative validator candidate list. The LAT entrusted to this node is all invalidated and unlocked. The LAT entrusted to dismiss requires the user to apply for redemption by itself (too many principals, automatic return will greatly affect system performance). The node's remaining own pledge deposit will continue to be locked for 168 epochs and will automatically be returned to the node staking account.
 
    <img src="/docs/img/en/PlatON_economic_plan.assets/remove_from_candidate_validator_list.png" alt="remove_from_candidate_validator_list"/>
 
    - Nodes that are forced to withdraw do not participate in the allocation of Staking rewards for settlement blocks in this epoch.
 
-   - When the pledge is revoked, the pledged LAT that is not locked in the hesitation period does not need to continue to lock for 28 epochs and will be returned immediately.
+   - When the pledge is revoked, the pledged LAT that is not locked in the hesitation period does not need to continue to lock for 168 epochs and will be returned immediately.
 
    - When the entrusted LAT is revoked, the entrusted LAT can be redeemed, and the entrusted LAT will be credited to the account immediately, but the principal needs to apply for redemption.
 
@@ -590,9 +590,9 @@ PlatON currently supports two penalties:
 
   - When a node that is forcibly withdrawn uses the node ID to re-pledge, the previously entrusted LAT that has expired but has not been redeemed will not be credited to the re-pledged validator node (alternative node candidate).
 
-   - When a forced withdrawal node participates in the voting of a proposal and the voting deadline of the proposal is greater than 28 settlement cycles, the unlocking block is postponed to the voting deadline block.
+   - When a forced withdrawal node participates in the voting of a proposal and the voting deadline of the proposal is greater than 168 settlement cycles, the unlocking block is postponed to the voting deadline block.
 
-  - If the validator node that is punished and forced to withdraw is participating in the current consensus round, the validator node can continue to complete the block generation and validator work of this consensus round. If the node is punished after 230 blocks in the consensus round, if the next consensus round confirms that the validator node has the node, the node can continue to participate in the block generation and validator of the next consensus round.
+  - If the validator node that is punished and forced to withdraw is participating in the current consensus round, the validator node can continue to complete the block generation and validator work of this consensus round. If the node is punished after 410 blocks in the consensus round, if the next consensus round confirms that the validator node has the node, the node can continue to participate in the block generation and validator of the next consensus round.
 
 #### PlatON's punishment mechanism
 
@@ -602,7 +602,7 @@ In PlatON, DuplicateVote means signing the same block height and different hash 
 
 The node has a DuplicateVote behavior. If it is found by any user, it can initiate a DuplicateVote report transaction, submit the type and evidence of the DuplicateVote (the evidence can be obtained through the query double-out, DuplicateVote evidence interface provided) to the system slashing contract, and slashing After the contract validator is confirmed to be true, the system will reduce 10‱ of the reported node's own pledge as a penalty, and at the same time, the reported node will forcibly withdraw from the alternative validator candidate and revoke the pledge. All penalties are awarded to the reporting user.
 
-- A DuplicateVote report has a validity period, and reports that are more than 28 epochs are invalid.
+- A DuplicateVote report has a validity period, and reports that are more than 27 epochs are invalid.
 
   <img src="/docs/img/en/PlatON_economic_plan.assets/report_validity_period.png" alt="report_validity_period"/>
 
@@ -620,7 +620,7 @@ The node has a DuplicateVote behavior. If it is found by any user, it can initia
 
 ##### Zero block-the system automatically judges and punishes
 
-PlatON judges whether a node is online and whether the node's software, hardware, and network environment meets the requirements based on the level of block production. In the 230 block of each consensus round (250 blocks in one consensus round), the block rate of the last consensus round validator node is judged.
+PlatON judges whether a node is online and whether the node's software, hardware, and network environment meets the requirements based on the level of block production. In the 410 block of each consensus round (430 blocks in one consensus round), the block rate of the last consensus round validator node is judged.
 
 <img src="/docs/img/en/PlatON_economic_plan.assets/low_block_rate_verification.png" alt="low_block_rate_verification"/>
 

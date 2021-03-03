@@ -1,8 +1,15 @@
 ---
-id: MTool_Manual
-title: MTool教程
-sidebar_label: MTool教程
+id: OnLine_MTool_Manual
+title: 在线MTool教程
+sidebar_label: 在线MTool教程
 ---
+
+## 简介
+
+为了便于节点进行转账，质押，委托以及治理等相关的操作，PlatON提供了MTool来辅助用户：
+
+- MTool可支持Ubuntu 18.04和Windows 10，本文档分别描述Windows和Ubuntu环境下的安装和使用，用户可根据自己的资源进行选择。
+- MTool对质押等交易提供两种签名方式：在线签名和离线签名。此文档描述在线签名操作，离线签名操作请参考[离线MTool教程](/docs/zh-CN/OffLine_MTool_Manual)。
 
 ## 安装MTool
 
@@ -34,7 +41,7 @@ mtool-client --version
 
 **step1. 下载MTool安装包**
 
-在在线机器上，复制链接<https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/mtool-setup/0.13.1/mtool-setup.exe>或者 <http://47.91.153.183/mtool/mtool-setup/0.13.1/mtool-setup.exe> 到浏览器下载MTool安装包。
+在在线机器上，复制链接<http://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe> 到浏览器下载MTool安装包。
 
 **step2. 安装MTool**
 
@@ -51,13 +58,7 @@ mtool-client --version
 **step1. 下载MTool工具包**
 
 ``` bash
-wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/mtool/0.13.1/mtool-client.zip
-```
-
-或者
-
-``` bash
-wget http://47.91.153.183/mtool/0.13.1/mtool-client.zip
+wget http://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
 ```
 
 **step2. 解压MTool工具包**
@@ -71,13 +72,7 @@ wget http://47.91.153.183/mtool/0.13.1/mtool-client.zip
 >脚本下载到<font color=red>mtool-client</font> 目录下，否则脚本无法找到新版本mtool的路径。
 
 ``` bash
-wget https://7w6qnuo9se.s3.eu-central-1.amazonaws.com/opensource/scripts/mtool_install.sh
-```
-
-或者
-
-``` bash
-wget http://47.91.153.183/opensource/scripts/mtool_install.sh
+wget http://download.platon.network/opensource/scripts/mtool_install.sh
 ```
 
 **step4. 执行命令**
@@ -88,9 +83,9 @@ chmod +x mtool_install.sh && ./mtool_install.sh
 
 > - 提示 <font color=red>Install mtool succeed.</font> 时，表示 MTool 安装成功，未安装成功时，请通过我们的官方客服联系方式反馈具体问题。
 
-**step5. 重启终端**
+**step5. 重新启动会话窗口**
 
-安装完成之后，需要<font color=red>重启终端</font>，让新添加的环境变量生效。
+安装完成之后，需要<font color=red>重新启动会话窗口</font>，让新添加的环境变量生效。
 
 ## MTool环境变量说明
 
@@ -107,7 +102,10 @@ Windows和Ubuntu下MTool目录使用环境变量有所区别：
 
 ##  MTool命令详解
 
-> 注意：后续命令是Ubuntu下的命令格式，Windows下需要把`$MTOOLDIR`修改成`%MTOOLDIR%`。
+> **注意：**
+>
+> - 后续命令是Ubuntu下的命令格式，Windows下需要把`$MTOOLDIR`修改成`%MTOOLDIR%`；
+> - 如果连接的是测试网，需要修改MTool安装目录下的config.properties配置文件的chainid为201030。
 
 ### 创建钱包
 
@@ -125,8 +123,7 @@ mtool-client account new staking
 >-name: staking
 >-type: NORMAL
 >-address:
-> mainnet: lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr
-> testnet: lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v
+lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr
 >-public key: 0x9521cd81ba28d5d1c23bb7ddb7042d146375203d35000c0289178027abd4dc09bca30257739df166201e73497485242f41d5f50d46bc3c7e4385f81bde560db0
 >
 >Important write this Private Key in a safe place.
@@ -140,9 +137,7 @@ mtool-client account new staking
 >
 >钱包地址格式调整为Bech32，其中：
 >
->`lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr`：为主网账户地址，以lat开头；
->
->`lax124xmsmd0uf5cvk7v3s36eytqezqsjfcxxtcs4v`：为测试网账户地址，以lax开头；
+>`lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr`：钱包地址；
 >
 >`4630b6d86bc74bffd4ca8cfc18bceec562cb40fc5080c258452a04a69bc1ee07` 为钱包私钥；
 >
@@ -209,6 +204,8 @@ mtool-client tx transfer --keystore $MTOOLDIR/keystore/staking.json --amount "1"
 >amount：转账金额，单位：LAT
 >
 >recipient：接收地址
+>
+>config：验证节点信息文件路径
 
 ### 查看钱包列表
 
@@ -229,6 +226,8 @@ mtool-client account balance $keystorename --config $MTOOLDIR/validator/validato
 - 变量说明
 
 >$keystorename：钱包文件名称，如staking.json
+>
+>config：验证节点信息文件路径
 
 ### 根据地址查询余额
 
@@ -241,17 +240,56 @@ mtool-client account balance -a $address --config $MTOOLDIR/validator/validator_
 - 参数
 
 > a：钱包地址
+>
+> config：验证节点信息文件路径
+
+### 创建新的锁仓计划
+
+节点可以使用自己钱包内的资金，创建新的锁仓计划。在创建新的锁仓计划前，先要创建一个格式为json的锁仓计划描述文件。
+
+- 锁仓计划描述文件，retricting_plans.json
+
+```json
+{
+  "account":"lat12jn6835z96ez93flwezrwu4xpv8e4zathsyxdn",
+  "plans":[
+    {"epoch": 5000,"amount": 100},
+    {"epoch": 6000,"amount": 100},
+    {"epoch": 7000,"amount": 100}
+  ]
+}
+```
+
+> account：指锁仓资金的释放目标地址
+>
+> epoch：释放等待的结算周期数量（大于等于1）
+>
+> amount：释放资金，单位:LAT
+
+- 执行命令
+
+```bash
+mtool-client create_restricting --config $MTOOLDIR/validator/validator_config.json --keystore $MTOOLDIR/keystore/staking.json --file ./restricting_plans.json
+```
+
+- 参数说明，
+
+> config：验证节点信息文件路径
+>
+> keystore：发送交易的冷钱包路径
+>
+> file: 锁仓计划描述文件
 
 ### 发起质押操作
 
-如果共识节点部署完成，并且已经同步区块成功，您就可以使用MTool进行质押操作。质押资金申请完成后，确保质押账户余额足够，根据用户情况替换质押金额，质押最低门槛为100万LAT。
+如果共识节点部署完成，并且已经同步区块成功，您就可以使用MTool进行质押操作。质押资金申请完成后，确保质押账户余额足够，根据用户情况替换质押金额，质押最低门槛为10万LAT。
 
 注意：请保持质押账户里面有足够LAT，以备后续发起节点管理的交易有足够的交易手续费，比如升级提案的投票，解质押等交易。
 
 - 执行命令
 
 ```bash
-mtool-client staking --amount 1000000 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
+mtool-client staking --config $MTOOLDIR/validator/validator_config.json --keystore $MTOOLDIR/keystore/staking.json --amount 10000 --benefit_address xxx196278ns22j23awdfj9f2d4vz0pedld8a2fzwwj --delegated_reward_rate 5000 --node_name myNode --website www.mywebsite.com --details myNodeDescription --external_id 121412312
 ```
 提示：**please input keystore password:** 输入质押钱包的密码，然后回车，如果显示如下信息则代表质押成功：
 
@@ -264,35 +302,59 @@ SUCCESS
 
 - 参数说明
 
-> amount: 质押数，不少于1000000lat-质押门槛，小数点不超过8位
+> config：验证节点信息文件路径
 >
-> restrictedamount: 不少于1000000lat-质押门槛，小数点不超过8位（使用锁仓余额质押）
+> keystore：发送交易的冷钱包路径
+>
+> amount: 质押数，不少于100000lat-质押门槛，小数点不超过8位（使用自由金额质押）
+>
+> restrictedamount: 不少于100000lat-质押门槛，小数点不超过8位（使用锁仓余额质押）
+>
+> autoamount：不少于100000lat-优先使用锁仓余额质押，若锁仓余额不足质押金，再使用自由金额质押
+>
+> benefit_address：验证节点收益地址
+>
+> delegated_reward_rate：委托奖励比例，单位：万分比，整数，范围\[0,10000]，如输入5000，表示分红比例为50%
+>
+> node_name：验证人名称，不超过30字节，支持字母、数字、空格、上下划线及#，必须字母开头
+>
+> website：官网路径，不超过70字节，数字字母组成
+>
+> details：简介，验证人简要介绍说明，不超过280字节，建议英文
+>
+> external_id：节点头像icon在keybase.io的ID，或者外部系统身份认证ID
+
 
 ### 修改验证人信息操作
 
 - 执行命令
 
 ```bash
-mtool-client update_validator --name VerifierName --url "http://www.platon.com" --identity IdentifyID --delegated-reward-rate 100 --reward lax1x0f9xwr9steccekttqvml0d26zgsxwdnhq3fkv --introduction "Modify the verifier information operation" --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
+mtool-client update_validator --config $MTOOLDIR/validator/validator_config.json --keystore $MTOOLDIR/keystore/staking.json --node_name myNode --website www.mywebsite.com --external_id 121412312 --delegated_reward_rate 6000 --benefit_address lax1x0f9xwr9steccekttqvml0d26zgsxwdnhq3fkv --details "Modify the verifier information operation"
 ```
 
 - 参数说明
 
-> name：验证人名称，不超过30字节，支持字母、数字、空格、上下划线及#，必须字母开头
+> config：验证节点信息文件路径
 >
-> url：官网路径，不超过70字节，数字字母组成
+> keystore：发送交易的冷钱包路径
 >
-> identity：身份认证ID，不超过140字节，对应validator_config.json配置文件中的`externalId`字段。
+> node_name\[可选\]：验证人名称，不超过30字节，支持字母、数字、空格、上下划线及#，必须字母开头
 >
-> delegated-reward-rate：委托奖励比例，单位：万分比，整数，范围0~10000，如输入5000，表示分红比例为50%
+> website\[可选\]：官网路径，不超过70字节，数字字母组成
 >
-> reward：收益地址，42字符（字母数字）
+> external_id\[可选\]：节点头像icon在keybase.io的ID，或者外部系统身份认证ID
 >
-> introduction：简介，验证人简要介绍说明，不超过280字节，建议英文
+> delegated_reward_rate\[可选\]：委托奖励比例，单位：万分比，整数，范围\[0,10000]，如输入5000，表示分红比例为50%
 >
-> a：执行命令时，用配置文件里面的值作参数去修改验证人信息
+> benefit_address\[可选\]：验证节点收益地址，42字符（字母数字）
+>
+> details\[可选\]：简介，验证人简要介绍说明，不超过280字节，建议英文
+
 
 ### 解质押操作
+
+<font color=red>**解质押需要168个结算周期才能退出完成，请谨慎操作！**</font>
 
 - 执行命令
 
@@ -302,7 +364,9 @@ mtool-client unstaking --keystore $MTOOLDIR/keystore/staking.json --config $MTOO
 
 - 参数说明
 
-> 无
+> keystore：发送交易的冷钱包路径
+>
+> config：验证节点信息文件路径
 
 ### 增加质押操作
 
@@ -317,6 +381,10 @@ mtool-client increasestaking --amount 5000000 --keystore $MTOOLDIR/keystore/stak
 > amount：用账户余额来增加质押量(LAT)，不少于10最小增加值，小数点不超过8位
 >
 > restrictedamount： 用账户锁仓余额来增加质押量，不少于10质押门槛，小数点不超过8位（使用锁仓余额质押）
+>
+> keystore：发送交易的冷钱包路径
+>
+> config：验证节点信息文件路径
 
 ### 提交文本提案操作
 
@@ -329,13 +397,17 @@ mtool-client submit_textproposal --pid_id 100 --keystore $MTOOLDIR/keystore/stak
 - 参数说明
 
 > pid_id：GitHub ID
+>
+> keystore：发送交易的冷钱包路径
+>
+> config：验证节点信息文件路径
 
 ### 提交升级提案操作
 
 - 执行命令
 
 ```bash
-mtool-client submit_versionproposal --newversion 0.13.1 --end_voting_rounds 345 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
+mtool-client submit_versionproposal --newversion 0.15.1 --end_voting_rounds 345 --pid_id 100 --keystore $MTOOLDIR/keystore/staking.json --config $MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
@@ -345,6 +417,10 @@ mtool-client submit_versionproposal --newversion 0.13.1 --end_voting_rounds 345 
 > end_voting_rounds：投票共识轮数，投票共识轮数N，必须满足0 < N <= 4838（约为2周）
 >
 > pid_id：GitHub ID
+>
+> keystore：发送交易的冷钱包路径
+>
+> config：验证节点信息文件路径
 
 ### 提交取消提案操作
 
@@ -361,6 +437,10 @@ mtool-client submit_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b
 > end_voting_rounds：投票共识轮数，投票共识轮数N，必须满足0 < N <= 4838（约为2周）
 >
 > pid_id：GitHub ID
+>
+> keystore：发送交易的冷钱包路径
+>
+> config：验证节点信息文件路径
 
 ### 文本提案投票操作
 
@@ -375,6 +455,10 @@ mtool-client vote_textproposal --proposalid 0x444c3df404bc1ce4d869166623514b3700
 > proposalid：文本提案ID，即发起提案交易的hash，66字符，字母数字组成
 >
 > opinion：投票选项，yes、no、abstain-三选一
+>
+> keystore：发送交易的冷钱包路径
+>
+> config：验证节点信息文件路径
 
 ### 升级提案投票操作
 
@@ -387,6 +471,10 @@ mtool-client vote_versionproposal --proposalid 0x444c3df404bc1ce4d869166623514b3
 - 参数说明
 
 > proposalid：升级提案ID，即发起提案交易的hash，66字符，字母数字组成
+>
+> keystore：发送交易的冷钱包路径
+>
+> config：验证节点信息文件路径
 
 ### 取消提案投票操作
 
@@ -401,6 +489,10 @@ mtool-client vote_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b37
 > proposalid：取消提案ID，即发起提案交易的hash，66字符，字母数字组成
 >
 > opinion：投票选项，yes、no、abstain-三选一
+>
+> keystore：发送交易的冷钱包路径
+>
+> config：验证节点信息文件路径
 
 ### 提交参数提案操作
 
@@ -419,6 +511,10 @@ mtool-client submit_paramproposal --pid_id 200 --module $module --paramname $par
 > paramvalue：治理模块参数值
 >
 > pid_id：GitHub ID
+>
+> keystore：发送交易的冷钱包路径
+>
+> config：验证节点信息文件路径
 
 ###  参数提案投票操作
 
@@ -433,6 +529,10 @@ mtool-client  vote_paramproposal --proposalid 0x444c3df404bc1ce4d869166623514b37
 > proposalid：取消提案ID，即发起提案交易的hash，66字符，字母数字组成
 >
 > opinion：投票选项，yes、no、abstain-三选一
+>
+> keystore：发送交易的冷钱包路径
+>
+> config：验证节点信息文件路径
 
 ### 版本声明操作
 
@@ -444,7 +544,9 @@ mtool-client declare_version --keystore $MTOOLDIR/keystore/staking.json --config
 
 - 参数说明
 
-> 无
+> keystore：发送交易的冷钱包路径
+>
+> config：验证节点信息文件路径
 
 ### 查看帮助
 
