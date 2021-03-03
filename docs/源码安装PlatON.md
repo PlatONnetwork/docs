@@ -15,7 +15,7 @@ This document is intended for users with the ability to compile source code on t
 Windows compilation environment requirements :
 
 - git: `2.19.1 and above`
-- Go language development kit: `go (1.11+)`
+- Go language development kit: `go (1.13+)`
 - mingw: `mingw (V8.1.0)`
 - cmake: `3.0 +`
 

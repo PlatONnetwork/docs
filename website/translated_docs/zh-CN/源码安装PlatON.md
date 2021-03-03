@@ -13,7 +13,7 @@ sidebar_label: 源码安装PlatON
 Windows编译环境需要符合以下条件：
 
 - git：`2.19.1以上`
-- go语言开发包：`go(1.11+)`
+- go语言开发包：`go(1.13+)`
 - mingw：`mingw（V8.1.0）`
 - cmake: `3.0+`
 
