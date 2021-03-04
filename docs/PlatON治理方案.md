@@ -244,16 +244,16 @@ The parameter proposal voting cycle is two weeks. As of now, the governance para
 
 | Key              | description   | range                    |
 | ---------------- | ------------- | ------------------------ |
-| MaxBlockGasLimit | Block Max Gas | [4712388, 210000000] gas |
+| MaxBlockGasLimit | Block Max Gas | [9424776, 300000000] gas |
 
 - staking module
 
 | Key                   | description                                                  | range                         |
 | --------------------- | ------------------------------------------------------------ | ----------------------------- |
-| stakeThreshold        | The minimum number of staking tokens to become alternative node candidates | [100W,1000w] LAT              |
+| stakeThreshold        | The minimum number of staking tokens to become alternative node candidates | [10W,1000w] LAT               |
 | operatingThreshold    | Minimum number of tokens for each delegation and redemption by the client | [10, 10000] LAT               |
-| unStakeFreezeDuration | Node staking return lock cycle                               | (Evidence validity,112] Epoch |
-| maxValidators         | Number of alternative nodes                                  | [25, 201]                     |
+| unStakeFreezeDuration | Node staking return lock cycle                               | (Evidence validity,336] Epoch |
+| maxValidators         | Number of alternative nodes                                  | [43, 10000]                   |
 
 ### Reward and punishment mechanism
 
