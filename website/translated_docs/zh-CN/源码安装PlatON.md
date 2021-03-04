@@ -86,7 +86,7 @@ go run build/ci.go install ./cmd/platonkey
 - 系统版本：`Ubuntu 18.04.1 及以上`
 - git：`2.19.1及以上`
 - 编译器：`gcc(4.9.2+)`、`g++(5.0+)`
-- go语言开发包：`go(1.11+)`
+- go语言开发包：`go(1.13+)`
 - cmake:`3.0+`
 
 **step2.** 获取PlatON源码：

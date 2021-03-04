@@ -88,7 +88,7 @@ After compiling, `platon`,` platonkey` executable files will be generated in the
 - System version: `Ubuntu 18.04.1 and above`
 - git: `2.19.1 and above`
 - Compilers: `gcc (4.9.2+)`, `g ++ (5.0+)`
-- Go language development kit: `go (1.11+)`
+- Go language development kit: `go (1.13+)`
 - cmake: `3.0 +`
 
 **step2.** Get the PlatON source:
