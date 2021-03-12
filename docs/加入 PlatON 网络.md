@@ -6,7 +6,7 @@ sidebar_label: Join the PlatON network
 
 ## Overview
 
-The PlatON mainnet was officially launched on April 12, 2021 Beijing time, Chinid backlog. The other is the Platon development network for developers, Chainid 210309.
+PlatON mainnet launch date to be determined, Chainid to be determined.The PlatON development network, which will be open to developers, is set to launch on March 10, 2021 (Chainid: 210309).
 
 
 
@@ -27,7 +27,7 @@ Anyone or any organization can join PlatON main network.
 
 ### Start as a validator node
 
-**Execute the following command to join the Baleyworld as a validator node**
+Execute the following command to start the verification node to join the main network of Platon (please access it after the main network is online)
 
 ```bash
 nohup platon --identity platon --datadir ./data --port 16789 --platon --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "fast" > ./data/platon.log 2>&1 &

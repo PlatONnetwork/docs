@@ -6,7 +6,7 @@ sidebar_label: 加入 PlatON 网络
 
 ## 简介
 
-PlatON主网于北京时间2021年4月12日正式上线，ChainID待定。另外一个是用来对开发者开放的PlatON开发网络，ChainID为210309。
+PlatON主网上线时间待定，ChainID待定。另外一个用来对开发者开放的PlatON开发网络于北京时间2021年3月10日上线，ChainID：210309。
 
 
 
@@ -27,7 +27,7 @@ PlatON主网于北京时间2021年4月12日正式上线，ChainID待定。另外
 
 ### 启动验证节点
 
-执行以下命令即可启动验证节点加入贝莱世界：
+执行以下命令即可启动验证节点加入PlatON主网络（请等待主网上线后接入）
 
 ```bash
 nohup platon --identity platon --datadir ./data --port 16789 --platon --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "fast" > ./data/platon.log 2>&1 &
