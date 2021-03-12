@@ -34,7 +34,7 @@ Double-click `C:\tools\unins000.exe` to uninstall all old versions of MTool and 
 
 **Step1. Download MTool installation package**
 
-On the online machine, copy the link http://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe  to the browser and download the MTool installation package.
+On the online machine, copy the link https://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe  to the browser and download the MTool installation package.
 
 **Step2. Install MTool**
 
@@ -51,7 +51,7 @@ Proceed as follows:
 **Step1. Download MTool toolkit**
 
 ```bash
-wget http://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
+wget https://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
 ```
 
 **Step2. Extract the MTool toolkit**
@@ -65,7 +65,7 @@ wget http://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
 > The script is downloaded to the <font color=red>mtool-client</font> directory, otherwise the script cannot find the path of the new version of mtool.
 
 ```bash
-wget http://download.platon.network/opensource/scripts/mtool_install.sh
+wget https://download.platon.network/platon/scripts/mtool_install.sh
 ```
 
 **Step4. Execute command**

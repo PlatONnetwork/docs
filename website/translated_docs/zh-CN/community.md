@@ -35,7 +35,7 @@ sidebar_label: 社区项目
     <tr>
         <td><img alt="" src="/docs/img/MTool_logo.svg"></td>
         <td>
-            <p class="color"><a target="_blank" href="http://47.91.153.183/mtool/mtool-setup/1.0.0/mtool-setup.exe">MTool</a></p>
+            <p class="color"><a target="_blank" href="https://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe">MTool</a></p>
             节点管理工具。
         </td>
     </tr>

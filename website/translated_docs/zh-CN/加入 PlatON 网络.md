@@ -6,7 +6,7 @@ sidebar_label: 加入 PlatON 网络
 
 ## 简介
 
-PlatON主网于北京时间2021年4月12日正式上线，ChainID为100。
+PlatON主网于北京时间2021年4月12日正式上线，ChainID为100。另外一个是用来对开发者开放的PlatON开发网络，ChainID为210309。
 
 
 
@@ -21,7 +21,7 @@ PlatON主网于北京时间2021年4月12日正式上线，ChainID为100。
 
 
 
-## 加入主网
+## 加入PlatON主网
 
 任何人、任何组织都可以加入 PlatON 主网络。
 
@@ -47,13 +47,91 @@ nohup platon --identity platon --datadir ./data --port 16789 --rpcport 6789 --rp
 | --nodekey     | 指定节点私钥文件                                             |
 | --cbft.blskey | 指定节点 bls 私钥文件                                        |
 | --verbosity   | 日志级别，0: CRIT;  1: ERROR； 2: WARN;  3: INFO;  4: DEBUG； 5: TRACE |
-| --testnet     | 指定连接到测试网络，不指定默认运行主网络                     |
 | --syncmode    | fast：快速同步模式，full：全同步模式                         |
 | –db.nogc      | 开启归档模式                                                 |
 
 更多参数意义通过`platon --help`命令查看。
 
-当 PlatON 启动成功后，正常情况下会通过节点发现协议自动和距离自己最近的节点建立连接，连接成功后会启动区块同步，所以判断加入网络是否成功可以通过查看节点的 peers 同时确认当前节点块高是否增长来判断。
+
+
+## 加入PlatON开发网络
+
+开发网为开发者或节点提供开发测试环境。可能出现不稳定，网络重置的情况。开发网络目前版本为1.0.0，提供PPA安装方式，也支持二进制下载安装。
+
+### 开发网络相关资源
+
+>- platon：https://download.platon.network/platon/platon/1.0.0/platon
+>
+>- platonkey：https://download.platon.network/platon/platon/1.0.0/platonkey
+>
+>- mtool windows：https://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
+>
+>- mtool linux：https://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe
+>
+> > 需要修改配置文件config.properties中的链ID为开发网络链ID：210309
+>
+>- samurai：
+>- 开放RPC URL：http://47.241.99.44:6789 以及 ws://47.241.99.44:6790
+>- scan浏览器地址：https://devnetscan.platon.network
+
+
+
+### 初始化创世区块
+
+- 保存创世区块文件
+
+  下载创世区块文件genesis.json：
+
+  ```bash
+  cd ~/platon-node && wget https://download.platon.network/platon/platon/1.0.0/genesis.json
+  ```
+
+  
+
+- 初始化创世区块文件
+
+  执行命令：
+
+  ```bash
+  cd ~/platon-node && platon --datadir ./data init genesis.json
+  ```
+
+  > 说明：
+  >
+  > 出现`Successfully wrote genesis state`相关提示说明初始化创世信息完成。
+
+  
+
+### 启动验证节点
+
+请参考[安装一个节点](/docs/zh-CN/Install_Node)章节先创建节点密钥：nodekey、blskey，然后执行以下命令即可启动验证节点加入PlatON开发网络；如果需要成为验证节点，请通过后续说明方式申请大额测试LAT（开发网将根据测试需要不定期重置，开发网LAT无任何实际价值）。
+
+```shell
+cd ~/platon-node/ && nohup platon --identity platon-node --datadir ./data --port 16789 --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --bootnodes enode://c72a4d2cb8228ca6f9072daa66566bcafa17bec6a9e53765c85c389434488c393357c5c7c5d18cf9b26ceda46aca4da20755cd01bcc1478fff891a201042ba84@devnetnode1.platon.network:16789 --syncmode "fast" > ./data/platon.log 2>&1 &
+```
+
+
+
+### 其他
+
+如果您有领取大额测试LAT的需求，请您按照格式要求发送邮件至support@latticex.foundation，邮件要求：
+
+```toml
+ 标题：PlatON开发网Token申请
+ 姓名：
+ 联系方式：
+ 微信号（或其他即时通讯软件）：
+ 申请金额：
+ 用途：
+ 收款账户：
+ 备注：
+```
+
+
+
+## 查看节点状态
+
+当 PlatON启动成功后，正常情况下会通过节点发现协议自动和距离自己最近的节点建立连接，连接成功后会启动区块同步，所以判断加入网络是否成功可以通过查看节点的 peers 同时确认当前节点块高是否增长来判断。
 
 如果没有预先生成密钥，节点在启动时自动在节点的data目录下生成。如果采用自动生成的形式，将只会生成节点私钥与 BLS 私钥，相关公钥不会自动生成。
 
@@ -70,35 +148,7 @@ platon attach http://localhost:6789
 ### 查看节点的  peers
 
 ```bash
-> admin.peers
-[{
-    caps: ["cbft/1", "platon/62", "platon/63"],
-    id: "0dd4e447cf23f4bfc94b1568bae626bf4894ce2e9d5ca474e3cc73ec7e9d4de550fffc1e2fc64cca25d42aecf6169cf8f8c0f4fe6adb847c33dc6ceb6f001bd1",
-    name: "PlatONnetwork/platon/v0.8.0-unstable-c5fc6b19/linux-amd64/go1.11.11",
-    network: {
-      consensus: true,
-      inbound: true,
-      localAddress: "127.0.0.1:16789",
-      remoteAddress: "127.0.0.1:47706",
-      static: false,
-      trusted: false
-    },
-    protocols: {
-      cbft: {
-        commitBn: 0,
-        highestQCBn: 0,
-        lockedBn: 0,
-        protocolVersion: 1
-      },
-      platon: {
-        head: "0x88a4fe315ce13b3010abf4ab5d120f25a21ac2ccae8ec563ad259e47e24b24bc",
-        number: 0,
-        version: 63
-      }
-    }
-},
-...
-]
+admin.peers
 ```
 
 
@@ -108,8 +158,9 @@ platon attach http://localhost:6789
 通过在`PlatON`控制台中执行以下命令查看当前节点的块高。
 
 ```bash
-> platon.blockNumber
-2235
+platon.blockNumber
 ```
 
-节点列表中出现一系列主网络节点并且块高在不断增长，则表示连接成功！
+节点列表中出现一系列PlatON网络节点并且块高在不断增长，则表示连接成功！（由于新节点需要同步，可能会存在延迟）
+
+输入exit退出控制台。
