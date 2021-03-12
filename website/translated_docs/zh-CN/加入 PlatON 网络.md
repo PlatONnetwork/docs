@@ -30,7 +30,7 @@ PlatON主网于北京时间2021年4月12日正式上线，ChainID为100。另外
 执行以下命令即可启动验证节点加入贝莱世界：
 
 ```bash
-nohup platon --identity platon --datadir ./data --port 16789 --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "fast" > ./data/platon.log 2>&1 &
+nohup platon --identity platon --datadir ./data --port 16789 --platon --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "fast" > ./data/platon.log 2>&1 &
 ```
 
 **提示：**
@@ -46,6 +46,7 @@ nohup platon --identity platon --datadir ./data --port 16789 --rpcport 6789 --rp
 | --rpc         | 指定 http-rpc 通讯方式                                       |
 | --nodekey     | 指定节点私钥文件                                             |
 | --cbft.blskey | 指定节点 bls 私钥文件                                        |
+| --platon      | 指定连接到PlatON主网络                                       |
 | --verbosity   | 日志级别，0: CRIT;  1: ERROR； 2: WARN;  3: INFO;  4: DEBUG； 5: TRACE |
 | --syncmode    | fast：快速同步模式，full：全同步模式                         |
 | –db.nogc      | 开启归档模式                                                 |
@@ -56,7 +57,7 @@ nohup platon --identity platon --datadir ./data --port 16789 --rpcport 6789 --rp
 
 ## 加入PlatON开发网络
 
-开发网为开发者或节点提供开发测试环境。可能出现不稳定，网络重置的情况。开发网络目前版本为1.0.0，提供PPA安装方式，也支持二进制下载安装。
+开发网为开发者或节点提供开发测试环境。可能出现不稳定，网络重置的情况。开发网络目前版本为1.0.0，仅支持二进制下载安装。
 
 ### 开发网络相关资源
 

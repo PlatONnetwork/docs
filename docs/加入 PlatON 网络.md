@@ -30,7 +30,7 @@ Anyone or any organization can join PlatON main network.
 **Execute the following command to join the Baleyworld as a validator node**
 
 ```bash
-nohup platon --identity platon --datadir ./data --port 16789 --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "fast" > ./data/platon.log 2>&1 &
+nohup platon --identity platon --datadir ./data --port 16789 --platon --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "fast" > ./data/platon.log 2>&1 &
 ```
 
 **Prompt:**
@@ -46,6 +46,7 @@ nohup platon --identity platon --datadir ./data --port 16789 --rpcport 6789 --rp
 | --rpc          | Specify http-rpc communication method                        |
 | --nodekey      | Specify the node private key file                            |
 | --cbft.blskey  | Specify the node bls private key file                        |
+| --platon       | Specify to connect to the PlatON's main network              |
 | --verbosity    | The level of logging, 0: CRIT;  1: ERROR; 2: WARN;  3: INFO;  4: DEBUG; 5: TRACE |
 | --syncmode     | fast: Fast synchronization mode, full: All synchronous mode  |
 | --db.nogc      | Enable archive mode                                          |
@@ -54,7 +55,7 @@ See more parameters with the command `platon --help`
 
 ## Join the PlatON Develop Network
 
-The development network provides a development test environment for the developer or node.There may be instability and a network reset.The current version of the development network is 1.0.0, which provide PPA installation mode, also support binary download installation.
+The development network provides a development test environment for the developer or node.There may be instability and a network reset.The current version of the development network is 1.0.0, Only binary mode is supported.
 
 ### Develop network related resources
 
