@@ -6,7 +6,7 @@ sidebar_label: Join the PlatON network
 
 ## Overview
 
-The PlatON mainnet was officially launched on April 12, 2021 Beijing time, with ChainID of 100. The other is the Platon development network for developers, Chainid 210309.
+The PlatON mainnet was officially launched on April 12, 2021 Beijing time, Chinid backlog. The other is the Platon development network for developers, Chainid 210309.
 
 
 

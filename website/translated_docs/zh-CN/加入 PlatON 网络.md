@@ -6,7 +6,7 @@ sidebar_label: 加入 PlatON 网络
 
 ## 简介
 
-PlatON主网于北京时间2021年4月12日正式上线，ChainID为100。另外一个是用来对开发者开放的PlatON开发网络，ChainID为210309。
+PlatON主网于北京时间2021年4月12日正式上线，ChainID待定。另外一个是用来对开发者开放的PlatON开发网络，ChainID为210309。
 
 
 
