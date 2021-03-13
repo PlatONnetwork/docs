@@ -213,16 +213,16 @@ sidebar_label: PlatON治理方案
 
 | Key | 描述|范围|
 | ---|---|---|
-| MaxBlockGasLimit|区块最大Gas|[4712388, 210000000] gas|
+| MaxBlockGasLimit|区块最大Gas|[9424776, 300000000] gas|
 
 - staking模块
 
 | Key | 描述|范围|
 | ---|---|---|
-| stakeThreshold|	成为备选节点候选人最低的质押Token数 | [100W,1000w] LAT|
+| stakeThreshold|	成为备选节点候选人最低的质押Token数 | [10W,1000w] LAT |
 | operatingThreshold	|委托人每次委托及赎回的最低Token数|	[10, 10000] LAT|
-| unStakeFreezeDuration |节点质押退回锁定周期	| (证据有效期,112] Epoch	|
-| maxValidators| 备选节点数量|[25, 201]	|
+| unStakeFreezeDuration |节点质押退回锁定周期	| (证据有效期,336] Epoch	|
+| maxValidators| 备选节点数量|[43, 10000]	|
 
 
 ### 奖惩机制
