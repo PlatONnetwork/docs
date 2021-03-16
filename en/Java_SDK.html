@@ -2531,7 +2531,7 @@ Put <span class="hljs-keyword">the</span> bytecode attribute <span class="hljs-k
 <li>Directly call the tool class in the Java SDK to generate a Java wrapper class:</li>
 </ul>
 <pre><code class="hljs css language-java"><span class="hljs-comment">// Import console module via maven or gradle</span>
-compile <span class="hljs-string">"com.platon.client:console:{version}"</span>
+compile <span class="hljs-string">"com.platon.sdk:console:{version}"</span>
 
 String args[] = {<span class="hljs-string">"generate"</span>, <span class="hljs-string">"/path/to/&lt;smart-contract&gt;.bin"</span>, <span class="hljs-string">"/path/to/&lt;smart-contract&gt;.abi"</span>, <span class="hljs-string">"-o"</span>, <span class="hljs-string">"/path/to/src/main/java"</span>, <span class="hljs-string">"-p"</span> , <span class="hljs-string">"com.your.organisation.name"</span>};
 org.web3j.codegen.SolidityFunctionWrapperGenerator.run(args);
