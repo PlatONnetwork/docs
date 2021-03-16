@@ -84,9 +84,9 @@
 <p>maven引用方式:</p>
 </blockquote>
 <pre><code class="hljs css language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.platon.client<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.platon.sdk<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.13.1.5<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.15.1.9<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="gradle"></a><a href="#gradle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>gradle</h3>
@@ -100,35 +100,47 @@
 <blockquote>
 <p>gradle引用方式:</p>
 </blockquote>
-<pre><code class="hljs"><span class="hljs-selector-tag">compile</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.client</span><span class="hljs-selector-pseudo">:core</span><span class="hljs-selector-pseudo">:0.13.1.5"</span>
+<pre><code class="hljs"><span class="hljs-selector-tag">compile</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.sdk</span><span class="hljs-selector-pseudo">:core</span><span class="hljs-selector-pseudo">:0.15.1.9"</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="基础api使用"></a><a href="#基础api使用" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>基础api使用</h2>
 <h3><a class="anchor" aria-hidden="true" id="bech32地址"></a><a href="#bech32地址" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bech32地址</h3>
 <ul>
 <li><strong>0x地址转bech32地址</strong></li>
 </ul>
-<pre><code class="hljs css language-java">String hex = <span class="hljs-string">"0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac5cf4f818"</span>;
-String bech32Address = Bech32.addressEncode(NetworkParameters.TestNetParams.getHrp(), hex);
-assertThat(bech32Address, is(<span class="hljs-string">"lax1f7wp58h65lvphgw2hurl9sa943w0f7qc3dp390"</span>));
-
-bech32Address = Bech32.addressEncode(NetworkParameters.MainNetParams.getHrp(), hex);
-assertThat(bech32Address, is(<span class="hljs-string">"lat1f7wp58h65lvphgw2hurl9sa943w0f7qc7gn7tq"</span>));
+<pre><code class="hljs css language-java">NetworkParameters.init(<span class="hljs-number">20000L</span>, <span class="hljs-string">"atx"</span>);
+String hex = <span class="hljs-string">"0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac5cf4f818"</span>;
+String bech32Address = Bech32.addressEncode(NetworkParameters.getHrp(), hex);
+assertThat(bech32Address, is(<span class="hljs-string">"atx1f7wp58h65lvphgw2hurl9sa943w0f7qcdcev89"</span>));
 </code></pre>
 <ul>
 <li><strong>bech32地址转0x地址</strong></li>
 </ul>
-<pre><code class="hljs css language-java">String bech32Address = <span class="hljs-string">"lax1f7wp58h65lvphgw2hurl9sa943w0f7qc3dp390"</span>;
+<pre><code class="hljs css language-java">NetworkParameters.init(<span class="hljs-number">20000L</span>, <span class="hljs-string">"atx"</span>);
+String bech32Address = <span class="hljs-string">"atx1f7wp58h65lvphgw2hurl9sa943w0f7qcdcev89"</span>;
 String hex =  Bech32.addressDecodeHex(bech32Address);
 assertThat(hex, is(<span class="hljs-string">"0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac5cf4f818"</span>));
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="网络参数"></a><a href="#网络参数" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>网络参数</h3>
 <ul>
-<li><strong>设置当前网络参数</strong></li>
+<li><strong>初始化网络</strong></li>
 </ul>
 <blockquote>
-<p>因为加入了bech32格式地址支持，为了兼容旧的api，加入了全局设置网络参数的功能，旧的api根据当前网络参数输出相应格式地址</p>
+<p>SDK已经内置PlatON网络。用户还可以初始化其它自定义网络，最后一个初始化的是当前网络.</p>
 </blockquote>
-<pre><code class="hljs css language-java">NetworkParameters.setCurrentNetwork(<span class="hljs-number">101L</span>);  <span class="hljs-comment">// default mainnet 100L</span>
+<pre><code class="hljs css language-java">NetworkParameters.init(<span class="hljs-number">2000L</span>, <span class="hljs-string">"ABC"</span>);
+</code></pre>
+<ul>
+<li><strong>选择当前网络</strong></li>
+</ul>
+<blockquote>
+<p>如果用户初始化了多个网络，可以随时切换网络.</p>
+</blockquote>
+<pre><code class="hljs css language-java">NetworkParameters.selectNetwork(<span class="hljs-number">2000L</span>, <span class="hljs-string">"ABC"</span>);
+</code></pre>
+<blockquote>
+<p>或者直接选择Alaya主网络</p>
+</blockquote>
+<pre><code class="hljs css language-java">NetworkParameters.selectPlatON();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="钱包相关"></a><a href="#钱包相关" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>钱包相关</h3>
 <ul>
@@ -903,7 +915,7 @@ BigInteger req = request.send().getFilterId();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonuninstallfilter"></a><a href="#platonuninstallfilter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonUninstallFilter</h3>
 <blockquote>
-<pre><code class="hljs">写在具有指定编号的过滤器。当不在需要监听时，总是需要执行该调用 
+<pre><code class="hljs">写在具有指定编号的过滤器。当不在需要监听时，总是需要执行该调用
 </code></pre>
 </blockquote>
 <ul>
@@ -1062,7 +1074,7 @@ String req  = request.send().getStoredValue();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="dbputhex"></a><a href="#dbputhex" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>dbPutHex</h3>
 <blockquote>
-<pre><code class="hljs">将二进制数据写入本地数据库 
+<pre><code class="hljs">将二进制数据写入本地数据库
 </code></pre>
 </blockquote>
 <ul>
@@ -1089,7 +1101,7 @@ Request &lt;?, DbPutHex&gt; request = currentValidWeb3j.dbPutHex(databaseName,ke
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="dbgethex"></a><a href="#dbgethex" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>dbGetHex</h3>
 <blockquote>
-<pre><code class="hljs">从本地数据库中读取二进制数据  
+<pre><code class="hljs">从本地数据库中读取二进制数据
 </code></pre>
 </blockquote>
 <ul>
@@ -1144,7 +1156,7 @@ String req  = request.send().getStoredValue();
     "blockNumber": 16013,       //区块number
     "blockIndex": 0,        //区块在一轮view中的索引值
     "blockData": "0xe1a507a57c1e9d8cade361fefa725d7a271869aea7fd923165c872e7c0c2b3f2",     //区块rlp编码值
-    "validateNode": {            
+    "validateNode": {
       "index": 0,     //验证人在一轮epoch中的索引值
       "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",    //验证人地址
       "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",    //验证人nodeID
@@ -1179,7 +1191,7 @@ String req  = request.send().getStoredValue();
     "blockHash": "0x58b5976a471f86c4bd198984827bd594dce6ac861ef15bbbb1555e7b2edc2fc9",   //区块hash
     "blockNumber": 16013,   //区块number
     "blockIndex": 0,    //区块在一轮view中的索引值
-    "validateNode": { 
+    "validateNode": {
       "index": 0,    //验证人在一轮epoch中的索引值
       "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",  //验证人地址
       "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",   //验证人nodeID
@@ -1208,13 +1220,13 @@ String req  = request.send().getStoredValue();
 </ul>
 <pre><code class="hljs css language-text">{
   "viewA": {
-    "epoch": 0,  
-    "viewNumber": 0, 
+    "epoch": 0,
+    "viewNumber": 0,
     "blockHash": "0xb84a40bb954e579716e7a6b9021618f6b25cdb0e0dd3d8c2c0419fe835640f36",  //区块hash
-    "blockNumber": 16013, 
+    "blockNumber": 16013,
     "validateNode": {
-      "index": 0,  
-      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4", 
+      "index": 0,
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",
       "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",
       "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"
     },
@@ -1796,7 +1808,7 @@ BigInteger stakingBlockNum = <span class="hljs-keyword">new</span> BigInteger(<s
 PlatonSendTransaction platonSendTransaction = delegateContract.unDelegateReturnTransaction(nodeId, stakingBlockNum, stakingAmount.toBigInteger()).send();
 TransactionResponse baseResponse = delegateContract.getTransactionResponse(platonSendTransaction).send();
 
-<span class="hljs-keyword">if</span>(baseResponse.isStatusOk()){ 
+<span class="hljs-keyword">if</span>(baseResponse.isStatusOk()){
     BigInteger reward = delegateContract.decodeUnDelegateLog(baseResponse.getTransactionReceipt());
 }
 </code></pre>
@@ -2640,7 +2652,7 @@ GasProvider gasProvider  = <span class="hljs-keyword">new</span> ContractGasProv
 <li>通过<code>CDT</code>编译器编译Wasm合约源代码(<a href="https://github.com/PlatONnetwork/PlatON-CDT/releases">CDT下载</a>)</li>
 </ul>
 <p>CDT安装成功以后，可通过如下命令编译Wasm合约源代码：</p>
-<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> platon-cpp &lt;contract&gt;.cpp </span>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> platon-cpp &lt;contract&gt;.cpp</span>
 </code></pre>
 <p>编译成功以后，会生成<code>&lt;contract&gt;.wasm</code>和<code>&lt;contract&gt;.abi.json</code>文件</p>
 <p><code>wasm</code>，输出Wasm合约的二进制文件以提供交易请求。

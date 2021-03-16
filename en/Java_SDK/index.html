@@ -84,9 +84,9 @@
 <p>maven reference:</p>
 </blockquote>
 <pre><code class="hljs css language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.platon.client<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.platon.sdk<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.13.1.5<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.15.1.10<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="gradle"></a><a href="#gradle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>gradle</h3>
@@ -100,35 +100,47 @@
 <blockquote>
 <p>gradle way of reference:</p>
 </blockquote>
-<pre><code class="hljs"><span class="hljs-selector-tag">compile</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.client</span><span class="hljs-selector-pseudo">:core</span><span class="hljs-selector-pseudo">:0.13.1.5</span>
+<pre><code class="hljs"><span class="hljs-selector-tag">compile</span> "<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.platon</span><span class="hljs-selector-class">.sdk</span><span class="hljs-selector-pseudo">:core</span><span class="hljs-selector-pseudo">:0.15.1.10"</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="basic-api-usage"></a><a href="#basic-api-usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic API Usage</h2>
 <h3><a class="anchor" aria-hidden="true" id="bech32-address"></a><a href="#bech32-address" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bech32 Address</h3>
 <ul>
 <li><strong>0x address to bech32 address</strong></li>
 </ul>
-<pre><code class="hljs css language-java">String hex = <span class="hljs-string">"0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac5cf4f818"</span>;
-String bech32Address = Bech32.addressEncode(NetworkParameters.TestNetParams.getHrp(), hex);
-assertThat(bech32Address, is(<span class="hljs-string">"lax1f7wp58h65lvphgw2hurl9sa943w0f7qc3dp390"</span>));
-
-bech32Address = Bech32.addressEncode(NetworkParameters.MainNetParams.getHrp(), hex);
-assertThat(bech32Address, is(<span class="hljs-string">"lat1f7wp58h65lvphgw2hurl9sa943w0f7qc7gn7tq"</span>));
+<pre><code class="hljs css language-java">NetworkParameters.init(<span class="hljs-number">20000L</span>, <span class="hljs-string">"atx"</span>);
+String hex = <span class="hljs-string">"0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac5cf4f818"</span>;
+String bech32Address = Bech32.addressEncode(NetworkParameters.getHrp(), hex);
+assertThat(bech32Address, is(<span class="hljs-string">"atx1f7wp58h65lvphgw2hurl9sa943w0f7qcdcev89"</span>));
 </code></pre>
 <ul>
 <li><strong>bech32 address to 0x address</strong></li>
 </ul>
-<pre><code class="hljs css language-java">String bech32Address = <span class="hljs-string">"lax1f7wp58h65lvphgw2hurl9sa943w0f7qc3dp390"</span>;
+<pre><code class="hljs css language-java">NetworkParameters.init(<span class="hljs-number">20000L</span>, <span class="hljs-string">"atx"</span>);
+String bech32Address = <span class="hljs-string">"atx1f7wp58h65lvphgw2hurl9sa943w0f7qcdcev89"</span>;
 String hex =  Bech32.addressDecodeHex(bech32Address);
 assertThat(hex, is(<span class="hljs-string">"0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac5cf4f818"</span>));
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="networkparameters"></a><a href="#networkparameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>NetworkParameters</h3>
 <ul>
-<li><strong>SetCurrentNetworkParameters</strong></li>
+<li><strong>initialize network</strong></li>
 </ul>
 <blockquote>
-<p>Because bech 32 format address support is added, in order to be compatible with the old API, the function of setting the network parameters globally is added, and the old API outputs the corresponding format address according to the current network parameters</p>
+<p>SDK includes PlatON network already. User can initialize custom networks, the latest is the current network.</p>
 </blockquote>
-<pre><code class="hljs css language-java">NetworkParameters.setCurrentNetwork(<span class="hljs-number">101L</span>);  <span class="hljs-comment">// default mainnet 100L</span>
+<pre><code class="hljs css language-java">NetworkParameters.init(<span class="hljs-number">2000L</span>, <span class="hljs-string">"ABC"</span>);
+</code></pre>
+<ul>
+<li><strong>select current network</strong></li>
+</ul>
+<blockquote>
+<p>user can switch current network if multi-networks have been initialized.</p>
+</blockquote>
+<pre><code class="hljs css language-java">NetworkParameters.selectNetwork(<span class="hljs-number">2000L</span>, <span class="hljs-string">"ABC"</span>);
+</code></pre>
+<blockquote>
+<p>or select PlatON network.</p>
+</blockquote>
+<pre><code class="hljs css language-java">NetworkParameters.selectPlatON();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="wallet-related"></a><a href="#wallet-related" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Wallet Related</h3>
 <ul>
@@ -1131,7 +1143,7 @@ Each type contains multiple evidences, so it is an array structure, and you need
     "blockNumber": 16013,       //block number
     "blockIndex": 0,        //The index value of the block in a round view
     "blockData": "0xe1a507a57c1e9d8cade361fefa725d7a271869aea7fd923165c872e7c0c2b3f2",     //Block rlp encoding value
-    "validateNode": {            
+    "validateNode": {
       "index": 0,     //The index value of the validator in a round of epoch
       "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",    //Verifier address
       "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",    //Verifier nodeID
@@ -1166,7 +1178,7 @@ Each type contains multiple evidences, so it is an array structure, and you need
     "blockHash": "0x58b5976a471f86c4bd198984827bd594dce6ac861ef15bbbb1555e7b2edc2fc9",   //block hash
     "blockNumber": 16013,   //block number
     "blockIndex": 0,    //The index value of the block in a round view
-    "validateNode": { 
+    "validateNode": {
       "index": 0,    //The index value of the validator in a round of epoch
       "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",  //Verifier address
       "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",   //Verifier nodeID
@@ -1195,13 +1207,13 @@ Each type contains multiple evidences, so it is an array structure, and you need
 </ul>
 <pre><code class="hljs css language-text">{
   "viewA": {
-    "epoch": 0,  
-    "viewNumber": 0, 
+    "epoch": 0,
+    "viewNumber": 0,
     "blockHash": "0xb84a40bb954e579716e7a6b9021618f6b25cdb0e0dd3d8c2c0419fe835640f36",  //区块hash
-    "blockNumber": 16013, 
+    "blockNumber": 16013,
     "validateNode": {
-      "index": 0,  
-      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4", 
+      "index": 0,
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",
       "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",
       "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"
     },
@@ -1771,7 +1783,7 @@ BigInteger stakingBlockNum = <span class="hljs-keyword">new</span> BigInteger(<s
 PlatonSendTransaction platonSendTransaction = delegateContract.unDelegateReturnTransaction(nodeId, stakingBlockNum, stakingAmount.toBigInteger()).send();
 TransactionResponse baseResponse = delegateContract.getTransactionResponse(platonSendTransaction).send();
 
-<span class="hljs-keyword">if</span>(baseResponse.isStatusOk()){ 
+<span class="hljs-keyword">if</span>(baseResponse.isStatusOk()){
        BigInteger reward = delegateContract.decodeUnDelegateLog(baseResponse.getTransactionReceipt());
 }
 </code></pre>
@@ -2595,7 +2607,7 @@ GasProvider gasProvider  = <span class="hljs-keyword">new</span> ContractGasProv
 <li>Compile WASM contract source code with <code>CDT</code> compiler(<a href="https://github.com/PlatONnetwork/PlatON-CDT/releases">CDT download</a>)：</li>
 </ul>
 <p>After the CDT installation is successful, you can compile the WASM contract source code with the following command:</p>
-<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> platon-cpp &lt;contract&gt;.cpp </span>
+<pre><code class="hljs css language-shell"><span class="hljs-meta">$</span><span class="bash"> platon-cpp &lt;contract&gt;.cpp</span>
 </code></pre>
 <p>After successful compilation, <code>&lt;contract&gt; .wasm</code> and<code>&lt;contract&gt; .abi.json</code> files will be generated.</p>
 <p><code>wasm</code>，Output binary file of WASM contract to provide transaction request.
