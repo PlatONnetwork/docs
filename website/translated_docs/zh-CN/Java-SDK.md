@@ -81,7 +81,7 @@ NetworkParameters.init(2000L, "ABC");
 ```java
 NetworkParameters.selectNetwork(2000L, "ABC");
 ```
-> 或者直接选择Alaya主网络
+> 或者直接选择PlatON主网络
 >
 
 ```java
@@ -2528,7 +2528,7 @@ CallResponse<String> baseResponse = slashContract.checkDoubleSign(DuplicateSignT
 
 ###  锁仓相关接口
 
-> PlatON举报惩罚相关的合约接口
+> PlatON锁仓相关接口
 
 #### 加载锁仓合约
 
