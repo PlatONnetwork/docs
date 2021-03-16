@@ -85,7 +85,7 @@ NetworkParameters.selectNetwork(2000L, "ABC");
 >
 
 ```java
-NetworkParameters.selectAlaya();
+NetworkParameters.selectPlatON();
 ```
 
 ### 钱包相关
