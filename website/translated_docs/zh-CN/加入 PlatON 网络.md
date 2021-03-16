@@ -62,17 +62,14 @@ nohup platon --identity platon --datadir ./data --port 16789 --platon --rpcport 
 ### 开发网络相关资源
 
 >- platon：https://download.platon.network/platon/platon/1.0.0/platon
->
 >- platonkey：https://download.platon.network/platon/platon/1.0.0/platonkey
+>- mtool windows：https://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe
+>- mtool linux：https://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
 >
->- mtool windows：https://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
->
->- mtool linux：https://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe
->
-> > 需要修改配置文件config.properties中的链ID为开发网络链ID：210309
+>> 需要修改配置文件config.properties中的链ID为开发网络链ID：210309
 >
 >- samurai：
->- 开放RPC URL：http://47.241.99.44:6789 以及 ws://47.241.99.44:6790
+> - 开放RPC URL：http://47.241.99.44:6789 以及 ws://47.241.99.44:6790
 >- scan浏览器地址：https://devnetscan.platon.network
 
 

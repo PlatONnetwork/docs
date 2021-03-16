@@ -25,7 +25,7 @@ In our opinion, decision-making power should belong to "stakeholders", that is, 
 ### Participating Roles
 
 - **Alternative node**
-  Nodes become candidates by stake certain amount of tokens. Other users can delegate their own tokens to candidates, and the system ranks according to the total staking amount of each candidates. The top 101 candidates are elected as validators.
+  Nodes become candidates by stake certain amount of tokens. Other users can delegate their own tokens to candidates, and the system ranks according to the total staking amount of each candidates. The top 201 candidates are elected as validators.
   
 - **Token holder**
   All LAT token holders.
