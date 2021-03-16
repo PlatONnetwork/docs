@@ -81,7 +81,7 @@ NetworkParameters.init(2000L, "ABC");
 ```java
 NetworkParameters.selectNetwork(2000L, "ABC");
 ```
-> 或者直接选择Alaya主网络
+> 或者直接选择PlatON主网络
 >
 
 ```java
