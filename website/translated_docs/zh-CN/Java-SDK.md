@@ -24,15 +24,15 @@ sidebar_label: Java SDK
 > maven引用方式:
 ```xml
 <dependency>
-	<groupId>com.platon.client</groupId>
-	<artifactId>core</artifactId>
-	<version>0.13.1.5</version>
+    <groupId>com.platon.sdk</groupId>
+    <artifactId>core</artifactId>
+    <version>0.15.1.9</version>
 </dependency>
 ```
 
 ### gradle
 
-> 项目配置:	
+> 项目配置:
 ```
 repositories {
 	maven { url "https://sdk.platon.network/nexus/content/groups/public/" }
@@ -41,7 +41,7 @@ repositories {
 
 > gradle引用方式:
 ```
-compile "com.platon.client:core:0.13.1.5"
+compile "com.platon.sdk:core:0.15.1.9"
 ```
 
 ## 基础api使用
@@ -50,29 +50,42 @@ compile "com.platon.client:core:0.13.1.5"
 
 * **0x地址转bech32地址**
 ```java
+NetworkParameters.init(20000L, "atx");
 String hex = "0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac5cf4f818";
-String bech32Address = Bech32.addressEncode(NetworkParameters.TestNetParams.getHrp(), hex);
-assertThat(bech32Address, is("lax1f7wp58h65lvphgw2hurl9sa943w0f7qc3dp390"));
-
-bech32Address = Bech32.addressEncode(NetworkParameters.MainNetParams.getHrp(), hex);
-assertThat(bech32Address, is("lat1f7wp58h65lvphgw2hurl9sa943w0f7qc7gn7tq"));
+String bech32Address = Bech32.addressEncode(NetworkParameters.getHrp(), hex);
+assertThat(bech32Address, is("atx1f7wp58h65lvphgw2hurl9sa943w0f7qcdcev89"));
 ```
 
 * **bech32地址转0x地址**
 ```java
-String bech32Address = "lax1f7wp58h65lvphgw2hurl9sa943w0f7qc3dp390";
+NetworkParameters.init(20000L, "atx");
+String bech32Address = "atx1f7wp58h65lvphgw2hurl9sa943w0f7qcdcev89";
 String hex =  Bech32.addressDecodeHex(bech32Address);
 assertThat(hex, is("0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac5cf4f818"));
 ```
 
 ### 网络参数
 
-* **设置当前网络参数**
+* **初始化网络**
 
-> 因为加入了bech32格式地址支持，为了兼容旧的api，加入了全局设置网络参数的功能，旧的api根据当前网络参数输出相应格式地址
+> SDK已经内置PlatON网络。用户还可以初始化其它自定义网络，最后一个初始化的是当前网络.
 
 ```java
-NetworkParameters.setCurrentNetwork(101L);  // default mainnet 100L
+NetworkParameters.init(2000L, "ABC");
+```
+
+* **选择当前网络**
+> 如果用户初始化了多个网络，可以随时切换网络.
+>
+
+```java
+NetworkParameters.selectNetwork(2000L, "ABC");
+```
+> 或者直接选择Alaya主网络
+>
+
+```java
+NetworkParameters.selectAlaya();
 ```
 
 ### 钱包相关
@@ -370,7 +383,7 @@ BigInteger req = request.send().getBlockNumber();
 
 * **参数**
     - String ： address 需要查询的地址
-    - DefaultBlockParameter: 
+    - DefaultBlockParameter:
       - DefaultBlockParameterName.LATEST  最新块高(默认)
       - DefaultBlockParameterName.EARLIEST 最低块高
       - DefaultBlockParameterName.PENDING 未打包交易
@@ -400,7 +413,7 @@ BigInteger req = request.send().getBalance();
 * **参数**
     - String : address  存储地址
     - BigInteger: position 存储器中位置的整数
-    - DefaultBlockParameter: 
+    - DefaultBlockParameter:
       -  DefaultBlockParameterName.LATEST  最新块高(默认)
       -  DefaultBlockParameterName.EARLIEST 最低块高
       -  DefaultBlockParameterName.PENDING 未打包交易
@@ -453,7 +466,7 @@ BigInteger req = request.send().getTransactionCount();
 
 * **参数**
     - String : address 查询地址
-    - DefaultBlockParameter: 
+    - DefaultBlockParameter:
       -  DefaultBlockParameterName.LATEST  最新块高(默认)
       -  DefaultBlockParameterName.EARLIEST 最低块高
       -  DefaultBlockParameterName.PENDING 未打包交易
@@ -481,7 +494,7 @@ BigInteger req = request.send().getTransactionCount();
 > 根据区块块高，返回块高中的交易总数
 
 * **参数**
-    - DefaultBlockParameter: 
+    - DefaultBlockParameter:
       -  DefaultBlockParameterName.LATEST  最新块高(默认)
       -  DefaultBlockParameterName.EARLIEST 最低块高
       -  DefaultBlockParameterName.PENDING 未打包交易
@@ -510,7 +523,7 @@ BigInteger req = request.send().getTransactionCount();
 * **参数**
     - String ： address 地址/合约
 
-    - DefaultBlockParameter: 
+    - DefaultBlockParameter:
       -  DefaultBlockParameterName.LATEST  最新块高(默认)
       -  DefaultBlockParameterName.EARLIEST 最低块高
       -  DefaultBlockParameterName.PENDING 未打包交易
@@ -569,13 +582,13 @@ String req = request.send().getSignature();
     - Transaction : Transaction: 交易结构
       - String : from : 交易发送地址
       - String : to : 交易接收方地址
-      - BigInteger ： gas ：  本次交易gas用量上限 
+      - BigInteger ： gas ：  本次交易gas用量上限
       - BigInteger ： gasPrice ： gas价格
       - BigInteger ：value ： 转账金额
       - String ：data ： 上链数据
       - BigInteger ：nonce ： 交易唯一性标识
         - 调用platonGetTransactionCount，获取from地址作为参数，获取到该地址的已发送交易总数
-        - 每次使用该地址nonce +1 
+        - 每次使用该地址nonce +1
 
 * **返回值**
 
@@ -620,19 +633,19 @@ String req = request.send().getTransactionHash();
 
 ### platonCall
 
->   执行一个消息调用交易，消息调用交易直接在节点旳VM中执行而 不需要通过区块链的挖矿来执行 
+>   执行一个消息调用交易，消息调用交易直接在节点旳VM中执行而 不需要通过区块链的挖矿来执行
 
 * **参数**
     - Transaction : Transaction: 交易结构
       - String : from : 交易发送地址
       - String : to : 交易接收方地址
-      - BigInteger ： gas ：  本次交易gas用量上限 
+      - BigInteger ： gas ：  本次交易gas用量上限
       - BigInteger ： gasPrice ： gas价格
       - BigInteger ：value ： 转账金额
       - String ：data ： 上链数据
       - BigInteger ：nonce ： 交易唯一性标识
         - 调用platonGetTransactionCount，获取from地址作为参数，获取到该地址的已发送交易总数
-        - 每次使用该地址nonce +1 
+        - 每次使用该地址nonce +1
 
 * **返回值**
 
@@ -653,19 +666,19 @@ String req = request.send().getValue();
 
 ### platonEstimateGas
 
->   估算合约方法gas用量 
+>   估算合约方法gas用量
 
 * **参数**
     - Transaction : Transaction: 交易结构
       - String : from : 交易发送地址
       - String : to : 交易接收方地址
-      - BigInteger ： gas ：  本次交易gas用量上限 
+      - BigInteger ： gas ：  本次交易gas用量上限
       - BigInteger ： gasPrice ： gas价格
       - BigInteger ：value ： 转账金额
       - String ：data ： 上链数据
       - BigInteger ：nonce ： 交易唯一性标识
         - 调用platonGetTransactionCount，获取from地址作为参数，获取到该地址的已发送交易总数
-        - 每次使用该地址nonce +1 
+        - 每次使用该地址nonce +1
 
 * **返回值**
 
@@ -690,7 +703,7 @@ BigInteger req = request.send().getAmountUsed();
 
 * **参数**
     - String ： blockHash  区块hash
-    - boolean : 
+    - boolean :
       -  true ： 区块中带有完整的交易列表
       -  false： 区块中只带交易hash列表
 
@@ -717,12 +730,12 @@ Block req = request.send().getBlock();
 >  根据区块高度查询区块信息
 
 * **参数**
-    - DefaultBlockParameter: 
+    - DefaultBlockParameter:
       -  DefaultBlockParameterName.LATEST  最新块高(默认)
       -  DefaultBlockParameterName.EARLIEST 最低块高
       -  DefaultBlockParameterName.PENDING 未打包交易
       -  DefaultBlockParameter.valueOf(BigInteger blockNumber) 指定块高
-    - boolean : 
+    - boolean :
       -  true ： 区块中带有完整的交易列表
       -  false： 区块中只带交易hash列表
 
@@ -772,7 +785,7 @@ Optional<Transaction> req = request.send().getTransaction();
 >  根据区块高度查询区块中指定序号的交易
 
 * **参数**
-    - DefaultBlockParameter: 
+    - DefaultBlockParameter:
       -  DefaultBlockParameterName.LATEST  最新块高(默认)
       -  DefaultBlockParameterName.EARLIEST 最低块高
       -  DefaultBlockParameterName.PENDING 未打包交易
@@ -822,11 +835,11 @@ Optional<TransactionReceipt> req = request.send().getTransactionReceipt();
 
 ### platonNewFilter
 
->   创建一个过滤器，以便在客户端接收到匹配的whisper消息时进行通知 
+>   创建一个过滤器，以便在客户端接收到匹配的whisper消息时进行通知
 
 * **参数**
     - PlatonFilter:  PlatonFilter :
-      - SingleTopic : 
+      - SingleTopic :
 
 * **返回值**
 
@@ -848,7 +861,7 @@ BigInteger req = request.send().getFilterId();
 
 ### platonNewBlockFilter
 
->   在节点中创建一个过滤器，以便当新块生成时进行通知。要检查状态是否变化 
+>   在节点中创建一个过滤器，以便当新块生成时进行通知。要检查状态是否变化
 
 * **参数**
 
@@ -872,7 +885,7 @@ BigInteger req = request.send().getFilterId();
 
 ### platonNewPendingTransactionFilter
 
->    在节点中创建一个过滤器，以便当产生挂起交易时进行通知。 要检查状态是否发生变化 
+>    在节点中创建一个过滤器，以便当产生挂起交易时进行通知。 要检查状态是否发生变化
 
 * **参数**
 
@@ -896,7 +909,7 @@ BigInteger req = request.send().getFilterId();
 
 ### platonNewPendingTransactionFilter
 
->  写在具有指定编号的过滤器。当不在需要监听时，总是需要执行该调用  
+>  写在具有指定编号的过滤器。当不在需要监听时，总是需要执行该调用
 
 * **参数**
 
@@ -920,10 +933,10 @@ BigInteger req = request.send().getFilterId();
 
 ### platonUninstallFilter
 
->     写在具有指定编号的过滤器。当不在需要监听时，总是需要执行该调用 
+>     写在具有指定编号的过滤器。当不在需要监听时，总是需要执行该调用
 
 * **参数**
-	- BigInteger  : filterId :  过滤器编号 
+	- BigInteger  : filterId :  过滤器编号
 
 * **返回值**
 
@@ -943,10 +956,10 @@ boolean req = request.send().isUninstalled();
 
 ### platonGetFilterChanges
 
->    轮询指定的过滤器，并返回自上次轮询之后新生成的日志数组 
+>    轮询指定的过滤器，并返回自上次轮询之后新生成的日志数组
 
 * **参数**
-	- BigInteger  : filterId :  过滤器编号 
+	- BigInteger  : filterId :  过滤器编号
 
 * **返回值**
 
@@ -969,7 +982,7 @@ List<PlatonLog.LogResult> req = request.send().getLogs();
 >     轮询指定的过滤器，并返回自上次轮询之后新生成的日志数组。
 
 * **参数**
-	- BigInteger  : filterId :  过滤器编号 
+	- BigInteger  : filterId :  过滤器编号
 
 * **返回值**
 
@@ -989,11 +1002,11 @@ List<PlatonLog.LogResult> req = request.send().getLogs();
 
 ### platonGetLogs
 
->    返回指定过滤器中的所有日志 
+>    返回指定过滤器中的所有日志
 
 * **参数**
     - PlatonFilter:  PlatonFilter :
-      - SingleTopic : 
+      - SingleTopic :
 
 * **返回值**
 
@@ -1042,9 +1055,9 @@ List<Transaction> transactions = res.getTransactions();
 >   在本地数据库中存入字符串。
 
 * **参数**
-    - String :  databaseName :   数据库名称 
-    - String : keyName :  键名 
-    - String : stringToStore :   要存入的字符串 
+    - String :  databaseName :   数据库名称
+    - String : keyName :  键名
+    - String : stringToStore :   要存入的字符串
 
 * **返回值**
 
@@ -1067,11 +1080,11 @@ List<DbPutString> = request.send().valueStored();
 
 ### dbGetString
 
->    从本地数据库读取字符串 
+>    从本地数据库读取字符串
 
 * **参数**
-    - String :  databaseName :   数据库名称 
-    - String : keyName :  键名 
+    - String :  databaseName :   数据库名称
+    - String : keyName :  键名
 
 * **返回值**
 
@@ -1093,12 +1106,12 @@ String req  = request.send().getStoredValue();
 
 ### dbPutHex
 
->     将二进制数据写入本地数据库 
+>     将二进制数据写入本地数据库
 
 * **参数**
-    - String :  databaseName :   数据库名称 
-    - String : keyName :  键名 
-    - String : dataToStore :   要存入的二进制数据 
+    - String :  databaseName :   数据库名称
+    - String : keyName :  键名
+    - String : dataToStore :   要存入的二进制数据
 
 * **返回值**
 
@@ -1121,11 +1134,11 @@ boolean req  = request.send().valueStored();
 
 ### dbGetHex
 
->     从本地数据库中读取二进制数据  
+>     从本地数据库中读取二进制数据
 
 * **参数**
-    - String :  databaseName :   数据库名称 
-    - String : keyName :  键名 
+    - String :  databaseName :   数据库名称
+    - String : keyName :  键名
 
 * **返回值**
 
@@ -1175,7 +1188,7 @@ result为证据字符串，包含3种证据类型，分别是：duplicatePrepare
     "blockNumber": 16013,       //区块number
     "blockIndex": 0,        //区块在一轮view中的索引值
     "blockData": "0xe1a507a57c1e9d8cade361fefa725d7a271869aea7fd923165c872e7c0c2b3f2",     //区块rlp编码值
-    "validateNode": {            
+    "validateNode": {
       "index": 0,     //验证人在一轮epoch中的索引值
       "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",    //验证人地址
       "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",    //验证人nodeID
@@ -1203,7 +1216,7 @@ result为证据字符串，包含3种证据类型，分别是：duplicatePrepare
 
 * **duplicateVote**
 
-```text 
+```text
 {
   "voteA": {
     "epoch": 0,   //共识轮epoch值
@@ -1211,7 +1224,7 @@ result为证据字符串，包含3种证据类型，分别是：duplicatePrepare
     "blockHash": "0x58b5976a471f86c4bd198984827bd594dce6ac861ef15bbbb1555e7b2edc2fc9",   //区块hash
     "blockNumber": 16013,   //区块number
     "blockIndex": 0,    //区块在一轮view中的索引值
-    "validateNode": { 
+    "validateNode": {
       "index": 0,    //验证人在一轮epoch中的索引值
       "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",  //验证人地址
       "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",   //验证人nodeID
@@ -1241,13 +1254,13 @@ result为证据字符串，包含3种证据类型，分别是：duplicatePrepare
 ```text
 {
   "viewA": {
-    "epoch": 0,  
-    "viewNumber": 0, 
+    "epoch": 0,
+    "viewNumber": 0,
     "blockHash": "0xb84a40bb954e579716e7a6b9021618f6b25cdb0e0dd3d8c2c0419fe835640f36",  //区块hash
-    "blockNumber": 16013, 
+    "blockNumber": 16013,
     "validateNode": {
-      "index": 0,  
-      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4", 
+      "index": 0,
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",
       "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",
       "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"
     },
@@ -1497,7 +1510,7 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
   - String：webSite   节点的第三方主页(有长度限制，表示该节点的主页)
   - String：details   节点的描述(有长度限制，表示该节点的描述)
   - BigInteger：rewardPer   委托所得到的奖励分成比例，1=0.01%   10000=100%
-  
+
 * **返回值**
 
 ```java
@@ -1582,7 +1595,7 @@ CallResponse<Node> baseRespons
 	- int： code   结果标识，0为成功
 	- Node：data   Node对象数据
 	- String：errMsg   错误信息，失败时存在
-	
+
 * **Node**：保存当前节点质押信息的对象
 
   - String：benifitAddress	收益账户，用于接收出块奖励和质押奖励的收益账户。
@@ -1618,17 +1631,17 @@ CallResponse<Node> baseRespons
   - BigInteger：validatorTerm   验证人的任期
 
   - String：website   节点的第三方主页(有长度限制，表示该节点的主页)
-  
+
   - BigInteger：delegateEpoch  节点最后一次被委托的结算周期
-  
+
   - BigInteger：delegateTotal  节点被委托的生效总数量
-  
+
   - BigInteger：delegateTotalHes  节点被委托的未生效总数量
-  
+
   - BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励
-  
+
   - BigInteger：nextRewardPer 下一个结算周期奖励分成比例，1=0.01%   10000=100%
-  
+
   - BigInteger：rewardPer 当前结算周期奖励分成比例，1=0.01%   10000=100%
 
 * **Java SDK合约使用**
@@ -1731,7 +1744,7 @@ DelegateContract delegateContract = DelegateContract.load(web3j, credentials, ch
 
 ##### **delegate**
 
-> 发起委托，委托已质押节点，委托给某个节点增加节点权重来获取收入 
+> 发起委托，委托已质押节点，委托给某个节点增加节点权重来获取收入
 
 * **入参**
 
@@ -1853,13 +1866,13 @@ TransactionResponse
 	- int：code   结果标识，0为成功
 	- String：errMsg   错误信息，失败时存在
 	- TransactionReceipt：transactionReceipt  交易的回执
-	
+
 * **解交易回执**
 
    - BigInteger：reward   获得解除委托时所提取的委托收益
 
 * **合约使用**
-  
+
 ```java
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
 BigDecimal stakingAmount = Convert.toVon("500000", Unit.LAT);
@@ -1868,7 +1881,7 @@ BigInteger stakingBlockNum = new BigInteger("12134");
 PlatonSendTransaction platonSendTransaction = delegateContract.unDelegateReturnTransaction(nodeId, stakingBlockNum, stakingAmount.toBigInteger()).send();
 TransactionResponse baseResponse = delegateContract.getTransactionResponse(platonSendTransaction).send();
 
-if(baseResponse.isStatusOk()){ 
+if(baseResponse.isStatusOk()){
     BigInteger reward = delegateContract.decodeUnDelegateLog(baseResponse.getTransactionReceipt());
 }
 ```
@@ -1891,7 +1904,7 @@ RewardContract rewardContract = RewardContract.load(web3j, deleteCredentials, ch
 
 ##### **withdrawDelegateReward**
 
-> 提取账户当前所有的可提取的委托奖励 
+> 提取账户当前所有的可提取的委托奖励
 
 * **入参**
 
@@ -1907,7 +1920,7 @@ TransactionResponse
 	- int：code   结果标识，0为成功
 	- String：errMsg   错误信息，失败时存在
 	- TransactionReceipt：transactionReceipt  交易的回执
-	
+
 * **解交易回执**
    - String：nodeId    节点ID
    - BigInteger：stakingNum  节点的质押块高
@@ -2002,13 +2015,13 @@ CallResponse<List<Node>> baseResponse
 
   - BigInteger：nextRewardPer 下一个结算周期奖励分成比例
 
-  - BigInteger：stakingTxIndex   发起质押时的交易索引 
+  - BigInteger：stakingTxIndex   发起质押时的交易索引
 
   - BigInteger：programVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
 
-  - BigInteger：stakingBlockNum    发起质押时的区块高度 
+  - BigInteger：stakingBlockNum    发起质押时的区块高度
 
-  - BigInteger：shares   当前候选人总共质押加被委托的VON数目  
+  - BigInteger：shares   当前候选人总共质押加被委托的VON数目
 
   - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。
 
@@ -2016,12 +2029,12 @@ CallResponse<List<Node>> baseResponse
 
   - String：website   节点的第三方主页(有长度限制，表示该节点的主页)
 
-  - String：details   节点的描述(有长度限制，表示该节点的描述) 
+  - String：details   节点的描述(有长度限制，表示该节点的描述)
 
   - BigInteger：validatorTerm   验证人的任期
-  
+
   - BigInteger：delegateTotal  节点被委托的生效总数量
-  
+
   - BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励
 
 * **Java SDK合约使用**
@@ -2060,13 +2073,13 @@ CallResponse<List<Node>> baseResponse
 
   - BigInteger：nextRewardPer 下一个结算周期奖励分成比例
 
-  - BigInteger：stakingTxIndex   发起质押时的交易索引 
+  - BigInteger：stakingTxIndex   发起质押时的交易索引
 
   - BigInteger：programVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
 
-  - BigInteger：stakingBlockNum    发起质押时的区块高度 
+  - BigInteger：stakingBlockNum    发起质押时的区块高度
 
-  - BigInteger：shares   当前候选人总共质押加被委托的VON数目  
+  - BigInteger：shares   当前候选人总共质押加被委托的VON数目
 
   - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。
 
@@ -2074,10 +2087,10 @@ CallResponse<List<Node>> baseResponse
 
   - String：website   节点的第三方主页(有长度限制，表示该节点的主页)
 
-  - String：details   节点的描述(有长度限制，表示该节点的描述) 
+  - String：details   节点的描述(有长度限制，表示该节点的描述)
 
   - BigInteger：validatorTerm   验证人的任期
-  
+
   - BigInteger：delegateTotal  节点被委托的生效总数量
 
   - BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励
@@ -2123,7 +2136,7 @@ CallResponse<List<Node>> baseResponse
 
   - BigInteger：nextRewardPer 下一个结算周期奖励分成比例
 
-  - BigInteger：stakingTxIndex   发起质押时的交易索引 
+  - BigInteger：stakingTxIndex   发起质押时的交易索引
 
   - BigInteger：programVersion  被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)
 
@@ -2131,9 +2144,9 @@ CallResponse<List<Node>> baseResponse
 
   - BigInteger：stakingEpoch   当前变更质押金额时的结算周期
 
-  - BigInteger：stakingBlockNum    发起质押时的区块高度 
+  - BigInteger：stakingBlockNum    发起质押时的区块高度
 
-  - BigInteger：shares   当前候选人总共质押加被委托的VON数目  
+  - BigInteger：shares   当前候选人总共质押加被委托的VON数目
 
   - BigInteger：released   发起质押账户的自由金额的锁定期质押的VON
 
@@ -2141,7 +2154,7 @@ CallResponse<List<Node>> baseResponse
 
   - BigInteger：restrictingPlan   发起质押账户的锁仓金额的锁定期质押的VON
 
-  - BigInteger：restrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON  
+  - BigInteger：restrictingPlanHes   发起质押账户的锁仓金额的犹豫期质押的VON
 
   - String：externalId   外部Id(有长度限制，给第三方拉取节点描述的Id)，目前为keybase账户公钥，节点图标是通过该公钥获取。
 
@@ -2149,12 +2162,12 @@ CallResponse<List<Node>> baseResponse
 
   - String：website   节点的第三方主页(有长度限制，表示该节点的主页)
 
-  - String：details   节点的描述(有长度限制，表示该节点的描述) 
+  - String：details   节点的描述(有长度限制，表示该节点的描述)
 
   - BigInteger：delegateEpoch  节点最后一次被委托的结算周期
-  
+
   - BigInteger：delegateTotal  节点被委托的生效总数量
-  
+
   - BigInteger：delegateTotalHes  节点被委托的未生效总数量
 
   - BigInteger：delegateRewardTotal  候选人当前发放的总委托奖励
@@ -2205,7 +2218,7 @@ ProposalContract proposalContract = ProposalContract.load(web3j, credentials, ch
   - String：module  参数模块
   - String：name  参数名称
   - String：newValue 参数新值
-  
+
 * **取消提案 Proposal.createSubmitCancelProposalParam()**
   - String：verifier 提交提案的验证人
   - String：pIDID  PIPID
@@ -2330,8 +2343,8 @@ CallResponse<TallyResult>
   - BigInteger:   nays   反对票票数
   - BigInteger:   abstentions   弃权票票数
   - BigInteger:   accuVerifiers   在整个投票期内有投票资格的验证人总数
-  - int:   status   提案状态  
-  
+  - int:   status   提案状态
+
 * **status**
   - 1  投票中
   - 2  投票通过
@@ -2494,7 +2507,7 @@ TransactionResponse baseResponse = slashContract.getTransactionResponse(platonSe
 
   - DuplicateSignType：DuplicateSignType   枚举，代表双签类型：prepareBlock，EprepareVote，viewChange
   - String：address   举报的节点地址
-  - BigInteger：blockNumber   多签的块高 
+  - BigInteger：blockNumber   多签的块高
 
 * **返回值**
 
@@ -2816,7 +2829,7 @@ Type result = contract.someMethod(<param1>, ...).send();
 CDT安装成功以后，可通过如下命令编译Wasm合约源代码：
 
 ```shell
-$ platon-cpp <contract>.cpp 
+$ platon-cpp <contract>.cpp
 ```
 
 编译成功以后，会生成`<contract>.wasm`和`<contract>.abi.json`文件
