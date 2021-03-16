@@ -247,9 +247,9 @@ Assume each view allows $n$ blocks to be generated. The current view $ V_i $ tim
 
 ### Validator Replacement Mechanism
 
-In the CBFT consensus, the validator pool is reshuffled every 250 blocks (a.k.a Epoch). The rules are as follows:
+In the CBFT consensus, the validator pool is reshuffled every 430 blocks (a.k.a Epoch). The rules are as follows:
 
-- New validators may not be able to participate in consensus due to issues such as network connection or block synchronization, so we replace no more than 8 nodes each time. If there are less than 8 candidate validators, the number of replacements is the total number of candidate validators.
+- New validators may not be able to participate in consensus due to issues such as network connection or block synchronization, so we replace no more than 14 nodes each time. If there are less than 14 candidate validators, the number of replacements is the total number of candidate validators.
 
 - Use VRF to randomly select new validators from candidate validators.
 
