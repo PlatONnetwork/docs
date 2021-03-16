@@ -24,9 +24,9 @@ Depending on the build tool, use the following methods to add related dependenci
 > maven reference:
 ```xml
 <dependency>
-	<groupId>com.platon.client</groupId>
-	<artifactId>core</artifactId>
-	<version>0.13.1.5</version>
+    <groupId>com.platon.sdk</groupId>
+    <artifactId>core</artifactId>
+    <version>0.15.1.10</version>
 </dependency>
 ```
 
@@ -41,7 +41,7 @@ repositories {
 
 > gradle way of reference:
 ```
-compile "com.platon.client:core:0.13.1.5
+compile "com.platon.sdk:core:0.15.1.10"
 ```
 
 ## Basic API Usage
@@ -50,29 +50,42 @@ compile "com.platon.client:core:0.13.1.5
 
 * **0x address to bech32 address**
 ```java
+NetworkParameters.init(20000L, "atx");
 String hex = "0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac5cf4f818";
-String bech32Address = Bech32.addressEncode(NetworkParameters.TestNetParams.getHrp(), hex);
-assertThat(bech32Address, is("lax1f7wp58h65lvphgw2hurl9sa943w0f7qc3dp390"));
-
-bech32Address = Bech32.addressEncode(NetworkParameters.MainNetParams.getHrp(), hex);
-assertThat(bech32Address, is("lat1f7wp58h65lvphgw2hurl9sa943w0f7qc7gn7tq"));
+String bech32Address = Bech32.addressEncode(NetworkParameters.getHrp(), hex);
+assertThat(bech32Address, is("atx1f7wp58h65lvphgw2hurl9sa943w0f7qcdcev89"));
 ```
 
 * **bech32 address to 0x address**
 ```java
-String bech32Address = "lax1f7wp58h65lvphgw2hurl9sa943w0f7qc3dp390";
+NetworkParameters.init(20000L, "atx");
+String bech32Address = "atx1f7wp58h65lvphgw2hurl9sa943w0f7qcdcev89";
 String hex =  Bech32.addressDecodeHex(bech32Address);
 assertThat(hex, is("0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac5cf4f818"));
 ```
 
 ### NetworkParameters
 
-* **SetCurrentNetworkParameters**
+* **initialize network**
 
-> Because bech 32 format address support is added, in order to be compatible with the old API, the function of setting the network parameters globally is added, and the old API outputs the corresponding format address according to the current network parameters
+> SDK includes PlatON network already. User can initialize custom networks, the latest is the current network.
 
 ```java
-NetworkParameters.setCurrentNetwork(101L);  // default mainnet 100L
+NetworkParameters.init(2000L, "ABC");
+```
+
+* **select current network**
+
+> user can switch current network if multi-networks have been initialized.
+
+```java
+NetworkParameters.selectNetwork(2000L, "ABC");
+```
+
+> or select PlatON network.
+
+```java
+NetworkParameters.selectPlatON();
 ```
 
 ### Wallet Related
@@ -1175,7 +1188,7 @@ Each type contains multiple evidences, so it is an array structure, and you need
     "blockNumber": 16013,       //block number
     "blockIndex": 0,        //The index value of the block in a round view
     "blockData": "0xe1a507a57c1e9d8cade361fefa725d7a271869aea7fd923165c872e7c0c2b3f2",     //Block rlp encoding value
-    "validateNode": {            
+    "validateNode": {
       "index": 0,     //The index value of the validator in a round of epoch
       "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",    //Verifier address
       "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",    //Verifier nodeID
@@ -1203,7 +1216,7 @@ Each type contains multiple evidences, so it is an array structure, and you need
 
 - **duplicateVote**
 
-```text 
+```text
 {
   "voteA": {
     "epoch": 0,   //epoch value of consensus round
@@ -1211,7 +1224,7 @@ Each type contains multiple evidences, so it is an array structure, and you need
     "blockHash": "0x58b5976a471f86c4bd198984827bd594dce6ac861ef15bbbb1555e7b2edc2fc9",   //block hash
     "blockNumber": 16013,   //block number
     "blockIndex": 0,    //The index value of the block in a round view
-    "validateNode": { 
+    "validateNode": {
       "index": 0,    //The index value of the validator in a round of epoch
       "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",  //Verifier address
       "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",   //Verifier nodeID
@@ -1241,13 +1254,13 @@ Each type contains multiple evidences, so it is an array structure, and you need
 ```text
 {
   "viewA": {
-    "epoch": 0,  
-    "viewNumber": 0, 
+    "epoch": 0,
+    "viewNumber": 0,
     "blockHash": "0xb84a40bb954e579716e7a6b9021618f6b25cdb0e0dd3d8c2c0419fe835640f36",  //区块hash
-    "blockNumber": 16013, 
+    "blockNumber": 16013,
     "validateNode": {
-      "index": 0,  
-      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4", 
+      "index": 0,
+      "address": "0xc30671be006dcbfd6d36bdf0dfdf95c62c23fad4",
       "nodeId": "19f1c9aa5140bd1304a3260de640a521c33015da86b88cd2ecc83339b558a4d4afa4bd0555d3fa16ae43043aeb4fbd32c92b34de1af437811de51d966dc64365",
       "blsPubKey": "f93a2381b4cbb719a83d80a4feb93663c7aa026c99f64704d6cc464ae1239d3486d0cf6e0b257ac02d5dd3f5b4389907e9d1d5b434d784bfd7b89e0822148c7f5b8e1d90057a5bbf4a0abf88bbb12902b32c94ca390a2e16eea8132bf8c2ed8f"
     },
@@ -1620,15 +1633,15 @@ CallResponse<Node> baseRespons
   - String: Website The third-party homepage of the Website node(the length of the node is the homepage of the node)
 
   - BigInteger：delegateEpoch  The node's last delegate settlement cycle
-  
+
   - BigInteger：delegateTotal  The total number of delegate nodes
-  
+
   - BigInteger：delegateTotalHes  Total number of inactive nodes delegate
-  
+
   - BigInteger：delegateRewardTotal  Total delegated rewards currently issued by the candidate
-  
+
   - BigInteger：nextRewardPer Proportion of reward share in the next settlement cycle
-  
+
   - BigInteger：rewardPer Proportion of reward share in current settlement cycle
 
 - **Java SDK contract use**
@@ -1868,7 +1881,7 @@ BigInteger stakingBlockNum = new BigInteger("12134");
 PlatonSendTransaction platonSendTransaction = delegateContract.unDelegateReturnTransaction(nodeId, stakingBlockNum, stakingAmount.toBigInteger()).send();
 TransactionResponse baseResponse = delegateContract.getTransactionResponse(platonSendTransaction).send();
 
-if(baseResponse.isStatusOk()){ 
+if(baseResponse.isStatusOk()){
        BigInteger reward = delegateContract.decodeUnDelegateLog(baseResponse.getTransactionReceipt());
 }
 ```
@@ -1891,7 +1904,7 @@ RewardContract rewardContract = RewardContract.load(web3j, deleteCredentials, ch
 
 ##### **withdrawDelegateReward**
 
-> Withdraw all currently available commissioned rewards on the account 
+> Withdraw all currently available commissioned rewards on the account
 
 * **Introduction**
 
@@ -1943,7 +1956,7 @@ CallResponse<List<Reward>> baseRespons
 	- String：errMsg   Error message, exists on failure
 
 * **Reward**：Reward details
-   - String：nodeId   
+   - String：nodeId
    - BigInteger：stakingNum  Node pledge block is high
    - BigInteger：reward  received benefits
 
@@ -2019,7 +2032,7 @@ CallResponse<List<Node>> baseResponse
   - String: details The description of the Details node(the length is limited, indicating the description of the node)
 
   - BigInteger: validatorTerm
-  
+
   - BigInteger：delegateTotal  The total number of commissioned nodes
 
   - BigInteger：delegateRewardTotal  Total delegated rewards currently issued by the candidate
@@ -2077,7 +2090,7 @@ CallResponse<List<Node>> baseResponse
   - String：details   The description of the node (there is a length limit, indicating the description of the node)
 
   - BigInteger：validatorTerm   Validator's tenure
-  
+
   - BigInteger：delegateTotal  The total number of nodes that are entrusted to take effect
 
   - BigInteger：delegateRewardTotal  The total entrusted reward currently issued by the candidate
@@ -2152,9 +2165,9 @@ CallResponse<List<Node>> baseResponse
   - String: details The description of the Details node(the length is limited, indicating the description of the node)
 
   - BigInteger：delegateEpoch The node's last commissioned settlement cycle
-  
+
   - BigInteger：delegateTotal  The total number of commissioned nodes
-  
+
   - BigInteger：delegateTotalHes  Total number of inactive nodes commissioned
 
   - BigInteger：delegateRewardTotal  Total delegated rewards currently issued by the candidate
@@ -2205,7 +2218,7 @@ ProposalContract contract = ProposalContract.load(web3j, credentials, chainId);
   - String：module  parameter module
   - String：name  parameter name
   - String：newValue parameter newValue
-  
+
 * **CancelProposal Proposal.createSubmitCancelProposalParam()**
   - String：verifier Submit verifier
   - String：pIDID  PIPID
@@ -2816,7 +2829,7 @@ When deploying a WASM smart contract on the blockchain, it must first be compile
 After the CDT installation is successful, you can compile the WASM contract source code with the following command:
 
 ```shell
-$ platon-cpp <contract>.cpp 
+$ platon-cpp <contract>.cpp
 ```
 
 After successful compilation, `<contract> .wasm` and` <contract> .abi.json` files will be generated.
