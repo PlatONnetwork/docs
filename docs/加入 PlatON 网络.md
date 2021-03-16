@@ -62,9 +62,9 @@ The development network provides a development test environment for the develope
 > - platon：https://download.platon.network/platon/platon/1.0.0/platon
 > - platonkey：https://download.platon.network/platon/platon/1.0.0/platonkey
 >
-> - mtool windows：https://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
+> - mtool windows：https://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe
 >
-> - mtool linux：https://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe
+> - mtool linux：https://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
 >
 >  > You need to change the chain ID in the configuration file config.properties to the development network chain ID: 210309；
 >
