@@ -55,7 +55,7 @@ See more parameters with the command `platon --help`
 
 ## Join the PlatON Develop Network
 
-The development network provides a development test environment for the developer or node.There may be instability and a network reset.The current version of the development network is 1.0.0, Only binary mode is supported.
+The development network provides a development test environment for the developer or node.There may be instability and a network reset.The current version of the development network is 1.0.0.
 
 ### Develop network related resources
 
