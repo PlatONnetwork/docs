@@ -1,76 +1,76 @@
 ---
 id: OffLine_MTool_Manual
-title: OffLine MTool Manual
-sidebar_label: OffLine MTool Manual
+title: OffLine PlatON MTool Manual
+sidebar_label: OffLine PlatON MTool Manual
 ---
 
 ## Introduction
 
-In order to facilitate node transfer, pledge, delegation and governance and other related operations, PlatON provides MTool to assist users:
+In order to facilitate node transfer, pledge, delegation and governance and other related operations, PlatON provides PlatON MTool to assist users:
 
-- MTool can support Ubuntu 18.04 and Windows 10. This document describes the installation and use under Windows and Ubuntu environments respectively. Users can choose according to their own resources.
-- MTool provides two signature methods for pledge transactions: online signature and offline signature. This document describes offline signature operations. For online signature operations, please refer to [Online MTool Tutorial](/docs/zh-CN/OnLine_MTool_Manual).
-- The main process of MTool offline signature method is: generate the file to be signed on the online machine, then sign the transaction on the offline machine, and finally send the signed transaction on the online machine.
+- PlatON MTool can support Ubuntu 18.04 and Windows 10. This document describes the installation and use under Windows and Ubuntu environments respectively. Users can choose according to their own resources.
+- PlatON MTool provides two signature methods for pledge transactions: online signature and offline signature. This document describes offline signature operations. For online signature operations, please refer to [Online PlatON MTool Tutorial](/docs/zh-CN/OnLine_MTool_Manual).
+- The main process of PlatON MTool offline signature method is: generate the file to be signed on the online machine, then sign the transaction on the offline machine, and finally send the signed transaction on the online machine.
 
-## Install MTool
+## Install PlatON MTool
 
-In addition, this document separately introduces the operation of MTool in Windows and Ubuntu environments. Users can choose according to their own resources; the following installation methods are installation on online machines. If you install on offline machines, you can use a mobile U disk or a mobile hard disk. Copy the installation package to the offline machine, the installation method is the same as the online installation method.
+In addition, this document separately introduces the operation of PlatON MTool in Windows and Ubuntu environments. Users can choose according to their own resources; the following installation methods are installation on online machines. If you install on offline machines, you can use a mobile U disk or a mobile hard disk. Copy the installation package to the offline machine, the installation method is the same as the online installation method.
 
-### Install MTool under Windows
+### Install PlatON MTool under Windows
 
 #### Preparation before installation
 
 Command line:
 
 ```
-mtool-client --version
+platon_mtool --version
 ```
 
-If the execution result shows `Cannot recognize the "mtool-client" item as the name of a cmdlet, function, script file, or executable program. Please check the spelling of the name. If you include the path, make sure that the path is correct, and then try again `, it means that there is no need to perform the following operations if the old version is not installed.
+If the execution result shows `Cannot recognize the "platon_mtool" item as the name of a cmdlet, function, script file, or executable program. Please check the spelling of the name. If you include the path, make sure that the path is correct, and then try again `, it means that there is no need to perform the following operations if the old version is not installed.
 
-If the execution result shows the version number, timestamp and other information, it means that MTool has been installed. If MTool is an old version, you need to back up important information at this time, and then manually uninstall the old version. Operation steps:
+If the execution result shows the version number, timestamp and other information, it means that PlatON MTool has been installed. If PlatON MTool is an old version, you need to back up important information at this time, and then manually uninstall the old version. Operation steps:
 
 **step1. Backup directory**
 
-Put all the files under `C:\tools\mtool\current\keystore` to D drive or other directories other than `C:\tools`. After installing the new version, you need to copy the backup file back to the `C:\tools\mtool\current\keystore` directory.
+Put all the files under `C:\platon_mtool\mtool\current\keystore` to D drive or other directories other than `C:\platon_mtool`. After installing the new version, you need to copy the backup file back to the `C:\platon_mtool\mtool\current\keystore` directory.
 
 **step2. Uninstall the old version**
 
-Double-click `C:\tools\unins000.exe` to uninstall all old versions of MTool and other business tools.
+Double-click `C:\platon_mtool\unins000.exe` to uninstall all old versions of PlatON MTool and other business platon_mtool.
 
 #### start installation
 
-**step1. Download the MTool installation package**
+**step1. Download the PlatON MTool installation package**
 
-On the online machine, copy the link <https://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe> to the browser to download the MTool installation package.
+On the online machine, copy the link <https://download.platon.network/platon/mtool/windows/1.0.0/platon_mtool.exe> to the browser to download the PlatON MTool installation package.
 
-**step2. Install MTool**
+**step2. Install PlatON MTool**
 
-Double-click mtool-setup.exe to install. The default installation directory is C:\tools, it is recommended not to change this installation directory. The pop-up interface displays **Completing the mtool Setup Wizard** message indicating that the installation is successful, just click **Finish**.
+Double-click platon_mtool.exe to install. The default installation directory is C:\platon_mtool, it is recommended not to change this installation directory. The pop-up interface displays **Completing the mtool Setup Wizard** message indicating that the installation is successful, just click **Finish**.
 
 **step3. Restart the terminal**
 
 After the installation is complete, you need to <font color=red>restart the terminal</font> to make the newly added environment variables take effect.
 
-### Install MTool under Ubuntu
+### Install PlatON MTool under Ubuntu
 
 Proceed as follows:
 
-**step1. Download MTool Toolkit**
+**step1. Download PlatON MTool Toolkit**
 
 ``` bash
-wget https://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
+wget https://download.platon.network/platon/mtool/linux/1.0.0/platon_mtool.zip
 ```
 
-**step2. Unzip MTool toolkit**
+**step2. Unzip PlatON MTool toolkit**
 
 ``` bash
-(if! command -v unzip;then sudo apt install unzip; fi;) && unzip mtool-client.zip && cd mtool-client
+(if! command -v unzip;then sudo apt install unzip; fi;) && unzip platon_mtool.zip && cd platon_mtool
 ```
 
 **step3. Download the script**
 
->The script is downloaded to the <font color=red>mtool-client</font> directory, otherwise the script cannot find the path of the new version of mtool.
+>The script is downloaded to the <font color=red>platon_mtool</font> directory, otherwise the script cannot find the path of the new version of mtool.
 
 ``` bash
 wget https://download.platon.network/platon/scripts/mtool_install.sh
@@ -82,40 +82,40 @@ wget https://download.platon.network/platon/scripts/mtool_install.sh
 chmod +x mtool_install.sh && ./mtool_install.sh
 ```
 
->-When it prompts <font color=red>Install mtool succeed.</font>, it means that the MTool installation is successful. If the installation is not successful, please feedback specific questions through our official customer service contact information.
+>-When it prompts <font color=red>Install platon mtool succeed.</font>, it means that the PlatON MTool installation is successful. If the installation is not successful, please feedback specific questions through our official customer service contact information.
 
 **step5. Restart the session window**
 
 After the installation is complete, you need to <font color=red>restart the session window</font> to make the newly added environment variables take effect.
 
-## MTool environment variable description
+## PlatON MTool environment variable description
 
-The environment variables used in the MTool directory under Windows and Ubuntu are different:
+The environment variables used in the PlatON MTool directory under Windows and Ubuntu are different:
 
-- MTool catalog
+- PlatON MTool catalog
 
-  - Windows: `%MTOOLDIR%`
+  - Windows: `%PLATON_MTOOLDIR%`
 
-  - Ubuntu: `$MTOOLDIR`
+  - Ubuntu: `$PLATON_MTOOLDIR`
 
 > Note: **`Users choose environment variables according to the system they have installed. `**
 >
 
-## Detailed explanation of MTool wallet commands
+## Detailed explanation of PlatON MTool wallet commands
 
-> Note: The follow-up command is the command format under Ubuntu. Under Windows, you need to modify `$MTOOLDIR` to `%MTOOLDIR%`.
+> Note: The follow-up command is the command format under Ubuntu. Under Windows, you need to modify `$PLATON_MTOOLDIR` to `%PLATON_MTOOLDIR%`.
 
 ### Create a cold wallet
 
 - Command line
 
 ```shell
-mtool-client account new staking
+platon_mtool account new staking
 ```
 
 - Parameter Description
 
->staking: The generated wallet name. After entering the same password twice, the wallet file `staking.json` will be generated under the directory `$MTOOLDIR/keystore` after the creation is successful, and the following information will be printed:
+>staking: The generated wallet name. After entering the same password twice, the wallet file `staking.json` will be generated under the directory `$PLATON_MTOOLDIR/keystore` after the creation is successful, and the following information will be printed:
 >
 >```shell
 >-name: staking
@@ -152,7 +152,7 @@ If the wallet file is lost, you can use the backup private key or mnemonic to re
   Recovery by private key:
 
   ```shell
-  mtool-client account recover -k staking
+  platon_mtool account recover -k staking
   ```
 
   > Prompt to enter the new wallet password and backup private key, as follows:
@@ -169,7 +169,7 @@ If the wallet file is lost, you can use the backup private key or mnemonic to re
   Recovery by mnemonic:
 
   ```shell
-  mtool-client account recover -m staking
+  platon_mtool account recover -m staking
   ```
 
   >Prompt to enter the new wallet password and backup mnemonic, as follows:
@@ -185,7 +185,7 @@ If the wallet file is lost, you can use the backup private key or mnemonic to re
 
   staking: The name of the wallet.
 
-  After successful restoration, the wallet file `staking.json` will be generated under the directory `$MTOOLDIR/keystore`.
+  After successful restoration, the wallet file `staking.json` will be generated under the directory `$PLATON_MTOOLDIR/keystore`.
 
 
 
@@ -194,7 +194,7 @@ If the wallet file is lost, you can use the backup private key or mnemonic to re
 Execute the command to generate an observation wallet:
 
 ```shell
-mtool-client create_observewallet --keystore $MTOOLDIR/keystore/staking.json
+platon_mtool create_observewallet --keystore $PLATON_MTOOLDIR/keystore/staking.json
 ```
 
 - Parameter Description
@@ -205,14 +205,14 @@ mtool-client create_observewallet --keystore $MTOOLDIR/keystore/staking.json
 >
 > please input keystore password:
 > SUCCESS
-> wallet created at: C:\tools\mtool\current\keystore\staking_observed.json
+> wallet created at: C:\platon_mtool\mtool\current\keystore\staking_observed.json
 
 ### View wallet list
 
 - Command line
 
 ```bash
-mtool-client account list
+platon_mtool account list
 ```
 
 ### Query balance according to wallet name
@@ -220,7 +220,7 @@ mtool-client account list
 - Command line
 
 ```bash
-mtool-client account balance $keystorename --config $MTOOLDIR/validator/validator_config.json
+platon_mtool account balance $keystorename --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - Variable description
@@ -232,7 +232,7 @@ mtool-client account balance $keystorename --config $MTOOLDIR/validator/validato
 - Command line
 
 ```bash
-mtool-client account balance -a $address --config $MTOOLDIR/validator/validator_config.json
+platon_mtool account balance -a $address --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameters
@@ -241,16 +241,16 @@ mtool-client account balance -a $address --config $MTOOLDIR/validator/validator_
 
 
 
-## Offline MTool transaction process
+## Offline PlatON MTool transaction process
 
-The main process of MTool offline signature method is: generate the file to be signed on the online machine, then sign the transaction on the offline machine, and finally send the signed transaction on the online machine. Taking the transfer transaction as an example, the steps are as follows. For the operation of generating the file to be signed for other transactions, refer to the [MTool Transaction Command Details] (# MTool Transaction Command Details) chapter.
+The main process of PlatON MTool offline signature method is: generate the file to be signed on the online machine, then sign the transaction on the offline machine, and finally send the signed transaction on the online machine. Taking the transfer transaction as an example, the steps are as follows. For the operation of generating the file to be signed for other transactions, refer to the [PlatON MTool Transaction Command Details] (# PlatON MTool Transaction Command Details) chapter.
 
 ### Generate transaction pending signature file
 
 Execute on **online machine**:
 
 ```shell
-mtool-client tx transfer --address $MTOOLDIR/keystore/staking_observed.json --amount "1" --recipient $to_address --config $MTOOLDIR/validator/validator_config.json
+platon_mtool tx transfer --address $PLATON_MTOOLDIR/keystore/staking_observed.json --amount "1" --recipient $to_address --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameter Description:
@@ -265,7 +265,7 @@ The following information is printed, indicating successful execution:
 
 ```shell
 Transfer unsigned raw: H4sIAAAAAAAAAGWOPW/DIBRF/8ubPfDhGsdrp0oZMmSrMiCMDUGADTiGRPnvoVGHSn3T1ZHuPe8Ba/j0ozwH7iIXSXt31DHB8P0Abv3masTo3zUgFNfua4SBIIxoBVPwFgbgKeM9pLweppERJTrGXH+n1KY+5Wtujckfy247JqF2NvdWnssiYagjM49HbXWVEvzWVHAKWsg/XzTgvPshtIHkf5UlxKL2tBVkCJnZnNWtm/dyn/qbiIdrNHFlysDzUjvaypi4Xepmh2jbMor6luLnC0n7ZKsMAQAA
-File generated on: $MTOOLDIR/transaction_details/transaction_detail_20191108114241.csv
+File generated on: $PLATON_MTOOLDIR/transaction_details/transaction_detail_20191108114241.csv
 ```
 
 Among them, `transaction_detail_20191108114241.csv` is the file to be signed for the transfer transaction, which needs to be copied to the offline machine for signature;
@@ -275,10 +275,10 @@ Among them, `transaction_detail_20191108114241.csv` is the file to be signed for
 Execute on the offline machine where the cold wallet is kept:
 
 ```shell
-mtool-client offlinesign --filelocation $MTOOLDIR/transaction_details/transaction_detail_20191108114241.csv
+platon_mtool offlinesign --filelocation $PLATON_MTOOLDIR/transaction_details/transaction_detail_20191108114241.csv
 ```
 
-Note: $MTOOLDIR/transaction_details/transaction_detail_20191108114241.csv is the file to be signed generated in the previous step, modified to the actual file to be signed.
+Note: $PLATON_MTOOLDIR/transaction_details/transaction_detail_20191108114241.csv is the file to be signed generated in the previous step, modified to the actual file to be signed.
 
 Enter the corresponding cold wallet password and return the signed file. The content of the file is as follows:
 
@@ -312,7 +312,7 @@ Note: transaction_signature/transaction_signature_20191108114625.csv is the sign
 Send transaction in **online machine**:
 
 ```shell
-mtool-client send_signedtx --filelocation $MTOOLDIR/transaction_signature/transaction_signature_20191108114625.csv --config $MTOOLDIR/validator/validator_config.json
+platon_mtool send_signedtx --filelocation $PLATON_MTOOLDIR/transaction_signature/transaction_signature_20191108114625.csv --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 Note: transaction_signature_20191108114625.csv is the transaction signature file generated in the previous step, modified to the actual signature file.
@@ -331,16 +331,16 @@ success: 1, failure: 0
 
 Note: Prompt success and return transaction hash means that the signature transaction is sent successfully, otherwise the signature transaction fails.
 
-## Detailed explanation of MTool trading commands
+## Detailed explanation of PlatON MTool trading commands
 
-This chapter mainly describes the relevant commands for generating the csv format transaction to-be-signed file on the **online machine**. The generated csv file will be saved in the `$MTOOLDIR/transaction_details` directory. For the complete transaction process of sending offline signatures, please refer to the [Offline MTool Transaction Process] (#Offline MTool Transaction Process) chapter.
+This chapter mainly describes the relevant commands for generating the csv format transaction to-be-signed file on the **online machine**. The generated csv file will be saved in the `$PLATON_MTOOLDIR/transaction_details` directory. For the complete transaction process of sending offline signatures, please refer to the [Offline PlatON MTool Transaction Process] (#Offline PlatON MTool Transaction Process) chapter.
 
 ### Ordinary transfer operations
 
 - Command line
 
 ```shell
-mtool-client tx transfer --address $MTOOLDIR/keystore/staking_observed.json --amount "1" --recipient $to_address --config $MTOOLDIR/validator/validator_config.json
+platon_mtool tx transfer --address $PLATON_MTOOLDIR/keystore/staking_observed.json --amount "1" --recipient $to_address --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameter Description
@@ -379,7 +379,7 @@ Creating a new restricting plan, node's LATs will be transferred to a specified 
 - command line
 
 ```bash
-mtool-client create_restricting --config $MTOOLDIR/validator/validator_config.json --address $MTOOLDIR/keystore/staking_observed.json --file ./restricting_plans.json
+platon_mtool create_restricting --config $PLATON_MTOOLDIR/validator/validator_config.json --address $PLATON_MTOOLDIR/keystore/staking_observed.json --file ./restricting_plans.json
 ```
 
 - Parameter Description
@@ -393,14 +393,14 @@ mtool-client create_restricting --config $MTOOLDIR/validator/validator_config.js
 
 ### Initiate a pledge operation
 
-If the consensus node deployment is complete and the blocks have been successfully synchronized, you can use MTool to pledge operations. After the pledge fund application is completed, ensure that the pledge account balance is sufficient, and replace the pledge deposit amount according to the user's situation. The minimum pledge threshold is 100,000 LAT.
+If the consensus node deployment is complete and the blocks have been successfully synchronized, you can use PlatON MTool to pledge operations. After the pledge fund application is completed, ensure that the pledge account balance is sufficient, and replace the pledge deposit amount according to the user's situation. The minimum pledge threshold is 100,000 LAT.
 
 Note: Please keep enough LAT in the pledge account to prepare for the subsequent transactions managed by the initiating node to have sufficient transaction fees, such as voting for upgrade proposals, unstaking transactions and other transactions.
 
 - Command line
 
 ```bash
-mtool-client staking --config $MTOOLDIR/validator/validator_config.json --address $MTOOLDIR/keystore/staking_observed.json --amount 10000 --benefit_address xxx196278ns22j23awdfj9f2d4vz0pedld8a2fzwwj --delegated_reward_rate 5000 --node_name myNode --website www.mywebsite.com --details myNodeDescription --external_id 121412312
+platon_mtool staking --config $PLATON_MTOOLDIR/validator/validator_config.json --address $PLATON_MTOOLDIR/keystore/staking_observed.json --amount 10000 --benefit_address xxx196278ns22j23awdfj9f2d4vz0pedld8a2fzwwj --delegated_reward_rate 5000 --node_name myNode --website www.mywebsite.com --details myNodeDescription --external_id 121412312
 ```
 - Parameter Description
 
@@ -432,7 +432,7 @@ mtool-client staking --config $MTOOLDIR/validator/validator_config.json --addres
 - Command line
 
 ```bash
-mtool-client update_validator --config $MTOOLDIR/validator/validator_config.json --address $MTOOLDIR/keystore/staking_observed.json --node_name myNode --website www.mywebsite.com --external_id 121412312 --delegated_reward_rate 6000 --benefit_address lax1x0f9xwr9steccekttqvml0d26zgsxwdnhq3fkv --details "Modify the verifier information operation"
+platon_mtool update_validator --config $PLATON_MTOOLDIR/validator/validator_config.json --address $PLATON_MTOOLDIR/keystore/staking_observed.json --node_name myNode --website www.mywebsite.com --external_id 121412312 --delegated_reward_rate 6000 --benefit_address lax1x0f9xwr9steccekttqvml0d26zgsxwdnhq3fkv --details "Modify the verifier information operation"
 ```
 
 - Parameter Description
@@ -460,7 +460,7 @@ mtool-client update_validator --config $MTOOLDIR/validator/validator_config.json
 - Command line
 
 ```bash
-mtool-client unstaking --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool unstaking --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameter Description
@@ -472,7 +472,7 @@ mtool-client unstaking --address $MTOOLDIR/keystore/staking_observed.json --conf
 - Command line
 
 ```bash
-mtool-client increasestaking --amount 5000000 --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool increasestaking --amount 5000000 --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameter Description
@@ -486,7 +486,7 @@ mtool-client increasestaking --amount 5000000 --address $MTOOLDIR/keystore/staki
 - Command line
 
 ```bash
-mtool-client submit_textproposal --pid_id 100 --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool submit_textproposal --pid_id 100 --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameter Description
@@ -498,7 +498,7 @@ mtool-client submit_textproposal --pid_id 100 --address $MTOOLDIR/keystore/staki
 - Command line
 
 ```bash
-mtool-client submit_versionproposal --newversion 0.15.1 --end_voting_rounds 345 --pid_id 100 --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool submit_versionproposal --newversion 0.15.1 --end_voting_rounds 345 --pid_id 100 --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameter Description
@@ -514,7 +514,7 @@ mtool-client submit_versionproposal --newversion 0.15.1 --end_voting_rounds 345 
 - Command line
 
 ```bash
-mtool-client submit_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --end_voting_rounds 12 --pid_id 100 --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator/validator
+platon_mtool submit_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --end_voting_rounds 12 --pid_id 100 --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator/validator
 ```
 
 - Parameter Description
@@ -530,7 +530,7 @@ mtool-client submit_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b
 - Command line
 
 ```bash
-mtool-client vote_textproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool vote_textproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameter Description
@@ -544,7 +544,7 @@ mtool-client vote_textproposal --proposalid 0x444c3df404bc1ce4d869166623514b3700
 - Command line
 
 ```bash
-mtool-client vote_versionproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool vote_versionproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameter Description
@@ -556,7 +556,7 @@ mtool-client vote_versionproposal --proposalid 0x444c3df404bc1ce4d869166623514b3
 - Command line
 
 ```bash
-mtool-client vote_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool vote_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameter Description
@@ -570,7 +570,7 @@ mtool-client vote_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b37
 - Command line
 
 ```bash
-mtool-client submit_paramproposal --pid_id 200 --module $module --paramname $paramname --paramvalue $paramvalue --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool submit_paramproposal --pid_id 200 --module $module --paramname $paramname --paramvalue $paramvalue --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameter Description
@@ -588,7 +588,7 @@ mtool-client submit_paramproposal --pid_id 200 --module $module --paramname $par
 - Command line
 
 ``` bash
-mtool-client vote_paramproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool vote_paramproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameter Description
@@ -602,7 +602,7 @@ mtool-client vote_paramproposal --proposalid 0x444c3df404bc1ce4d869166623514b370
 - Command line
 
 ```bash
-mtool-client declare_version --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool declare_version --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - Parameter Description
@@ -614,7 +614,7 @@ mtool-client declare_version --address $MTOOLDIR/keystore/staking_observed.json 
 - Command line
 
 ```bash
-mtool-client -h
+platon_mtool -h
 ```
 
 - Parameter Description

@@ -29,12 +29,12 @@
         "sidebar_label": "JSON RPC"
       },
       "OnLine_MTool_Manual": {
-        "title": "在线MTool教程",
-        "sidebar_label": "在线MTool教程"
+        "title": "在线PlatON MTool教程",
+        "sidebar_label": "在线PlatON MTool教程"
       },
       "OffLine_MTool_Manual": {
-        "title": "离线MTool教程",
-        "sidebar_label": "离线MTool教程"
+        "title": "离线PlatON MTool教程",
+        "sidebar_label": "离线PlatON MTool教程"
       },
       "PlatON_Solution": {
         "title": "PlatON共识方案",

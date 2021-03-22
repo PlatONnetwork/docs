@@ -312,7 +312,7 @@ In PlatON, every LAT holder can participate in PPoS.
 
 For an LAT holder who wants to become a validator, he/she must stakes more than a pre-specified minimum number of LATs to first become an alternative validator candidate. One staked LAT means one vote, which must be voted for himself and no one else. In other words, alternative validator candidates aren’t allowed to vote for each other.
 
-Other LAT holders who want to participate in the election of alternative validators must stake LATs too. They can stake as many LATs as they wish, also with one staked LAT equaling one vote. They can vote for any alternative validator candidates they choose.
+Other LAT holders who want to participate in the election of alternative validators must stake LATs too. The number of LATs locked against them must be greater than or equal to 10 LATs. They can vote for any alternative validator candidates they choose.
 
 After all the votes are cast, alternative validator candidates are ranked according to how many votes they received. A pre-specified number of candidates receiving the most votes become alternative validators. The LATs staked by alternative validators and their supporters remain staked until the end of a pre-specified lock-up period. For other candidates and their supporters, their staked LATs can be un-staked immediately after the election. They won’t participate in current round of PPoS anymore and won’t get any compensation, either.
 
