@@ -72,7 +72,7 @@ wget https://download.platon.network/platon/mtool/linux/1.0.0/platon_mtool.zip
 >脚本下载到<font color=red>platon_mtool</font> 目录下，否则脚本无法找到新版本mtool的路径。
 
 ``` bash
-wget http://download.platon.network/platon/scripts/mtool_install.sh
+wget https://download.platon.network/platon/scripts/mtool_install.sh
 ```
 
 **step4. 执行命令**
