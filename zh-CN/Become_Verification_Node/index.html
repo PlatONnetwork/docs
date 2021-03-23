@@ -75,17 +75,17 @@
 <li>已经按照<a href="/docs/zh-CN/Install_Node">安装一个节点</a>指引安装好 PlatON 节点并创建好节点密钥</li>
 <li>启动节点，<a href="/docs/zh-CN/Join_PlatON_NetWork">加入 PlatON 网络</a></li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="安装-mtool"></a><a href="#安装-mtool" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>安装 MTool</h2>
+<h2><a class="anchor" aria-hidden="true" id="安装-platon-mtool"></a><a href="#安装-platon-mtool" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>安装 PlatON MTool</h2>
 <p>步骤如下：</p>
-<p><strong>step1. 下载MTool工具包</strong></p>
-<pre><code class="hljs css language-bash">wget https://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
+<p><strong>step1. 下载PlatON MTool工具包</strong></p>
+<pre><code class="hljs css language-bash">wget https://download.platon.network/platon/mtool/linux/1.0.0/platon_mtool.zip
 </code></pre>
-<p><strong>step2. 解压MTool工具包</strong></p>
-<pre><code class="hljs css language-bash">(<span class="hljs-keyword">if</span> ! <span class="hljs-built_in">command</span> -v unzip;<span class="hljs-keyword">then</span> sudo apt install unzip; <span class="hljs-keyword">fi</span>;) &amp;&amp; unzip mtool-client.zip &amp;&amp; <span class="hljs-built_in">cd</span> mtool-client
+<p><strong>step2. 解压PlatON MTool工具包</strong></p>
+<pre><code class="hljs css language-bash">(<span class="hljs-keyword">if</span> ! <span class="hljs-built_in">command</span> -v unzip;<span class="hljs-keyword">then</span> sudo apt install unzip; <span class="hljs-keyword">fi</span>;) &amp;&amp; unzip platon_mtool.zip &amp;&amp; <span class="hljs-built_in">cd</span> platon_mtool
 </code></pre>
 <p><strong>step3. 下载脚本</strong></p>
 <blockquote>
-<p>脚本下载到<font color=red>mtool-client</font> 目录下，否则脚本无法找到新版本mtool的路径。</p>
+<p>脚本下载到<font color=red>platon_mtool</font> 目录下，否则脚本无法找到新版本platon_mtool的路径。</p>
 </blockquote>
 <pre><code class="hljs css language-bash">wget https://download.platon.network/platon/scripts/mtool_install.sh
 </code></pre>
@@ -94,29 +94,29 @@
 </code></pre>
 <blockquote>
 <ul>
-<li>提示 <font color=red>Install mtool succeed.</font> 时，表示 MTool 安装成功，未安装成功时，请通过我们的官方客服联系方式反馈具体问题。</li>
+<li>提示 <font color=red>Install platon mtool succeed.</font> 时，表示 PlatON MTool 安装成功，未安装成功时，请通过我们的官方客服联系方式反馈具体问题。</li>
 </ul>
 </blockquote>
 <p><strong>step5. 重启终端</strong></p>
 <p>安装完成之后，需要<font color=red>重启终端</font>，让新添加的环境变量生效。</p>
-<h2><a class="anchor" aria-hidden="true" id="配置-mtool"></a><a href="#配置-mtool" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>配置 MTool</h2>
+<h2><a class="anchor" aria-hidden="true" id="配置-platon-mtool"></a><a href="#配置-platon-mtool" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>配置 PlatON MTool</h2>
 <h3><a class="anchor" aria-hidden="true" id="创建钱包"></a><a href="#创建钱包" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>创建钱包</h3>
-<p>PlatON 中，参与验证节点进行出块要创建两个钱包。如果已经有钱包，可通过将钱包文件拷贝到<code>$MTOOLDIR/keystore</code>目录下，跳过本步骤。</p>
+<p>PlatON 中，参与验证节点进行出块要创建两个钱包。如果已经有钱包，可通过将钱包文件拷贝到<code>$PLATON_MTOOLDIR/keystore</code>目录下，跳过本步骤。</p>
 <ul>
 <li>质押钱包：质押钱包用于质押 token，质押成功后才能成为备选节点候选人。 运行以下命令创建质押钱包</li>
 </ul>
-<pre><code class="hljs css language-bash">mtool-client account new staking
+<pre><code class="hljs css language-bash">platon_mtool account new staking
 </code></pre>
-<p>输入一次密码，再输入一次确认密码，即可创建钱包文件，创建成功后会在目录<code>$MTOOLDIR/keystore</code>下生成质押钱包文件<code>staking.json</code>。</p>
+<p>输入一次密码，再输入一次确认密码，即可创建钱包文件，创建成功后会在目录<code>$PLATON_MTOOLDIR/keystore</code>下生成质押钱包文件<code>staking.json</code>。</p>
 <ul>
 <li>收益钱包：用于收取区块奖励和Staking奖励，Staking奖励统一发放给验证节点，由验证节点自行分配。 运行以下命令创建收益钱包</li>
 </ul>
-<pre><code class="hljs css language-bash">mtool-client account new reward
+<pre><code class="hljs css language-bash">platon_mtool account new reward
 </code></pre>
-<p>输入一次密码，再输入一次确认密码，即可创建钱包文件，创建成功后会在目录<code>$MTOOLDIR/keystore</code>下生成质押钱包文件<code>reward.json</code>。</p>
+<p>输入一次密码，再输入一次确认密码，即可创建钱包文件，创建成功后会在目录<code>$PLATON_MTOOLDIR/keystore</code>下生成质押钱包文件<code>reward.json</code>。</p>
 <h3><a class="anchor" aria-hidden="true" id="配置验证节点信息"></a><a href="#配置验证节点信息" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>配置验证节点信息</h3>
 <h4><a class="anchor" aria-hidden="true" id="下载脚本"></a><a href="#下载脚本" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>下载脚本</h4>
-<pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> <span class="hljs-variable">$MTOOLDIR</span> &amp;&amp; wget https://download.platon.network/platon/scripts/validator_conf.sh
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> <span class="hljs-variable">$PLATON_MTOOLDIR</span> &amp;&amp; wget https://download.platon.network/platon/scripts/validator_conf.sh
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="运行脚本配置"></a><a href="#运行脚本配置" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>运行脚本配置</h4>
 <pre><code class="hljs css language-bash">chmod +x validator_conf.sh &amp;&amp; ./validator_conf.sh
@@ -129,7 +129,7 @@
 </ul>
 </blockquote>
 <h4><a class="anchor" aria-hidden="true" id="验证节点信息配置文件说明"></a><a href="#验证节点信息配置文件说明" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>验证节点信息配置文件说明</h4>
-<p>完成配置验证节点信息后，会在 MTool 的安装目录的 validator 子目录下，生成验证节点信息文件 validator_config.json，文件内容如下：</p>
+<p>完成配置验证节点信息后，会在 PlatON MTool 的安装目录的 validator 子目录下，生成验证节点信息文件 validator_config.json，文件内容如下：</p>
 <pre><code class="hljs css language-json">{
     <span class="hljs-attr">"nodePublicKey"</span>: <span class="hljs-string">"0abaf3219f454f3d07b6cbcf3c10b6b4ccf605202868e2043b6f5db12b745df0604ef01ef4cb523adc6d9e14b83a76dd09f862e3fe77205d8ac83df707969b47"</span>,
     <span class="hljs-attr">"blsPubKey"</span>: <span class="hljs-string">"82d740cbc0314ec558c5426f88fdad6f07a07f9846c6be4e40cd628b74b9f641ddad01e4c281a2c3693f8ff2a73a410297aff379ee0575127d51de99b97acc9a1b7bc8ca132ef6f0379a3ec9d76a603d623176e49e1c53e87fead36317895099"</span>,
@@ -143,7 +143,7 @@
 <ul>
 <li>nodePublicKey: 节点 ID，可通过节点数据目录 data 下的 nodeid 文件查看；</li>
 <li>blsPubKey: BLS 公钥，可通过节点数据目录 data 下的 blspub 文件查看；</li>
-<li>nodeAddress: 节点地址，如果 MTool 和节点在同一台机器或同一个局域网内，可以使用内网IP，否则使用公网 IP，格式为：<code>http://18.238.183.12</code>。</li>
+<li>nodeAddress: 节点地址，如果 PlatON MTool 和节点在同一台机器或同一个局域网内，可以使用内网IP，否则使用公网 IP，格式为：<code>http://18.238.183.12</code>。</li>
 <li>nodePort: 节点 P2P 端口，默认为16789。</li>
 <li>nodeRpcPort: rpc端口，默认为 6789。</li>
 </ul>
@@ -164,7 +164,7 @@
 <p>提示：用户完成质押操作后，即可在PlatScan上显示用户自定义的头像。</p>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="发起质押操作"></a><a href="#发起质押操作" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>发起质押操作</h2>
-<p>如果共识节点部署完成，并且节点已经追上 <a href="https://platscan.platon.network">PlatScan</a> 网站上的块高，您就可以使用 MTool 进行质押操作。质押操作前请确确保质押账户余额足够，质押最低门槛为10万 LAT。如果是接入开发网，<a href="mailto:请您按照格式要求发送邮件至support@latticex.foundation">请您按照格式要求发送邮件至support@latticex.foundation</a>，邮件要求：</p>
+<p>如果共识节点部署完成，并且节点已经追上 <a href="https://platscan.platon.network">PlatScan</a> 网站上的块高，您就可以使用 PlatON MTool 进行质押操作。质押操作前请确确保质押账户余额足够，质押最低门槛为10万 LAT。如果是接入开发网，<a href="mailto:请您按照格式要求发送邮件至support@latticex.foundation">请您按照格式要求发送邮件至support@latticex.foundation</a>，邮件要求：</p>
 <pre><code class="hljs css language-toml"> 标题：PlatON开发网Token申请
  姓名：
  联系方式：
@@ -178,7 +178,7 @@
 <li>请不要将质押账户的所有LAT进行质押，至少保留1个LAT，以备支付后续发起节点管理的交易手续费，比如升级提案的投票，解质押等交易。</li>
 </ul>
 <p>执行命令</p>
-<pre><code class="hljs css language-bash">mtool-client staking --config <span class="hljs-variable">$MTOOLDIR</span>/validator/validator_config.json --keystore <span class="hljs-variable">$MTOOLDIR</span>/keystore/staking.json --amount 100000 --benefit_address xxx196278ns22j23awdfj9f2d4vz0pedld8a2fzwwj --delegated_reward_rate 5000 --node_name myNode --website www.mywebsite.com --details myNodeDescription --external_id 121412312
+<pre><code class="hljs css language-bash">platon_mtool staking --config <span class="hljs-variable">$PLATON_MTOOLDIR</span>/validator/validator_config.json --keystore <span class="hljs-variable">$PLATON_MTOOLDIR</span>/keystore/staking.json --amount 100000 --benefit_address xxx196278ns22j23awdfj9f2d4vz0pedld8a2fzwwj --delegated_reward_rate 5000 --node_name myNode --website www.mywebsite.com --details myNodeDescription --external_id 121412312
 </code></pre>
 <p>提示：<strong>please input keystore password:</strong> 输入质押钱包的密码，然后回车，如果显示如下信息则代表质押成功：</p>
 <pre><code class="hljs css language-bash">operation finished
@@ -202,7 +202,7 @@ SUCCESS
 <li>external_id：节点头像icon在keybase.io的ID，或者外部系统身份认证ID</li>
 </ul>
 </blockquote>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/Join_PlatON_NetWork"><span class="arrow-prev">← </span><span class="function-name-prevnext">加入 PlatON 网络</span></a><a class="docs-next button" href="/docs/zh-CN/OnLine_MTool_Manual"><span class="function-name-prevnext">在线PlatON MTool教程</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#简介">简介</a></li><li><a href="#准备">准备</a></li><li><a href="#安装-mtool">安装 MTool</a></li><li><a href="#配置-mtool">配置 MTool</a><ul class="toc-headings"><li><a href="#创建钱包">创建钱包</a></li><li><a href="#配置验证节点信息">配置验证节点信息</a></li></ul></li><li><a href="#发起质押操作">发起质押操作</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2021 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/Join_PlatON_NetWork"><span class="arrow-prev">← </span><span class="function-name-prevnext">加入 PlatON 网络</span></a><a class="docs-next button" href="/docs/zh-CN/OnLine_MTool_Manual"><span class="function-name-prevnext">在线PlatON MTool教程</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#简介">简介</a></li><li><a href="#准备">准备</a></li><li><a href="#安装-platon-mtool">安装 PlatON MTool</a></li><li><a href="#配置-platon-mtool">配置 PlatON MTool</a><ul class="toc-headings"><li><a href="#创建钱包">创建钱包</a></li><li><a href="#配置验证节点信息">配置验证节点信息</a></li></ul></li><li><a href="#发起质押操作">发起质押操作</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2021 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
