@@ -250,13 +250,12 @@
 <tr><th>Key</th><th>描述</th><th>范围</th></tr>
 </thead>
 <tbody>
-<tr><td>stakeThreshold</td><td>成为备选节点候选人最低的质押Token数</td><td>[10W,1000w] LAT</td></tr>
+<tr><td>stakeThreshold</td><td>成为备选节点候选人最低的质押Token数</td><td>[10w,1000w] LAT</td></tr>
 <tr><td>operatingThreshold</td><td>委托人每次委托及赎回的最低Token数</td><td>[10, 10000] LAT</td></tr>
 <tr><td>maxValidators</td><td>备选节点数量</td><td>[43, 10000]</td></tr>
-<tr><td>unStakeFreezeDuration</td><td>节点质押退回锁定周期</td><td>(证据有效期,336] Epoch</td></tr>
+<tr><td>unStakeFreezeDuration</td><td>验证节点退出，质押金冻结的结算周期数</td><td>(maxEvidenceAge,336] Epoch</td></tr>
 <tr><td>rewardPerMaxChangeRange</td><td>“委托奖励比例”每次修改的最大可调整委托奖幅度（‱）</td><td>[ 1‱ ，2000‱ ]</td></tr>
 <tr><td>rewardPerChangeInterval</td><td>&quot;委托奖励比例&quot; 允许再次修改需要等待的结算周期数</td><td>[ 2, 28 ]</td></tr>
-<tr><td>unDelegateFreezeDuration</td><td>解除已锁定的委托，委托金冻结的结算周期数</td><td>(0, unStakeFreezeDuration]</td></tr>
 </tbody>
 </table>
 <ul>
@@ -267,13 +266,13 @@
 <tr><th>Key</th><th>描述</th><th>范围</th></tr>
 </thead>
 <tbody>
-<tr><td>slashBlocksReward</td><td>出块率为0，削减的区块奖励块数</td><td>[0, 50000] blocks</td></tr>
+<tr><td>slashBlocksReward</td><td>出块率为0，削减的区块奖励块数</td><td>[0, 50000) blocks</td></tr>
 <tr><td>slashFractionDuplicateSign</td><td>双签举报处罚节点自有质押金比例(‱)</td><td>(0,10000]</td></tr>
 <tr><td>duplicateSignReportReward</td><td>举报人可获得处罚金的奖励比例（%）</td><td>(0, 80]</td></tr>
-<tr><td>maxEvidenceAge</td><td>双签举报证据有效的结算周期数</td><td>（ 0 , unStakeFreezeDuration ）</td></tr>
-<tr><td>zeroProduceCumulativeTime</td><td>零出块持续的共识轮数，并在该时间内进行零出块次数的累计</td><td>[zeroProduceNumberThreshold , 50]</td></tr>
+<tr><td>maxEvidenceAge</td><td>双签举报证据有效的结算周期数</td><td>(0, unStakeFreezeDuration）Epoch</td></tr>
+<tr><td>zeroProduceCumulativeTime</td><td>零出块持续的共识轮数，并在该时间内进行零出块次数的累计</td><td>[zeroProduceNumberThreshold ,50]</td></tr>
 <tr><td>zeroProduceNumberThreshold</td><td>零出块次数处罚阈值</td><td>[1,zeroProduceCumulativeTime]</td></tr>
-<tr><td>ZeroProduceFreezeDuration</td><td>节点零出块惩罚被锁定时间</td><td>[1, unStakeFreezeDuration)</td></tr>
+<tr><td>ZeroProduceFreezeDuration</td><td>节点零出块惩罚被锁定时间</td><td>[1,unStakeFreezeDuration)</td></tr>
 </tbody>
 </table>
 <ul>

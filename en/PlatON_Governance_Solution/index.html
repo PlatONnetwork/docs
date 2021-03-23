@@ -257,13 +257,12 @@ The parameter proposal voting cycle is two weeks. As of now, the governance para
 <tr><th>Key</th><th>description</th><th>range</th></tr>
 </thead>
 <tbody>
-<tr><td>stakeThreshold</td><td>The minimum number of staking tokens to become alternative node candidates</td><td>[10W,1000w] LAT</td></tr>
+<tr><td>stakeThreshold</td><td>The minimum number of staking tokens to become alternative node candidates</td><td>[10w,1000w] LAT</td></tr>
 <tr><td>operatingThreshold</td><td>Minimum number of tokens for each delegation and redemption by the client</td><td>[10, 10000] LAT</td></tr>
 <tr><td>maxValidators</td><td>Number of alternative nodes</td><td>[43, 10000]</td></tr>
-<tr><td>unStakeFreezeDuration</td><td>Node staking return lock cycle</td><td>(Evidence validity,336] Epoch</td></tr>
+<tr><td>unStakeFreezeDuration</td><td>Verify the number of settlement cycles when the node exits and the pledged money is frozen</td><td>(maxEvidenceAge,336] Epoch</td></tr>
 <tr><td>rewardPerMaxChangeRange</td><td>&quot;Reward Rate of Commitment&quot; The maximum range of rewards that can be adjusted per revision (‱)</td><td>[ 1‱ ，2000‱ ]</td></tr>
 <tr><td>rewardPerChangeInterval</td><td>The &quot;Delegate Rewards Ratio&quot; allows you to change the number of settlement cycles that need to wait again</td><td>[ 2, 28 ]</td></tr>
-<tr><td>unDelegateFreezeDuration</td><td>Unlock the entrustment, the number of settlement cycles of the entrustment frozen</td><td>(0, unStakeFreezeDuration]</td></tr>
 </tbody>
 </table>
 <ul>
@@ -274,10 +273,10 @@ The parameter proposal voting cycle is two weeks. As of now, the governance para
 <tr><th>Key</th><th>description</th><th>range</th></tr>
 </thead>
 <tbody>
-<tr><td>slashBlocksReward</td><td>When the block generation rate is 0, the number of blocks rewarded by the reduced block</td><td>[0, 50000] blocks</td></tr>
-<tr><td>slashFractionDuplicateSign</td><td>Proportion of penalty node own staking when dual signing behavior was reported</td><td>(0,10000] ‱</td></tr>
-<tr><td>duplicateSignReportReward</td><td>Whistleblower reward ratio</td><td>(0, 80] %</td></tr>
-<tr><td>maxEvidenceAge</td><td>Number of valid settlement cycles for evidence reported by dual signing</td><td>(0, Node staking return lock cycle）Epoch</td></tr>
+<tr><td>slashBlocksReward</td><td>When the block generation rate is 0, the number of blocks rewarded by the reduced block</td><td>[0, 50000) blocks</td></tr>
+<tr><td>slashFractionDuplicateSign</td><td>Proportion of penalty node own staking when dual signing behavior was reported(‱)</td><td>(0,10000]</td></tr>
+<tr><td>duplicateSignReportReward</td><td>Whistleblower reward ratio(%)</td><td>(0, 80]</td></tr>
+<tr><td>maxEvidenceAge</td><td>Number of valid settlement cycles for evidence reported by dual signing</td><td>(0, unStakeFreezeDuration)</td></tr>
 <tr><td>zeroProduceCumulativeTime</td><td>The number of continuous consensus rounds of zero block out, and the number of zero block out is accumulated within this time</td><td>[zeroProduceNumberThreshold , 50]</td></tr>
 <tr><td>zeroProduceNumberThreshold</td><td>Zero block times penalty threshold</td><td>[1,zeroProduceCumulativeTime]</td></tr>
 <tr><td>ZeroProduceFreezeDuration</td><td>Node zero block penalty is locked time</td><td>[1, unStakeFreezeDuration)</td></tr>
@@ -299,7 +298,7 @@ The parameter proposal voting cycle is two weeks. As of now, the governance para
 </ul>
 <table>
 <thead>
-<tr><th>Key</th><th>描述</th><th>范围</th></tr>
+<tr><th>Key</th><th>description</th><th>range</th></tr>
 </thead>
 <tbody>
 <tr><td>increaseIssuanceRatio</td><td>Percentage of annual increase in Platon Network LAT issuance (‱)</td><td>[0, 2000]</td></tr>
@@ -310,7 +309,7 @@ The parameter proposal voting cycle is two weeks. As of now, the governance para
 </ul>
 <table>
 <thead>
-<tr><th>Key</th><th>描述</th><th>范围</th></tr>
+<tr><th>Key</th><th>description</th><th>range</th></tr>
 </thead>
 <tbody>
 <tr><td>minimumRelease</td><td>The minimum value of the release amount in the release cycle of the lockup plan</td><td>[100, 10000000]</td></tr>
