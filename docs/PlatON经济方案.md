@@ -189,7 +189,7 @@ PlatON adopts randomly selected nodes among the small-scale candidate nodes to p
 
 - Alternative Validator
 
-  Ranking (see [Alternative Validator selection](#Alternative Validator selection) for the ranking rules) Alternative Validator Candidates in the top 201 are called Alternative Validator. The Alternative Validators participate in the Validator election for each consensus round to obtain the settlement epoch LAT additional distribution bonus.
+  Ranking (see [Alternative Validator selection](#alternative-validator-selection) for the ranking rules) Alternative Validator Candidates in the top 201 are called Alternative Validator. The Alternative Validators participate in the Validator election for each consensus round to obtain the settlement epoch LAT additional distribution bonus.
 
 - Validator
 
