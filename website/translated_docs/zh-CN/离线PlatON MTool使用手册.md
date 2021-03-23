@@ -1,76 +1,76 @@
 ---
 id: OffLine_MTool_Manual
-title: 离线MTool教程
-sidebar_label: 离线MTool教程
+title: 离线PlatON MTool教程
+sidebar_label: 离线PlatON MTool教程
 ---
 
 ## 简介
 
 为了便于节点进行转账，质押，委托以及治理等相关的操作，PlatON提供了MTool来辅助用户：
 
-- MTool可支持Ubuntu 18.04和Windows 10，本文档分别描述Windows和Ubuntu环境下的安装和使用，用户可根据自己的资源进行选择。
-- MTool对质押等交易提供两种签名方式：在线签名和离线签名。此文档描述离线签名操作，在线签名操作请参考[在线MTool教程](/docs/zh-CN/OnLine_MTool_Manual)。
-- MTool离线签名方式主要流程为：在在线机器上生成待签名文件，然后在离线机器上签名交易，最后在在线机器上发送签名交易。
+- PlatON MTool可支持Ubuntu 18.04和Windows 10，本文档分别描述Windows和Ubuntu环境下的安装和使用，用户可根据自己的资源进行选择。
+- PlatON MTool对质押等交易提供两种签名方式：在线签名和离线签名。此文档描述离线签名操作，在线签名操作请参考[在线PlatON MTool教程](/docs/zh-CN/OnLine_MTool_Manual)。
+- PlatON MTool离线签名方式主要流程为：在在线机器上生成待签名文件，然后在离线机器上签名交易，最后在在线机器上发送签名交易。
 
-## 安装MTool
+## 安装PlatON MTool
 
-另外，本文档分别介绍Windows和Ubuntu环境下MTool的操作，用户可根据自己的资源进行选择；以下安装方式为在线机器上的安装，如果在离线机器上安装，可使用移动U盘或者移动硬盘进行拷贝安装包到离线机器上，安装方法和在线安装方法一样。
+另外，本文档分别介绍Windows和Ubuntu环境下PlatON MTool的操作，用户可根据自己的资源进行选择；以下安装方式为在线机器上的安装，如果在离线机器上安装，可使用移动U盘或者移动硬盘进行拷贝安装包到离线机器上，安装方法和在线安装方法一样。
 
-### Windows下安装MTool
+### Windows下安装PlatON MTool
 
 #### 安装前准备
 
 执行命令：
 
 ```
-mtool-client --version
+platon_mtool --version
 ```
 
-如果执行结果显示`无法将“mtool-client”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然后再试一次`，表示没有安装旧版本不需要执行下面操作。
+如果执行结果显示`无法将“platon_mtool”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然后再试一次`，表示没有安装旧版本不需要执行下面操作。
 
-如果执行结果显示版本号，时间戳等信息表示已安装MTool，如果MTool是旧版本，此时需要备份重要信息，然后再手工卸载旧版本，操作步骤：
+如果执行结果显示版本号，时间戳等信息表示已安装PlatON MTool，如果PlatON MTool是旧版本，此时需要备份重要信息，然后再手工卸载旧版本，操作步骤：
 
 **step1. 备份目录**
 
-将 `C:\tools\mtool\current\keystore` 下的所有文件到 D 盘或其他非 `C:\tools` 的目录下。安装完新版本之后需要将备份文件拷贝回 `C:\tools\mtool\current\keystore` 目录下。
+将 `C:\platon_mtool\mtool\current\keystore` 下的所有文件到 D 盘或其他非 `C:\platon_mtool` 的目录下。安装完新版本之后需要将备份文件拷贝回 `C:\platon_mtool\mtool\current\keystore` 目录下。
 
 **step2. 卸载旧版本**
 
-双击 `C:\tools\unins000.exe` 卸载所有旧版本的 MTool 及其他业务工具。
+双击 `C:\platon_mtool\unins000.exe` 卸载所有旧版本的 PlatON MTool 及其他业务工具。
 
 #### 开始安装
 
-**step1. 下载MTool安装包**
+**step1. 下载PlatON MTool安装包**
 
-在在线机器上，复制链接<https://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe> 到浏览器下载MTool安装包。
+在在线机器上，复制链接<https://download.platon.network/platon/mtool/windows/1.0.0/platon_mtool.exe> 到浏览器下载PlatON MTool安装包。
 
-**step2. 安装MTool**
+**step2. 安装PlatON MTool**
 
-双击mtool-setup.exe进行安装。默认安装目录为 C:\tools，建议不要更改此安装目录。弹出界面显示**Completing the mtool Setup Wizard**信息表示安装成功，点击**Finish**即可。
+双击platon_mtool.exe进行安装。默认安装目录为 C:\platon_mtool，建议不要更改此安装目录。弹出界面显示**Completing the mtool Setup Wizard**信息表示安装成功，点击**Finish**即可。
 
 **step3. 重启终端**
 
 安装完成之后，需要<font color=red>重启终端</font>，让新添加的环境变量生效。
 
-### Ubuntu下安装MTool
+### Ubuntu下安装PlatON MTool
 
 步骤如下：
 
-**step1. 下载MTool工具包**
+**step1. 下载PlatON MTool工具包**
 
 ``` bash
-wget https://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
+wget https://download.platon.network/platon/mtool/linux/1.0.0/platon_mtool.zip
 ```
 
-**step2. 解压MTool工具包**
+**step2. 解压PlatON MTool工具包**
 
 ``` bash
-(if ! command -v unzip;then sudo apt install unzip; fi;) && unzip mtool-client.zip && cd mtool-client
+(if ! command -v unzip;then sudo apt install unzip; fi;) && unzip platon_mtool.zip && cd platon_mtool
 ```
 
 **step3. 下载脚本**
 
->脚本下载到<font color=red>mtool-client</font> 目录下，否则脚本无法找到新版本mtool的路径。
+>脚本下载到<font color=red>platon_mtool</font> 目录下，否则脚本无法找到新版本mtool的路径。
 
 ``` bash
 wget https://download.platon.network/platon/scripts/mtool_install.sh
@@ -82,43 +82,43 @@ wget https://download.platon.network/platon/scripts/mtool_install.sh
 chmod +x mtool_install.sh && ./mtool_install.sh
 ```
 
-> - 提示 <font color=red>Install mtool succeed.</font> 时，表示 MTool 安装成功，未安装成功时，请通过我们的官方客服联系方式反馈具体问题。
+> - 提示 <font color=red>Install platon mtool succeed.</font> 时，表示 PlatON MTool 安装成功，未安装成功时，请通过我们的官方客服联系方式反馈具体问题。
 
 **step5. 重新启动会话窗口**
 
 安装完成之后，需要<font color=red>重新启动会话窗口</font>，让新添加的环境变量生效。
 
-## MTool环境变量说明
+## PlatON MTool环境变量说明
 
-Windows和Ubuntu下MTool目录使用环境变量有所区别：
+Windows和Ubuntu下PlatON MTool目录使用环境变量有所区别：
 
-- MTool目录
+- PlatON MTool目录
 
-  - Windows：`%MTOOLDIR%`
+  - Windows：`%PLATON_MTOOLDIR%`
 
-  - Ubuntu：`$MTOOLDIR`
+  - Ubuntu：`$PLATON_MTOOLDIR`
 
 >  说明：**`用户根据自己安装的系统进行选择环境变量。`**
 >
 
-##  MTool钱包命令详解
+##  PlatON MTool钱包命令详解
 
 > **注意：**
 >
-> - 后续命令是Ubuntu下的命令格式，Windows下需要把`$MTOOLDIR`修改成`%MTOOLDIR%`；
-> - 如果连接的是测试网，需要修改MTool安装目录下的config.properties配置文件的chainid为201030。
+> - 后续命令是Ubuntu下的命令格式，Windows下需要把`$PLATON_MTOOLDIR`修改成`%PLATON_MTOOLDIR%`；
+> - 如果连接的是测试网，需要修改PlatON MTool安装目录下的config.properties配置文件的chainid为201030。
 
 ### 创建冷钱包
 
 - 执行命令
 
 ```shell
-mtool-client account new staking
+platon_mtool account new staking
 ```
 
 - 参数说明
 
->staking: 生成的钱包名称，输入两次相同密码之后，创建成功后会在目录`$MTOOLDIR/keystore`下生成钱包文件`staking.json`，并打印如下信息：
+>staking: 生成的钱包名称，输入两次相同密码之后，创建成功后会在目录`$PLATON_MTOOLDIR/keystore`下生成钱包文件`staking.json`，并打印如下信息：
 >
 >```shell
 >-name: staking
@@ -155,7 +155,7 @@ mtool-client account new staking
   通过私钥恢复：
 
   ```shell
-  mtool-client account recover -k staking
+  platon_mtool account recover -k staking
   ```
 
   > 提示输入新的钱包密码和备份的私钥，如下：
@@ -172,7 +172,7 @@ mtool-client account new staking
   通过助记词恢复：
 
   ```shell
-  mtool-client account recover -m staking
+  platon_mtool account recover -m staking
   ```
 
   >提示输入新的钱包密码和备份的助记词，如下：
@@ -188,7 +188,7 @@ mtool-client account new staking
 
   staking：钱包名称。
 
-  恢复成功后会在目录`$MTOOLDIR/keystore`下生成钱包文件`staking.json`。
+  恢复成功后会在目录`$PLATON_MTOOLDIR/keystore`下生成钱包文件`staking.json`。
 
 
 
@@ -197,7 +197,7 @@ mtool-client account new staking
 执行命令生成观察钱包：
 
 ```shell
-mtool-client create_observewallet --keystore $MTOOLDIR/keystore/staking.json
+platon_mtool create_observewallet --keystore $PLATON_MTOOLDIR/keystore/staking.json
 ```
 
 - 参数说明
@@ -208,14 +208,14 @@ mtool-client create_observewallet --keystore $MTOOLDIR/keystore/staking.json
 >
 > please input keystore password:
 > SUCCESS
-> wallet created at: $MTOOLDIR/keystore/staking_observed.json
+> wallet created at: $PLATON_MTOOLDIR/keystore/staking_observed.json
 
 ### 查看钱包列表
 
 - 执行命令
 
 ```bash
-mtool-client account list
+platon_mtool account list
 ```
 
 ### 根据钱包名称查询余额
@@ -223,7 +223,7 @@ mtool-client account list
 - 执行命令
 
 ```bash
-mtool-client account balance $keystorename --config $MTOOLDIR/validator/validator_config.json
+platon_mtool account balance $keystorename --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 变量说明
@@ -237,7 +237,7 @@ mtool-client account balance $keystorename --config $MTOOLDIR/validator/validato
 - 执行命令
 
 ```bash
-mtool-client account balance -a $address --config $MTOOLDIR/validator/validator_config.json
+platon_mtool account balance -a $address --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数
@@ -248,16 +248,16 @@ mtool-client account balance -a $address --config $MTOOLDIR/validator/validator_
 
 
 
-## 离线MTool交易流程
+## 离线PlatON MTool交易流程
 
-MTool离线签名方式主要流程为：在在线机器上生成待签名文件，然后在离线机器上签名交易，最后在在线机器上发送签名交易。以转账交易为例，步骤如下，其他交易生成待签名文件的操作参考[MTool交易命令详解](# MTool交易命令详解)章节。
+PlatON MTool离线签名方式主要流程为：在在线机器上生成待签名文件，然后在离线机器上签名交易，最后在在线机器上发送签名交易。以转账交易为例，步骤如下，其他交易生成待签名文件的操作参考[PlatON MTool交易命令详解](# PlatON MTool交易命令详解)章节。
 
 ### 生成交易待签名文件
 
 在**在线机器**上执行：
 
 ```shell
-mtool-client tx transfer --address $MTOOLDIR/keystore/staking_observed.json --amount "1" --recipient $to_address --config $MTOOLDIR/validator/validator_config.json
+platon_mtool tx transfer --address $PLATON_MTOOLDIR/keystore/staking_observed.json --amount "1" --recipient $to_address --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明:
@@ -274,7 +274,7 @@ mtool-client tx transfer --address $MTOOLDIR/keystore/staking_observed.json --am
 
 ```shell
 Transfer unsigned raw: H4sIAAAAAAAAAGWOPW/DIBRF/8ubPfDhGsdrp0oZMmSrMiCMDUGADTiGRPnvoVGHSn3T1ZHuPe8Ba/j0ozwH7iIXSXt31DHB8P0Abv3masTo3zUgFNfua4SBIIxoBVPwFgbgKeM9pLweppERJTrGXH+n1KY+5Wtujckfy247JqF2NvdWnssiYagjM49HbXWVEvzWVHAKWsg/XzTgvPshtIHkf5UlxKL2tBVkCJnZnNWtm/dyn/qbiIdrNHFlysDzUjvaypi4Xepmh2jbMor6luLnC0n7ZKsMAQAA
-File generated on: $MTOOLDIR/transaction_details/transaction_detail_20191108114241.csv
+File generated on: $PLATON_MTOOLDIR/transaction_details/transaction_detail_20191108114241.csv
 ```
 
 其中，`transaction_detail_20191108114241.csv`为转账交易待签名文件，需要拷贝到离线机器上，进行签名；
@@ -284,7 +284,7 @@ File generated on: $MTOOLDIR/transaction_details/transaction_detail_201911081142
 在保管冷钱包的离线机器上执行：
 
 ```shell
-mtool-client offlinesign --filelocation $MTOOLDIR/transaction_details/transaction_detail_20191108114241.csv
+platon_mtool offlinesign --filelocation $PLATON_MTOOLDIR/transaction_details/transaction_detail_20191108114241.csv
 ```
 
 - 参数说明：
@@ -293,7 +293,7 @@ mtool-client offlinesign --filelocation $MTOOLDIR/transaction_details/transactio
 >
 >filelocation：待签名交易文件路径
 
-注：$MTOOLDIR/transaction_details/transaction_detail_20191108114241.csv为上一步骤生成的待签名文件，修改为实际的待签名文件。
+注：$PLATON_MTOOLDIR/transaction_details/transaction_detail_20191108114241.csv为上一步骤生成的待签名文件，修改为实际的待签名文件。
 
 输入对应冷钱包密码并返回签完名的文件，文件内容如下：
 
@@ -327,7 +327,7 @@ success: 1, failure: 0
 在**在线机器**发送交易：
 
 ```shell
-mtool-client send_signedtx --filelocation $MTOOLDIR/transaction_signature/transaction_signature_20191108114625.csv --config $MTOOLDIR/validator/validator_config.json
+platon_mtool send_signedtx --filelocation $PLATON_MTOOLDIR/transaction_signature/transaction_signature_20191108114625.csv --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明：
@@ -354,16 +354,16 @@ success: 1, failure: 0
 
 注：提示success并返回transaction hash表示签名交易发送成功，否则发送签名交易失败。
 
-## MTool交易命令详解
+## PlatON MTool交易命令详解
 
-此章节主要描述在**在线机器**上生成csv格式的交易待签名文件的相关命令，生成的csv文件会保存在`$MTOOLDIR/transaction_details`目录下。完整的发送离线签名交易流程参考[离线MTool交易流程](#离线MTool交易流程)章节。
+此章节主要描述在**在线机器**上生成csv格式的交易待签名文件的相关命令，生成的csv文件会保存在`$PLATON_MTOOLDIR/transaction_details`目录下。完整的发送离线签名交易流程参考[离线PlatON MTool交易流程](#离线PlatON MTool交易流程)章节。
 
 ### 普通转账操作
 
 - 执行命令
 
 ```shell
-mtool-client tx transfer --address $MTOOLDIR/keystore/staking_observed.json --amount "1" --recipient $to_address --config $MTOOLDIR/validator/validator_config.json
+platon_mtool tx transfer --address $PLATON_MTOOLDIR/keystore/staking_observed.json --amount "1" --recipient $to_address --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
@@ -402,7 +402,7 @@ mtool-client tx transfer --address $MTOOLDIR/keystore/staking_observed.json --am
 - 执行命令
 
 ```bash
-mtool-client create_restricting --config $MTOOLDIR/validator/validator_config.json --address $MTOOLDIR/keystore/staking_observed.json --file ./restricting_plans.json
+platon_mtool create_restricting --config $PLATON_MTOOLDIR/validator/validator_config.json --address $PLATON_MTOOLDIR/keystore/staking_observed.json --file ./restricting_plans.json
 ```
 
 - 参数说明，
@@ -415,14 +415,14 @@ mtool-client create_restricting --config $MTOOLDIR/validator/validator_config.js
 
 ### 发起质押操作
 
-如果共识节点部署完成，并且已经同步区块成功，您就可以使用MTool进行质押操作。质押资金申请完成后，确保质押账户余额足够，根据用户情况替换质押金额，质押最低门槛为10万LAT。
+如果共识节点部署完成，并且已经同步区块成功，您就可以使用PlatON MTool进行质押操作。质押资金申请完成后，确保质押账户余额足够，根据用户情况替换质押金额，质押最低门槛为10万LAT。
 
 注意：请保持质押账户里面有足够LAT，以备后续发起节点管理的交易有足够的交易手续费，比如升级提案的投票，解质押等交易。
 
 - 执行命令
 
 ```bash
-mtool-client staking --config $MTOOLDIR/validator/validator_config.json --address $MTOOLDIR/keystore/staking_observed.json --amount 10000 --benefit_address xxx196278ns22j23awdfj9f2d4vz0pedld8a2fzwwj --delegated_reward_rate 5000 --node_name myNode --website www.mywebsite.com --details myNodeDescription --external_id 121412312
+platon_mtool staking --config $PLATON_MTOOLDIR/validator/validator_config.json --address $PLATON_MTOOLDIR/keystore/staking_observed.json --amount 10000 --benefit_address xxx196278ns22j23awdfj9f2d4vz0pedld8a2fzwwj --delegated_reward_rate 5000 --node_name myNode --website www.mywebsite.com --details myNodeDescription --external_id 121412312
 ```
 
 - 参数说明，
@@ -455,7 +455,7 @@ mtool-client staking --config $MTOOLDIR/validator/validator_config.json --addres
 - 执行命令
 
 ```bash
-mtool-client update_validator --config $MTOOLDIR/validator/validator_config.json --address $MTOOLDIR/keystore/staking_observed.json --node_name myNode --website www.mywebsite.com --external_id 121412312 --delegated_reward_rate 6000 --benefit_address lax1x0f9xwr9steccekttqvml0d26zgsxwdnhq3fkv --details "Modify the verifier information operation"
+platon_mtool update_validator --config $PLATON_MTOOLDIR/validator/validator_config.json --address $PLATON_MTOOLDIR/keystore/staking_observed.json --node_name myNode --website www.mywebsite.com --external_id 121412312 --delegated_reward_rate 6000 --benefit_address lax1x0f9xwr9steccekttqvml0d26zgsxwdnhq3fkv --details "Modify the verifier information operation"
 ```
 
 - 参数说明
@@ -485,7 +485,7 @@ mtool-client update_validator --config $MTOOLDIR/validator/validator_config.json
 - 执行命令
 
 ```bash
-mtool-client unstaking --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool unstaking --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
@@ -499,7 +499,7 @@ mtool-client unstaking --address $MTOOLDIR/keystore/staking_observed.json --conf
 - 执行命令
 
 ```bash
-mtool-client increasestaking --amount 5000000 --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool increasestaking --amount 5000000 --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
@@ -517,7 +517,7 @@ mtool-client increasestaking --amount 5000000 --address $MTOOLDIR/keystore/staki
 - 执行命令
 
 ```bash
-mtool-client submit_textproposal --pid_id 100 --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool submit_textproposal --pid_id 100 --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
@@ -533,7 +533,7 @@ mtool-client submit_textproposal --pid_id 100 --address $MTOOLDIR/keystore/staki
 - 执行命令
 
 ```bash
-mtool-client submit_versionproposal --newversion 0.15.1 --end_voting_rounds 345 --pid_id 100 --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool submit_versionproposal --newversion 0.15.1 --end_voting_rounds 345 --pid_id 100 --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
@@ -553,7 +553,7 @@ mtool-client submit_versionproposal --newversion 0.15.1 --end_voting_rounds 345 
 - 执行命令
 
 ```bash
-mtool-client submit_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --end_voting_rounds 12 --pid_id 100 --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool submit_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --end_voting_rounds 12 --pid_id 100 --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
@@ -573,7 +573,7 @@ mtool-client submit_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b
 - 执行命令
 
 ```bash
-mtool-client vote_textproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool vote_textproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
@@ -591,7 +591,7 @@ mtool-client vote_textproposal --proposalid 0x444c3df404bc1ce4d869166623514b3700
 - 执行命令
 
 ```bash
-mtool-client vote_versionproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool vote_versionproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
@@ -607,7 +607,7 @@ mtool-client vote_versionproposal --proposalid 0x444c3df404bc1ce4d869166623514b3
 - 执行命令
 
 ```bash
-mtool-client vote_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool vote_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
@@ -625,7 +625,7 @@ mtool-client vote_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b37
 - 执行命令
 
 ```bash
-mtool-client submit_paramproposal --pid_id 200 --module $module --paramname $paramname --paramvalue $paramvalue --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool submit_paramproposal --pid_id 200 --module $module --paramname $paramname --paramvalue $paramvalue --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
@@ -647,7 +647,7 @@ mtool-client submit_paramproposal --pid_id 200 --module $module --paramname $par
 - 执行命令
 
 ``` bash
-mtool-client  vote_paramproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool  vote_paramproposal --proposalid 0x444c3df404bc1ce4d869166623514b370046cd37cdfa6e932971bc2f98afd1a6 --opinion yes --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
@@ -665,7 +665,7 @@ mtool-client  vote_paramproposal --proposalid 0x444c3df404bc1ce4d869166623514b37
 - 执行命令
 
 ```bash
-mtool-client declare_version --address $MTOOLDIR/keystore/staking_observed.json --config $MTOOLDIR/validator/validator_config.json
+platon_mtool declare_version --address $PLATON_MTOOLDIR/keystore/staking_observed.json --config $PLATON_MTOOLDIR/validator/validator_config.json
 ```
 
 - 参数说明
@@ -679,7 +679,7 @@ mtool-client declare_version --address $MTOOLDIR/keystore/staking_observed.json 
 - 执行命令
 
 ```bash
-mtool-client -h
+platon_mtool -h
 ```
 
 - 参数说明

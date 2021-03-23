@@ -17,7 +17,7 @@ sidebar_label: PlatON开发者文档
         <img src="/docs/img/Join_PlatON_NetWork.svg">
         <a href="/docs/zh-CN/Join_PlatON_NetWork" class="card-title">加入platon网络</a>
         <div class="card-description">
-        如何加入PlatON的主网和测试网。
+        如何加入PlatON的主网和开发网。
         </div>
     </div>
     <div class="homepage-card">
@@ -36,7 +36,7 @@ sidebar_label: PlatON开发者文档
     </div>
     <div class="homepage-card">
         <img src="/docs/img/nodeTool.svg">
-        <a href="/docs/zh-CN/OnLine_MTool_Manual" class="card-title">节点工具</a>
+        <a href="/docs/zh-CN/OnLine_MTool_Manual" class="card-title">PlatON节点工具</a>
         <div class="card-description">
         了解节点相关工具的命令和操作说明。
         </div>

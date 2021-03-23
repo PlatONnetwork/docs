@@ -36,7 +36,7 @@ sidebar_label: PlatON Developer Docs
     </div>
     <div class="homepage-card">
         <img src="/docs/img/nodeTool.svg">
-        <a href="/docs/en/OnLine_MTool_Manual" class="card-title">Node Tools</a>
+        <a href="/docs/en/OnLine_MTool_Manual" class="card-title">PlatON Node Tools</a>
         <div class="card-description">
         Learn to understand the commands and operating instructions of node related tools.
         </div>

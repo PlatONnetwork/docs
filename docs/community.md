@@ -35,8 +35,8 @@ The LatticeX Foundation has now opened the [Grants program](https://latticex.fou
     <tr>
         <td><img alt="" src="/docs/img/MTool_logo.svg"></td>
         <td>
-            <p class="color"><a target="_blank" href="https://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe">MTool</a></p>
-            Node Management Tool.
+            <p class="color"><a target="_blank" href="https://download.platon.network/platon/mtool/windows/1.0.0/platon_mtool.exe">PlatON MTool</a></p>
+            PlatON's Node Management Tool.
         </td>
     </tr>
 </table>

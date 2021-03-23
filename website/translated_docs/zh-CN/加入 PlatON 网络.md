@@ -69,7 +69,7 @@ nohup platon --identity platon --datadir ./data --port 16789 --platon --rpcport 
 >> 需要修改配置文件config.properties中的链ID为开发网络链ID：210309
 >
 >- samurai：
-> - 开放RPC URL：http://47.241.99.44:6789 以及 ws://47.241.99.44:6790
+> - 开放RPC URL：http://47.241.98.219:6789 以及 ws://47.241.98.219:6790
 >- scan浏览器地址：https://devnetscan.platon.network
 
 

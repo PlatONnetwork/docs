@@ -33,12 +33,12 @@
         "sidebar_label": "JSON RPC"
       },
       "OnLine_MTool_Manual": {
-        "title": "OnLine MTool Tutorials",
-        "sidebar_label": "OnLine MTool Tutorials"
+        "title": "OnLine PlatON MTool Tutorials",
+        "sidebar_label": "OnLine PlatON MTool Tutorials"
       },
       "OffLine_MTool_Manual": {
-        "title": "OffLine MTool Tutorials",
-        "sidebar_label": "OffLine MTool Tutorials"
+        "title": "OffLine PlatON MTool Tutorials",
+        "sidebar_label": "OffLine PlatON MTool Tutorials"
       },
       "PlatON_Solution": {
         "title": "PlatON Consensus Solution",

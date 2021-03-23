@@ -13,7 +13,7 @@ sidebar_label: 源码安装PlatON
 Windows编译环境需要符合以下条件：
 
 - git：`2.19.1以上`
-- go语言开发包：`go(1.13+)`
+- go语言开发包：`go(1.14+)`
 - mingw：`mingw（V8.1.0）`
 - cmake: `3.0+`
 
@@ -86,7 +86,7 @@ go run build/ci.go install ./cmd/platonkey
 - 系统版本：`Ubuntu 18.04.1 及以上`
 - git：`2.19.1及以上`
 - 编译器：`gcc(4.9.2+)`、`g++(5.0+)`
-- go语言开发包：`go(1.13+)`
+- go语言开发包：`go(1.14+)`
 - cmake:`3.0+`
 
 **step2.** 获取PlatON源码：
