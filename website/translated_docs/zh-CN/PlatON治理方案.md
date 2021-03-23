@@ -215,13 +215,13 @@ sidebar_label: PlatON治理方案
 
 | Key | 描述|范围|
 | ---|---|---|
-| slashBlocksReward |	出块率为0，削减的区块奖励块数 |[0, 50000) blocks	|
+| slashBlocksReward          | 出块率为0，削减的区块奖励块数                          | [0, 50000) blocks                |
 | slashFractionDuplicateSign|双签举报处罚节点自有质押金比例(‱)| (0,10000] |
 | duplicateSignReportReward|	举报人可获得处罚金的奖励比例（%）	| (0, 80]	|
-| maxEvidenceAge| 双签举报证据有效的结算周期数 |（ 0 , unStakeFreezeDuration ）|
-| zeroProduceCumulativeTime | 零出块持续的共识轮数，并在该时间内进行零出块次数的累计 |[zeroProduceNumberThreshold , 50]|
+| maxEvidenceAge| 双签举报证据有效的结算周期数 | (0, unStakeFreezeDuration）Epoch |
+| zeroProduceCumulativeTime | 零出块持续的共识轮数，并在该时间内进行零出块次数的累计 |[zeroProduceNumberThreshold ,50]|
 | zeroProduceNumberThreshold | 零出块次数处罚阈值 |[1,zeroProduceCumulativeTime]|
-| ZeroProduceFreezeDuration | 节点零出块惩罚被锁定时间 |[1, unStakeFreezeDuration)|
+| ZeroProduceFreezeDuration | 节点零出块惩罚被锁定时间 |[1,unStakeFreezeDuration)|
 
 - block模块
 
