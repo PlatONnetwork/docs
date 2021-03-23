@@ -233,27 +233,26 @@ The parameter proposal voting cycle is two weeks. As of now, the governance para
 
 - staking module
 
-| Key                      | description                                                  | range                         |
-| ------------------------ | ------------------------------------------------------------ | ----------------------------- |
-| stakeThreshold           | The minimum number of staking tokens to become alternative node candidates | [10W,1000w] LAT               |
-| operatingThreshold       | Minimum number of tokens for each delegation and redemption by the client | [10, 10000] LAT               |
-| maxValidators            | Number of alternative nodes                                  | [43, 10000]                   |
-| unStakeFreezeDuration    | Node staking return lock cycle                               | (Evidence validity,336] Epoch |
-| rewardPerMaxChangeRange  | "Reward Rate of Commitment" The maximum range of rewards that can be adjusted per revision (‱) | [ 1‱ ，2000‱ ]                |
-| rewardPerChangeInterval  | The "Delegate Rewards Ratio" allows you to change the number of settlement cycles that need to wait again | [ 2, 28 ]                     |
-| unDelegateFreezeDuration | Unlock the entrustment, the number of settlement cycles of the entrustment frozen | (0, unStakeFreezeDuration]    |
+| Key                     | description                                                  | range                      |
+| ----------------------- | ------------------------------------------------------------ | -------------------------- |
+| stakeThreshold          | The minimum number of staking tokens to become alternative node candidates | [10w,1000w] LAT            |
+| operatingThreshold      | Minimum number of tokens for each delegation and redemption by the client | [10, 10000] LAT            |
+| maxValidators           | Number of alternative nodes                                  | [43, 10000]                |
+| unStakeFreezeDuration   | Verify the number of settlement cycles when the node exits and the pledged money is frozen | (maxEvidenceAge,336] Epoch |
+| rewardPerMaxChangeRange | "Reward Rate of Commitment" The maximum range of rewards that can be adjusted per revision (‱) | [ 1‱ ，2000‱ ]             |
+| rewardPerChangeInterval | The "Delegate Rewards Ratio" allows you to change the number of settlement cycles that need to wait again | [ 2, 28 ]                  |
 
 - slashing module
 
-| Key                        | description                                                  | range                                     |
-| -------------------------- | ------------------------------------------------------------ | ----------------------------------------- |
-| slashBlocksReward          | When the block generation rate is 0, the number of blocks rewarded by the reduced block | [0, 50000] blocks                         |
-| slashFractionDuplicateSign | Proportion of penalty node own staking when dual signing behavior was reported | (0,10000] ‱                               |
-| duplicateSignReportReward  | Whistleblower reward ratio                                   | (0, 80] %                                 |
-| maxEvidenceAge             | Number of valid settlement cycles for evidence reported by dual signing | (0, Node staking return lock cycle）Epoch |
-| zeroProduceCumulativeTime  | The number of continuous consensus rounds of zero block out, and the number of zero block out is accumulated within this time | [zeroProduceNumberThreshold , 50]         |
-| zeroProduceNumberThreshold | Zero block times penalty threshold                           | [1,zeroProduceCumulativeTime]             |
-| ZeroProduceFreezeDuration  | Node zero block penalty is locked time                       | [1, unStakeFreezeDuration)                |
+| Key                        | description                                                  | range                             |
+| -------------------------- | ------------------------------------------------------------ | --------------------------------- |
+| slashBlocksReward          | When the block generation rate is 0, the number of blocks rewarded by the reduced block | [0, 50000) blocks                 |
+| slashFractionDuplicateSign | Proportion of penalty node own staking when dual signing behavior was reported(‱) | (0,10000]                         |
+| duplicateSignReportReward  | Whistleblower reward ratio(%)                                | (0, 80]                           |
+| maxEvidenceAge             | Number of valid settlement cycles for evidence reported by dual signing | (0, unStakeFreezeDuration)        |
+| zeroProduceCumulativeTime  | The number of continuous consensus rounds of zero block out, and the number of zero block out is accumulated within this time | [zeroProduceNumberThreshold , 50] |
+| zeroProduceNumberThreshold | Zero block times penalty threshold                           | [1,zeroProduceCumulativeTime]     |
+| ZeroProduceFreezeDuration  | Node zero block penalty is locked time                       | [1, unStakeFreezeDuration)        |
 
 - block module
 
@@ -263,13 +262,13 @@ The parameter proposal voting cycle is two weeks. As of now, the governance para
 
 - reward
 
-| Key                   | 描述                                                         | 范围      |
+| Key                   | description                                                  | range     |
 | --------------------- | ------------------------------------------------------------ | --------- |
 | increaseIssuanceRatio | Percentage of annual increase in Platon Network LAT issuance (‱) | [0, 2000] |
 
 - restricting
 
-| Key            | 描述                                                         | 范围            |
+| Key            | description                                                  | range           |
 | -------------- | ------------------------------------------------------------ | --------------- |
 | minimumRelease | The minimum value of the release amount in the release cycle of the lockup plan | [100, 10000000] |
 
