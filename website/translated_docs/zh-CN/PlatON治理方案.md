@@ -202,27 +202,26 @@ sidebar_label: PlatON治理方案
 
 - staking模块
 
-| Key                      | 描述                                              | 范围                       |
-| ------------------------ | ------------------------------------------------- | -------------------------- |
-| stakeThreshold           | 成为备选节点候选人最低的质押Token数               | [10W,1000w] LAT            |
-| operatingThreshold       | 委托人每次委托及赎回的最低Token数                 | [10, 10000] LAT            |
-| maxValidators            | 备选节点数量                                      | [43, 10000]                |
-| unStakeFreezeDuration    | 节点质押退回锁定周期                              | (证据有效期,336] Epoch     |
-| rewardPerMaxChangeRange  | “委托奖励比例”每次修改的最大可调整委托奖幅度（‱） | [ 1‱ ，2000‱ ]             |
-| rewardPerChangeInterval  | "委托奖励比例" 允许再次修改需要等待的结算周期数   | [ 2, 28 ]                  |
-| unDelegateFreezeDuration | 解除已锁定的委托，委托金冻结的结算周期数          | (0, unStakeFreezeDuration] |
+| Key                     | 描述                                              | 范围                       |
+| ----------------------- | ------------------------------------------------- | -------------------------- |
+| stakeThreshold          | 成为备选节点候选人最低的质押Token数               | [10w,1000w] LAT            |
+| operatingThreshold      | 委托人每次委托及赎回的最低Token数                 | [10, 10000] LAT            |
+| maxValidators           | 备选节点数量                                      | [43, 10000]                |
+| unStakeFreezeDuration   | 验证节点退出，质押金冻结的结算周期数              | (maxEvidenceAge,336] Epoch |
+| rewardPerMaxChangeRange | “委托奖励比例”每次修改的最大可调整委托奖幅度（‱） | [ 1‱ ，2000‱ ]             |
+| rewardPerChangeInterval | "委托奖励比例" 允许再次修改需要等待的结算周期数   | [ 2, 28 ]                  |
 
 - slashing模块
 
 | Key | 描述|范围|
 | ---|---|---|
-| slashBlocksReward |	出块率为0，削减的区块奖励块数 |[0, 50000] blocks	|
+| slashBlocksReward          | 出块率为0，削减的区块奖励块数                          | [0, 50000) blocks                |
 | slashFractionDuplicateSign|双签举报处罚节点自有质押金比例(‱)| (0,10000] |
 | duplicateSignReportReward|	举报人可获得处罚金的奖励比例（%）	| (0, 80]	|
-| maxEvidenceAge| 双签举报证据有效的结算周期数 |（ 0 , unStakeFreezeDuration ）|
-| zeroProduceCumulativeTime | 零出块持续的共识轮数，并在该时间内进行零出块次数的累计 |[zeroProduceNumberThreshold , 50]|
+| maxEvidenceAge| 双签举报证据有效的结算周期数 | (0, unStakeFreezeDuration）Epoch |
+| zeroProduceCumulativeTime | 零出块持续的共识轮数，并在该时间内进行零出块次数的累计 |[zeroProduceNumberThreshold ,50]|
 | zeroProduceNumberThreshold | 零出块次数处罚阈值 |[1,zeroProduceCumulativeTime]|
-| ZeroProduceFreezeDuration | 节点零出块惩罚被锁定时间 |[1, unStakeFreezeDuration)|
+| ZeroProduceFreezeDuration | 节点零出块惩罚被锁定时间 |[1,unStakeFreezeDuration)|
 
 - block模块
 
