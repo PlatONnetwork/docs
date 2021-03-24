@@ -208,8 +208,8 @@ sidebar_label: PlatON治理方案
 | operatingThreshold      | 委托人每次委托及赎回的最低Token数                 | [10, 10000] LAT            |
 | maxValidators           | 备选节点数量                                      | [43, 10000]                |
 | unStakeFreezeDuration   | 验证节点退出，质押金冻结的结算周期数              | (maxEvidenceAge,336] Epoch |
-| rewardPerMaxChangeRange | “委托奖励比例”每次修改的最大可调整委托奖幅度（‱） | [ 1‱ ，2000‱ ]             |
-| rewardPerChangeInterval | "委托奖励比例" 允许再次修改需要等待的结算周期数   | [ 2, 28 ]                  |
+| rewardPerMaxChangeRange | “委托奖励比例”每次修改的最大可调整委托奖幅度（‱） | [1，2000]                  |
+| rewardPerChangeInterval | "委托奖励比例" 允许再次修改需要等待的结算周期数   | [2, 28]                    |
 
 - slashing模块
 

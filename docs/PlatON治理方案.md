@@ -239,8 +239,8 @@ The parameter proposal voting cycle is two weeks. As of now, the governance para
 | operatingThreshold      | Minimum number of tokens for each delegation and redemption by the client | [10, 10000] LAT            |
 | maxValidators           | Number of alternative nodes                                  | [43, 10000]                |
 | unStakeFreezeDuration   | Verify the number of settlement cycles when the node exits and the pledged money is frozen | (maxEvidenceAge,336] Epoch |
-| rewardPerMaxChangeRange | "Reward Rate of Commitment" The maximum range of rewards that can be adjusted per revision (‱) | [ 1‱ ，2000‱ ]             |
-| rewardPerChangeInterval | The "Delegate Rewards Ratio" allows you to change the number of settlement cycles that need to wait again | [ 2, 28 ]                  |
+| rewardPerMaxChangeRange | "Reward Rate of Commitment" The maximum range of rewards that can be adjusted per revision (‱) | [1，2000]                  |
+| rewardPerChangeInterval | The "Delegate Rewards Ratio" allows you to change the number of settlement cycles that need to wait again | [2, 28]                    |
 
 - slashing module
 

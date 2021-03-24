@@ -62,9 +62,9 @@ The development network provides a development test environment for the develope
 > - platon：https://download.platon.network/platon/platon/1.0.0/platon
 > - platonkey：https://download.platon.network/platon/platon/1.0.0/platonkey
 >
-> - mtool windows：https://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe
+> - mtool windows：https://download.platon.network/platon/mtool/windows/1.0.0/platon_mtool.exe
 >
-> - mtool linux：https://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
+> - mtool linux：https://download.platon.network/platon/mtool/linux/1.0.0/platon_mtool.zip
 >
 >  > You need to change the chain ID in the configuration file config.properties to the development network chain ID: 210309；
 >
@@ -99,7 +99,7 @@ The development network provides a development test environment for the develope
 
 ### Start as a validator node
 
-Please refer to [Install node](/docs/en/Install_Node) section to create a nodekey: nodekey, blskey, and then execute the following command to start the verification node to join the PlatON development network;If you need to become a verification node, please apply for a large test LAT by following instructions (the development network will be reset irregularly according to the test needs, and the LAT of the test network has no practical value).
+Please refer to [Install node](/docs/en/Install_Node) section to create a nodekey: nodekey, blskey, and then execute the following command to start the verification node to join the PlatON development network;If you need to become a verification node, please apply for a large test LAT by following instructions (the development network will be reset irregularly according to the test needs, and the LAT of the develop network has no practical value).
 
 ```bash
 cd ~/platon-node/ && nohup platon --identity platon-node --datadir ./data --port 16789 --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --bootnodes enode://c72a4d2cb8228ca6f9072daa66566bcafa17bec6a9e53765c85c389434488c393357c5c7c5d18cf9b26ceda46aca4da20755cd01bcc1478fff891a201042ba84@devnetnode1.platon.network:16789 --syncmode "fast" > ./data/platon.log 2>&1 &
