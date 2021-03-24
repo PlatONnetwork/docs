@@ -63,8 +63,8 @@ nohup platon --identity platon --datadir ./data --port 16789 --platon --rpcport 
 
 >- platon：https://download.platon.network/platon/platon/1.0.0/platon
 >- platonkey：https://download.platon.network/platon/platon/1.0.0/platonkey
->- mtool windows：https://download.platon.network/platon/mtool/windows/1.0.0/mtool-setup.exe
->- mtool linux：https://download.platon.network/platon/mtool/linux/1.0.0/mtool-client.zip
+>- mtool windows：https://download.platon.network/platon/mtool/windows/1.0.0/platon_mtool.exe
+>- mtool linux：https://download.platon.network/platon/mtool/linux/1.0.0/platon_mtool.zip
 >
 >> 需要修改配置文件config.properties中的链ID为开发网络链ID：210309
 >
