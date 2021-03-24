@@ -24,7 +24,7 @@ The LatticeX Foundation has now opened the [Grants program](https://latticex.fou
     <tr>
         <td><img alt="" src="/docs/img/platscanlogo.svg"></td>
         <td>
-            <p class="color"><a target="_blank" href="https://platscan.platon.network/?lang=en">PlatScan</a></p>
+            <p class="color"><a target="_blank" href="https://platscan.platon.network/">PlatScan</a></p>
             PlatScan is a Block Explorer and Analytics Platform for PlatON.
         </td>
     </tr>
