@@ -24,7 +24,7 @@ sidebar_label: 社区项目
     <tr>
         <td><img alt="" src="/docs/img/platscanlogo.svg"></td>
         <td>
-            <p class="color"><a target="_blank" href="https://platscan.platon.network/?lang=zh">PlatScan</a></p>
+            <p class="color"><a target="_blank" href="https://platscan.platon.network/">PlatScan</a></p>
             PlatScan是PlatON区块链资源管理与分析平台。
         </td>
     </tr>
