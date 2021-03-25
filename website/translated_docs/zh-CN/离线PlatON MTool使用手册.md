@@ -431,11 +431,11 @@ platon_mtool staking --config $PLATON_MTOOLDIR/validator/validator_config.json -
 >
 > address: 质押观察钱包路径
 >
-> amount: 质押数，不少于100000lat-质押门槛，小数点不超过8位（使用自由金额质押）
+> amount: 质押数，不少于100000LAT-质押门槛，小数点不超过8位（使用自由金额质押）
 >
-> restrictedamount: 不少于100000lat-质押门槛，小数点不超过8位（使用锁仓余额质押）
+> restrictedamount: 不少于100000LAT-质押门槛，小数点不超过8位（使用锁仓余额质押）
 >
-> autoamount：不少于100000lat-优先使用锁仓余额质押，若锁仓余额不足质押金，再使用自由金额质押
+> autoamount：不少于100000LAT-优先使用锁仓余额质押，若锁仓余额不足质押金，再使用自由金额质押
 >
 > benefit_address：验证节点收益地址
 >
