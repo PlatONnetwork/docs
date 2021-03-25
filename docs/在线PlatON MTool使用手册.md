@@ -297,11 +297,11 @@ SUCCESS
 >
 > keystore: staking wallet file
 >
-> amount: staking amount, not less than 100000lat-staking threshold, no more than 8 decimal places
+> amount: staking amount, not less than 100000LAT-staking threshold, no more than 8 decimal places
 >
-> restrictedamount: not less than 100000lat- staking threshold, no more than 8 decimal points (staking using locked balance)
+> restrictedamount: not less than 100000LAT-staking threshold, no more than 8 decimal points (staking using locked balance)
 >
-> autoamount: Not less than 100000lat-Priority to use the lock-up balance staking, if the lock-up balance is not enough for the staking deposit, then use free amount staking
+> autoamount: Not less than 100000LAT-Priority to use the lock-up balance staking, if the lock-up balance is not enough for the staking deposit, then use free amount staking
 >
 > benefit_address: benefit account to receive block-packing reward and staking reward
 >
