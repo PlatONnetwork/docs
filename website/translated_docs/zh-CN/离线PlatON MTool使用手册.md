@@ -447,7 +447,7 @@ platon_mtool staking --config $PLATON_MTOOLDIR/validator/validator_config.json -
 >
 > details：简介，验证人简要介绍说明，不超过280字节，建议英文
 >
-> external_id：节点头像icon在keybase.io的ID，或者外部系统身份认证ID
+> external_id：节点头像icon在[keybase.io](https://keybase.io)的ID，或者外部系统身份认证ID
 
 
 ### 修改验证人信息操作
@@ -468,7 +468,7 @@ platon_mtool update_validator --config $PLATON_MTOOLDIR/validator/validator_conf
 >
 > website\[可选\]：官网路径，不超过70字节，数字字母组成
 >
-> external_id\[可选\]：节点头像icon在keybase.io的ID，或者外部系统身份认证ID
+> external_id\[可选\]：节点头像icon在[keybase.io](https://keybase.io)的ID，或者外部系统身份认证ID
 >
 > delegated_reward_rate\[可选\]：委托奖励比例，单位：万分比，整数，范围\[0,10000]，如输入5000，表示分红比例为50%
 >
