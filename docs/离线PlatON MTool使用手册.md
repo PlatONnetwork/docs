@@ -424,7 +424,7 @@ platon_mtool staking --config $PLATON_MTOOLDIR/validator/validator_config.json -
 >
 > details：node description, 280 bytes
 >
-> external_id：node Icon ID of keybase.io, or identity authentication ID
+> external_id：node Icon ID of [keybase.io](https://keybase.io), or identity authentication ID
 
 
 ### Modify validator information operation
@@ -451,7 +451,7 @@ platon_mtool update_validator --config $PLATON_MTOOLDIR/validator/validator_conf
 >
 > details\[option\]：node description, 280 bytes
 >
-> external_id\[option\]：node Icon ID of keybase.io, or identity authentication ID
+> external_id\[option\]：node Icon ID of [keybase.io](https://keybase.io), or identity authentication ID
 
 ### Unpledge operation
 
