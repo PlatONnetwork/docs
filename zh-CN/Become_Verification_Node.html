@@ -157,8 +157,8 @@
 <p>点击用户头像，即可上传头像。</p></li>
 <li><p><strong>生成PGP key</strong></p>
 <p>如果用户有<code>PGP key</code>，登录成功后，会在用户头像旁边显示一串16位的公钥，如：<code>EB621920A48D0699</code> ；如果用户还没有<code>PGP key</code> ，可以点击用户头像旁边的<code>add a PGP key</code>即可生成。</p></li>
-<li><p><strong>修改externalId值</strong></p>
-<p>修改验证节点信息文件<code>validator_config.json</code>的<code>externalId</code>字段值为上一步生成的<code>PGP key</code>。</p></li>
+<li><p><strong>指定externalId值</strong></p>
+<p>发起质押操作时，指定<code>--external_id</code>参数值为上一步生成的<code>PGP key</code>。</p></li>
 </ul>
 <blockquote>
 <p>提示：用户完成质押操作后，即可在PlatScan上显示用户自定义的头像。</p>
