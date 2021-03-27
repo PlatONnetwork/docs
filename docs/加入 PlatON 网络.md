@@ -18,6 +18,10 @@ Before joining the PlatON public network, please ensure that the server has the 
 
 This section assumes that the server is Ubuntu 18.04, and the working directory of the executable file is `~/platon-node`. Note that all subsequent commands should be run under the same working directory.
 
+```bash
+cd ~/platon-node
+```
+
 
 
 
@@ -30,7 +34,7 @@ Anyone or any organization can join PlatON main network.
 Execute the following command to start the verification node to join the main network of Platon (please access it after the main network is online)
 
 ```bash
-nohup platon --identity platon --datadir ./data --port 16789 --platon --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "fast" > ./data/platon.log 2>&1 &
+nohup platon --identity platon --datadir ./data --port 16789 --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "fast" > ./data/platon.log 2>&1 &
 ```
 
 **Prompt:**
@@ -46,7 +50,6 @@ nohup platon --identity platon --datadir ./data --port 16789 --platon --rpcport 
 | --rpc          | Specify http-rpc communication method                        |
 | --nodekey      | Specify the node private key file                            |
 | --cbft.blskey  | Specify the node bls private key file                        |
-| --platon       | Specify to connect to the PlatON's main network              |
 | --verbosity    | The level of logging, 0: CRIT;  1: ERROR; 2: WARN;  3: INFO;  4: DEBUG; 5: TRACE |
 | --syncmode     | fast: Fast synchronization mode, full: All synchronous mode  |
 | --db.nogc      | Enable archive mode                                          |

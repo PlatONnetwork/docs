@@ -50,7 +50,7 @@ Double-click platon_mtool.exe to install. The default installation directory is 
 
 **step3. Restart the terminal**
 
-After the installation is complete, you need to <font color=red>restart the terminal</font> to make the newly added environment variables take effect.
+After the installation is complete, you need to <font color=red>restart the terminal (do not restart the server, close the CMD window or PowerShell window and reopen the window)</font> to make the newly added environment variables take effect.
 
 ### Install PlatON MTool under Ubuntu
 
@@ -86,7 +86,7 @@ chmod +x mtool_install.sh && ./mtool_install.sh
 
 **step5. Restart the session window**
 
-After the installation is complete, you need to <font color=red>restart the session window</font> to make the newly added environment variables take effect.
+After the installation is complete, you need to <font color=red>restart the session window  (do not restart the server, close the session window or SSH tool to reopen the window)</font> to make the newly added environment variables take effect.
 
 ## PlatON MTool environment variable description
 
