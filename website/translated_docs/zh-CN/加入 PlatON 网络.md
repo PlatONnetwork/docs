@@ -144,15 +144,48 @@ cd ~/platon-node/ && nohup platon --identity platon-node --datadir ./data --port
 platon attach http://localhost:6789
 ```
 
-
+> 打印`Welcome to the PlatON JavaScript console!`相关信息，表示成功进入控制台，否则视为进入控制台失败，如有问题可联系官方客服人员。
 
 ### 查看节点的  peers
+
+通过在`PlatON`控制台中执行以下命令查看连接节点的信息。
 
 ```bash
 admin.peers
 ```
 
-
+> 如打印相关peers信息，表示连接节点成功，如下：
+>
+> [{
+>     caps: ["cbft/1", "platon/63"],
+>     id: "c72a4d2cb8228ca6f9072daa66566bcafa17bec6a9e53765c85c389434488c393357c5c7c5d18cf9b26ceda46aca4da20755cd01bcc1478fff891a201042ba84",
+>     name: "PlatONnetwork/alaya-47.241.93.189/v1.0.0-unstable-62b9a900/linux-amd64/go1.13.4",
+>     network: {
+>       consensus: false,
+>       inbound: false,
+>       localAddress: "192.168.2.128:55572",
+>       remoteAddress: "47.241.93.189:16789",
+>       static: false,
+>       trusted: false
+>     },
+>     protocols: {
+>       cbft: {
+>         commitBn: 1404934,
+>         highestQCBn: 1407304,
+>         lockedBn: 1404935,
+>         protocolVersion: 1
+>       },
+>       platon: {
+>         head: "0xf31395262f876935c94e33b1d9f3314b2cb6effc33fcffa3b17b725678fd525f",
+>         number: 1407295,
+>         version: 63
+>       }
+>     }
+> }
+>
+> ...]
+>
+> 如果打印信息为空，表示连接节点失败，如有问题可联系官方客服人员。
 
 ### 查看当前块高
 
@@ -162,6 +195,30 @@ admin.peers
 platon.blockNumber
 ```
 
-节点列表中出现一系列PlatON网络节点并且块高在不断增长，则表示连接成功！（由于新节点需要同步，可能会存在延迟）
+> - 执行此命令数次，如块高数值在不断增长，则表示连接成功；
+>
+> - 如果是新节点，块高一直为0时，则表示节点在同步区块，可能会存在延迟，可通过命令：
+>
+>   ```
+>   platon.syncing
+>   ```
+>
+>   > - 如果打印`false`，表示节点未处于同步区块状态；
+>   >
+>   > - 如果打印如下信息，表示节点正处于同步区块状态；
+>   >
+>   >   ```json
+>   >   {
+>   >     currentBlock: 1412416,
+>   >     highestBlock: 1416699,
+>   >     knownStates: 522,
+>   >     pulledStates: 522,
+>   >     startingBlock: 1408247
+>   >   }
+>   >   ```
 
-输入exit退出控制台。
+
+
+### 退出控制台
+
+输入exit即可退出控制台。

@@ -137,22 +137,79 @@ If the key is not generated in advance, the node is automatically generated in t
 platon attach http://localhost:6789
 ```
 
+> Print `Welcome to the Platon JavaScript Console!` Relevant information, indicating successful access to the console, otherwise it will be deemed as failure to access the console, if there is any problem, you can contact the official customer service personnel.
+
 ### View peers of a node
+
+View the connection node information by executing the following command in the Platon console.
 
 ```bash
 admin.peers
 ```
 
-
+> If the related Peers information is printed, it means that the connected node is successful, as follows:
+>
+> [{
+>     caps: ["cbft/1", "platon/63"],
+>     id: "c72a4d2cb8228ca6f9072daa66566bcafa17bec6a9e53765c85c389434488c393357c5c7c5d18cf9b26ceda46aca4da20755cd01bcc1478fff891a201042ba84",
+>     name: "PlatONnetwork/alaya-47.241.93.189/v1.0.0-unstable-62b9a900/linux-amd64/go1.13.4",
+>     network: {
+>       consensus: false,
+>       inbound: false,
+>       localAddress: "192.168.2.128:55572",
+>       remoteAddress: "47.241.93.189:16789",
+>       static: false,
+>       trusted: false
+>     },
+>     protocols: {
+>       cbft: {
+>         commitBn: 1404934,
+>         highestQCBn: 1407304,
+>         lockedBn: 1404935,
+>         protocolVersion: 1
+>       },
+>       platon: {
+>         head: "0xf31395262f876935c94e33b1d9f3314b2cb6effc33fcffa3b17b725678fd525f",
+>         number: 1407295,
+>         version: 63
+>       }
+>     }
+> }
+>
+> ...]
+>
+> If the printed information is empty, it means that the connection node failed. If there is any problem, you can contact the official customer service personnel.
 
 ### View the current block height
 
-You can get the block height of the current node by executing the following command in the `PlatON ` console.
+View the block height of the current node by executing the following command in the Platon console.
 
 ```bash
 platon.blockNumber
 ```
 
-A series of PlatON network nodes appear in the node list and the block height is increasing, which means the connection is successful! (Since the new node needs to be synchronized, there may be a delay)
+> - Execute this command several times, if the block height value increases continuously, then the connection is successful;
+>
+> - If it is a new node and the block height is always 0, it means that the node is in the synchronous block and there may be delay. You can use the command:
+>
+>   ```bash
+>   platon.syncing
+>   ```
+>
+>   - If `false` is printed, the node is not in a synchronous block state.
+>
+>   - If the following message is printed, the node is in a synchronous block state;
+>
+>     ```json
+>     {
+>       currentBlock: 1412416,
+>       highestBlock: 1416699,
+>       knownStates: 522,
+>       pulledStates: 522,
+>       startingBlock: 1408247
+>     }
+>     ```
 
-Type exit to exit the console.
+### Exit console
+
+Type Exit to exit the console.
