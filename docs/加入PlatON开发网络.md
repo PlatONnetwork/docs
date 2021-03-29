@@ -1,0 +1,497 @@
+---
+id: Join_Dev_PlatON_NetWork
+title: Join the develop PlatON network
+sidebar_label: Join the develop PlatON network
+---
+
+## Install and Deploy a Node
+
+### Overview
+
+This guide demonstrates how to install the PlatON Node software on Linux.
+
+
+
+### System Requirements
+
+- CPU: 4 Cores
+- Memory: 8G
+- Disk: > 100G
+
+
+
+### Installation Overview
+
+It takes three or four steps to install a new node, which depends on the operating system used. The detailed procedures are list below.
+
+- Installing on Ubuntu (18.04)
+
+> **Note: Use the normal user to execute the following command.**
+
+
+### Installing on Ubuntu (18.04)
+
+#### Install and run NTP service
+
+##### Open a terminal and run the following commands
+
+```bash
+sudo apt-get update &&
+sudo apt-get install -y gnupg2 curl software-properties-common ntp &&
+sudo systemctl enable ntp && sudo systemctl start ntp
+```
+
+> Notes:
+>
+> NTP service is used for time synchronization, incorrect system time will affect the normal operation of PlatON
+
+
+
+##### Validate the NTP time synchronization
+
+```bash
+ntpq -4c rv | grep leap_none
+```
+
+> Notes:
+>
+> Display **associd=0 status=0615 <font color=red>leap_none</font>, sync_ntp, 1 event, clock_sync,** where `leap_none` is red, indicating that the NTP time synchronization is normal.
+
+
+
+#### Install PlatON
+
+```bash
+sudo wget https://download.platon.network/platon/platon/1.0.0/platon -P /usr/bin    
+sudo wget https://download.platon.network/platon/platon/1.0.0/platonkey -P /usr/bin
+sudo chmod +x /usr/bin/platon  /usr/bin/platonkey
+platon version
+```
+
+After executing the commands above,  `platon` and` platonkey` binary should be successfully installed in the `/usr/bin` directory on your system. You can execute corresponding commands in any directory.
+
+### Generate keys
+
+#### Public and private keys
+
+Each node in the network has an unique identity to distinguish it from others. This identity is a public and private key pair, generated in the node's working directory ( `~/platon-node`) by the following command:
+
+```bash
+mkdir -p ~/platon-node/data && platonkey genkeypair | tee >(grep "PrivateKey" | awk '{print $2}' > ~/platon-node/data/nodekey) >(grep "PublicKey" | awk '{print $3}' > ~/platon-node/data/nodeid)
+```
+
+> Remark:
+>
+> Displays the following, indicating that the key pair has been successfully generated (x stands for number or letter) :
+>
+> PrivateKey:  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+>
+> PublicKey: :  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+ `PrivateKey` is the private key of the node, and` PublicKey` is the public key of the node. The public key is used to identify the identity of the node and can be made public.
+
+Two files will be generated in the subdirectory `data` under the working directory of the node：
+
+- nodeid: node public key (ID) file,  which holds the node's public key
+- nodekey: node private key file, which holds the node's private key
+
+
+
+#### BLS public and private key
+
+In addition to the public and private keys of the node, the PlatON node also needs a key pair called the BLS public and private key. This key pair will be used in the consensus protocol. The key pair can be generated in the node's working directory (such as `~/platon-node`)  by the following command:
+
+```bash
+mkdir -p ~/platon-node/data && platonkey genblskeypair | tee >(grep "PrivateKey" | awk '{print $2}' > ~/platon-node/data/blskey) >(grep "PublicKey" | awk '{print $3}' > ~/platon-node/data/blspub)
+```
+
+> PrivateKey:  f22a785c80bd1095beff1f356811268eae6c94abf0b2b4e2d64918957b74783e
+> PublicKey :  4bf873a66df92ada50a8c6bacb132ffd63437bcde7fd338d2d8696170034a6332e404ac3abb50326ee517ec5f63caf12891ce794ed14f8528fa7c54bc0ded7c5291f708116bb8ee8adadf1e88588866325d764230f4a45929d267a9e8f264402
+
+ `PrivateKey` is the BLS private key of the node, and` PublicKey` is the BLS public key of the node. The BLS public key is used to quickly verify the signature in the consensus protocol and can be published. The BLS private key cannot be made public and needs to be backed up.
+
+Two files will be generated in the subdirectory `data` under the working directory of the node:
+
+- blspub: Node BLS public key file, which holds the node's BLS public key
+
+- blskey: Node BLS private key file, which holds the node's BLS private key
+
+
+## Join the Develop PlatON network
+
+### Overview
+
+The PlatON development network, which will be open to developers, is set to launch on March 10, 2021 (Chainid: 210309).
+
+
+
+This section assumes that the server is Ubuntu 18.04, and the working directory of the executable file is `~/platon-node`. Note that all subsequent commands should be run under the same working directory.
+
+```bash
+cd ~/platon-node
+```
+
+### Join the PlatON Develop Network
+
+The development network provides a development test environment for the developer or node.There may be instability and a network reset.The current version of the development network is 1.0.0.
+
+#### Develop network related resources
+
+> - platon：https://download.platon.network/platon/platon/1.0.0/platon
+> - platonkey：https://download.platon.network/platon/platon/1.0.0/platonkey
+>
+> - mtool windows：https://download.platon.network/platon/mtool/windows/1.0.0/platon_mtool.exe
+>
+> - mtool linux：https://download.platon.network/platon/mtool/linux/1.0.0/platon_mtool.zip
+>
+>  > You need to change the chain ID in the configuration file config.properties to the development network chain ID: 210309；
+>
+> - samurai：
+> - Open the RPC URL:http://47.241.98.219:6789 and ws://47.241.98.219:6790
+> - Scan Browser Address: https://devnetscan.platon.network
+
+
+
+#### Initialize the genesis block
+
+- Save the genesis block file
+
+  Save the following to the genesis.json file:
+
+  ```bash
+  cd ~/platon-node && wget https://download.platon.network/platon/platon/1.0.0/genesis.json
+  ```
+
+- Initialize the genesis block file
+
+  Executive command:
+
+  ```shell
+  cd ~/platon-node && platon --datadir ./data init genesis.json
+  ```
+
+  > Description:
+  >
+  > A prompt for `Successfully wrote genesis state` indicates that the initialization creation information is complete.
+
+
+#### Start as a validator node
+
+Please refer to [Install node](/docs/en/Install_Node) section to create a nodekey: nodekey, blskey, and then execute the following command to start the verification node to join the PlatON development network;If you need to become a verification node, please apply for a large test LAT by following instructions (the development network will be reset irregularly according to the test needs, and the LAT of the develop network has no practical value).
+
+```bash
+cd ~/platon-node/ && nohup platon --identity platon-node --datadir ./data --port 16789 --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --bootnodes enode://c72a4d2cb8228ca6f9072daa66566bcafa17bec6a9e53765c85c389434488c393357c5c7c5d18cf9b26ceda46aca4da20755cd01bcc1478fff891a201042ba84@devnetnode1.platon.network:16789 --syncmode "fast" > ./data/platon.log 2>&1 &
+```
+
+**Prompt:**
+
+| **Parameters** | **Description**                                              |
+| -------------- | ------------------------------------------------------------ |
+| --identity     | Specify the network name                                     |
+| --datadir      | Specify the data directory path                              |
+| --port         | Specifying the P2P protocol communication port               |
+| --rpcaddr      | Specify rpc server address                                   |
+| --rpcport      | Specifying the RPC protocol communication port               |
+| --rpcapi       | Specify the rpcapi name open by the node                     |
+| --rpc          | Specify http-rpc communication method                        |
+| --nodekey      | Specify the node private key file                            |
+| --cbft.blskey  | Specify the node bls private key file                        |
+| --verbosity    | The level of logging, 0: CRIT;  1: ERROR; 2: WARN;  3: INFO;  4: DEBUG; 5: TRACE |
+| --syncmode     | fast: Fast synchronization mode, full: All synchronous mode  |
+| --db.nogc      | Enable archive mode                                          |
+
+See more parameters with the command `platon --help`
+
+#### Other
+
+If you need to receive large amount of test LAT, please send an email to support@latticex.foundation according to the format requirements. The email requirements are:
+
+```toml
+Title: PlatON Develop Network Token Application
+Name:
+Contact Information:
+WeChat ID (or other instant messaging software) :
+Application amount:
+USES:
+Receipt account:
+Remark:
+```
+
+### View node status
+
+When PlatON is successfully started, under normal circumstances, it will automatically establish a connection with the node closest to it through the node discovery protocol. After the connection is successful, block synchronization will be started. You can determine whether joining the network successfully by looking at the peers of the node and confirming whether the block height of the node is increasing.
+
+If the key is not generated in advance, the node is automatically generated in the node's data directory at startup. If it is automatically generated, only the node private key and BLS private key will be generated, and the relevant public key will not be automatically generated.
+
+
+
+#### Enter `PlatON ` console
+
+```bash
+platon attach http://localhost:6789
+```
+
+> Print `Welcome to the Platon JavaScript Console!` Relevant information, indicating successful access to the console, otherwise it will be deemed as failure to access the console, if there is any problem, you can contact the official customer service personnel.
+
+#### View peers of a node
+
+View the connection node information by executing the following command in the Platon console.
+
+```bash
+admin.peers
+```
+
+> If the related Peers information is printed, it means that the connected node is successful, as follows:
+>
+> [{
+>     caps: ["cbft/1", "platon/63"],
+>     id: "c72a4d2cb8228ca6f9072daa66566bcafa17bec6a9e53765c85c389434488c393357c5c7c5d18cf9b26ceda46aca4da20755cd01bcc1478fff891a201042ba84",
+>     name: "PlatONnetwork/alaya-47.241.93.189/v1.0.0-unstable-62b9a900/linux-amd64/go1.13.4",
+>     network: {
+>       consensus: false,
+>       inbound: false,
+>       localAddress: "192.168.2.128:55572",
+>       remoteAddress: "47.241.93.189:16789",
+>       static: false,
+>       trusted: false
+>     },
+>     protocols: {
+>       cbft: {
+>         commitBn: 1404934,
+>         highestQCBn: 1407304,
+>         lockedBn: 1404935,
+>         protocolVersion: 1
+>       },
+>       platon: {
+>         head: "0xf31395262f876935c94e33b1d9f3314b2cb6effc33fcffa3b17b725678fd525f",
+>         number: 1407295,
+>         version: 63
+>       }
+>     }
+> }
+>
+> ...]
+>
+> If the printed information is empty, it means that the connection node failed. If there is any problem, you can contact the official customer service personnel.
+
+#### View the current block height
+
+View the block height of the current node by executing the following command in the Platon console.
+
+```bash
+platon.blockNumber
+```
+
+> - Execute this command several times, if the block height value increases continuously, then the connection is successful;
+>
+> - If it is a new node and the block height is always 0, it means that the node is in the synchronous block and there may be delay. You can use the command:
+>
+>   ```bash
+>   platon.syncing
+>   ```
+>
+>   - If `false` is printed, the node is not in a synchronous block state.
+>
+>   - If the following message is printed, the node is in a synchronous block state;
+>
+>     ```json
+>     {
+>       currentBlock: 1412416,
+>       highestBlock: 1416699,
+>       knownStates: 522,
+>       pulledStates: 522,
+>       startingBlock: 1408247
+>     }
+>     ```
+
+#### Exit console
+
+Type Exit to exit the console.
+
+
+## Upgrade to Validator Node
+
+### Overview
+
+PlatON is a blockchain project that implements democratic governance. Verification nodes are jointly selected by all LAT holders to maintain and develop the PlatON network. The 201 nodes with the most votes will become candidate nodes, from which 43 verification nodes will be randomly selected using VRF to participate in the management of the entire PlatON network.
+
+This section describes how to operate as a validator node.
+
+
+
+### Install PlatON MTool
+
+Proceed as follows:
+
+**Step1. Download PlatON MTool toolkit**
+
+```bash
+wget https://download.platon.network/platon/mtool/linux/1.0.0/platon_mtool.zip
+```
+
+**Step2. Extract the PlatON MTool toolkit**
+
+```bash
+(if ! command -v unzip;then sudo apt install unzip; fi;) && unzip platon_mtool.zip && cd platon_mtool
+```
+
+**Step3. Download script**
+
+> The script is downloaded to the <font color=red>platon_mtool</font> directory, otherwise the script cannot find the path of the new version of mtool.
+
+```bash
+wget https://download.platon.network/platon/scripts/mtool_install.sh
+```
+
+**Step4. Execute command**
+
+```bash
+chmod +x mtool_install.sh && ./mtool_install.sh
+```
+
+> - When the message <font color=red>Install platon mtool succeed.</font> is displayed, PlatON MTool is successfully installed. If it is not successfully installed, please contact our official customer service to provide feedback on specific issues.
+
+**Step5. Restart the session window**
+
+After installation is complete, you need to <font color=red>restart the session window (do not restart the server, close the session window or SSH tool to reopen the window)</font> for the newly added environment variables to take effect.
+
+### Configure PlatON MTool
+
+#### Generate wallet
+
+To participate in the verification node to produce blocks, two wallets must be created. If you already have a wallet, you can skip this step by copying the wallet file to the `$PLATON_MTOOLDIR/keystore` directory.
+
+- Staking wallet: The staking wallet is used to stake tokens. To become a candidate node, you must stake successfully. Run the following command to create a staking wallet:
+
+```bash
+platon_mtool account new staking
+```
+
+Enter the password once and confirm the password again to create a wallet file. After the creation is successful, a staking wallet file `staking.json` will be generated in the directory` $PLATON_MTOOLDIR/keystore`.
+
+- Reward wallet: It is used to collect block rewards and staking rewards. Staking rewards are uniformly distributed to verification nodes, which are distributed by the verification nodes themselves. Run the following command to create a reward wallet
+
+```bash
+platon_mtool account new reward
+```
+
+Enter the password once and confirm the password again to create the wallet file. After the creation is successful, the staking wallet file `reward.json` will be generated in the directory` $PLATON_MTOOLDIR/keystore`.
+
+
+
+#### Configure verification node information
+
+##### Download the script
+
+```bash
+cd $PLATON_MTOOLDIR && wget https://download.platon.network/platon/scripts/validator_conf.sh
+```
+
+##### Run the script configuration
+
+```bash
+$ chmod +x validator_conf.sh && ./validator_conf.sh
+```
+
+> **Note:**
+>
+> - When  the prompt shows "Please enter the platon node IP address:", please enter the PlatON node server ip address.
+> - When  the prompt shows "validator conf success",  and when the validator_config.json content printed at the end is normal, it means that the script is executed successfully. If the script is not executed successfully, please contact our official customer service to feedback specific questions.
+
+
+
+##### Validator node information configuration file description
+
+After the configuration of the validator node information is completed, the validator node information file validator_config.json will be generated in the validator subdirectory of the PlatON MTool installation directory. The file content is as follows:
+
+```json
+{
+	"nodePublicKey": "0abaf3219f454f3d07b6cbcf3c10b6b4ccf605202868e2043b6f5db12b745df0604ef01ef4cb523adc6d9e14b83a76dd09f862e3fe77205d8ac83df707969b47",
+    "blsPubKey": "82d740cbc0314ec558c5426f88fdad6f07a07f9846c6be4e40cd628b74b9f641ddad01e4c281a2c3693f8ff2a73a410297aff379ee0575127d51de99b97acc9a1b7bc8ca132ef6f0379a3ec9d76a603d623176e49e1c53e87fead36317895099",
+	"nodeAddress": "http://192.168.120.146",
+	"nodePort": "16789",
+	"nodeRpcPort": "6789"
+}
+```
+
+> **Parameter description:**
+>
+> - nodePublicKey: Node ID, which can be viewed in the nodeid file under the node data directory data
+> - blsPubKey: BLS public key, which can be viewed in the blspub file under the node data directory data.
+> - nodeAddress: If PlatON MTool and the node are on the same machine or in the same local area network, you can use the intranet IP, otherwise use the public IP whose format is: `http://18.238.183.12`.
+> - nodePort: Node P2P port, default is 16789.
+> - nodeRpcPort: rpc port, the default port is 6789.
+
+##### Custom PlatScan avatar
+
+If users do not need to display their specified avatar on PlatScan, they can skip this step. Otherwise, the following operations are required:
+
+- **Register a keybase account**
+
+  Users first need to register on the official website of  [keybase.io](https://keybase.io/) . If they have already registered, they can log on the official website of keybase.
+
+- **Upload specified avatar**
+
+  Click the user avatar to upload the avatar.
+
+- **Generate PGP key**
+
+  If the user has a `PGP key`, after a successful login, a series of 16-bit public keys will be displayed next to the user's avatar, such as: `EB621920A48D0699`; if the user does not already have a `PGP key`, click `add a PGP key` next to the user's avatar to generate.
+
+- **Specify the externalId value**
+
+  When issuing the staking operation, specify the `--external_id` parameter to be the PGP key generated in the previous step.
+
+> Note: After the user completes the staking operation, the avatar customized by the user can be displayed on PlatScan.
+
+### Initiate a staking operation
+
+If the consensus node deployment is complete and is catching up the blocknumber of [Platscan](https://platscan.platon.network), you can use PlatON MTool for staking operations. Please ensure that the balance of the staking account is sufficient before staking. The minimum threshold for staking is one hundred thousand LAT. If you want to access the development network, please send an email to support@latticex.foundation according to the format requirements. The email requirements are:
+
+```toml
+Title: Platon Development Network Token Application
+Name:
+Contact Information:
+WeChat ID (or other instant messaging software) :
+Application amount:
+USES:
+Receipt account:
+Remark:
+```
+
+Note: 
+
+- Testing LAT has no value and is limited to experiencing test network features.
+
+- Please keep at least 1 LAT in the staking account, so that the transactions initiated by the subsequent node management have sufficient transaction fees, such as voting for upgrade proposals, and unsecured transactions.
+
+
+
+Excuting command
+
+````bash
+platon_mtool staking --config $PLATON_MTOOLDIR/validator/validator_config.json --keystore $PLATON_MTOOLDIR/keystore/staking.json --amount 100000 --benefit_address xxx196278ns22j23awdfj9f2d4vz0pedld8a2fzwwj --delegated_reward_rate 5000 --node_name myNode --website www.mywebsite.com --details myNodeDescription --external_id 121412312
+````
+
+Enter the password of the staking wallet and press Enter. If the following information is displayed, the staking is successful:
+
+```bash
+operation finished
+transaction hash:
+0x89b964d27d0caf1d8bf268f721eb123c4af57aed36187bea90b262f4769eeb9b
+SUCCESS
+```
+
+> **Parameter description:**
+>
+> - config：node configuration file
+> - keystore: staking wallet file
+>- amount: staking amount, not less than 100000LAT-staking threshold, no more than 8 decimal places
+> - restrictedamount: not less than 100000LAT - staking threshold, no more than 8 decimal points (staking using locked balance)
+> - autoamount: Not less than 10000LAT-Priority to use the lock-up balance staking, if the lock-up balance is not enough for the staking deposit, then use free amount staking
+> - benefit_address: benefit account to receive block-packing reward and staking reward
+> - delegated_reward_rate：Delegated bonus ratio, type is integer range is \[0,10000\], unit: ten thousand percent, e.g. enter 5000, it means the bonus ratio is 50%
+> - node_name：node name，30 bytes(beginning with a letter, including alphabet, number, space, _, -, #)
+> - website：node website, 30 bytes
+> - details：node description, 280 bytes
+> - external_id：node Icon ID of [keybase.io](https://keybase.io), or identity authentication ID

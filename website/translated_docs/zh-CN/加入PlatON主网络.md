@@ -1,0 +1,445 @@
+---
+id: Join_Main_PlatON_NetWork
+title: 加入PlatON主网络
+sidebar_label: 加入PlatON主网络
+---
+
+## 安装一个节点
+
+### 简介
+
+该指引将介绍如何在 Linux 下安装 PlatON 节点软件。
+
+
+### 环境要求
+
+- CPU：4核
+- 内存：8G
+- 磁盘：> 100G
+
+
+
+### 安装概述
+
+通常来说，安装一个新节点需要通过三到四个步骤（取决于您的操作系统），安装步骤将会详细地在下面列出来：
+
+- 在 Ubuntu 安装（18.04）
+
+> **注：使用普通用户执行以下命令。**
+
+
+### 在 Ubuntu 安装（18.04）
+
+#### 安装并运行 NTP 服务
+
+##### 打开 Linux 终端并输入以下命令
+
+```bash
+sudo apt-get update &&
+sudo apt-get install -y gnupg2 curl software-properties-common ntp &&
+sudo systemctl enable ntp && sudo systemctl start ntp
+```
+
+> 备注：
+>
+> NTP 服务用于时间同步，系统时间不正确将会影响 PlatON 正常运行
+
+
+
+##### 验证 NTP 时间同步
+
+```bash
+ntpq -4c rv | grep leap_none
+```
+
+> 备注：
+>
+> 显示 **associd=0 status=0615 <font color=red>leap_none</font> , sync_ntp, 1 event, clock_sync，**其中leap_none为红色，表示NTP时间同步正常。
+
+
+
+#### 安装 PlatON
+
+<font color=red>当前PlatON开发网二进制版本号为1.0.0，主网还未上线，如果需要加入主网，敬请期待。</font>
+
+```bash
+sudo wget https://download.platon.network/platon/platon/1.0.0/platon -P /usr/bin    
+sudo wget https://download.platon.network/platon/platon/1.0.0/platonkey -P /usr/bin
+sudo chmod +x /usr/bin/platon  /usr/bin/platonkey
+platon version
+```
+
+执行完上述命令后，`platon`和`platonkey`二进制就已经成功安装到您系统上的`/usr/bin`目录里，您可以在任何目录执行相关命令。
+
+
+
+### 创建节点密钥
+
+#### 节点公私钥
+
+每个节点在网络中都有一个唯一的身份标识以便彼此区分，这个身份标识是一个公私钥对，可以在节点工作目录（如`~/platon-node`）下通过以下命令生成：
+
+```bash
+mkdir -p ~/platon-node/data && platonkey genkeypair | tee >(grep "PrivateKey" | awk '{print $2}' > ~/platon-node/data/nodekey) >(grep "PublicKey" | awk '{print $3}' > ~/platon-node/data/nodeid)
+```
+
+> PrivateKey:  002925955b165bd33be1d97082df17cd269f10e6f5142f77e2605ed591d314bf
+>
+> PublicKey :  064a22d0bbf537125f1beeab0efcf77b0a62680d44f5b66a2d12574b159601e662edbb6b57aea5eafabbff8ba5157ef613fe4b176cb8d97ea4951b6815748973
+
+其中`PrivateKey`是节点的私钥，`PublicKey`是节点的公钥，公钥用于标识节点身份，可以被公开出去，私钥不能公开并且需要做好备份。
+
+同时会在节点工作目录下的子目录`data`中生成两个文件：
+
+- nodeid 节点公钥(ID）文件，保存节点的公钥。
+- nodekey 节点私钥文件，保存节点的私钥。
+
+
+
+#### 节点 BLS 公私钥
+
+PlatON 节点除了需要节点公私钥外还需要一种被称为 BLS 公私钥的密钥对，这个密钥对在共识协议中将被使用，密钥对可以在节点工作目录（如`~/platon-node`）下通过以下命令生成：
+
+```bash
+mkdir -p ~/platon-node/data && platonkey genblskeypair | tee >(grep "PrivateKey" | awk '{print $2}' > ~/platon-node/data/blskey) >(grep "PublicKey" | awk '{print $3}' > ~/platon-node/data/blspub)
+```
+
+> PrivateKey:  f22a785c80bd1095beff1f356811268eae6c94abf0b2b4e2d64918957b74783e
+> PublicKey :  4bf873a66df92ada50a8c6bacb132ffd63437bcde7fd338d2d8696170034a6332e404ac3abb50326ee517ec5f63caf12891ce794ed14f8528fa7c54bc0ded7c5291f708116bb8ee8adadf1e88588866325d764230f4a45929d267a9e8f264402
+
+其中`PrivateKey`是节点的 BLS 私钥，`PublicKey`是节点的 BLS 公钥，BLS 公钥用于共识协议中快速验证签名，可以被公开出去，BLS 私钥不能公开并且需要做好备份。
+
+同时会在节点工作目录下的子目录`data`中生成两个文件：
+
+- blspub 节点 BLS 公钥文件，保存节点的 BLS 公钥。
+
+- blskey 节点 BLS 私钥文件，保存节点的 BLS 私钥。
+
+
+
+
+## 加入PlatON主网络
+
+### 简介
+
+PlatON主网上线时间待定，ChainID待定。
+
+
+
+### 准备
+
+在加入PlatON公有网络前请确保服务器本地具备以下条件：
+
+本章节假设服务器为 Ubuntu18.04，可执行文件所在工作目录为 `~/platon-node`，注意后续所有命令行操作均在工作目录下进行。
+
+```bash
+cd ~/platon-node
+```
+
+
+### 加入PlatON主网络
+
+任何人、任何组织都可以加入 PlatON 主网络。
+
+#### 启动验证节点
+
+执行以下命令即可启动验证节点加入PlatON主网络（请等待主网上线后接入）
+
+```bash
+nohup platon --identity platon --datadir ./data --port 16789 --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "fast" > ./data/platon.log 2>&1 &
+```
+
+**提示：**
+
+| **选项**      | **描述**                                                     |
+| ------------- | ------------------------------------------------------------ |
+| --identity    | 指定网络名称                                                 |
+| --datadir     | 指定 data 目录路径                                           |
+| --port        | p2p端口号                                                    |
+| --rpcaddr     | 指定 rpc 服务器地址                                          |
+| --rpcport     | 指定 rpc 协议通信端口                                        |
+| --rpcapi      | 指定节点开放的 rpcapi 名称                                   |
+| --rpc         | 指定 http-rpc 通讯方式                                       |
+| --nodekey     | 指定节点私钥文件                                             |
+| --cbft.blskey | 指定节点 bls 私钥文件                                        |
+| --verbosity   | 日志级别，0: CRIT;  1: ERROR； 2: WARN;  3: INFO;  4: DEBUG； 5: TRACE |
+| --syncmode    | fast：快速同步模式，full：全同步模式                         |
+| –db.nogc      | 开启归档模式                                                 |
+
+更多参数意义通过`platon --help`命令查看。
+
+
+### 查看节点状态
+
+当 PlatON启动成功后，正常情况下会通过节点发现协议自动和距离自己最近的节点建立连接，连接成功后会启动区块同步，所以判断加入网络是否成功可以通过查看节点的 peers 同时确认当前节点块高是否增长来判断。
+
+如果没有预先生成密钥，节点在启动时自动在节点的data目录下生成。如果采用自动生成的形式，将只会生成节点私钥与 BLS 私钥，相关公钥不会自动生成。
+
+
+#### 进入`PlatON`控制台
+
+```bash
+platon attach http://localhost:6789
+```
+
+> 打印`Welcome to the PlatON JavaScript console!`相关信息，表示成功进入控制台，否则视为进入控制台失败，如有问题可联系官方客服人员。
+
+#### 查看节点的  peers
+
+通过在`PlatON`控制台中执行以下命令查看连接节点的信息。
+
+```bash
+admin.peers
+```
+
+> 如打印相关peers信息，表示连接节点成功，如下：
+>
+> [{
+>     caps: ["cbft/1", "platon/63"],
+>     id: "c72a4d2cb8228ca6f9072daa66566bcafa17bec6a9e53765c85c389434488c393357c5c7c5d18cf9b26ceda46aca4da20755cd01bcc1478fff891a201042ba84",
+>     name: "PlatONnetwork/alaya-47.241.93.189/v1.0.0-unstable-62b9a900/linux-amd64/go1.13.4",
+>     network: {
+>       consensus: false,
+>       inbound: false,
+>       localAddress: "192.168.2.128:55572",
+>       remoteAddress: "47.241.93.189:16789",
+>       static: false,
+>       trusted: false
+>     },
+>     protocols: {
+>       cbft: {
+>         commitBn: 1404934,
+>         highestQCBn: 1407304,
+>         lockedBn: 1404935,
+>         protocolVersion: 1
+>       },
+>       platon: {
+>         head: "0xf31395262f876935c94e33b1d9f3314b2cb6effc33fcffa3b17b725678fd525f",
+>         number: 1407295,
+>         version: 63
+>       }
+>     }
+> }
+>
+> ...]
+>
+> 如果打印信息为空，表示连接节点失败，如有问题可联系官方客服人员。
+
+#### 查看当前块高
+
+通过在`PlatON`控制台中执行以下命令查看当前节点的块高。
+
+```bash
+platon.blockNumber
+```
+
+> - 执行此命令数次，如块高数值在不断增长，则表示连接成功；
+>
+> - 如果是新节点，块高一直为0时，则表示节点在同步区块，可能会存在延迟，可通过命令：
+>
+>   ```
+>   platon.syncing
+>   ```
+>
+>   > - 如果打印`false`，表示节点未处于同步区块状态；
+>   >
+>   > - 如果打印如下信息，表示节点正处于同步区块状态；
+>   >
+>   >   ```json
+>   >   {
+>   >     currentBlock: 1412416,
+>   >     highestBlock: 1416699,
+>   >     knownStates: 522,
+>   >     pulledStates: 522,
+>   >     startingBlock: 1408247
+>   >   }
+>   >   ```
+
+
+#### 退出控制台
+
+输入exit即可退出控制台。
+
+## 成为验证节点
+
+### 简介
+
+PlatON 是实行民主治理的区块链项目，验证节点由所有 LAT 持有者共同推选，以维护和发展 PlatON 网络。得票数最多的 201 名节点将成为备选节点，从中用 VRF 随机选出 43 个验证节点，参与管理整个 PlatON 网络。
+
+本节描述如何操作成为验证节点。
+
+
+
+
+### 安装 PlatON MTool
+
+步骤如下：
+
+**step1. 下载PlatON MTool工具包**
+
+```bash
+wget https://download.platon.network/platon/mtool/linux/1.0.0/platon_mtool.zip
+```
+
+**step2. 解压PlatON MTool工具包**
+
+```bash
+(if ! command -v unzip;then sudo apt install unzip; fi;) && unzip platon_mtool.zip && cd platon_mtool
+```
+
+**step3. 下载脚本**
+
+> 脚本下载到<font color=red>platon_mtool</font> 目录下，否则脚本无法找到新版本platon_mtool的路径。
+
+```bash
+wget https://download.platon.network/platon/scripts/mtool_install.sh
+```
+
+**step4. 执行命令**
+
+```
+chmod +x mtool_install.sh && ./mtool_install.sh
+```
+
+> - 提示 <font color=red>Install platon mtool succeed.</font> 时，表示 PlatON MTool 安装成功，未安装成功时，请通过我们的官方客服联系方式反馈具体问题。
+
+**step5. 重启终端**
+
+安装完成之后，需要<font color=red>重启终端（非重启服务器，关闭会话窗口或ssh工具重新打开窗口即可）</font>，让新添加的环境变量生效。
+
+### 配置 PlatON MTool
+
+#### 创建钱包
+
+PlatON 中，参与验证节点进行出块要创建两个钱包。如果已经有钱包，可通过将钱包文件拷贝到`$PLATON_MTOOLDIR/keystore`目录下，跳过本步骤。
+
+- 质押钱包：质押钱包用于质押 token，质押成功后才能成为备选节点候选人。 运行以下命令创建质押钱包
+
+```bash
+platon_mtool account new staking
+```
+
+输入一次密码，再输入一次确认密码，即可创建钱包文件，创建成功后会在目录`$PLATON_MTOOLDIR/keystore`下生成质押钱包文件`staking.json`。
+
+- 收益钱包：用于收取区块奖励和Staking奖励，Staking奖励统一发放给验证节点，由验证节点自行分配。 运行以下命令创建收益钱包
+
+```bash
+platon_mtool account new reward
+```
+
+输入一次密码，再输入一次确认密码，即可创建钱包文件，创建成功后会在目录`$PLATON_MTOOLDIR/keystore`下生成质押钱包文件`reward.json`。
+
+
+
+#### 配置验证节点信息
+
+##### 下载脚本
+
+```bash
+cd $PLATON_MTOOLDIR && wget https://download.platon.network/platon/scripts/validator_conf.sh
+```
+
+##### 运行脚本配置
+
+```bash
+chmod +x validator_conf.sh && ./validator_conf.sh
+```
+
+> **注意：**
+>
+> - 提示 Please enter the platon node IP address: 时，请输入 PlatON 节点服务器 ip 地址。
+> - 提示 validator conf success，并最后打印出的validator_config.json内容正常时，表示脚本执行成功，未执行成功时，请通过我们的官方客服联系方式反馈具体问题。
+
+
+
+##### 验证节点信息配置文件说明
+
+完成配置验证节点信息后，会在 PlatON MTool 的安装目录的 validator 子目录下，生成验证节点信息文件 validator_config.json，文件内容如下：
+
+```json
+{
+	"nodePublicKey": "0abaf3219f454f3d07b6cbcf3c10b6b4ccf605202868e2043b6f5db12b745df0604ef01ef4cb523adc6d9e14b83a76dd09f862e3fe77205d8ac83df707969b47",
+    "blsPubKey": "82d740cbc0314ec558c5426f88fdad6f07a07f9846c6be4e40cd628b74b9f641ddad01e4c281a2c3693f8ff2a73a410297aff379ee0575127d51de99b97acc9a1b7bc8ca132ef6f0379a3ec9d76a603d623176e49e1c53e87fead36317895099",
+	"nodeAddress": "http://192.168.120.146",
+	"nodePort": "16789",
+	"nodeRpcPort": "6789"
+}
+```
+
+> **参数说明：**
+>
+> - nodePublicKey: 节点 ID，可通过节点数据目录 data 下的 nodeid 文件查看；
+> - blsPubKey: BLS 公钥，可通过节点数据目录 data 下的 blspub 文件查看；
+> - nodeAddress: 节点地址，如果 PlatON MTool 和节点在同一台机器或同一个局域网内，可以使用内网IP，否则使用公网 IP，格式为：`http://18.238.183.12`。
+> - nodePort: 节点 P2P 端口，默认为16789。
+> - nodeRpcPort: rpc端口，默认为 6789。
+
+##### 自定义PlatScan头像
+
+如果用户不需要在PlatScan显示自己指定的头像，可以忽略此步骤。否则需要如下操作：
+
+- **注册keybase账户**
+
+  用户首先需要在 [keybase.io](https://keybase.io/) 官网进行注册，如果已注册可登录keybase官网。
+
+- **上传指定头像**
+
+  点击用户头像，即可上传头像。
+
+- **生成PGP key**
+
+  如果用户有`PGP key`，登录成功后，会在用户头像旁边显示一串16位的公钥，如：`EB621920A48D0699` ；如果用户还没有`PGP key` ，可以点击用户头像旁边的`add a PGP key`即可生成。
+
+- **指定externalId值**
+
+  发起质押操作时，指定`--external_id`参数值为上一步生成的`PGP key`。
+
+> 提示：用户完成质押操作后，即可在PlatScan上显示用户自定义的头像。
+
+### 发起质押操作
+
+如果共识节点部署完成，并且节点已经追上 [PlatScan](https://platscan.platon.network) 网站上的块高，您就可以使用 PlatON MTool 进行质押操作。质押操作前请确确保质押账户余额足够，质押最低门槛为10万 LAT。如果是接入开发网，请您按照格式要求发送邮件至 support@latticex.foundation，邮件要求：
+
+```toml
+ 标题：PlatON开发网Token申请
+ 姓名：
+ 联系方式：
+ 微信号（或其他即时通讯软件）：
+ 申请金额：
+ 用途：
+ 收款账户：
+ 备注：
+```
+
+- 测试LAT没有任何价值，仅用于体验测试网络的特性。
+- 请不要将质押账户的所有LAT进行质押，至少保留1个LAT，以备支付后续发起节点管理的交易手续费，比如升级提案的投票，解质押等交易。
+
+
+执行命令
+
+````bash
+platon_mtool staking --config $PLATON_MTOOLDIR/validator/validator_config.json --keystore $PLATON_MTOOLDIR/keystore/staking.json --amount 100000 --benefit_address xxx196278ns22j23awdfj9f2d4vz0pedld8a2fzwwj --delegated_reward_rate 5000 --node_name myNode --website www.mywebsite.com --details myNodeDescription --external_id 121412312
+````
+
+提示：**please input keystore password:** 输入质押钱包的密码，然后回车，如果显示如下信息则代表质押成功：
+
+```bash
+operation finished
+transaction hash:
+0x89b964d27d0caf1d8bf268f721eb123c4af57aed36187bea90b262f4769eeb9b
+SUCCESS
+```
+
+> **参数说明：**
+>
+> - config：验证节点信息文件路径
+> - keystore：发送交易的冷钱包路径
+> - amount: 质押数，不少于100000LAT-质押门槛，小数点不超过8位
+> - restrictedamount: 不少于100000LAT-质押门槛，小数点不超过8位（使用锁仓余额质押）
+> - autoamount：不少于100000LAT-优先使用锁仓余额质押，若锁仓余额不足质押金，再使用自由金额质押
+> - benefit_address：验证节点收益地址
+> - delegated_reward_rate：委托奖励比例，单位：万分比，整数，范围\[0,10000]，如输入5000，表示分红比例为50%
+> - node_name：验证人名称，不超过30字节，支持字母、数字、空格、上下划线及#，必须字母开头
+>- website：官网路径，不超过70字节，数字字母组成
+> - details：简介，验证人简要介绍说明，不超过280字节，建议英文
+> - external_id：节点头像icon在[keybase.io](https://keybase.io)的ID，或者外部系统身份认证ID

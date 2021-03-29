@@ -52,9 +52,14 @@
         "title": "PlatON经济方案",
         "sidebar_label": "PlatON经济方案"
       },
-      "Join_PlatON_NetWork": {
-        "title": "加入 PlatON 网络",
-        "sidebar_label": "加入 PlatON 网络"
+
+      "Join_Main_PlatON_NetWork": {
+        "title": "加入PlatON主网络",
+        "sidebar_label": "加入PlatON主网络"
+      },
+      "Join_Dev_PlatON_NetWork": {
+        "title": "加入开发PlatON网络",
+        "sidebar_label": "加入开发PlatON网络"
       },
       "Verifiable_Computation": {
         "title": "可验证计算",
