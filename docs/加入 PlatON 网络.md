@@ -18,6 +18,10 @@ Before joining the PlatON public network, please ensure that the server has the 
 
 This section assumes that the server is Ubuntu 18.04, and the working directory of the executable file is `~/platon-node`. Note that all subsequent commands should be run under the same working directory.
 
+```bash
+cd ~/platon-node
+```
+
 
 
 
@@ -30,7 +34,7 @@ Anyone or any organization can join PlatON main network.
 Execute the following command to start the verification node to join the main network of Platon (please access it after the main network is online)
 
 ```bash
-nohup platon --identity platon --datadir ./data --port 16789 --platon --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "fast" > ./data/platon.log 2>&1 &
+nohup platon --identity platon --datadir ./data --port 16789 --rpcport 6789 --rpcapi "db,platon,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --cbft.blskey ./data/blskey --verbosity 1 --rpcaddr 127.0.0.1 --syncmode "fast" > ./data/platon.log 2>&1 &
 ```
 
 **Prompt:**
@@ -46,7 +50,6 @@ nohup platon --identity platon --datadir ./data --port 16789 --platon --rpcport 
 | --rpc          | Specify http-rpc communication method                        |
 | --nodekey      | Specify the node private key file                            |
 | --cbft.blskey  | Specify the node bls private key file                        |
-| --platon       | Specify to connect to the PlatON's main network              |
 | --verbosity    | The level of logging, 0: CRIT;  1: ERROR; 2: WARN;  3: INFO;  4: DEBUG; 5: TRACE |
 | --syncmode     | fast: Fast synchronization mode, full: All synchronous mode  |
 | --db.nogc      | Enable archive mode                                          |
@@ -134,22 +137,79 @@ If the key is not generated in advance, the node is automatically generated in t
 platon attach http://localhost:6789
 ```
 
+> Print `Welcome to the Platon JavaScript Console!` Relevant information, indicating successful access to the console, otherwise it will be deemed as failure to access the console, if there is any problem, you can contact the official customer service personnel.
+
 ### View peers of a node
+
+View the connection node information by executing the following command in the Platon console.
 
 ```bash
 admin.peers
 ```
 
-
+> If the related Peers information is printed, it means that the connected node is successful, as follows:
+>
+> [{
+>     caps: ["cbft/1", "platon/63"],
+>     id: "c72a4d2cb8228ca6f9072daa66566bcafa17bec6a9e53765c85c389434488c393357c5c7c5d18cf9b26ceda46aca4da20755cd01bcc1478fff891a201042ba84",
+>     name: "PlatONnetwork/alaya-47.241.93.189/v1.0.0-unstable-62b9a900/linux-amd64/go1.13.4",
+>     network: {
+>       consensus: false,
+>       inbound: false,
+>       localAddress: "192.168.2.128:55572",
+>       remoteAddress: "47.241.93.189:16789",
+>       static: false,
+>       trusted: false
+>     },
+>     protocols: {
+>       cbft: {
+>         commitBn: 1404934,
+>         highestQCBn: 1407304,
+>         lockedBn: 1404935,
+>         protocolVersion: 1
+>       },
+>       platon: {
+>         head: "0xf31395262f876935c94e33b1d9f3314b2cb6effc33fcffa3b17b725678fd525f",
+>         number: 1407295,
+>         version: 63
+>       }
+>     }
+> }
+>
+> ...]
+>
+> If the printed information is empty, it means that the connection node failed. If there is any problem, you can contact the official customer service personnel.
 
 ### View the current block height
 
-You can get the block height of the current node by executing the following command in the `PlatON ` console.
+View the block height of the current node by executing the following command in the Platon console.
 
 ```bash
 platon.blockNumber
 ```
 
-A series of PlatON network nodes appear in the node list and the block height is increasing, which means the connection is successful! (Since the new node needs to be synchronized, there may be a delay)
+> - Execute this command several times, if the block height value increases continuously, then the connection is successful;
+>
+> - If it is a new node and the block height is always 0, it means that the node is in the synchronous block and there may be delay. You can use the command:
+>
+>   ```bash
+>   platon.syncing
+>   ```
+>
+>   - If `false` is printed, the node is not in a synchronous block state.
+>
+>   - If the following message is printed, the node is in a synchronous block state;
+>
+>     ```json
+>     {
+>       currentBlock: 1412416,
+>       highestBlock: 1416699,
+>       knownStates: 522,
+>       pulledStates: 522,
+>       startingBlock: 1408247
+>     }
+>     ```
 
-Type exit to exit the console.
+### Exit console
+
+Type Exit to exit the console.

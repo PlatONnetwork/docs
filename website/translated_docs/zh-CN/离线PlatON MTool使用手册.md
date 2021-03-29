@@ -50,7 +50,7 @@ platon_mtool --version
 
 **step3. 重启终端**
 
-安装完成之后，需要<font color=red>重启终端</font>，让新添加的环境变量生效。
+安装完成之后，需要<font color=red>重启终端（非重启服务器，关闭Cmd窗口或PowerShell窗口重新打开窗口即可）</font>，让新添加的环境变量生效。
 
 ### Ubuntu下安装PlatON MTool
 
@@ -86,7 +86,7 @@ chmod +x mtool_install.sh && ./mtool_install.sh
 
 **step5. 重新启动会话窗口**
 
-安装完成之后，需要<font color=red>重新启动会话窗口</font>，让新添加的环境变量生效。
+安装完成之后，需要<font color=red>重新启动会话窗口（非重启服务器，关闭会话窗口或ssh工具重新打开窗口即可）</font>，让新添加的环境变量生效。
 
 ## PlatON MTool环境变量说明
 
