@@ -4,8 +4,8 @@
 			"index"
 		],
 		"Run a Node": [
-			"Join_Main_PlatON_NetWork",
-			"Join_Dev_PlatON_NetWork"
+			"Join_PlatON_Main_NetWork",
+			"Join_PlatON_Dev_NetWork"
 		],
 		"Node Tools": [
 			"OnLine_MTool_Manual",
