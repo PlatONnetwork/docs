@@ -101,12 +101,12 @@ const siteConfig = {
   //外部链接
   expectUrl:{
     'en':{
-      "PlatON":"https://platon.network/en",
+      "PlatON":"https://www.platon.network/en",
       "Foundation":"https://latticex.foundation/home",
       "Forum":"https://forum.latticex.foundation/"
     },
     "zh-CN":{
-      "PlatON":"https://platon.network/",
+      "PlatON":"https://www.platon.network/",
       "Foundation":"https://latticex.foundation/home",
       "Forum":"https://forum.latticex.foundation/"
     }
