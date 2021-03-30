@@ -63,8 +63,8 @@ ntpq -4c rv | grep leap_none
 <font color=red>当前PlatON开发网二进制版本号为1.0.0，主网还未上线，如果需要加入主网，敬请期待。</font>
 
 ```bash
-sudo wget https://download.platon.network/platon/platon/1.0.0/platon -P /usr/bin    
-sudo wget https://download.platon.network/platon/platon/1.0.0/platonkey -P /usr/bin
+sudo wget https://download.platon.network/platon/demo/1.0.0/platon -P /usr/bin    
+sudo wget https://download.platon.network/platon/demo/1.0.0/platonkey -P /usr/bin
 sudo chmod +x /usr/bin/platon  /usr/bin/platonkey
 platon version
 ```
