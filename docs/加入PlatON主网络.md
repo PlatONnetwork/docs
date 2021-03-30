@@ -1,7 +1,7 @@
 ---
-id: Join_Main_PlatON_NetWork
-title: Join the Main PlatON network
-sidebar_label: Join the Main PlatON network
+id: Join_PlatON_Main_NetWork
+title: Join the PlatON main network
+sidebar_label: Join the PlatON main network
 ---
 
 ## Install and Deploy a Node
@@ -118,7 +118,7 @@ Two files will be generated in the subdirectory `data` under the working directo
 
 - blskey: Node BLS private key file, which holds the node's BLS private key
 
-## Join the Main PlatON network
+## Join the PlatON main network
 
 ### Overview
 

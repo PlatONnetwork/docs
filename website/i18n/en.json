@@ -65,13 +65,13 @@
         "sidebar_label": "WASM Smart Contract"
       },
 
-      "Join_Main_PlatON_NetWork": {
-        "title": "Join the main PlatON network",
-        "sidebar_label": "Join the main PlatON network"
+      "Join_PlatON_Main_NetWork": {
+        "title": "Join the PlatON main network",
+        "sidebar_label": "Join the PlatON main network"
       },
-      "Join_Dev_PlatON_NetWork": {
-        "title": "Join the develop PlatON network",
-        "sidebar_label": "Join the develop PlatON network"
+      "Join_PlatON_Dev_NetWork": {
+        "title": "Join the PlatON development network",
+        "sidebar_label": "Join the PlatON development network"
       },
       "Verifiable_Computation": {
         "title": "Verifiable Computation",

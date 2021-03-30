@@ -1,5 +1,5 @@
 ---
-id: Join_Dev_PlatON_NetWork
+id: Join_PlatON_Dev_NetWork
 title: 加入PlatON开发网络
 sidebar_label: 加入PlatON开发网络
 ---

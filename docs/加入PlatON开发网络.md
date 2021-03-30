@@ -1,7 +1,7 @@
 ---
-id: Join_Dev_PlatON_NetWork
-title: Join the develop PlatON network
-sidebar_label: Join the develop PlatON network
+id: Join_PlatON_Dev_NetWork
+title: Join the PlatON development network
+sidebar_label: Join the PlatON development network
 ---
 
 ## Install and Deploy a Node
@@ -117,7 +117,7 @@ Two files will be generated in the subdirectory `data` under the working directo
 - blskey: Node BLS private key file, which holds the node's BLS private key
 
 
-## Join the Develop PlatON network
+## Join the PlatON development network
 
 ### Overview
 
@@ -131,7 +131,7 @@ This section assumes that the server is Ubuntu 18.04, and the working directory 
 cd ~/platon-node
 ```
 
-### Join the PlatON Develop Network
+### Join the PlatON development Network
 
 The development network provides a development test environment for the developer or node.There may be instability and a network reset.The current version of the development network is 1.0.0.
 

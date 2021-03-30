@@ -1,5 +1,5 @@
 ---
-id: Join_Main_PlatON_NetWork
+id: Join_PlatON_Main_NetWork
 title: 加入PlatON主网络
 sidebar_label: 加入PlatON主网络
 ---
