@@ -8,7 +8,7 @@ sidebar_label: PlatON Developer Docs
 <div class="card-wrap">
     <!-- <div class="homepage-card">
         <img src="/docs/img/Install_Node.svg">
-        <a href="/docs/en/Install_Node" class="card-title">Install and Deploy a Node</a>
+        <a href="/docs/en/Join_PlatON_Main_NetWork" class="card-title">Install and Deploy a Node</a>
         <div class="card-description">
         Install, configure, and deploy a node.
         </div>
@@ -29,7 +29,7 @@ sidebar_label: PlatON Developer Docs
     </div> -->
     <div class="homepage-card">
         <img src="/docs/img/Install_Node.svg">
-        <a href="/docs/en/Install_Node" class="card-title">Run a Node</a>
+        <a href="/docs/en/Join_PlatON_Main_NetWork" class="card-title">Run a Node</a>
         <div class="card-description">
         Deploy a node, join PlatON's mainnet and testnet, and participate in PlatON consensus.
         </div>
