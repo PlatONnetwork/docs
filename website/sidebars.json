@@ -34,6 +34,7 @@
 			"WASM_Smart_Contract"
 		],
 		"API Reference": [
+			"Python_SDK",
 			"Java_SDK",
 			"JS_SDK",
 			"Json_Rpc"
