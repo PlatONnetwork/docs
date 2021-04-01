@@ -3,9 +3,11 @@
 		"PlatON Developer Docs": [
 			"index"
 		],
-		"Run a Node": [
-			"Join_PlatON_Main_NetWork",
-			"Join_PlatON_Dev_NetWork"
+		"PlatON Node": [
+			"PlatON_Validation_Introduce",
+			"Network Description",
+			"Become_PlatON_Main_Verification",
+			"Become_PlatON_Dev_Verification"
 		],
 		"Node Tools": [
 			"OnLine_MTool_Manual",
