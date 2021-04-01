@@ -6,30 +6,9 @@ sidebar_label: PlatON Developer Docs
 
 ## Noderunners
 <div class="card-wrap">
-    <!-- <div class="homepage-card">
-        <img src="/docs/img/Install_Node.svg">
-        <a href="/docs/en/Join_PlatON_Main_NetWork" class="card-title">Install and Deploy a Node</a>
-        <div class="card-description">
-        Install, configure, and deploy a node.
-        </div>
-    </div>
-    <div class="homepage-card">
-        <img src="/docs/img/Join_PlatON_NetWork.svg">
-        <a href="/docs/en/Join_PlatON_NetWork" class="card-title">Join the PlatON Network</a>
-        <div class="card-description">
-        How to join PlatON's mainnet and testnet.
-        </div>
-    </div>
-    <div class="homepage-card">
-        <img src="/docs/img/Become_Verification_Node.svg">
-        <a href="/docs/en/Become_Verification_Node" class="card-title">Upgrade to Validator Node</a>
-        <div class="card-description">
-        Participate in PlatON consensus.
-        </div>
-    </div> -->
     <div class="homepage-card">
         <img src="/docs/img/Install_Node.svg">
-        <a href="/docs/en/Join_PlatON_Main_NetWork" class="card-title">Run a Node</a>
+        <a href="/docs/en/PlatON_Validation_Introduce" class="card-title">Introduction to the PlatON validation node</a>
         <div class="card-description">
         Deploy a node, join PlatON's mainnet and testnet, and participate in PlatON consensus.
         </div>

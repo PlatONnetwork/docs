@@ -56,6 +56,10 @@
 				"title": "PlatON验证节点介绍",
 				"sidebar_label": "PlatON验证节点介绍"
 			},
+			"Network_Description": {
+				"title": "网络说明",
+				"sidebar_label": "网络说明"
+			},
 			"Become_PlatON_Main_Verification": {
 				"title": "成为主网验证节点",
 				"sidebar_label": "成为主网验证节点"
@@ -105,7 +109,6 @@
 		"categories": {
 			"PlatON Developer Docs": "PlatON开发者文档",
 			"PlatON Node": "PlatON节点",
-			"Network Description": "网络说明",
 			"Node Tools": "节点工具",
 			"Environment Setup": "设置开发环境",
 			"Smart Contracts": "智能合约",

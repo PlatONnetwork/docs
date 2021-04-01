@@ -6,30 +6,9 @@ sidebar_label: PlatON开发者文档
 
 ## 节点运行者
 <div class="card-wrap">
-    <!-- <div class="homepage-card">
-        <img src="/docs/img/Install_Node.svg">
-        <a href="/docs/zh-CN/Join_PlatON_Main_NetWork" class="card-title">安装一个节点</a>
-        <div class="card-description">
-        安装，配置和部署节点。
-        </div>
-    </div>
-    <div class="homepage-card">
-        <img src="/docs/img/Join_PlatON_NetWork.svg">
-        <a href="/docs/zh-CN/Join_PlatON_NetWork" class="card-title">加入platon网络</a>
-        <div class="card-description">
-        如何加入PlatON的主网和开发网。
-        </div>
-    </div>
-    <div class="homepage-card">
-        <img src="/docs/img/Become_Verification_Node.svg">
-        <a href="/docs/zh-CN/Become_Verification_Node" class="card-title">成为验证节点</a>
-        <div class="card-description">
-        参与PlatON网络共识。
-        </div>
-    </div> -->
     <div class="homepage-card">
         <img src="/docs/img/Install_Node.svg">
-        <a href="/docs/zh-CN/Join_PlatON_Main_NetWork" class="card-title">运行一个节点</a>
+        <a href="/docs/zh-CN/PlatON_Validation_Introduce" class="card-title">PlatON验证节点介绍</a>
         <div class="card-description">
         部署节点，加入PlatON的主网和开发网，并参与PlatON网络共识。
         </div>

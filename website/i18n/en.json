@@ -68,6 +68,10 @@
 				"title": "Introduction to the PlatON validation node",
 				"sidebar_label": "Introduction to the PlatON validation node"
 			},
+			"Network_Description": {
+				"title": "Network Description",
+				"sidebar_label": "Network Description"
+			},
 			"Become_PlatON_Main_Verification": {
 				"title": "Become the development network verification node",
 				"sidebar_label": "Become the development network verification node"
@@ -105,7 +109,6 @@
 		"categories": {
 			"PlatON Developer Docs": "PlatON Developer Docs",
 			"PlatON Node": "PlatON Node",
-			"Network Description": "Network Description",
 			"Node Tools": "Node Tools",
 			"Environment Setup": "Environment Setup",
 			"Smart Contracts": "Smart Contracts",
