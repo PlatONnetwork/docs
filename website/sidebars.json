@@ -3,6 +3,17 @@
 		"PlatON Developer Docs": [
 			"index"
 		],
+		"Introduce": [
+			""
+		],
+		"PlatON Basis": [
+			"PlatON_Overall_Solution",
+			"Economic_Model",
+			"PlatON_Solution",
+			"PlatON_Governance_Solution",
+			"Secure_Multi_Party_Computation",
+			"Verifiable_Computation"
+		],
 		"PlatON Node": [
 			"PlatON_Validation_Introduce",
 			"Network_Description",
@@ -22,18 +33,16 @@
 			"EVM_Smart_Contract",
 			"WASM_Smart_Contract"
 		],
-		"Reference Docs": [
+		"API Reference": [
 			"Java_SDK",
 			"JS_SDK",
 			"Json_Rpc"
 		],
-		"Abount PlatON": [
-			"PlatON_Overall_Solution",
-			"PlatON_Solution",
-			"Economic_Model",
-			"PlatON_Governance_Solution",
-			"Secure_Multi_Party_Computation",
-			"Verifiable_Computation"
+		"Data And Analytics": [
+			"Block_Explorers"
+		],
+		"Wallet": [
+			"ATON-user-manual"
 		],
 		"Community Projects": [
 			"community"

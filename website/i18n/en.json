@@ -108,12 +108,14 @@
 		"links": {},
 		"categories": {
 			"PlatON Developer Docs": "PlatON Developer Docs",
+			"Introduce": "Introduce",
 			"PlatON Node": "PlatON Node",
 			"Node Tools": "Node Tools",
 			"Environment Setup": "Environment Setup",
 			"Smart Contracts": "Smart Contracts",
-			"Reference Docs": "Reference Docs",
-			"Abount PlatON": "Abount PlatON",
+			"API Reference": "API Reference",
+			"Data And Analytics": "Data And Analytics",
+			"Wallet": "Wallet",
 			"Community Projects": "Community Projects"
 		}
 	}

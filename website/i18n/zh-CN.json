@@ -108,12 +108,15 @@
 		"links": {},
 		"categories": {
 			"PlatON Developer Docs": "PlatON开发者文档",
+			"Introduce": "介绍",
+			"PlatON Basis": "PlatON基础",
 			"PlatON Node": "PlatON节点",
 			"Node Tools": "节点工具",
 			"Environment Setup": "设置开发环境",
 			"Smart Contracts": "智能合约",
-			"Reference Docs": "参考文档",
-			"Abount PlatON": "关于PlatON",
+			"API Reference": "API参考",
+			"Data And Analytics": "数据分析",
+			"Wallet": "钱包",
 			"Community Projects": "社区"
 		}
 	}
