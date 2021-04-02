@@ -5,9 +5,6 @@ sidebar_label: Python SDK
 ---
 
 
-[![Join the chat at https://gitter.im/ethereum/web3.py](https://badges.gitter.im/ethereum/web3.py.svg)](https://github.com/PlatONnetwork/client-sdk-python)
-
-[![Build Status](https://circleci.com/gh/ethereum/web3.py.svg?style=shield)](https://github.com/PlatONnetwork/client-sdk-python)
 
 ## 说明
 
@@ -32,9 +29,9 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
 
 ​    或下载代码，在python编辑器中使用。git bash 拉取源代码，如下操作
 
-    git clone https://github.com/PlatONnetwork/client-sdk-python.git
+    git clone -b 0.15.1-develop https://github.com/PlatONnetwork/client-sdk-python.git
 
-
+> 其中`0.15.1-develop`为当前使用的分支。
 
 
 ### 二、使用
@@ -62,7 +59,7 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
   代码如下：
 
   ```python
-  w3 = Web3(WebsocketProvider("http://localhost:6789"))
+  w3 = Web3(WebsocketProvider("ws://localhost:6790"))
   platon = PlatON(w3)
   print(w3.isConnected())
   ```
@@ -72,7 +69,7 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
   代码如下：
 
   ```python
-  w3 = Web3(IPCProvider("http://localhost:6789"))
+  w3 = Web3(IPCProvider("./platon.ipc"))
   platon = PlatON(w3)
   print(w3.isConnected())
   ```
@@ -82,7 +79,7 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
 
 #### 3 基本api
 
-- ##### 基础类型编和解码
+##### 基础类型编和解码
 
   - Web3.toBytes()
 
@@ -149,7 +146,7 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
     'cowmö'
     ```
 
-- ##### 地址检测
+##### 地址检测
 
   - Web3.isAddress()
 
@@ -173,7 +170,7 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
     False
     ```
 
-- ##### 加密哈希
+##### 加密哈希
 
   - Web3.sha3()
 
@@ -213,7 +210,7 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
 
 与Platon 链上节点连接成功以后，可通过platon里的api查询链上节点的相关信息
 
-- ##### (1) platon.blockNumber 
+##### (1) platon.blockNumber 
 
   返回当前块编号
 
@@ -223,7 +220,7 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
 
 
 
-- ##### (2) platon.syncing
+##### (2) platon.syncing
 
   用来检查节点当前是否已经与网络同步
 
@@ -244,7 +241,7 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
 
     
 
-- ##### (3) platon.gasPrice
+##### (3) platon.gasPrice
 
   用来获取当前gas价格，该价格由最近的若干块的gas价格中值决定。
 
@@ -254,7 +251,7 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
 
 
 
-- ##### (4) platon.accounts
+##### (4) platon.accounts
 
   方法返回当前节点控制的账户列表。
 
@@ -264,7 +261,7 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
 
   
 
-- ##### (5) platon.evidences
+##### (5) platon.evidences
 
   返回账户地址指定位置的存储内容。
 
@@ -274,7 +271,7 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
 
   
 
-- ##### (6) platon.consensusStatus
+##### (6) platon.consensusStatus
 
   返回当前节点所在区块树的共识状态信息。
 
@@ -284,7 +281,7 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
 
 
 
-- ##### (7) platon.getBalance(address)
+##### (7) platon.getBalance(address)
 
   用来获取指定块中特定账户地址的余额
 
@@ -330,7 +327,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
 ```
 
-- ##### (8) platon.getStorageAt()
+##### (8) platon.getStorageAt()
 
   返回一个地址的指定位置存储内容
 
@@ -351,7 +348,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
 一个AttributeDict对象，其解析值为存储中指定位置的内容。
 
-- ##### (9) platon.getCode
+##### (9) platon.getCode
 
   返回指定地址处的代码。
 
@@ -373,7 +370,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
 
 
-- ##### (10) platon.getBlock()
+##### (10) platon.getBlock()
 
   返回指定块编号或块哈希对应的块。
 
@@ -431,7 +428,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
   
   
   
-- ##### (11) platon.getBlockTransactionCount()
+##### (11) platon.getBlockTransactionCount()
 
   方法返回指定块中的交易数量。
 
@@ -452,7 +449,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   
 
-- ##### (12) platon.getTransaction()
+##### (12) platon.getTransaction()
 
   返回具有指定哈希值的交易对象。
 
@@ -474,7 +471,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   
 
-- ##### (13) platon.getRawTransaction()
+##### (13) platon.getRawTransaction()
 
   返回具有指定哈希值的交易对象HexBytes 值。
 
@@ -494,7 +491,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   
 
-- ##### (14) platon.getTransactionFromBlock()
+##### (14) platon.getTransactionFromBlock()
 
   返回指定块中特定索引号的交易对象。
 
@@ -515,7 +512,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   
 
-- ##### (15) platon.getTransactionByBlock()
+##### (15) platon.getTransactionByBlock()
 
   返回指定块中特定索引号的交易对象。
 
@@ -538,7 +535,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
 #### **5** 链上发送交易api：
 
-- ##### (1) sendTransaction(transactionObject)
+##### (1) sendTransaction(transactionObject)
 
   向platon 链上提交一个交易（已被节点签名，尚未提交的交易）
 
@@ -559,7 +556,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   
 
-- ##### (2) waitForTransactionReceipt(transaction_hash, timeout)
+##### (2) waitForTransactionReceipt(transaction_hash, timeout)
 
   指定时间内返回指定交易的收据对象
 
@@ -608,7 +605,7 @@ AttributeDict({'blockHash': HexBytes('0x7bfe17689560c773b1cade579f1bd2cf85aeea9f
 
 
 
-- ##### (3) platon.getTransactionReceipt()
+##### (3) platon.getTransactionReceipt()
 
   返回指定交易的收据对象。
   如果交易处于pending状态，则返回null。
@@ -629,7 +626,7 @@ AttributeDict({'blockHash': HexBytes('0x7bfe17689560c773b1cade579f1bd2cf85aeea9f
 
   
 
-- ##### (4) platon.getTransactionCount()
+##### (4) platon.getTransactionCount()
 
   返回指定地址发出的交易数量。
 
@@ -650,7 +647,7 @@ AttributeDict({'blockHash': HexBytes('0x7bfe17689560c773b1cade579f1bd2cf85aeea9f
 
   
 
-- ##### （6）platon.sendRawTransaction()
+##### （6）platon.sendRawTransaction()
 
   向platon 链上提交一个签名的序列化的交易
 
@@ -677,7 +674,7 @@ platon.sendRawTransaction(signTransaction，private-key)
   
   
   
-- ##### (7) platon.replaceTransaction()
+##### (7) platon.replaceTransaction()
 
   发送新的交易new_transaction，替代原来的交易transaction_hash（pending状态）
 
@@ -698,7 +695,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
   
 
-- ##### (8)  platon.generateGasPrice()
+##### (8)  platon.generateGasPrice()
 
   使用选中的gas price 策略去计算一个gas price
 
@@ -714,7 +711,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
 
 
-- ##### (9) platon.setGasPriceStrategy()
+##### (9) platon.setGasPriceStrategy()
 
   设定选定的gas price 策略
 
@@ -734,7 +731,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
 
 
-- ##### (10) platon.modifyTransaction()
+##### (10) platon.modifyTransaction()
 
   发送新的参数，去修正处于pending状态的交易
 
@@ -755,7 +752,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
   
 
-- ##### (11)  platon.sign()
+##### (11)  platon.sign()
 
   方法使用指定的账户对数据进行签名，该账户必须先解锁。
 
@@ -776,7 +773,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
   
 
-- ##### (12)  platon.estimateGas()
+##### (12)  platon.estimateGas()
 
   通过执行一个消息调用来估算交易的gas用量。
 
@@ -798,7 +795,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
 #### 6 其他 api
 
-- ##### (1) platon.filter
+##### (1) platon.filter
 
   生成一个新的过滤器，根据参数的不同，生成不同类型的过滤器
 
@@ -829,7 +826,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
 
 
-- ##### (2) platon.getFilterChanges()
+##### (2) platon.getFilterChanges()
 
   轮询指定的过滤器，并返回自上次轮询之后新生成的日志数组
 
@@ -856,7 +853,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
 
 
-- ##### (3) platon.getFilterLogs()
+##### (3) platon.getFilterLogs()
 
   轮询指定的过滤器，并返回对应的日志数组
 
@@ -872,7 +869,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
 
 
-- ##### (4) platon.uninstallFilter()
+##### (4) platon.uninstallFilter()
 
   卸载指定的过滤器，返回成功或失败的bool值
 
@@ -894,7 +891,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
   
 
-- ##### (5) platon.getLogs()
+##### (5) platon.getLogs()
 
   根据指定的选项返回历史日志。
 
@@ -929,7 +926,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
 
 
-- ##### (6) functions()
+##### (6) functions()
 
   调用合约函数的入口
 
@@ -951,7 +948,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
       
 
-- ##### (7)  call()
+##### (7)  call()
 
   调用合约的方法，并在合约中直接执行方法，不需要发送任何交易。因此不会改变合约的状态。
 
@@ -987,7 +984,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
   
 
-- ##### (8) events
+##### (8) events
 
   订阅指定的合约事件。
 
@@ -1083,13 +1080,13 @@ python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数
 
 #### 3、SDK 对evm合约的调用
 
-- ##### (1) 使用platon-truffle在本机对evm合约进行编译
+##### (1) 使用platon-truffle在本机对evm合约进行编译
 
   获得bin与abi。以Helloworld合约为例。
 
 ​      使用platon-truffle对Helloworld.sol编译后，产生的build/contracts/HelloWorld.json中，获取其中的abi和bytecode(即bin)。     
 
-- ##### (2) 通过python SDK对Helloworld合约部署
+##### (2) 通过python SDK对Helloworld合约部署
 
   首先通过Web3连接节点
 
@@ -1185,7 +1182,7 @@ python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数
 
   
 
-- ##### (3) 对Helloworld合约进行调用(交易发送)
+##### (3) 对Helloworld合约进行调用(交易发送)
 
   在之前合约部署成功的基础上，进行交易发送
 
@@ -1264,7 +1261,7 @@ you are a middle man
 
 
 
-- ##### (4) evm合约的事件调用
+##### (4) evm合约的事件调用
 
   evm合约通过事件可对相关交易的详细信息进行监听和日志记录输出
 
@@ -1319,7 +1316,7 @@ print(topic_param)
 
 
 
-- ##### (1) 使用PlatON-CDT在本机对wasm合约进行编译
+##### (1) 使用PlatON-CDT在本机对wasm合约进行编译
 
   以wasmcontract.cpp为例。本机安装PlatON-CDT成功后，在PlatON-CDT/build/bin中输入代码       
 
@@ -1340,7 +1337,7 @@ print(topic_param)
 
   因为我们的链上识别的是16进制的数据，所以需通过类似binascii.b2a_hex等方法，把二进制的.wasm转换为16进制的bytecode。方便我们链上识别。
 
-- ##### (2)  通过python SDK对Helloworld合约(wasm类型)部署
+##### (2)  通过python SDK对Helloworld合约(wasm类型)部署
 
   获取wasm合约的bin和abi之后，通过Web3在链上进行部署
 
@@ -1392,7 +1389,7 @@ AttributeDict({'blockHash': HexBytes('0x7a193be2cf86aedcf844c0478c6f64d226affb55
   
 ```
 
-- ##### (3) 对Helloworld合约进行交易发送(wasm合约)
+##### (3) 对Helloworld合约进行交易发送(wasm合约)
 
   ​    在之前合约部署成功的基础上，对合约中的方法进行调用。
 
@@ -1425,7 +1422,7 @@ AttributeDict({'blockHash': HexBytes('0x7a193be2cf86aedcf844c0478c6f64d226affb55
   get : False
   ```
 
-- ##### (4) wasm合约的事件调用
+##### (4) wasm合约的事件调用
 
   wasm合约中的事件,一般写在合约的函数中。
 
