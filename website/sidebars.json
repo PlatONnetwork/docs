@@ -25,10 +25,6 @@
 			"OffLine_MTool_Manual",
 			"Command_Line_Tools"
 		],
-		"Environment Setup": [
-			"Install_PlatON",
-			"Build_Private_Chain"
-		],
 		"Smart Contracts": [
 			"EVM_Smart_Contract",
 			"WASM_Smart_Contract"
