@@ -32,6 +32,10 @@
 				"title": "JSON RPC API",
 				"sidebar_label": "JSON RPC"
 			},
+			"PlatON_BlockChain_Browser": {
+				"title": "BlockChain Browser",
+				"sidebar_label": "Introduction to BlockChain Browsers"
+			},
 			"OnLine_MTool_Manual": {
 				"title": "OnLine PlatON MTool Tutorials",
 				"sidebar_label": "OnLine PlatON MTool Tutorials"

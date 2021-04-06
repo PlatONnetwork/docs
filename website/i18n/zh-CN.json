@@ -104,9 +104,9 @@
 				"title": "PlatON命令行工具",
 				"sidebar_label": "PlatON命令行工具"
 			},
-			"Block_Explorers": {
-				"title": "浏览器介绍",
-				"sidebar_label": "浏览器介绍"
+			"PlatON_BlockChain_Browser": {
+				"title": "区块链浏览器",
+				"sidebar_label": "区块链浏览器介绍"
 			}
 		},
 		"links": {},
