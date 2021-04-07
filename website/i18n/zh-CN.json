@@ -6,10 +6,12 @@
 		"tagline": "PlatON",
 		"docs": {
 			"ATON-user-manual": {
-				"title": "ATON钱包用户使用手册"
+				"title": "ATON钱包用户使用手册",
+				"sidebar_label": "ATON钱包用户使用手册"
 			},
 			"Third_Party_Walle": {
-				"title": "第三方钱包"
+				"title": "第三方钱包",
+				"sidebar_label": "第三方钱包"
 			},
 			"community": {
 				"title": "社区项目",
@@ -120,6 +122,8 @@
 			"PlatON Node": "PlatON节点",
 			"Node Tools": "节点工具",
 			"Smart Contracts": "智能合约",
+			"Solidity Contracts": "Solidity合约",
+			"Wasm Contracts": "Wasm合约",
 			"API Reference": "API参考",
 			"Data And Analytics": "数据分析",
 			"Wallet": "钱包",
