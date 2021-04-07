@@ -5,8 +5,12 @@
 		"previous": "Previous",
 		"tagline": "PlatON",
 		"docs": {
+
 			"ATON-user-manual": {
 				"title": "ATON Wallet User Manual"
+			},
+			"Third_Party_Walle": {
+				"title": "Third Party Walle"
 			},
 			"community": {
 				"title": "Community Projects",

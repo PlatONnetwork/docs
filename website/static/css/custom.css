@@ -292,3 +292,12 @@ blockquote code{
     flex-shrink: 0;
     flex-grow: 0;
 }
+
+.toc .toggleNav .navGroup .subNavGroup ul {
+  padding-left: 20px;
+}
+.toc .toggleNav .navGroup .subNavGroup ul .navItem {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
