@@ -13,7 +13,7 @@ title: ATON钱包用户使用手册
 
 <div>
 <div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/aton1.png" width="500" style="padding-bottom:50px;" /></div> <div><br>1. 点击【创建钱包】。<br>2. 选择钱包类型（普通或HD），设置符合规则的钱包名称和钱包密码。<br>3. 点击【创建钱包】按钮即可创建钱包。<br>4. 钱包创建成功后可以点击【钱包备份】开始备份，或者点击【跳过】后续进行备份。<br> <br><b>注意</b><br>1.钱包密码是您操作此钱包的凭证，服务器不会存储您的钱包密码，请务必牢记。<br>2.强烈建议您在创建钱包时即时备份。
-<br>3.点击页面左上角的节点切换按钮可以切换节点。
+<br>3.点击页面左上角的网络名称切换网络。
     <br>4.钱包总数不得超过200（包括所有普通钱包的数量与HD创建的所有子钱包数量）。
 </div>
 <div style="clear:both"></div>
@@ -24,10 +24,11 @@ title: ATON钱包用户使用手册
 
 
 
+
 ## 钱包资产
 
 <div>
-<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/aton2.png" width="300" style="zoom:80%;"  /></div> <div><br>1. 在存在钱包的情况下，钱包资产主页会显示一个有效的钱包及其资产信息。<br>2. ①顶部部分是当前钱包简要信息。<br>3. ②钱包简要信息包含钱包名和钱包地址，以及【切换钱包】按钮。<br>4. ③点击【复制】按钮可以复制当前钱包的地址。<br>5. ④点击【钱包管理】按钮可以对钱包进行管理。<br>6. ⑤顶部左上角显示当前钱包所在节点信息，点击可以切换节点。<br>7. ⑥点击【...】可创建和导入钱包，点击扫一扫可扫描二维码。<br>8. 页面下半部分是【资产列表】。<br>9. ⑦第一条是LAT数据，可以看到单位和余额，点击可以进入LAT资产详情页面。<br>12. ⑧PRC20智能合约数据，可以看到单位和余额，点击可以进入PRC20智能合约资产详情页面。<br>13. “收藏”页签为PRC721智能合约数据，点击可以进入PRC721智能合约资产列表页面。
+<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/aton2.png" width="300" style="zoom:80%;"  /></div> <div><br>1. 在存在钱包的情况下，钱包资产主页会显示一个有效的钱包及其资产信息。<br>2. ①本部分是当前钱包简要信息。<br>3. ②钱包简要信息包含钱包名和钱包地址，以及【切换钱包】按钮。<br>4. ③点击【复制】按钮可以复制当前钱包的地址。<br>5. ④点击【钱包管理】按钮可以对钱包进行管理。<br>6. ⑤顶部左上角显示当前钱包所在网络信息，点击可以切换网络。<br>7. ⑥点击【...】可创建和导入钱包，点击【扫一扫】可扫描二维码。<br>8. 页面下半部分是【资产列表】。<br>9. ⑦第一条是LAT数据，可以看到单位和余额，点击可以进入LAT资产详情页面。<br>10. ⑧PRC20资产，可以看到单位和余额，点击可以进入PRC20资产详情页面。<br>11. “收藏”页签为PRC721资产，点击可以进入PRC721资产列表页面。
 
 
 
@@ -50,25 +51,18 @@ title: ATON钱包用户使用手册
 
 
 
-## PRC20智能合约资产详情
 
-<div>
-<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/alat1.jpg" width="300" style="zoom:80%;"  /></div> <div><br>1. 顶部部分是当前钱包信息。<br>2.钱包信息包含余额、单位，以及【发送】按钮和【接收】按钮。<br>3. 部分钱包拥有发送权限，点击【发送】按钮进入接收页面进行接收转账。<br>4. 点击【接收】按钮进入接收页面进行接收转账。<br>5. 页面下半部分是【交易记录】。<br>6. 页面下半部分是交易记录，点击单条交易记录可以进入交易记录详情。
-
-
-
-
-</div>
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
 
-## PRC721智能合约
+## 收藏集（PRC721）
 
-### PRC721智能合约资产列表
+### 收藏集资产列表
 
 <div>
-<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/paints1.jpg" width="300" style="zoom:80%;"  /></div> <div><br>点击其中一个PRC721资产，可以进入该PRC721资产详情页面。
+<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/paints1.jpg" width="300" style="zoom:80%;"  /></div> <div><br>点击其中一个收藏集资产，可以进入该收藏集详情页面。
+
 
 
 
@@ -81,10 +75,11 @@ title: ATON钱包用户使用手册
 
 </div>
 
-### PRC721智能合约资产详情
+### 收藏集详情
 
 <div>
-<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/paints2.jpg" width="300" style="zoom:80%;"  /></div> <div><br>1. 顶部部分是当前PRC721资产信息。<br>2. 页面下半部分是当前钱包拥有的PRC721资产列表，点击单条资产图片可以进入收藏详情。
+<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/paints2.jpg" width="300" style="zoom:80%;"  /></div> <div><br>1. 顶部部分是当前收藏集资产信息。<br>2. 页面下半部分是当前钱包拥有的收藏品资产列表，点击单条资产图片可以进入收藏品详情。
+
 
 
 
@@ -100,10 +95,11 @@ title: ATON钱包用户使用手册
 
 
 
-### PRC721智能合约收藏品详情
+### 收藏品详情
 
 <div>
-<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/paints3.jpg" width="300" style="zoom:80%;"  /></div> <div><br>1. 顶部部分是当前PRC721智能合约收藏品名称和ID。<br>2. 页面下半部分是当前收藏的详情、最近交易记录。<br>3.底部是发送该收藏品的按钮，点击后，进入发送页面，可以将该收藏品发送给其他地址。
+<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/paints3.jpg" width="300" style="zoom:80%;"  /></div> <div><br>1. 顶部部分是当前收藏品名称和ID。<br>2. 页面下半部分是当前收藏的详情、最近交易记录。<br>3.底部是发送该收藏品的按钮，点击后，进入发送页面，可以将该收藏品发送给其他地址。
+
 
 
 
@@ -117,7 +113,7 @@ title: ATON钱包用户使用手册
 
 
 
-### PRC721智能合约收藏品交易记录
+### 收藏品交易记录
 
 <div>
 <div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/paints4.jpg" width="300" style="zoom:80%;"  /></div> <div><br>1. 点击“最近交易”可以查看到该收藏品的交易记录列表。<br>2. 点击某一条交易记录，可以查看到交易的详情。
@@ -235,25 +231,18 @@ title: ATON钱包用户使用手册
 
 
 
-## 发送PRC20智能合约额度
+
+
+
+## 发送收藏品
 
 <div>
-<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/alat2.png" width="500" style="zoom:80%;" /></div><div><br>1.在PRC20智能合约的钱包资产详情页，点击【发送】栏。<br>2.输入有效的钱包地址，或者扫描钱包二维码进行地址的自动填充，或者通过地址簿选择本地已保存的钱包地址。<br>3.输入发送的PRC20智能合约额度。<br>4.选择交易手续费，可通过点击自由调节更便宜或者更快捷的手续费。<br>5.点击【下一步】，确认交易信息，点击【发送交易】输入正确的钱包密码，即可发送交易至区块链网络。点击【取消】则可取消此次交易。
+<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/paints5.jpg" width="500" style="zoom:80%;" /></div><div><br>1.在收藏品详情页，点击【发送】栏。<br>2.输入有效的钱包地址，或者扫描钱包二维码进行地址的自动填充，或者通过地址簿选择本地已保存的钱包地址。<br>3.选择交易手续费，可通过点击自由调节更便宜或者更快捷的手续费。<br>4.点击【下一步】，确认交易信息，点击【发送交易】输入正确的钱包密码，即可发送交易至区块链网络。
 </div>
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
 
-
-
-## 发送PRC721智能合约收藏品
-
-<div>
-<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/paints5.jpg" width="500" style="zoom:80%;" /></div><div><br>1.在PRC721智能合约的收藏品详情页，点击【发送】栏。<br>2.输入有效的钱包地址，或者扫描钱包二维码进行地址的自动填充，或者通过地址簿选择本地已保存的钱包地址。<br>3.选择交易手续费，可通过点击自由调节更便宜或者更快捷的手续费。<br>4.点击【下一步】，确认交易信息，点击【发送交易】输入正确的钱包密码，即可发送交易至区块链网络。
-</div>
-<div style="clear:both"></div>
-<div style="margin-top:40px;"></div>
-</div>
 
 
 

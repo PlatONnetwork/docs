@@ -5,7 +5,7 @@ title: ATON Wallet User Manual
 
 ## Download
 
-<div> <br/><a href="https://platon.network/developer/?lang=en#aton" target="_blank">Click it to download the latest version of ATON</a>
+<div> <br/><a href="https://www.platon.network/en/developer/#aton" target="_blank">Click it to download the latest version of ATON</a>
 </div>
 <div style = "clear: both"> </div>
 <div style = "margin-top: 41px;"> </div>
@@ -13,7 +13,7 @@ title: ATON Wallet User Manual
 ## Create Wallet
 
 <div>
-<div> <img src = "/docs/img/en/ATON-user-manual.assets/aton1.png"width ="500" /> </div> <div> 1. Click [Create Wallet]. <br> 2.Select "Normal" or "HD". Set the wallet name, and password. <br> 3. Click the [Create] button to create a wallet. <br> 4. After the wallet is successfully created, you can click [Start to Backup] to start the backup, or click [Skip] to do it later. <br> <br> <b> Note </b> <br> 1. Password is your credentials to use and manage the wallet.  Servers of ATON does not store your password,Please make sure you keep it in mind.<br> 2. We strongly recommend you to back up your wallet after it is created. <br> 3. Click the Node Switch button at the upper left corner of the page to switch nodes.<br> 4. Amount of wallets cannot be larger than 200(including all normal wallets and all sub-wallets generated from HD).
+<div> <img src = "/docs/img/en/ATON-user-manual.assets/aton1.png"width ="500" /> </div> <div> 1. Click [Create Wallet]. <br> 2.Select "Normal" or "HD". Set the wallet name, and password. <br> 3. Click the [Create] button to create a wallet. <br> 4. After the wallet is successfully created, you can click [Start to Backup] to start the backup, or click [Skip] to do it later. <br> <br> <b> Note </b> <br> 1. Password is your credentials to use and manage the wallet.  Servers of ATON does not store your password,Please make sure you keep it in mind.<br> 2. We strongly recommend you to back up your wallet after it is created. <br> 3. Click on the network name in the upper left corner of the page to switch networks.<br> 4. Amount of wallets cannot be larger than 200(including all normal wallets and all sub-wallets generated from HD).
 </div>
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
@@ -24,13 +24,10 @@ title: ATON Wallet User Manual
 
 
 
-
-
-
 ##  Wallet Assets
 
 <div>
-<div><img src="/docs/img/en/ATON-user-manual.assets/aton2.png" width="300" style="zoom:80%;"  /></div> <div><br>1. When you successfully created a wallet, you can find the valid wallet and asset info at the Wallet Asset page. <br>2. ①The upper part shows the brief information of the current wallet. <br>3. ②The brief wallet information includes the wallet name and wallet address,and [Switch Wallet] button. <br>4. ③Click the [Copy] button to copy the wallet address. <br>5. ④Click the [Wallet Management] button to manage the wallet. <br>6. ⑤The node information of your wallet is shown at the upper left corner, click it to switch nodes. <br>7. ⑥By Click [...],you can create, import and select wallets, and click "Scan" to scan the QR code. <br>8. The lower part of the page is [assets List]. <br>9. ⑦The first item is the LAT data, you can see the unit and balance, click it to enter the LAT assets details page. <br>10. ⑧The PRC20 smart contract data, you can see the unit and balance, click it to enter the PRC20 smart contract assets details page.
+<div><img src="/docs/img/en/ATON-user-manual.assets/aton2.png" width="300" style="zoom:80%;"  /></div> <div><br>1. When you successfully created a wallet, you can find the valid wallet and asset info at the Wallet Asset page. <br>2. ①The upper part shows the brief information of the current wallet. <br>3. ②The brief wallet information includes the wallet name and wallet address,and [Switch Wallet] button. <br>4. ③Click the [Copy] button to copy the wallet address. <br>5. ④Click the [Wallet Management] button to manage the wallet. <br>6. ⑤The network information of the current wallet is displayed at the top left corner, click to switch networks. <br>7. ⑥By Click [...],you can create, import and select wallets, and click "Scan" to scan the QR code. <br>8. The lower part of the page is [assets List]. <br>9. ⑦The first item is the LAT data, you can see the unit and balance, click it to enter the LAT assets details page. <br>10. ⑧The PRC20 assets, you can see the unit and balance, click it to enter the PRC20 assets details page.<br>11.The "Collectibles" tab is for PRC721 assets, click on it to go to the PRC721 assets list page.
 
 
 
@@ -46,51 +43,36 @@ title: ATON Wallet User Manual
 ## LAT Assets Detail
 
 <div>
-<div><img src="/docs/img/en/ATON-user-manual.assets/aton3.png" width="300" style="zoom:80%;"  /></div> <div><br>1.The upper part is the current wallet information. <br>2. The wallet information includes the balance, unit and locked balance, as well as the [Send] button and [Receive] button. <br>3.Click the [Send] button to jump to the sending page for transfer. <br>4.Click the [Receive] button to enter the receiving page to receive the transfer. <br>5. The lower part of the page is [Transactions]. <br>6.The lower part of the page is the transaction records, click on a transaction record, you can get more transaction details .
+<div><img src="/docs/img/en/ATON-user-manual.assets/aton3.png" width="300" style="zoom:80%;"  /></div> <div><br>1.The upper part is the current wallet information. <br>2. The wallet information includes the balance, unit and locked-up balance, as well as the [Send] button and [Receive] button. <br>3.Click the [Send] button to jump to the sending page for transfer. <br>4.Click the [Receive] button to enter the receiving page to receive the transfer. <br>5. The lower part of the page is [Transactions]. <br>6.The lower part of the page is the transaction records, click on a transaction record, you can get more transaction details .
 
 
 
 
 
-
-
-</div>
 
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
 
+## Collectibles（PRC721）
 
-## PRC20 Smart Contract Asset 
+### Collectible Set List
 
 <div>
-<div><img src="/docs/img/en/ATON-user-manual.assets/alat1.png" width="300" style="zoom:80%;"  /></div> <div><br>1. The upper part is the wallet information of the current wallet. <br>2. The wallet information includes balance, unit, and [Send] button and [Receive] button. <br>3. Some wallets have sending permission, click the [Send] button to enter the receiving page to receive the transfer. <br>4. Click the [Receive] button to enter the receiving page to receive the transfer. <br>5. The lower part of the page is [Transaction History]. <br>6. The lower part of the page is the transaction record, click on a single transaction record to enter the transaction record details.</div>
+<div><img src="/docs/img/en/ATON-user-manual.assets/paints1.jpg" width="300" style="zoom:80%;"  /></div> <div><br>Click a Collectible Set to the page of Collectible Set Detail.
 
 
 
 
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
+
 </div>
 
-## PRC721 Smart Contract
-
-### PRC721 Smart Contract Collectible Set List
+### Collectible Set Detail
 
 <div>
-<div><img src="/docs/img/en/ATON-user-manual.assets/paints1.jpg" width="300" style="zoom:80%;"  /></div> <div><br>Click a PRC721 Collectible Set to the page of PRC721 Collectible Set Detail.
-
-
-
-<div style="clear:both"></div>
-<div style="margin-top:40px;"></div>
-
-</div>
-
-### PRC721 Smart Contract Collectible Set Detail
-
-<div>
-<div><img src="/docs/img/en/ATON-user-manual.assets/paints2.jpg" width="300" style="zoom:80%;"  /></div> <div><br>1. At the top is the introduction about current shown PRC721 Collectible Set.<br>2. The rest part are PRC721 Collectibles belong to current wallet. Click a picture of Collectible to the page of Collectible Detail.
+<div><img src="/docs/img/en/ATON-user-manual.assets/paints2.jpg" width="300" style="zoom:80%;"  /></div> <div><br>1. At the top is the introduction about current shown Collectible Set.<br>2. The rest part are Collectibles belong to current wallet. Click a picture of Collectible to the page of Collectible Detail.
 
 
 
@@ -105,7 +87,7 @@ title: ATON Wallet User Manual
 
 
 
-### PRC721 Smart Contract Collectible Detail
+### Collectible Detail
 
 <div>
 <div><img src="/docs/img/en/ATON-user-manual.assets/paints3.jpg" width="300" style="zoom:80%;"  /></div> <div><br>1. Top of this page is current collectible's name and ID.<br>2. Middle part contains the detail and tradings of this collectible.<br>3. At the bottom is the button for sending this collectible. To send this collectible to another address on sending page by clicking this button.
@@ -120,7 +102,7 @@ title: ATON Wallet User Manual
 
 
 
-### PRC721 Smart Contract Collectible Tradings' Record
+### Collectible Tradings' Record
 
 <div>
 <div><img src="/docs/img/en/ATON-user-manual.assets/paints4.jpg" width="300" style="zoom:80%;"  /></div> <div><br>1. After clicking Recent Trading tag, you can see the list of tradings of current collectible.<br>2. Click one of these records to see trading detail.
@@ -246,18 +228,13 @@ For details about importing observed wallets, please refer to the instructions o
 
 
 
-## Send PRC20 Smart Contract Quota
-
-<div>
-<div> <img src = "/docs/img/en/ATON-user-manual.assets/alat2.png "width ="500"style="zoom:80%;" /> </div> <div> <br> 1. On the wallet asset details page of the PRC20 smart contract wallet, click the [Send] button.  <br> 2. Enter a valid wallet address, or scan the QR code of the wallet to automatically fill in the address, or select a locally saved wallet address through the address book.<br>3. Enter the amount of PRC20 smart contract quota to be sent. <br> 4. Choose the transaction fee, and you can click to adjust it to be lower or higher.<br> 5.Click the [Next] button to confirm the transaction information, and click the [Send Transaction] button and enter the correct wallet password to send the transaction to the blockchain network. Click the [Cancel] button to cancel this transaction.
-</div>
-<div style="clear:both"></div>
-<div style="margin-top:40px;"></div>
-</div>
 
 
 
-## Send PRC721 Smart Contract Collectible
+
+
+
+## Send Collectible
 
 <div>
 <div><img src="/docs/img/en/ATON-user-manual.assets/paints5.jpg" width="500" style="zoom:80%;" /></div><div><br>1. On the page of Collectible Detail, click the [Send] button.<br>2. Type in valid  wallet address, or scan the QR code of the wallet to automatically fill in the address, or select a locally saved wallet address through the address book.<br>3. Choose the transaction fee, and you can click to adjust it to be lower or higher.<br>4. Click the [Next] button to confirm the transaction information, and click the [Send Transaction] button and enter the correct wallet password to send the transaction to the blockchain network. Click the [Cancel] button to cancel this transaction.
@@ -305,11 +282,12 @@ For details about importing observed wallets, please refer to the instructions o
 <div>
 <div><img src = "/docs/img/en/ATON-user-manual.assets/aton14.jpg "width =" 300 " style="zoom:80%;" /> </div><div><br>1. Select a validator, you can check the related profit informaiton, like expected delegation annualized yield, reward ratio and total reward.
 <br>2. Also you can check the basic information of validators, such as delegators, blocks info, etc.
-<br>3. If you want to delegate your LAT to this validator, you can click the [Delegate] button to start it. <br><br><b>Note:</b><br>1. The validators funded by Foundation do not accept delegations.<br>2. The locked validators not accept delegation
+<br>3. If you want to delegate your LAT to this validator, you can click the [Delegate] button to start it. <br><br><b>Note:</b><br>1. The validators funded by Foundation do not accept delegations.<br>2. The "locked validators" not accept delegation
 </div>
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
+
 
 
 
@@ -320,11 +298,12 @@ For details about importing observed wallets, please refer to the instructions o
 ### **Participate in** **Delegation**
 
 <div>
-<div> <img src = "/docs/img/en/ATON-user-manual.assets/aton15.png "width =" 300 " style="zoom:80%;" /> </div> <div> <br> 1.Select a validator to delegate. If you’ve delegated, then you can check your delegation details via: [Delegate] - [My Delegations]-[Delegation Rec], and then select one validator to continue delegation.<br> 2.Select the wallet you want to delegrate. <br> 3. You can select restricted balance to delegate if there is. <br> 4. Enter the amount, and  it must not be less than 10LAT. <br> 5. Enter the correct password.<br> 6.You can delegate to the  nodes you’ve delegated, no limit to the delegation times.<br> <br> <b> Note </b> <br> 1.Delegators delegates LAT to validtaors, when the delegated validators get profit, delegators will win the profits according to the delegation ratio set by validators;<br>2. The wallet address connected to profit validators can’t be used to delegate.<br>3. The delegated LAT will be valid at the next settlement interval.
+<div> <img src = "/docs/img/en/ATON-user-manual.assets/aton15.png "width =" 300 " style="zoom:80%;" /> </div> <div> <br> 1.Select a validator to delegate. If you’ve delegated, then you can check your delegation details via: [Delegate] - [My Delegations]-[Delegation Rec], and then select one validator to continue delegation.<br> 2.Select the wallet you want to delegrate. <br> 3. You can select locked-up balance to delegate if there is. <br> 4. Enter the amount, and  it must not be less than 10LAT. <br> 5. Enter the correct password.<br> 6.You can delegate to the nodes you’ve delegated, no limit to the delegation times.<br> <br> <b> Note </b> <br> 1.Delegators delegates LAT to validtaors, when the delegated validators get profit, delegators will win the profits according to the delegation ratio set by validators;<br>2. The wallet address connected to profit validators can’t be used to delegate.<br>3. The delegated LAT will be valid at the next settlement interval.
 </div>
 <div style="clear:both"></div>
 <div style="margin-top:40px;"></div>
 </div>
+
 
 
 
