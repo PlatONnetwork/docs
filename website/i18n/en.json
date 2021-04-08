@@ -60,11 +60,11 @@
         "title": "Python SDK",
         "sidebar_label": "Python SDK"
       },
-      "Solidity_Development_Manual": {
+      "Solidity_Dev_Manual": {
         "title": "Development Manual",
         "sidebar_label": "Development Manual"
       },
-      "Solidity_Contract_Security_Development_Guide": {
+      "Solidity_Contract_Security_Dev_Guide": {
         "title": "Security Development Guide",
         "sidebar_label": "Security Development Guide"
       },
@@ -72,7 +72,7 @@
         "title": "Best Practice",
         "sidebar_label": "Best Practice"
       },
-      "Solidity_Contract_Development_Costs": {
+      "Solidity_Contract_Dev_Costs": {
         "title": "Development Costs",
         "sidebar_label": "Development Costs"
       },
@@ -80,7 +80,7 @@
         "title": "Migrate",
         "sidebar_label": "Migrate"
       },
-      "Wasm_Development_Manual": {
+      "Wasm_Dev_Manual": {
         "title": "Development Manual",
         "sidebar_label": "Development Manual"
       },
@@ -92,7 +92,7 @@
         "title": "Best Practice",
         "sidebar_label": "Best Practice"
       },
-      "Wasm_Contract_Development_Costs": {
+      "Wasm_Contract_Dev_Costs": {
         "title": "Development Costs",
         "sidebar_label": "Development Costs"
       },
@@ -158,18 +158,5 @@
       "Wallet": "Wallet",
       "Community Projects": "Community Projects"
     }
-  },
-  "pages-strings": {
-    "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",
-    "Browse Docs|no description given": "Browse Docs",
-    "Ask questions about the documentation and project|no description given": "Ask questions about the documentation and project",
-    "Join the community|no description given": "Join the community",
-    "Find out what's new with this project|no description given": "Find out what's new with this project",
-    "Stay up to date|no description given": "Stay up to date",
-    "Need help?|no description given": "Need help?",
-    "This project is maintained by a dedicated group of people.|statement made to reader": "This project is maintained by a dedicated group of people.",
-    "Help Translate|recruit community translators for your project": "Help Translate",
-    "Edit this Doc|recruitment message asking to edit the doc source": "Edit",
-    "Translate this Doc|recruitment message asking to translate the docs": "Translate"
   }
 }

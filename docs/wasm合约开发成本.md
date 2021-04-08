@@ -1,5 +1,5 @@
 ---
-id: Wasm_Contract_Development_Costs
+id: Wasm_Contract_Dev_Costs
 title: Development Costs
 sidebar_label: Development Costs
 ---

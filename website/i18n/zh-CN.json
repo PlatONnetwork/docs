@@ -5,14 +5,6 @@
 		"previous": "Previous",
 		"tagline": "PlatON",
 		"docs": {
-			"ATON-user-manual": {
-				"title": "ATON钱包用户使用手册",
-				"sidebar_label": "ATON钱包用户使用手册"
-			},
-			"Third_Party_Walle": {
-				"title": "第三方钱包",
-				"sidebar_label": "第三方钱包"
-			},
 			"community": {
 				"title": "社区项目",
 				"sidebar_label": "社区项目"
@@ -69,11 +61,11 @@
 				"title": "Python SDK",
 				"sidebar_label": "Python SDK"
 			},
-			"Solidity_Development_Manual": {
+			"Solidity_Dev_Manual": {
 				"title": "合约入门手册",
 				"sidebar_label": "合约入门手册"
 			},
-			"Solidity_Contract_Security_Development_Guide": {
+			"Solidity_Contract_Security_Dev_Guide": {
 				"title": "合约安全开发指南",
 				"sidebar_label": "合约安全开发指南"
 			},
@@ -81,7 +73,7 @@
 				"title": "合约开发最佳实践",
 				"sidebar_label": "合约开发最佳实践"
 			},
-			"Solidity_Contract_Development_Costs": {
+			"Solidity_Contract_Dev_Costs": {
 				"title": "合约开发成本",
 				"sidebar_label": "合约开发成本"
 			},
@@ -89,7 +81,7 @@
 				"title": "合约迁移教程",
 				"sidebar_label": "合约迁移教程"
 			},
-			"Wasm_Development_Manual": {
+			"Wasm_Dev_Manual": {
 				"title": "合约入门手册",
 				"sidebar_label": "合约入门手册"
 			},
@@ -101,7 +93,7 @@
 				"title": "合约开发最佳实践",
 				"sidebar_label": "合约开发最佳实践"
 			},
-			"Wasm_Contract_Development_Costs": {
+			"Wasm_Contract_Dev_Costs": {
 				"title": "合约开发成本",
 				"sidebar_label": "合约开发成本"
 			},
@@ -141,6 +133,10 @@
 				"title": "源码安装PlatON",
 				"sidebar_label": "源码安装PlatON"
 			},
+			"ATON-user-manual": {
+				"title": "ATON钱包用户使用手册",
+				"sidebar_label": "ATON钱包用户使用手册"
+			},
 			"Third_Party_Walle": {
 				"title": "第三方钱包",
 				"sidebar_label": "第三方钱包"
@@ -165,18 +161,5 @@
 			"Wallet": "钱包",
 			"Community Projects": "社区"
 		}
-	},
-	"pages-strings": {
-		"Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",
-		"Browse Docs|no description given": "Browse Docs",
-		"Ask questions about the documentation and project|no description given": "Ask questions about the documentation and project",
-		"Join the community|no description given": "Join the community",
-		"Find out what's new with this project|no description given": "Find out what's new with this project",
-		"Stay up to date|no description given": "Stay up to date",
-		"Need help?|no description given": "Need help?",
-		"This project is maintained by a dedicated group of people.|statement made to reader": "This project is maintained by a dedicated group of people.",
-		"Help Translate|recruit community translators for your project": "Help Translate",
-		"Edit this Doc|recruitment message asking to edit the doc source": "Edit",
-		"Translate this Doc|recruitment message asking to translate the docs": "Translate"
 	}
 }

@@ -1,5 +1,5 @@
 ---
-id: Wasm_Development_Manual
+id: Wasm_Dev_Manual
 title: Development Manual
 sidebar_label: Development Manual
 ---
@@ -415,9 +415,9 @@ Description：
        };
       ```
     ```
-   
+      
     - It is recommended to use a specialized type of `StorageType` directly
-   
+      
       + Uint8
       + Int8
       + Uint16

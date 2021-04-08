@@ -1,5 +1,5 @@
 ---
-id: Solidity_Development_Manual
+id: Solidity_Dev_Manual
 title: Development Manual
 sidebar_label: Development Manual
 ---

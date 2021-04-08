@@ -1,5 +1,5 @@
 ---
-id: Solidity_Contract_Security_Development_Guide
+id: Solidity_Contract_Security_Dev_Guide
 title: 合约安全开发指南
 sidebar_label: 合约安全开发指南
 ---

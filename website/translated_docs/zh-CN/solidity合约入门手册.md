@@ -1,5 +1,5 @@
 ---
-id: Solidity_Development_Manual
+id: Solidity_Dev_Manual
 title: 合约入门手册
 sidebar_label: 合约入门手册
 ---

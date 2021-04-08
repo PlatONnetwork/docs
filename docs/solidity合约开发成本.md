@@ -1,5 +1,5 @@
 ---
-id: Solidity_Contract_Development_Costs
+id: Solidity_Contract_Dev_Costs
 title: Development Costs
 sidebar_label: Development Costs
 ---

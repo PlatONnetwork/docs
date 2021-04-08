@@ -1,5 +1,5 @@
 ---
-id: Wasm_Development_Manual
+id: Wasm_Dev_Manual
 title: 合约入门手册
 sidebar_label: 合约入门手册
 ---
