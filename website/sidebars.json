@@ -30,14 +30,21 @@
 				"type": "subcategory",
 				"label": "Solidity Contract",
 				"ids": [
-					"EVM_Smart_Contract"
+					"Solidity_Development_Manual",
+					"Solidity_Contract_Migrate",
+					"Solidity_Contract_Development_Costs",
+					"Solidity_Contract_Best_Practice",
+					"Solidity_Contract_Security_Development_Guide"
 				]
 			},
 			{
 				"type": "subcategory",
 				"label": "Wasm Contract",
 				"ids": [
-					"WASM_Smart_Contract"
+					"Wasm_Development_Manual",
+					"Wasm_Contract_Development_Costs",
+					"Wasm_Contract_Best_Practice",
+					"Wasm_Contract_API"
 				]
 			}
 		],

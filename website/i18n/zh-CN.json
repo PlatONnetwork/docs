@@ -61,33 +61,49 @@
 				"title": "PlatON验证节点介绍",
 				"sidebar_label": "PlatON验证节点介绍"
 			},
-			"Network_Description": {
-				"title": "网络说明",
-				"sidebar_label": "网络说明"
+			"Command_Line_Tools": {
+				"title": "PlatON命令行工具",
+				"sidebar_label": "PlatON命令行工具"
 			},
-			"Become_PlatON_Main_Verification": {
-				"title": "成为主网验证节点",
-				"sidebar_label": "成为主网验证节点"
+			"Python_SDK": {
+				"title": "Python SDK",
+				"sidebar_label": "Python SDK"
 			},
-			"Become_PlatON_Dev_Verification": {
-				"title": "成为开发网验证节点",
-				"sidebar_label": "成为开发网验证节点"
+			"Solidity_Development_Manual": {
+				"title": "合约入门手册",
+				"sidebar_label": "合约入门手册"
 			},
-			"Verifiable_Computation": {
-				"title": "可验证计算",
-				"sidebar_label": "可验证计算"
+			"Solidity_Contract_Security_Development_Guide": {
+				"title": "合约安全开发指南",
+				"sidebar_label": "合约安全开发指南"
 			},
-			"Secure_Multi_Party_Computation": {
-				"title": "安全多方计算",
-				"sidebar_label": "安全多方计算"
+			"Solidity_Contract_Best_Practice": {
+				"title": "合约开发最佳实践",
+				"sidebar_label": "合约开发最佳实践"
 			},
-			"Install_Node": {
-				"title": "安装一个节点",
-				"sidebar_label": "安装一个节点"
+			"Solidity_Contract_Development_Costs": {
+				"title": "合约开发成本",
+				"sidebar_label": "合约开发成本"
 			},
-			"Become_Verification_Node": {
-				"title": "成为验证节点",
-				"sidebar_label": "成为验证节点"
+			"Solidity_Contract_Migrate": {
+				"title": "合约迁移教程",
+				"sidebar_label": "合约迁移教程"
+			},
+			"Wasm_Development_Manual": {
+				"title": "合约入门手册",
+				"sidebar_label": "合约入门手册"
+			},
+			"Wasm_Contract_API": {
+				"title": "合约API",
+				"sidebar_label": "合约API"
+			},
+			"Wasm_Contract_Best_Practice": {
+				"title": "合约开发最佳实践",
+				"sidebar_label": "合约开发最佳实践"
+			},
+			"Wasm_Contract_Development_Costs": {
+				"title": "合约开发成本",
+				"sidebar_label": "合约开发成本"
 			},
 			"EVM_Smart_Contract": {
 				"title": "EVM智能合约",
@@ -97,21 +113,41 @@
 				"title": "WASM智能合约",
 				"sidebar_label": "WASM智能合约"
 			},
-			"Install_PlatON": {
-				"title": "源码安装PlatON",
-				"sidebar_label": "源码安装PlatON"
+			"PlatON_BlockChain_Browser": {
+				"title": "区块链浏览器",
+				"sidebar_label": "区块链浏览器介绍"
+			},
+			"Verifiable_Computation": {
+				"title": "可验证计算",
+				"sidebar_label": "可验证计算"
+			},
+			"Secure_Multi_Party_Computation": {
+				"title": "安全多方计算",
+				"sidebar_label": "安全多方计算"
+			},
+			"Become_PlatON_Main_Verification": {
+				"title": "成为主网验证节点",
+				"sidebar_label": "成为主网验证节点"
+			},
+			"Become_PlatON_Dev_Verification": {
+				"title": "成为开发网验证节点",
+				"sidebar_label": "成为开发网验证节点"
 			},
 			"Build_Private_Chain": {
 				"title": "部署私有测试网",
 				"sidebar_label": "部署私有测试网"
 			},
-			"Command_Line_Tools": {
-				"title": "PlatON命令行工具",
-				"sidebar_label": "PlatON命令行工具"
+			"Install_PlatON": {
+				"title": "源码安装PlatON",
+				"sidebar_label": "源码安装PlatON"
 			},
-			"PlatON_BlockChain_Browser": {
-				"title": "区块链浏览器",
-				"sidebar_label": "区块链浏览器介绍"
+			"Third_Party_Walle": {
+				"title": "第三方钱包",
+				"sidebar_label": "第三方钱包"
+			},
+			"Network_Description": {
+				"title": "网络说明",
+				"sidebar_label": "网络说明"
 			}
 		},
 		"links": {},
@@ -129,5 +165,18 @@
 			"Wallet": "钱包",
 			"Community Projects": "社区"
 		}
+	},
+	"pages-strings": {
+		"Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",
+		"Browse Docs|no description given": "Browse Docs",
+		"Ask questions about the documentation and project|no description given": "Ask questions about the documentation and project",
+		"Join the community|no description given": "Join the community",
+		"Find out what's new with this project|no description given": "Find out what's new with this project",
+		"Stay up to date|no description given": "Stay up to date",
+		"Need help?|no description given": "Need help?",
+		"This project is maintained by a dedicated group of people.|statement made to reader": "This project is maintained by a dedicated group of people.",
+		"Help Translate|recruit community translators for your project": "Help Translate",
+		"Edit this Doc|recruitment message asking to edit the doc source": "Edit",
+		"Translate this Doc|recruitment message asking to translate the docs": "Translate"
 	}
 }
