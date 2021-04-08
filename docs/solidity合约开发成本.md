@@ -15,7 +15,7 @@ In a blockchain system, developing smart contracts based on any public chain sys
 
 ### Summary
 
-This article will use a table to compare different development costs of small, medium and large contracts, and compare PlatON with Ethereum. In terms of contracts, a simple `SET/GET` function contract is used as a small test contract. The medium-sized contract example will use an open source([eth-tweet](https://github.com/yep/eth-tweet)) contract The large contract is a smart contract that complies with the ERC20 standard.
+This article will use a table to compare different development costs of small, medium and large contracts, and compare PlatON with Ethereum. In terms of contracts, a simple `SET/GET` function contract is used as a small test contract. The medium-sized contract example will use an open source([eth-tweet](https://github.com/yep/eth-tweet)) contract The large contract is a smart contract that complies with the PRC20 standard.
 
 
 #### Data Overview
@@ -36,7 +36,7 @@ This article will use a table to compare different development costs of small, m
 | Ethereum | Medium-sized   | 2.08 kb | 621385  | 5,000,000,000 `wei` | 3106925 `Gwei` | 0.003106925 `ETH` |
 
 
-**ERC20 Token Contract**
+**PRC20 Token Contract**
 
 | Platform | Contract Level | Size    | GasUsed | GasPrice            | Amount          | Remark            |
 | :------- | :------------- | :------ | :------ | :------------------ | :-------------- | :---------------- |
@@ -126,7 +126,7 @@ Ethereum
 
 ### Large-sized Contract
 
-#### ERC20 Token Contract
+#### PRC20 Token Contract
 
 **Sample Code**
 

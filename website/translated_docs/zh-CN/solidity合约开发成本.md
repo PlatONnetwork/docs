@@ -15,7 +15,7 @@ sidebar_label: 合约开发成本
 
 ### 概要
 
-本文将用表格的形式对比小型合约、中型合约和大型合约的不同开发成本，同时对 `PlatON` 与以太坊之间进行对比。在合约方面，使用一个简单的`SET/GET`功能的合约作为小型测试合约，中型合约示例将使用一个开源的[微博客](https://github.com/yep/eth-tweet)合约，而大型合约则是一个符合 `ERC20` 标准的智能合约。
+本文将用表格的形式对比小型合约、中型合约和大型合约的不同开发成本，同时对 `PlatON` 与以太坊之间进行对比。在合约方面，使用一个简单的`SET/GET`功能的合约作为小型测试合约，中型合约示例将使用一个开源的[微博客](https://github.com/yep/eth-tweet)合约，而大型合约则是一个符合 `PRC20` 标准的智能合约。
 
 
 #### 资源消耗
@@ -36,7 +36,7 @@ sidebar_label: 合约开发成本
 | Ethereum | 中型合约 | 2.08 kb  | 621385  | 5,000,000,000 `wei` | 3106925 `Gwei` | 0.003106925 `ETH` |
 
 
-**ERC20标准Token**
+**PRC20标准Token**
 
 | 系统     | 合约级别 | 合约大小 | 消耗Gas | Gas 单价            | 能量损耗        | 备注              |
 | :------- | :------- | :------- | :------ | :------------------ | :-------------- | :---------------- |
@@ -126,11 +126,11 @@ PlatON
 
 ### 大型合约示例
 
-#### ERC20标准token合约
+#### PRC20标准token合约
 
 **示例代码**
 
-[点击查看ERC20标准的智能合约](https://github.com/PlatONnetwork/Docs/blob/master/zh-cn/Development/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/token.sol)
+[点击查看PRC20标准的智能合约](https://github.com/PlatONnetwork/Docs/blob/master/zh-cn/Development/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/token.sol)
 
 
 字节码
