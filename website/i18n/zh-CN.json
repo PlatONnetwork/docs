@@ -144,6 +144,10 @@
 			"Network_Description": {
 				"title": "网络说明",
 				"sidebar_label": "网络说明"
+			},
+			"Built-in_contract": {
+				"title": "内置合约",
+				"sidebar_label": "内置合约"
 			}
 		},
 		"links": {},
