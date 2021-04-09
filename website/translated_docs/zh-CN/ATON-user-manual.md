@@ -1,6 +1,6 @@
 ---
 id: ATON-user-manual
-title: ATON钱包用户使用手册
+title: ATON钱包
 ---
 
 ## ATON 下载
