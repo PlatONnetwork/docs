@@ -231,11 +231,11 @@ platon_mtool account balance -a $address --config $PLATON_MTOOLDIR/validator/val
 
 > a: wallet address
 
-### Create a new restricting plans
+### Create a new Lockup plans
 
-Creating a new restricting plan, node's LATs will be transferred to a specified precompiled contract. The LATs will be transferred to the specified account multiple times at specified intervals. Before creating a new restricting, you need to create a restricting plan description file in json format.
+Creating a new Lockup plan, node's LATs will be transferred to a specified precompiled contract. The LATs will be transferred to the specified account multiple times at specified intervals. Before creating a new Lockup plan, you need to create a Lockup plan description file in json format.
 
-- restricting plan description file，retricting_plans.json
+- Lockup plan description file，retricting_plans.json
 
 ```json
 {
@@ -267,7 +267,7 @@ platon_mtool create_restricting --config $PLATON_MTOOLDIR/validator/validator_co
 >
 > keytore: wallet file
 >
-> file: restricting plan description file
+> file: Lockup plan description file
 
 
 ### Initiate a staking operation

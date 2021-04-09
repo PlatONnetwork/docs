@@ -1051,11 +1051,11 @@ platon.sendRawTransaction(signTransaction，private-key)
 
  #### 7.获取hrp
 
-~~~
+```
 w3 = Web3(HTTPProvider("http://localhost:6789"))
 platon = PlatON(w3)
 print(platon.getAddressHrp)
-~~~
+```
 
 
 
@@ -1468,20 +1468,20 @@ print(topic_param)
 
 #### 1.staking
 
-~~~
+```
 from client_sdk_python import Web3, HTTPProvider
 from client_sdk_python.ppos import Ppos
 w3 = Web3(HTTPProvider("http://localhost:6789"))
 ppos = Ppos(w3)
-~~~
+```
 
 ##### 发起质押
 
 - 调用方式
 
-~~~
+```
 ppos.createStaking(benifit_address, node_id, external_id, node_name, website, details, amount,program_version,program_version_sign, bls_pubkey, bls_proof, pri_key, reward_per, typ=2, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -1513,9 +1513,9 @@ ppos.createStaking(benifit_address, node_id, external_id, node_name, website, de
 
 - 调用方式
 
-~~~
+```
 ppos.editCandidate(benifit_address, node_id, external_id, node_name, website, details, pri_key, reward_per, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -1539,9 +1539,9 @@ ppos.editCandidate(benifit_address, node_id, external_id, node_name, website, de
 
 - 调用方式
 
-~~~
+```
 ppos.increaseStaking(node_id, amount, pri_key, typ=2, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -1561,9 +1561,9 @@ ppos.increaseStaking(node_id, amount, pri_key, typ=2, transaction_cfg=None)
 
 - 调用方式
 
-~~~
+```
 ppos.withdrewStaking(node_id, pri_key, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -1583,9 +1583,9 @@ ppos.withdrewStaking(node_id, pri_key, transaction_cfg=None)
 
 - 调用方式
 
-~~~
+```
 ppos.delegate(typ, node_id, amount, pri_key, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -1605,9 +1605,9 @@ ppos.delegate(typ, node_id, amount, pri_key, transaction_cfg=None)
 
 - 调用方式
 
-~~~
+```
 ppos.withdrewDelegate(staking_blocknum, node_id, amount, pri_key, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -1627,9 +1627,9 @@ ppos.withdrewDelegate(staking_blocknum, node_id, amount, pri_key, transaction_cf
 
 - 调用方式
 
-~~~
+```
 ppos.withdrawDelegateReward(pri_key, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -1648,9 +1648,9 @@ ppos.withdrawDelegateReward(pri_key, transaction_cfg=None)
 
 - 调用方式
 
-~~~
+```
 ppos.getVerifierList(from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -1660,9 +1660,9 @@ ppos.getVerifierList(from_address=None)
 
 - 调用方式
 
-~~~
+```
 ppos.getValidatorList(from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -1672,9 +1672,9 @@ ppos.getValidatorList(from_address=None)
 
 - 调用方式
 
-~~~
+```
 ppos.getCandidateList(from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -1684,9 +1684,9 @@ ppos.getCandidateList(from_address=None)
 
 - 调用方式
 
-~~~
+```
 ppos.getRelatedListByDelAddr(del_addr, from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -1697,9 +1697,9 @@ ppos.getRelatedListByDelAddr(del_addr, from_address=None)
 
 - 调用方式
 
-~~~
+```
 ppos.getDelegateInfo(staking_blocknum, del_address, node_id, from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -1712,9 +1712,9 @@ ppos.getDelegateInfo(staking_blocknum, del_address, node_id, from_address=None)
 
 - 调用方式
 
-~~~
+```
 ppos.getCandidateInfo(node_id, from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -1725,9 +1725,9 @@ ppos.getCandidateInfo(node_id, from_address=None)
 
 - 调用方式
 
-~~~
+```
 ppos.getPackageReward(from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -1737,9 +1737,9 @@ ppos.getPackageReward(from_address=None)
 
 - 调用方式
 
-~~~
+```
 ppos.getStakingReward(from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -1749,9 +1749,9 @@ ppos.getStakingReward(from_address=None)
 
 - 调用方式
 
-~~~
+```
 ppos.getAvgPackTime(from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -1761,9 +1761,9 @@ ppos.getAvgPackTime(from_address=None)
 
 - 调用方式
 
-~~~
+```
 ppos.getDelegateReward(address, node_ids=[])
-~~~
+```
 
 - 参数说明
 
@@ -1777,9 +1777,9 @@ ppos.getDelegateReward(address, node_ids=[])
 
 - 调用方式
 
-~~~
+```
 ppos.reportDuplicateSign(typ, data, pri_key, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -1798,9 +1798,9 @@ ppos.reportDuplicateSign(typ, data, pri_key, transaction_cfg=None)
 
 - 调用方式
 
-~~~
+```
 ppos.checkDuplicateSign(typ, node_id, block_number, from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -1815,9 +1815,9 @@ ppos.checkDuplicateSign(typ, node_id, block_number, from_address=None)
 
 - 调用方式
 
-~~~
+```
 ppos.createRestrictingPlan(account, plan, pri_key, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -1846,9 +1846,9 @@ ppos.createRestrictingPlan(account, plan, pri_key, transaction_cfg=None)
 
 - 调用方式
 
-~~~
+```
 ppos.getRestrictingInfo(account, from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -1857,20 +1857,20 @@ ppos.getRestrictingInfo(account, from_address=None)
 
 #### 6.治理
 
-~~~
+```
 from client_sdk_python import Web3, HTTPProvider
 from client_sdk_python.pip import Pip
 w3 = Web3(HTTPProvider("http://localhost:6789"))
 pip = Pip(w3)
-~~~
+```
 
 ##### 文本提案
 
 - 调用方式
 
-~~~
+```
 pip.submitText(verifier, pip_id, pri_key, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -1889,9 +1889,9 @@ pip.submitText(verifier, pip_id, pri_key, transaction_cfg=None)
 
 - 调用方式
 
-~~~
+```
 pip.submitVersion(verifier, pip_id, new_version, end_voting_rounds, pri_key, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -1918,9 +1918,9 @@ pip.submitVersion(verifier, pip_id, new_version, end_voting_rounds, pri_key, tra
 
 - 调用方式
 
-~~~
+```
 pip.submitParam(verifier, pip_id, module, name, new_value, pri_key, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -1942,9 +1942,9 @@ pip.submitParam(verifier, pip_id, module, name, new_value, pri_key, transaction_
 
 - 调用方式
 
-~~~
+```
 pip.submitCancel(verifier, pip_id, end_voting_rounds, tobe_canceled_proposal_id, pri_key, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -1968,9 +1968,9 @@ pip.submitCancel(verifier, pip_id, end_voting_rounds, tobe_canceled_proposal_id,
 
 - 调用方式
 
-~~~
+```
 pip.vote(verifier, proposal_id, option, program_version, version_sign, pri_key, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -1992,9 +1992,9 @@ pip.vote(verifier, proposal_id, option, program_version, version_sign, pri_key, 
 
 - 调用方式
 
-~~~
+```
 pip.declareVersion(active_node, program_version, version_sign, pri_key, transaction_cfg=None)
-~~~
+```
 
 - 参数说明
 
@@ -2014,9 +2014,9 @@ pip.declareVersion(active_node, program_version, version_sign, pri_key, transact
 
 - 调用方式
 
-~~~
+```
 pip.getProposal(proposal_id, from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -2027,9 +2027,9 @@ pip.getProposal(proposal_id, from_address=None)
 
 - 调用方式
 
-~~~
+```
 pip.getTallyResult(proposal_id, from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -2040,9 +2040,9 @@ pip.getTallyResult(proposal_id, from_address=None)
 
 - 调用方式
 
-~~~
+```
 pip.getAccuVerifiersCount(proposal_id, block_hash, from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -2054,9 +2054,9 @@ pip.getAccuVerifiersCount(proposal_id, block_hash, from_address=None)
 
 - 调用方式
 
-~~~
+```
 pip.listProposal(from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -2066,9 +2066,9 @@ pip.listProposal(from_address=None)
 
 - 调用方式
 
-~~~
+```
 pip.getActiveVersion(from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -2078,9 +2078,9 @@ pip.getActiveVersion(from_address=None)
 
 - 调用方式
 
-~~~
+```
 pip.getGovernParamValue(module, name, from_address=None)
-~~~
+```
 
 - 参数说明
 
@@ -2092,9 +2092,9 @@ pip.getGovernParamValue(module, name, from_address=None)
 
 - 调用方式
 
-~~~
+```
 pip.listGovernParam(self, module=None, from_address=None)
-~~~
+```
 
 - 参数说明
 

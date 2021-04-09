@@ -26,8 +26,27 @@
 			"Command_Line_Tools"
 		],
 		"Smart Contracts": [
-			"EVM_Smart_Contract",
-			"WASM_Smart_Contract"
+			{
+				"type": "subcategory",
+				"label": "Solidity Contract",
+				"ids": [
+					"Solidity_Dev_Manual",
+					"Solidity_Contract_Migrate",
+					"Solidity_Contract_Dev_Costs",
+					"Solidity_Contract_Best_Practice",
+					"Solidity_Contract_Security_Dev_Guide"
+				]
+			},
+			{
+				"type": "subcategory",
+				"label": "Wasm Contract",
+				"ids": [
+					"Wasm_Dev_Manual",
+					"Wasm_Contract_Dev_Costs",
+					"Wasm_Contract_Best_Practice",
+					"Wasm_Contract_API"
+				]
+			}
 		],
 		"API Reference": [
 			"Python_SDK",
@@ -39,7 +58,8 @@
 			"PlatON_BlockChain_Browser"
 		],
 		"Wallet": [
-			"ATON-user-manual"
+			"ATON-user-manual",
+			"Third_Party_Walle"
 		],
 		"Community Projects": [
 			"community"

@@ -1034,11 +1034,11 @@ platon.sendRawTransaction(signTransaction, private-key)
 
  #### 7. Get hrp
 
-~~~
+```
 w3 = Web3(HTTPProvider("http://localhost:6789"))
 platon = PlatON(w3)
 print(platon.getAddressHrp)
-~~~
+```
 
 
 
@@ -1450,20 +1450,20 @@ print(topic_param)
 
 #### 1.staking
 
-~~~python
+```python
 from client_sdk_python import Web3, HTTPProvider
 from client_sdk_python.ppos import Ppos
 w3 = Web3(HTTPProvider("http://localhost:6789"))
 ppos = Ppos(w3)
-~~~
+```
 
 ##### Initiate a pledge
 
 - Calling method
 
-~~~
+```
 ppos.createStaking(benifit_address, node_id, external_id, node_name, website, details, amount,program_version,program_version_sign, bls_pubkey, bls_proof, pri_key, reward_per, typ=2, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1495,9 +1495,9 @@ ppos.createStaking(benifit_address, node_id, external_id, node_name, website, de
 
 - Calling method
 
-~~~
+```
 ppos.editCandidate(benifit_address, node_id, external_id, node_name, website, details, pri_key, reward_per, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1521,9 +1521,9 @@ ppos.editCandidate(benifit_address, node_id, external_id, node_name, website, de
 
 - Calling method
 
-~~~
+```
 ppos.increaseStaking(node_id, amount, pri_key, typ=2, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1543,9 +1543,9 @@ ppos.increaseStaking(node_id, amount, pri_key, typ=2, transaction_cfg=None)
 
 - Calling method
 
-~~~
+```
 ppos.withdrewStaking(node_id, pri_key, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1565,9 +1565,9 @@ ppos.withdrewStaking(node_id, pri_key, transaction_cfg=None)
 
 - Calling method
 
-~~~
+```
 ppos.delegate(typ, node_id, amount, pri_key, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1587,9 +1587,9 @@ ppos.delegate(typ, node_id, amount, pri_key, transaction_cfg=None)
 
 - Calling method
 
-~~~
+```
 ppos.withdrewDelegate(staking_blocknum, node_id, amount, pri_key, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1609,9 +1609,9 @@ ppos.withdrewDelegate(staking_blocknum, node_id, amount, pri_key, transaction_cf
 
 - Calling method
 
-~~~
+```
 ppos.withdrawDelegateReward(pri_key, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1630,9 +1630,9 @@ ppos.withdrawDelegateReward(pri_key, transaction_cfg=None)
 
 - Calling method
 
-~~~
+```
 ppos.getVerifierList(from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1642,9 +1642,9 @@ ppos.getVerifierList(from_address=None)
 
 - Calling method
 
-~~~
+```
 ppos.getValidatorList(from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1654,9 +1654,9 @@ ppos.getValidatorList(from_address=None)
 
 - Calling method
 
-~~~
+```
 ppos.getCandidateList(from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1666,9 +1666,9 @@ ppos.getCandidateList(from_address=None)
 
 - Calling method
 
-~~~
+```
 ppos.getRelatedListByDelAddr(del_addr, from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1679,9 +1679,9 @@ ppos.getRelatedListByDelAddr(del_addr, from_address=None)
 
 - Calling method
 
-~~~
+```
 ppos.getDelegateInfo(staking_blocknum, del_address, node_id, from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1694,9 +1694,9 @@ ppos.getDelegateInfo(staking_blocknum, del_address, node_id, from_address=None)
 
 - Calling method
 
-~~~
+```
 ppos.getCandidateInfo(node_id, from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1707,9 +1707,9 @@ ppos.getCandidateInfo(node_id, from_address=None)
 
 - Calling method
 
-~~~
+```
 ppos.getPackageReward(from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1719,9 +1719,9 @@ ppos.getPackageReward(from_address=None)
 
 - Calling method
 
-~~~
+```
 ppos.getStakingReward(from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1731,9 +1731,9 @@ ppos.getStakingReward(from_address=None)
 
 - Calling method
 
-~~~
+```
 ppos.getAvgPackTime(from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1743,9 +1743,9 @@ ppos.getAvgPackTime(from_address=None)
 
 - Calling method
 
-~~~
+```
 ppos.getDelegateReward(address, node_ids=[])
-~~~
+```
 
 - Parameter Description
 
@@ -1759,9 +1759,9 @@ ppos.getDelegateReward(address, node_ids=[])
 
 - Calling method
 
-~~~
+```
 ppos.reportDuplicateSign(typ, data, pri_key, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1780,9 +1780,9 @@ ppos.reportDuplicateSign(typ, data, pri_key, transaction_cfg=None)
 
 - Calling method
 
-~~~
+```
 ppos.checkDuplicateSign(typ, node_id, block_number, from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1797,15 +1797,15 @@ ppos.checkDuplicateSign(typ, node_id, block_number, from_address=None)
 
 - Calling method
 
-~~~
+```
 ppos.createRestrictingPlan(account, plan, pri_key, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
 >**account**: Locked account release account
 >**plan**:
-> An is a list of RestrictingPlan types (array), and RestrictingPlan is defined as follows:
+> An is a list of `RestrictingPlan` types (array), and `RestrictingPlan` is defined as follows:
 > type RestrictingPlan struct {
 > Epoch uint64
 > Amount *big.Int
@@ -1828,9 +1828,9 @@ ppos.createRestrictingPlan(account, plan, pri_key, transaction_cfg=None)
 
 - Calling method
 
-~~~
+```
 ppos.getRestrictingInfo(account, from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1839,20 +1839,20 @@ ppos.getRestrictingInfo(account, from_address=None)
 
 #### 6. Governance
 
-~~~python
+```python
 from client_sdk_python import Web3, HTTPProvider
 from client_sdk_python.pip import Pip
 w3 = Web3(HTTPProvider("http://localhost:6789"))
 pip = Pip(w3)
-~~~
+```
 
 ##### Text proposal
 
 - Calling method
 
-~~~
+```
 pip.submitText(verifier, pip_id, pri_key, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1871,9 +1871,9 @@ pip.submitText(verifier, pip_id, pri_key, transaction_cfg=None)
 
 - Calling method
 
-~~~
+```
 pip.submitVersion(verifier, pip_id, new_version, end_voting_rounds, pri_key, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1900,9 +1900,9 @@ pip.submitVersion(verifier, pip_id, new_version, end_voting_rounds, pri_key, tra
 
 - Calling method
 
-~~~
+```
 pip.submitParam(verifier, pip_id, module, name, new_value, pri_key, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1924,9 +1924,9 @@ pip.submitParam(verifier, pip_id, module, name, new_value, pri_key, transaction_
 
 - Calling method
 
-~~~
+```
 pip.submitCancel(verifier, pip_id, end_voting_rounds, tobe_canceled_proposal_id, pri_key, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1950,9 +1950,9 @@ pip.submitCancel(verifier, pip_id, end_voting_rounds, tobe_canceled_proposal_id,
 
 - Calling method
 
-~~~
+```
 pip.vote(verifier, proposal_id, option, program_version, version_sign, pri_key, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1974,9 +1974,9 @@ pip.vote(verifier, proposal_id, option, program_version, version_sign, pri_key, 
 
 - Calling method
 
-~~~
+```
 pip.declareVersion(active_node, program_version, version_sign, pri_key, transaction_cfg=None)
-~~~
+```
 
 - Parameter Description
 
@@ -1996,9 +1996,9 @@ pip.declareVersion(active_node, program_version, version_sign, pri_key, transact
 
 - Calling method
 
-~~~
+```
 pip.getProposal(proposal_id, from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -2009,9 +2009,9 @@ pip.getProposal(proposal_id, from_address=None)
 
 - Calling method
 
-~~~
+```
 pip.getTallyResult(proposal_id, from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -2022,9 +2022,9 @@ pip.getTallyResult(proposal_id, from_address=None)
 
 - Calling method
 
-~~~
+```
 pip.getAccuVerifiersCount(proposal_id, block_hash, from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -2036,9 +2036,9 @@ pip.getAccuVerifiersCount(proposal_id, block_hash, from_address=None)
 
 - Calling method
 
-~~~python
+```python
 pip.listProposal(from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -2048,9 +2048,9 @@ pip.listProposal(from_address=None)
 
 - Calling method
 
-~~~python
+```python
 pip.getActiveVersion(from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -2060,9 +2060,9 @@ pip.getActiveVersion(from_address=None)
 
 - Calling method
 
-~~~python
+```python
 pip.getGovernParamValue(module, name, from_address=None)
-~~~
+```
 
 - Parameter Description
 
@@ -2074,9 +2074,9 @@ pip.getGovernParamValue(module, name, from_address=None)
 
 - Calling method
 
-~~~python
+```python
 pip.listGovernParam(self, module=None, from_address=None)
-~~~
+```
 
 - Parameter Description
 
