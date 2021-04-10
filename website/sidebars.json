@@ -11,9 +11,9 @@
 			"Economic_Model",
 			"PlatON_Solution",
 			"PlatON_Governance_Solution",
+			"PlatON_Built-in_contract",
 			"Secure_Multi_Party_Computation",
-			"Verifiable_Computation",
-			"PlatON_Built-in_contract"
+			"Verifiable_Computation"
 		],
 		"PlatON Node": [
 			"PlatON_Validation_Introduce",
