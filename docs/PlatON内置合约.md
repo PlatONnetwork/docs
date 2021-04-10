@@ -1,24 +1,24 @@
 ---
-id: Built-in_contract
-title: Built-in contract
-sidebar_label: Built-in contract
+id: PlatON_Built-in_contract
+title: PlatON Built-in contract
+sidebar_label: PlatON Built-in contract
 ---
 
-## Built-in contract
+## PlatON Built-in contract
 
 After the chain is started, some contracts have been built in the system. The addresses of these contracts have been fixed and the functions have been implemented. Some of the contracts are the realization of economic models, and various contract interfaces are provided to interact with the client.
 
 
 
-### Punish contract
+### Slashing contract
 
-The punish contract is mainly for system security to monitor the behavior of each node, Penalties will be imposed on violating nodes that violate system security, the contract has the following two major functions：
+The slashing contract is mainly for system security to monitor the behavior of each node, Penalties will be imposed on violating nodes that violate system security, the contract has the following two major functions：
 
-- Punish nodes that can't produce blocks
+- Slashing nodes that can't produce blocks
 
   According to system rules, each consensus round will have a batch of nodes responsible for producing the blocks of that round, the number of blocks to be produced is fixed for each consensus round, each node is assigned a time window and the number of blocks that need to be produced, generate blocks in turn to complete the block production of the entire consensus round. When a node does not produce a block within the specified time window, will switch to the next node to continue producing blocks, this cycle continues until the number of blocks required to complete the consensus round. The entire consensus round is completed and a new batch of nodes starts the next consensus round. If a node has not produced a block in the entire consensus round, then the zero block behavior of the node will be recorded. The Punish conditions are: start recording when the node generates zero blocks for the first time, count the production of blocks in each consensus round in the next period of time, if during this period the node participates in the consensus round again and produces a block, then the previous zero block records will be cleared and exempted from penalties, otherwise, the node will be punished when the statistical time is up, Impose a fine (amount of fine = current block reward*n) and state lock (automatically unlock after a period of lock and return to the normal state. During the lock period, the node cannot perform any actions, including modifying information, revoking staking, participating in block production, and accepting delegation).
 
-- Punish double-production or double-signed nodes
+- Slashing double-production or double-signed nodes
 
   Under normal circumstances, a node will only generate one block at the same block height or only sign one of the blocks for different blocks of the same block height, otherwise it is a violation of the rules and will be punished, when this happens to a node, the evidence of violation will be recorded locally by the received node, users can use the `RPC` to call the `platon_evidences` interface to obtain evidence of violations, then send the evidence to the chain in the form of a transaction, the system will judge the evidence, if the evidence is true, the node will be punished.
 
@@ -68,7 +68,7 @@ Assets in the locked period cannot be transferred due to restrictions, in order 
 
 
 
-### Delegate reward contract
+### DelegationReward contract
 
 The contract is mainly used to deal with the business related to delegate income. When each user delegates a node, a delegation record will be generated, each delegation record will get dividends from the delegated node, the dividend amount is calculated from the node's income according to the dividend ratio set by the node to the delegator, the total dividends allocated will be divided equally according to the total delegations of the nodes, Each delegated unit will get a certain income, so the income that a single delegation can obtain is directly proportional to the delegated volume. In this process, at the end of each settlement cycle, the system will automatically calculate the dividend rewards of each candidate node to all its delegators, all dividend rewards will be immediately transferred to this contract for temporary storage, that is, the income obtained by each principal is first stored in this contract, it is necessary to wait for the user to initiate a transaction for receiving revenue. At this time, the system will calculate how much delegation revenue this user has in this contract and immediately transfer it to the user's account.
 
