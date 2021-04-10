@@ -23,9 +23,9 @@ The interaction between the validator and the delegator is mainly done through t
 #### Contract interface
 1. Create verification node
 
-  This interface makes the node become a verification node by staking `LAT` into the `staking contract`. Before staking, you need your own node to access the network, and ensure that the node's private key and bls private key are securely stored. When staking, you must fill in the node information, accept the income account of the block reward and the pledge reward, the reward share for the principal (the more the share, the more likely it is to attract more users to entrust), the amount of `LAT` you want to pledge (pledge The gold has a threshold of 100000 `LAT`, if it is lower than this amount, the pledge will fail) and other information. If the pledge is successful, the node will appear in the list of candidate validators, and the pledge deposit will be transferred from the balance of the user account/locking contract account to the `Staking contract`. The total weight of the validator is equal to the amount of `LAT` pledged by oneself plus the total amount of `LAT` delegated. The higher the total weight, the greater the probability of being selected as a consensus.
+   This interface makes the node become a verification node by staking `LAT` into the `staking contract`. Before staking, you need your own node to access the network, and ensure that the node's private key and bls private key are securely stored. When staking, you must fill in the node information, accept the income account of the block reward and the pledge reward, the reward share for the principal (the more the share, the more likely it is to attract more users to entrust), the amount of `LAT` you want to pledge (pledge The gold has a threshold of 100000 `LAT`, if it is lower than this amount, the pledge will fail) and other information. If the pledge is successful, the node will appear in the list of candidate validators, and the pledge deposit will be transferred from the balance of the user account/locking contract account to the `Staking contract`. The total weight of the validator is equal to the amount of `LAT` pledged by oneself plus the total amount of `LAT` delegated. The higher the total weight, the greater the probability of being selected as a consensus.
 
-  **Enter: **  
+   **Enter: **  
 
     - The type of amount used as a pledge (free amount or locked balance, or both)
     - Earning accounts that accept block rewards and pledge rewards
@@ -40,13 +40,13 @@ The interaction between the validator and the delegator is mainly done through t
     - The public key of bls, which is an aggregate signature algorithm, the public key is obtained through the `RPC` interface of the node
     - Proof of bls, which is obtained through the node's `RPC` interface
     
-  **Output: **None
+   **Output: **None
 
 2. Modify verification node information
 
-  This interface is mainly used to modify the validator's income account, delegated share ratio, node information, etc. The interval for each modification of the share ratio must be greater than 10 consensus periods, and the magnitude of each modification cannot be greater than 5%.
+   This interface is mainly used to modify the validator's income account, delegated share ratio, node information, etc. The interval for each modification of the share ratio must be greater than 10 consensus periods, and the magnitude of each modification cannot be greater than 5%.
 
-  **Enter: ** 
+   **Enter: ** 
 
     - Income account for receiving block rewards and pledge rewards
     - Proportion of rewards divided by commission
@@ -55,50 +55,51 @@ The interaction between the validator and the delegator is mainly done through t
     - The third-party homepage of the node
     - Description of the node
 
-  **Output: **None
+   **Output: **None
 
 3. Increase the node Staking amount
 
-  This interface is used to increase the node Staking amount and increase the node weight. The minimum amount of each increase is 10`LAT`. The validator’s new weight will take effect in the next epoch.
+   This interface is used to increase the node Staking amount and increase the node weight. The minimum amount of each increase is 10`LAT`. The validator’s new weight will take effect in the next epoch.
 
-  **Enter: ** 
+   **Enter: ** 
 
     - Node id
     - The amount that needs to be increased
 
-  **Output: **None
+   **Output: **None
 
 4. Release staking
 
-  This interface is mainly used to exit the verification node. The user cannot reduce the pledge, but can only completely withdraw from the pledge. After the withdrawal, the pledge deposit will be locked for 168 cycles and then returned from the `Staking contract` to the user's account at the time of pledge. During the lock-up period, nodes will not be selected as validators to participate in the consensus.
+   This interface is mainly used to exit the verification node. The user cannot reduce the pledge, but can only completely withdraw from the pledge. After the withdrawal, the pledge deposit will be locked for 168 cycles and then returned from the `Staking contract` to the user's account at the time of pledge. During the lock-up period, nodes will not be selected as validators to participate in the consensus.
 
-  **Enter: ** The id of the node to release the staking
+   **Enter: ** The id of the node to release the staking
 
-  **Output: **None
+   **Output: **None
 
 5. Query the validator list of the current epoch
-  This interface is used to query the validator information of the current epoch. At the end of each epoch, the list of validators for the next epoch will be updated based on the total weight of all candidate validators.
 
-  **Enter: ** None
+   This interface is used to query the validator information of the current epoch. At the end of each epoch, the list of validators for the next epoch will be updated based on the total weight of all candidate validators.
 
-  **Output: **Information list of all current validators
+   **Enter: ** None
+
+   **Output: **Information list of all current validators
 
 6. Query the list of validators in the consensus round
 
-  This interface is used to query the list of validators selected to produce blocks in the current consensus round. Each consensus round has 430 blocks. At block 410, a list of validators who can participate in the next consensus round will be generated from the validator queue in the current settlement round.
+   This interface is used to query the list of validators selected to produce blocks in the current consensus round. Each consensus round has 430 blocks. At block 410, a list of validators who can participate in the next consensus round will be generated from the validator queue in the current settlement round.
 
-  **Enter: ** None
+   **Enter: ** None
 
-  **Output: **List of validator information for the current consensus round
+   **Output: **List of validator information for the current consensus round
 
 
 7. Query the list of candidate  information
 
-    This interface is used to query the information list of all candidate verifiers, and any node that successfully pledges is a candidate verifier.
+   This interface is used to query the information list of all candidate verifiers, and any node that successfully pledges is a candidate verifier.
 
-    **Enter: ** None
+   **Enter: ** None
 
-    **Output: **List of candidate information 
+   **Output: **List of candidate information 
 
 8. Query the validator entrusted by the delegator
   
@@ -108,8 +109,8 @@ The interaction between the validator and the delegator is mainly done through t
 
    **Output: **
    
-   - validator's node Id
-   - Block height when validators staking
+    - validator's node Id
+    - Block height when validators staking
 
 9. Query the staking information of a node
 
@@ -120,36 +121,39 @@ The interaction between the validator and the delegator is mainly done through t
    **Output: ** node information
 
 10. delegation
-    This interface is used to delegate or accumulate to delegate a validator node. Users who have already pledged nodes will not be able to delegate. The user can delegate `LAT` to the validator at any time, and the minimum amount of each delegation is 10`LAT`. After the delegation is successful, the `LAT` delegated by the delegator to the candidate validator is transferred to the `Staking contract`. The new weights of validators will take effect in the next consensus cycle. When the validator is selected to participate in the consensus, the block and staking rewards will be shared with the delegator.
 
-    **Enter: ** 
+   This interface is used to delegate or accumulate to delegate a validator node. Users who have already pledged nodes will not be able to delegate. The user can delegate `LAT` to the validator at any time, and the minimum amount of each delegation is 10`LAT`. After the delegation is successful, the `LAT` delegated by the delegator to the candidate validator is transferred to the `Staking contract`. The new weights of validators will take effect in the next consensus cycle. When the validator is selected to participate in the consensus, the block and staking rewards will be shared with the delegator.
+
+   **Enter: ** 
     
       - Node ID of the delegated validator
       - delegate amount
 
-    **Output: ** None
+   **Output: ** None
 
 11. Reduce delegation
-    This interface is used to reduce holdings or cancel delegation operations. The principal can reduce or cancel the entrustment at any time. The minimum amount of each reduction entrusted is 10 `LAT`. After the operation is completed, the `LAT` will be returned from the `Staking contract` to the principal's account in real time. If the holding is reduced After the remaining commission is less than 10 `LAT`, the commission of the principal will be revoked. The profit obtained by the validator in the current cycle will be distributed to the delegator according to the commission amount after the reduction.
 
-    **Enter: ** 
+   This interface is used to reduce holdings or cancel delegation operations. The principal can reduce or cancel the entrustment at any time. The minimum amount of each reduction entrusted is 10 `LAT`. After the operation is completed, the `LAT` will be returned from the `Staking contract` to the principal's account in real time. If the holding is reduced After the remaining commission is less than 10 `LAT`, the commission of the principal will be revoked. The profit obtained by the validator in the current cycle will be distributed to the delegator according to the commission amount after the reduction.
+
+   **Enter: ** 
     
       - Node ID of the delegated validator
       - delegate amount
 
-    **Output: ** None
+   **Output: ** None
 
 12. Query delegation
-    This interface is used to query the user's delegation information.
 
-    **Enter: ** 
+   This interface is used to query the user's delegation information.
+
+   **Enter: ** 
     
       
       - Block height when staking 
       - account address
       - Verifier's node Id 
 
-    **Output: ** 
+   **Output: ** 
 
       - Verifier's node id
       - Block height when staking is initiated
@@ -162,16 +166,18 @@ The interaction between the validator and the delegator is mainly done through t
       - Settlement period when the order is withdrawn (used to calculate the income and the amount withdrawn)
 
 13. Average time to query packaged blocks
-    This interface is used to query the average time of a packed block.
 
-    **Enter: ** None
+   This interface is used to query the average time of a packed block.
+
+   **Enter: ** None
     
-    **Output: ** 
+   **Output: ** 
 
     -The average time to pack a block (in milliseconds)
 
 
 14. Query the block reward of the epoch
+
    This interface is used to query the block reward of the current epoch.
 
    **Enter: ** None
@@ -181,11 +187,12 @@ The interaction between the validator and the delegator is mainly done through t
      - Block reward
 
 15. Query the staking reward of the epoch
-    This interface is used to query the staking reward of the current epoch.
 
-    **Enter: ** None
+   This interface is used to query the staking reward of the current epoch.
+
+   **Enter: ** None
     
-    **Output: ** 
+   **Output: ** 
 
      - staking reward
 
@@ -198,28 +205,75 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
 - `Cancel Proposal` can be used to cancel previously initiated proposals. The process includes the voting stage, where the vote is passed and the vote fails.
 - `Parameter proposal` can be used to change some manageable parameters and optimize the ecology of the chain. The process includes the voting stage, where the vote is passed and the vote fails.
 
+#### Contract interface
+
+1. Create a text proposal
+
+   This interface is used to send out text proposals. After the text proposal is sent, validators can vote for/again/abstaining votes. The voting deadline is about 2 weeks. When the voter turnout rate is greater than 50% and the voter approval rate is greater than 66.7%, the proposal is passed.
+
+   **Enter: ** 
+
+     - The validator who submitted the proposal
+     - Proposal ID (generally refers to an ID assigned to a proposal offline, or an ID like a post on the GITHUB website)
+    
+   **Output: **None
+
+2. Create an version proposal
+
+  This interface is used to initiate an version proposal. Proposals can only be initiated by validators. After the proposal is passed, the on-chain version will be upgraded. The validator’s vote is regarded as a support vote. After the voting deadline has passed, when the support rate is greater than 66.7%, the proposal enters the pre-validation stage and will come into effect in the next settlement cycle.
+
+   **Enter: ** 
+
+     - The validator who submitted the proposal
+     - Proposal ID
+     - Upgraded version
+     - The number of voting consensus rounds (the deadline for voting)
+     
+   **Output: **None
+
+3. Create an parameter proposal
+
+    This interface is used to initiate parameter proposals. The parameter proposal is used to change some manageable parameters on the chain. The validator can vote for/again/abstaining votes. The voting deadline is about 2 weeks. When the voter turnout rate is greater than 50% and the voter approval rate is greater than 66.7%, the proposal is passed.
 
 
+   **Enter: ** 
 
+      - The validator who submitted the proposal
+      - Proposal ID
+      - Parameter module
+      - parameter name
+      - The new value of the parameter
+     
+   **Output: **None
 
+  4. Create an cancellation proposal
 
+   This interface is used to initiate a cancellation proposal. Canceling a proposal can cancel the previously initiated text, parameters, and upgrade proposal. The voting deadline must be greater than the voting deadline of the cancelled proposal. After the voting deadline, when the voting rate is greater than 50
 
+   **Enter: ** 
 
+      - The validator who submitted the proposal
+      - Proposal ID
+      - Upgraded version
+      - The number of voting consensus rounds (the deadline for voting)
+      - The ID of the upgrade proposal to be cancelled
+     
+    **Output: **None
 
+5. Vote
 
+   This interface is used to vote on proposals in progress. Only yes votes can be voted for the version upgrade proposal, and the node needs to be upgraded to the new version before voting.
 
+   **Enter: ** 
 
-
-
-  
-
-
-  
-
-
-  
-
-
+      
+     - Voted validator ID
+     - Proposal ID
+     - Voting type, yes/no/abstain
+     - Node code version (obtained from the node through the `RPC interface`)
+     - Code version signature (obtained from the node through the `RPC interface`)
+     
+   **Output: **None
 
 ### Slashing contract
 
