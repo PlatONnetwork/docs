@@ -92,10 +92,132 @@ The interaction between the validator and the delegator is mainly done through t
   **Output: **List of validator information for the current consensus round
 
 
+7. Query the list of candidate  information
 
+    This interface is used to query the information list of all candidate verifiers, and any node that successfully pledges is a candidate verifier.
+
+    **Enter: ** None
+
+    **Output: **List of candidate information 
+
+8. Query the validator entrusted by the delegator
+  
+   This interface is used to query which verifiers the specified principal has delegated.
+
+   **Enter: ** account address
+
+   **Output: **
+   
+   - validator's node Id
+   - Block height when validators staking
+
+9. Query the staking information of a node
+
+   This interface is used to query the staking information of the node.
+
+   **Enter: ** Verifier's node Id
+
+   **Output: ** node information
+
+10. delegation
+    This interface is used to delegate or accumulate to delegate a validator node. Users who have already pledged nodes will not be able to delegate. The user can delegate `LAT` to the validator at any time, and the minimum amount of each delegation is 10`LAT`. After the delegation is successful, the `LAT` delegated by the delegator to the candidate validator is transferred to the `Staking contract`. The new weights of validators will take effect in the next consensus cycle. When the validator is selected to participate in the consensus, the block and staking rewards will be shared with the delegator.
+
+    **Enter: ** 
     
+      - Node ID of the delegated validator
+      - delegate amount
+
+    **Output: ** None
+
+11. Reduce delegation
+    This interface is used to reduce holdings or cancel delegation operations. The principal can reduce or cancel the entrustment at any time. The minimum amount of each reduction entrusted is 10 `LAT`. After the operation is completed, the `LAT` will be returned from the `Staking contract` to the principal's account in real time. If the holding is reduced After the remaining commission is less than 10 `LAT`, the commission of the principal will be revoked. The profit obtained by the validator in the current cycle will be distributed to the delegator according to the commission amount after the reduction.
+
+    **Enter: ** 
+    
+      - Node ID of the delegated validator
+      - delegate amount
+
+    **Output: ** None
+
+12. Query delegation
+    This interface is used to query the user's delegation information.
+
+    **Enter: ** 
+    
+      
+      - Block height when staking 
+      - account address
+      - Verifier's node Id 
+
+    **Output: ** 
+
+      - Verifier's node id
+      - Block height when staking is initiated
+      - The settlement cycle of the most recent delegation to the candidate
+      - Initiation of the `von` entrustment for the lock-up period of the free amount of the entrusted account
+      - Initiation of the delegated `von` during the hesitation period of the free amount of the entrusted account
+      - Initiate the `von` entrusted for the lock-up period of the lock-up amount of the entrusted account
+      - Initiating the von von entrusted with the hesitation period of the lock-up amount of the entrusted account
+      - Entrusted income to be collected
+      - Settlement period when the order is withdrawn (used to calculate the income and the amount withdrawn)
+
+13. Average time to query packaged blocks
+    This interface is used to query the average time of a packed block.
+
+    **Enter: ** None
+    
+    **Output: ** 
+
+    -The average time to pack a block (in milliseconds)
 
 
+14. Query the block reward of the epoch
+   This interface is used to query the block reward of the current epoch.
+
+   **Enter: ** None
+    
+   **Output: ** 
+
+     - Block reward
+
+15. Query the staking reward of the epoch
+    This interface is used to query the staking reward of the current epoch.
+
+    **Enter: ** None
+    
+    **Output: ** 
+
+     - staking reward
+
+
+### Governance contract
+The on-chain governance method adopted by PlatON enables it to develop in accordance with the requirements of `LAT` holders. The goal of governance is to ensure that majority ownership can always control the network. Any governance modification plan discussed in the community can be initiated by a validator on the chain and voted for a referendum.
+
+- `Text proposal` can be used to vote on content discussed in certain communities. The process includes the voting stage, where the vote is passed and the vote fails.
+- `Version proposal` can be used to upgrade the version of the chain. The process includes the voting stage, voting failure, pre-validation, validation, and cancellation.
+- `Cancel Proposal` can be used to cancel previously initiated proposals. The process includes the voting stage, where the vote is passed and the vote fails.
+- `Parameter proposal` can be used to change some manageable parameters and optimize the ecology of the chain. The process includes the voting stage, where the vote is passed and the vote fails.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+  
 
 
 
