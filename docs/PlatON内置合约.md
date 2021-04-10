@@ -26,6 +26,7 @@ The interaction between the validator and the delegator is mainly done through t
   This interface makes the node become a verification node by staking `LAT` into the `staking contract`. Before staking, you need your own node to access the network, and ensure that the node's private key and bls private key are securely stored. When staking, you must fill in the node information, accept the income account of the block reward and the pledge reward, the reward share for the principal (the more the share, the more likely it is to attract more users to entrust), the amount of `LAT` you want to pledge (pledge The gold has a threshold of 100000 `LAT`, if it is lower than this amount, the pledge will fail) and other information. If the pledge is successful, the node will appear in the list of candidate validators, and the pledge deposit will be transferred from the balance of the user account/locking contract account to the `Staking contract`. The total weight of the validator is equal to the amount of `LAT` pledged by oneself plus the total amount of `LAT` delegated. The higher the total weight, the greater the probability of being selected as a consensus.
 
   **Enter: **  
+
     - The type of amount used as a pledge (free amount or locked balance, or both)
     - Earning accounts that accept block rewards and pledge rewards
     - External Id
@@ -39,14 +40,14 @@ The interaction between the validator and the delegator is mainly done through t
     - The public key of bls, which is an aggregate signature algorithm, the public key is obtained through the `RPC` interface of the node
     - Proof of bls, which is obtained through the node's `RPC` interface
     
-  **Output: **
-    - None
+  **Output: **None
 
 2. Modify verification node information
 
   This interface is mainly used to modify the validator's income account, delegated share ratio, node information, etc. The interval for each modification of the share ratio must be greater than 10 consensus periods, and the magnitude of each modification cannot be greater than 5%.
 
-  **Enter: **  
+  **Enter: ** 
+
     - Income account for receiving block rewards and pledge rewards
     - Proportion of rewards divided by commission
     - External Id
@@ -54,38 +55,42 @@ The interaction between the validator and the delegator is mainly done through t
     - The third-party homepage of the node
     - Description of the node
 
-  **Output: **
-     - None
+  **Output: **None
 
 3. Increase the node Staking amount
 
   This interface is used to increase the node Staking amount and increase the node weight. The minimum amount of each increase is 10`LAT`. The validator’s new weight will take effect in the next epoch.
 
   **Enter: ** 
+
     - Node id
     - The amount that needs to be increased
 
-  **Output: **
-    - None
+  **Output: **None
 
 4. Release staking
 
   This interface is mainly used to exit the verification node. The user cannot reduce the pledge, but can only completely withdraw from the pledge. After the withdrawal, the pledge deposit will be locked for 168 cycles and then returned from the `Staking contract` to the user's account at the time of pledge. During the lock-up period, nodes will not be selected as validators to participate in the consensus.
 
-  **Enter: ** 
-    -The id of the node to release the staking
+  **Enter: ** The id of the node to release the staking
 
-  **Output: **
-    - None
+  **Output: **None
 
 5. Query the validator list of the current epoch
-  This interface is used to query the validator information of the current settlement cycle. At the end of each settlement cycle, the list of validators for the next settlement cycle will be updated based on the total weight of all candidate validators.
+  This interface is used to query the validator information of the current epoch. At the end of each epoch, the list of validators for the next epoch will be updated based on the total weight of all candidate validators.
 
-  **Enter: ** 
-    - None
+  **Enter: ** None
 
-  **Output: **
-    - Information list of all current validators
+  **Output: **Information list of all current validators
+
+6. Query the list of validators in the consensus round
+
+  This interface is used to query the list of validators selected to produce blocks in the current consensus round. Each consensus round has 430 blocks. At block 410, a list of validators who can participate in the next consensus round will be generated from the validator queue in the current settlement round.
+
+  **Enter: ** None
+
+  **Output: **List of validator information for the current consensus round
+
 
 
     
