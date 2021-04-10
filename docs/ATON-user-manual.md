@@ -339,7 +339,7 @@ For details about importing observed wallets, please refer to the instructions o
 ### My Delegations
 
 <div>
-<div> <img src = "/docs/img/en/ATON-user-manual.assets/aton16.png"width ="300" style="zoom:80%;" /> </div> 
+<div> <img src = "/docs/img/en/ATON-user-manual.assets/aton16.png"width ="600" style="zoom:80%;" /> </div> 
 <div> 
 <br>1. Click [My Delegation] to check your uncalmied reward, total reward and delegated amount. 
 <br>2. Select a specific wallet to check the details including total delegated amount, total rewards and unclaimed rewards. You can also delegate and withdraw your delegation. 
