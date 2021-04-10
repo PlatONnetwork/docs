@@ -1,6 +1,6 @@
 ---
 id: ATON-user-manual
-title: ATON Wallet User Manual
+title: ATON Wallet
 ---
 
 ## Download
