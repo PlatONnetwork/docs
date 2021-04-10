@@ -44,7 +44,7 @@ The interaction between the validator and the delegator is mainly done through t
 2. Modify verification node information
   This interface is mainly used to modify the validator's income account, delegated share ratio, node information, etc. The interval for each modification of the share ratio must be greater than 10 consensus periods, and the magnitude of each modification cannot be greater than 5%.
 
-   **Enter: **  
+  **Enter: **  
     -Income account for receiving block rewards and pledge rewards
     -Proportion of rewards divided by commission
     -External Id
@@ -52,8 +52,19 @@ The interaction between the validator and the delegator is mainly done through t
     -The third-party homepage of the node
     -Description of the node
 
-   **Output: **
+  **Output: **
      - None
+
+3. Increase the node Staking amount
+  This interface is used to increase the node Staking amount and increase the node weight. The minimum amount of each increase is 10`LAT`. The validator’s new weight will take effect in the next epoch.
+
+  **Enter: ** 
+    -Node id
+    -The amount that needs to be increased
+
+  **Output: **
+    - None
+
 
 
 ### Slashing contract
