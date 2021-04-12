@@ -148,7 +148,6 @@ The interaction between the validator and the delegator is mainly done through t
 
     **Enter: ** 
     
-      
       - Block height when staking 
       - account address
       - Verifier's node Id 
@@ -205,7 +204,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
 
    This interface is used to send out text proposals. After the text proposal is sent, validators can vote for/again/abstaining votes. The voting deadline is about 2 weeks. When the voter turnout rate is greater than 50% and the voter approval rate is greater than 66.7%, the proposal is passed.
 
-   **Enter: ** 
+   **Enter: **
 
      - The validator who submitted the proposal
      - Proposal ID (generally refers to an ID assigned to a proposal offline, or an ID like a post on the GITHUB website)
@@ -214,20 +213,20 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
 
 2. Create an version proposal
 
-  This interface is used to initiate an version proposal. Proposals can only be initiated by validators. After the proposal is passed, the on-chain version will be upgraded. The validator’s vote is regarded as a support vote. After the voting deadline has passed, when the support rate is greater than 66.7%, the proposal enters the pre-validation stage and will come into effect in the next settlement cycle.
+   This interface is used to initiate an version proposal. Proposals can only be initiated by validators. After the proposal is passed, the on-chain version will be upgraded. The validator’s vote is regarded as a support vote. After the voting deadline has passed, when the support rate is greater than 66.7%, the proposal enters the pre-validation stage and will come into effect in the next settlement cycle.
 
-   **Enter: ** 
+    **Enter: ** 
 
      - The validator who submitted the proposal
      - Proposal ID
      - Upgraded version
      - The number of voting consensus rounds (the deadline for voting)
      
-   **Output: **None
+    **Output: **None
 
 3. Create an parameter proposal
 
-    This interface is used to initiate parameter proposals. The parameter proposal is used to change some manageable parameters on the chain. The validator can vote for/again/abstaining votes. The voting deadline is about 2 weeks. When the voter turnout rate is greater than 50% and the voter approval rate is greater than 66.7%, the proposal is passed.
+   This interface is used to initiate parameter proposals. The parameter proposal is used to change some manageable parameters on the chain. The validator can vote for/again/abstaining votes. The voting deadline is about 2 weeks. When the voter turnout rate is greater than 50% and the voter approval rate is greater than 66.7%, the proposal is passed.
 
 
    **Enter: ** 
@@ -240,7 +239,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
      
    **Output: **None
 
-  4. Create an cancellation proposal
+4. Create an cancellation proposal
 
    This interface is used to initiate a cancellation proposal. Canceling a proposal can cancel the previously initiated text, parameters, and upgrade proposal. The voting deadline must be greater than the voting deadline of the cancelled proposal. After the voting deadline, when the voting rate is greater than 50
 
@@ -252,7 +251,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
       - The number of voting consensus rounds (the deadline for voting)
       - The ID of the upgrade proposal to be cancelled
      
-    **Output: **None
+   **Output: **None
 
 5. Vote
 
