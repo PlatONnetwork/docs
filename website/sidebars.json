@@ -19,7 +19,8 @@
 			"PlatON_Validation_Introduce",
 			"Network_Description",
 			"Become_PlatON_Main_Verification",
-			"Become_PlatON_Dev_Verification"
+			"Become_PlatON_Dev_Verification",
+			"Build_Private_Chain"
 		],
 		"Node Tools": [
 			"OnLine_MTool_Manual",

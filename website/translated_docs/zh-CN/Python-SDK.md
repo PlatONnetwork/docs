@@ -8,7 +8,7 @@ sidebar_label: Python SDK
 
 ## 说明
 
-client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对象与底层链进行交互。底层实现上，它通过 RPC 调用与本地节点通信。client-sdk-python可以与任何暴露了RPC接口的PlatON节点连接。
+client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对象与底层链进行交互。底层实现上，它通过 RPC 调用与本地节点通信。client-sdk-python可以与任何暴露了RPC接口的PlatON节点连接。
 
 主要功能用于 获取区块数据、发送交易、使用智能合约进行交互、以及其他的一些应用。
 
@@ -16,33 +16,38 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
 
 ## 快速入门
 
-### 一、安装
-
-#### **1** Python环境要求
+#### Python环境要求
 
 ​     支持Python 3.6+版本
 
-#### **2** 可使用pip直接安装：
+#### 安装
 
-     pip install client-sdk-python
+​	可使用pip安装或下载源码，二选一即可。
+
+- 使用pip直接安装
+
+  ```
+   pip install client-sdk-python
+  ```
+
+- 下载源码
+
+  ```
+  git clone -b 0.15.1-develop https://github.com/PlatONnetwork/client-sdk-python.git
+  ```
+
+  > 其中`0.15.1-develop`为当前使用的分支。
 
 
-​    或下载代码，在python编辑器中使用。git bash 拉取源代码，如下操作
+### 使用
 
-    git clone -b 0.15.1-develop https://github.com/PlatONnetwork/client-sdk-python.git
+#### Web3模块
 
-> 其中`0.15.1-develop`为当前使用的分支。
+​       PlatON节点之间通过P2PMessage通信。而节点和python sdk之间使用内置的Web3模块，发送JSON-RPC 请求，经过HTTP 、websocket、IPC等方式连接节点。
 
+#### 节点连接
 
-### 二、使用
-
-#### **1** Web3模式
-
-​       Platon节点之间通过P2PMessage通信。而节点和python sdk之间使用内置的Web3模式，发送JSON-RPC 请求，经过HTTP 、websocket、IPC等方式连接节点。
-
-#### **2** 节点连接
-
-- 以HTTP 连接为例，连接一个Platon节点
+- 以HTTP 连接为例，连接一个PlatON节点
 
   ```python
   w3 = Web3(HTTPProvider("http://localhost:6789"))
@@ -50,7 +55,7 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
   print(w3.isConnected())
   ```
 
-  其中 localhost:6789为Platon的一个节点Url，请输入可访问的Platon节点Url。
+  其中 localhost:6789为PlatON的一个节点Url，请输入可访问的PlatON节点Url。
 
   platon为platON类的一个实例。
 
@@ -77,7 +82,7 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
 
 
 
-#### 3 基本api
+#### 基本api
 
 ##### 基础类型编和解码
 
@@ -206,9 +211,9 @@ client-sdk-python 是一个服务于Platon底层链的python sdk。通过web3对
 
     
 
-#### **4** 链上查询api
+#### 链上查询api
 
-与Platon 链上节点连接成功以后，可通过platon里的api查询链上节点的相关信息
+与PlatON 链上节点连接成功以后，可通过platon里的api查询链上节点的相关信息
 
 ##### (1) platon.blockNumber 
 
@@ -342,7 +347,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
   - `address`：String - 要读取的地址
   - `position`：Number - 存储中的索引编号
   - `defaultBlock`：Number|String - 可选，使用该参数覆盖platon.defaultBlock属性值
-  
+
 
 返回值：
 
@@ -362,7 +367,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   - `address`：String - 要读取代码的地址
   - `defaultBlock`：Number|String - 可选，使用该参数覆盖platon.defaultBlock属性值
-  
+
 
 返回值：
 
@@ -384,7 +389,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   - `blockHashOrBlockNumber`：String|Number - 块编号或块哈希值，或者使用以下字符串："genesis"、"latest" 或 "pending" 。
   - `returnTransactionObjects`：Boolean -  可选，默认值为false。当设置为true时,返回块中将包括所有交易详情，否则仅返回交易哈希。
-  
+
 
 返回值：
 
@@ -441,7 +446,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
   参数：
 
   - `blockHashOrBlockNumber`：String|Number - 块编号或块的哈希值，或者使用以下字符串："genesis"、"latest" 或 "pending" 来指定块
-  
+
 
 返回值：
 
@@ -533,7 +538,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
 
 
-#### **5** 链上发送交易api：
+#### 链上发送交易api：
 
 ##### (1) sendTransaction(transactionObject)
 
@@ -654,9 +659,9 @@ AttributeDict({'blockHash': HexBytes('0x7bfe17689560c773b1cade579f1bd2cf85aeea9f
   ```
 platon.sendRawTransaction(signTransaction，private-key)
   ```
-  
+
   参数：
-  
+
   - `signTransaction`：Object - 要发送的签名交易对象，包含以下字段：
     - from - String|Number: 交易发送方账户地址，不设置该字段的话，则使用platon.defaultAccount属性值。可设置为一个地址或本地钱包platon.accounts.wallet中的索引序号
     - to - String: 可选，消息的目标地址，对于合约创建交易该字段为null
@@ -667,13 +672,13 @@ platon.sendRawTransaction(signTransaction，private-key)
     - nonce - Number: 可选，使用该字段覆盖使用相同nonce值的挂起交易
 
   - private-key : 用于签名的私钥
-  
+
   返回值：
-  
+
   返回值是包含32字节长的交易哈希值的HexBytes 。
+
   
-  
-  
+
 ##### (7) platon.replaceTransaction()
 
   发送新的交易new_transaction，替代原来的交易transaction_hash（pending状态）
@@ -793,7 +798,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
 
 
-#### 6 其他 api
+#### 其他 api
 
 ##### (1) platon.filter
 
@@ -1049,7 +1054,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
   
 
- #### 7.获取hrp
+ #### 获取hrp
 
 ```
 w3 = Web3(HTTPProvider("http://localhost:6789"))
@@ -1059,17 +1064,17 @@ print(platon.getAddressHrp)
 
 
 
-### 三、合约
+### 合约
 
-#### 1 、合约介绍
+#### 合约介绍
 
 PlatON区块链支持使用solidity语言创建的智能合约(evm)，同时也支持WebAssembly (WASM)来执行用户编写的智能合约。其中WASM是一种为栈式虚拟机设计的二进制指令集。WASM被设计为可供类似C/C++/Rust等高级语言的平台编译目标，最初设计目的是解决 JavaScript 的性能问题。WASM是由 W3C 牵头正在推进的 Web 标准，并得到了谷歌、微软和 Mozilla 等浏览器厂商的支持。
 
-关于evm和wasm合约的介绍、创建、编译等详细内容可参考[Platon智能合约](https://devdocs.platon.network/docs/zh-CN/WASM_Smart_Contract/)
+关于evm和wasm合约的介绍、创建、编译等详细内容可参考[PlatON智能合约](https://devdocs.platon.network/docs/zh-CN/WASM_Smart_Contract/)
 
 
 
-#### **2**、 合约编译
+#### 合约编译
 
 python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数据与PlatON区块链进行交互。
 
@@ -1078,7 +1083,7 @@ python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数
 
 
 
-#### 3、SDK 对evm合约的调用
+#### SDK 对evm合约的调用
 
 ##### (1) 使用platon-truffle在本机对evm合约进行编译
 
@@ -1245,14 +1250,14 @@ python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数
    调用方法ifControl，成功将参数20传入链上。然后通过对应方法getIfControlResult获得链上的对应信息和数据。
 
   输出结果如下：
-  
+
   ```
   #输出：
   0x16c76387cdd06ab82a4beb330b36369a5cfa22b8cf6ddfff58c72aaae4a39df9
   AttributeDict({'blockHash': HexBytes('0xbb1d1c3a7abecac9910509ed3ff2ca97cebdba1e88db0b909ffd646a86d69597'), 'blockNumber': 305801, 'contractAddress': None, 'cumulativeGasUsed': 42382, 'from': 'lax1yjjzvjph3tw4h2quw6mse25y492xy7fzwdtqja', 'gasUsed': 42382, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': 'lax1ws7m2tqr55h8xs7e3jg5svlyu0lk9ktpx03cke', 'transactionHash': HexBytes('0x16c76387cdd06ab82a4beb330b36369a5cfa22b8cf6ddfff58c72aaae4a39df9'), 'transactionIndex': 0})
 you are a middle man
   ```
-  
+
    其中 第一行数据为函数SendTxn中的platon.sendRawTransaction的交易结果
 
 ​        第二行数据为方法ifControl向链上发送信息，交易的结果
@@ -1274,7 +1279,7 @@ you are a middle man
   然后通过greeter.events.MyEvent()，调用事件输出交易的详细日志。
 
   其中.events方法为合约专用的事件api。
-  
+
   ```python
   greeter = platon.contract(address=tx_receipt.contractAddress, abi=abi)
   
@@ -1293,7 +1298,7 @@ print(topic_param)
   ```
 
   成功运行后输出：
-  
+
   ```python
   AttributeDict({'blockHash': HexBytes('0x78fb61da83dae555c8a8a87fc3296f466afeb7f90e9a3b0ac5689e8b34435174'), 'blockNumber': 2014683, 'contractAddress': None, 'cumulativeGasUsed': 43148, 'from': 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl', 'gasUsed': 43148, 'logs': [AttributeDict({'address': 'lax1vc6phdxhdkmztpznv5ueduw6cae3swe40whlsn', 'topics': [HexBytes('0x6c2b4666ba8da5a95717621d879a77de725f3d816709b9cbe9f059b8f875e284'), HexBytes('0x0000000000000000000000000000000000000000000000000000000000000064')], 'data': '0x', 'blockNumber': 2014683, 'transactionHash': HexBytes('0xe36b5d2b679d5635ab6dd2b620caa50a476fa84bd93bf7b6c8de807f3a9da483'), 'transactionIndex': 0, 'blockHash': HexBytes('0x78fb61da83dae555c8a8a87fc3296f466afeb7f90e9a3b0ac5689e8b34435174'), 'logIndex': 0, 'removed': False})], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000020080000000000000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000004000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000008000000000000000'), 'status': 1, 'to': 'lax1vc6phdxhdkmztpznv5ueduw6cae3swe40whlsn', 'transactionHash': HexBytes('0xe36b5d2b679d5635ab6dd2b620caa50a476fa84bd93bf7b6c8de807f3a9da483'), 'transactionIndex': 0})
   (AttributeDict({'args': AttributeDict({'_var': 100}), 'event': 'MyEvent', 'logIndex': 0, 'transactionIndex': 0, 'transactionHash': HexBytes('0xe36b5d2b679d5635ab6dd2b620caa50a476fa84bd93bf7b6c8de807f3a9da483'), 'address': 'lax1vc6phdxhdkmztpznv5ueduw6cae3swe40whlsn', 'blockHash': HexBytes('0x78fb61da83dae555c8a8a87fc3296f466afeb7f90e9a3b0ac5689e8b34435174'), 'blockNumber': 2014683}),)
@@ -1303,16 +1308,16 @@ print(topic_param)
   第一行为调用函数setVar，交易成功后的交易回执
 
   第二行为调用事件MyEvent()，获取的交易日志信息
-  
+
   其中'args'对应的值中：
-  
+
   '_var'为唯一的参数值
-  
+
   而在evm合约的event中，数据的基本类型为uint、int、bool、address、bytex。
-  
+
   
 
-#### 4、SDK 对wasm合约的调用：
+#### SDK 对wasm合约的调用：
 
 
 
@@ -1358,11 +1363,11 @@ print(topic_param)
   cabi = [{"constant":false,"input":[{"name":"input","type":"string[10]"}],"name":"setArray","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getUint32","output":"uint32","type":"Action"},{"constant":false,"input":[{"name":"input","type":"int64"}],"name":"setInt64","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getInt64","output":"int64","type":"Action"},{"constant":false,"input":[{"name":"input","type":"pair<string,int32>"}],"name":"setPair","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getPair","output":"pair<string,int32>","type":"Action"},{"anonymous":false,"input":[{"name":"topic","type":"string"},{"name":"arg1","type":"string"}],"name":"transfer","topic":1,"type":"Event"},{"anonymous":false,"input":[{"name":"topic","type":"string"},{"name":"arg1","type":"string"},{"name":"arg2","type":"uint16"}],"name":"setUint16Evt","topic":1,"type":"Event"},{"constant":false,"input":[{"name":"addr","type":"FixedHash<20>"}],"name":"setAddress","output":"void","type":"Action"},{"anonymous":false,"input":[{"name":"topic1","type":"string"},{"name":"topic2","type":"uint32"},{"name":"arg1","type":"string"},{"name":"arg2","type":"uint32"},{"name":"arg3","type":"uint32"}],"name":"setUint32Evt","topic":2,"type":"Event"},{"constant":false,"input":[],"name":"init","output":"void","type":"Action"},{"constant":false,"input":[{"name":"input","type":"uint8"}],"name":"setUint8","output":"void","type":"Action"},{"baseclass":[],"fields":[{"name":"head","type":"string"}],"name":"message","type":"struct"},{"constant":false,"input":[{"name":"msg","type":"message"}],"name":"setMessage","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getUint8","output":"uint8","type":"Action"},{"constant":false,"input":[{"name":"input","type":"uint16"}],"name":"setUint16","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getUint16","output":"uint16","type":"Action"},{"constant":false,"input":[{"name":"input","type":"uint32"}],"name":"setUint32","output":"void","type":"Action"},{"constant":false,"input":[{"name":"input","type":"uint64"}],"name":"setUint64","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getUint64","output":"uint64","type":"Action"},{"constant":false,"input":[{"name":"input","type":"string"}],"name":"setString","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getString","output":"string","type":"Action"},{"constant":false,"input":[{"name":"input","type":"bool"}],"name":"setBool","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getBool","output":"bool","type":"Action"},{"constant":false,"input":[{"name":"input","type":"int8"}],"name":"setChar","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getChar","output":"int8","type":"Action"},{"constant":true,"input":[],"name":"getMessage","output":"message","type":"Action"},{"baseclass":["message"],"fields":[{"name":"body","type":"string"},{"name":"end","type":"string"}],"name":"my_message","type":"struct"},{"constant":false,"input":[{"name":"msg","type":"my_message"}],"name":"setMyMessage","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getMyMessage","output":"my_message","type":"Action"},{"constant":false,"input":[{"name":"input","type":"int8"}],"name":"setInt8","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getSet","output":"set<string>","type":"Action"},{"constant":true,"input":[],"name":"getInt8","output":"int8","type":"Action"},{"constant":false,"input":[{"name":"input","type":"int16"}],"name":"setInt16","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getInt16","output":"int16","type":"Action"},{"constant":false,"input":[{"name":"input","type":"int32"}],"name":"setInt32","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getInt32","output":"int32","type":"Action"},{"constant":false,"input":[{"name":"vec","type":"uint16[]"}],"name":"setVector","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getVector","output":"uint16[]","type":"Action"},{"constant":false,"input":[{"name":"input","type":"map<string,string>"}],"name":"setMap","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getMap","output":"map<string,string>","type":"Action"},{"constant":false,"input":[{"name":"msg","type":"message"},{"name":"input1","type":"int32"},{"name":"input2","type":"bool"}],"name":"testMultiParams","output":"void","type":"Action"},{"constant":false,"input":[{"name":"input","type":"uint8[]"}],"name":"setBytes","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getBytes","output":"uint8[]","type":"Action"},{"constant":true,"input":[],"name":"getArray","output":"string[10]","type":"Action"},{"constant":false,"input":[{"name":"input","type":"set<string>"}],"name":"setSet","output":"void","type":"Action"},{"constant":false,"input":[{"name":"input","type":"FixedHash<256>"}],"name":"setFixedHash","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getFixedHash","output":"FixedHash<256>","type":"Action"},{"constant":false,"input":[{"name":"input","type":"list<string>"}],"name":"setList","output":"void","type":"Action"},{"constant":true,"input":[],"name":"getList","output":"list<string>","type":"Action"},{"constant":true,"input":[],"name":"getAddress","output":"FixedHash<20>","type":"Action"}]
   
   ```
-  
+
   wasm类型合约通过platon.wasmcontract建立合约实例
-  
+
   对实例调用方法.constructor()进行合约的构建，通过transact发送交易到链上
-  
+
 ```python
   # Instantiate and deploy contract
 Payable = platon.wasmcontract(abi=cabi, bytecode=bytecode,vmtype=1)
@@ -1431,7 +1436,7 @@ AttributeDict({'blockHash': HexBytes('0x7a193be2cf86aedcf844c0478c6f64d226affb55
   greeter是部署成功的wasm类型合约实例
 
   tx_hash是函数setUint32传参数的交易实例
-  
+
   ```python
   greeter = platon.wasmcontract(address=tx_receipt.contractAddress, abi=abi,vmtype=1)
   tx_hash = greeter.functions.setUint32(1000).transact(
@@ -1451,22 +1456,22 @@ print(topic_param)
   topic_param是事件setUint32Evt调用的结果
 
   成功运行后输出结果如下：
-  
+
   ```python
 (AttributeDict({'args': AttributeDict({'topic1': 'topic1', 'arg1': 'data1', 'arg2': 1000, 'arg3': 1000}), 'event': 'setUint32Evt', 'logIndex': 0, 'transactionIndex': 0, 'transactionHash': HexBytes('0xabac50c6a9d443d9f89065775f0f3d56ddeabd2f2a5e0e1f36d00db703b14d8b'), 'address': 'lax1sgsp74pce2vkgwqjd3rzmt55p70psmq7qvnqwn', 'blockHash': HexBytes('0x78f15fbacbc745dfd5b35b596d28b61ae2987b6ff9050dc39c716f383e505899'), 'blockNumber': 1477774}),)
   ```
-  
+
   其中'args'对应的值中：
-  
+
   'topic1'为topic值，'arg1'、'arg2'、'arg3'为事件中定义的三个参数值。
 
 ​              
 
 
 
-### 四、Ppos
+### 内置合约
 
-#### 1.staking
+#### staking
 
 ```
 from client_sdk_python import Web3, HTTPProvider
@@ -1577,7 +1582,7 @@ ppos.withdrewStaking(node_id, pri_key, transaction_cfg=None)
 >            "nonce":1,
 >        }
 
-#### 2 .delegate
+#### delegate
 
 ##### 发起委托
 
@@ -1642,7 +1647,7 @@ ppos.withdrawDelegateReward(pri_key, transaction_cfg=None)
 >    "nonce":1,
 >}
 
-#### 3.query
+#### query
 
 ##### 查询当前结算周期的验证人队列
 
@@ -1771,7 +1776,7 @@ ppos.getDelegateReward(address, node_ids=[])
 >
 >**node_ids**:the string array of the node id to be queried, if it is empty, query all nodes delegated by the account
 
-#### 4.双签
+#### 双签
 
 ##### 举报双签
 
@@ -1809,7 +1814,7 @@ ppos.checkDuplicateSign(typ, node_id, block_number, from_address=None)
 >**block_number**: Duplicate-signed block height
 >**from_address**: Used to call the rpc call method
 
-#### 5.锁仓
+#### 锁仓
 
 ##### 创建锁仓计划
 
@@ -1855,7 +1860,7 @@ ppos.getRestrictingInfo(account, from_address=None)
 >**account**: Locked account release account
 >**from_address**: Used to call the rpc call method
 
-#### 6.治理
+#### 治理
 
 ```
 from client_sdk_python import Web3, HTTPProvider
