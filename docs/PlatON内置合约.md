@@ -23,12 +23,12 @@ The interaction between the validator and the delegator is mainly done through t
 #### Contract interface
 1. Create verification node
 
-   This interface makes the node become a verification node by staking `LAT` into the `staking contract`. Before staking, you need your own node to access the network, and ensure that the node's private key and bls private key are securely stored. When staking, you must fill in the node information, accept the income account of the block reward and the pledge reward, the reward share for the principal (the more the share, the more likely it is to attract more users to entrust), the amount of `LAT` you want to pledge (pledge The gold has a threshold of 100000 `LAT`, if it is lower than this amount, the pledge will fail) and other information. If the pledge is successful, the node will appear in the list of candidate validators, and the pledge deposit will be transferred from the balance of the user account/locking contract account to the `Staking contract`. The total weight of the validator is equal to the amount of `LAT` pledged by oneself plus the total amount of `LAT` delegated. The higher the total weight, the greater the probability of being selected as a consensus.
+   This interface makes the node become a verification node by staking `LAT` into the `staking contract`. Before staking, you need your own node to access the network, and ensure that the node's private key and bls private key are securely stored. When staking, you must fill in the node information, accept the income account of the block reward and the staking  reward, the reward share for the principal (the more the share, the more likely it is to attract more users to entrust), the amount of `LAT` you want to pledge (pledge The gold has a threshold of 100000 `LAT`, if it is lower than this amount, the pledge will fail) and other information. If the pledge is successful, the node will appear in the list of candidate validators, and the pledge deposit will be transferred from the balance of the user account/locking contract account to the `Staking contract`. The total weight of the validator is equal to the amount of `LAT` pledged by oneself plus the total amount of `LAT` delegated. The higher the total weight, the greater the probability of being selected as a consensus.
 
    **Enter: **  
 
     - The type of amount used as a pledge (free amount or locked balance, or both)
-    - Earning accounts that accept block rewards and pledge rewards
+    - Revenue accounts that receive block-out rewards and staking  rewards
     - External Id
     - Node name
     - The third-party homepage of the node
@@ -48,7 +48,7 @@ The interaction between the validator and the delegator is mainly done through t
 
    **Enter: ** 
 
-    - Income account for receiving block rewards and pledge rewards
+    - The revenue account used to receive the block reward and staking reward
     - Proportion of rewards divided by commission
     - External Id
     - The name of the staked node
@@ -64,7 +64,7 @@ The interaction between the validator and the delegator is mainly done through t
    **Enter: ** 
 
     - Node id
-    - The amount that needs to be increased
+    - Amount to be increased
 
    **Output: **None
 
@@ -82,20 +82,20 @@ The interaction between the validator and the delegator is mainly done through t
 
    **Enter: ** None
 
-   **Output: **Information list of all current validators
+   **Output: **List of all current verifiers
 
 6. Query the list of validators in the consensus round
 
-   This interface is used to query the list of validators selected to produce blocks in the current consensus round. Each consensus round has 430 blocks. At block 410, a list of validators who can participate in the next consensus round will be generated from the validator queue in the current settlement round.
+   This interface is used to query the list of verifiers that have been selected out of blocks for the current consensus cycle. Each consensus round is 430 blocks, and at 410 blocks will generate a list of verifiers from the verifier queue of the current Epoch that can participate in the next consensus round to get out the blocks.
 
    **Enter: ** None
 
-   **Output: **List of validator information for the current consensus round
+   **Output: **list of verifier information for the current consensus cycle
 
 
 7. Query the list of candidate  information
 
-   This interface is used to query the information list of all candidate verifiers, and any node that successfully pledges is a candidate verifier.
+   This interface is used to query the list of all candidate verifier information. Any node that has successfully pledged is a candidate verifier.
 
    **Enter: ** None
 
@@ -103,13 +103,13 @@ The interaction between the validator and the delegator is mainly done through t
 
 8. Query the validator entrusted by the delegator
   
-   This interface is used to query which verifiers the specified principal has delegated.
+   This interface is used to query which validators have been delegated by the specified delegator.
 
    **Enter: ** account address
 
    **Output: **
    
-    - validator's node Id
+    - Node Id of the validator
     - Block height when validators staking
 
 9. Query the staking information of a node
@@ -122,7 +122,7 @@ The interaction between the validator and the delegator is mainly done through t
 
 10. delegation
 
-    This interface is used to delegate or accumulate to delegate a validator node. Users who have already pledged nodes will not be able to delegate. The user can delegate `LAT` to the validator at any time, and the minimum amount of each delegation is 10`LAT`. After the delegation is successful, the `LAT` delegated by the delegator to the candidate validator is transferred to the `Staking contract`. The new weights of validators will take effect in the next consensus cycle. When the validator is selected to participate in the consensus, the block and staking rewards will be shared with the delegator.
+    This interface is used to delegate or incrementally delegate a verifier node. Users who have already pledged a node will not be able to delegate it. The user can delegate `LAT` to the verifier at any time with a minimum amount of 10 `LAT` per delegation. After a successful delegation, the `LAT` delegated by the delegator to the candidate verifier is transferred to the `Staking contract`. The new weight of the verifier will take effect in the next consensus cycle. When the verifier is selected to participate in the consensus, it will share the block-out and Staking rewards with the principal.
 
     **Enter: ** 
     
@@ -131,9 +131,9 @@ The interaction between the validator and the delegator is mainly done through t
 
     **Output: ** None
 
-11. Reduce delegation
+11. Decrease/revoke delegation
 
-    This interface is used to reduce holdings or cancel delegation operations. The principal can reduce or cancel the entrustment at any time. The minimum amount of each reduction entrusted is 10 `LAT`. After the operation is completed, the `LAT` will be returned from the `Staking contract` to the principal's account in real time. If the holding is reduced After the remaining commission is less than 10 `LAT`, the commission of the principal will be revoked. The profit obtained by the validator in the current cycle will be distributed to the delegator according to the commission amount after the reduction.
+    This interface is used to reduce or revoke the delegate operation. The principal can reduce or revoke the commission at any time, and the minimum amount of each reduced commission is 10`LAT`. After the operation is completed, `LAT` will be returned to the principal's account from the `Staking contract` in real time, and if the remaining commission after the reduction is less than 10`LAT`, the commission of this principal will be revoked. The proceeds received by the validator in the current cycle will be distributed to the principal according to the amount of the mandate after the reduction.
 
     **Enter: ** 
     
@@ -156,7 +156,7 @@ The interaction between the validator and the delegator is mainly done through t
 
       - Verifier's node id
       - Block height when staking is initiated
-      - The settlement cycle of the most recent delegation to the candidate
+      - The Epoch of the most recent delegation to the candidate
       - Initiation of the `von` entrustment for the lock-up period of the free amount of the entrusted account
       - Initiation of the delegated `von` during the hesitation period of the free amount of the entrusted account
       - Initiate the `von` entrusted for the lock-up period of the lock-up amount of the entrusted account
@@ -164,14 +164,13 @@ The interaction between the validator and the delegator is mainly done through t
       - Entrusted income to be collected
       - Settlement period when the order is withdrawn (used to calculate the income and the amount withdrawn)
 
-13. Average time to query packaged blocks
+13. Query average time of packed blocks
 
-    This interface is used to query the average time of a packed block.
+    This interface is used to query the average time of packed blocks.
 
     **Enter: ** None
     
-    **Output: ** The average time to pack a block (in milliseconds)
-
+    **Output: ** average time of packed blocks (in milliseconds)
 
 14. Query the block reward of the epoch
 
@@ -202,7 +201,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
 
 1. Create a text proposal
 
-   This interface is used to send out text proposals. After the text proposal is sent, validators can vote for/again/abstaining votes. The voting deadline is about 2 weeks. When the voter turnout rate is greater than 50% and the voter approval rate is greater than 66.7%, the proposal is passed.
+   This interface is used to issue a text proposal. After the text proposal is issued, validators can vote for/against/abstain from the proposal. The voting deadline is about 2 weeks, and the proposal is passed when the voting rate is greater than 50% and the support rate among those who voted is greater than 66.7%.
 
    **Enter: **
 
@@ -213,7 +212,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
 
 2. Create an version proposal
 
-   This interface is used to initiate an version proposal. Proposals can only be initiated by validators. After the proposal is passed, the on-chain version will be upgraded. The validator’s vote is regarded as a support vote. After the voting deadline has passed, when the support rate is greater than 66.7%, the proposal enters the pre-validation stage and will come into effect in the next settlement cycle.
+   This interface is used to initiate an version proposal. Proposals can only be initiated by validators. After the proposal is passed, the on-chain version will be upgraded. The validator’s vote is regarded as a support vote. After the voting deadline has passed, when the support rate is greater than 66.7%, the proposal enters the pre-validation stage and will come into effect in the next Epoch.
 
     **Enter: ** 
 
@@ -427,13 +426,13 @@ Assets in the locked period cannot be transferred due to restrictions, in order 
 
 ### DelegationReward contract
 
-The contract is mainly used to deal with the business related to delegate income. When each user delegates a node, a delegation record will be generated, each delegation record will get dividends from the delegated node, the dividend amount is calculated from the node's income according to the dividend ratio set by the node to the delegator, the total dividends allocated will be divided equally according to the total delegations of the nodes, Each delegated unit will get a certain income, so the income that a single delegation can obtain is directly proportional to the delegated volume. In this process, at the end of each settlement cycle, the system will automatically calculate the dividend rewards of each candidate node to all its delegators, all dividend rewards will be immediately transferred to this contract for temporary storage, that is, the income obtained by each principal is first stored in this contract, it is necessary to wait for the user to initiate a transaction for receiving revenue. At this time, the system will calculate how much delegation revenue this user has in this contract and immediately transfer it to the user's account.
+The contract is mainly used to deal with the business related to delegate income. When each user delegates a node, a delegation record will be generated, each delegation record will get dividends from the delegated node, the dividend amount is calculated from the node's income according to the dividend ratio set by the node to the delegator, the total dividends allocated will be divided equally according to the total delegations of the nodes, Each delegated unit will get a certain income, so the income that a single delegation can obtain is directly proportional to the delegated volume. In this process, at the end of each Epoch, the system will automatically calculate the dividend rewards of each candidate node to all its delegators, all dividend rewards will be immediately transferred to this contract for temporary storage, that is, the income obtained by each principal is first stored in this contract, it is necessary to wait for the user to initiate a transaction for receiving revenue. At this time, the system will calculate how much delegation revenue this user has in this contract and immediately transfer it to the user's account.
 
 #### Contract interface
 
 1. Receive delegated rewards
 
-   This interface is used to extract delegated rewards that the user has not yet claimed, when a single user entrusts multiple nodes to generate multiple delegations, the interface can only process the rewards for 20 delegations at a time, the rest must be re-initiated to receive the operation (the rules for receiving 20 delegated rewards are sorted according to the number of settlement cycles that have not been claimed for each delegation, the more the number of unclaimed cycles, the priority to receive the delegated awards), if the number of delegated rewards waiting to be collected is less than 20, then directly collect all of them.
+   This interface is used to extract delegated rewards that the user has not yet claimed, when a single user entrusts multiple nodes to generate multiple delegations, the interface can only process the rewards for 20 delegations at a time, the rest must be re-initiated to receive the operation (the rules for receiving 20 delegated rewards are sorted according to the number of Epochs that have not been claimed for each delegation, the more the number of unclaimed cycles, the priority to receive the delegated awards), if the number of delegated rewards waiting to be collected is less than 20, then directly collect all of them.
 
    **Enter: **None
 
@@ -441,7 +440,7 @@ The contract is mainly used to deal with the business related to delegate income
 
 2. Query delegation reward
 
-   This interface can be used to query all pending delegation income details of the interface initiator, you can also specify to query a certain delegation or multiple delegations, the return result will be a sorted list of income details, the sorting rule is to sort in reverse order according to the number of unclaimed settlement cycles for each delegation (the return data will not be sorted if there are less than 20 delegated rewards to be received)。
+   This interface can be used to query all pending delegation income details of the interface initiator, you can also specify to query a certain delegation or multiple delegations, the return result will be a sorted list of income details, the sorting rule is to sort in reverse order according to the number of unclaimed Epochs for each delegation (the return data will not be sorted if there are less than 20 delegated rewards to be received)。
 
    **Enter: **None
 
