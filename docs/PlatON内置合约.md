@@ -228,7 +228,6 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
 
    This interface is used to initiate parameter proposals. The parameter proposal is used to change some manageable parameters on the chain. The validator can vote for/again/abstaining votes. The voting deadline is about 2 weeks. When the voter turnout rate is greater than 50% and the voter approval rate is greater than 66.7%, the proposal is passed.
 
-
    **Enter: ** 
 
       - The validator who submitted the proposal
@@ -259,7 +258,6 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
 
    **Enter: ** 
 
-      
      - Voted validator ID
      - Proposal ID
      - Voting type, yes/no/abstain
@@ -274,7 +272,6 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
    
    **Enter: ** 
 
-      
      - Voted validator ID
      - Node code version (obtained from the node through the `RPC interface`)
      - Code version signature (obtained from the node through the `RPC interface`)
