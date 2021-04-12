@@ -39,7 +39,7 @@ The interaction between the validator and the delegator is mainly done through t
     - The real version signature of the program, obtained through the node's `RPC` interface
     - The public key of bls, which is an aggregate signature algorithm, the public key is obtained through the `RPC` interface of the node
     - Proof of bls, which is obtained through the node's `RPC` interface
-    
+   
    **Output: **None
 
 2. Modify verification node information
@@ -208,7 +208,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
 
      - The validator who submitted the proposal
      - Proposal ID (generally refers to an ID assigned to a proposal offline, or an ID like a post on the GITHUB website)
-    
+   
    **Output: **None
 
 2. Create an version proposal
@@ -221,7 +221,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
      - Proposal ID
      - Upgraded version
      - The number of voting consensus rounds (the deadline for voting)
-     
+   
     **Output: **None
 
 3. Create an parameter proposal
@@ -235,7 +235,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
       - Parameter module
       - parameter name
       - The new value of the parameter
-     
+   
    **Output: **None
 
 4. Create an cancellation proposal
@@ -249,7 +249,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
       - Upgraded version
       - The number of voting consensus rounds (the deadline for voting)
       - The ID of the upgrade proposal to be cancelled
-     
+   
    **Output: **None
 
 5. Vote
@@ -263,7 +263,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
      - Voting type, yes/no/abstain
      - Node code version (obtained from the node through the `RPC interface`)
      - Code version signature (obtained from the node through the `RPC interface`)
-     
+   
    **Output: **None
 
 6. DeclareVersion
@@ -275,7 +275,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
      - Voted validator ID
      - Node code version (obtained from the node through the `RPC interface`)
      - Code version signature (obtained from the node through the `RPC interface`)
-     
+   
    **Output: **None
 
 7. Query proposal
@@ -283,7 +283,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
    This interface is used to query the specified proposal.
 
    **Enter: ** Proposal ID
-     
+   
    **Output: **
 
      - Proposal ID
@@ -298,7 +298,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
    This interface is used to query the current status of the proposal
 
    **Enter: ** Proposal ID
-     
+   
    **Output: **
 
      - Proposal ID
@@ -315,7 +315,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
    This interface is used to query the list of proposals that are in voting and have ended.
 
    **Enter: **None
-     
+   
    **Output: **Proposal information list, refer to the output value of query proposal
 
 10. Query chain version
@@ -347,7 +347,7 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
       - Block hash
 
     **Output: **
-      
+    
       - The number of people who can vote
       - Number of people who voted yes
       - Number of people who voted against
@@ -373,7 +373,9 @@ The slashing contract is mainly for system security to monitor the behavior of e
 
 - Slashing nodes that can't produce blocks
 
-  According to system rules, each consensus round will have a batch of nodes responsible for producing the blocks of that round, the number of blocks to be produced is fixed for each consensus round, each node is assigned a time window and the number of blocks that need to be produced, generate blocks in turn to complete the block production of the entire consensus round. When a node does not produce a block within the specified time window, will switch to the next node to continue producing blocks, this cycle continues until the number of blocks required to complete the consensus round. The entire consensus round is completed and a new batch of nodes starts the next consensus round. If a node has not produced a block in the entire consensus round, then the zero block behavior of the node will be recorded. The Punish conditions are: start recording when the node generates zero blocks for the first time, count the production of blocks in each consensus round in the next period of time, if during this period the node participates in the consensus round again and produces a block, then the previous zero block records will be cleared and exempted from penalties, otherwise, the node will be punished when the statistical time is up, Impose a fine (amount of fine = current block reward*n) and state lock (automatically unlock after a period of lock and return to the normal state. During the lock period, the node cannot perform any actions, including modifying information, revoking staking, participating in block production, and accepting delegation).
+  According to system rules, each consensus round will have a batch of nodes responsible for producing the blocks of that round, the number of blocks to be produced is fixed for each consensus round, each node is assigned a time window and the number of blocks that need to be produced, generate blocks in turn to complete the block production of the entire consensus round. When a node does not produce a block within the specified time window, will switch to the next node to continue producing blocks, this cycle continues until the number of blocks required to complete the consensus round. The entire consensus round is completed and a new batch of nodes starts the next consensus round. 
+
+  If a node has not produced a block in the entire consensus round, then the zero block behavior of the node will be recorded. The Punish conditions are: start recording when the node generates zero blocks for the first time, count the production of blocks in each consensus round in the next period of time, if during this period the node participates in the consensus round again and produces a block, then the previous zero block records will be cleared and exempted from penalties, otherwise, the node will be punished when the statistical time is up, Impose a fine (amount of fine = current block reward*n) and state lock (automatically unlock after a period of lock and return to the normal state. During the lock-up period, the node has no rewards and cannot perform any actions, including modifying information, revoking staking, participating in block production, and accepting delegation).
 
 - Slashing double-production or double-signed nodes
 
@@ -427,7 +429,9 @@ Assets in the locked period cannot be transferred due to restrictions, in order 
 
 ### DelegationReward contract
 
-The contract is mainly used to deal with the business related to delegate income. When each user delegates a node, a delegation record will be generated, each delegation record will get dividends from the delegated node, the dividend amount is calculated from the node's income according to the dividend ratio set by the node to the delegator, the total dividends allocated will be divided equally according to the total delegations of the nodes, Each delegated unit will get a certain income, so the income that a single delegation can obtain is directly proportional to the delegated volume. In this process, at the end of each settlement cycle, the system will automatically calculate the dividend rewards of each candidate node to all its delegators, all dividend rewards will be immediately transferred to this contract for temporary storage, that is, the income obtained by each principal is first stored in this contract, it is necessary to wait for the user to initiate a transaction for receiving revenue. At this time, the system will calculate how much delegation revenue this user has in this contract and immediately transfer it to the user's account.
+The contract is mainly used to deal with the business related to delegate income. When each user delegates a node, a delegation record will be generated, each delegation record will get dividends from the delegated node, the dividend amount is calculated from the node's income according to the dividend ratio set by the node to the delegator, the total dividends allocated will be divided equally according to the total delegations of the nodes, Each delegated unit will get a certain income, so the income that a single delegation can obtain is directly proportional to the delegated volume. 
+
+In this process, at the end of each settlement cycle, the system will automatically calculate the dividend rewards of each candidate node to all its delegators, all dividend rewards will be immediately transferred to this contract for temporary storage, that is, the income obtained by each principal is first stored in this contract, it is necessary to wait for the user to initiate a transaction for receiving revenue. At this time, the system will calculate how much delegation revenue this user has in this contract and immediately transfer it to the user's account.
 
 #### Contract interface
 
