@@ -221,7 +221,6 @@ blockquote code {
   color: #000000;
   font-size: 18px;
   font-weight: 400;
-  // line-height: 1.2em;
   margin-bottom: 13px;
   margin-top: 13px;
 }
@@ -306,10 +305,10 @@ blockquote code {
   font-weight:400;
 }
 .toc .toggleNav .navGroup ul .navItem  {
-   margin-top: 5px;
+  margin-top: 5px;
   margin-bottom: 5px;
-  
 }
+
 .toc .toggleNav .navGroup .subNavGroup ul {
   padding-left: 20px;
   

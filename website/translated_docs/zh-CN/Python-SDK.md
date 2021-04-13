@@ -47,7 +47,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
 #### 节点连接
 
-- 以HTTP 连接为例，连接一个PlatON节点
+- 以HTTP 连接为例，连接一个PlatON节点。
 
   ```python
   w3 = Web3(HTTPProvider("http://localhost:6789"))
@@ -59,7 +59,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   platon为platON类的一个实例。
 
-- 以Websocket连接为例
+- 以Websocket连接为例。
 
   代码如下：
 
@@ -69,7 +69,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
   print(w3.isConnected())
   ```
 
-- 以IPC连接为例
+- 以IPC连接为例。
 
   代码如下：
 
@@ -88,7 +88,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   - Web3.toBytes()
 
-    将输入的参数转换为Bytes
+    将输入的参数转换为Bytes。
 
     调用：
 
@@ -101,7 +101,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   - Web3.toHex()
 
-    将输入的参数转换为16进制
+    将输入的参数转换为16进制。
 
     调用：
 
@@ -114,7 +114,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   - Web3.toInt()
 
-    将输入的参数转换为整型
+    将输入的参数转换为整型。
 
     调用：
 
@@ -127,7 +127,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   - Web3.toJSON()
 
-    将输入的参数转换为json格式
+    将输入的参数转换为json格式。
 
     调用：
 
@@ -140,7 +140,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   - Web3.toText()
 
-    将输入的参数转换为字符串格式
+    将输入的参数转换为字符串格式。
 
     调用：
 
@@ -155,7 +155,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   - Web3.isAddress()
 
-    检测输入的参数是否为被认可的地址形式
+    检测输入的参数是否为被认可的地址形式。
 
     调用
 
@@ -166,7 +166,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   - Web3.isChecksumAddress()
 
-    检查指定地址的校验和，对于非检验和地址将返回false
+    检查指定地址的校验和，对于非检验和地址将返回false。
 
     ```python
     >>> Web3.isChecksumAddress('0xd3CdA913deB6f67967B99D67aCDFa1712C293601')
@@ -179,7 +179,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   - Web3.sha3()
 
-    将输入参数编译为 Keccak-256 
+    将输入参数编译为 Keccak-256 。
 
     调用：
 
@@ -192,12 +192,12 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   - Web3.soliditySha3()
 
-    将输入的abi_type和value编译为 Keccak-256 
+    将输入的abi_type和value编译为 Keccak-256 。
 
     参数：
 
-    - value：真实值
-    - abi_type：和value相等的solidity 格式的字符串列表
+    - value：真实值。
+    - abi_type：和value相等的solidity 格式的字符串列表。
 
     调用
 
@@ -213,7 +213,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
 #### 链上查询api
 
-与PlatON 链上节点连接成功以后，可通过platon里的api查询链上节点的相关信息
+与PlatON 链上节点连接成功以后，可通过platon里的api查询链上节点的相关信息。
 
 ##### (1) platon.blockNumber 
 
@@ -234,15 +234,15 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
   一个AttributeDict对象，其解析值为`Object`或`Bool`。如果节点尚未与网络同步，
   则返回false，否则返回一个同步对象，具有以下属性：
 
-  - startingBlock - Number: 同步起始块编号
+  - startingBlock - Number: 同步起始块编号。
 
-  - currentBlock - Number: 当前已同步块编号
+  - currentBlock - Number: 当前已同步块编号。
 
-  - highestBlock - Number: 预估的目标同步块编号
+  - highestBlock - Number: 预估的目标同步块编号。
 
-  - knownStates - Number: 预估的要下载的状态
+  - knownStates - Number: 预估的要下载的状态。
 
-  - pulledStates - Number: 已经下载的状态
+  - pulledStates - Number: 已经下载的状态。
 
     
 
@@ -288,15 +288,15 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
 ##### (7) platon.getBalance(address)
 
-  用来获取指定块中特定账户地址的余额
+  用来获取指定块中特定账户地址的余额。
 
   参数：
 
-  - `address`：String - 要检查余额的账户地址，bech32 address格式，lax开头的为测试网，lat开头的为主网
+  - `address`：String - 要检查余额的账户地址，bech32 address格式，lax开头的为测试网，lat开头的为主网。
 
   返回值：
 
-  一个AttributeDict对象，其解析值为指定账户地址的余额字符串，以VON为单位
+  一个AttributeDict对象，其解析值为指定账户地址的余额字符串，以VON为单位。
 
 部分代码示例：
 
@@ -334,7 +334,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
 ##### (8) platon.getStorageAt()
 
-  返回一个地址的指定位置存储内容
+  返回一个地址的指定位置存储内容。
 
   调用：
 
@@ -344,9 +344,9 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   参数：
 
-  - `address`：String - 要读取的地址
-  - `position`：Number - 存储中的索引编号
-  - `defaultBlock`：Number|String - 可选，使用该参数覆盖platon.defaultBlock属性值
+  - `address`：String - 要读取的地址。
+  - `position`：Number - 存储中的索引编号。
+  - `defaultBlock`：Number|String - 可选，使用该参数覆盖platon.defaultBlock属性值。
 
 
 返回值：
@@ -365,8 +365,8 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   参数：
 
-  - `address`：String - 要读取代码的地址
-  - `defaultBlock`：Number|String - 可选，使用该参数覆盖platon.defaultBlock属性值
+  - `address`：String - 要读取代码的地址。
+  - `defaultBlock`：Number|String - 可选，使用该参数覆盖platon.defaultBlock属性值。
 
 
 返回值：
@@ -395,41 +395,41 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
 一个AttributeDict对象，其解析值为满足搜索条件的块对象，具有以下字段：
 
-- number - Number: 块编号，处于pending状态的块为null
+- number - Number: 块编号，处于pending状态的块为null。
   
-- hash 32 Bytes - String: 块哈希，处于pending状态的块为null
+- hash 32 Bytes - String: 块哈希，处于pending状态的块为null。
   
-- parentHash 32 Bytes - String: 父块哈希
+- parentHash 32 Bytes - String: 父块哈希。
   
-- nonce 8 Bytes - String: 生成的proof-of-work的哈希，处于pending状态的块为null
+- nonce 8 Bytes - String: 生成的proof-of-work的哈希，处于pending状态的块为null。
   
-- sha3Uncles 32 Bytes - String: 块中叔伯数据的SHA3值
+- sha3Uncles 32 Bytes - String: 块中叔伯数据的SHA3值。
   
-- logsBloom 256 Bytes - String: 块中日志的bloom filter，处于pending状态的块为null
+- logsBloom 256 Bytes - String: 块中日志的bloom filter，处于pending状态的块为null。
   
-- transactionsRoot 32 Bytes - String: 块中的交易树根节点
+- transactionsRoot 32 Bytes - String: 块中的交易树根节点。
   
-- stateRoot 32 Bytes - String: 块中的最终状态树根节点
+- stateRoot 32 Bytes - String: 块中的最终状态树根节点。
   
-- miner - String: 接收奖励的矿工地址
+- miner - String: 接收奖励的矿工地址。
   
-- difficulty - String: 该块的难度值
+- difficulty - String: 该块的难度值。
   
-- totalDifficulty - String: 截至该块的全链总难度值
+- totalDifficulty - String: 截至该块的全链总难度值。
   
-- extraData - String: 块 “extra data” 字段
+- extraData - String: 块 “extra data” 字段。
   
-- size - Number: 字节为单位的块大小
+- size - Number: 字节为单位的块大小。
   
-- gasLimit - Number: 该块允许的最大gas值
+- gasLimit - Number: 该块允许的最大gas值。
   
-- gasUsed - Number: 该块中所有交易使用的gas总量
+- gasUsed - Number: 该块中所有交易使用的gas总量。
   
-- timestamp - Number: 出块的unix时间戳
+- timestamp - Number: 出块的unix时间戳。
   
-- transactions - Array: 交易对象数组，或者32字节长的交易哈希值，取决于returnTransactionObjects的设置
+- transactions - Array: 交易对象数组，或者32字节长的交易哈希值，取决于returnTransactionObjects的设置。
   
-- uncles - Array: 叔伯块哈希值数组
+- uncles - Array: 叔伯块哈希值数组。
   
   
   
@@ -445,7 +445,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   参数：
 
-  - `blockHashOrBlockNumber`：String|Number - 块编号或块的哈希值，或者使用以下字符串："genesis"、"latest" 或 "pending" 来指定块
+  - `blockHashOrBlockNumber`：String|Number - 块编号或块的哈希值，或者使用以下字符串："genesis"、"latest" 或 "pending" 来指定块。
 
 
 返回值：
@@ -466,7 +466,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   参数：
 
-  - `transactionHash`：String - 交易的哈希值
+  - `transactionHash`：String - 交易的哈希值。
 
     
 
@@ -488,7 +488,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   参数：
 
-  - `transactionHash`：String - 交易的哈希值
+  - `transactionHash`：String - 交易的哈希值。
 
   返回值：
 
@@ -508,12 +508,12 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   参数：
 
-  - `hashStringOrNumber`：String - 块编号或块的哈希值，或者使用以下字符串："genesis、"latest" 或 "pending" 来指定块
-  - `indexNumber`：Number - 交易索引位置
+  - `hashStringOrNumber`：String - 块编号或块的哈希值，或者使用以下字符串："genesis、"latest" 或 "pending" 来指定块。
+  - `indexNumber`：Number - 交易索引位置。
 
   返回值：
 
-  一个AttributeDict对象，其解析值为交易对象，该对象具体内容描述参见platon.getTransaction()
+  一个AttributeDict对象，其解析值为交易对象，该对象具体内容描述参见platon.getTransaction()。
 
   
 
@@ -529,12 +529,12 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   参数：
 
-  - `hashStringOrNumber`：Number |String - 块编号或块的哈希值，或者使用以下字符串："genesis、"latest" 或 "pending" 来指定块
-  - `indexNumber`：Number - 交易索引位置
+  - `hashStringOrNumber`：Number |String - 块编号或块的哈希值，或者使用以下字符串："genesis、"latest" 或 "pending" 来指定块。
+  - `indexNumber`：Number - 交易索引位置。
 
   返回值：
 
-  一个AttributeDict对象，其解析值为交易对象，该对象具体内容描述参见platon.getTransaction()
+  一个AttributeDict对象，其解析值为交易对象，该对象具体内容描述参见platon.getTransaction()。
 
 
 
@@ -547,13 +547,13 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
   参数：
 
   - `transactionObject`：Object - 要发送的交易对象，包含以下字段：
-    - from - String|Number: 交易发送方账户地址，不设置该字段的话，则使用platon.defaultAccount属性值。可设置为一个地址或本地钱包platon.accounts.wallet中的索引序号
-    - to - String: 可选，消息的目标地址，对于合约创建交易该字段为null
+    - from - String|Number: 交易发送方账户地址，不设置该字段的话，则使用platon.defaultAccount属性值。可设置为一个地址或本地钱包platon.accounts.wallet中的索引序号。
+    - to - String: 可选，消息的目标地址，对于合约创建交易该字段为null。
     - value - Number|String|BN|BigNumber: (optional) The value transferred for the transaction in VON, also the endowment if it’s a contract-creation transaction.
-    - gas - Number: 可选，默认值：待定，用于交易的gas总量，未用完的gas会退还
-    - gasPrice - Number|String|BN|BigNumber: 可选，该交易的gas价格，单位为VON，默认值为platon.gasPrice属性值
-    - data - String: 可选，可以是包含合约方法数据的ABI字符串，或者是合约创建交易中的初始化代码
-    - nonce - Number: 可选，使用该字段覆盖使用相同nonce值的挂起交易
+    - gas - Number: 可选，默认值：待定，用于交易的gas总量，未用完的gas会退还。
+    - gasPrice - Number|String|BN|BigNumber: 可选，该交易的gas价格，单位为VON，默认值为platon.gasPrice属性值。
+    - data - String: 可选，可以是包含合约方法数据的ABI字符串，或者是合约创建交易中的初始化代码。
+    - nonce - Number: 可选，使用该字段覆盖使用相同nonce值的挂起交易。
 
   返回值：
 
@@ -574,16 +574,16 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   一个AttributeDict对象，其解析值为交易的收据对象或者null。收据对象具有如下字段：
 
-  - `blockHash` 32 Bytes - String: 交易所在块的哈希值
-  - `blockNumber` - Number: 交易所在块的编号
-  - `transactionHash` 32 Bytes - String: 交易的哈希值
-  - `transactionIndex` - Number: 交易在块中的索引位置
-  - `from` - String: 交易发送方的地址
-  - `to` - String: 交易接收方的地址，对于创建合约的交易，该值为null
-  - `contractAddress` - String: 对于创建合约的交易，该值为创建的合约地址，否则为null
-  - `cumulativeGasUsed` - Number: 该交易执行时所在块的gas累计总用量
-  - `gasUsed`- Number: 该交易的gas总量
-  - `logs` - Array: 该交易产生的日志对象数组
+  - `blockHash` 32 Bytes - String: 交易所在块的哈希值。
+  - `blockNumber` - Number: 交易所在块的编号。
+  - `transactionHash` 32 Bytes - String: 交易的哈希值。
+  - `transactionIndex` - Number: 交易在块中的索引位置。
+  - `from` - String: 交易发送方的地址。
+  - `to` - String: 交易接收方的地址，对于创建合约的交易，该值为null。
+  - `contractAddress` - String: 对于创建合约的交易，该值为创建的合约地址，否则为null。
+  - `cumulativeGasUsed` - Number: 该交易执行时所在块的gas累计总用量。
+  - `gasUsed`- Number: 该交易的gas总量。
+  - `logs` - Array: 该交易产生的日志对象数组。
 
   
 
@@ -644,7 +644,7 @@ AttributeDict({'blockHash': HexBytes('0x7bfe17689560c773b1cade579f1bd2cf85aeea9f
   参数：
 
   - `address`：String - 要查询的账户地址
-  - `defaultBlock`：Number|String - 可选，设置该参数来覆盖platon.defaultBlock属性值
+  - `defaultBlock`：Number|String - 可选，设置该参数来覆盖platon.defaultBlock属性值。
 
   返回值：
 
@@ -663,15 +663,15 @@ platon.sendRawTransaction(signTransaction，private-key)
   参数：
 
   - `signTransaction`：Object - 要发送的签名交易对象，包含以下字段：
-    - from - String|Number: 交易发送方账户地址，不设置该字段的话，则使用platon.defaultAccount属性值。可设置为一个地址或本地钱包platon.accounts.wallet中的索引序号
-    - to - String: 可选，消息的目标地址，对于合约创建交易该字段为null
+    - from - String|Number: 交易发送方账户地址，不设置该字段的话，则使用platon.defaultAccount属性值。可设置为一个地址或本地钱包platon.accounts.wallet中的索引序号。
+    - to - String: 可选，消息的目标地址，对于合约创建交易该字段为null。
     - value - Number|String|BN|BigNumber: (optional) The value transferred for the transaction in VON, also the endowment if it’s a contract-creation transaction.
-  - gas - Number: 可选，默认值：待定，用于交易的gas总量，未用完的gas会退还
-    - gasPrice - Number|String|BN|BigNumber: 可选，该交易的gas价格，单位为VON，默认值为platon.gasPrice属性值
-  - data - String: 可选，可以是包含合约方法数据的ABI字符串，或者是合约创建交易中的初始化代码
-    - nonce - Number: 可选，使用该字段覆盖使用相同nonce值的挂起交易
+  - gas - Number: 可选，默认值：待定，用于交易的gas总量，未用完的gas会退还。
+    - gasPrice - Number|String|BN|BigNumber: 可选，该交易的gas价格，单位为VON，默认值为platon.gasPrice属性值。
+  - data - String: 可选，可以是包含合约方法数据的ABI字符串，或者是合约创建交易中的初始化代码。
+    - nonce - Number: 可选，使用该字段覆盖使用相同nonce值的挂起交易。
 
-  - private-key : 用于签名的私钥
+  - private-key : 用于签名的私钥。
 
   返回值：
 
@@ -681,7 +681,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
 ##### (7) platon.replaceTransaction()
 
-  发送新的交易new_transaction，替代原来的交易transaction_hash（pending状态）
+  发送新的交易new_transaction，替代原来的交易transaction_hash（pending状态）。
 
   调用：
 
@@ -702,7 +702,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
 ##### (8)  platon.generateGasPrice()
 
-  使用选中的gas price 策略去计算一个gas price
+  使用选中的gas price 策略去计算一个gas price。
 
   调用：
 
@@ -712,13 +712,13 @@ platon.sendRawTransaction(signTransaction，private-key)
 
 ​         返回值： 
 
-​                 以wei为单位的gas price数值
+​                 以wei为单位的gas price数值。
 
 
 
 ##### (9) platon.setGasPriceStrategy()
 
-  设定选定的gas price 策略
+  设定选定的gas price 策略。
 
   调用：
 
@@ -728,17 +728,15 @@ platon.sendRawTransaction(signTransaction，private-key)
 
   参数：
 
-  ​        gas_price_strategy ：(web3, transaction_params) ,必须是一种签名的方法。
+- gas_price_strategy ：(web3, transaction_params) ,必须是一种签名的方法。
 
   返回：
 
-  ​        以wei为单位的gas price数值
-
-
+  ​        以wei为单位的gas price数值。
 
 ##### (10) platon.modifyTransaction()
 
-  发送新的参数，去修正处于pending状态的交易
+  发送新的参数，去修正处于pending状态的交易。
 
   调用：
 
@@ -749,7 +747,7 @@ platon.sendRawTransaction(signTransaction，private-key)
   参数：
 
   - transaction_hash -string : 处于pending状态的交易的hash值。
-  - transaction_params : 与transaction_hash的参数对应的关键词语句。如 value=1000,将原交易中的value值改为1000
+  - transaction_params : 与transaction_hash的参数对应的关键词语句。如 value=1000,将原交易中的value值改为1000。
 
   返回：
 
@@ -769,8 +767,8 @@ platon.sendRawTransaction(signTransaction，private-key)
 
   参数：
 
-  - `dataToSign`：String - 待签名的数据。对于字符串将首先使用utils.utf8ToHex()方法将其转换为16进制
-  - `address`：String|Number - 用来签名的账户地址。或者本地钱包platon.accounts.wallet中的地址或其序号
+  - `dataToSign`：String - 待签名的数据。对于字符串将首先使用utils.utf8ToHex()方法将其转换为16进制。
+  - `address`：String|Number - 用来签名的账户地址。或者本地钱包platon.accounts.wallet中的地址或其序号。
 
   返回值：
 
@@ -790,7 +788,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
   参数：
 
-  - `callObject`：Object - 交易对象，其from属性可选
+  - `callObject`：Object - 交易对象，其from属性可选。
 
   返回值：
 
@@ -802,7 +800,7 @@ platon.sendRawTransaction(signTransaction，private-key)
 
 ##### (1) platon.filter
 
-  生成一个新的过滤器，根据参数的不同，生成不同类型的过滤器
+  生成一个新的过滤器，根据参数的不同，生成不同类型的过滤器。
 
   调用：
 
@@ -814,9 +812,9 @@ platon.sendRawTransaction(signTransaction，private-key)
 
   - params
 
-    - 'latest'，在节点中创建一个过滤器，以便当新块生成时进行通知。要检查状态是否变化
-    - 'pending' ，在节点中创建一个过滤器，以便当产生挂起交易时进行通知。 要检查状态是否发生变化
-    - 字典类数据，创建一个过滤器，以便在客户端接收到匹配的whisper消息时进行通知
+    - 'latest'，在节点中创建一个过滤器，以便当新块生成时进行通知。要检查状态是否变化。
+    - 'pending' ，在节点中创建一个过滤器，以便当产生挂起交易时进行通知。 要检查状态是否发生变化。
+    - 字典类数据，创建一个过滤器，以便在客户端接收到匹配的whisper消息时进行通知。
 
     
 
@@ -920,14 +918,14 @@ platon.sendRawTransaction(signTransaction，private-key)
 
   数组中的事件对象结构如下：
 
-  - address - String: 事件发生源地址
-  - data - String: 包含未索引的日志参数
-  - topics - Array: 包含最多4个32字节主题的数组，主题1-3包含日志的索引参数
-  - logIndex - Number: 事件在块中的索引位置
-  - transactionIndex - Number: 包含事件的交易的索引位置
-  - transactionHash 32 Bytes - String: 包含事件的交易的哈希值
-  - blockHash 32 Bytes - String: 包含事件的块的哈希值，如果处于pending状态，则为null
-  - blockNumber - Number: 包含事件的块编号，处于pending状态时该字段为null
+  - address - String: 事件发生源地址。
+  - data - String: 包含未索引的日志参数。
+  - topics - Array: 包含最多4个32字节主题的数组，主题1-3包含日志的索引参数。
+  - logIndex - Number: 事件在块中的索引位置。
+  - transactionIndex - Number: 包含事件的交易的索引位置。
+  - transactionHash 32 Bytes - String: 包含事件的交易的哈希值。
+  - blockHash 32 Bytes - String: 包含事件的块的哈希值，如果处于pending状态，则为null。
+  - blockNumber - Number: 包含事件的块编号，处于pending状态时该字段为null。
 
 
 
@@ -1002,31 +1000,31 @@ platon.sendRawTransaction(signTransaction，private-key)
   参数：
 
   - options - Object: 可选，用于部署的选项，包含以下字段：
-    - filter - Object : 可选，按索引参数过滤事件。例如 {filter: {myNumber: [12,13]}} 表示 “myNumber” 为12或13的所有事件
-    - fromBlock - Number: 可选，仅监听该选项指定编号的块中发生的事件
-    - topics - Array : 可选，用来手动为事件过滤器设定主题。如果设置过filter属性和事件签名，那么(topic[0])将不会自动设置
+    - filter - Object : 可选，按索引参数过滤事件。例如 {filter: {myNumber: [12,13]}} 表示 “myNumber” 为12或13的所有事件。
+    - fromBlock - Number: 可选，仅监听该选项指定编号的块中发生的事件。
+    - topics - Array : 可选，用来手动为事件过滤器设定主题。如果设置过filter属性和事件签名，那么(topic[0])将不会自动设置。
 
   返回值：
 
   EventEmitter: 事件发生器，声明有以下事件:
 
-  - "data" 返回 Object: 接收到新的事件时触发，参数为事件对象
-  - "changed" 返回 Object: 当事件从区块链上移除时触发，该事件对象将被添加额外的属性"removed: true"
-  - "error" 返回 Object: 当发生错误时触发
+  - "data" 返回 Object: 接收到新的事件时触发，参数为事件对象。
+  - "changed" 返回 Object: 当事件从区块链上移除时触发，该事件对象将被添加额外的属性"removed: true"。
+  - "error" 返回 Object: 当发生错误时触发。
 
   返回的事件对象结构如下：
 
-  - event - String: 事件名称
-  - signature - String|Null: 事件签名，如果是匿名事件，则为null
-  - address - String: 事件源地址
-  - returnValues - Object: 事件返回值，例如 {myVar: 1, myVar2: '0x234...'}.
-  - logIndex - Number: 事件在块中的索引位置
-  - transactionIndex - Number: 事件在交易中的索引位置
-  - transactionHash 32 Bytes - String: 事件所在交易的哈希值
-  - blockHash 32 Bytes - String: 事件所在块的哈希值，pending的块该值为 null
-  - blockNumber - Number: 事件所在块的编号，pending的块该值为null
-  - raw.data - String: 该字段包含未索引的日志参数
-  - raw.topics - Array: 最多可保存4个32字节长的主题字符串数组。主题1-3 包含事件的索引参数
+  - event - String: 事件名称。
+  - signature - String|Null: 事件签名，如果是匿名事件，则为null。
+  - address - String: 事件源地址。
+  - returnValues - Object: 事件返回值，例如 {myVar: 1, myVar2: '0x234...'}。
+  - logIndex - Number: 事件在块中的索引位置。
+  - transactionIndex - Number: 事件在交易中的索引位置。
+  - transactionHash 32 Bytes - String: 事件所在交易的哈希值。
+  - blockHash 32 Bytes - String: 事件所在块的哈希值，pending的块该值为 null。
+  - blockNumber - Number: 事件所在块的编号，pending的块该值为null。
+  - raw.data - String: 该字段包含未索引的日志参数。
+  - raw.topics - Array: 最多可保存4个32字节长的主题字符串数组。主题1-3 包含事件的索引参数。
 
   示例代码：
 
@@ -1078,8 +1076,8 @@ PlatON区块链支持使用solidity语言创建的智能合约(evm)，同时也�
 
 python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数据与PlatON区块链进行交互。
 
-- **(1)**  evm合约(使用solidity语言创建)可使用platon-truffle进行编译、部署、调用。具体可参考[solidity编译器](https://github.com/PlatONnetwork/solidity)与[platon-truffle](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html)
-- **(2)**  wasm合约(使用C/C++/Rust等语言创建)可使用PlatON-CDT 或者platon-truffle进行编译、部署、调用。具体可参考[PlatON-CDT 编译器](https://github.com/PlatONnetwork/PlatON-CDT/tree/feature/wasm)
+- **(1)**  evm合约(使用solidity语言创建)可使用platon-truffle进行编译、部署、调用。具体可参考[solidity编译器](https://github.com/PlatONnetwork/solidity)与[platon-truffle](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html)。
+- **(2)**  wasm合约(使用C/C++/Rust等语言创建)可使用PlatON-CDT 或者platon-truffle进行编译、部署、调用。具体可参考[PlatON-CDT 编译器](https://github.com/PlatONnetwork/PlatON-CDT/tree/feature/wasm)。
 
 
 
@@ -1149,13 +1147,13 @@ python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数
 
   参数：
 
-  ​         "from"   发送交易的账户地址
+- from : 发送交易的账户地址
 
-  ​         "data"   发送到链上的数据
+- data :  发送到链上的数据
 
-  ​         "gas"     交易的燃料量
+- gas:交易的燃料量
 
-  ​         "gasPrice" 燃料价格
+- gasPrice: 燃料价格
 
   需写入合理的数值
 
@@ -1181,15 +1179,15 @@ python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数
 
 ##### (3) 对Helloworld合约进行调用(交易发送)
 
-  在之前合约部署成功的基础上，进行交易发送
+  在之前合约部署成功的基础上，进行交易发送。
 
-  首先定义一个函数SendTxn(txn)
+  首先定义一个函数SendTxn(txn)。
 
-  包含：签名交易 platon.account.signTransaction （私钥签名）
+  包含：签名交易 platon.account.signTransaction （私钥签名）、
 
-  ​            发送交易 platon.sendRawTransaction
+  ​            发送交易 platon.sendRawTransaction、
 
-  ​            获得交易回执 platon.waitForTransactionReceipt
+  ​            获得交易回执 platon.waitForTransactionReceipt。
 
   ```python
   send_privatekey = "b7a7372e78160f71a1a75e03c4aa72705806a05cf14ef39c87fdee93d108588c"
@@ -1227,15 +1225,15 @@ python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数
 
   参数：
 
-  ​         'chainId'  链id
+- **chainId**  链id
 
-  ​         'nonce'   序号
+- **nonce**   序号
 
-  ​         'gas'       燃料
+- **gas**     燃料
 
-  ​         'value'   值（新建合约账户的开始余额）
+- **value** 值（新建合约账户的开始余额）
 
-  ​        'gasPrice' 燃料价格
+- **gasPrice** 燃料价格
 
   需写入合理的数值
 
@@ -1250,23 +1248,25 @@ python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数
 you are a middle man
   ```
 
-   其中 第一行数据为函数SendTxn中的platon.sendRawTransaction的交易结果
+   其中 
 
-​        第二行数据为方法ifControl向链上发送信息，交易的结果
+​        第一行数据为函数SendTxn中的platon.sendRawTransaction的交易结果。
 
-​        第三行为方法getIfControlResult获取链上信息，交易的结果
+​        第二行数据为方法ifControl向链上发送信息，交易的结果。
+
+​        第三行为方法getIfControlResult获取链上信息，交易的结果。
 
 
 
 ##### (4) evm合约的事件调用
 
-  evm合约通过事件可对相关交易的详细信息进行监听和日志记录输出
+  evm合约通过事件可对相关交易的详细信息进行监听和日志记录输出。
 
   以evmevent合约为例：其在方法setVar中加入了event类型MyEvent。
 
   greeter为部署成功的evm合约。
 
-  先通过functions调用setVar,将参数传到链上
+  先通过functions调用setVar,将参数传到链上，
 
   然后通过greeter.events.MyEvent()，调用事件输出交易的详细日志。
 
@@ -1297,13 +1297,13 @@ print(topic_param)
 
   ```
 
-  第一行为调用函数setVar，交易成功后的交易回执
+  第一行为调用函数setVar，交易成功后的交易回执。
 
-  第二行为调用事件MyEvent()，获取的交易日志信息
+  第二行为调用事件MyEvent()，获取的交易日志信息。
 
   其中'args'对应的值中：
 
-  '_var'为唯一的参数值
+  '_var'为唯一的参数值，
 
   而在evm合约的event中，数据的基本类型为uint、int、bool、address、bytex。
 
@@ -1315,13 +1315,13 @@ print(topic_param)
 
 ##### (1) 使用PlatON-CDT在本机对wasm合约进行编译
 
-  以wasmcontract.cpp为例。本机安装PlatON-CDT成功后，在PlatON-CDT/build/bin中输入代码       
+  以wasmcontract.cpp为例。本机安装PlatON-CDT成功后，在PlatON-CDT/build/bin中输入代码 。
 
   ```
   platon-cpp wasmcontract.cpp
   ```
 
-  编译成功后，在wasmcontract/build/contracts中有两个文件
+  编译成功后，在wasmcontract/build/contracts中有两个文件。
 
   wasmcontract.abi.json 与 wasmcontract.wasm，其中wasmcontract.abi.json为abi数据（json格式）， wasmcontract.wasm为bin数据（二进制格式）。
 
@@ -1336,9 +1336,9 @@ print(topic_param)
 
 ##### (2)  通过python SDK对Helloworld合约(wasm类型)部署
 
-  获取wasm合约的bin和abi之后，通过Web3在链上进行部署
+  获取wasm合约的bin和abi之后，通过Web3在链上进行部署。
 
-  下面代码中bytecode即为合约的bin数据，cabi即为合约的abi数据
+  下面代码中bytecode即为合约的bin数据，cabi即为合约的abi数据。
 
   ```python
   from client_sdk_python import Web3, HTTPProvider
@@ -1358,7 +1358,7 @@ print(topic_param)
 
   wasm类型合约通过platon.wasmcontract建立合约实例
 
-  对实例调用方法.constructor()进行合约的构建，通过transact发送交易到链上
+  对实例调用方法.constructor()进行合约的构建，通过transact发送交易到链上。
 
 ```python
   # Instantiate and deploy contract
@@ -1376,9 +1376,9 @@ tx_hash = Payable.constructor().transact(
   print(tx_receipt)
 ```
 
-  其中tx_receipt为此次部署合约的交易回执
+  其中tx_receipt为此次部署合约的交易回执。
 
-  部署成功后输出如下
+  部署成功后输出如下。
 
 ```
   #输出
@@ -1390,9 +1390,9 @@ AttributeDict({'blockHash': HexBytes('0x7a193be2cf86aedcf844c0478c6f64d226affb55
 
   ​    在之前合约部署成功的基础上，对合约中的方法进行调用。
 
-  ​    payable是合约部署成功后的实例
+  ​    payable是合约部署成功后的实例。
 
-  ​    通过调用函数setBool，向链上传送参数false（发送交易）
+  ​    通过调用函数setBool，向链上传送参数false（发送交易）。
 
   ```python
   payable = platon.wasmcontract(address=tx_receipt.contractAddress, abi=cabi,vmtype=1)
@@ -1423,11 +1423,11 @@ AttributeDict({'blockHash': HexBytes('0x7a193be2cf86aedcf844c0478c6f64d226affb55
 
   wasm合约中的事件,一般写在合约的函数中。
 
-  以wasmcontract合约为例，在方法setUint32含有事件setUint32Evt，可通过setUint32Evt对setUint32的交易结果进行监听和日志记录输出
+  以wasmcontract合约为例，在方法setUint32含有事件setUint32Evt，可通过setUint32Evt对setUint32的交易结果进行监听和日志记录输出。
 
-  greeter是部署成功的wasm类型合约实例
+  greeter是部署成功的wasm类型合约实例。
 
-  tx_hash是函数setUint32传参数的交易实例
+  tx_hash是函数setUint32传参数的交易实例。
 
   ```python
   greeter = platon.wasmcontract(address=tx_receipt.contractAddress, abi=abi,vmtype=1)
@@ -1445,7 +1445,7 @@ AttributeDict({'blockHash': HexBytes('0x7a193be2cf86aedcf844c0478c6f64d226affb55
 print(topic_param)
   ```
 
-  topic_param是事件setUint32Evt调用的结果
+  topic_param是事件setUint32Evt调用的结果。
 
   成功运行后输出结果如下：
 
@@ -1482,27 +1482,27 @@ ppos.createStaking(benifit_address, node_id, external_id, node_name, website, de
 
 - 参数说明
 
->**typ**: Indicates whether the account free amount or the account's lock amount is used for staking, 0: free amount; 1: lock amount;2: Give priority to lock amount , use free amount provided that staking amount over lock amount
->**benifit_address**: Income account for accepting block rewards and staking rewards
->**node_id**: The idled node Id (also called the candidate's node Id)
->**external_id**: External Id (with length limit, Id for the third party to pull the node description)
->**node_name**: The name of the staking node (with a length limit indicating the name of the node)
->**website**: The third-party home page of the node (with a length limit indicating the home page of the node)
->**details**: Description of the node (with a length limit indicating the description of the node)
->**amount**: staking von (unit:von, 1LAT = 10\*\*18 von)
->**program_version**: The real version of the program, admin_getProgramVersion
->**program_version_sign**: The real version of the program is signed, admin_getProgramVersion
->**bls_pubkey**: Bls public key
->**bls_proof**: Proof of bls, obtained by pulling the proof interface, admin_getSchnorrNIZKProve
->**pri_key**: Private key for transaction
->**reward_per**: Proportion of the reward share obtained from the commission, using BasePoint 1BP = 0.01%
->**transaction_cfg**: Transaction basic configuration
+>**typ**:表示使用账户自由金额还是账户的锁仓金额做质押，0: 自由金额； 1: 锁仓金额。 
+>**benifit_address**: 用于接受出块奖励和质押奖励的收益账户。
+>**node_id**: 被质押的节点Id(也叫候选人的节点Id)。
+>**external_id**: 外部Id(有长度限制，给第三方拉取节点描述的Id)。
+>**node_name**:被质押节点的名称(有长度限制，表示该节点的名称)。
+>**website**: 节点的第三方主页(有长度限制，表示该节点的主页)。
+>**details**: 节点的描述(有长度限制，表示该节点的描述)。
+>**amount**: 质押金额(unit:von, 1LAT = 10\*\*18 von)。
+>**program_version**: 被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)。
+>**program_version_sign**: 程序的真实版本签名，治理rpc获取。
+>**bls_pubkey**: Bls 公钥。
+>**bls_proof**: bls的证明,通过拉取证明接口获取。
+>**pri_key**: 交易私钥。
+>**reward_per**: 委托所得到的奖励分成比例，采用BasePoint 1BP=0.01%。
+>**transaction_cfg**: 交易基础配置
 >      type: dict
 >      example:cfg = {
 >          "gas":100000000,
 >          "gasPrice":2000000000000,
 >          "nonce":1,
->      }
+>      }.
 >
 >
 
@@ -1516,21 +1516,21 @@ ppos.editCandidate(benifit_address, node_id, external_id, node_name, website, de
 
 - 参数说明
 
->**benifit_address**: Income account for accepting block rewards and staking rewards
->**node_id**: The idled node Id (also called the candidate's node Id)
->**external_id**: External Id (with length limit, Id for the third party to pull the node description)
->**node_name**: The name of the staking node (with a length limit indicating the name of the node)
->**website**: The third-party home page of the node (with a length limit indicating the home page of the node)
->**details**: Description of the node (with a length limit indicating the description of the node)
->**pri_key**: Private key for transaction
->**reward_per**: Proportion of the reward share obtained from the commission, using BasePoint 1BP = 0.01%
->**transaction_cfg**: Transaction basic configuration
+>**benifit_address**:用于接受出块奖励和质押奖励的收益账户。
+>**node_id**: 被质押的节点Id(也叫候选人的节点Id)。
+>**external_id**: 外部Id(有长度限制，给第三方拉取节点描述的Id)。
+>**node_name**: 被质押节点的名称(有长度限制，表示该节点的名称)。
+>**website**: 节点的第三方主页(有长度限制，表示该节点的主页)。
+>**details**: 节点的描述(有长度限制，表示该节点的描述)。
+>**pri_key**: 交易私钥。
+>**reward_per**: 委托所得到的奖励分成比例，采用BasePoint 1BP=0.01%，例：传500就是5%的奖励作为委托奖励。
+>**transaction_cfg**: 交易基础配置
 >        type: dict
 >        example:cfg = {
 >            "gas":100000000,
 >            "gasPrice":2000000000000,
 >            "nonce":1,
->        }
+>        }.
 
 ##### 增持质押
 
@@ -1542,17 +1542,17 @@ ppos.increaseStaking(node_id, amount, pri_key, typ=2, transaction_cfg=None)
 
 - 参数说明
 
->**typ**: Indicates whether the account free amount or the account's lock amount is used for staking, 0: free amount; 1: lock amount;2: Give priority to lock amount , use free amount provided that staking amount over lock amount
->**node_id**: The idled node Id (also called the candidate's node Id)
->**amount**: staking von (unit:von, 1LAT = 10\*\*18 von)
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
+>**typ**:表示使用账户自由金额还是账户的锁仓金额做质押，0: 自由金额； 1: 锁仓金额。
+>**node_id**: 被质押的节点Id(也叫候选人的节点Id)。
+>**amount**: 增持的von。
+>**pri_key**: 交易私钥。
+>**transaction_cfg**: 交易基础配置
 >        type: dict
 >        example:cfg = {
 >            "gas":100000000,
 >            "gasPrice":2000000000000,
 >            "nonce":1,
->        }
+>        }.
 
 ##### 撤销质押(一次性发起全部撤销，多次到账)
 
@@ -1564,15 +1564,15 @@ ppos.withdrewStaking(node_id, pri_key, transaction_cfg=None)
 
 - 参数说明
 
->**node_id**: The idled node Id (also called the candidate's node Id)
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
+>**node_id**: 被质押的节点的NodeId。
+>**pri_key**: 交易私钥。
+>**transaction_cfg**: 交易基础配置
 >        type: dict
 >        example:cfg = {
 >            "gas":100000000,
 >            "gasPrice":2000000000000,
 >            "nonce":1,
->        }
+>        }.
 
 #### delegate
 
@@ -1586,17 +1586,17 @@ ppos.delegate(typ, node_id, amount, pri_key, transaction_cfg=None)
 
 - 参数说明
 
->**typ**: Indicates whether the account free amount or the account's lock amount is used for delegate, 0: free amount; 1: lock amount
->**node_id**: The idled node Id (also called the candidate's node Id)
->**amount**: Amount of delegate (unit:von, 1LAT = 10\*\*18 von)
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
+>**typ**:表示使用账户自由金额还是账户的锁仓金额做委托，0: 自由金额； 1: 锁仓金额。
+>**node_id**: 被质押节点的NodeId。
+>**amount**:委托的金额(按照最小单位算，1LAT = 10\*\*18 von)。
+>**pri_key**: 交易私钥。
+>**transaction_cfg**: 交易基础配置
 >        type: dict
 >        example:cfg = {
 >            "gas":100000000,
 >            "gasPrice":2000000000000,
 >            "nonce":1,
->        }
+>        }.
 
 ##### 减持/撤销委托
 
@@ -1608,17 +1608,17 @@ ppos.withdrewDelegate(staking_blocknum, node_id, amount, pri_key, transaction_cf
 
 - 参数说明
 
->**staking_blocknum**: A unique indication of a pledge of a node
->**node_id**: The idled node Id (also called the candidate's node Id)
->**amount**: The amount of the entrusted reduction (unit:von, 1LAT = 10\*\*18 von)
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
+>**staking_blocknum**:代表着某个node的某次质押的唯一标示
+>**node_id**: 被质押的节点的NodeId。
+>**amount**: 减持生效的委托的金额(按照最小单位算，1LAT = 10\*\*18 von)
+>**pri_key**: 交易私钥。
+>**transaction_cfg**: 交易基础配置
 >type: dict
 >example:cfg = {
 >    "gas":100000000,
 >    "gasPrice":2000000000000,
 >    "nonce":1,
->}
+>}.
 
 ##### 提取委托奖励
 
@@ -1630,14 +1630,14 @@ ppos.withdrawDelegateReward(pri_key, transaction_cfg=None)
 
 - 参数说明
 
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
+>**pri_key**:交易私钥。
+>**transaction_cfg**: 交易基础配置
 >type: dict
 >example:cfg = {
 >    "gas":100000000,
 >    "gasPrice":2000000000000,
 >    "nonce":1,
->}
+>}.
 
 #### query
 
@@ -1651,7 +1651,7 @@ ppos.getVerifierList(from_address=None)
 
 - 参数说明
 
-> **from_address**: Used to call the rpc call method
+> **from_address**: 调用rpc接口的from地址。
 
 ##### 查询当前共识周期的验证人列表
 
@@ -1663,7 +1663,7 @@ ppos.getValidatorList(from_address=None)
 
 - 参数说明
 
-> **from_address**: Used to call the rpc call method
+> **from_address**: 调用rpc接口的from地址。
 
 ##### 查询所有实时的候选人列表
 
@@ -1675,7 +1675,7 @@ ppos.getCandidateList(from_address=None)
 
 - 参数说明
 
-> **from_address**: Used to call the rpc call method
+> **from_address**: 调用rpc接口的from地址。
 
 ##### 查询当前账户地址所委托的节点的NodeID和质押Id
 
@@ -1687,8 +1687,8 @@ ppos.getRelatedListByDelAddr(del_addr, from_address=None)
 
 - 参数说明
 
->**del_addr**: Client's account address
->**from_address**: Used to call the rpc call method
+>**del_addr**: 委托人账户地址。
+>**from_address**: 调用rpc接口的from地址。
 
 ##### 查询当前单个节点的委托信息
 
@@ -1700,10 +1700,10 @@ ppos.getDelegateInfo(staking_blocknum, del_address, node_id, from_address=None)
 
 - 参数说明
 
->**staking_blocknum**: Block height at the time of staking
->**del_address**: Client's account address
->**node_id**: Verifier's node ID
->**from_address**: Used to call the rpc call method
+>**staking_blocknum**: 发起质押时的区块高度。
+>**del_address**: 委托人账户地址。
+>**node_id**: 验证人的节点Id。
+>**from_address**: 调用rpc接口的from地址。
 
 ##### 查询当前节点的质押信息
 
@@ -1715,8 +1715,8 @@ ppos.getCandidateInfo(node_id, from_address=None)
 
 - 参数说明
 
->**node_id**: Verifier's node ID
->**from_address**: Used to call the rpc call method
+>**node_id**: 验证人的节点Id。
+>**from_address**: 调用rpc接口的from地址。
 
 ##### 查询当前结算周期的区块奖励
 
@@ -1728,7 +1728,7 @@ ppos.getPackageReward(from_address=None)
 
 - 参数说明
 
-> **from_address**: Used to call the rpc call method
+> **from_address**: 调用rpc接口的from地址。
 
 #####  查询当前结算周期的质押奖励
 
@@ -1740,7 +1740,7 @@ ppos.getStakingReward(from_address=None)
 
 - 参数说明
 
-> **from_address**: Used to call the rpc call method
+> **from_address**: 调用rpc接口的from地址。
 
 ##### 查询打包区块的平均时间
 
@@ -1752,7 +1752,7 @@ ppos.getAvgPackTime(from_address=None)
 
 - 参数说明
 
-> **from_address**: Used to call the rpc call method
+> **from_address**: 调用rpc接口的from地址。
 
 ##### 查询账户在各节点未提取委托奖励。
 
@@ -1764,11 +1764,9 @@ ppos.getDelegateReward(address, node_ids=[])
 
 - 参数说明
 
->**address**:account address to be queried
+>**address**:要查询的帐户地址。
 >
->**node_ids**:the string array of the node id to be queried, if it is empty, query all nodes delegated by the account
-
-#### 双签
+>**node_ids**:要查询的节点ID的字符串数组，如果为空，则查询该帐户委托的所有节点。
 
 ##### 举报双签
 
@@ -1780,16 +1778,16 @@ ppos.reportDuplicateSign(typ, data, pri_key, transaction_cfg=None)
 
 - 参数说明
 
->**typ**: Represents duplicate sign type, 1:prepareBlock, 2: prepareVote, 3:viewChange
->**data**: Json value of single evidence, format reference RPC interface Evidences
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
+>**typ**: 双签类型，他有三个可选项 1:prepareBlock, 2: prepareVote, 3:viewChange。
+>**data**:单个证据的json值，格式参照 [RPC接口Evidences](#evidences_interface)。
+>**pri_key**: 交易私钥。
+>**transaction_cfg**:交易基础配置
 >        type: dict
 >        example:cfg = {
 >            "gas":100000000,
 >            "gasPrice":2000000000000,
 >            "nonce":1,
->        }
+>        }.
 
 ##### 查询节点是否已被举报过多签
 
@@ -1801,10 +1799,11 @@ ppos.checkDuplicateSign(typ, node_id, block_number, from_address=None)
 
 - 参数说明
 
->**typ**: Represents double sign type, 1:prepareBlock, 2: prepareVote, 3:viewChange
->**check_address**: Reported node address
->**block_number**: Duplicate-signed block height
->**from_address**: Used to call the rpc call method
+>**typ**: 双签类型，他有三个可选项 1:prepareBlock, 2: prepareVote, 3:viewChange。
+>
+>**node_id**:待查询节点的ID。
+>**block_number**: 重复签名的块高度。
+>**from_address**: 调用rpc接口的from地址。
 
 #### 锁仓
 
@@ -1818,26 +1817,25 @@ ppos.createRestrictingPlan(account, plan, pri_key, transaction_cfg=None)
 
 - 参数说明
 
->**account**: Locked account release account
->**plan**:
->  An is a list of RestrictingPlan types (array), and RestrictingPlan is defined as follows:
+>**account**:锁仓释放到账账户。
+>**plan**:An是RestrictingPlan类型（数组）的列表，并且RestrictingPlan的定义如下:
 >  type RestrictingPlan struct {
->      Epoch uint64
+>   Epoch uint64
 >      Amount *big.Int
 >      }
->   where Epoch: represents a multiple of the billing period.
+>     where Epoch: represents a multiple of the billing period.
 >   The product of the number of blocks per billing cycle indicates that the locked fund
 >   s are released at the target block height. Epoch * The number of blocks per cycle is
 >   at least greater than the maximum irreversible block height.
 >   Amount: indicates the amount to be released on the target block.
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
->        type: dict
+>   **pri_key**: 交易私钥。
+>**transaction_cfg**: 交易基础配置
+>   type: dict
 >        example:cfg = {
 >            "gas":100000000,
 >            "gasPrice":2000000000000,
 >            "nonce":1,
->        }
+>        }.
 
 ##### 获取锁仓信息
 
@@ -1849,8 +1847,8 @@ ppos.getRestrictingInfo(account, from_address=None)
 
 - 参数说明
 
->**account**: Locked account release account
->**from_address**: Used to call the rpc call method
+>**account**:锁仓释放到账账户。
+>**from_address**: 调用rpc接口的from地址。
 
 #### 治理
 
@@ -1871,16 +1869,16 @@ pip.submitText(verifier, pip_id, pri_key, transaction_cfg=None)
 
 - 参数说明
 
->**verifier**: The certified submitting the proposal
->**pip_id**: PIPID
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
+>**verifier**: 提交提案的验证人。
+>**pip_id**: PIPID.
+>**pri_key**: 交易私钥。
+>**transaction_cfg**: 交易基础配置
 >        type: dict
 >        example:cfg = {
 >            "gas":100000000,
 >            "gasPrice":2000000000000,
 >            "nonce":1,
->        }
+>        }.
 
 ##### 升级提案
 
@@ -1892,24 +1890,24 @@ pip.submitVersion(verifier, pip_id, new_version, end_voting_rounds, pri_key, tra
 
 - 参数说明
 
->**verifier**:  The certified submitting the proposal
->**pip_id**:  PIPID
->**new_version**: upgraded version
->**end_voting_rounds**: The number of voting consensus rounds.
+>**verifier**:  提交提案的验证人。
+>**pip_id**:  PIPID。
+>**new_version**:新的版本。
+>**end_voting_rounds**:投票共识轮数。
 >      Explanation: Assume that the transaction submitted by the proposal is rounded when the consensus round
 >      number of the package is packed into the block, then the proposal voting block is high,
 >      which is the 230th block height of the round of the round1 + endVotingRounds
 >      (assuming a consensus round out of block 250, ppos The list is 20 blocks high in advance,
 >       250, 20 are configurable), where 0 < endVotingRounds <= 4840 (about 2 weeks, the actual discussion
->       can be calculated according to the configuration), and is an integer)
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
+>       can be calculated according to the configuration), and is an integer).
+>**pri_key**: 交易私钥。
+>**transaction_cfg**:交易基础配置
 >        type: dict
 >        example:cfg = {
 >            "gas":100000000,
 >            "gasPrice":2000000000000,
 >            "nonce":1,
->        }
+>        }。
 
 ##### 参数提案
 
@@ -1921,19 +1919,19 @@ pip.submitParam(verifier, pip_id, module, name, new_value, pri_key, transaction_
 
 - 参数说明
 
->**verifier**: The certified submitting the proposal
->**pip_id**: PIPID
->**module**: parameter module
->**name**: parameter name
->**new_value**: New parameter value
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
+>**verifier**: 提交提案的验证人。
+>**pip_id**: PIPID.
+>**module**: 参数模块。
+>**name**: 参数名字。
+>**new_value**:新参数值.
+>**pri_key**: 交易私钥。
+>**transaction_cfg**: 交易基础配置
 >        type: dict
 >        example:cfg = {
 >            "gas":100000000,
 >            "gasPrice":2000000000000,
 >            "nonce":1,
->        }
+>        }。
 
 ##### 删除提案
 
@@ -1945,21 +1943,18 @@ pip.submitCancel(verifier, pip_id, end_voting_rounds, tobe_canceled_proposal_id,
 
 - 参数说明
 
->**verifier**: The certified submitting the proposal
->**pip_id**: PIPID
->**end_voting_rounds**:
->     The number of voting consensus rounds. Refer to the instructions for submitting the upgrade proposal.
->     At the same time, the value of this parameter in this interface
->     cannot be greater than the value in the corresponding upgrade proposal.
->**tobe_canceled_proposal_id**: Upgrade proposal ID to be cancelled
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
->        type: dict
->        example:cfg = {
->            "gas":100000000,
+>**verifier**:提交提案的验证人。
+>**pip_id**: PIPID.
+>**end_voting_rounds**:投票共识轮数。请参阅有关提交升级建议的说明 同时，此参数在此接口中的值。 不能大于相应升级建议中的值。
+>     **tobe_canceled_proposal_id**: 升级建议ID将被取消。
+>     **pri_key**:交易私钥。
+>     **transaction_cfg**: 交易基础配置
+>   type: dict
+>   example:cfg = {
+>       "gas":100000000,
 >            "gasPrice":2000000000000,
 >            "nonce":1,
->        }
+>        }.
 
 ##### 投票
 
@@ -1971,19 +1966,19 @@ pip.vote(verifier, proposal_id, option, program_version, version_sign, pri_key, 
 
 - 参数说明
 
->**verifier**:  The certified submitting the proposal
->**proposal_id**: Proposal ID
->**option**: Voting option
->**program_version**: Node code version, obtained by rpc getProgramVersion interface
->**version_sign**: Code version signature, obtained by rpc getProgramVersion interface
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
+>**verifier**:  提交提案的验证人。
+>**proposal_id**: 提案ID。
+>**option**: 投票选项。
+>**program_version**: 节点代码版本，由rpc getProgramVersion接口获取。
+>**version_sign**: 通过rpc getProgramVersion接口获得的代码版本签名。
+>**pri_key**: 交易私钥。
+>**transaction_cfg**: 交易基础配置
 >        type: dict
 >        example:cfg = {
 >            "gas":100000000,
 >            "gasPrice":2000000000000,
 >            "nonce":1,
->        }
+>        }.
 
 ##### 版本声明
 
@@ -1995,17 +1990,17 @@ pip.declareVersion(active_node, program_version, version_sign, pri_key, transact
 
 - 参数说明
 
->**active_node**: The declared node can only be a verifier/candidate
->**program_version**: The declared version, obtained by rpc's getProgramVersion interface
->**version_sign**: The signed version signature, obtained by rpc's getProgramVersion interface
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
+>**active_node**: 声明的节点只能是验证者/候选者。
+>**program_version**: 声明的版本，由rpc的getProgramVersion接口获得。
+>**version_sign**: 通过rpc的getProgramVersion接口获得的已签名的版本签名。
+>**pri_key**: 交易私钥。
+>**transaction_cfg**: 交易基础配置
 >        type: dict
 >        example:cfg = {
 >            "gas":100000000,
 >            "gasPrice":2000000000000,
 >            "nonce":1,
->        }
+>        }。
 
 ##### 查询提案
 
@@ -2017,8 +2012,8 @@ pip.getProposal(proposal_id, from_address=None)
 
 - 参数说明
 
->**proposal_id**: proposal id
->**from_address**: Used to call the rpc call method
+>**proposal_id**: 提案 id。
+>**from_address**: 调用rpc接口的from地址。
 
 ##### 查询提案结果
 
@@ -2030,8 +2025,8 @@ pip.getTallyResult(proposal_id, from_address=None)
 
 - 参数说明
 
->**proposal_id**: proposal id
->**from_address**: Used to call the rpc call method
+>**proposal_id**: 提案 id。
+>**from_address**: 调用rpc接口的from地址。
 
 ##### 查询提案的累积可投票人数
 
@@ -2043,9 +2038,9 @@ pip.getAccuVerifiersCount(proposal_id, block_hash, from_address=None)
 
 - 参数说明
 
->**proposal_id**:  proposal id
->**block_hash**: block hash
->**from_address**: Used to call the rpc call method
+>**proposal_id**:  提案 id。
+>**block_hash**:块hash。
+>**from_address**: 调用rpc接口的from地址。
 
 ##### 查询提案列表
 
@@ -2057,7 +2052,7 @@ pip.listProposal(from_address=None)
 
 - 参数说明
 
-> **from_address**: Used to call the rpc call method
+> **from_address**: 调用rpc接口的from地址。
 
 ##### 查询节点的链生效版本
 
@@ -2069,7 +2064,7 @@ pip.getActiveVersion(from_address=None)
 
 - 参数说明
 
-> **from_address**: Used to call the rpc call method
+> **from_address**: 调用rpc接口的from地址。
 
 ##### 查询当前块高的治理参数值
 
@@ -2081,9 +2076,9 @@ pip.getGovernParamValue(module, name, from_address=None)
 
 - 参数说明
 
->**module**: Parameter module
->**name**: parameter name
->**from_address**:Used to call the rpc call method
+>**module**: 参数模块。
+>**name**: 参数名字。
+>**from_address**:调用rpc接口的from地址。
 
 ##### 查询治理参数列表
 
@@ -2095,5 +2090,5 @@ pip.listGovernParam(self, module=None, from_address=None)
 
 - 参数说明
 
->module:Parameter module
->from_address: Used to call the rpc call method
+>module:参数模块。
+>from_address: 调用rpc接口的from地址。
