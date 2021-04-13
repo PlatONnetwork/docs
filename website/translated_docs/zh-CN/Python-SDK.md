@@ -129,7 +129,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
     将输入的参数转换为json格式
 
-    调用
+    调用：
 
     ```python
     >>> Web3.toJSON(3)
@@ -142,7 +142,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
     将输入的参数转换为字符串格式
 
-    调用
+    调用：
 
     ```python
     >>> Web3.toText(b'cowm\xc3\xb6')
@@ -219,9 +219,9 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   返回当前块编号
 
-​       返回值：
+  返回值：
 
-​       一个AttributeDict对象，其解析值为最近一个块的编号，Number类型。
+  一个AttributeDict对象，其解析值为最近一个块的编号，Number类型。
 
 
 
@@ -250,9 +250,9 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   用来获取当前gas价格，该价格由最近的若干块的gas价格中值决定。
 
-​       返回值：
+ 返回值：
 
-​        一个AttributeDict对象，其解析值为表示当前gas价格的字符串，单位为VON。
+ 一个AttributeDict对象，其解析值为表示当前gas价格的字符串，单位为VON。
 
 
 
@@ -260,7 +260,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   方法返回当前节点控制的账户列表。
 
-  返回值
+  返回值：
 
   一个AttributeDict对象，其解析值为账户地址数组。
 
@@ -270,7 +270,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   返回账户地址指定位置的存储内容。
 
-  返回值
+  返回值：
 
   一个AttributeDict对象，其解析值为账户地址存储内容。
 
@@ -280,7 +280,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   返回当前节点所在区块树的共识状态信息。
 
-  返回值
+  返回值：
 
   一个AttributeDict对象，其值为区块树中的所有区块公示状态信息。
 
@@ -472,7 +472,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   返回值：
 
-  一个AttributeDict对象，其解析值为具有给定哈希值的交易对象。该对象具体内容描述参见platon.waitForTransactionReceipt。
+  一个AttributeDict对象，其解析值为具有给定哈希值的交易对象。该对象具体内容描述参见：platon.waitForTransactionReceipt。
 
   
 
@@ -1087,17 +1087,11 @@ python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数
 
 ##### (1) 使用platon-truffle在本机对evm合约进行编译
 
-  获得bin与abi。以Helloworld合约为例。
-
-​      使用platon-truffle对Helloworld.sol编译后，产生的build/contracts/HelloWorld.json中，获取其中的abi和bytecode(即bin)。     
+ 获得bin与abi。以Helloworld合约为例。使用platon-truffle对Helloworld.sol编译后，产生的build/contracts/HelloWorld.json中，获取其中的abi和bytecode(即bin)。     
 
 ##### (2) 通过python SDK对Helloworld合约部署
 
-  首先通过Web3连接节点
-
-  from_address为节点上的账户地址
-
-  bytecode、abi即为evm合约编译后的bin和abi
+首先通过Web3连接节点；from_address为节点上的账户地址；bytecode、abi即为evm合约编译后的bin和abi，例子如下：
 
   ```python
   from hexbytes import HexBytes
@@ -1177,15 +1171,13 @@ python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数
   lax1ws7m2tqr55h8xs7e3jg5svlyu0lk9ktpx03cke
   ```
 
-  - 其中 
+> 其中：
+>
+> - 第一行数据为函数contract_deploy中的platon.sendTransaction的交易结果；
+> - 第二行数据为platon.waitForTransactionReceipt获得的交易回执；
+> - 第三行为合约部署成功的合约地址；
 
-    第一行数据为函数contract_deploy中的platon.sendTransaction的交易结果
 
-  ​        第二行数据为platon.waitForTransactionReceipt获得的交易回执
-
-  ​        第三行为合约部署成功的合约地址
-
-  
 
 ##### (3) 对Helloworld合约进行调用(交易发送)
 
