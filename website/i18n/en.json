@@ -144,9 +144,9 @@
         "title": "Network Description",
         "sidebar_label": "Network Description"
       },
-      "PlatON_Built-in_contract": {
-        "title": "PlatON Built-in contract",
-        "sidebar_label": "PlatON Built-in contract"
+      "PlatON_system_contract": {
+        "title": "PlatON System Contract",
+        "sidebar_label": "System Contract"
       }
     },
     "links": {},

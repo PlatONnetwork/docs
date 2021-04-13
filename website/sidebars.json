@@ -11,7 +11,6 @@
 			"Economic_Model",
 			"PlatON_Solution",
 			"PlatON_Governance_Solution",
-			"PlatON_Built-in_contract",
 			"Secure_Multi_Party_Computation",
 			"Verifiable_Computation"
 		],
@@ -47,7 +46,8 @@
 					"Wasm_Contract_Best_Practice",
 					"Wasm_Contract_API"
 				]
-			}
+			},
+			"PlatON_system_contract"
 		],
 		"API Reference": [
 			"Python_SDK",
