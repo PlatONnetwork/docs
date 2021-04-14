@@ -9,7 +9,7 @@ sidebar_label: OffLine PlatON MTool Manual
 In order to facilitate node transfer, pledge, delegation and governance and other related operations, PlatON provides PlatON MTool to assist users:
 
 - PlatON MTool can support Ubuntu 18.04 and Windows 10. This document describes the installation and use under Windows and Ubuntu environments respectively. Users can choose according to their own resources.
-- PlatON MTool provides two signature methods for pledge transactions: online signature and offline signature. This document describes offline signature operations. For online signature operations, please refer to [Online PlatON MTool Tutorial](/docs/zh-CN/OnLine_MTool_Manual).
+- PlatON MTool provides two signature methods for pledge transactions: online signature and offline signature. This document describes offline signature operations. For online signature operations, please refer to [Online PlatON MTool Tutorial](/docs/en/OnLine_MTool_Manual).
 - The main process of PlatON MTool offline signature method is: generate the file to be signed on the online machine, then sign the transaction on the offline machine, and finally send the signed transaction on the online machine.
 
 ## Install PlatON MTool
