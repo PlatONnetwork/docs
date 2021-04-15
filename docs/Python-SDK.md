@@ -188,8 +188,8 @@ The main functions are used to obtain block data, send transactions, interact wi
     
     parameter:
     
-    - value: true value
-    - abi_type: a list of strings in solidity format equal to value
+    - value: true value.
+    - abi_type: a list of strings in solidity format equal to value.
     
     transfer
     
@@ -208,7 +208,7 @@ After successfully connecting with the nodes on the Platon chain, you can query 
 
 ##### (1) platon.blockNumber
 
-  Returns the current block number
+  Returns the current block number.
 
  Return value:
 
@@ -218,22 +218,22 @@ After successfully connecting with the nodes on the Platon chain, you can query 
 
 ##### (2) platon.syncing
 
-  Used to check whether the node is currently synchronized with the network
+  Used to check whether the node is currently synchronized with the network.
 
   return value:
 
   An AttributeDict object with a resolved value of `Object` or `Bool`. If the node has not been synchronized with the network,
   It returns false, otherwise it returns a synchronization object with the following properties:
 
-  - startingBlock-Number: Synchronization starting block number
+  - startingBlock-Number: Synchronization starting block number.
 
-  - currentBlock-Number: currently synchronized block number
+  - currentBlock-Number: currently synchronized block number.
 
-  - highestBlock-Number: Estimated target synchronization block number
+  - highestBlock-Number: Estimated target synchronization block number.
 
-  - knownStates-Number: Estimated states to be downloaded
+  - knownStates-Number: Estimated states to be downloaded.
 
-  - pulledStates-Number: downloaded states
+  - pulledStates-Number: downloaded states.
 
 
 ##### (3) platon.gasPrice
@@ -274,7 +274,7 @@ After successfully connecting with the nodes on the Platon chain, you can query 
 
 ##### (7) platon.getBalance(address)
 
-  Used to get the balance of a specific account address in a specified block
+  Used to get the balance of a specific account address in a specified block.
 
   parameter:
 
@@ -330,9 +330,9 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   parameter:
 
-- `address`: String-the address to be read
-- `position`: Number-index number in storage
-- `defaultBlock`: Number|String-Optional, use this parameter to override the platon.defaultBlock attribute value
+- `address`: String-the address to be read.
+- `position`: Number-index number in storage.
+- `defaultBlock`: Number|String-Optional, use this parameter to override the platon.defaultBlock attribute value.
 
 
 return value:
@@ -351,8 +351,8 @@ An AttributeDict object whose parsed value is the content of the specified locat
 
   parameter:
 
-- `address`: String-the address of the code to be read
-- `defaultBlock`: Number|String-Optional, use this parameter to override the platon.defaultBlock attribute value
+- `address`: String-the address of the code to be read.
+- `defaultBlock`: Number|String-Optional, use this parameter to override the platon.defaultBlock attribute value.
 
 
 return value:
@@ -381,41 +381,41 @@ return value:
 
 An AttributeDict object whose parsed value is a block object that meets the search conditions and has the following fields:
 
-- number-Number: block number, the block in pending state is null
+- number-Number: block number, the block in pending state is null.
 
-- hash 32 Bytes-String: block hash, the block in pending state is null
+- hash 32 Bytes-String: block hash, the block in pending state is null.
 
-- parentHash 32 Bytes-String: parent block hash
+- parentHash 32 Bytes-String: parent block hash.
 
-- nonce 8 Bytes-String: The hash of the generated proof-of-work, the pending block is null
+- nonce 8 Bytes-String: The hash of the generated proof-of-work, the pending block is null.
 
-- sha3Uncles 32 Bytes-String: SHA3 value of the uncle data in the block
+- sha3Uncles 32 Bytes-String: SHA3 value of the uncle data in the block.
 
-- logsBloom 256 Bytes-String: The bloom filter of the log in the block, and the block in the pending state is null
+- logsBloom 256 Bytes-String: The bloom filter of the log in the block, and the block in the pending state is null.
 
-- transactionsRoot 32 Bytes-String: the root node of the transaction tree in the block
+- transactionsRoot 32 Bytes-String: the root node of the transaction tree in the block.
 
-- stateRoot 32 Bytes-String: The root node of the final state tree in the block
+- stateRoot 32 Bytes-String: The root node of the final state tree in the block.
 
-- miner-String: The address of the miner receiving the reward
+- miner-String: The address of the miner receiving the reward.
 
-- difficulty-String: difficulty value of the block
+- difficulty-String: difficulty value of the block.
 
-- totalDifficulty-String: The total difficulty value of the whole chain up to the block
+- totalDifficulty-String: The total difficulty value of the whole chain up to the block.
 
-- extraData-String: Block "extra data" field
+- extraData-String: Block "extra data" field.
 
-- size-Number: block size in bytes
+- size-Number: block size in bytes.
 
-- gasLimit-Number: The maximum gas value allowed in the block
+- gasLimit-Number: The maximum gas value allowed in the block.
 
-- gasUsed-Number: The total amount of gas used by all transactions in the block
+- gasUsed-Number: The total amount of gas used by all transactions in the block.
 
-- timestamp-Number: the unix timestamp of the block
+- timestamp-Number: the unix timestamp of the block.
 
-- transactions-Array: transaction object array, or 32-byte transaction hash value, depending on the setting of returnTransactionObjects
+- transactions-Array: transaction object array, or 32-byte transaction hash value, depending on the setting of returnTransactionObjects.
 
-- uncles-Array: Uncle block hash value array
+- uncles-Array: Uncle block hash value array.
 
   ##### (11) platon.getBlockTransactionCount()
 
@@ -492,12 +492,12 @@ platon.getTransaction(transactionHash)
 
   parameter:
 
-- `hashStringOrNumber`: String-the block number or the hash value of the block, or use the following string: "genesis, "latest" or "pending" to specify the block
-- `indexNumber`: Number-transaction index position
+- `hashStringOrNumber`: String-the block number or the hash value of the block, or use the following string: "genesis, "latest" or "pending" to specify the block.
+- `indexNumber`: Number-transaction index position.
 
   return value:
 
-  An AttributeDict object whose parsed value is a transaction object. Refer to platon.getTransaction() for the specific content description of the object
+  An AttributeDict object whose parsed value is a transaction object. Refer to platon.getTransaction() for the specific content description of the object.
 
   
 
@@ -513,12 +513,12 @@ platon.getTransaction(transactionHash)
 
   parameter:
 
-- `hashStringOrNumber`: Number |String-the block number or the hash value of the block, or use the following string: "genesis, "latest" or "pending" to specify the block
-- `indexNumber`: Number-transaction index position
+- `hashStringOrNumber`: Number |String-the block number or the hash value of the block, or use the following string: "genesis, "latest" or "pending" to specify the block.
+- `indexNumber`: Number-transaction index position.
 
   return value:
 
-  An AttributeDict object whose parsed value is a transaction object. Refer to platon.getTransaction() for the specific content description of the object
+  An AttributeDict object whose parsed value is a transaction object. Refer to platon.getTransaction() for the specific content description of the object.
 
 #### **5** Send transaction api on chain:
 
@@ -529,13 +529,13 @@ platon.getTransaction(transactionHash)
   parameter:
 
 - `transactionObject`: Object-The transaction object to be sent, including the following fields:
-  - from-String|Number: The account address of the transaction sender. If this field is not set, the platon.defaultAccount attribute value is used. Can be set as an address or the index number in the local wallet platon.accounts.wallet
-  - to-String: Optional, the destination address of the message, this field is null for contract creation transactions
+  - from-String|Number: The account address of the transaction sender. If this field is not set, the platon.defaultAccount attribute value is used. Can be set as an address or the index number in the local wallet platon.accounts.wallet.
+  - to-String: Optional, the destination address of the message, this field is null for contract creation transactions.
   - value-Number|String|BN|BigNumber: (optional) The value transferred for the transaction in VON, also the endowment if it’s a contract-creation transaction.
-  - gas-Number: optional, default value: to be determined, the total amount of gas used for transactions, unused gas will be refunded
-  - gasPrice-Number|String|BN|BigNumber: Optional, the gas price of the transaction, the unit is VON, the default value is platon.gasPrice attribute value
-  - data-String: Optional, it can be an ABI string containing contract method data, or the initialization code in the contract creation transaction
-  - nonce-Number: Optional, use this field to cover pending transactions that use the same nonce value
+  - gas-Number: optional, default value: to be determined, the total amount of gas used for transactions, unused gas will be refunded.
+  - gasPrice-Number|String|BN|BigNumber: Optional, the gas price of the transaction, the unit is VON, the default value is platon.gasPrice attribute value.
+  - data-String: Optional, it can be an ABI string containing contract method data, or the initialization code in the contract creation transaction.
+  - nonce-Number: Optional, use this field to cover pending transactions that use the same nonce value.
 
   return value:
 
@@ -545,7 +545,7 @@ platon.getTransaction(transactionHash)
 
 ##### (2) waitForTransactionReceipt(transaction_hash, timeout)
 
-  Return the receipt object of the specified transaction within the specified time
+  Return the receipt object of the specified transaction within the specified time.
 
   parameter:
 
@@ -556,16 +556,16 @@ platon.getTransaction(transactionHash)
 
   An AttributeDict object whose parsed value is the receipt object of the transaction or null. The receipt object has the following fields:
 
-- `blockHash` 32 Bytes-String: The hash value of the exchange in the block
-- `blockNumber`-Number: The number of the exchange in the block
-- `transactionHash` 32 Bytes-String: hash value of the transaction
-- `transactionIndex`-Number: The index position of the transaction in the block
-- `from`-String: The address of the transaction sender
-- `to`-String: The address of the recipient of the transaction. For the transaction that created the contract, the value is null
-- `contractAddress`-String: For the transaction that creates a contract, the value is the address of the created contract, otherwise it is null
-- `cumulativeGasUsed`-Number: The cumulative total gas usage of the block where the transaction is executed
-- `gasUsed`- Number: the total amount of gas for this transaction
-- `logs`-Array: The array of log objects generated by the transaction
+- `blockHash` 32 Bytes-String: The hash value of the exchange in the block.
+- `blockNumber`-Number: The number of the exchange in the block.
+- `transactionHash` 32 Bytes-String: hash value of the transaction.
+- `transactionIndex`-Number: The index position of the transaction in the block.
+- `from`-String: The address of the transaction sender.
+- `to`-String: The address of the recipient of the transaction. For the transaction that created the contract, the value is null.
+- `contractAddress`-String: For the transaction that creates a contract, the value is the address of the created contract, otherwise it is null.
+- `cumulativeGasUsed`-Number: The cumulative total gas usage of the block where the transaction is executed.
+- `gasUsed`- Number: the total amount of gas for this transaction.
+- `logs`-Array: The array of log objects generated by the transaction.
 
   
 
@@ -621,8 +621,8 @@ AttributeDict(('blockHash': HexBytes('0x7bfe17689560c773b1cade579f1bd2cf85aeea9f
 
   parameter:
 
-- `address`: String-the address of the account to be queried
-- `defaultBlock`: Number|String-Optional, set this parameter to override the platon.defaultBlock property value
+- `address`: String-the address of the account to be queried.
+- `defaultBlock`: Number|String-Optional, set this parameter to override the platon.defaultBlock property value.
 
   return value:
 
@@ -640,19 +640,19 @@ platon.sendRawTransaction(signTransaction, private-key)
 
 - `signTransaction`: Object-The signed transaction object to be sent, including the following fields:
 
-  - from-String|Number: The account address of the transaction sender. If this field is not set, the platon.defaultAccount attribute value is used. Can be set as an address or the index number in the local wallet platon.accounts.wallet    
-  - to-String: Optional, the destination address of the message, this field is null for contract creation transactions    
+  - from-String|Number: The account address of the transaction sender. If this field is not set, the platon.defaultAccount attribute value is used. Can be set as an address or the index number in the local wallet platon.accounts.wallet    .
+  - to-String: Optional, the destination address of the message, this field is null for contract creation transactions   . 
   - value-Number|String|BN|BigNumber: (optional) The value transferred for the transaction in VON, also the endowment if it’s a contract-creation transaction.
 
-  - gas-Number: optional, default value: to be determined, the total amount of gas used for transactions, unused gas will be refunded
+  - gas-Number: optional, default value: to be determined, the total amount of gas used for transactions, unused gas will be refunded.
 
-  - gasPrice-Number|String|BN|BigNumber: Optional, the gas price of the transaction, in VON, the default value is platon.gasPrice property value
+  - gasPrice-Number|String|BN|BigNumber: Optional, the gas price of the transaction, in VON, the default value is platon.gasPrice property value.
 
-  - data-String: Optional, it can be an ABI string containing contract method data, or the initialization code in the contract creation transaction
+  - data-String: Optional, it can be an ABI string containing contract method data, or the initialization code in the contract creation transaction.
 
-  - nonce-Number: Optional, use this field to cover pending transactions that use the same nonce value
+  - nonce-Number: Optional, use this field to cover pending transactions that use the same nonce value.
 
-- private-key: the private key used for signing
+- private-key: the private key used for signing.
 
   return value:
 
@@ -662,7 +662,7 @@ platon.sendRawTransaction(signTransaction, private-key)
 
 ##### (7) platon.replaceTransaction()
 
-  Send a new transaction new_transaction to replace the original transaction transaction_hash (pending state)
+  Send a new transaction new_transaction to replace the original transaction transaction_hash (pending state).
 
   transfer:
 
@@ -678,7 +678,7 @@ platon.sendRawTransaction(signTransaction, private-key)
 
   return value:
 
-   The hash value of new_transaction
+   The hash value of new_transaction.
 
   
 
@@ -710,11 +710,11 @@ platon.sendRawTransaction(signTransaction, private-key)
 
   parameter:
 
-  ​ gas_price_strategy: (web3, transaction_params), must be a signature method.
+- gas_price_strategy: (web3, transaction_params), must be a signature method.
 
   return:
 
-  ​ The gas price value in wei
+- The gas price value in wei
 
 ##### (10) platon.modifyTransaction()
 
@@ -728,12 +728,12 @@ platon.sendRawTransaction(signTransaction, private-key)
 
   parameter:
 
-  -transaction_hash -string: The hash value of the transaction in the pending state.
-  -transaction_params: keyword statements corresponding to the parameters of transaction_hash. If value=1000, change the value value in the original transaction to 1000
+- transaction_hash -string: The hash value of the transaction in the pending state.
+- transaction_params: keyword statements corresponding to the parameters of transaction_hash. If value=1000, change the value value in the original transaction to 1000.
 
   return:
 
-  ​ The hash value of the revised transaction  
+   The hash value of the revised transaction  .
 
 ##### (11) platon.sign()
 
@@ -747,7 +747,7 @@ platon.sendRawTransaction(signTransaction, private-key)
 
   parameter:
 
-- `dataToSign`: String-The data to be signed. For the string, it will first use the utils.utf8ToHex() method to convert it to hexadecimal
+- `dataToSign`: String-The data to be signed. For the string, it will first use the utils.utf8ToHex() method to convert it to hexadecimal.
 - `address`: String|Number-The account address used for signing. Or the address or its serial number in the local wallet platon.accounts.wallet
 
   return value:
@@ -789,9 +789,9 @@ platon.sendRawTransaction(signTransaction, private-key)
   parameter:
 
 - params
-  - 'latest', create a filter in the node to be notified when a new block is generated. To check whether the status has changed
-  - 'pending', create a filter in the node to notify when a pending transaction occurs. To check whether the status has changed
-  - Dictionary data, create a filter to notify when the client receives a matching whisper message
+  - 'latest', create a filter in the node to be notified when a new block is generated. To check whether the status has changed.
+  - 'pending', create a filter in the node to notify when a pending transaction occurs. To check whether the status has changed.
+  - Dictionary data, create a filter to notify when the client receives a matching whisper message.
 
 
 ​    
@@ -809,7 +809,7 @@ platon.sendRawTransaction(signTransaction, private-key)
 
 ##### (2) platon.getFilterChanges()
 
-  Polling the specified filter and returning the newly generated log array since the last poll
+  Polling the specified filter and returning the newly generated log array since the last poll.
 
   transfer:
 
@@ -819,7 +819,7 @@ platon.sendRawTransaction(signTransaction, private-key)
 
   parameter:
 
-  -filter_id: filter_id of the specified filter
+- filter_id: filter_id of the specified filter.
 
   
 
@@ -846,7 +846,7 @@ platon.sendRawTransaction(signTransaction, private-key)
 
   parameter:
 
-  -filter_id: filter_id of the specified filter
+- filter_id: filter_id of the specified filter
 
 
 
@@ -860,17 +860,17 @@ platon.sendRawTransaction(signTransaction, private-key)
   platon.getFilterLogs(filter_id)
   ```
 
-- Parameters:
-  - filter_id: filter_id of the specified filter
+parameter:
+- filter_id: filter_id of the specified filter
 
-  Example:
+Example:
 
-  ```python
-  >>> platon.uninstallFilter(filt.filter_id)
-  True
-  ```
+```python
+>>> platon.uninstallFilter(filt.filter_id)
+True
+```
 
-  
+
 
 ##### (5) platon.getLogs()
 
@@ -945,11 +945,11 @@ platon.sendRawTransaction(signTransaction, private-key)
 
   parameter:
 
-  -[param1[, param2[, ...]]]: parameters entered according to the data type defined in myMethod
+- [param1[, param2[, ...]]]: parameters entered according to the data type defined in myMethod
 
   return value:
 
-  ​ The parsed value is the return value of the contract method, the Mixed type. If the contract method returns multiple values, the resolved value is an object.
+   The parsed value is the return value of the contract method, the Mixed type. If the contract method returns multiple values, the resolved value is an object.
 
   ```python
   tx_hash1 = payable.functions.setInt64(-9223372036854775808).transact(
@@ -989,24 +989,24 @@ platon.sendRawTransaction(signTransaction, private-key)
 
   EventEmitter: Event generator, declares the following events:	
 
-- "data" returns Object: Triggered when a new event is received, the parameter is the event object
-- "changed" returns Object: Triggered when the event is removed from the blockchain, the event object will be added with an additional property "removed: true"
+- "data" returns Object: Triggered when a new event is received, the parameter is the event object.
+- "changed" returns Object: Triggered when the event is removed from the blockchain, the event object will be added with an additional property "removed: true".
 
-- "error" returns Object: Triggered when an error occurs
+- "error" returns Object: Triggered when an error occurs.
 
   The returned event object structure is as follows:
 
-- event-String: event name
-- signature-String|Null: Event signature, if it is an anonymous event, it will be null
-- address-String: Event source address
+- event-String: event name.
+- signature-String|Null: Event signature, if it is an anonymous event, it will be null.
+- address-String: Event source address.
 - returnValues-Object: Event return value, for example {myVar: 1, myVar2: '0x234...'}.
-- logIndex-Number: The index position of the event in the block
-- transactionIndex-Number: the index position of the event in the transaction
-- transactionHash 32 Bytes-String: The hash value of the transaction where the event is located
-- blockHash 32 Bytes-String: The hash value of the block where the event is located, the value of the pending block is null
-- blockNumber-Number: The number of the block where the event is located, the value of the pending block is null
-- raw.data-String: This field contains unindexed log parameters
-- raw.topics-Array: Up to 4 32-byte long topic string arrays can be stored. Topics 1-3 include index parameters for events
+- logIndex-Number: The index position of the event in the block.
+- transactionIndex-Number: the index position of the event in the transaction.
+- transactionHash 32 Bytes-String: The hash value of the transaction where the event is located.
+- blockHash 32 Bytes-String: The hash value of the block where the event is located, the value of the pending block is null.
+- blockNumber-Number: The number of the block where the event is located, the value of the pending block is null.
+- raw.data-String: This field contains unindexed log parameters.
+- raw.topics-Array: Up to 4 32-byte long topic string arrays can be stored. Topics 1-3 include index parameters for events.
 
   Sample code:
 
@@ -1133,13 +1133,13 @@ The python sdk currently supports bin and abi formed after the evm and wasm cont
 
 - parameter:
 
-    - "from" The address of the account that sent the transaction
+    - `from` The address of the account that sent the transaction.
 
-    -  "data" The data sent to the chain
+    -  `data` The data sent to the chain.
 
-    - "gas" The amount of gas traded
+    - `gas` The amount of gas traded.
 
-    - "gasPrice" fuel price
+    - `gasPrice` fuel price.
 
 
   Need to write a reasonable value
@@ -1158,11 +1158,9 @@ The python sdk currently supports bin and abi formed after the evm and wasm cont
 
   - among them 
 
-    The first line of data is the transaction result of platon.sendTransaction in the function contract_deploy
-
-  ​ The second line of data is the transaction receipt obtained by platon.waitForTransactionReceipt
-
-  ​ The third line is the contract address where the contract is successfully deployed
+    - The first line of data is the transaction result of platon.sendTransaction in the function contract_deploy.
+    - The second line of data is the transaction receipt obtained by platon.waitForTransactionReceipt.
+    -  The third line is the contract address where the contract is successfully deployed.
 
   
 
@@ -1212,42 +1210,41 @@ The python sdk currently supports bin and abi formed after the evm and wasm cont
   print(result)
   ```
 
-  parameter:
+parameter:
 
-  ​'chainId' chain id
+- `chainId`: chain id.
 
-  ​'nonce' serial number
+- `nonce`: serial number.
 
-  ​'gas' fuel
+- `gas` :fuel.
+- `value`: value (starting balance of new contract account).
+- `gasPrice`: fuel price.
 
-  ​'value' value (starting balance of new contract account)
+Need to write a reasonable value
 
-  ​'gasPrice' fuel price
+ Call the method ifControl, and successfully pass the parameter 20 to the chain. Then get the corresponding information and data on the chain through the corresponding method getIfControlResult.
 
-  Need to write a reasonable value
-
-   Call the method ifControl, and successfully pass the parameter 20 to the chain. Then get the corresponding information and data on the chain through the corresponding method getIfControlResult.
-
-  The output is as follows:
+The output is as follows:
 
   ```
   #Output:
   0x16c76387cdd06ab82a4beb330b36369a5cfa22b8cf6ddfff58c72aaae4a39df9
   AttributeDict(('blockHash': HexBytes('0xbb1d1c3a7abecac9910509ed3ff2ca97cebdba1e88db0b909ffd646a86d69597'),'blockNumber': 305801,'contractAddress': None,'cumulativeGaswUsedjj25382,'from [], 'logsBloom': HexBytes ( '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': 'lax1ws7m2tqr55h8xs7e3jg5svlyu0lk9ktpx03cke', 'transactionHash': HexBytes ( '0x16c76387cdd06ab82a4beb330b36369a5cfa22b8cf6ddfff58c72aaae4a39df9'), 'transactionIndex': 0})
-you are a middle man
   ```
 
-   The first line of data is the transaction result of platon.sendRawTransaction in the function SendTxn
+- among them 
 
- The second line of data is the method ifControl sends information to the chain, the result of the transaction
+  - The first line of data is the transaction result of platon.sendRawTransaction in the function SendTxn.
 
- The third line method getIfControlResult gets the information on the chain and the result of the transaction
+  - The second line of data is the method ifControl sends information to the chain, the result of the transaction.
+
+  - The third line method getIfControlResult gets the information on the chain and the result of the transaction.
 
 
 
 ##### (4) Event call of evm contract
 
-  The evm contract can monitor and log the detailed information of related transactions through events
+  The evm contract can monitor and log the detailed information of related transactions through events.
 
   Take the evmevent contract as an example: it adds the event type MyEvent to the method setVar.
 
@@ -1284,9 +1281,9 @@ print(topic_param)
 
   ```
 
-  The first line calls the function setVar, the transaction receipt after the transaction is successful
+  The first line calls the function setVar, the transaction receipt after the transaction is successful.
 
-  The second line calls the event MyEvent() to get the transaction log information
+  The second line calls the event MyEvent() to get the transaction log information.
 
   Among the values ​​corresponding to'args':
 
@@ -1302,13 +1299,13 @@ print(topic_param)
 
 ##### (1) Use PlatON-CDT to compile wasm contract locally
 
-  Take wasmcontract.cpp as an example. After installing PlatON-CDT on this machine, enter the code in PlatON-CDT/build/bin
+  Take wasmcontract.cpp as an example. After installing PlatON-CDT on this machine, enter the code in PlatON-CDT/build/bin.
 
   ```
   platon-cpp wasmcontract.cpp
   ```
 
-  After successful compilation, there are two files in wasmcontract/build/contracts
+  After successful compilation, there are two files in wasmcontract/build/contracts.
 
   wasmcontract.abi.json and wasmcontract.wasm, where wasmcontract.abi.json is abi data (json format), wasmcontract.wasm is bin data (binary format).
 
@@ -1323,9 +1320,9 @@ print(topic_param)
 
 ##### (2) Deploy Helloworld contract (wasm type) through python SDK
 
-  After obtaining the bin and abi of the wasm contract, deploy on the chain through Web3
+  After obtaining the bin and abi of the wasm contract, deploy on the chain through Web3.
 
-  In the code below, bytecode is the bin data of the contract, and cabi is the abi data of the contract
+  In the code below, bytecode is the bin data of the contract, and cabi is the abi data of the contract.
 
   ```python
   from client_sdk_python import Web3, HTTPProvider
@@ -1459,383 +1456,490 @@ ppos = Ppos(w3)
 
 ##### Initiate a pledge
 
-- Calling method
+Calling method
 
 ```
 ppos.createStaking(benifit_address, node_id, external_id, node_name, website, details, amount,program_version,program_version_sign, bls_pubkey, bls_proof, pri_key, reward_per, typ=2, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**typ**: Indicates whether the account free amount or the account's lock amount is used for staking, 0: free amount; 1: lock amount;2: Give priority to lock amount, use free amount provided that staking amount over lock amount
->**benifit_address**: Income account for accepting block rewards and staking rewards
->**node_id**: The idled node Id (also called the candidate's node Id)
->**external_id**: External Id (with length limit, Id for the third party to pull the node description)
->**node_name**: The name of the staking node (with a length limit indicating the name of the node)
->**website**: The third-party home page of the node (with a length limit indicating the home page of the node)
->**details**: Description of the node (with a length limit indicating the description of the node)
->**amount**: staking von (unit:von, 1LAT = 10\*\*18 von)
->**program_version**: The real version of the program, admin_getProgramVersion
->**program_version_sign**: The real version of the program is signed, admin_getProgramVersion
->**bls_pubkey**: Bls public key
->**bls_proof**: Proof of bls, obtained by pulling the proof interface, admin_getSchnorrNIZKProve
->**pri_key**: Private key for transaction
->**reward_per**: Proportion of the reward share obtained from the commission, using BasePoint 1BP = 0.01%
->**transaction_cfg**: Transaction basic configuration
-> type: dict
-> example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
->
->
+- **typ**: Indicates whether the account free amount or the account's lock amount is used for staking, 0: free amount; 1: lock amount;2: Give priority to lock amount, use free amount provided that staking amount over lock amount.
+
+- **benifit_address**: Income account for accepting block rewards and staking rewards.
+
+- **node_id**: The idled node Id (also called the candidate's node Id).
+
+- **external_id**: External Id (with length limit, Id for the third party to pull the node description).
+
+- **node_name**: The name of the staking node (with a length limit indicating the name of the node).
+
+- **website**: The third-party home page of the node (with a length limit indicating the home page of the node).
+
+- **details**: Description of the node (with a length limit indicating the description of the node).
+
+- **amount**: staking von (unit:von, 1LAT = 10\*\*18 von).
+
+- **program_version**: The real version of the program, admin_getProgramVersion.
+
+- **program_version_sign**: The real version of the program is signed, admin_getProgramVersion.
+
+- **bls_pubkey**: Bls public key.
+
+- **bls_proof**: Proof of bls, obtained by pulling the proof interface, admin_getSchnorrNIZKProve.
+
+- **pri_key**: Private key for transaction.
+
+- **reward_per**: Proportion of the reward share obtained from the commission, using BasePoint 1BP = 0.01%.
+
+- **transaction_cfg**: Transaction basic configuration.
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
 
 ##### Modify pledge information
 
-- Calling method
+Calling method
 
 ```
 ppos.editCandidate(benifit_address, node_id, external_id, node_name, website, details, pri_key, reward_per, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**benifit_address**: Income account for accepting block rewards and staking rewards
->**node_id**: The idled node Id (also called the candidate's node Id)
->**external_id**: External Id (with length limit, Id for the third party to pull the node description)
->**node_name**: The name of the staking node (with a length limit indicating the name of the node)
->**website**: The third-party home page of the node (with a length limit indicating the home page of the node)
->**details**: Description of the node (with a length limit indicating the description of the node)
->**pri_key**: Private key for transaction
->**reward_per**: Proportion of the reward share obtained from the commission, using BasePoint 1BP = 0.01%
->**transaction_cfg**: Transaction basic configuration
-> type: dict
-> example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
+- **benifit_address**: Income account for accepting block rewards and staking rewards.
+
+- **node_id**: The idled node Id (also called the candidate's node Id).
+
+- **external_id**: External Id (with length limit, Id for the third party to pull the node description).
+
+- **node_name**: The name of the staking node (with a length limit indicating the name of the node).
+
+- **website**: The third-party home page of the node (with a length limit indicating the home page of the node).
+
+- **details**: Description of the node (with a length limit indicating the description of the node).
+
+- **pri_key**: Private key for transaction.
+
+- **reward_per**: Proportion of the reward share obtained from the commission, using BasePoint 1BP = 0.01%.
+
+- **transaction_cfg**: Transaction basic configuration.
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
 
 ##### Increase stake
 
-- Calling method
+Calling method
 
 ```
 ppos.increaseStaking(node_id, amount, pri_key, typ=2, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**typ**: Indicates whether the account free amount or the account's lock amount is used for staking, 0: free amount; 1: lock amount;2: Give priority to lock amount, use free amount provided that staking amount over lock amount
->**node_id**: The idled node Id (also called the candidate's node Id)
->**amount**: staking von (unit:von, 1LAT = 10\*\*18 von)
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
-> type: dict
-> example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
+- **typ**: Indicates whether the account free amount or the account's lock amount is used for staking, 0: free amount; 1: lock amount;2: Give priority to lock amount, use free amount provided that staking amount over lock amount.
+
+- **node_id**: The idled node Id (also called the candidate's node Id).
+
+- **amount**: staking von (unit:von, 1LAT = 10\*\*18 von).
+
+- **pri_key**: Private key for transaction.
+
+- **transaction_cfg**: Transaction basic configuration..
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
 
 ##### Cancel the pledge (initiate all cancellation at one time, and arrive at the account multiple times)
 
-- Calling method
+Calling method
 
 ```
 ppos.withdrewStaking(node_id, pri_key, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**node_id**: The idled node Id (also called the candidate's node Id)
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
-> type: dict
-> example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
+- **node_id**: The idled node Id (also called the candidate's node Id).
+
+- **pri_key**: Private key for transaction.
+
+- **transaction_cfg**: Transaction basic configuration.
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
 
 #### 2 .delegate
 
 ##### Initiate a delegation
 
-- Calling method
+Calling method
 
 ```
 ppos.delegate(typ, node_id, amount, pri_key, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**typ**: Indicates whether the account free amount or the account's lock amount is used for delegate, 0: free amount; 1: lock amount
->**node_id**: The idled node Id (also called the candidate's node Id)
->**amount**: Amount of delegate (unit:von, 1LAT = 10\*\*18 von)
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
-> type: dict
-> example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
+- **typ**: Indicates whether the account free amount or the account's lock amount is used for delegate, 0: free amount; 1: lock amount.
+
+- **node_id**: The idled node Id (also called the candidate's node Id).
+
+- **amount**: Amount of delegate (unit:von, 1LAT = 10\*\*18 von).
+
+- **pri_key**: Private key for transaction.
+
+- **transaction_cfg**: Transaction basic configuration.
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
 
 ##### Shareholding reduction/revocation commission
 
-- Calling method
+Calling method
 
 ```
 ppos.withdrewDelegate(staking_blocknum, node_id, amount, pri_key, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**staking_blocknum**: A unique indication of a pledge of a node
->**node_id**: The idled node Id (also called the candidate's node Id)
->**amount**: The amount of the entrusted reduction (unit:von, 1LAT = 10\*\*18 von)
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
->type: dict
->example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
+- **staking_blocknum**: A unique indication of a pledge of a node.
+
+- **node_id**: The idled node Id (also called the candidate's node Id).
+
+- **amount**: The amount of the entrusted reduction (unit:von, 1LAT = 10\*\*18 von).
+
+- **pri_key**: Private key for transaction.
+
+- **transaction_cfg**: Transaction basic configuration.
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
 
 ##### Withdrawing delegated rewards
 
-- Calling method
+Calling method
 
 ```
 ppos.withdrawDelegateReward(pri_key, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
->type: dict
->example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
+- **pri_key**: Private key for transaction.
+
+- **transaction_cfg**: Transaction basic configuration.
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
 
 #### 3.query
 
 ##### Query the validator queue of the current settlement cycle
 
-- Calling method
+Calling method
 
 ```
 ppos.getVerifierList(from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
-> **from_address**: Used to call the rpc call method
+- **from_address**: Used to call the rpc call method.
 
 ##### Query the list of validators in the current consensus cycle
 
-- Calling method
+Calling method
 
 ```
 ppos.getValidatorList(from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
-> **from_address**: Used to call the rpc call method
+- **from_address**: Used to call the rpc call method.
 
 ##### Query the list of all real-time candidates
 
-- Calling method
+Calling method
 
 ```
 ppos.getCandidateList(from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
-> **from_address**: Used to call the rpc call method
+- **from_address**: Used to call the rpc call method.
 
 ##### Query the NodeID and pledge Id of the node entrusted by the current account address
 
-- Calling method
+Calling method
 
 ```
 ppos.getRelatedListByDelAddr(del_addr, from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**del_addr**: Client's account address
->**from_address**: Used to call the rpc call method
+- **del_addr**: Client's account address.
+- **from_address**: Used to call the rpc call method.
 
 ##### Query the current delegation information of a single node
 
-- Calling method
+Calling method
 
 ```
 ppos.getDelegateInfo(staking_blocknum, del_address, node_id, from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**staking_blocknum**: Block height at the time of staking
->**del_address**: Client's account address
->**node_id**: Verifier's node ID
->**from_address**: Used to call the rpc call method
+- **staking_blocknum**: Block height at the time of staking.
+- **del_address**: Client's account address.
+- **node_id**: Verifier's node ID.
+- **from_address**: Used to call the rpc call method.
 
 ##### Query the pledge information of the current node
 
-- Calling method
+Calling method
 
 ```
 ppos.getCandidateInfo(node_id, from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**node_id**: Verifier's node ID
->**from_address**: Used to call the rpc call method
+- **node_id**: Verifier's node ID.
+- **from_address**: Used to call the rpc call method.
 
 ##### Query the block reward of the current settlement cycle
 
-- Calling method
+Calling method
 
 ```
 ppos.getPackageReward(from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
-> **from_address**: Used to call the rpc call method
+- **from_address**: Used to call the rpc call method.
 
 ##### Query the pledge reward of the current settlement cycle
 
-- Calling method
+Calling method
 
 ```
 ppos.getStakingReward(from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
-> **from_address**: Used to call the rpc call method
+- **from_address**: Used to call the rpc call method.
 
 ##### Query the average time of packing blocks
 
-- Calling method
+Calling method
 
 ```
 ppos.getAvgPackTime(from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
-> **from_address**: Used to call the rpc call method
+- **from_address**: Used to call the rpc call method.
 
 ##### The query account has not withdrawn commission rewards at each node.
 
-- Calling method
+Calling method
 
 ```
 ppos.getDelegateReward(address, node_ids=[])
 ```
 
-- Parameter Description
+Parameter Description
 
->**address**:account address to be queried
->
->**node_ids**:the string array of the node id to be queried, if it is empty, query all nodes delegated by the account
+- **address**:account address to be queried.
+- **node_ids**:the string array of the node id to be queried, if it is empty, query all nodes delegated by the account.
 
 #### 4. Double sign
 
 ##### Report double sign
 
-- Calling method
+Calling method
 
 ```
 ppos.reportDuplicateSign(typ, data, pri_key, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**typ**: Represents duplicate sign type, 1:prepareBlock, 2: prepareVote, 3:viewChange
->**data**: Json value of single evidence, format reference RPC interface Evidences
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
-> type: dict
-> example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
+- **typ**: Represents duplicate sign type, 1:prepareBlock, 2: prepareVote, 3:viewChange.
+
+- **data**: Json value of single evidence, format reference RPC interface Evidences.
+
+- **pri_key**: Private key for transaction.
+
+- **transaction_cfg**: Transaction basic configuration.
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
 
 ##### Query whether the node has been reported too much signature
 
-- Calling method
+Calling method
 
 ```
 ppos.checkDuplicateSign(typ, node_id, block_number, from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**typ**: Represents double sign type, 1:prepareBlock, 2: prepareVote, 3:viewChange
->**check_address**: Reported node address
->**block_number**: Duplicate-signed block height
->**from_address**: Used to call the rpc call method
+- **typ**: Represents double sign type, 1:prepareBlock, 2: prepareVote, 3:viewChange.
+- **check_address**: Reported node address.
+- **block_number**: Duplicate-signed block height.
+- **from_address**: Used to call the rpc call method.
 
 #### 5. Lock position
 
 ##### Create a hedging plan
 
-- Calling method
+Calling method
 
 ```
 ppos.createRestrictingPlan(account, plan, pri_key, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**account**: Locked account release account
->**plan**:
-> An is a list of `RestrictingPlan` types (array), and `RestrictingPlan` is defined as follows:
-> type RestrictingPlan struct {
-> Epoch uint64
-> Amount *big.Int
->}
-> where Epoch: represents a multiple of the billing period.
-> The product of the number of blocks per billing cycle indicates that the locked fund
-> s are released at the target block height. Epoch * The number of blocks per cycle is
-> at least greater than the maximum irreversible block height.
-> Amount: indicates the amount to be released on the target block.
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
-> type: dict
-> example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
+- **account**: Locked account release account.
+
+- **plan**:
+  An is a list of `RestrictingPlan` types (array), and `RestrictingPlan` is defined as follows:
+  
+  ~~~
+  type RestrictingPlan struct {
+  Epoch uint64
+  Amount *big.Int
+  }
+  ~~~
+  
+  - where Epoch: represents a multiple of the billing period.
+    The product of the number of blocks per billing cycle indicates that the locked fund
+    s are released at the target block height. Epoch * The number of blocks per cycle is
+    at least greater than the maximum irreversible block height.
+  - Amount: indicates the amount to be released on the target block.
+  
+- **pri_key**: Private key for transaction.
+
+- **transaction_cfg**: Transaction basic configuration.
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
 
 ##### Get lock information
 
-- Calling method
+Calling method
 
 ```
 ppos.getRestrictingInfo(account, from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**account**: Locked account release account
->**from_address**: Used to call the rpc call method
+- **account**: Locked account release account.
+- **from_address**: Used to call the rpc call method.
 
 #### 6. Governance
 
@@ -1848,237 +1952,306 @@ pip = Pip(w3)
 
 ##### Text proposal
 
-- Calling method
+Calling method
 
 ```
 pip.submitText(verifier, pip_id, pri_key, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**verifier**: The certified submitting the proposal
->**pip_id**: PIPID
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
-> type: dict
-> example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
+- **verifier**: The certified submitting the proposal.
+
+- **pip_id**: PIPID.
+
+- **pri_key**: Private key for transaction.
+
+- **transaction_cfg**: Transaction basic configuration.
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
 
 ##### Upgrade proposal
 
-- Calling method
+Calling method
 
 ```
 pip.submitVersion(verifier, pip_id, new_version, end_voting_rounds, pri_key, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**verifier**: The certified submitting the proposal
->**pip_id**: PIPID
->**new_version**: upgraded version
->**end_voting_rounds**: The number of voting consensus rounds.
-> Explanation: Assume that the transaction submitted by the proposal is rounded when the consensus round
-> number of the package is packed into the block, then the proposal voting block is high,
-> which is the 230th block height of the round of the round1 + endVotingRounds
-> (assuming a consensus round out of block 250, ppos The list is 20 blocks high in advance,
-> 250, 20 are configurable), where 0 <endVotingRounds <= 4840 (about 2 weeks, the actual discussion
-> can be calculated according to the configuration), and is an integer)
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
-> type: dict
-> example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
+- **verifier**: The certified submitting the proposal.
+
+- **pip_id**: PIPID.
+
+- **new_version**: upgraded version.
+
+- **end_voting_rounds**: The number of voting consensus rounds.
+  Explanation: Assume that the transaction submitted by the proposal is rounded when the consensus round
+  number of the package is packed into the block, then the proposal voting block is high,
+  which is the 230th block height of the round of the round1 + endVotingRounds
+  (assuming a consensus round out of block 250, ppos The list is 20 blocks high in advance,
+  250, 20 are configurable), where 0 <endVotingRounds <= 4840 (about 2 weeks, the actual discussion
+  can be calculated according to the configuration), and is an integer).
+  
+- **pri_key**: Private key for transaction.
+
+- **transaction_cfg**: Transaction basic configuration.
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
 
 ##### Parameter proposal
 
-- Calling method
+Calling method
 
 ```
 pip.submitParam(verifier, pip_id, module, name, new_value, pri_key, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**verifier**: The certified submitting the proposal
->**pip_id**: PIPID
->**module**: parameter module
->**name**: parameter name
->**new_value**: New parameter value
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
-> type: dict
-> example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
+- **verifier**: The certified submitting the proposal.
+
+- **pip_id**: PIPID.
+
+- **module**: parameter module.
+
+- **name**: parameter name.
+
+- **new_value**: New parameter value.
+
+- **pri_key**: Private key for transaction.
+
+- **transaction_cfg**: Transaction basic configuration.
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
 
 ##### Delete proposal
 
-- Calling method
+Calling method
 
 ```
 pip.submitCancel(verifier, pip_id, end_voting_rounds, tobe_canceled_proposal_id, pri_key, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**verifier**: The certified submitting the proposal
->**pip_id**: PIPID
->**end_voting_rounds**:
-> The number of voting consensus rounds. Refer to the instructions for submitting the upgrade proposal.
-> At the same time, the value of this parameter in this interface
-> cannot be greater than the value in the corresponding upgrade proposal.
->**tobe_canceled_proposal_id**: Upgrade proposal ID to be cancelled
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
-> type: dict
-> example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
+- **verifier**: The certified submitting the proposal.
 
-##### Vote
+- **pip_id**: PIPID.
 
-- Calling method
+- **end_voting_rounds**:
+  The number of voting consensus rounds. Refer to the instructions for submitting the upgrade proposal.
+  At the same time, the value of this parameter in this interface.
+  cannot be greater than the value in the corresponding upgrade proposal.
+  
+- **tobe_canceled_proposal_id**: Upgrade proposal ID to be cancelled.
+
+- **pri_key**: Private key for transaction.
+
+- **transaction_cfg**: Transaction basic configuration.
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
+
+Calling method
 
 ```
 pip.vote(verifier, proposal_id, option, program_version, version_sign, pri_key, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**verifier**: The certified submitting the proposal
->**proposal_id**: Proposal ID
->**option**: Voting option
->**program_version**: Node code version, obtained by rpc getProgramVersion interface
->**version_sign**: Code version signature, obtained by rpc getProgramVersion interface
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
-> type: dict
-> example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
+- **verifier**: The certified submitting the proposal.
+
+- **proposal_id**: Proposal ID.
+
+- **option**: Voting option.
+
+- **program_version**: Node code version, obtained by rpc getProgramVersion interface.
+
+- **version_sign**: Code version signature, obtained by rpc getProgramVersion interface.
+
+- **pri_key**: Private key for transaction.
+
+- **transaction_cfg**: Transaction basic configuration.
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
 
 ##### Version Statement
 
-- Calling method
+Calling method
 
 ```
 pip.declareVersion(active_node, program_version, version_sign, pri_key, transaction_cfg=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**active_node**: The declared node can only be a verifier/candidate
->**program_version**: The declared version, obtained by rpc's getProgramVersion interface
->**version_sign**: The signed version signature, obtained by rpc's getProgramVersion interface
->**pri_key**: Private key for transaction
->**transaction_cfg**: Transaction basic configuration
-> type: dict
-> example:cfg = {
-> "gas":100000000,
-> "gasPrice":2000000000000,
-> "nonce":1,
->}
+- **active_node**: The declared node can only be a verifier/candidate.
+
+- **program_version**: The declared version, obtained by rpc's getProgramVersion interface.
+
+- **version_sign**: The signed version signature, obtained by rpc's getProgramVersion interface.
+
+- **pri_key**: Private key for transaction.
+
+- **transaction_cfg**: Transaction basic configuration.
+  
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+  
+  
 
 ##### Query proposal
 
-- Calling method
+Calling method
 
 ```
 pip.getProposal(proposal_id, from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**proposal_id**: proposal id
->**from_address**: Used to call the rpc call method
+- **proposal_id**: proposal id.
+- **from_address**: Used to call the rpc call method.
 
 ##### Query proposal results
 
-- Calling method
+Calling method
 
 ```
 pip.getTallyResult(proposal_id, from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**proposal_id**: proposal id
->**from_address**: Used to call the rpc call method
+- **proposal_id**: proposal id.
+- **from_address**: Used to call the rpc call method.
 
 ##### Query the cumulative number of votes available for a proposal
 
-- Calling method
+Calling method
 
 ```
 pip.getAccuVerifiersCount(proposal_id, block_hash, from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**proposal_id**: proposal id
->**block_hash**: block hash
->**from_address**: Used to call the rpc call method
+- **proposal_id**: proposal id.
+- **block_hash**: block hash.
+- **from_address**: Used to call the rpc call method.
 
 ##### Query the list of proposals
 
-- Calling method
+Calling method
 
 ```python
 pip.listProposal(from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
-> **from_address**: Used to call the rpc call method
+- **from_address**: Used to call the rpc call method.
 
 ##### Query the effective version of the node's chain
 
-- Calling method
+Calling method
 
 ```python
 pip.getActiveVersion(from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
-> **from_address**: Used to call the rpc call method
+- **from_address**: Used to call the rpc call method.
 
 ##### Query the governance parameter value of the current block height
 
-- Calling method
+Calling method
 
 ```python
 pip.getGovernParamValue(module, name, from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->**module**: Parameter module
->**name**: parameter name
->**from_address**:Used to call the rpc call method
+- **module**: Parameter module.
+- **name**: parameter name.
+- **from_address**:Used to call the rpc call method.
 
 ##### Query the governance parameter list
 
-- Calling method
+Calling method
 
 ```python
 pip.listGovernParam(self, module=None, from_address=None)
 ```
 
-- Parameter Description
+Parameter Description
 
->module:Parameter module
->from_address: Used to call the rpc call method
+- module:Parameter module.
+- from_address: Used to call the rpc call method.

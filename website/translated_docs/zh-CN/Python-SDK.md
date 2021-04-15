@@ -657,21 +657,25 @@ AttributeDict({'blockHash': HexBytes('0x7bfe17689560c773b1cade579f1bd2cf85aeea9f
   向platon 链上提交一个签名的序列化的交易
 
   ```
-platon.sendRawTransaction(signTransaction，private-key)
+platon.sendRawTransaction(signTransaction，private_key)
   ```
 
   参数：
 
   - `signTransaction`：Object - 要发送的签名交易对象，包含以下字段：
+    
     - from - String|Number: 交易发送方账户地址，不设置该字段的话，则使用platon.defaultAccount属性值。可设置为一个地址或本地钱包platon.accounts.wallet中的索引序号。
     - to - String: 可选，消息的目标地址，对于合约创建交易该字段为null。
     - value - Number|String|BN|BigNumber: (optional) The value transferred for the transaction in VON, also the endowment if it’s a contract-creation transaction.
-  - gas - Number: 可选，默认值：待定，用于交易的gas总量，未用完的gas会退还。
+    
+    - gas - Number: 可选，默认值：待定，用于交易的gas总量，未用完的gas会退还。
+    
     - gasPrice - Number|String|BN|BigNumber: 可选，该交易的gas价格，单位为VON，默认值为platon.gasPrice属性值。
-  - data - String: 可选，可以是包含合约方法数据的ABI字符串，或者是合约创建交易中的初始化代码。
+    
+    - data - String: 可选，可以是包含合约方法数据的ABI字符串，或者是合约创建交易中的初始化代码。  
+    
     - nonce - Number: 可选，使用该字段覆盖使用相同nonce值的挂起交易。
-
-  - private-key : 用于签名的私钥。
+  - private_key: 用于签名的私钥。
 
   返回值：
 
@@ -710,9 +714,9 @@ platon.sendRawTransaction(signTransaction，private-key)
   platon.generateGasPrice(gas_price_strategy)
   ```
 
-​         返回值： 
+返回值： 
 
-​                 以wei为单位的gas price数值。
+​     以wei为单位的gas price数值。
 
 
 
@@ -812,8 +816,8 @@ platon.sendRawTransaction(signTransaction，private-key)
 
   - params
 
-    - 'latest'，在节点中创建一个过滤器，以便当新块生成时进行通知。要检查状态是否变化。
-    - 'pending' ，在节点中创建一个过滤器，以便当产生挂起交易时进行通知。 要检查状态是否发生变化。
+    - `latest`，在节点中创建一个过滤器，以便当新块生成时进行通知。要检查状态是否变化。
+    - `pending` ，在节点中创建一个过滤器，以便当产生挂起交易时进行通知。 要检查状态是否发生变化。
     - 字典类数据，创建一个过滤器，以便在客户端接收到匹配的whisper消息时进行通知。
 
     
@@ -1169,11 +1173,11 @@ python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数
   lax1ws7m2tqr55h8xs7e3jg5svlyu0lk9ktpx03cke
   ```
 
-> 其中：
->
-> - 第一行数据为函数contract_deploy中的platon.sendTransaction的交易结果；
-> - 第二行数据为platon.waitForTransactionReceipt获得的交易回执；
-> - 第三行为合约部署成功的合约地址；
+其中：
+
+- 第一行数据为函数contract_deploy中的platon.sendTransaction的交易结果；
+- 第二行数据为platon.waitForTransactionReceipt获得的交易回执；
+- 第三行为合约部署成功的合约地址；
 
 
 
@@ -1235,42 +1239,34 @@ python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数
 
 - **gasPrice** 燃料价格
 
-  需写入合理的数值
-
-   调用方法ifControl，成功将参数20传入链上。然后通过对应方法getIfControlResult获得链上的对应信息和数据。
+  需写入合理的数值，调用方法ifControl，成功将参数20传入链上。然后通过对应方法getIfControlResult获得链上的对应信息和数据。
 
   输出结果如下：
 
   ```
-  #输出：
+#输出：
   0x16c76387cdd06ab82a4beb330b36369a5cfa22b8cf6ddfff58c72aaae4a39df9
   AttributeDict({'blockHash': HexBytes('0xbb1d1c3a7abecac9910509ed3ff2ca97cebdba1e88db0b909ffd646a86d69597'), 'blockNumber': 305801, 'contractAddress': None, 'cumulativeGasUsed': 42382, 'from': 'lax1yjjzvjph3tw4h2quw6mse25y492xy7fzwdtqja', 'gasUsed': 42382, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': 'lax1ws7m2tqr55h8xs7e3jg5svlyu0lk9ktpx03cke', 'transactionHash': HexBytes('0x16c76387cdd06ab82a4beb330b36369a5cfa22b8cf6ddfff58c72aaae4a39df9'), 'transactionIndex': 0})
-you are a middle man
   ```
+  
 
-   其中 
+ 其中 
 
-​        第一行数据为函数SendTxn中的platon.sendRawTransaction的交易结果。
+- 第一行数据为函数SendTxn中的platon.sendRawTransaction的交易结果。
 
-​        第二行数据为方法ifControl向链上发送信息，交易的结果。
+-  第二行数据为方法ifControl向链上发送信息，交易的结果。
 
-​        第三行为方法getIfControlResult获取链上信息，交易的结果。
-
-
+- 第三行为方法getIfControlResult获取链上信息，交易的结果。 
 
 ##### (4) evm合约的事件调用
 
-  evm合约通过事件可对相关交易的详细信息进行监听和日志记录输出。
-
-  以evmevent合约为例：其在方法setVar中加入了event类型MyEvent。
+  evm合约通过事件可对相关交易的详细信息进行监听和日志记录输出，以evmevent合约为例：其在方法setVar中加入了event类型MyEvent。
 
   greeter为部署成功的evm合约。
 
-  先通过functions调用setVar,将参数传到链上，
+  先通过functions调用setVar,将参数传到链上，然后通过greeter.events.MyEvent()，调用事件输出交易的详细日志。
 
-  然后通过greeter.events.MyEvent()，调用事件输出交易的详细日志。
-
-  其中.events方法为合约专用的事件api。
+  其中events方法为合约专用的事件api。
 
   ```python
   greeter = platon.contract(address=tx_receipt.contractAddress, abi=abi)
@@ -1303,9 +1299,7 @@ print(topic_param)
 
   其中'args'对应的值中：
 
-  '_var'为唯一的参数值，
-
-  而在evm合约的event中，数据的基本类型为uint、int、bool、address、bytex。
+  '_var'为唯一的参数值，而在evm合约的event中，数据的基本类型为uint、int、bool、address、bytex。
 
   
 
@@ -1474,381 +1468,484 @@ ppos = Ppos(w3)
 
 ##### 发起质押
 
-- 调用方式
+调用：
 
 ```
 ppos.createStaking(benifit_address, node_id, external_id, node_name, website, details, amount,program_version,program_version_sign, bls_pubkey, bls_proof, pri_key, reward_per, typ=2, transaction_cfg=None)
 ```
 
-- 参数说明
+参数：
 
->**typ**:表示使用账户自由金额还是账户的锁仓金额做质押，0: 自由金额； 1: 锁仓金额。 
->**benifit_address**: 用于接受出块奖励和质押奖励的收益账户。
->**node_id**: 被质押的节点Id(也叫候选人的节点Id)。
->**external_id**: 外部Id(有长度限制，给第三方拉取节点描述的Id)。
->**node_name**:被质押节点的名称(有长度限制，表示该节点的名称)。
->**website**: 节点的第三方主页(有长度限制，表示该节点的主页)。
->**details**: 节点的描述(有长度限制，表示该节点的描述)。
->**amount**: 质押金额(unit:von, 1LAT = 10\*\*18 von)。
->**program_version**: 被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)。
->**program_version_sign**: 程序的真实版本签名，治理rpc获取。
->**bls_pubkey**: Bls 公钥。
->**bls_proof**: bls的证明,通过拉取证明接口获取。
->**pri_key**: 交易私钥。
->**reward_per**: 委托所得到的奖励分成比例，采用BasePoint 1BP=0.01%。
->**transaction_cfg**: 交易基础配置
->      type: dict
->      example:cfg = {
->          "gas":100000000,
->          "gasPrice":2000000000000,
->          "nonce":1,
->      }.
->
->
+- **typ**:表示使用账户自由金额还是账户的锁仓金额做质押，0: 自由金额； 1: 锁仓金额。 
+
+- **benifit_address**: 用于接受出块奖励和质押奖励的收益账户。
+
+- **node_id**: 被质押的节点Id(也叫候选人的节点Id)。
+
+- **external_id**: 外部Id(有长度限制，给第三方拉取节点描述的Id)。
+
+- **node_name**:被质押节点的名称(有长度限制，表示该节点的名称)。
+
+- **website**: 节点的第三方主页(有长度限制，表示该节点的主页)。
+
+- **details**: 节点的描述(有长度限制，表示该节点的描述)。
+
+- **amount**: 质押金额(unit:von, 1LAT = 10\*\*18 von)。
+
+- **program_version**: 被质押节点的PlatON进程的真实版本号(获取版本号的接口由治理提供)。
+
+- **program_version_sign**: 程序的真实版本签名，治理rpc获取。
+
+- **bls_pubkey**: Bls 公钥。
+
+- **bls_proof**: bls的证明,通过拉取证明接口获取。
+
+- **pri_key**: 交易私钥。
+
+- **reward_per**: 委托所得到的奖励分成比例，采用BasePoint 1BP=0.01%。
+
+- **transaction_cfg**: 交易基础配置。
+
+   ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
 
 ##### 修改质押信息
 
-- 调用方式
+调用：
 
 ```
 ppos.editCandidate(benifit_address, node_id, external_id, node_name, website, details, pri_key, reward_per, transaction_cfg=None)
 ```
 
-- 参数说明
+参数：
 
->**benifit_address**:用于接受出块奖励和质押奖励的收益账户。
->**node_id**: 被质押的节点Id(也叫候选人的节点Id)。
->**external_id**: 外部Id(有长度限制，给第三方拉取节点描述的Id)。
->**node_name**: 被质押节点的名称(有长度限制，表示该节点的名称)。
->**website**: 节点的第三方主页(有长度限制，表示该节点的主页)。
->**details**: 节点的描述(有长度限制，表示该节点的描述)。
->**pri_key**: 交易私钥。
->**reward_per**: 委托所得到的奖励分成比例，采用BasePoint 1BP=0.01%，例：传500就是5%的奖励作为委托奖励。
->**transaction_cfg**: 交易基础配置
->        type: dict
->        example:cfg = {
->            "gas":100000000,
->            "gasPrice":2000000000000,
->            "nonce":1,
->        }.
+- **benifit_address**:用于接受出块奖励和质押奖励的收益账户。
+
+- **node_id**: 被质押的节点Id(也叫候选人的节点Id)。
+
+- **external_id**: 外部Id(有长度限制，给第三方拉取节点描述的Id)。
+
+- **node_name**: 被质押节点的名称(有长度限制，表示该节点的名称)。
+
+- **website**: 节点的第三方主页(有长度限制，表示该节点的主页)。
+
+- **details**: 节点的描述(有长度限制，表示该节点的描述)。
+
+- **pri_key**: 交易私钥。
+
+- **reward_per**: 委托所得到的奖励分成比例，采用BasePoint 1BP=0.01%，例：传500就是5%的奖励作为委托奖励。
+
+- **transaction_cfg**: 交易基础配置。
+
+     ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
 
 ##### 增持质押
 
-- 调用方式
+调用：
 
 ```
 ppos.increaseStaking(node_id, amount, pri_key, typ=2, transaction_cfg=None)
 ```
 
-- 参数说明
+参数：
 
->**typ**:表示使用账户自由金额还是账户的锁仓金额做质押，0: 自由金额； 1: 锁仓金额。
->**node_id**: 被质押的节点Id(也叫候选人的节点Id)。
->**amount**: 增持的von。
->**pri_key**: 交易私钥。
->**transaction_cfg**: 交易基础配置
->        type: dict
->        example:cfg = {
->            "gas":100000000,
->            "gasPrice":2000000000000,
->            "nonce":1,
->        }.
+- **typ**:表示使用账户自由金额还是账户的锁仓金额做质押，0: 自由金额； 1: 锁仓金额。
+
+- **node_id**: 被质押的节点Id(也叫候选人的节点Id)。
+
+- **amount**: 增持的von。
+
+- **pri_key**: 交易私钥。
+
+- **transaction_cfg**: 交易基础配置。
+
+     ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
 
 ##### 撤销质押(一次性发起全部撤销，多次到账)
 
-- 调用方式
+调用：
 
 ```
 ppos.withdrewStaking(node_id, pri_key, transaction_cfg=None)
 ```
 
-- 参数说明
+- 参数：
 
->**node_id**: 被质押的节点的NodeId。
->**pri_key**: 交易私钥。
->**transaction_cfg**: 交易基础配置
->        type: dict
->        example:cfg = {
->            "gas":100000000,
->            "gasPrice":2000000000000,
->            "nonce":1,
->        }.
+- **node_id**: 被质押的节点的NodeId。
+
+- **pri_key**: 交易私钥。
+
+- **transaction_cfg**: 交易基础配置。
+
+     ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
 
 #### delegate
 
 ##### 发起委托
 
-- 调用方式
+调用：
 
 ```
 ppos.delegate(typ, node_id, amount, pri_key, transaction_cfg=None)
 ```
 
-- 参数说明
+参数：
 
->**typ**:表示使用账户自由金额还是账户的锁仓金额做委托，0: 自由金额； 1: 锁仓金额。
->**node_id**: 被质押节点的NodeId。
->**amount**:委托的金额(按照最小单位算，1LAT = 10\*\*18 von)。
->**pri_key**: 交易私钥。
->**transaction_cfg**: 交易基础配置
->        type: dict
->        example:cfg = {
->            "gas":100000000,
->            "gasPrice":2000000000000,
->            "nonce":1,
->        }.
+- **typ**:表示使用账户自由金额还是账户的锁仓金额做委托，0: 自由金额； 1: 锁仓金额。
+
+- **node_id**: 被质押节点的NodeId。
+
+- **amount**:委托的金额(按照最小单位算，1LAT = 10\*\*18 von)。
+
+- **pri_key**: 交易私钥。
+
+- **transaction_cfg**: 交易基础配置。
+
+    ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
 
 ##### 减持/撤销委托
 
-- 调用方式
+调用：
 
 ```
 ppos.withdrewDelegate(staking_blocknum, node_id, amount, pri_key, transaction_cfg=None)
 ```
 
-- 参数说明
+参数：
 
->**staking_blocknum**:代表着某个node的某次质押的唯一标示
->**node_id**: 被质押的节点的NodeId。
->**amount**: 减持生效的委托的金额(按照最小单位算，1LAT = 10\*\*18 von)
->**pri_key**: 交易私钥。
->**transaction_cfg**: 交易基础配置
->type: dict
->example:cfg = {
->    "gas":100000000,
->    "gasPrice":2000000000000,
->    "nonce":1,
->}.
+- **staking_blocknum**:代表着某个node的某次质押的唯一标示
+
+- **node_id**: 被质押的节点的NodeId。
+
+- **amount**: 减持生效的委托的金额(按照最小单位算，1LAT = 10\*\*18 von)
+
+- **pri_key**: 交易私钥。
+
+- **transaction_cfg**: 交易基础配置。
+
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
 
 ##### 提取委托奖励
 
-- 调用方式
+调用：
 
 ```
 ppos.withdrawDelegateReward(pri_key, transaction_cfg=None)
 ```
 
-- 参数说明
+参数：
 
->**pri_key**:交易私钥。
->**transaction_cfg**: 交易基础配置
->type: dict
->example:cfg = {
->    "gas":100000000,
->    "gasPrice":2000000000000,
->    "nonce":1,
->}.
+- **pri_key**:交易私钥。
+
+- **transaction_cfg**: 交易基础配置。
+
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
 
 #### query
 
 ##### 查询当前结算周期的验证人队列
 
-- 调用方式
+调用：
 
 ```
 ppos.getVerifierList(from_address=None)
 ```
 
-- 参数说明
+参数：
 
-> **from_address**: 调用rpc接口的from地址。
+- **from_address**: 调用rpc接口的from地址。
 
 ##### 查询当前共识周期的验证人列表
 
-- 调用方式
+调用：
 
 ```
 ppos.getValidatorList(from_address=None)
 ```
 
-- 参数说明
+参数：
 
-> **from_address**: 调用rpc接口的from地址。
+- **from_address**: 调用rpc接口的from地址。
 
 ##### 查询所有实时的候选人列表
 
-- 调用方式
+调用：
 
 ```
 ppos.getCandidateList(from_address=None)
 ```
 
-- 参数说明
+参数：
 
-> **from_address**: 调用rpc接口的from地址。
+- **from_address**: 调用rpc接口的from地址。
 
 ##### 查询当前账户地址所委托的节点的NodeID和质押Id
 
-- 调用方式
+调用：
 
 ```
 ppos.getRelatedListByDelAddr(del_addr, from_address=None)
 ```
 
-- 参数说明
+参数：
 
->**del_addr**: 委托人账户地址。
->**from_address**: 调用rpc接口的from地址。
+- **del_addr**: 委托人账户地址。
+- **from_address**: 调用rpc接口的from地址。
 
 ##### 查询当前单个节点的委托信息
 
-- 调用方式
+调用：
 
 ```
 ppos.getDelegateInfo(staking_blocknum, del_address, node_id, from_address=None)
 ```
 
-- 参数说明
+参数：
 
->**staking_blocknum**: 发起质押时的区块高度。
->**del_address**: 委托人账户地址。
->**node_id**: 验证人的节点Id。
->**from_address**: 调用rpc接口的from地址。
+- **staking_blocknum**: 发起质押时的区块高度。
+- **del_address**: 委托人账户地址。
+- **node_id**: 验证人的节点Id。
+- **from_address**: 调用rpc接口的from地址。
 
 ##### 查询当前节点的质押信息
 
-- 调用方式
+调用：
 
 ```
 ppos.getCandidateInfo(node_id, from_address=None)
 ```
 
-- 参数说明
+参数：
 
->**node_id**: 验证人的节点Id。
->**from_address**: 调用rpc接口的from地址。
+- **node_id**: 验证人的节点Id。
+- **from_address**: 调用rpc接口的from地址。
 
 ##### 查询当前结算周期的区块奖励
 
-- 调用方式
+调用：
 
 ```
 ppos.getPackageReward(from_address=None)
 ```
 
-- 参数说明
+参数：
 
-> **from_address**: 调用rpc接口的from地址。
+- **from_address**: 调用rpc接口的from地址。
 
 #####  查询当前结算周期的质押奖励
 
-- 调用方式
+调用：
 
 ```
 ppos.getStakingReward(from_address=None)
 ```
 
-- 参数说明
+参数：
 
-> **from_address**: 调用rpc接口的from地址。
+- **from_address**: 调用rpc接口的from地址。
 
 ##### 查询打包区块的平均时间
 
-- 调用方式
+调用：
 
 ```
 ppos.getAvgPackTime(from_address=None)
 ```
 
-- 参数说明
+参数：
 
-> **from_address**: 调用rpc接口的from地址。
+- **from_address**: 调用rpc接口的from地址。
 
 ##### 查询账户在各节点未提取委托奖励。
 
-- 调用方式
+调用：
 
 ```
 ppos.getDelegateReward(address, node_ids=[])
 ```
 
-- 参数说明
+参数：
 
->**address**:要查询的帐户地址。
->
->**node_ids**:要查询的节点ID的字符串数组，如果为空，则查询该帐户委托的所有节点。
+- **address**:要查询的帐户地址。
+- **node_ids**:要查询的节点ID的字符串数组，如果为空，则查询该帐户委托的所有节点。
 
 ##### 举报双签
 
-- 调用方式
+调用：
 
 ```
 ppos.reportDuplicateSign(typ, data, pri_key, transaction_cfg=None)
 ```
 
-- 参数说明
+参数：
 
->**typ**: 双签类型，他有三个可选项 1:prepareBlock, 2: prepareVote, 3:viewChange。
->**data**:单个证据的json值，格式参照 [RPC接口Evidences](#evidences_interface)。
->**pri_key**: 交易私钥。
->**transaction_cfg**:交易基础配置
->        type: dict
->        example:cfg = {
->            "gas":100000000,
->            "gasPrice":2000000000000,
->            "nonce":1,
->        }.
+- **typ**: 双签类型，他有三个可选项 1:prepareBlock, 2: prepareVote, 3:viewChange。
+
+- **data**:单个证据的json值，格式参照 [RPC接口Evidences](#evidences_interface)。
+
+- **pri_key**: 交易私钥。
+
+- **transaction_cfg**:交易基础配置。
+
+    ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
 
 ##### 查询节点是否已被举报过多签
 
-- 调用方式
+调用：
 
 ```
 ppos.checkDuplicateSign(typ, node_id, block_number, from_address=None)
 ```
 
-- 参数说明
+参数：
 
->**typ**: 双签类型，他有三个可选项 1:prepareBlock, 2: prepareVote, 3:viewChange。
->
->**node_id**:待查询节点的ID。
->**block_number**: 重复签名的块高度。
->**from_address**: 调用rpc接口的from地址。
+- **typ**: 双签类型，他有三个可选项 1:prepareBlock, 2: prepareVote, 3:viewChange。
+- **node_id**:待查询节点的ID。
+- **block_number**: 重复签名的块高度。
+- **from_address**: 调用rpc接口的from地址。
 
 #### 锁仓
 
 ##### 创建锁仓计划
 
-- 调用方式
+调用：
 
 ```
 ppos.createRestrictingPlan(account, plan, pri_key, transaction_cfg=None)
 ```
 
-- 参数说明
+参数：
 
->**account**:锁仓释放到账账户。
->**plan**:An是RestrictingPlan类型（数组）的列表，并且RestrictingPlan的定义如下:
->  type RestrictingPlan struct {
->   Epoch uint64
->      Amount *big.Int
->      }
->     where Epoch: represents a multiple of the billing period.
->   The product of the number of blocks per billing cycle indicates that the locked fund
->   s are released at the target block height. Epoch * The number of blocks per cycle is
->   at least greater than the maximum irreversible block height.
->   Amount: indicates the amount to be released on the target block.
->   **pri_key**: 交易私钥。
->**transaction_cfg**: 交易基础配置
->   type: dict
->        example:cfg = {
->            "gas":100000000,
->            "gasPrice":2000000000000,
->            "nonce":1,
->        }.
+- **account**:锁仓释放到账账户。
+
+- **plan**:An是RestrictingPlan类型（数组）的列表，并且RestrictingPlan的定义如下:
+
+  ~~~
+  type RestrictingPlan struct {
+  Epoch uint64
+  Amount *big.Int
+  }
+  ~~~
+
+  - Epoch: 代表结算周期的倍数。每个计费周期的区块数乘积表示锁定的资金s在目标块高度释放。Epoch*每个周期的块数为至少大于最大不可逆块高度。
+  - Amount: 指示要在目标块上释放的数量。
+  
+- **pri_key**: 交易私钥。
+
+- **transaction_cfg**: 交易基础配置。
+
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
 
 ##### 获取锁仓信息
 
-- 调用方式
+调用：
 
 ```
 ppos.getRestrictingInfo(account, from_address=None)
 ```
 
-- 参数说明
+参数：
 
->**account**:锁仓释放到账账户。
->**from_address**: 调用rpc接口的from地址。
+- **account**:锁仓释放到账账户。
+- **from_address**: 调用rpc接口的from地址。
 
 #### 治理
 
@@ -1861,234 +1958,300 @@ pip = Pip(w3)
 
 ##### 文本提案
 
-- 调用方式
+调用：
 
 ```
 pip.submitText(verifier, pip_id, pri_key, transaction_cfg=None)
 ```
 
-- 参数说明
+参数：
 
->**verifier**: 提交提案的验证人。
->**pip_id**: PIPID.
->**pri_key**: 交易私钥。
->**transaction_cfg**: 交易基础配置
->        type: dict
->        example:cfg = {
->            "gas":100000000,
->            "gasPrice":2000000000000,
->            "nonce":1,
->        }.
+- **verifier**: 提交提案的验证人。
+
+- **pip_id**: PIPID。
+
+- **pri_key**: 交易私钥。
+
+- **transaction_cfg**: 交易基础配置。
+
+    ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
 
 ##### 升级提案
 
-- 调用方式
+调用：
 
 ```
 pip.submitVersion(verifier, pip_id, new_version, end_voting_rounds, pri_key, transaction_cfg=None)
 ```
 
-- 参数说明
+参数：
 
->**verifier**:  提交提案的验证人。
->**pip_id**:  PIPID。
->**new_version**:新的版本。
->**end_voting_rounds**:投票共识轮数。
->      Explanation: Assume that the transaction submitted by the proposal is rounded when the consensus round
->      number of the package is packed into the block, then the proposal voting block is high,
->      which is the 230th block height of the round of the round1 + endVotingRounds
->      (assuming a consensus round out of block 250, ppos The list is 20 blocks high in advance,
->       250, 20 are configurable), where 0 < endVotingRounds <= 4840 (about 2 weeks, the actual discussion
->       can be calculated according to the configuration), and is an integer).
->**pri_key**: 交易私钥。
->**transaction_cfg**:交易基础配置
->        type: dict
->        example:cfg = {
->            "gas":100000000,
->            "gasPrice":2000000000000,
->            "nonce":1,
->        }。
+- **verifier**:  提交提案的验证人。
+
+- **pip_id**:  PIPID。
+
+- **new_version**:新的版本。
+
+- **end_voting_rounds**:投票共识轮数。    
+   
+   说明：假设在共识回合中对提案提交的交易进行了舍入程序包的编号被打包到该区块中，那么提案投票区块为高，这是回合1 + endVotingRounds的回合的第230个块高度（假设协商一致意见出自第250块，ppos该列表提前了20块， 250、20是可配置的），其中0 <endVotingRounds <= 4840（大约2周，实际讨论
+   （可以根据配置进行计算），并且是整数）。
+   
+- **pri_key**: 交易私钥。
+
+- **transaction_cfg**:交易基础配置。
+
+    ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
 
 ##### 参数提案
 
-- 调用方式
+调用：
 
 ```
 pip.submitParam(verifier, pip_id, module, name, new_value, pri_key, transaction_cfg=None)
 ```
 
-- 参数说明
+参数：
 
->**verifier**: 提交提案的验证人。
->**pip_id**: PIPID.
->**module**: 参数模块。
->**name**: 参数名字。
->**new_value**:新参数值.
->**pri_key**: 交易私钥。
->**transaction_cfg**: 交易基础配置
->        type: dict
->        example:cfg = {
->            "gas":100000000,
->            "gasPrice":2000000000000,
->            "nonce":1,
->        }。
+- **verifier**: 提交提案的验证人。
+
+- **pip_id**: PIPID。
+
+- **module**: 参数模块。
+
+- **name**: 参数名字。
+
+- **new_value**:新参数值。
+
+- **pri_key**: 交易私钥。
+
+- **transaction_cfg**: 交易基础配置。
+
+    ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
 
 ##### 删除提案
 
-- 调用方式
+调用：
 
 ```
 pip.submitCancel(verifier, pip_id, end_voting_rounds, tobe_canceled_proposal_id, pri_key, transaction_cfg=None)
 ```
 
-- 参数说明
+参数：
 
->**verifier**:提交提案的验证人。
->**pip_id**: PIPID.
->**end_voting_rounds**:投票共识轮数。请参阅有关提交升级建议的说明 同时，此参数在此接口中的值。 不能大于相应升级建议中的值。
->     **tobe_canceled_proposal_id**: 升级建议ID将被取消。
->     **pri_key**:交易私钥。
->     **transaction_cfg**: 交易基础配置
->   type: dict
->   example:cfg = {
->       "gas":100000000,
->            "gasPrice":2000000000000,
->            "nonce":1,
->        }.
+- **verifier**:提交提案的验证人。
+
+- **pip_id**: PIPID.
+
+- **end_voting_rounds**:投票共识轮数。请参阅有关提交升级建议的说明 同时，此参数在此接口中的值。 不能大于相应升级建议中的值。
+
+- **tobe_canceled_proposal_id**: 升级建议ID将被取消。
+
+- **pri_key**:交易私钥。
+
+- **transaction_cfg**: 交易基础配置。
+
+  ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
 
 ##### 投票
 
-- 调用方式
+调用：
 
 ```
 pip.vote(verifier, proposal_id, option, program_version, version_sign, pri_key, transaction_cfg=None)
 ```
 
-- 参数说明
+参数：
 
->**verifier**:  提交提案的验证人。
->**proposal_id**: 提案ID。
->**option**: 投票选项。
->**program_version**: 节点代码版本，由rpc getProgramVersion接口获取。
->**version_sign**: 通过rpc getProgramVersion接口获得的代码版本签名。
->**pri_key**: 交易私钥。
->**transaction_cfg**: 交易基础配置
->        type: dict
->        example:cfg = {
->            "gas":100000000,
->            "gasPrice":2000000000000,
->            "nonce":1,
->        }.
+- **verifier**:  提交提案的验证人。
+
+- **proposal_id**: 提案ID。
+
+- **option**: 投票选项。
+
+- **program_version**: 节点代码版本，由rpc getProgramVersion接口获取。
+
+- **version_sign**: 通过rpc getProgramVersion接口获得的代码版本签名。
+
+- **pri_key**: 交易私钥。
+
+- **transaction_cfg**: 交易基础配置。
+
+    ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
 
 ##### 版本声明
 
-- 调用方式
+调用：
 
 ```
 pip.declareVersion(active_node, program_version, version_sign, pri_key, transaction_cfg=None)
 ```
 
-- 参数说明
+参数：
 
->**active_node**: 声明的节点只能是验证者/候选者。
->**program_version**: 声明的版本，由rpc的getProgramVersion接口获得。
->**version_sign**: 通过rpc的getProgramVersion接口获得的已签名的版本签名。
->**pri_key**: 交易私钥。
->**transaction_cfg**: 交易基础配置
->        type: dict
->        example:cfg = {
->            "gas":100000000,
->            "gasPrice":2000000000000,
->            "nonce":1,
->        }。
+- **active_node**: 声明的节点只能是验证者/候选者。
 
-##### 查询提案
+- **program_version**: 声明的版本，由rpc的getProgramVersion接口获得。
 
-- 调用方式
+- **version_sign**: 通过rpc的getProgramVersion接口获得的已签名的版本签名。
+
+- **pri_key**: 交易私钥。
+
+- **transaction_cfg**: 交易基础配置。
+
+     ~~~
+  type: 
+  	dict
+  example:
+      cfg = {
+           "gas":100000000,
+           "gasPrice":2000000000000,
+           "nonce":1,
+       }
+  ~~~
+
+  
+
+调用：
 
 ```
 pip.getProposal(proposal_id, from_address=None)
 ```
 
-- 参数说明
+参数：
 
->**proposal_id**: 提案 id。
->**from_address**: 调用rpc接口的from地址。
+- **proposal_id**: 提案 id。
+- **from_address**: 调用rpc接口的from地址。
 
 ##### 查询提案结果
 
-- 调用方式
+调用：
 
 ```
 pip.getTallyResult(proposal_id, from_address=None)
 ```
 
-- 参数说明
+参数：
 
->**proposal_id**: 提案 id。
->**from_address**: 调用rpc接口的from地址。
+- **proposal_id**: 提案 id。
+- **from_address**: 调用rpc接口的from地址。
 
 ##### 查询提案的累积可投票人数
 
-- 调用方式
+调用：
 
 ```
 pip.getAccuVerifiersCount(proposal_id, block_hash, from_address=None)
 ```
 
-- 参数说明
+参数：
 
->**proposal_id**:  提案 id。
->**block_hash**:块hash。
->**from_address**: 调用rpc接口的from地址。
+- **proposal_id**:  提案 id。
+- **block_hash**:块hash。
+- **from_address**: 调用rpc接口的from地址。
 
 ##### 查询提案列表
 
-- 调用方式
+调用：
 
 ```
 pip.listProposal(from_address=None)
 ```
 
-- 参数说明
+参数：
 
-> **from_address**: 调用rpc接口的from地址。
+- **from_address**: 调用rpc接口的from地址。
 
 ##### 查询节点的链生效版本
 
-- 调用方式
+调用：
 
 ```
 pip.getActiveVersion(from_address=None)
 ```
 
-- 参数说明
+参数：
 
-> **from_address**: 调用rpc接口的from地址。
+- **from_address**: 调用rpc接口的from地址。 
 
 ##### 查询当前块高的治理参数值
 
-- 调用方式
+调用：
 
 ```
 pip.getGovernParamValue(module, name, from_address=None)
 ```
 
-- 参数说明
+参数：
 
->**module**: 参数模块。
->**name**: 参数名字。
->**from_address**:调用rpc接口的from地址。
+- **module**: 参数模块。
+- **name**: 参数名字。
+- **from_address**:调用rpc接口的from地址。 
 
 ##### 查询治理参数列表
 
-- 调用方式
+调用：
 
 ```
 pip.listGovernParam(self, module=None, from_address=None)
 ```
 
-- 参数说明
+参数：
 
->module:参数模块。
->from_address: 调用rpc接口的from地址。
+- module:参数模块。
+- from_address: 调用rpc接口的from地址。 
