@@ -42,6 +42,7 @@
 				"type": "subcategory",
 				"label": "Smart Contracts",
 				"ids": [
+					"PlatON_system_contract",
 					{
 						"type": "subcategory",
 						"label": "Solidity Contract",
@@ -62,8 +63,8 @@
 							"Wasm_Contract_Best_Practice",
 							"Wasm_Contract_API"
 						]
-					},
-					"PlatON_system_contract"
+					}
+					
 				]
 			},
 			{

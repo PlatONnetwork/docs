@@ -132,10 +132,6 @@
         "title": "Become the development network verification node",
         "sidebar_label": "Become the development network verification node"
       },
-      "Build_Private_Chain": {
-        "title": "Deploy Your Own Private Testnet",
-        "sidebar_label": "Deploy Your Own Private Testnet"
-      },
       "Install_PlatON": {
         "title": "Source Installation PlatON",
         "sidebar_label": "Source Installation PlatON"
@@ -151,6 +147,10 @@
       "Network_Description": {
         "title": "Network Description",
         "sidebar_label": "Network Description"
+      },
+      "Build_Private_Chain": {
+        "title": "Deploy Your Own Private Testnet",
+        "sidebar_label": "Deploy Your Own Private Testnet"
       }
     },
     "links": {},
