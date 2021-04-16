@@ -13,6 +13,10 @@
 				"title": "PlatON开发者文档",
 				"sidebar_label": "PlatON开发者文档"
 			},
+			"lat_introduced": {
+				"title": "LAT介绍",
+				"sidebar_label": "LAT介绍"
+			},
 			"Java_SDK": {
 				"title": "Java SDK",
 				"sidebar_label": "Java SDK"
@@ -159,6 +163,8 @@
 			"Node Tools": "节点工具",
 			"Smart Contracts": "智能合约",
 			"Solidity Contract": "Solidity合约",
+			"Development Guide": "开发指南",
+			"Environment Setup": "设置开发环境",
 			"Wasm Contract": "Wasm合约",
 			"API Reference": "API参考",
 			"Data And Analytics": "数据分析",

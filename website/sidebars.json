@@ -4,7 +4,8 @@
 			"index"
 		],
 		"Introduce": [
-			""
+			"lat_introduced",
+			"Network_Description"
 		],
 		"PlatON Basis": [
 			"PlatON_Overall_Solution",
@@ -16,9 +17,7 @@
 		],
 		"PlatON Node": [
 			"PlatON_Validation_Introduce",
-			"Network_Description",
 			"Become_PlatON_Main_Verification",
-			"Become_PlatON_Dev_Verification",
 			"Build_Private_Chain",
 			{
 				"type": "subcategory",
@@ -30,35 +29,53 @@
 				]
 			}
 		],
-		"Smart Contracts": [
+		"Development Guide": [
 			{
 				"type": "subcategory",
-				"label": "Solidity Contract",
+				"label": "Environment Setup",
 				"ids": [
-					"Solidity_Dev_Manual",
-					"Solidity_Contract_Migrate",
-					"Solidity_Contract_Dev_Costs",
-					"Solidity_Contract_Best_Practice",
-					"Solidity_Contract_Security_Dev_Guide"
+					"Become_PlatON_Dev_Verification",
+					"Build_Private_Chain"
 				]
 			},
 			{
 				"type": "subcategory",
-				"label": "Wasm Contract",
+				"label": "Smart Contracts",
 				"ids": [
-					"Wasm_Dev_Manual",
-					"Wasm_Contract_Dev_Costs",
-					"Wasm_Contract_Best_Practice",
-					"Wasm_Contract_API"
+					{
+						"type": "subcategory",
+						"label": "Solidity Contract",
+						"ids": [
+							"Solidity_Dev_Manual",
+							"Solidity_Contract_Migrate",
+							"Solidity_Contract_Dev_Costs",
+							"Solidity_Contract_Best_Practice",
+							"Solidity_Contract_Security_Dev_Guide"
+						]
+					},
+					{
+						"type": "subcategory",
+						"label": "Wasm Contract",
+						"ids": [
+							"Wasm_Dev_Manual",
+							"Wasm_Contract_Dev_Costs",
+							"Wasm_Contract_Best_Practice",
+							"Wasm_Contract_API"
+						]
+					},
+					"PlatON_system_contract"
 				]
 			},
-			"PlatON_system_contract"
-		],
-		"API Reference": [
-			"Python_SDK",
-			"Java_SDK",
-			"JS_SDK",
-			"Json_Rpc"
+			{
+				"type": "subcategory",
+				"label": "API Reference",
+				"ids": [
+					"Python_SDK",
+					"Java_SDK",
+					"JS_SDK",
+					"Json_Rpc"
+				]
+			}
 		],
 		"Data And Analytics": [
 			"PlatON_BlockChain_Browser"

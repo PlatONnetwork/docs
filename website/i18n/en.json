@@ -32,6 +32,10 @@
         "title": "JSON RPC API",
         "sidebar_label": "JSON RPC"
       },
+      "lat_introduced": {
+        "title": "LAT介绍",
+        "sidebar_label": "LAT介绍"
+      },
       "PlatON_Solution": {
         "title": "PlatON Consensus Solution",
         "sidebar_label": "PlatON Consensus Solution"
@@ -47,6 +51,10 @@
       "PlatON_Governance_Solution": {
         "title": "PlatON Governance Solution",
         "sidebar_label": "PlatON Governance Solution"
+      },
+      "PlatON_system_contract": {
+        "title": "PlatON System Contract",
+        "sidebar_label": "System Contract"
       },
       "Economic_Model": {
         "title": "PlatON Economic Model",
@@ -143,10 +151,6 @@
       "Network_Description": {
         "title": "Network Description",
         "sidebar_label": "Network Description"
-      },
-      "PlatON_system_contract": {
-        "title": "PlatON System Contract",
-        "sidebar_label": "System Contract"
       }
     },
     "links": {},
@@ -155,12 +159,23 @@
       "Introduce": "Introduce",
       "PlatON Basis": "PlatON Basis",
       "PlatON Node": "PlatON Node",
-      "Node Tools": "Node Tools",
-      "Smart Contracts": "Smart Contracts",
-      "API Reference": "API Reference",
+      "Development Guide": "Development Guide",
       "Data And Analytics": "Data And Analytics",
       "Wallet": "Wallet",
       "Community Projects": "Community Projects"
     }
+  },
+  "pages-strings": {
+    "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)|no description given": "Learn more using the [documentation on this site.](/test-site/docs/en/doc1.html)",
+    "Browse Docs|no description given": "Browse Docs",
+    "Ask questions about the documentation and project|no description given": "Ask questions about the documentation and project",
+    "Join the community|no description given": "Join the community",
+    "Find out what's new with this project|no description given": "Find out what's new with this project",
+    "Stay up to date|no description given": "Stay up to date",
+    "Need help?|no description given": "Need help?",
+    "This project is maintained by a dedicated group of people.|statement made to reader": "This project is maintained by a dedicated group of people.",
+    "Help Translate|recruit community translators for your project": "Help Translate",
+    "Edit this Doc|recruitment message asking to edit the doc source": "Edit",
+    "Translate this Doc|recruitment message asking to translate the docs": "Translate"
   }
 }
