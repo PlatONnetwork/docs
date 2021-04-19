@@ -30,12 +30,14 @@
 			}
 		],
 		"Development Guide": [
+			"PlatON_Overview_DevGuide",
 			{
 				"type": "subcategory",
 				"label": "Environment Setup",
 				"ids": [
 					"Become_PlatON_Dev_Verification",
-					"Build_Private_Chain"
+					"Build_Private_Chain",
+					"PlatON_Dev_Faucet"
 				]
 			},
 			{
