@@ -152,6 +152,14 @@
 			"PlatON_system_contract": {
 				"title": "PlatON系统合约",
 				"sidebar_label": "系统合约"
+			},
+			"PlatON_Overview_DevGuide": {
+				"title": "开发指南概览",
+				"sidebar_label": "开发指南概览"
+			},
+			"PlatON_Dev_Faucet": {
+				"title": "开发网水龙头",
+				"sidebar_label": "开发网水龙头"
 			}
 		},
 		"links": {},
