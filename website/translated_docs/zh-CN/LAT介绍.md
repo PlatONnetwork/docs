@@ -10,9 +10,7 @@ sidebar_label: LAT介绍
 
 LAT是PlatON的原生Token，它是一种“数字货币” ，您可以在PlatON网络上进行发送，也可以在PlatON应用程序中使用。
 
-获取LAT最简单的方式在交易所购买，您可以根据所在地政策选择合适且支持LAT购买的数字货币交易所。
-
-同时参加LatticeX基金会的[Grants计划](https://latticex.foundation/grants)，也可以获取LatticeX基金会提供的LAT资助。
+目前您可以通过参与LatticeX基金会的[Grants计划](https://latticex.foundation/grants)以及后续其他的社区发展计划来获取LAT。
 
 
 
@@ -22,9 +20,9 @@ LAT是PlatON的原生Token，它是一种“数字货币” ，您可以在PlatO
 
 当您发送LAT或使用PlatON应用程序时，您需支付一小笔LAT费用，这笔费用用于激励节点处理和验证您的交易。
 
-在PPOS机制中，LAT对网络非常重要。LAT用来委托节点，或者自己质押成为验证节点，以此维护PlatON网络安全并获得LAT奖励。[更多关于PlatON验证节点信息](https://luo-dahui.github.io/docs/zh-CN/PlatON_Validation_Introduce)
+在PPOS机制中，LAT对网络非常重要。LAT用来委托节点，或者自己质押成为验证节点，以此维护PlatON网络安全并获得LAT奖励。[更多关于PlatON验证节点信息](/docs/zh-CN/PlatON_Validation_Introduce)
 
-如果您想了解关于LAT的背后技术，[点击查看更多介绍](https://luo-dahui.github.io/docs/zh-CN/Economic_Model)。
+如果您想了解关于LAT的背后技术，[点击查看更多介绍](/docs/zh-CN/Economic_Model)。
 
 
 
@@ -81,7 +79,7 @@ PlatON钱包是您访问PlatON资金和与DApp进行交互的应用程序，通�
 
 - 仔细核对一切
 
-请记住交易一旦发送是无法撤回的，钱包丢失也是不能轻易找回的，请保持谨慎小心。
+请记住交易一旦发送是无法撤销的，钱包丢失也是不能轻易找回的，请保持谨慎小心。
 
 
 
