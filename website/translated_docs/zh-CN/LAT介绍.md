@@ -20,7 +20,7 @@ LAT是PlatON的原生Token，它是一种“数字货币” ，您可以在PlatO
 
 当您发送LAT或使用PlatON应用程序时，您需支付一小笔LAT费用，这笔费用用于激励节点处理和验证您的交易。
 
-在PPOS机制中，LAT对网络非常重要。LAT用来委托节点，或者自己质押成为验证节点，以此维护PlatON网络安全并获得LAT奖励。[更多关于PlatON验证节点信息](/docs/zh-CN/PlatON_Validation_Introduce)
+在PPOS机制中，LAT对网络非常重要。LAT用来委托节点，或者自己质押成为验证节点，以此维护PlatON网络安全并获得LAT奖励。[更多关于PlatON验证节点信息](/docs/zh-CN/PlatON_Validation_Introduce)。
 
 如果您想了解关于LAT的背后技术，[点击查看更多介绍](/docs/zh-CN/Economic_Model)。
 
