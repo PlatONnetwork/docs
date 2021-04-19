@@ -46,7 +46,7 @@
 				"ids": [
 					"PlatON_system_contract",
 					{
-						"type": "subcategory",
+						"type": "soncategory",
 						"label": "Solidity Contract",
 						"ids": [
 							"Solidity_Dev_Manual",
@@ -57,7 +57,7 @@
 						]
 					},
 					{
-						"type": "subcategory",
+						"type": "soncategory",
 						"label": "Wasm Contract",
 						"ids": [
 							"Wasm_Dev_Manual",

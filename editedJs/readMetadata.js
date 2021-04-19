@@ -87,6 +87,7 @@ function readSidebar(sidebars = {}) {
             case 'subcategory':
               categoryItem.ids.forEach((subcategoryItem) => {
                 if(typeof subcategoryItem ==='string'){
+                  // 子
                   sidebarItems.push({
                     id: subcategoryItem,
                     category,
@@ -94,10 +95,12 @@ function readSidebar(sidebars = {}) {
                     order: sidebarItems.length + 1,
                   });
                 }else{
+                  // 孙 
                   subcategoryItem.ids.forEach(item=>{
                     sidebarItems.push({
                       id: item,
                       category,
+                      son:true,
                       subcategory: subcategoryItem.label,
                       order: sidebarItems.length + 1,
                     });
@@ -136,6 +139,7 @@ function readSidebar(sidebars = {}) {
       items[item.id] = {
         previous,
         next,
+        son:item.son?true:false,
         sidebar,
         category: item.category,
         subcategory: item.subcategory,
@@ -223,8 +227,8 @@ function processMetadata(file, refDir) {
       metadata.previous =
         (env.translation.enabled ? `${language}-` : '') + item.previous;
     }
+    metadata.son = item.son;
   }
-
   return {metadata, rawContent};
 }
 
@@ -237,7 +241,6 @@ function generateMetadataDocs() {
     console.error(e);
     process.exit(1);
   }
-
   const enabledLanguages = env.translation
     .enabledLanguages()
     .map((language) => language.tag);
@@ -337,6 +340,7 @@ function generateMetadataDocs() {
       metadata.category = order[id].category;
       metadata.subcategory = order[id].subcategory;
       metadata.order = order[id].order;
+      metadata.son = order[id].son;
 
       if (order[id].next) {
         metadata.next_id = order[id].next.replace(

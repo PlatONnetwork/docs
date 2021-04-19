@@ -224,10 +224,11 @@ blockquote code {
   margin-top: 13px;
 }
 
-.navGroup:nth-child(5) ul .subNavGroup:nth-child(3),
+/* .navGroup:nth-child(5) ul .subNavGroup:nth-child(3),
 .navGroup:nth-child(5) ul .subNavGroup:nth-child(4) {
   padding-left: 20px;
-}
+} */
+
 .card-wrap {
   display: grid;
   grid-gap: 20px;
@@ -316,10 +317,13 @@ blockquote code {
 
 .toc .toggleNav .navGroup .subNavGroup ul {
   padding-left: 20px;
-  
 }
 .toc .toggleNav .navGroup .subNavGroup ul .navItem {
   font-size: 14px;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.toc .toggleNav .navGroup .sonNavGroup {
+  padding-left: 20px;
 }

@@ -12,7 +12,7 @@ jobs:
     
     # 生成静态文件
     - name: Build
-      run: cd website && npm install && cp -f ../editedJs/readMetadata.js node_modules/docusaurus/lib/server/ && cp -f ../editedJs/HeaderNav.js node_modules/docusaurus/lib/core/nav/ && npm run build
+      run: cd website && npm install && cp -f ../editedJs/readMetadata.js node_modules/docusaurus/lib/server/ && cp -f ../editedJs/readCategories.js node_modules/docusaurus/lib/server/ && cp -f ../editedJs/HeaderNav.js node_modules/docusaurus/lib/core/nav/ && cp -f ../editedJs/SideNav.js node_modules/docusaurus/lib/core/nav/ && npm run build
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3

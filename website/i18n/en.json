@@ -124,6 +124,14 @@
         "title": "Secure Multi Party Computation",
         "sidebar_label": "Secure Multi Party Computation"
       },
+      "PlatON_Overview_DevGuide": {
+        "title": "Overview of DevGuide",
+        "sidebar_label": "Overview of DevGuide"
+      },
+      "PlatON_Dev_Faucet": {
+        "title": "DevNetwork Faucet",
+        "sidebar_label": "DevNetwork Faucet"
+      },
       "Become_PlatON_Main_Verification": {
         "title": "Become the main network verification node",
         "sidebar_label": "Become the main network verification node"
