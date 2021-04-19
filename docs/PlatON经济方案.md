@@ -562,7 +562,7 @@ In PlatON, any node that attempts to fork the blockchain and stay offline for a 
 
 #### PlatON's way of punishment
 
-PlatON currently supports two penalties:
+PlatON currently supports the following penalties:
 
 1. Deduct node own pledge
 
@@ -594,13 +594,16 @@ PlatON currently supports two penalties:
 
   - If the validator node that is punished and forced to withdraw is participating in the current consensus round, the validator node can continue to complete the block generation and validator work of this consensus round. If the node is punished after 410 blocks in the consensus round, if the next consensus round confirms that the validator node has the node, the node can continue to participate in the block generation and validator of the next consensus round.
 
+3. Restrict node qualification
+   The node is temporarily disqualified as a validator and locked for 56 epoch. During the lock-up period, it is not eligible to become a validator to participate in block production, and there is no staking reward.
+
 #### PlatON's punishment mechanism
 
 ##### DuplicatePrepare\DuplicateVote-Manual reporting and systematic penalties
 
 In PlatON, DuplicateVote means signing the same block height and different hash in the same view, which is manifested in CBFT, namely DuplicateVote ViewChangeVote and DuplicateVote PrepareVote. DuplicatePrepare indicates that the block node has two different hash blocks for the same height in the same view. In essence, the block is also verified by the signature of the block, so the node DuplicateVote and DuplicatePrepare in PlatON are unified as DuplicateVote.
 
-The node has a DuplicateVote behavior. If it is found by any user, it can initiate a DuplicateVote report transaction, submit the type and evidence of the DuplicateVote (the evidence can be obtained through the query double-out, DuplicateVote evidence interface provided) to the system slashing contract, and slashing After the contract validator is confirmed to be true, the system will reduce 10‱ of the reported node's own pledge as a penalty, and at the same time, the reported node will forcibly withdraw from the alternative validator candidate and revoke the pledge. All penalties are awarded to the reporting user.
+The node has a DuplicateVote behavior. If it is found by any user, it can initiate a DuplicateVote report transaction, submit the type and evidence of the DuplicateVote (the evidence can be obtained through the query double-out, DuplicateVote evidence interface provided) to the system slashing contract, and slashing After the contract validator is confirmed to be true, the system will reduce 10‱ of the reported node's own pledge as a penalty, and at the same time, the reported node will forcibly withdraw from the alternative validator candidate and revoke the pledge. 50% of the fine is given to the whistleblower, and 50% is put into the reward pool for block production and staking rewards in the second year.
 
 - A DuplicateVote report has a validity period, and reports that are more than 27 epochs are invalid.
 
@@ -612,11 +615,11 @@ The node has a DuplicateVote behavior. If it is found by any user, it can initia
 
 - In order to prevent misjudgment or artificially forged report evidence, the slashing contract follows the following validator rules:
 
-  1) Reporting whether the evidence is within the validity period or not is an invalid report.
-  2) Whether the signature of the report evidence is the signature of the validator node; otherwise, the report is invalid.
-  3) Whether the reported duplicatePrepare block is the block produced by the reported node, otherwise it is an invalid report.
-  4) Whether the reported duplicateVote voting block is the block responsible for validator by the reporting node, otherwise it is an invalid report.
-  5) Whether the reported duplicateVote block is a future block or not is an invalid report.
+  - Reporting whether the evidence is within the validity period or not is an invalid report.
+  - Whether the signature of the report evidence is the signature of the validator node; otherwise, the report is invalid.
+  - Whether the reported duplicatePrepare block is the block produced by the reported node, otherwise it is an invalid report.
+  - Whether the reported duplicateVote voting block is the block responsible for validator by the reporting node, otherwise it is an invalid report.
+  - Whether the reported duplicateVote block is a future block or not is an invalid report.
 
 ##### Zero block-the system automatically judges and punishes
 
@@ -624,7 +627,11 @@ PlatON judges whether a node is online and whether the node's software, hardware
 
 <img src="/docs/img/en/PlatON_economic_plan.assets/low_block_rate_verification.png" alt="low_block_rate_verification"/>
 
-When the number of blocks produced is zero, the system forcibly quits the alternative validator candidate, no longer participates in the validator election, and there is no staking reward in the current epoch.
+The validator node must meet the following two conditions and will be judged by the system as zero block:
+  - A certain consensus cycle is selected as a verification node, no block is produced or all blocks produced have not been confirmed by other verification nodes
+  - No blocks were produced in the following 20 consensus cycles (about 2 and a half hours)
+
+The node will be punished by the system after producing zero blocks, deducted the equivalent of 2500 blocks of block rewards, and restricted node qualifications. If the pledge deposit after deduction is less than 100,000 LAT, the candidate node candidate will be forced to withdraw.
 
 ### Transaction Fees
 
