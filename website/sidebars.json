@@ -1,14 +1,14 @@
 {
 	"docs": {
-		"PlatON Developer Docs": [
+		"Overview": [
 			"index"
 		],
-		"Introduce": [
+		"Preliminary": [
 			"About_PlatON",
 			"lat_introduced",
 			"Network_Description"
 		],
-		"PlatON Basis": [
+		"Advanced": [
 			"PlatON_Overall_Solution",
 			"Economic_Model",
 			"PlatON_Solution",
@@ -38,7 +38,6 @@
 				"ids": [
 					"Become_PlatON_Dev_Verification",
 					"Build_Private_Chain",
-					"PlatON_Dev_Faucet"
 				]
 			},
 			{
