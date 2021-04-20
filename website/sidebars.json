@@ -60,6 +60,7 @@
 						"type": "soncategory",
 						"label": "Wasm Contract",
 						"ids": [
+							"Wasm_Operation_Principle",
 							"Wasm_Dev_Manual",
 							"Wasm_Contract_Dev_Costs",
 							"Wasm_Contract_Best_Practice",
