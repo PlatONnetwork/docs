@@ -84,7 +84,7 @@ WASM虚拟机是一个完全独立的沙盒，合约代码对外完全隔离并�
 
 **智能合约使用流程：**
 
-<img src="/docs/img/en/Wasm.assets/wasm-contract.png" />  
+<img src="/docs/img/en/Wasm.assets/wasm-contract.webp" />  
 
 
 
