@@ -17,6 +17,10 @@
 				"title": "LAT介绍",
 				"sidebar_label": "LAT介绍"
 			},
+			"About_PlatON": {
+				"title": "关于PlatON",
+				"sidebar_label": "关于PlatON"
+			},
 			"Java_SDK": {
 				"title": "Java SDK",
 				"sidebar_label": "Java SDK"
@@ -108,6 +112,10 @@
 			"WASM_Smart_Contract": {
 				"title": "WASM智能合约",
 				"sidebar_label": "WASM智能合约"
+			},
+			"Wasm_Operation_Principle": {
+				"title": "Wasm虚拟机运行原理",
+				"sidebar_label": "Wasm虚拟机运行原理"
 			},
 			"PlatON_BlockChain_Browser": {
 				"title": "区块链浏览器",
