@@ -32,23 +32,24 @@ sidebar_label: PlatON开发者文档
 
 ### 节点
 如果您想通过节点的方式加入到PlatON网络，以下信息可以为您提供更多的了解和帮助。
- - [验证节点概要介绍](#)-在这里你可以了解什么是验证节点、如何成为验证节点、验证节点的收益与职责等
+ - [验证节点概要介绍](/docs/zh-CN/PlatON_Validation_Introduce)-在这里你可以了解什么是验证节点、如何成为验证节点、验证节点的收益与职责等
    - [什么是验证节点](/docs/zh-CN/PlatON_Validation_Introduce#%E4%BB%80%E4%B9%88%E6%98%AF%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9)
    - [成为验证节点的基本要求](/docs/zh-CN/PlatON_Validation_Introduce#%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82)
    - [如何成为验证节点](/docs/zh-CN/PlatON_Validation_Introduce#%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9)
    - [能获得哪些奖励](/docs/zh-CN/PlatON_Validation_Introduce#%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9)
    - [处罚机制](/docs/zh-CN/PlatON_Validation_Introduce#%E5%93%AA%E4%BA%9B%E8%A1%8C%E4%B8%BA%E4%BC%9A%E8%A2%AB%E5%A4%84%E7%BD%9A)
- - [加入PlatON主网](#)-详细介绍了具体加入到PlatON主网，并质押成为验证的操作
+ - [加入PlatON主网](/docs/zh-CN/Become_PlatON_Main_Verification)-详细介绍了具体加入到PlatON主网，并质押成为验证的操作
  - 节点工具
-   - [在线MTool](#)
-   - [离线MTool](#)
-   - [PlatON命令行](#)
+   - [在线MTool](/docs/zh-CN/OnLine_MTool_Manual)
+   - [离线MTool](/docs/zh-CN/OffLine_MTool_Manual)
+   - [PlatON命令行](/docs/zh-CN/Command_Line_Tools)
 
 ### 开发者
 
 ### 开发者指南
 
-- 开发工具和文档
+- [开发工具和文档](/docs/zh-CN/PlatON_Overview_DevGuide)
+  
   -[加入开发网](#)
   -[源码安装]()
   -[部署私有网络]()
