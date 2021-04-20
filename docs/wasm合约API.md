@@ -1074,110 +1074,123 @@ Construct the Parameters of the call across contracts.
 * **Returns**
     * Parameter byte array
 
-#### platon_call() 1/2
+#### platon_call() 
 
 ```cpp
-template<typename value_type , typename gas_type >
-bool platon::platon_call ( const Address & addr,
-const bytes & paras,
-const value_type & value,
-const gas_type & gas)  
+template <typename value_type, typename gas_type, typename... Args>
+inline bool platon_call(const Address &addr, const value_type &value,
+const gas_type &gas, const std::string &method,
+const Args &... args)
 ```
 
-Normal cross-contract invocation.
+Cross-contract call without return value.
 
 * **Parameters**
-    * `addr:` The contract address to be invoked
-    * `paras:` A contract parameter constructed using the function cross_call_args
-    * `gas:` The called contract method estimates the gas consumed
-    * `value:` The amount transferred to the contract
+    * `addr：`The contract address to be invoked
+    * `value：`The amount transferred to the contract
+    * `gas：`The called contract method estimates the gas consumed
+    * `method：`The method name of the invoked contract
+    * `args：`The Parameters corresponding to the contract method
 * **Returns**
-    * The call succeed or failed
-
-#### platon_call() 2/2
-
-```cpp
-template<typename return_type , typename value_type , typename gas_type , typename... Args>
-decltype(auto) platon::platon_call ( const Address & addr,
-const value_type & value,
-const gas_type & gas,
-const std::string & method,
-const Args &...  args
-)
-```
-
-Normal cross-contract invocation.
-
-* **Parameters**
-    * `addr:` The contract address to be invoked
-    * `value:` The amount transferred to the contract
-    * `gas:` The called contract method estimates the gas consumed
-    * `method:` The method name of the invoked contract
-    * `args:` The Parameters corresponding to the contract method
-* **Returns**
-
-    * The contract method * **Returns** the value and whether the execution was successful
+    * Call success or failure
+  
 * **Example:**
 
    ```cpp
-   auto result =
-   platon_call<int>(Address("0xEC081ab45BE978A4A630eB8cbcBffA50E747971B"),
-   uint32_t(100), uint32_t(100), "add", 1,2,3);
-   if(!result.secod){
+   auto address_pair =make_address("lax10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt");
+   bool result = platon_call(address_pair.first, uint32_t(100), uint32_t(100), "add", 1,2,3);
+   if(!result){
      platon_throw("cross call fail");
    }
    ```
-
-#### platon_delegate_call() 1/2
-
-```cpp
-template<typename gas_type >
-bool platon::platon_delegate_call ( const Address & addr,
-const bytes & paras,
-const gas_type & gas
-)  
-```
-
-Cross contract delegation call.
-
-* **Parameters**
-    * `addr:` The contract address to be invoked
-    * `paras:` A contract parameter constructed using the function cross_call_args
-    * `gas:` The called contract method estimates the gas consumed
-* **Returns**
-    * The call succeed or failed
-
-#### platon_delegate_call() 2/2
+#### platon_call_with_return_value() 
 
 ```cpp
-template<typename return_type , typename gas_type , typename... Args>
-decltype(auto) platon::platon_delegate_call ( const Address & addr,
-const gas_type & gas,
-const std::string & method,
-const Args &...  args)  
+template <typename return_type, typename value_type, typename gas_type, typename... Args>
+inline auto platon_call_with_return_value(const Address &addr,
+const value_type &value,
+const gas_type &gas,
+const std::string &method,
+const Args &... args)
 ```
 
-The proxy is invoked across contracts.
+Cross-contract call with return value.
 
 * **Parameters**
-    * `addr:` The contract address to be invoked
-    * `gas:` The called contract method estimates the gas consumed
-    * `method:` The method name of the invoked contract
-    * `args:` The Parameters corresponding to the contract method
+    * `addr：`The contract address to be invoked
+    * `value：`The amount transferred to the contract
+    * `gas：`The called contract method estimates the gas consumed
+    * `method：`The method name of the invoked contract
+    * `args：`The Parameters corresponding to the contract method
 * **Returns**
+    * Return value and call success or failure
 
-    * The contract method * **Returns** the value and whether the execution was successful
+* **Example:**
+
+   ```cpp
+  auto address_pair =make_address("lax10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt"); 
+  auto result = platon_call_with_return_value<int>(address_pair.first, uint32_t(100), uint32_t(100), "add", 1,2,3);
+  if(!result.second){
+    platon_throw("cross call fail");
+  }
+   ```
+#### platon_delegate_call()
+
+```cpp
+template <typename gas_type, typename... Args>
+inline bool platon_delegate_call(const Address &addr, const gas_type &gas,
+const std::string &method,
+const Args &... args) 
+```
+
+Cross-contract proxy call without return value.
+
+* **Parameters**
+    * `addr：`The contract address to be invoked
+    * `gas：`The called contract method estimates the gas consumed
+    * `method：`The method name of the invoked contract
+    * `args：`The Parameters corresponding to the contract method
+* **Returns**
+    * Call success or failure
+  
 * **Example:**
 
   ```cpp
-  auto result =
-  platon_delegate_call<int>(Address("0xEC081ab45BE978A4A630eB8cbcBffA50E747971B"),
-   uint32_t(100), "add", 1,2,3);
-   if(!result.secod){
+   auto address_pair =make_address("lax10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt");
+   bool result = platon_delegate_call(address_pair.first, uint32_t(100), uint32_t(100), "add", 1,2,3);
+   if(!result){
      platon_throw("cross call fail");
    }
   ```
+#### platon_delegate_call_with_return_value()
 
+```cpp
+template <typename return_type, typename gas_type, typename... Args>
+inline auto platon_delegate_call_with_return_value(const Address &addr,
+const gas_type &gas,
+const std::string &method,
+const Args &... args) 
+```
+
+Cross-contract proxy call with return value.
+
+* **Parameters**
+    * `addr：`The contract address to be invoked
+    * `gas：`The called contract method estimates the gas consumed
+    * `method：`The method name of the invoked contract
+    * `args：`The Parameters corresponding to the contract method
+* **Returns**
+    * Return value and call success or failure
+  
+* **Example:**
+
+  ```cpp
+  auto address_pair = make_address("lax10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt"); 
+  auto result = platon_delegate_call_with_return_value<int>(address_pair.first, uint32_t(100), "add", 1,2,3);
+  if(!result.secnod){
+    platon_throw("cross call fail");
+  }
+  ```
 #### get_call_output()
 
 ```cpp
