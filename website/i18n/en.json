@@ -112,6 +112,10 @@
         "title": "Operating principle of wasm virtual machine",
         "sidebar_label": "Operating principle of wasm virtual machine"
       },
+      "About_PlatON": {
+        "title": "About PlatON",
+        "sidebar_label": "About PlatON"
+      },
       "PlatON_BlockChain_Browser": {
         "title": "Block Explorers",
         "sidebar_label": "Block Explorers"

@@ -17,6 +17,10 @@
 				"title": "LAT介绍",
 				"sidebar_label": "LAT介绍"
 			},
+			"About_PlatON": {
+				"title": "关于PlatON",
+				"sidebar_label": "关于PlatON"
+			},
 			"Java_SDK": {
 				"title": "Java SDK",
 				"sidebar_label": "Java SDK"
