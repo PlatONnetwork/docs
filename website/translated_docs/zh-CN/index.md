@@ -1,7 +1,7 @@
 ---
 id: index
-title: PlatON开发者文档
-sidebar_label: PlatON开发者文档
+title: 概述
+sidebar_label: 概述
 ---
 
 本文档旨在帮助不同的用户从不同角度了解PlatON，并使用PlatON。它涵盖了PlatON的基础介绍，各种方案设计的介绍，以及关于合约和DAPP的高级使用说明。
