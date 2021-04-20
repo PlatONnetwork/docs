@@ -47,7 +47,7 @@ You can install the above compilation environment yourself. Please make sure the
 > choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
 > ```
 >
-> Most softwares installed using the `chocolatey` package manager have a default installation path, and some software may have various paths, depending on the publisher of the software. Installing these packages will modify the Path environment variable. The final installation path can be viewed in the PATH. Some machine environments may not find the installation path of these tools in the PATH, and you need to add it manually at this time. After installation, please make sure the installed Go version is 1.11 (or higher).
+> Most softwares installed using the `chocolatey` package manager have a default installation path, and some software may have various paths, depending on the publisher of the software. Installing these packages will modify the Path environment variable. The final installation path can be viewed in the PATH. Some machine environments may not find the installation path of these tools in the PATH, and you need to add it manually at this time. After installation, please make sure the installed Go version is 1.14 (or higher).
 >
 
 > Note: The following commands need to be run in the `Git-bash` environment. In any directory, right-click and select `Git Bash Here` to bring up the `Git Bash` running window.
