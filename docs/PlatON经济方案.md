@@ -574,7 +574,7 @@ PlatON currently supports the following penalties:
 
    - When deducting the LAT pledged from the account lock balance, the remaining unlocked amount of the account in the lock contract and the participating pledge amount are deducted correspondingly.
 
-2. Force exit alternative validator candidate
+2. <a id='exit_validator'>Force exit alternative validator candidate</a>
 
    Alternative validator candidate are passively withdrawn, they no longer participate in the election of alternative validators and validators, and are immediately revoked for pledges, withdrawing from the alternative validator candidate list. The LAT entrusted to this node is all invalidated and unlocked. The LAT entrusted to dismiss requires the user to apply for redemption by itself (too many principals, automatic return will greatly affect system performance). The node's remaining own pledge deposit will continue to be locked for 168 epochs and will automatically be returned to the node staking account.
 
@@ -594,8 +594,10 @@ PlatON currently supports the following penalties:
 
   - If the validator node that is punished and forced to withdraw is participating in the current consensus round, the validator node can continue to complete the block generation and validator work of this consensus round. If the node is punished after 410 blocks in the consensus round, if the next consensus round confirms that the validator node has the node, the node can continue to participate in the block generation and validator of the next consensus round.
 
-3. Restrict node qualification
-   The node is temporarily disqualified as a validator and locked for 56 epoch. During the lock-up period, it is not eligible to become a validator to participate in block production, and there is no staking reward.
+3. <a id='restrict_node_qualification'>Restrict node qualification</a>
+
+   The node is temporarily disqualified as a verification node and locked for 56 settlement cycles. During the lock-up period, it is not eligible to become a verification node to participate in block production, and cannot participate in governance voting, and there is no staking reward.
+
 
 #### PlatON's punishment mechanism
 
@@ -631,7 +633,7 @@ The validator node must meet the following two conditions and will be judged by 
   - A certain consensus cycle is selected as a verification node, no block is produced or all blocks produced have not been confirmed by other verification nodes
   - No blocks were produced in the following 20 consensus cycles (about 2 and a half hours)
 
-The node will be punished by the system after producing zero blocks, deducted the equivalent of 2500 blocks of block rewards, and restricted node qualifications. If the pledge deposit after deduction is less than 100,000 LAT, the candidate node candidate will be forced to withdraw.
+The node will be punished by the system after producing zero blocks, deducted the equivalent of 2500 blocks of block rewards, and [restricted node qualifications](#restrict_node_qualification). If the pledge deposit after deduction is less than 100,000 LAT, [the candidate node candidate will be forced to withdraw](#exit_validator).
 
 ### Transaction Fees
 
