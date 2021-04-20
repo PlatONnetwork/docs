@@ -205,7 +205,7 @@ PlatON采用的链上治理方式，使其能够按照`LAT`持有人的要求发
 
     该接口用来查询当前块高的治理参数值
 
-    接口参数参考Python SDK:[ 查询提案的累积可投票人数](/docs/zh-CN/Python_SDK#查询当前块高的治理参数值)。
+    接口参数参考Python SDK:[ 查询治理参数值](/docs/zh-CN/Python_SDK#查询当前块高的治理参数值)。
 
 12. 查询提案的累积可投票人数
 
@@ -217,7 +217,7 @@ PlatON采用的链上治理方式，使其能够按照`LAT`持有人的要求发
 
     该接口用来查询某个模块的所有治理参数。
 
-    接口参数参考Python SDK:[ 查询提案的累积可投票人数](/docs/zh-CN/Python_SDK#查询治理参数列表)。
+    接口参数参考Python SDK:[ 查询治理参数列表](/docs/zh-CN/Python_SDK#查询治理参数列表)。
 
 ### Slashing合约
 
