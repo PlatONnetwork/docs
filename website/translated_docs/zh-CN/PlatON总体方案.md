@@ -1,7 +1,7 @@
 ---
 id: PlatON_Overall_Solution
-title: PlatON总体方案
-sidebar_label: PlatON总体方案
+title: PlatON总体架构
+sidebar_label: 总体架构
 ---
 
 
