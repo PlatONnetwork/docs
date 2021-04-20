@@ -18,9 +18,9 @@ Currently, you can obtain LAT by participating in the [Grants Program](https://l
 
 When you transfer LAT or use a PlatON application, you need to pay a small LAT as fee. The fee is used to incentivizes the node to process and verify your transaction.
 
-In the PPOS mechanism, LAT is of great importance to the network. With LAT, one can delegate to validators or become a validator by staking themselves, which help maintain PlatON network security.  Both the validators and delegators can get LAT rewards. More about PlatON [validators](/docs/en/PlatON_Validation_Introduce).
+In the PPOS mechanism, LAT is of great importance to the network. With LAT, one can delegate to validators or become a validator by staking themselves, which help maintain PlatON network security.  Both the validators and delegators can get LAT rewards. [More about PlatON validators](/docs/en/PlatON_Validation_Introduce).
 
-If you want to know more about the technology behind LAT, [click for more inforamtion](/docs/en/Economic_Model).
+If you want to know more about the economic mechanism of LAT, [click for more inforamtion](/docs/en/Economic_Model#platons-economic-solution).
 
 
 
@@ -37,9 +37,9 @@ PlatON will also support the development of stable coins collateralized by LAT.
 
 
 
-## What's a PlatON wallet?
+## How to manage LAT?
 
-PlatON Wallet is an application for users to manage PlatON asstes and interact with PlatON DApps. Users can easily hold or transfer LAT through the wallet.
+PlatON Wallet is an application for users to manage LAT asstes and interact with PlatON DApps. Users can easily hold or transfer LAT through the wallet.
 
 **Get a PlatON wallet**
 
@@ -88,7 +88,7 @@ Want to learn more about wallet security?
 
 
 
-## Explore PlatON 
+## Where to browse LAT transactions?
 
 With the growth of network utilization, there will be more and more valuable information in the data on the chain. The block explorer can provide you with real-time data of browsing blocks, transactions, accounts, nodes and other activities on the chain.
 

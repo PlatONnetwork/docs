@@ -22,7 +22,7 @@ LAT是PlatON的原生Token，它是一种“数字货币” ，您可以在PlatO
 
 在PPOS机制中，LAT对网络非常重要。LAT用来委托节点，或者自己质押成为验证节点，以此维护PlatON网络安全并获得LAT奖励。[更多关于PlatON验证节点信息](/docs/zh-CN/PlatON_Validation_Introduce)。
 
-如果您想了解关于LAT的背后技术，[点击查看更多介绍](/docs/zh-CN/Economic_Model)。
+如果您想了解关于LAT的经济机制，[点击查看更多介绍](/docs/zh-CN/Economic_Model#platon的经济方案)。
 
 
 
@@ -39,9 +39,9 @@ PlatON还将支持开发以LAT为抵押的稳定币。
 
 
 
-## PlatON钱包
+## LAT如何管理？
 
-PlatON钱包是您访问PlatON资金和与DApp进行交互的应用程序，通过钱包可以轻松的持有或发送LAT。
+PlatON钱包是您存储LAT以及与DApp进行交互的应用程序，通过钱包可以轻松的持有或发送LAT。
 
 **安装一个PlatON钱包**
 
@@ -90,7 +90,7 @@ PlatON钱包是您访问PlatON资金和与DApp进行交互的应用程序，通�
 
 
 
-## 浏览PlatON
+## 浏览LAT交易
 
 随着网络利用率的增长，链上数据将存在越来越多有价值的信息，通过区块浏览器可以为您提供浏览区块、交易、账户、节点和其他链上活动的实时数据。
 
