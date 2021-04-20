@@ -92,7 +92,7 @@ The interaction between the validator and the delegator is mainly done through t
 
 10. delegation
 
-    This interface is used to delegate or incrementally delegate a verifier node. Users who have already pledged a node will not be able to delegate it. The user can delegate `LAT` to the verifier at any time with a minimum amount of 10 `LAT` per delegation. After a successful delegation, the `LAT` delegated by the delegator to the candidate verifier is transferred to the `Staking contract`. The new weight of the verifier will take effect in the next consensus cycle. When the verifier is selected to participate in the consensus, it will share the block-out and Staking rewards with the principal.
+    This interface is used to delegate or incrementally delegate a verifier node. Users who have already pledged a node will not be able to delegate it. The user can delegate `LAT` to the verifier at any time with a minimum amount of 10 `LAT` per delegation. After a successful delegation, the `LAT` delegated by the delegator to the candidate verifier is transferred to the `Staking contract`. The new weight of the verifier will take effect in the next Epoch. When the verifier is selected to participate in the consensus, it will share the block-out and Staking rewards with the principal.
 
    Interface parameters reference Java SDK:[ delegation](/docs/en/Java_SDK#delegate). 
 
