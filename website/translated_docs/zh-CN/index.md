@@ -38,7 +38,7 @@ sidebar_label: PlatON开发者文档
    - [如何成为验证节点](/docs/zh-CN/PlatON_Validation_Introduce#%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9)
    - [能获得哪些奖励](/docs/zh-CN/PlatON_Validation_Introduce#%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9)
    - [处罚机制](/docs/zh-CN/PlatON_Validation_Introduce#%E5%93%AA%E4%BA%9B%E8%A1%8C%E4%B8%BA%E4%BC%9A%E8%A2%AB%E5%A4%84%E7%BD%9A)
- - [加入PlatON主网](/docs/zh-CN/Become_PlatON_Main_Verification)-详细介绍了具体加入到PlatON主网，并质押成为验证的操作
+ - [加入PlatON主网](/docs/zh-CN/Become_PlatON_Main_Verification)-详细介绍了如何加入到PlatON主网，并质押成为验证的具体操作
  - 节点工具
    - [在线MTool](/docs/zh-CN/OnLine_MTool_Manual)
    - [离线MTool](/docs/zh-CN/OffLine_MTool_Manual)
@@ -49,18 +49,17 @@ sidebar_label: PlatON开发者文档
 ### 开发者指南
 
 - [开发工具和文档](/docs/zh-CN/PlatON_Overview_DevGuide)
-  
-  -[加入开发网](#)
-  -[源码安装]()
-  -[部署私有网络]()
-  -[智能合约]()
+  - [加入开发网](/docs/zh-CN/Become_PlatON_Dev_Verification)
+  - [部署私有网络](/docs/zh-CN/Build_Private_Chain)
+  - [Solidity合约](/docs/zh-CN/Solidity_Dev_Manual)
+  - [WASM合约](/docs/zh-CN/Wasm_Operation_Principle)
+  - [API参考](/docs/zh-CN/Python_SDK)
 - [Grant计划](https://forum.latticex.foundation/t/topic/1092)
-  - [Grant原则](#)
-  - [技术类Grant申请模板](#)
-  - [Grant流程](#)
+  - [Grant原则](https://forum.latticex.foundation/t/topic/4128)
+  - [技术类Grant申请模板](https://forum.latticex.foundation/t/topic/4126)
+  - [Grant流程](https://forum.latticex.foundation/t/topic/4129)
 - [Bugbounty计划](https://slowmist.io/platon/index.html?utm_source=index&utm_medium=cpc&utm_campaign=platon)
 - [PlatON GitHub仓库](https://github.com/PlatONnetwork)-可以通过提交PR或者Issue的方式提交你的代码和问题
-- []()
 
 ### 社区
 
