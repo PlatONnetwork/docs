@@ -79,6 +79,9 @@ go run build/ci.go install ./cmd/platonkey
 
 > 重复编译会覆盖之前生成的可执行文件。
 
+
+> 注:建议windows版本仅用于开发测试，正式生产环境请使用ubuntu版本。
+
 ## Ubuntu源码编译
 
 **step1.** 安装编译环境（Ubuntu）：

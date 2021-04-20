@@ -81,6 +81,8 @@ After compiling, `platon`,` platonkey` executable files will be generated in the
 
 > Repeated compilation will overwrite the previously generated executable file.
 
+> Note: It is recommended that the windows version be used for development testing only, and that the ubuntu version be used for the official production environment.
+
 ## Ubuntu source code compilation	
 
 **step1.** Ubuntu compilation environment requirements:
