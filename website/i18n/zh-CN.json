@@ -10,16 +10,12 @@
 				"sidebar_label": "社区项目"
 			},
 			"index": {
-				"title": "PlatON开发者文档",
-				"sidebar_label": "PlatON开发者文档"
+				"title": "概述",
+				"sidebar_label": "概述"
 			},
 			"lat_introduced": {
-				"title": "LAT介绍",
-				"sidebar_label": "LAT介绍"
-			},
-			"About_PlatON": {
-				"title": "关于PlatON",
-				"sidebar_label": "关于PlatON"
+				"title": "什么是LAT",
+				"sidebar_label": "什么是LAT"
 			},
 			"Java_SDK": {
 				"title": "Java SDK",
@@ -42,24 +38,24 @@
 				"sidebar_label": "离线PlatON MTool教程"
 			},
 			"PlatON_Solution": {
-				"title": "PlatON共识方案",
-				"sidebar_label": "PlatON共识方案"
+				"title": "PlatON共识机制",
+				"sidebar_label": "共识机制"
 			},
 			"PlatON_Overall_Solution": {
-				"title": "PlatON总体方案",
-				"sidebar_label": "PlatON总体方案"
+				"title": "PlatON总体架构",
+				"sidebar_label": "总体架构"
 			},
 			"PlatON_Governance_Solution": {
-				"title": "PlatON治理方案",
-				"sidebar_label": "PlatON治理方案"
+				"title": "PlatON治理机制",
+				"sidebar_label": "治理机制"
 			},
 			"Economic_Model": {
-				"title": "PlatON经济方案",
-				"sidebar_label": "PlatON经济方案"
+				"title": "PlatON经济模型",
+				"sidebar_label": "经济模型"
 			},
 			"PlatON_Validation_Introduce": {
-				"title": "PlatON验证节点介绍",
-				"sidebar_label": "PlatON验证节点介绍"
+				"title": "验证节点介绍",
+				"sidebar_label": "验证节点介绍"
 			},
 			"Command_Line_Tools": {
 				"title": "PlatON命令行工具",
@@ -118,8 +114,8 @@
 				"sidebar_label": "Wasm虚拟机运行原理"
 			},
 			"PlatON_BlockChain_Browser": {
-				"title": "区块链浏览器",
-				"sidebar_label": "区块链浏览器介绍"
+				"title": "PlatScan浏览器",
+				"sidebar_label": "PlatScan浏览器"
 			},
 			"Verifiable_Computation": {
 				"title": "可验证计算",
@@ -138,8 +134,8 @@
 				"sidebar_label": "成为开发网验证节点"
 			},
 			"Build_Private_Chain": {
-				"title": "部署私有测试网",
-				"sidebar_label": "部署私有测试网"
+				"title": "部署私有网络",
+				"sidebar_label": "部署私有网络"
 			},
 			"Install_PlatON": {
 				"title": "源码安装PlatON",
@@ -165,17 +161,13 @@
 				"title": "开发指南概览",
 				"sidebar_label": "开发指南概览"
 			},
-			"PlatON_Dev_Faucet": {
-				"title": "开发网水龙头",
-				"sidebar_label": "开发网水龙头"
-			}
 		},
 		"links": {},
 		"categories": {
-			"PlatON Developer Docs": "PlatON开发者文档",
-			"Introduce": "介绍",
-			"PlatON Basis": "PlatON基础",
-			"PlatON Node": "PlatON节点",
+			"PlatON Developer Docs": "概述",
+			"Introduce": "初步了解",
+			"PlatON Basis": "进阶了解",
+			"PlatON Node": "节点",
 			"Node Tools": "节点工具",
 			"Smart Contracts": "智能合约",
 			"Solidity Contract": "Solidity合约",
