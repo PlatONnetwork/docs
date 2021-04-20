@@ -33,8 +33,8 @@
         "sidebar_label": "JSON RPC"
       },
       "lat_introduced": {
-        "title": "LAT介绍",
-        "sidebar_label": "LAT介绍"
+        "title": "Introduction to LAT",
+        "sidebar_label": "Introduction to LAT"
       },
       "PlatON_Solution": {
         "title": "PlatON Consensus Solution",
@@ -107,6 +107,10 @@
       "WASM_Smart_Contract": {
         "title": "WASM Smart Contract",
         "sidebar_label": "WASM Smart Contract"
+      },
+      "Wasm_Operation_Principle": {
+        "title": "Operating principle of wasm virtual machine",
+        "sidebar_label": "Operating principle of wasm virtual machine"
       },
       "PlatON_BlockChain_Browser": {
         "title": "Block Explorers",

@@ -109,6 +109,10 @@
 				"title": "WASM智能合约",
 				"sidebar_label": "WASM智能合约"
 			},
+			"Wasm_Operation_Principle": {
+				"title": "Wasm虚拟机运行原理",
+				"sidebar_label": "Wasm虚拟机运行原理"
+			},
 			"PlatON_BlockChain_Browser": {
 				"title": "区块链浏览器",
 				"sidebar_label": "区块链浏览器介绍"
