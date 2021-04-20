@@ -78,13 +78,13 @@ WASM虚拟机是一个完全独立的沙盒，合约代码对外完全隔离并�
 
 **双虚拟机工作原理：**
 
-<img src="/docs/img/en/wasm-dual.png" width="500" style="padding-bottom:50px;" />
+<img src="/docs/img/en/wasm-dual.png" />
 
 如图所示：使用solidity/c/c++等语言编写的智能合约，经过编译器编译成为字节码，同时不同类型的合约包含了不同的字节码特征，PlatON双虚拟机引擎通过对特征的识别，可以判断该段字节码需要使用哪种虚拟机进行执行，选择对应虚拟机后加载字节码，解析字节码，然后根据指令去执行对应的函数功能。
 
 **智能合约使用流程：**
 
-<img src="/docs/img/en/wasm-contract.png" width="500" style="padding-bottom:50px;" />  
+<img src="/docs/img/en/wasm-contract.png" />  
 
 如图所示，可以使用c++编写基于WASM的智能合约，也可以使用solidity编写属于EVM的智能合约，然后通过工具套件编译生成字节码等信息，再通过SDK开发工具集通过交易的方式发送到PlatON网络节点中。这样一个与合约相关的交易流程就完成了。
 
