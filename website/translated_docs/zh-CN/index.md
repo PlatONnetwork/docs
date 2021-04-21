@@ -39,9 +39,9 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
    - [能获得哪些奖励](/docs/zh-CN/PlatON_Validation_Introduce#%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9)
    - [处罚机制](/docs/zh-CN/PlatON_Validation_Introduce#%E5%93%AA%E4%BA%9B%E8%A1%8C%E4%B8%BA%E4%BC%9A%E8%A2%AB%E5%A4%84%E7%BD%9A)
  - [加入PlatON主网](/docs/zh-CN/Become_PlatON_Main_Verification)-详细介绍了如何加入到PlatON主网，并质押成为验证的具体操作
- - 节点工具
-   - [在线MTool](/docs/zh-CN/OnLine_MTool_Manual)
-   - [离线MTool](/docs/zh-CN/OffLine_MTool_Manual)
+ - 节点工具-节点可以使用以下工具完成质押、投票等功能
+   - [MTool在线教程](/docs/zh-CN/OnLine_MTool_Manual)-在线教程提供了使用在线钱包管理节点的方式
+   - [MTool离线教程](/docs/zh-CN/OffLine_MTool_Manual)-该教程提供了如何使用离线钱包管理节点的方式，提高钱包安全性
    - [PlatON命令行](/docs/zh-CN/Command_Line_Tools)
 
 ### 开发者
