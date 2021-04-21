@@ -74,13 +74,24 @@
 					"Java_SDK",
 					"Json_Rpc"
 				]
+			},
+			{
+				"type": "subcategory",
+				"label": "Standards",
+				"ids": [
+					"PRC20",
+					"PRC721",
+					"PRC13"
+				]
 			}
 		],
 		"Data and analytics": [
-			"PlatON_BlockChain_Browser"
+			"PlatON_BlockChain_Browser",
+			"PlatEye"
 		],
 		"Wallet": [
 			"ATON-user-manual",
+			"PlatON_Samurai",
 			"Third_Party_Walle"
 		],
 		"community":["community"]
