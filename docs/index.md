@@ -3,7 +3,7 @@ id: index
 title: Overview
 sidebar_label: Overview
 ---
-*Let's stick to the path towards up and do all we can to practice justice in a prudent manner.*
+*Let's stick to the path towards up and do all we can to practice justice in a prudent manner.* —— Plato
 
 Welcome to the PlatON documentation library. This document is designed to help different users understand PlatON from different perspectives and use PlatON.
 
