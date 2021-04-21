@@ -3,8 +3,7 @@
 		"Overview": [
 			"index"
 		],
-		"Preliminary": [
-			"About_PlatON",
+		"Basics": [
 			"lat_introduced",
 			"Network_Description"
 		],
@@ -13,16 +12,14 @@
 			"Economic_Model",
 			"PlatON_Solution",
 			"PlatON_Governance_Solution",
-			"Secure_Multi_Party_Computation",
-			"Verifiable_Computation"
+			"Wasm_Operation_Principle"
 		],
 		"PlatON Node": [
 			"PlatON_Validation_Introduce",
 			"Become_PlatON_Main_Verification",
-			"Build_Private_Chain",
 			{
 				"type": "subcategory",
-				"label": "Node Tools",
+				"label": "Tools for nodes",
 				"ids": [
 					"OnLine_MTool_Manual",
 					"OffLine_MTool_Manual",
@@ -30,11 +27,11 @@
 				]
 			}
 		],
-		"Development Guide": [
+		"Developers": [
 			"PlatON_Overview_DevGuide",
 			{
 				"type": "subcategory",
-				"label": "Environment Setup",
+				"label": "Set up local environment",
 				"ids": [
 					"Become_PlatON_Dev_Verification",
 					"Build_Private_Chain"
@@ -42,12 +39,12 @@
 			},
 			{
 				"type": "subcategory",
-				"label": "Smart Contracts",
+				"label": "Smart contract",
 				"ids": [
 					"PlatON_system_contract",
 					{
 						"type": "soncategory",
-						"label": "Solidity Contract",
+						"label": "Solidity contract",
 						"ids": [
 							"Solidity_Dev_Manual",
 							"Solidity_Contract_Migrate",
@@ -58,9 +55,8 @@
 					},
 					{
 						"type": "soncategory",
-						"label": "Wasm Contract",
+						"label": "Wasm contract",
 						"ids": [
-							"Wasm_Operation_Principle",
 							"Wasm_Dev_Manual",
 							"Wasm_Contract_Dev_Costs",
 							"Wasm_Contract_Best_Practice",
@@ -71,24 +67,21 @@
 			},
 			{
 				"type": "subcategory",
-				"label": "API Reference",
+				"label": "References",
 				"ids": [
 					"Python_SDK",
-					"Java_SDK",
 					"JS_SDK",
+					"Java_SDK",
 					"Json_Rpc"
 				]
 			}
 		],
-		"Data And Analytics": [
+		"Data and analytics": [
 			"PlatON_BlockChain_Browser"
 		],
 		"Wallet": [
 			"ATON-user-manual",
 			"Third_Party_Walle"
-		],
-		"Community Projects": [
-			"community"
 		]
 	}
 }

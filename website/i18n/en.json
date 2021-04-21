@@ -17,8 +17,8 @@
         "sidebar_label": "EVM Smart Contract"
       },
       "index": {
-        "title": "PlatON Developer Docs",
-        "sidebar_label": "PlatON Developer Docs"
+        "title": "Overview",
+        "sidebar_label": "Overview"
       },
       "Java_SDK": {
         "title": "Java SDK",
@@ -29,76 +29,76 @@
         "sidebar_label": "JS SDK"
       },
       "Json_Rpc": {
-        "title": "JSON RPC API",
-        "sidebar_label": "JSON RPC"
+        "title": "JSON-RPC",
+        "sidebar_label": "JSON-RPC"
       },
       "lat_introduced": {
-        "title": "Introduction to LAT",
-        "sidebar_label": "Introduction to LAT"
+        "title": "Intro to LAT",
+        "sidebar_label": "Intro to LAT"
       },
       "PlatON_Solution": {
-        "title": "PlatON Consensus Solution",
-        "sidebar_label": "PlatON Consensus Solution"
+        "title": "Consensus mechanism",
+        "sidebar_label": "Consensus mechanism"
       },
       "Command_Line_Tools": {
-        "title": "PlatON Command Line Tools",
-        "sidebar_label": "PlatON Command line tools"
+        "title": "Command line tools",
+        "sidebar_label": "Command line tools"
       },
       "PlatON_Overall_Solution": {
-        "title": "PlatON Overall Solution",
-        "sidebar_label": "PlatON Overall Solution"
+        "title": "Architecture",
+        "sidebar_label": "Architecture"
       },
       "PlatON_Governance_Solution": {
-        "title": "PlatON Governance Solution",
-        "sidebar_label": "PlatON Governance Solution"
+        "title": "Governance mechanism",
+        "sidebar_label": "Governance mechanism"
       },
       "PlatON_system_contract": {
-        "title": "PlatON System Contract",
-        "sidebar_label": "System Contract"
+        "title": "System contracts",
+        "sidebar_label": "System contracts"
       },
       "Economic_Model": {
-        "title": "PlatON Economic Model",
-        "sidebar_label": "PlatON Economic Model"
+        "title": "Economic model",
+        "sidebar_label": "Economic model"
       },
       "PlatON_Validation_Introduce": {
-        "title": "Introduction to the PlatON validation node",
-        "sidebar_label": "Introduction to the PlatON validation node"
+        "title": "Intro to validator",
+        "sidebar_label": "Intro to validator"
       },
       "Python_SDK": {
         "title": "Python SDK",
         "sidebar_label": "Python SDK"
       },
       "Solidity_Dev_Manual": {
-        "title": "Development Manual",
-        "sidebar_label": "Development Manual"
+        "title": "Getting started",
+        "sidebar_label": "Getting started"
       },
       "Solidity_Contract_Security_Dev_Guide": {
-        "title": "Security Development Guide",
-        "sidebar_label": "Security Development Guide"
+        "title": "Contract security",
+        "sidebar_label": "Contract security"
       },
       "Solidity_Contract_Best_Practice": {
-        "title": "Best Practice",
-        "sidebar_label": "Best Practice"
+        "title": "Best practices",
+        "sidebar_label": "Best practices"
       },
       "Solidity_Contract_Dev_Costs": {
-        "title": "Development Costs",
-        "sidebar_label": "Development Costs"
+        "title": "Development costs",
+        "sidebar_label": "Development costs"
       },
       "Solidity_Contract_Migrate": {
-        "title": "Migrate",
-        "sidebar_label": "Migrate"
+        "title": "Migration tutorial",
+        "sidebar_label": "Migration tutorial"
       },
       "Wasm_Dev_Manual": {
-        "title": "Development Manual",
-        "sidebar_label": "Development Manual"
+        "title": "Getting started",
+        "sidebar_label": "Getting started"
       },
       "Wasm_Contract_API": {
-        "title": "API",
-        "sidebar_label": "API"
+        "title": "Wasm API",
+        "sidebar_label": "Wasm API"
       },
       "Wasm_Contract_Best_Practice": {
-        "title": "Best Practice",
-        "sidebar_label": "Best Practice"
+        "title": "Best practices",
+        "sidebar_label": "Best practices"
       },
       "Wasm_Contract_Dev_Costs": {
         "title": "Development Costs",
@@ -109,76 +109,81 @@
         "sidebar_label": "WASM Smart Contract"
       },
       "Wasm_Operation_Principle": {
-        "title": "Operating principle of wasm virtual machine",
-        "sidebar_label": "Operating principle of wasm virtual machine"
+        "title": "WebAssembly(Wasm)",
+        "sidebar_label": "WebAssembly(Wasm)"
       },
       "About_PlatON": {
         "title": "About PlatON",
         "sidebar_label": "About PlatON"
       },
       "PlatON_BlockChain_Browser": {
-        "title": "Block Explorers",
-        "sidebar_label": "Block Explorers"
+        "title": "PlatScan",
+        "sidebar_label": "PlatScan"
       },
       "Verifiable_Computation": {
         "title": "Verifiable Computation",
         "sidebar_label": "Verifiable Computation"
       },
       "OnLine_MTool_Manual": {
-        "title": "OnLine PlatON MTool Tutorials",
-        "sidebar_label": "OnLine PlatON MTool Tutorials"
+        "title": "MTool online tutorial",
+        "sidebar_label": "MTool online tutorial"
       },
       "Secure_Multi_Party_Computation": {
         "title": "Secure Multi Party Computation",
         "sidebar_label": "Secure Multi Party Computation"
       },
       "PlatON_Overview_DevGuide": {
-        "title": "Overview of DevGuide",
-        "sidebar_label": "Overview of DevGuide"
+        "title": "Development guide",
+        "sidebar_label": "Development guide"
       },
       "PlatON_Dev_Faucet": {
         "title": "DevNetwork Faucet",
         "sidebar_label": "DevNetwork Faucet"
       },
       "Become_PlatON_Main_Verification": {
-        "title": "Become the main network verification node",
-        "sidebar_label": "Become the main network verification node"
+        "title": "Run a validator node",
+        "sidebar_label": "Run a validator node"
       },
       "Become_PlatON_Dev_Verification": {
-        "title": "Become the development network verification node",
-        "sidebar_label": "Become the development network verification node"
+        "title": "Join the dev network",
+        "sidebar_label": "Join the dev network"
       },
       "Install_PlatON": {
         "title": "Source Installation PlatON",
         "sidebar_label": "Source Installation PlatON"
       },
       "OffLine_MTool_Manual": {
-        "title": "OffLine PlatON MTool Manual",
-        "sidebar_label": "OffLine PlatON MTool Manual"
+        "title": "MTool offline tutorial",
+        "sidebar_label": "MTool offline tutorial"
       },
       "Third_Party_Walle": {
-        "title": "Third Party Wallet",
-        "sidebar_label": "Third Party Wallet"
+        "title": "Third-party wallets",
+        "sidebar_label": "Third-party wallets"
       },
       "Network_Description": {
-        "title": "Network Description",
-        "sidebar_label": "Network Description"
+        "title": "Networks",
+        "sidebar_label": "Networks"
       },
       "Build_Private_Chain": {
-        "title": "Deploy Your Own Private Testnet",
-        "sidebar_label": "Deploy Your Own Private Testnet"
+        "title": "Private network",
+        "sidebar_label": "Private network"
       }
     },
     "links": {},
     "categories": {
-      "PlatON Developer Docs": "PlatON Developer Docs",
-      "Introduce": "Introduce",
-      "PlatON Basis": "PlatON Basis",
+      "Overview": "Overview",
+      "Basics":"Basics",
+      "Advanced":"Advanced",
       "PlatON Node": "PlatON Node",
-      "Development Guide": "Development Guide",
-      "Data And Analytics": "Data And Analytics",
-      "Wallet": "Wallet",
-      "Community Projects": "Community Projects"
+      "Tools for nodes": "Tools for nodes",
+      "Developers": "Developers",
+      "Set up local environment": "Set up local environment",
+      "Smart contract": "Smart contract",
+			"Solidity contract": "Solidity contract",
+      "Wasm contract": "Wasm contract",
+      "References": "References",
+      "Data and analytics": "Data and analytics",
+      "Wallet": "Wallet"
     }
   },
   "pages-strings": {
