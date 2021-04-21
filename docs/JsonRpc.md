@@ -1,7 +1,7 @@
 ---
 id: Json_Rpc
-title: JSON RPC API
-sidebar_label: JSON RPC
+title: JSON-RPC
+sidebar_label: JSON-RPC
 ---
 
 [JSON](http://json.org/) is a lightweight data-interchange format. It can represent numbers, strings, ordered sequences of values, and collections of name/value pairs.

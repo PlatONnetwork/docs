@@ -1,7 +1,7 @@
 ---
 id: PlatON_Governance_Solution
-title: PlatON Governance Solution
-sidebar_label: PlatON Governance Solution
+title: Governance mechanism
+sidebar_label: Governance mechanism
 ---
 
 
@@ -12,7 +12,7 @@ Blockchain governance mechanism refers to a set of decision rules and action sta
 
 ## Analysis of governance status
 
-At present, governance is divided into off-chain governance and on-chain governance from the big model. Off-chain governance is controlled by core developers. Nodes send their decision signals by installing their preferred software and give full responsibility to those who run complete nodes. It has higher flexibility, but requires higher social coordination costs and lacks reasonable Incentive mechanism restricts the entry of new developers. On-chain management has a clear set of governance processes, which are forcibly upgraded through the on-chain proposal voting mechanism and hand over decision-making power to stakeholders.
+At present, governance is divided into off-chain governance and on-chain governance from the big model. Off-chain governance is controlled by core developers. Nodes send their decision signals by installing their preferred software and give full responsibility to those who run complete nodes. It has higher flexibility, but requires higher social coordination costs and lacks reasonable Incentive mechanism Lockup the entry of new developers. On-chain management has a clear set of governance processes, which are forcibly upgraded through the on-chain proposal voting mechanism and hand over decision-making power to stakeholders.
 
 The representative public chains of off-chain governance, such as Bitcoin and Ethereum, are mainly upgraded by the core developers, and ordinary miners and user groups lack the right to choose. Therefore, participation is low and the citizen base is weak. Recognizing the shortcomings of off-chain governance, some public chains have begun to launch their own on-chain governance mechanisms to digitize community decisions and greatly reduce the coordination costs of stakeholders. The common power distribution method of on-chain governance mechanisms is often the choice and balance of direct democracy and indirect democracy.
 

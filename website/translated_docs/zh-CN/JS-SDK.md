@@ -901,7 +901,7 @@ const transaction_demo = async function () {
     web3 = new Web3("http://127.0.0.1:6789");
     var privateKey="0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba";
     // 主网地址
-    let from = web3.platon.accounts.privateKeyToAccount(privateKey).address.mainnet;
+    let from = web3.platon.accounts.privateKeyToAccount(privateKey).address;
     let nonce = web3.utils.numberToHex(await web3.platon.getTransactionCount(from));
     let tx = {
         from:from,

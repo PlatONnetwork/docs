@@ -1,7 +1,7 @@
 ---
 id: OffLine_MTool_Manual
-title: OffLine PlatON MTool Manual
-sidebar_label: OffLine PlatON MTool Manual
+title: MTool offline tutorial
+sidebar_label: MTool offline tutorial
 ---
 
 ## Introduction
@@ -9,7 +9,7 @@ sidebar_label: OffLine PlatON MTool Manual
 In order to facilitate node transfer, pledge, delegation and governance and other related operations, PlatON provides PlatON MTool to assist users:
 
 - PlatON MTool can support Ubuntu 18.04 and Windows 10. This document describes the installation and use under Windows and Ubuntu environments respectively. Users can choose according to their own resources.
-- PlatON MTool provides two signature methods for pledge transactions: online signature and offline signature. This document describes offline signature operations. For online signature operations, please refer to [Online PlatON MTool Tutorial](/docs/zh-CN/OnLine_MTool_Manual).
+- PlatON MTool provides two signature methods for pledge transactions: online signature and offline signature. This document describes offline signature operations. For online signature operations, please refer to [Online PlatON MTool Tutorial](/docs/en/OnLine_MTool_Manual).
 - The main process of PlatON MTool offline signature method is: generate the file to be signed on the online machine, then sign the transaction on the offline machine, and finally send the signed transaction on the online machine.
 
 ## Install PlatON MTool
@@ -352,11 +352,11 @@ platon_mtool tx transfer --address $PLATON_MTOOLDIR/keystore/staking_observed.js
 > recipient: recipient address;
 
 
-### Create a new restricting plans
+### Create a new Lockup plans
 
-Creating a new restricting plan, node's LATs will be transferred to a specified precompiled contract. The LATs will be transferred to the specified account multiple times at specified intervals. Before creating a new restricting, you need to create a restricting plan description file in json format.
+Creating a new Lockup plan, node's LATs will be transferred to a specified precompiled contract. The LATs will be transferred to the specified account multiple times at specified intervals. Before creating a new Lockup plan, you need to create a Lockup plan description file in json format.
 
-- restricting plan description file，retricting_plans.json
+- Lockup plan description file，retricting_plans.json
 
 ```json
 {
@@ -388,7 +388,7 @@ platon_mtool create_restricting --config $PLATON_MTOOLDIR/validator/validator_co
 >
 > address: observation wallet file
 >
-> file: restricting plan description file
+> file: Lockup plan description file
 
 
 ### Initiate a pledge operation

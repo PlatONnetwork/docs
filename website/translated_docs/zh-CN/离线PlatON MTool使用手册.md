@@ -82,7 +82,7 @@ wget https://download.platon.network/platon/scripts/mtool_install.sh
 chmod +x mtool_install.sh && ./mtool_install.sh
 ```
 
-> - 提示 <font color=red>Install platon mtool succeed.</font> 时，表示 PlatON MTool 安装成功，未安装成功时，请通过我们的官方客服联系方式反馈具体问题。
+> - 提示 <font color=red>Install platon mtool succeed.</font> 时，表示 PlatON MTool 安装成功，未安装成功时，请通过我们的社区服务人员联系方式反馈具体问题。
 
 **step5. 重新启动会话窗口**
 
@@ -445,7 +445,7 @@ platon_mtool staking --config $PLATON_MTOOLDIR/validator/validator_config.json -
 >
 > website：官网路径，不超过70字节，数字字母组成
 >
-> details：简介，验证人简要介绍说明，不超过280字节，建议英文
+> details：简介，验证人简要介绍说明，不超过280字节
 >
 > external_id：节点头像icon在[keybase.io](https://keybase.io)的ID，或者外部系统身份认证ID
 
@@ -474,7 +474,7 @@ platon_mtool update_validator --config $PLATON_MTOOLDIR/validator/validator_conf
 >
 > benefit_address\[可选\]：验证节点收益地址，42字符（字母数字）
 >
-> details\[可选\]：简介，验证人简要介绍说明，不超过280字节，建议英文
+> details\[可选\]：简介，验证人简要介绍说明，不超过280字节
 
 
 

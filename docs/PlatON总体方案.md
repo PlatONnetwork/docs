@@ -1,7 +1,7 @@
 ---
 id: PlatON_Overall_Solution
-title: PlatON Overall Solution
-sidebar_label: PlatON Overall Solution
+title: Architecture
+sidebar_label: Architecture
 ---
 
 
@@ -31,7 +31,7 @@ Driven by practicality, the blockchain industry focuses on two issues: scalabili
 
 **Scalability** is still a huge challenge for the blockchain. The mainstream blockchain is not highly-effective in processing transactions per second, which is several orders of magnitude different from the processing power required to run mainstream financial markets. Although there are hundreds of projects addressing scalability issues through various solutions which are limited to the "impossible triangle" at the expense of decentralization or security. In consensus-based schemes, smart contract is limited to support simple computing logic.
 
-**Privacy** is another major issue of blockchain. Although the blockchain's advantages such as immutability, decentralization, and no trust are tempting, it also faces the same dilemma of obtaining data as big data and AI technologies. Neither companies nor individuals have the willingness to share private information, or post to public ledges that will be freely read by governments, family, colleagues and business competitors without restriction.
+**Privacy** is another major issue of blockchain. Although the blockchain's advantages such as immutability, decentralization, and no trust are tempting, it also faces the same dilemma of obtaining data as big data and AI technologies. Neither companies nor individuals have the willingness to share private information, or post to public ledges that will be freely read by governments, family, colleagues and business competitors without lockup.
 
 #### PlatON: Non-interactive Proof Privacy-Preserving Computation
 

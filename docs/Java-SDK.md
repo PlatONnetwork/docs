@@ -20,6 +20,7 @@ Depending on the build tool, use the following methods to add related dependenci
 	<url>https://sdk.platon.network/nexus/content/groups/public/</url>
 </repository>
 ```
+NOTE： the latest version is 0.15.1.15-SNAPSHOT
 
 > maven reference:
 ```xml
@@ -29,6 +30,8 @@ Depending on the build tool, use the following methods to add related dependenci
     <version>0.15.1.10</version>
 </dependency>
 ```
+NOTE： the latest version is 0.15.1.15-SNAPSHOT
+
 
 ### gradle
 
@@ -111,25 +114,20 @@ Credentials credentials = WalletUtils.loadCredentials(PASSWORD, new File(tempDir
 ```
 
 ### Credentials Related
-* **loadCredentials from keystore**
+* **load credentials from keystore**
 ```java
 Credentials credentials = WalletUtils.loadCredentials(PASSWORD, new File(tempDir, fileName));
 ```
 
-* **loadCredentials from key**
+* **create credentials from key**
 ```java
 Credentials credentials = Credentials.create("0xXXXXXXXXXXXXXX...");
 ```
 
-* **getBech32AddressFromChainId**
-```java
-long chainId = 100L;
-String bech32Address = credentials.getAddress(chainId);
-```
 
-* **getBech32AddressFromNetworkParameters**
+* **get bech32 address of current network**
 ```java
-String bech32Address = credentials.getAddress();  // NetworkParameters.CurrentNetwork
+String bech32Address = credentials.getAddress();
 ```
 
 ## Basic RPC Interface

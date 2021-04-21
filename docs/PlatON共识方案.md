@@ -1,7 +1,7 @@
 ---
 id: PlatON_Solution
-title: PlatON Consensus Solution
-sidebar_label: PlatON Consensus Solution
+title: Consensus mechanism
+sidebar_label: Consensus mechanism
 ---
 
 ##  Summary

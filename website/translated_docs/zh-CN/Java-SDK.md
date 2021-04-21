@@ -11,6 +11,8 @@ sidebar_label: Java SDK
 
 - 使用要求jdk1.8以上.
 
+注：最新版本是0.15.1.15-SNAPSHOT
+
 ### maven
 
 > 项目配置:
@@ -26,7 +28,7 @@ sidebar_label: Java SDK
 <dependency>
     <groupId>com.platon.sdk</groupId>
     <artifactId>core</artifactId>
-    <version>0.15.1.9</version>
+    <version>0.15.1.10</version>
 </dependency>
 ```
 
@@ -41,7 +43,7 @@ repositories {
 
 > gradle引用方式:
 ```
-compile "com.platon.sdk:core:0.15.1.9"
+compile "com.platon.sdk:core:0.15.1.10"
 ```
 
 ## 基础api使用
@@ -121,15 +123,10 @@ Credentials credentials = WalletUtils.loadCredentials(PASSWORD, new File(tempDir
 Credentials credentials = Credentials.create("0xXXXXXXXXXXXXXX...");
 ```
 
-* **获取不同网络的地址**
-```java
-long chainId = 100L;
-String bech32Address = credentials.getAddress(chainId);
-```
 
 * **获取当前网络参数的地址**
 ```java
-String bech32Address = credentials.getAddress();  // NetworkParameters.CurrentNetwork
+String bech32Address = credentials.getAddress();  
 ```
 
 ## 基础RPC接口

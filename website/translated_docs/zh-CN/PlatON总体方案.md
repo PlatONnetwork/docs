@@ -1,7 +1,7 @@
 ---
 id: PlatON_Overall_Solution
-title: PlatON总体方案
-sidebar_label: PlatON总体方案
+title: PlatON总体架构
+sidebar_label: 总体架构
 ---
 
 
@@ -60,7 +60,7 @@ PlatON通过叠加同态加密（HE）和安全多方计算（MPC），实现真
 PlatON除了提供底层链外，同时提供钱包、区块浏览器和节点工具的开源实现：
 
 - ATON钱包：一款支持冷热HD钱包、交易管理和委托管理的移动端钱包，账户私钥在客户端管理，后续支持Keyshared（基于门限签名的密钥管理系统）
-- PlatScan区块浏览器：PlatON官方提供的区块浏览器
+- PlatScan区块浏览器：PlatON社区提供的区块浏览器
 - 节点工具
 
 ### 底层逻辑结构

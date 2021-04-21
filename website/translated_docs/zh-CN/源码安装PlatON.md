@@ -45,7 +45,7 @@ Windows编译环境需要符合以下条件：
 > choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
 > ```
 >
-> 利用`chocolatey`包管理器安装的软件大部分有默认的安装路径，部分软件可能会有各种各样的路径，这取决于软件的发布者。安装这些包将修改Path环境变量。最后安装路径可查看PATH，某些机器环境可能在 PATH 中找不到这些工具的安装路径，此时需手动添加。安装完之后请确保已安装的Go版本为1.11（或更高版本）。
+> 利用`chocolatey`包管理器安装的软件大部分有默认的安装路径，部分软件可能会有各种各样的路径，这取决于软件的发布者。安装这些包将修改Path环境变量。最后安装路径可查看PATH，某些机器环境可能在 PATH 中找不到这些工具的安装路径，此时需手动添加。安装完之后请确保已安装的Go版本为1.14（或更高版本）。
 >
 
 > 注意：以下命令均需在`Git-bash`环境运行， 在任意目录下，鼠标右键，选中`Git Bash Here`，弹出`Git Bash`运行窗口。
@@ -78,6 +78,9 @@ go run build/ci.go install ./cmd/platonkey
 编译完成之后在`PlatON-Go/build/bin`目录下会生成`platon`、`platonkey`可执行文件，将这两个可执行文件拷贝到自己工作目录运行即可。
 
 > 重复编译会覆盖之前生成的可执行文件。
+
+
+> 注:建议windows版本仅用于开发测试，正式生产环境请使用ubuntu版本。
 
 ## Ubuntu源码编译
 

@@ -1,7 +1,7 @@
 ---
 id: Economic_Model
-title: PlatON Economic Model
-sidebar_label: PlatON Economic Model
+title: Economic model
+sidebar_label: Economic model
 ---
 
 
@@ -123,13 +123,13 @@ The token in the PlatON public blockchain is called LAT. LAT does not have a har
 
 LAT's initial issuance is distributed to the founding team, PlatON Foundation, academic fund, ecological fund, and private equity issuers in a certain proportion. This is achieved by writing the allocated account and balance parameter information into the genesis block configuration. And introduce the corresponding locking mechanism.
 
-The initial issuance of locks is controlled through the restricting contract, and the lock-up and unlocking are performed according to the set restricting period. The amount of the restricted Token	 cannot be unlocked in advance. In order to improve the processing performance of the system, the locking period must be a multiple of the Epoch (10750blocks). Therefore, the unlocking point (unlocking block height) of each locking period is the Epoch block (the last block of the Epoch).
+The initial issuance of locks is controlled through the Lockup contract, and the lock-up and unlocking are performed according to the set Lockup period. The amount of the Locked up Tokens	 cannot be unlocked in advance. In order to improve the processing performance of the system, the locking period must be a multiple of the Epoch (10750blocks). Therefore, the unlocking point (unlocking block height) of each locking period is the Epoch block (the last block of the Epoch).
 
-In order to protect the equity of the restricting account, the restricting LAT can be used to verify the pledge and delegate of the node. When the pledge or delegate is released, the pledged and delegate LAT returns to the restricting contract.
+In order to protect the equity of the locked-up account, the Locked-up balance can be used to verify the pledge and delegate of the node. When the pledge or delegate is released, the pledged and delegate LAT returns to the Lockup contract.
 
-According to the restricting plan, when the unlocked block is reached, the restricting contract automatically unlocks the corresponding LAT to the restricting account address.
+According to the Lockup plan, when the unlocked block is reached, the Lockup contract automatically unlocks the corresponding LAT to the locked-up account address.
 
-Assume that the account A's restricting plan is (a total of 1000LAT):
+Assume that the account A's Lockup plan is (a total of 1000LAT):
 
 - Locked for 1 Epoch, locked quantity: 100LAT
 
@@ -142,9 +142,9 @@ The unlocking process flow is shown in the following figure:
 <img src="/docs/img/en/PlatON_economic_plan.assets/unlock_the_restricting_normally.png" alt="unlock_the_restricting_normally"/>
 
 
-Due to the existence of the locked LAT for pledge or delegate, and the pledge or delegate was returned without expiry, the unlocked block was reached. The account balance in the restricting contract was not enough to unlock the amount. At this time, the processing method is to fully unlock and record A "number of accounts owed", and check whether there is "number of accounts owed" in each settlement block, and whether the locked balance of the account in the restricting contract is recorded, and if necessary, continue to unlock until the "account owed" returns zero.
+Due to the existence of the locked LAT for pledge or delegate, and the pledge or delegate was returned without expiry, the unlocked block was reached. The account balance in the Lockup  contract was not enough to unlock the amount. At this time, the processing method is to fully unlock and record A "number of accounts owed", and check whether there is "number of accounts owed" in each settlement block, and whether the locked balance of the account in the Lockup contract is recorded, and if necessary, continue to unlock until the "account owed" returns zero.
 
-At the same time, it should be pointed out that when restricting LAT is used to verify the node pledge, and the LAT pledged is reduced by penalties, the system will feed back the restricting contract, and deduct the corresponding amount of "locked to be unlocked".
+At the same time, it should be pointed out that when Locked-up balance is used to verify the node pledge, and the LAT pledged is reduced by penalties, the system will feed back the Lockup contract, and deduct the corresponding amount of "locked to be unlocked".
 
 #### LAT issue
 
@@ -242,7 +242,7 @@ s, and the total number of Alternative Validator Candidates is unlimited. LAT ca
 
 (1) LAT of account balance: refers to the balance of the account, which is the LAT circulated in the account and can be used at any time.
 
-(2) LAT of account lockout: refers to the part of LAT that is not unlocked when the account is locked in the restricting contract.
+(2) LAT of account lockout: refers to the part of LAT that is not unlocked when the account is locked in the Lockup contract.
 
 To become a  Alternative Validator Candidate, you also need to submit the true version number of the node program, the signature of the real version number of the node program, the public key of the BLS, the Proof of the public key of the BLS, and a revenue account for receiving block rewards and Staking rewards (follow-up) Support for modification), the percentage of rewards (including support for block production and staking rewards) allocated by the node to the client (subsequent support modification), description of the node (subsequent support modification), the node's official homepage (subsequent support modification), Node's third-party information disclosure ID (optional, [keybase.io](https://keybase.io) 16-bit characters generated by the account-support for subsequent amendments), name of the node being pledged (subsequent support for modification), node ID of the pledged And the number of LAT pledged. The pledge needs to comply with the following rules:
 
@@ -263,7 +263,7 @@ All Alternative Validator Candidate can increase the number of staking LAT at an
 
 - If the pledge is being cancelled or punished, the pledge cancellation is being processed (the return of the pledged LAT requires a period of freezing) or completed (the pledged LAT has been released to the original staking account), the pledge cannot be increased.
 
-- The LAT used to increase the pledge can be the LAT of the account balance or the LAT of the restricting account .
+- The LAT used to increase the pledge can be the LAT of the account balance or the LAT of the locked-up account .
 
 - Pledge can only be increased from the initial staking account.
 
@@ -397,7 +397,7 @@ LAT holders can earn profits by entrusting LAT in their hands to alternative val
 
     (1)  LAT of account balance: refers to the balance of the account, which is the LAT circulating in the account and can be used at any time.
 
-    (2) LAT for account lockout: refers to the part of the account where the account is locked in the restricting contract.
+    (2) LAT for account lockout: refers to the part of the account where the account is locked in the Lockup contract.
 
 - To prevent malicious delegation attacks, there is a minimum LAT limit for a single delegation.
 - LAT commissioned enters the next epoch and starts to lock. LAT commissioned does not actively redeem. LAT commissioned will continue to be locked. The system does not support the automatic redemption function. At the same time, only when a complete epoch is locked will it participate in sharing node revenue.
@@ -542,7 +542,7 @@ In PlatON, there are three types of incentive methods for the validator:
 
 ### Punishment mechanism
 
-Unlike PoW public chains, PoS public chains generally do not rely on computing power to maintain system security. PoS public chains require participating nodes to pledge a certain amount of tokens as a guarantee. When a node behaves badly, the system will reduce the node's The pledged deposit is punished to increase the cost of evil, restrict and regulate the behavior of nodes, and ensure the stability and security of the system. PlatON also introduced corresponding punishment mechanisms.
+Unlike PoW public chains, PoS public chains generally do not rely on computing power to maintain system security. PoS public chains require participating nodes to pledge a certain amount of tokens as a guarantee. When a node behaves badly, the system will reduce the node's The pledged deposit is punished to increase the cost of evil, Lockup and regulate the behavior of nodes, and ensure the stability and security of the system. PlatON also introduced corresponding punishment mechanisms.
 
 #### Punished behavior
 
@@ -562,7 +562,7 @@ In PlatON, any node that attempts to fork the blockchain and stay offline for a 
 
 #### PlatON's way of punishment
 
-PlatON currently supports two penalties:
+PlatON currently supports the following penalties:
 
 1. Deduct node own pledge
 
@@ -574,7 +574,7 @@ PlatON currently supports two penalties:
 
    - When deducting the LAT pledged from the account lock balance, the remaining unlocked amount of the account in the lock contract and the participating pledge amount are deducted correspondingly.
 
-2. Force exit alternative validator candidate
+2. <a id='exit_validator'>Force exit alternative validator candidate</a>
 
    Alternative validator candidate are passively withdrawn, they no longer participate in the election of alternative validators and validators, and are immediately revoked for pledges, withdrawing from the alternative validator candidate list. The LAT entrusted to this node is all invalidated and unlocked. The LAT entrusted to dismiss requires the user to apply for redemption by itself (too many principals, automatic return will greatly affect system performance). The node's remaining own pledge deposit will continue to be locked for 168 epochs and will automatically be returned to the node staking account.
 
@@ -594,13 +594,18 @@ PlatON currently supports two penalties:
 
   - If the validator node that is punished and forced to withdraw is participating in the current consensus round, the validator node can continue to complete the block generation and validator work of this consensus round. If the node is punished after 410 blocks in the consensus round, if the next consensus round confirms that the validator node has the node, the node can continue to participate in the block generation and validator of the next consensus round.
 
+3. <a id='restrict_node_qualification'>Restrict node qualification</a>
+
+   The node is temporarily disqualified as a verification node and locked for 56 settlement cycles. During the lock-up period, it is not eligible to become a verification node to participate in block production, and cannot participate in governance voting, and there is no staking reward.
+
+
 #### PlatON's punishment mechanism
 
 ##### DuplicatePrepare\DuplicateVote-Manual reporting and systematic penalties
 
 In PlatON, DuplicateVote means signing the same block height and different hash in the same view, which is manifested in CBFT, namely DuplicateVote ViewChangeVote and DuplicateVote PrepareVote. DuplicatePrepare indicates that the block node has two different hash blocks for the same height in the same view. In essence, the block is also verified by the signature of the block, so the node DuplicateVote and DuplicatePrepare in PlatON are unified as DuplicateVote.
 
-The node has a DuplicateVote behavior. If it is found by any user, it can initiate a DuplicateVote report transaction, submit the type and evidence of the DuplicateVote (the evidence can be obtained through the query double-out, DuplicateVote evidence interface provided) to the system slashing contract, and slashing After the contract validator is confirmed to be true, the system will reduce 10‱ of the reported node's own pledge as a penalty, and at the same time, the reported node will forcibly withdraw from the alternative validator candidate and revoke the pledge. All penalties are awarded to the reporting user.
+The node has a DuplicateVote behavior. If it is found by any user, it can initiate a DuplicateVote report transaction, submit the type and evidence of the DuplicateVote (the evidence can be obtained through the query double-out, DuplicateVote evidence interface provided) to the system slashing contract, and slashing After the contract validator is confirmed to be true, the system will reduce 10‱ of the reported node's own pledge as a penalty, and at the same time, the reported node will forcibly withdraw from the alternative validator candidate and revoke the pledge. 50% of the fine is given to the whistleblower, and 50% is put into the reward pool for block production and staking rewards in the second year.
 
 - A DuplicateVote report has a validity period, and reports that are more than 27 epochs are invalid.
 
@@ -612,11 +617,11 @@ The node has a DuplicateVote behavior. If it is found by any user, it can initia
 
 - In order to prevent misjudgment or artificially forged report evidence, the slashing contract follows the following validator rules:
 
-  1) Reporting whether the evidence is within the validity period or not is an invalid report.
-  2) Whether the signature of the report evidence is the signature of the validator node; otherwise, the report is invalid.
-  3) Whether the reported duplicatePrepare block is the block produced by the reported node, otherwise it is an invalid report.
-  4) Whether the reported duplicateVote voting block is the block responsible for validator by the reporting node, otherwise it is an invalid report.
-  5) Whether the reported duplicateVote block is a future block or not is an invalid report.
+  - Reporting whether the evidence is within the validity period or not is an invalid report.
+  - Whether the signature of the report evidence is the signature of the validator node; otherwise, the report is invalid.
+  - Whether the reported duplicatePrepare block is the block produced by the reported node, otherwise it is an invalid report.
+  - Whether the reported duplicateVote voting block is the block responsible for validator by the reporting node, otherwise it is an invalid report.
+  - Whether the reported duplicateVote block is a future block or not is an invalid report.
 
 ##### Zero block-the system automatically judges and punishes
 
@@ -624,7 +629,11 @@ PlatON judges whether a node is online and whether the node's software, hardware
 
 <img src="/docs/img/en/PlatON_economic_plan.assets/low_block_rate_verification.png" alt="low_block_rate_verification"/>
 
-When the number of blocks produced is zero, the system forcibly quits the alternative validator candidate, no longer participates in the validator election, and there is no staking reward in the current epoch.
+The validator node must meet the following two conditions and will be judged by the system as zero block:
+  - A certain consensus cycle is selected as a verification node, no block is produced or all blocks produced have not been confirmed by other verification nodes
+  - No blocks were produced in the following 20 consensus cycles (about 2 and a half hours)
+
+The node will be punished by the system after producing zero blocks, deducted the equivalent of 2500 blocks of block rewards, and [restricted node qualifications](#restrict_node_qualification). If the pledge deposit after deduction is less than 100,000 LAT, [the candidate node candidate will be forced to withdraw](#exit_validator).
 
 ### Transaction Fees
 
@@ -680,11 +689,11 @@ To limit the malicious submission of text proposals, parameter proposals, upgrad
 | ------------ | --------------- | ------------------- |
 | Report duplicate signatures | 63000           | N                  |
 
-- Restricting  transactions
+- Lockup transactions
 
 | Name of Trade     | Transaction fixed gas consumption | Trading dynamic gas consumption rules      |
 | ------------ | --------------- | ------------------------ |
-| Create a restricting plan | 68000           | Unlock times of this lockup×21000 |
+| Create a Lockup plan | 68000           | Unlock times of this lockup×21000 |
 
 
 - Receive delgate income

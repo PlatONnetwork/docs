@@ -1,7 +1,7 @@
 ---
 id: Command_Line_Tools
-title: PlatON Command Line Tools
-sidebar_label: PlatON Command line tools
+title: Command line tools
+sidebar_label: Command line tools
 ---
 
 ## Introducing the program PlatON instructions 
