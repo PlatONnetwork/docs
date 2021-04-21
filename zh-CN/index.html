@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>PlatON开发者文档 · PlatON</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## 节点运行者"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="PlatON开发者文档 · PlatON"/><meta property="og:type" content="website"/><meta property="og:url" content="https://luo-dahui.github.io//docs/"/><meta property="og:description" content="## 节点运行者"/><meta property="og:image" content="https://luo-dahui.github.io//docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://luo-dahui.github.io//docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs/img/logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></script><script type="text/javascript" src="/docs/js/custom.js"></script><script src="/docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs/css/main.css"/><script src="/docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="https://www.platon.network/?lang=zh"><img class="logo" src="/docs/img/PlatON-logo.svg" alt="PlatON"/></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/docs/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/">English</a></li></ul></div></li><script>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>概述 · PlatON</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="*让我们永远坚持走向上的路，全力以审慎践行正义。*——柏拉图"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="概述 · PlatON"/><meta property="og:type" content="website"/><meta property="og:url" content="https://luo-dahui.github.io//docs/"/><meta property="og:description" content="*让我们永远坚持走向上的路，全力以审慎践行正义。*——柏拉图"/><meta property="og:image" content="https://luo-dahui.github.io//docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://luo-dahui.github.io//docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/docs/img/logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></script><script type="text/javascript" src="/docs/js/custom.js"></script><script src="/docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/docs/css/main.css"/><script src="/docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="https://www.platon.network/?lang=zh"><img class="logo" src="/docs/img/PlatON-logo.svg" alt="PlatON"/></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/docs/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/">English</a></li></ul></div></li><script>
         const languagesMenuItem = document.getElementById("languages-menu");
         const languagesDropDown = document.getElementById("languages-dropdown");
         languagesMenuItem.addEventListener("click", function(event) {
@@ -10,7 +10,7 @@
             languagesDropDown.className = "hide";
           }
         });
-      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>PlatON开发者文档</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">PlatON开发者文档<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem navListItemActive"><a class="navItem" href="/docs/zh-CN/">PlatON开发者文档</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">运行一个节点<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Install_Node">安装一个节点</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Join_PlatON_NetWork">加入 PlatON 网络</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Become_Verification_Node">成为验证节点</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">节点工具<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/OnLine_MTool_Manual">在线PlatON MTool教程</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/OffLine_MTool_Manual">离线PlatON MTool教程</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Command_Line_Tools">PlatON命令行工具</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">设置开发环境<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Install_PlatON">源码安装PlatON</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Build_Private_Chain">部署私有测试网</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">智能合约<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/EVM_Smart_Contract">EVM智能合约</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/WASM_Smart_Contract">WASM智能合约</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">参考文档<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Java_SDK">Java SDK</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/JS_SDK">JS SDK</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Json_Rpc">JSON RPC</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">关于PlatON<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Overall_Solution">PlatON总体方案</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Solution">PlatON共识方案</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Economic_Model">PlatON经济方案</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Governance_Solution">PlatON治理方案</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Secure_Multi_Party_Computation">安全多方计算</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Verifiable_Computation">可验证计算</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">社区<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/community">社区项目</a></li></ul></div></div></section></div><script>
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>概述</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">概述<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem navListItemActive"><a class="navItem" href="/docs/zh-CN/">概述</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">初步了解<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/lat_introduced">什么是LAT</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/staking_and_delegation">质押&amp;委托</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Network_Description">网络说明</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">进阶了解<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Overall_Solution">总体架构</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Economic_Model">经济模型</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Solution">共识机制</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Governance_Solution">治理机制</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Wasm_Operation_Principle">Wasm虚拟机</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">PlatON节点<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Validation_Introduce">验证节点介绍</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Become_PlatON_Main_Verification">成为主网验证节点</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">节点工具</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/OnLine_MTool_Manual">MTool在线教程</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/OffLine_MTool_Manual">MTool离线教程</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Command_Line_Tools">命令行工具</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">开发者<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Overview_DevGuide">开发指南</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">设置开发环境</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Become_PlatON_Dev_Verification">加入开发网</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Build_Private_Chain">部署私有网络</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">智能合约</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_system_contract">系统合约</a></li></ul></div><div class="navGroup subNavGroup sonNavGroup"><h4 class="navGroupSubcategoryTitle sonNavTitle">Solidity合约</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Solidity_Dev_Manual">入门手册</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Solidity_Contract_Migrate">合约迁移教程</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Solidity_Contract_Dev_Costs">合约开发成本</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Solidity_Contract_Best_Practice">合约开发最佳实践</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Solidity_Contract_Security_Dev_Guide">合约安全开发指南</a></li></ul></div><div class="navGroup subNavGroup sonNavGroup"><h4 class="navGroupSubcategoryTitle sonNavTitle">Wasm合约</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Wasm_Dev_Manual">入门手册</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Wasm_Contract_Dev_Costs">合约开发成本</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Wasm_Contract_Best_Practice">合约开发最佳实践</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Wasm_Contract_API">合约API</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">API参考</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Python_SDK">Python SDK</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/JS_SDK">JS SDK</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Java_SDK">Java SDK</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Json_Rpc">JSON-RPC</a></li></ul></div><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Standards">Standards</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">数据分析<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_BlockChain_Browser">PlatScan</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatEye">PlatEye</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">钱包<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/ATON-user-manual">ATON钱包</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/PlatON_Samurai">Samurai</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/Third_Party_Walle">第三方钱包</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">community<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/community">社区项目</a></li></ul></div></div></section></div><script>
             var coll = document.getElementsByClassName('collapsible');
             var checkActiveCategory = true;
             for (var i = 0; i < coll.length; i++) {
@@ -66,85 +66,86 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">PlatON开发者文档</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="节点运行者"></a><a href="#节点运行者" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>节点运行者</h2>
-<div class="card-wrap">
-    <!-- <div class="homepage-card">
-        <img src="/docs/img/Install_Node.svg">
-        <a href="/docs/zh-CN/Install_Node" class="card-title">安装一个节点</a>
-        <div class="card-description">
-        安装，配置和部署节点。
-        </div>
-    </div>
-    <div class="homepage-card">
-        <img src="/docs/img/Join_PlatON_NetWork.svg">
-        <a href="/docs/zh-CN/Join_PlatON_NetWork" class="card-title">加入platon网络</a>
-        <div class="card-description">
-        如何加入PlatON的主网和开发网。
-        </div>
-    </div>
-    <div class="homepage-card">
-        <img src="/docs/img/Become_Verification_Node.svg">
-        <a href="/docs/zh-CN/Become_Verification_Node" class="card-title">成为验证节点</a>
-        <div class="card-description">
-        参与PlatON网络共识。
-        </div>
-    </div> -->
-    <div class="homepage-card">
-        <img src="/docs/img/Install_Node.svg">
-        <a href="/docs/zh-CN/Install_Node" class="card-title">运行一个节点</a>
-        <div class="card-description">
-        部署节点，加入PlatON的主网和测试网，并参与PlatON网络共识。
-        </div>
-    </div>
-    <div class="homepage-card">
-        <img src="/docs/img/nodeTool.svg">
-        <a href="/docs/zh-CN/OnLine_MTool_Manual" class="card-title">PlatON节点工具</a>
-        <div class="card-description">
-        了解节点相关工具的命令和操作说明。
-        </div>
-    </div>
-</div>
-<h2><a class="anchor" aria-hidden="true" id="开发者"></a><a href="#开发者" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>开发者</h2>
-<div class="card-wrap">
-    <div class="homepage-card">
-        <img src="/docs/img/Set_Develop_Env.svg">
-        <a href="/docs/zh-CN/Install_PlatON" class="card-title">设置开发环境</a>
-        <div class="card-description">
-        了解如何安装PlatON并部署私有测试网络。
-        </div>
-    </div>
-    <div class="homepage-card">
-        <img src="/docs/img/Smart_Contract_Development.svg">
-        <a href="/docs/zh-CN/EVM_Smart_Contract" class="card-title">智能合约</a>
-        <div class="card-description">
-        了解如何开发和使用PlatON区块链智能合约。
-        </div>
-    </div>
-    <div class="homepage-card">
-​        <img src="/docs/img/resdoc.svg">
-        <a href="/docs/zh-CN/Java_SDK" class="card-title">参考文档</a>
-        <div class="card-description">
-        工具，API和SDK文档，学习资源参考等。   
-        </div>
-    </div>
-</div>
-<h2><a class="anchor" aria-hidden="true" id="所有人"></a><a href="#所有人" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>所有人</h2>
-<div class="card-wrap">
-    <div class="homepage-card">
-        <img src="/docs/img/about.svg">
-        <a href="/docs/zh-CN/PlatON_Overall_Solution" class="card-title">关于PlatON</a>
-        <div class="card-description">
-        学习更多关于PlatON的共识、经济模型、治理、隐私计算等技术
-        </div>
-    </div>
-    <div class="homepage-card">
-        <img src="/docs/img/community.svg">
-        <a href="/docs/zh-CN/community" class="card-title">社区项目</a>
-        <div class="card-description">
-        开发者论坛、ATON、PlatScan、MTool， 浏览基于PlatON构建的现有项目，包含钱包、区块链浏览器、节点工具等。
-        </div>
-    </div>
-</div></span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/docs/zh-CN/Install_Node"><span>安装一个节点</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#节点运行者">节点运行者</a></li><li><a href="#开发者">开发者</a></li><li><a href="#所有人">所有人</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://platon.network/?lang=zh" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://platon.network/?lang=zh">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2021 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">概述</h1></header><article><div><span><p><em>让我们永远坚持走向上的路，全力以审慎践行正义。</em>——柏拉图</p>
+<p>欢迎来到PlatON文档库，本文档旨在帮助不同的用户从不同角度了解PlatON，并使用PlatON。</p>
+<h2><a class="anchor" aria-hidden="true" id="platon是什么？"></a><a href="#platon是什么？" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PlatON是什么？</h2>
+<p>PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以隐私计算网络为支撑，提供以“计算互操作”为核心特点的下一代互联网基础协议。PlatON通过构建由可验证计算、安全多方计算、零知识证明、同态加密等密码学算法和区块链技术共同组装的计算体系，为全球人工智能、分布式应用开发者、数据提供方及存有计算需求的各类机构、社区和个人，提供开源架构下的公共基础设施。</p>
+<h2><a class="anchor" aria-hidden="true" id="初步了解"></a><a href="#初步了解" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>初步了解</h2>
+<ul>
+<li><a href="/docs/zh-CN/lat_introduced">什么是LAT</a>-在这里你可以全面了解到什么是LAT、LAT有什么作用，以及相关使用方式等</li>
+<li><a href="/docs/zh-CN/ATON-user-manual">ATON钱包</a>-关于ATON钱包的各类操作，你都可以在这里找到相关说明</li>
+<li>区块链浏览器
+<ul>
+<li><a href="https://scan.platon.network/">PlatScan</a></li>
+</ul></li>
+<li><a href="/docs/zh-CN/Network_Description">网络说明</a>-在这里可以了解到我们有哪些网络，以及不同网络间的差异</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="进阶了解"></a><a href="#进阶了解" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>进阶了解</h2>
+<ul>
+<li><a href="/docs/zh-CN/PlatON_Overall_Solution">PlatON总体方案</a>-在这里可以了解到PlatON作为隐私计算基础设施的总体架构设计，以及相关核心模块的介绍</li>
+<li><a href="/docs/zh-CN/Economic_Model">PlatON经济模型</a>-在这里可以学习到PlatON经济模型设计原则和具体的经济模型方案，其中包括：
+<ul>
+<li><a href="/docs/zh-CN/Economic_Model#%E5%85%AC%E9%93%BE%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99">经济模型设计原则</a></li>
+<li><a href="/docs/zh-CN/Economic_Model#platon%E7%9A%84%E7%BB%8F%E6%B5%8E%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87">经济模型设计目标</a></li>
+<li><a href="/docs/zh-CN/Economic_Model#platon%E7%9A%84%E7%BB%8F%E6%B5%8E%E6%96%B9%E6%A1%88">PlatON经济方案</a></li>
+</ul></li>
+<li><a href="/docs/zh-CN/PlatON_Governance_Solution">PlatON治理机制</a>-在这里可以了解到如何在PlatON上发起一个提案，以及提案的投票机制</li>
+<li><a href="/docs/zh-CN/PlatON_Solution">PlatON共识机制</a>-详细的PlatON共识机制介绍</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="加入我们"></a><a href="#加入我们" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>加入我们</h2>
+<h3><a class="anchor" aria-hidden="true" id="节点"></a><a href="#节点" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>节点</h3>
+<p>如果您想通过节点的方式加入到PlatON网络，以下信息可以为您提供更多的了解和帮助。</p>
+<ul>
+<li><a href="/docs/zh-CN/PlatON_Validation_Introduce">验证节点概要介绍</a>-在这里你可以了解什么是验证节点、如何成为验证节点、验证节点的收益与职责等
+<ul>
+<li><a href="/docs/zh-CN/PlatON_Validation_Introduce#%E4%BB%80%E4%B9%88%E6%98%AF%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9">什么是验证节点</a></li>
+<li><a href="/docs/zh-CN/PlatON_Validation_Introduce#%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82">成为验证节点的基本要求</a></li>
+<li><a href="/docs/zh-CN/PlatON_Validation_Introduce#%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9">如何成为验证节点</a></li>
+<li><a href="/docs/zh-CN/PlatON_Validation_Introduce#%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9">能获得哪些奖励</a></li>
+<li><a href="/docs/zh-CN/PlatON_Validation_Introduce#%E5%93%AA%E4%BA%9B%E8%A1%8C%E4%B8%BA%E4%BC%9A%E8%A2%AB%E5%A4%84%E7%BD%9A">处罚机制</a></li>
+</ul></li>
+<li><a href="/docs/zh-CN/Become_PlatON_Main_Verification">加入PlatON主网</a>-详细介绍了如何加入到PlatON主网，并质押成为验证的具体操作</li>
+<li>节点工具-节点可以使用以下工具完成质押、投票等功能
+<ul>
+<li><a href="/docs/zh-CN/OnLine_MTool_Manual">MTool在线教程</a>-在线教程提供了使用在线钱包管理节点的方式</li>
+<li><a href="/docs/zh-CN/OffLine_MTool_Manual">MTool离线教程</a>-该教程提供了如何使用离线钱包管理节点的方式，提高钱包安全性</li>
+<li><a href="/docs/zh-CN/Command_Line_Tools">PlatON命令行</a></li>
+</ul></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="开发者"></a><a href="#开发者" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>开发者</h3>
+<ul>
+<li><a href="/docs/zh-CN/PlatON_Overview_DevGuide">开发工具和文档</a>
+<ul>
+<li><a href="/docs/zh-CN/Become_PlatON_Dev_Verification">加入开发网</a></li>
+<li><a href="/docs/zh-CN/Build_Private_Chain">部署私有网络</a></li>
+<li><a href="/docs/zh-CN/Solidity_Dev_Manual">Solidity合约</a></li>
+<li><a href="/docs/zh-CN/Wasm_Dev_Manual">WASM合约</a></li>
+<li><a href="/docs/zh-CN/Python_SDK">API参考</a></li>
+</ul></li>
+<li><a href="https://forum.latticex.foundation/t/topic/1092">Grant计划</a>
+<ul>
+<li><a href="https://forum.latticex.foundation/t/topic/4128">Grant原则</a></li>
+<li><a href="https://forum.latticex.foundation/t/topic/4126">技术类Grant申请模板</a></li>
+<li><a href="https://forum.latticex.foundation/t/topic/4129">Grant流程</a></li>
+</ul></li>
+<li><a href="https://slowmist.io/platon/index.html?utm_source=index&amp;utm_medium=cpc&amp;utm_campaign=platon">Bugbounty计划</a></li>
+<li><a href="https://github.com/PlatONnetwork">PlatON GitHub仓库</a>-可以通过提交PR或者Issue的方式提交你的代码和问题</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="社区"></a><a href="#社区" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>社区</h3>
+<ul>
+<li><a href="https://forum.latticex.foundation/t/topic/4246">大使计划</a></li>
+<li>社区资源资源：
+<ul>
+<li><a href="https://www.facebook.com/PlatONNetwork/">Facebook</a></li>
+<li><a href="https://twitter.com/PlatON_Network">Twitter</a></li>
+<li><a href="https://github.com/PlatONnetwork">GitHub</a></li>
+<li><a href="https://medium.com/platon-network">Medium</a></li>
+<li><a href="https://t.me/PlatONNetworkCN">Telegram</a></li>
+<li><a href="https://discord.com/invite/jAjFzJ3Cff">Discord</a></li>
+<li><a href="https://forum.latticex.foundation/">论坛</a></li>
+</ul></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/docs/zh-CN/lat_introduced"><span>什么是LAT</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#platon是什么？">PlatON是什么？</a></li><li><a href="#初步了解">初步了解</a></li><li><a href="#进阶了解">进阶了解</a></li><li><a href="#加入我们">加入我们</a><ul class="toc-headings"><li><a href="#节点">节点</a></li><li><a href="#开发者">开发者</a></li><li><a href="#社区">社区</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="https://www.platon.network/" class="nav-home"><img src="/docs/img/PlatON-logo2.svg" alt="PlatON" width="66" height="58"/></a><div><a href="https://www.platon.network/">PlatON network</a><a href="https://latticex.foundation/home">Lattice.Foundation</a><a href="https://forum.latticex.foundation/">Forum</a></div><div class="gitstar"><a class="github-button" href="https://github.com/PlatONnetwork/PlatON-Go" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="small" data-show-count="true" aria-label="Star PlatONnetwork/PlatON-Go on GitHub">Star</a></div></section><section class="copyright">COPYRIGHT  © 2021 PLATON NETWORK.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
