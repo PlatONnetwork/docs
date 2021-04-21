@@ -48,7 +48,7 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
 
 ### 开发者指南
 
-ka'fa- [开发工具和文档](/docs/zh-CN/PlatON_Overview_DevGuide)-如果你想ka'fa
+- [开发工具和文档](/docs/zh-CN/PlatON_Overview_DevGuide)-
   - [加入开发网](/docs/zh-CN/Become_PlatON_Dev_Verification)
   - [部署私有网络](/docs/zh-CN/Build_Private_Chain)
   - [Solidity合约](/docs/zh-CN/Solidity_Dev_Manual)
