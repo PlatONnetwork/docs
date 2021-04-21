@@ -96,6 +96,10 @@
         "title": "Migration tutorial",
         "sidebar_label": "Migration tutorial"
       },
+      "Standards": {
+        "title": "Standards",
+        "sidebar_label": "Standards"
+      },
       "Wasm_Dev_Manual": {
         "title": "Getting started",
         "sidebar_label": "Getting started"
