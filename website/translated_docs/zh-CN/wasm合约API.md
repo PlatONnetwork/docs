@@ -1065,40 +1065,16 @@ const Args &...  args)
     * `args：`对应于合约方法的参数
 * **返回值**
     * 参数字节数组
-
-#### platon_call() 1/2
-
-```cpp
-template<typename value_type , typename gas_type >
-bool platon::platon_call ( const Address & addr,
-const bytes & paras,
-const value_type & value,
-const gas_type & gas)  
-```
-
-正常的跨合约调用。
-
-* **参数**
-    * `addr：`要调用的合约地址
-    * `paras：`使用函数cross_call_args构造的合约参数
-    * `gas：`对应的合约方法估计消耗的gas
-    * `value：`转移到合约的金额
-* **返回值**
-    * 调用成功或失败
-
-#### platon_call() 2/2
+#### platon_call() 
 
 ```cpp
-template<typename return_type , typename value_type , typename gas_type , typename... Args>
-decltype(auto) platon::platon_call ( const Address & addr,
-const value_type & value,
-const gas_type & gas,
-const std::string & method,
-const Args &...  args
-)
+template <typename value_type, typename gas_type, typename... Args>
+inline bool platon_call(const Address &addr, const value_type &value,
+const gas_type &gas, const std::string &method,
+const Args &... args)
 ```
 
-正常的跨合约调用。
+没有返回值的跨合约调用。
 
 * **参数**
     * `addr：`要调用的合约地址
@@ -1107,49 +1083,58 @@ const Args &...  args
     * `method：`被调用合约的方法名称
     * `args：`对应于合约方法的参数
 * **返回值**
-
-    * 合约方法* **返回值**值以及执行是否成功
+    * 调用成功或者失败
+  
 * **示例：**
 
    ```cpp
-   auto result =
-   platon_call<int>(Address("0xEC081ab45BE978A4A630eB8cbcBffA50E747971B"),
-   uint32_t(100), uint32_t(100), "add", 1,2,3);
-   if(!result.secod){
+   auto address_pair =make_address("lax10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt");
+   bool result = platon_call(address_pair.first, uint32_t(100), uint32_t(100), "add", 1,2,3);
+   if(!result){
      platon_throw("cross call fail");
    }
    ```
-
-#### platon_delegate_call() 1/2
+#### platon_call_with_return_value() 
 
 ```cpp
-template<typename gas_type >
-bool platon::platon_delegate_call ( const Address & addr,
-const bytes & paras,
-const gas_type & gas
-)  
+template <typename return_type, typename value_type, typename gas_type, typename... Args>
+inline auto platon_call_with_return_value(const Address &addr,
+const value_type &value,
+const gas_type &gas,
+const std::string &method,
+const Args &... args)
 ```
 
-跨合约代理调用。
+带返回值的跨合约调用。
 
 * **参数**
     * `addr：`要调用的合约地址
-    * `paras：`使用函数cross_call_args构造的合约参数
+    * `value：`转移到合约的金额
     * `gas：`对应的合约方法估计消耗的gas
+    * `method：`被调用合约的方法名称
+    * `args：`对应于合约方法的参数
 * **返回值**
-    * 调用成功或失败
+    * 返回值和调用成功或者失败
 
-#### platon_delegate_call() 2/2
+* **示例：**
+
+   ```cpp
+  auto address_pair =make_address("lax10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt"); 
+  auto result = platon_call_with_return_value<int>(address_pair.first, uint32_t(100), uint32_t(100), "add", 1,2,3);
+  if(!result.second){
+    platon_throw("cross call fail");
+  }
+   ```
+#### platon_delegate_call()
 
 ```cpp
-template<typename return_type , typename gas_type , typename... Args>
-decltype(auto) platon::platon_delegate_call ( const Address & addr,
-const gas_type & gas,
-const std::string & method,
-const Args &...  args)  
+template <typename gas_type, typename... Args>
+inline bool platon_delegate_call(const Address &addr, const gas_type &gas,
+const std::string &method,
+const Args &... args) 
 ```
 
-跨合约代理调用。
+没有返回值的跨合约代理调用。
 
 * **参数**
     * `addr：`要调用的合约地址
@@ -1157,17 +1142,45 @@ const Args &...  args)
     * `method：`被调用合约的方法名称
     * `args：`对应于合约方法的参数
 * **返回值**
-
-    * 合约方法* **返回值**值以及执行是否成功
+    * 调用成功或者失败
+  
 * **示例：**
 
   ```cpp
-  auto result =
-  platon_delegate_call<int>(Address("0xEC081ab45BE978A4A630eB8cbcBffA50E747971B"),
-   uint32_t(100), "add", 1,2,3);
-   if(!result.secod){
+   auto address_pair =make_address("lax10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt");
+   bool result = platon_delegate_call(address_pair.first, uint32_t(100), uint32_t(100), "add", 1,2,3);
+   if(!result){
      platon_throw("cross call fail");
    }
+  ```
+#### platon_delegate_call_with_return_value()
+
+```cpp
+template <typename return_type, typename gas_type, typename... Args>
+inline auto platon_delegate_call_with_return_value(const Address &addr,
+const gas_type &gas,
+const std::string &method,
+const Args &... args) 
+```
+
+有返回值的跨合约代理调用。
+
+* **参数**
+    * `addr：`要调用的合约地址
+    * `gas：`对应的合约方法估计消耗的gas
+    * `method：`被调用合约的方法名称
+    * `args：`对应于合约方法的参数
+* **返回值**
+    * 返回值和调用成功或者失败
+  
+* **示例：**
+
+  ```cpp
+  auto address_pair = make_address("lax10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt"); 
+  auto result = platon_delegate_call_with_return_value<int>(address_pair.first, uint32_t(100), "add", 1,2,3);
+  if(!result.secnod){
+    platon_throw("cross call fail");
+  }
   ```
 
 #### get_call_output()
