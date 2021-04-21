@@ -76,15 +76,7 @@
 					"Json_Rpc"
 				]
 			},
-			{
-				"type": "subcategory",
-				"label": "Standards",
-				"ids": [
-					"PRC20",
-					"PRC721",
-					"PRC13"
-				]
-			}
+			"PRC_Standards"
 		],
 		"Data and analytics": [
 			"PlatON_BlockChain_Browser",

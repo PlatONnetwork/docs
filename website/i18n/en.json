@@ -68,18 +68,6 @@
         "title": "Intro to validator",
         "sidebar_label": "Intro to validator"
       },
-      "PRC13": {
-        "title": "PRC13",
-        "sidebar_label": "PRC13"
-      },
-      "PRC20": {
-        "title": "PRC20",
-        "sidebar_label": "PRC20"
-      },
-      "PRC721": {
-        "title": "PRC721",
-        "sidebar_label": "PRC721"
-      },
       "Python_SDK": {
         "title": "Python SDK",
         "sidebar_label": "Python SDK"

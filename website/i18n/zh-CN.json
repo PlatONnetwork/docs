@@ -114,8 +114,8 @@
 				"sidebar_label": "WASM智能合约"
 			},
 			"Wasm_Operation_Principle": {
-				"title": "Wasm虚拟机运行原理",
-				"sidebar_label": "Wasm虚拟机运行原理"
+				"title": "Wasm虚拟机",
+				"sidebar_label": "Wasm虚拟机"
 			},
 			"PlatON_BlockChain_Browser": {
 				"title": "PlatScan",
@@ -146,8 +146,8 @@
 				"sidebar_label": "源码安装PlatON"
 			},
 			"ATON-user-manual": {
-				"title": "ATON操作指南",
-				"sidebar_label": "ATON操作指南"
+				"title": "ATON钱包",
+				"sidebar_label": "ATON钱包"
 			},
 			"Third_Party_Walle": {
 				"title": "第三方钱包",

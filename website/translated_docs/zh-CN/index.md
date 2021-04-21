@@ -1,6 +1,6 @@
 ---
 id: index
-title: 概述
+title: 
 sidebar_label: 概述
 ---
 *让我们永远坚持走向上的路，全力以审慎践行正义。*——柏拉图

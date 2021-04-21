@@ -1,7 +1,7 @@
 ---
 id: Wasm_Operation_Principle
-title: Wasm虚拟机运行原理
-sidebar_label: Wasm虚拟机运行原理
+title: Wasm虚拟机
+sidebar_label: Wasm虚拟机
 ---
 
 ## 前言
