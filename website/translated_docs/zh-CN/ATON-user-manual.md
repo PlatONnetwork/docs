@@ -3,7 +3,7 @@ id: ATON-user-manual
 title: ATON钱包用户使用手册
 ---
 
-## ATON 下载
+ATON是一个支持PlatON Network及Alaya Network的安全易用的移动钱包。通过ATON钱包，用户可以轻松的发送LAT/ATP，查看交易记录和账户余额。同时为用户提供了便捷的委托服务。
 
 <div>
 <br/><a href="https://platon.network/developer/?lang=zh#aton" target="_blank" >点击下载ATON最新版本 </a>
