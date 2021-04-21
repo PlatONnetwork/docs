@@ -4,21 +4,19 @@ title: Samurai API
 sidebar_label: Samurai API
 ---
 
-## Samurai API
-
-### 1.简介
+## 简介
 Samurai是基于以太坊web钱包Metamask进行fork的，针对alaya网络进行适配性的修改, 以满足基于alaya网络的安全和可用性的需求。用户可以很方便的管理账户并连接到alaya网络。
 
-### 2.安装
+## 安装
 
 + 下载[Samurai插件包](https://github.com/AlayaNetwork/Samurai/releases/download/v8.0.11/samurai-chrome-8.0.11.zip)
 + 解压Samurai插件包
 + [通过chrome加载已解压的插件包](https://github.com/AlayaNetwork/Samurai/blob/develop/docs/add-to-chrome.md)
-### 3.使用
+## 使用
 
-#### 3.1 API列表
+### API列表
 
-##### PlatON JSON-RPC API
+#### PlatON JSON-RPC API
 有关PlatON JSON-RPC API的信息，请参阅[PlatON-Json-Rpc](/docs/zh-CN/Json_Rpc)
 
 比较重要的API方法如下：
@@ -28,20 +26,20 @@ Samurai是基于以太坊web钱包Metamask进行fork的，针对alaya网络进�
 + platon_sendTransaction
 + platon_sign
 
-##### 权限相关
+#### 权限相关
 + platon_requestAccounts
 + wallet_requestPermissions
 + wallet_getPermissions
 
-##### 其他RPC API
+#### 其他RPC API
 + wallet_registerOnboarding
 + wallet_watchAsset
 
-#### 3.2. Example
+### Example
 下面的例子演示如何在web console端发起普通和合约交易操作，唤起Samurai进行交易处理。
 
 在开启Samurai并已经导入账户后，打开一个新的页面。右击->检查->console进入调试模式(后面的命令行均在console中执行)。Samurai在打开页面会注入alaya和web3a对象,因此在console中可以直接使用。
-##### 3.2.1 普通交易
+#### 普通交易
 + 请求Samurai用户授权, 运行下面命令会唤起Samurai界面，选择对应的账户同意即可授权页面连接权限
 ```
 > alaya.request({ method: 'platon_requestAccounts' });
@@ -54,7 +52,7 @@ Promise {<pending>}
 > web3a.platon.sendTransaction({from: alaya.selectedAddress,to: "atp1dt2wx0xjkd2je8ev4t3ysmte6n90kc9gm9mkrr", value: 1e16}, function(err, transactionHash) {if (err) { console.log(err); } else {console.log(transactionHash);}});
 ```
 
-##### 3.2.2 Dapp开发集成
+#### Dapp开发集成
 在开发Dapp页面，由于Samurai在打开页面会注入alaya对象，因此在开发的时候可以通过javascript直接调用该对象完成对应的操作。需要web3a对象的引入及使用见[js-sdk文档](/docs/zh-CN/JS_SDK/)
 
 下面例子展示的是比如点击一个页面按钮发起转账操作，在其后调用的对应的javascript脚本

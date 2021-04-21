@@ -1,19 +1,17 @@
 ---
 id: Samurai_user_manual
 title: Samurai
-sidebar_label: Samurai用户手册
+sidebar_label: Samurai
 ---
 
-## Samurai使用教程
-
-### 注意事项
+## 注意事项
 
 Samurai基于metamask的8.0.10版本修改，主要是适配Alaya网络。由于官方metamask自身存在一些bug。请用户使用Samurai时注意：
 
 * **在交易确认页面不要点编辑按钮去编辑交易相关信息**。
 * **在交易确认页面，点击确认按钮之前，请确认接收地址是否正确**。
 
-### 1. 安装
+## 安装
 
 + 从[官方地址](https://github.com/AlayaNetwork/Samurai/releases/download/v8.0.11/samurai-chrome-8.0.11.zip)下载Samurai插件包
 + 解压Samurai插件包
@@ -27,13 +25,13 @@ chrome://extensions/
 
 <img src="/docs/img/zh-CN/Samurai.assets/add-chrome.jpg" alt="加载已解压的扩展程序"/>
 
-### 2. 初始化
+## 初始化
 
-2.1 点击浏览器地址栏右侧, Samurai的图标，第一次使用时，会出一个提示，如下图：
+1 点击浏览器地址栏右侧, Samurai的图标，第一次使用时，会出一个提示，如下图：
 
 <img src="/docs/img/zh-CN/Samurai.assets/samurai-welcome.jpg" alt="欢迎页"/>
 
-2.2 点击**开始使用**，接下来有两个选择，可以**创建钱包**也可以**导入钱包**
+2 点击**开始使用**，接下来有两个选择，可以**创建钱包**也可以**导入钱包**
 
 <img src="/docs/img/zh-CN/Samurai.assets/samurai-select-action.jpg" alt="选择钱包创建方式"/>
 
@@ -63,9 +61,9 @@ chrome://extensions/
 
 <img src="/docs/img/zh-CN/Samurai.assets/samurai-create-home.jpg" alt="首页"/>
 
-### 3. 交易操作
+## 交易操作
 
-#### 3.1 发送ATP
+### 发送LAT
 
 + 在主界面上点击**发送**按钮，即可弹出**添加收件人**界面
 
@@ -83,7 +81,7 @@ chrome://extensions/
 
 <img src="/docs/img/zh-CN/Samurai.assets/samurai-tx-detail.jpg" alt="交易详情"/>
 
-#### 3.2 添加并发送代币
+### 添加并发送代币
 
 #### 添加代币
 
@@ -121,9 +119,9 @@ chrome://extensions/
 
 <img src="/docs/img/zh-CN/Samurai.assets/samurai-token-tx-detail.jpg" alt="代币交易详情"/>
 
-### 4. 创建账号与管理
+## 创建账号与管理
 
-##### 4.1 创建账号
+### 创建账号
 
 + 点击samurai主页右侧小图标，然后点击**创建账户**
 
@@ -137,7 +135,7 @@ chrome://extensions/
 
 <img src="/docs/img/zh-CN/Samurai.assets/samurai-home-create-account-end.jpg" alt="账户创建成功"/>
 
-##### 4.2 导入账号
+### 导入账号
 
 + 点击samurai主页右侧小图标，然后点击**导入账户**
 
@@ -155,7 +153,7 @@ chrome://extensions/
 
 <img src="/docs/img/zh-CN/Samurai.assets/samurai-home-import-account-end.jpg" alt="导入成功"/>
 
-### 5. 语言切换
+## 语言切换
 
 + 点击samurai主页右侧小图标，然后点击**设置**
 
