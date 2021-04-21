@@ -51,6 +51,7 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
   - [部署私有网络](/docs/zh-CN/Build_Private_Chain)
   - [Solidity合约](/docs/zh-CN/Solidity_Dev_Manual)
   - [WASM合约](/docs/zh-CN/Wasm_Dev_Manual)
+  - [系统合约](/docs/zh-CN/PlatON_system_contract)
   - [API参考](/docs/zh-CN/Python_SDK)
 - [Grant计划](https://forum.latticex.foundation/t/topic/1092)
   - [Grant原则](https://forum.latticex.foundation/t/topic/4128)
