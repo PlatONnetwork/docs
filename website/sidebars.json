@@ -37,7 +37,7 @@
 				"label": "Environment Setup",
 				"ids": [
 					"Become_PlatON_Dev_Verification",
-					"Build_Private_Chain",
+					"Build_Private_Chain"
 				]
 			},
 			{
@@ -67,7 +67,6 @@
 							"Wasm_Contract_API"
 						]
 					}
-					
 				]
 			},
 			{
