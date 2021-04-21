@@ -184,6 +184,10 @@
         "title": "Networks",
         "sidebar_label": "Networks"
       },
+      "staking_and_delegation": {
+        "title": "Staking&Delegation",
+        "sidebar_label": "Staking&Delegation"
+      },
       "Build_Private_Chain": {
         "title": "Private network",
         "sidebar_label": "Private network"

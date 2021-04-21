@@ -17,6 +17,10 @@
 				"title": "什么是LAT",
 				"sidebar_label": "什么是LAT"
 			},
+			"staking_and_delegation": {
+				"title": "质押&委托",
+				"sidebar_label": "质押&委托"
+			},
 			"Java_SDK": {
 				"title": "Java SDK",
 				"sidebar_label": "Java SDK"

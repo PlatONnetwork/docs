@@ -5,6 +5,7 @@
 		],
 		"Basics": [
 			"lat_introduced",
+			"staking_and_delegation",
 			"Network_Description"
 		],
 		"Advanced": [
