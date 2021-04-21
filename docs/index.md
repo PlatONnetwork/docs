@@ -12,15 +12,15 @@ PlatON was initiated and promoted by the LatticeX Foundation. Based on the basic
 
 ## Preliminary Understanding
 
-- What is LAT](/docs/zh-CN/lat_introduced)-Here you can get a comprehensive understanding of what LAT is, what it does, and how it is used, etc.
-- ATON wallet](/docs/zh-CN/ATON-user-manual)-You can find all kinds of operations about ATON wallet here.
+- [What is LAT](/docs/zh-CN/lat_introduced)-Here you can get a comprehensive understanding of what LAT is, what it does, and how it is used, etc.
+- [ATON wallet](/docs/zh-CN/ATON-user-manual)-You can find all kinds of operations about ATON wallet here.
 - Blockchain Browser
   - [PlatScan](https://scan.platon.network/)
 - [Network Description](/docs/zh-CN/Network_Description)-Here you can learn what networks we have and the differences between different networks
 
 ## Advanced understanding
 
-- PlatON Overall Solution](/docs/zh-CN/PlatON_Overall_Solution)-Here you can learn about the overall architecture design of PlatON as a privacy computing infrastructure, and the introduction of related core modules
+- [PlatON Overall Solution](/docs/zh-CN/PlatON_Overall_Solution)-Here you can learn about the overall architecture design of PlatON as a privacy computing infrastructure, and the introduction of related core modules
 - [PlatON Economic Model](/docs/zh-CN/Economic_Model)-Here you can learn about PlatON economic model design principles and specific economic model solutions, which include.
    - [Economic Model Design Principles](/docs/zh-CN/Economic_Model#%E5%85%AC%E9%93%BE%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99)
    - [Economic Model Design Objective](/docs/zh-CN/Economic_Model#platon%E7%9A%84%E7%BB%8F%E6%B5%8E%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87)
@@ -33,7 +33,7 @@ PlatON was initiated and promoted by the LatticeX Foundation. Based on the basic
 ### Nodes
 If you want to join the PlatON network by way of nodes, the following information can provide you with more understanding and help.
  - [Validation Node Overview](/docs/zh-CN/PlatON_Validation_Introduce) - Here you can learn what is a validation node, how to become a validation node, the benefits and responsibilities of a validation node, etc.
-   - What is a Validation Node](/docs/zh-CN/PlatON_Validation_Introduce#%E4%BB%80%E4%B9%88%E6%98%AF%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9)
+   - [What is a Validation Node](/docs/zh-CN/PlatON_Validation_Introduce#%E4%BB%80%E4%B9%88%E6%98%AF%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9)
    - [Basic requirements to become a validation node](/docs/zh-CN/PlatON_Validation_Introduce#%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9%E7%9A%84%E5%9F%BA% E6%9C%AC%E8%A6%81%E6%B1%82)
    - [How to become a validation node](/docs/zh-CN/PlatON_Validation_Introduce#%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9)
    - [What rewards you can get](/docs/zh-CN/PlatON_Validation_Introduce#%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9)
@@ -48,7 +48,7 @@ If you want to join the PlatON network by way of nodes, the following informatio
 
 ### Developer's Guide
 
-ka'fa- [Dev Tools and Documentation](/docs/zh-CN/PlatON_Overview_DevGuide)-If you want to ka'fa
+- [Dev Tools and Documentation](/docs/zh-CN/PlatON_Overview_DevGuide)
   - [Join Dev Network](/docs/zh-CN/Become_PlatON_Dev_Verification)
   - [Deploy Private Network](/docs/zh-CN/Build_Private_Chain)
   - [Solidity Contract](/docs/zh-CN/Solidity_Dev_Manual)
@@ -72,6 +72,3 @@ ka'fa- [Dev Tools and Documentation](/docs/zh-CN/PlatON_Overview_DevGuide)-If yo
   - [Telegram](https://t.me/PlatONNetworkCN)
   - [Discord](https://discord.com/invite/jAjFzJ3Cff)
   - [Forum](https://forum.latticex.foundation/)
-
-
-Translated with www.DeepL.com/Translator (free version)
