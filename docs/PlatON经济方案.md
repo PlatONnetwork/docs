@@ -1,7 +1,7 @@
 ---
 id: Economic_Model
-title: PlatON Economic Model
-sidebar_label: PlatON Economic Model
+title: Economic model
+sidebar_label: Economic model
 ---
 
 

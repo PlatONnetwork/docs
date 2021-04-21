@@ -1,13 +1,10 @@
 ---
 id: Wasm_Contract_API
-title: API
-sidebar_label: API
+title: Wasm API
+sidebar_label: Wasm API
 ---
 
 
-
-
-## API
 
 
 ### block api
@@ -666,9 +663,12 @@ Destroy the Map object Refresh data to the blockchain.
           typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
           MapStr map;
           map.insert("hello", "world");
-      assert(map.at["hello"] == "world");
+          assert(map.at["hello"] == "world");
+          ```
+      ```
+      
         ```
-
+      
     * `template<Name::Raw TableName, typename Key , typename Value >
       bool platon::db::Map< TableName, Key, Value >::contains ( const Key & key )`
       Checks if there is an element with key equivalent to key in the container.
@@ -685,9 +685,12 @@ Destroy the Map object Refresh data to the blockchain.
            typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
            MapStr map;
            map.["hello"] = "world";
-      assert(map.contains("hello"));
+          assert(map.contains("hello"));
+          ```
+      ```
+      
         ```
-
+      
     * `template<Name::Raw TableName, typename Key , typename Value >
       void platon::db::Map< TableName, Key, Value >::erase ( const Key & k )`
       Delete key-value pairs.
@@ -724,9 +727,12 @@ Destroy the Map object Refresh data to the blockchain.
           typedef platon::db::Map<"map_str"_n, std::string, std::string> MapStr;
           MapStr map;
           map.insert("hello", "world");
-      assert(map.get_const["hello"] == "world");
+          assert(map.get_const["hello"] == "world");
+          ```
+      ```
+      
         ```
-
+      
     * `template<Name::Raw TableName, typename Key , typename Value >
       bool platon::db::Map< TableName, Key, Value >::insert ( const Key & k,
       const Value & v)`
@@ -1092,7 +1098,8 @@ Cross-contract call without return value.
     * `method：`The method name of the invoked contract
     * `args：`The Parameters corresponding to the contract method
 * **Returns**
-    * Call success or failure
+    
+  * Call success or failure
   
 * **Example:**
 
@@ -1123,8 +1130,9 @@ Cross-contract call with return value.
     * `method：`The method name of the invoked contract
     * `args：`The Parameters corresponding to the contract method
 * **Returns**
-    * Return value and call success or failure
-
+    
+* Return value and call success or failure
+    
 * **Example:**
 
    ```cpp
@@ -1133,7 +1141,7 @@ Cross-contract call with return value.
   if(!result.second){
     platon_throw("cross call fail");
   }
-   ```
+  ```
 #### platon_delegate_call()
 
 ```cpp
@@ -1151,7 +1159,8 @@ Cross-contract proxy call without return value.
     * `method：`The method name of the invoked contract
     * `args：`The Parameters corresponding to the contract method
 * **Returns**
-    * Call success or failure
+    
+  * Call success or failure
   
 * **Example:**
 
@@ -1180,7 +1189,8 @@ Cross-contract proxy call with return value.
     * `method：`The method name of the invoked contract
     * `args：`The Parameters corresponding to the contract method
 * **Returns**
-    * Return value and call success or failure
+    
+  * Return value and call success or failure
   
 * **Example:**
 

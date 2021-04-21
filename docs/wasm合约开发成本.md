@@ -6,8 +6,6 @@ sidebar_label: Development Costs
 
 
 
-## Development Costs
-
 ### Summary
 
 In a blockchain system, developing smart contracts based on any public chain system involves the development cost of resource expenditure. For example, deploying/calling smart contracts on the network, energy transfer, pledge/delegation and other operations all require a certain cost. Different blockchain network development costs are different. There are two types of virtual machines running in the PlatON network. `EVM` and `WASM`, the cost of developing smart contracts on different virtual machines is also different. This article will compare the different development costs of small contracts, medium contracts and large contracts in the form of a table. At the same time, we will compare the `EVM`/`WASM` virtual machine of `PlatON` with the Ethereum virtual machine. In terms of contracts, a simple `SET/GET` function contract is used as a small test contract. The medium-sized contract example will use an open source [Tweet](https://github.com/yep/eth-tweet) contract The large contract is a smart contract that implements the `PRC20` standard.

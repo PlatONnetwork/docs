@@ -1,13 +1,10 @@
 ---
 id: Solidity_Contract_Dev_Costs
-title: Development Costs
-sidebar_label: Development Costs
+title: Development costs
+sidebar_label: Development costs
 ---
 
 
-
-
-## Development Costs
 
 ### Introduction
 

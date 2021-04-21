@@ -1,11 +1,10 @@
 ---
 id: Solidity_Contract_Migrate
-title: Migrate
-sidebar_label: Migrate
+title: Migration tutorial
+sidebar_label: Migration tutorial
 ---
 
 
-## Migrate Contract
 
 ### Introduction
 

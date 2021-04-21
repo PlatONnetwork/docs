@@ -1,7 +1,7 @@
 ---
 id: Wasm_Operation_Principle
-title: Operating principle of wasm virtual machine
-sidebar_label: Operating principle of wasm virtual machine
+title: WebAssembly(Wasm)
+sidebar_label: WebAssembly(Wasm)
 ---
 
 ## 前言

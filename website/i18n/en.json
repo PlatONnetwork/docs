@@ -172,18 +172,13 @@
     "links": {},
     "categories": {
       "Overview": "Overview",
-      "Basics":"Basics",
-      "Advanced":"Advanced",
+      "Basics": "Basics",
+      "Advanced": "Advanced",
       "PlatON Node": "PlatON Node",
-      "Tools for nodes": "Tools for nodes",
       "Developers": "Developers",
-      "Set up local environment": "Set up local environment",
-      "Smart contract": "Smart contract",
-			"Solidity contract": "Solidity contract",
-      "Wasm contract": "Wasm contract",
-      "References": "References",
       "Data and analytics": "Data and analytics",
-      "Wallet": "Wallet"
+      "Wallet": "Wallet",
+      "community": "community"
     }
   },
   "pages-strings": {

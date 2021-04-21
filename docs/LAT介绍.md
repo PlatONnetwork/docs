@@ -1,7 +1,7 @@
 ---
 id: lat_introduced
-title: Introduction to LAT
-sidebar_label: Introduction to LAT
+title: Intro to LAT
+sidebar_label: Intro to LAT
 ---
 
 ## What is LAT ? How to get LAT?

@@ -1,7 +1,7 @@
 ---
 id: PlatON_Overall_Solution
-title: PlatON Overall Solution
-sidebar_label: PlatON Overall Solution
+title: Architecture
+sidebar_label: Architecture
 ---
 
 

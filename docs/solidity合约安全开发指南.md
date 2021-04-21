@@ -1,7 +1,7 @@
 ---
 id: Solidity_Contract_Security_Dev_Guide
-title: Security Development Guide
-sidebar_label: Security Development Guide
+title: Contract security
+sidebar_label: Contract security
 ---
 
 

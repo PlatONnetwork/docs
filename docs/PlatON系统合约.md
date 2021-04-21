@@ -1,10 +1,10 @@
 ---
 id: PlatON_system_contract
-title: PlatON System Contract
-sidebar_label: System Contract
+title: System contracts
+sidebar_label: System contracts
 ---
 
-## PlatON System contract
+
 
 After the chain is started, some contracts have been built in the system. The addresses of these contracts have been fixed and the functions have been implemented. Some of the contracts are the realization of economic models, and various contract interfaces are provided to interact with the client.
 
@@ -220,11 +220,11 @@ The on-chain governance method adopted by PlatON enables it to develop in accord
     Interface parameters reference Python SDK:[ Query governance parameter values](/docs/en/Python_SDK#query-the-governance-parameter-value-of-the-current-block-height). 
     
 12. Query the cumulative number of votes available for a proposal
-    
+  
     This interface is used to query the cumulative number of votes available for a proposal.
 
     Interface parameters reference Python SDK:[ Query the cumulative number of votes available for a proposal](/docs/en/Python_SDK#query-the-cumulative-number-of-votes-available-for-a-proposal). 
-     
+    
 13. Query the list of governance parameters
   
     This interface is used to query all management parameters of a certain module.

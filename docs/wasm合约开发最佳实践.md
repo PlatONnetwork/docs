@@ -1,12 +1,10 @@
 ---
 id: Wasm_Contract_Best_Practice
-title: Best Practice
-sidebar_label: Best Practice
+title: Best practices
+sidebar_label: Best practices
 ---
 
 
-
-## Best Practice
 
 ### Introduction
 

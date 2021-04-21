@@ -1,11 +1,10 @@
 ---
 id: Wasm_Dev_Manual
-title: Development Manual
-sidebar_label: Development Manual
+title: Getting started
+sidebar_label: Getting started
 ---
 
 
-## Development Manual
 
 ### Introduction
 

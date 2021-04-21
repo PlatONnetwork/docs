@@ -1,7 +1,7 @@
 ---
 id: PlatON_Validation_Introduce
-title: Introduction to the PlatON validation node
-sidebar_label: Introduction to the PlatON validation node
+title: Intro to validator
+sidebar_label: Intro to validator
 ---
 
 ## 1 什么是验证节点
