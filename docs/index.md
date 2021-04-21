@@ -3,12 +3,12 @@ id: index
 title: Overview
 sidebar_label: Overview
 ---
-Let's always stick to the way to the top and practice justice with all our might and prudence.
+Let's stick to the path towards up and do all we can to practice justice in a prudent manner.
 
 Welcome to the PlatON documentation library. This document is designed to help different users understand PlatON from different perspectives and use PlatON.
 
 ## What is PlatON?
-PlatON is a next-generation Internet infrastructure protocol based on the fundamental properties of blockchain and supported by the Privacy Computing Network with "computational interoperability" as its core feature. By building a computing system assembled by verifiable computing, secure multi-party computing, zero-knowledge proof, homomorphic encryption and other cryptographic algorithms, and blockchain technology, PlatON provides a public infrastructure under open source architecture for global artificial intelligence, distributed application developers, data providers, and various organizations, communities and individuals with computing needs.
+PlatON was initiated and promoted by the LatticeX Foundation. Based on the basic properties of the blockchain and supported by a privacy-preserving computing network, PlatON provides the next-generation Internet basic protocol featuring "computing interoperability". It builds a computing system jointly assembled by cryptographic algorithms such as verifiable computing, secure multi-party computing, zero-knowledge proof, homomorphic encryption, and blockchain technology to provide public infrastructure under an open-source architecture for global artificial intelligence, distributed application developers, data providers as well as various institutions, communities and individuals with computing needs.
 
 ## Preliminary Understanding
 
