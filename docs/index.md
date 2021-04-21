@@ -16,11 +16,10 @@ PlatON was initiated and promoted by the LatticeX Foundation. Based on the basic
 - [ATON wallet](/docs/zh-CN/ATON-user-manual)-You can find all kinds of operations about ATON wallet here.
 - Blockchain Browser
   - [PlatScan](https://scan.platon.network/)
-- [Network Description](/docs/zh-CN/Network_Description)-Here you can learn what networks we have and the differences between different networks
-
+- [Network Description](/docs/zh-CN/Network_Description)-Here you can learn what networks we have and the differences between them.
 ## Advanced understanding
 
-- [PlatON Overall Solution](/docs/zh-CN/PlatON_Overall_Solution)-Here you can learn about the overall architecture design of PlatON as a privacy computing infrastructure, and the introduction of related core modules
+- [PlatON Overall Solution](/docs/zh-CN/PlatON_Overall_Solution)-Here you can learn about the overall architecture design of PlatON as a privacy computing infrastructure, and the introduction of related core modules.
 - [PlatON Economic Model](/docs/zh-CN/Economic_Model)-Here you can learn about PlatON economic model design principles and specific economic model solutions, which include.
    - [Economic Model Design Principles](/docs/zh-CN/Economic_Model#%E5%85%AC%E9%93%BE%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99)
    - [Economic Model Design Objective](/docs/zh-CN/Economic_Model#platon%E7%9A%84%E7%BB%8F%E6%B5%8E%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87)
