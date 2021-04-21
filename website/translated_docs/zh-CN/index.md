@@ -3,15 +3,15 @@ id: index
 title: 概述
 sidebar_label: 概述
 ---
+让我们永远坚持走向上的路，全力以审慎践行正义。
 
-本文档旨在帮助不同的用户从不同角度了解PlatON，并使用PlatON。它涵盖了PlatON的基础介绍，各种方案设计的介绍，以及关于合约和DAPP的高级使用说明。
+欢迎来到PlatON文档库，本文档旨在帮助不同的用户从不同角度了解PlatON，并使用PlatON。
 
-如果你是初次开始了解如何使用PlatON，我们建议你按照以下路径开启你的学习之旅~
+## PlatON是什么？
+PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以隐私计算网络为支撑，提供以“计算互操作”为核心特点的下一代互联网基础协议。PlatON通过构建由可验证计算、安全多方计算、零知识证明、同态加密等密码学算法和区块链技术共同组装的计算体系，为全球人工智能、分布式应用开发者、数据提供方及存有计算需求的各类机构、社区和个人，提供开源架构下的公共基础设施。
 
 ## 初步了解
 
-- [PlatON术语表](#)-
-- [PlatON介绍](/docs/zh-CN/About_PlatON)-关于PlatON的简要介绍，你可以了解到PlatON是什么，PlatON的特性等
 - [什么是LAT](/docs/zh-CN/lat_introduced)-在这里你可以全面了解到什么是LAT、LAT有什么作用，以及相关使用方式等
 - [ATON钱包](/docs/zh-CN/ATON-user-manual)-关于ATON钱包的各类操作，你都可以在这里找到相关说明
 - 区块链浏览器
@@ -48,7 +48,7 @@ sidebar_label: 概述
 
 ### 开发者指南
 
-- [开发工具和文档](/docs/zh-CN/PlatON_Overview_DevGuide)
+ka'fa- [开发工具和文档](/docs/zh-CN/PlatON_Overview_DevGuide)-如果你想ka'fa
   - [加入开发网](/docs/zh-CN/Become_PlatON_Dev_Verification)
   - [部署私有网络](/docs/zh-CN/Build_Private_Chain)
   - [Solidity合约](/docs/zh-CN/Solidity_Dev_Manual)
@@ -64,7 +64,7 @@ sidebar_label: 概述
 ### 社区
 
 - [大使计划](https://forum.latticex.foundation/t/topic/4246)
-- 资源：
+- 社区资源资源：
   - [Facebook](https://www.facebook.com/PlatONNetwork/)
   - [Twitter](https://twitter.com/PlatON_Network)
   - [GitHub](https://github.com/PlatONnetwork)
