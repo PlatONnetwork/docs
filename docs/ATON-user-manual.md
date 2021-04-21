@@ -3,7 +3,7 @@ id: ATON-user-manual
 title: ATON Wallet
 ---
 
-## Download
+ATON is a secure and user-friendly mobile wallet for PlatON Network and Alaya Network. The ATON Mobile Wallet allows you to easily transfer LAT/ATP tokens to others, view your transaction history and account balance. At the same time, it provides convenient delegation service for you.
 
 <div> 
 <br><a href="https://www.platon.network/en/developer/#aton" target="_blank">Click it to download the latest version of ATON</a>
