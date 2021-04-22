@@ -1,12 +1,8 @@
 ---
 id: Solidity_Contract_Best_Practice
-title: 合约开发最佳实践
-sidebar_label: 合约开发最佳实践
+title: 最佳实践
+sidebar_label: 最佳实践
 ---
-
-
-
-## 最佳实践
 
 ### 介绍
 

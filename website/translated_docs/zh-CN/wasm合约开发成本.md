@@ -1,12 +1,8 @@
 ---
 id: Wasm_Contract_Dev_Costs
-title: 合约开发成本
-sidebar_label: 合约开发成本
+title: 开发成本
+sidebar_label: 开发成本
 ---
-
-
-
-## 合约开发成本
 
 ### 概要
 

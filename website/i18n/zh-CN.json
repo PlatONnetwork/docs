@@ -74,20 +74,20 @@
 				"sidebar_label": "入门手册"
 			},
 			"Solidity_Contract_Security_Dev_Guide": {
-				"title": "合约安全开发指南",
-				"sidebar_label": "合约安全开发指南"
+				"title": "安全指南",
+				"sidebar_label": "安全指南"
 			},
 			"Solidity_Contract_Best_Practice": {
-				"title": "合约开发最佳实践",
-				"sidebar_label": "合约开发最佳实践"
+				"title": "最佳实践",
+				"sidebar_label": "最佳实践"
 			},
 			"Solidity_Contract_Dev_Costs": {
-				"title": "合约开发成本",
-				"sidebar_label": "合约开发成本"
+				"title": "开发成本",
+				"sidebar_label": "开发成本"
 			},
 			"Solidity_Contract_Migrate": {
-				"title": "合约迁移教程",
-				"sidebar_label": "合约迁移教程"
+				"title": "迁移教程",
+				"sidebar_label": "迁移教程"
 			},
 			"Wasm_Dev_Manual": {
 				"title": "入门手册",
@@ -98,12 +98,12 @@
 				"sidebar_label": "合约API"
 			},
 			"Wasm_Contract_Best_Practice": {
-				"title": "合约开发最佳实践",
-				"sidebar_label": "合约开发最佳实践"
+				"title": "最佳实践",
+				"sidebar_label": "最佳实践"
 			},
 			"Wasm_Contract_Dev_Costs": {
-				"title": "合约开发成本",
-				"sidebar_label": "合约开发成本"
+				"title": "开发成本",
+				"sidebar_label": "开发成本"
 			},
 			"EVM_Smart_Contract": {
 				"title": "EVM智能合约",

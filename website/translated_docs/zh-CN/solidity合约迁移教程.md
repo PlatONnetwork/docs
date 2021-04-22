@@ -1,13 +1,8 @@
 ---
 id: Solidity_Contract_Migrate
-title: 合约迁移教程
-sidebar_label: 合约迁移教程
+title: 迁移教程
+sidebar_label: 迁移教程
 ---
-
-
-
-
-## 合约迁移
 
 ### 简介
 
