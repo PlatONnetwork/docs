@@ -13,6 +13,7 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
 ## 初步了解
 
 - [什么是LAT](/docs/zh-CN/lat_introduced)-在这里你可以全面了解到什么是LAT、LAT有什么作用，以及相关使用方式等
+- [质押&委托](/docs/en/staking_and_delegation)
 - [ATON钱包](/docs/zh-CN/ATON-user-manual)-关于ATON钱包的各类操作，你都可以在这里找到相关说明
 - 区块链浏览器
   - [PlatScan](https://scan.platon.network/)
@@ -31,28 +32,23 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
 
 ### 节点
 如果您想通过节点的方式加入到PlatON网络，以下信息可以为您提供更多的了解和帮助。
- - [验证节点概要介绍](/docs/zh-CN/PlatON_Validation_Introduce)-在这里你可以了解什么是验证节点、如何成为验证节点、验证节点的收益与职责等
-   - [什么是验证节点](/docs/zh-CN/PlatON_Validation_Introduce#%E4%BB%80%E4%B9%88%E6%98%AF%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9)
-   - [成为验证节点的基本要求](/docs/zh-CN/PlatON_Validation_Introduce#%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82)
-   - [如何成为验证节点](/docs/zh-CN/PlatON_Validation_Introduce#%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9)
-   - [能获得哪些奖励](/docs/zh-CN/PlatON_Validation_Introduce#%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E9%AA%8C%E8%AF%81%E8%8A%82%E7%82%B9)
-   - [处罚机制](/docs/zh-CN/PlatON_Validation_Introduce#%E5%93%AA%E4%BA%9B%E8%A1%8C%E4%B8%BA%E4%BC%9A%E8%A2%AB%E5%A4%84%E7%BD%9A)
- - [加入PlatON主网](/docs/zh-CN/Become_PlatON_Main_Verification)-详细介绍了如何加入到PlatON主网，并质押成为验证的具体操作
- - 节点工具-节点可以使用以下工具完成质押、投票等功能
+ - [验证节点介绍](/docs/zh-CN/PlatON_Validation_Introduce)-在这里你可以了解什么是验证节点、如何成为验证节点、验证节点的收益与职责等
+ - [成为主网验证节点](/docs/zh-CN/Become_PlatON_Main_Verification)-详细介绍了如何加入到PlatON主网，并质押成为验证的具体操作
+ - 节点工具-以下工具可以帮助你更好的做节点管理
    - [MTool在线教程](/docs/zh-CN/OnLine_MTool_Manual)-在线教程提供了使用在线钱包管理节点的方式
    - [MTool离线教程](/docs/zh-CN/OffLine_MTool_Manual)-该教程提供了如何使用离线钱包管理节点的方式，提高钱包安全性
    - [PlatON命令行](/docs/zh-CN/Command_Line_Tools)
 
 ### 开发者
 
-- [开发工具和文档](/docs/zh-CN/PlatON_Overview_DevGuide)-介绍如何使用已有的工具和资源开发Dapp
-  - [加入开发网](/docs/zh-CN/Become_PlatON_Dev_Verification)
-  - [部署私有网络](/docs/zh-CN/Build_Private_Chain)
+- [开发指南](/docs/zh-CN/PlatON_Overview_DevGuide)-介绍如何使用已有的工具和资源开发Dapp
+  - [开发网络](/docs/zh-CN/Become_PlatON_Dev_Verification)
+  - [私有网络](/docs/zh-CN/Build_Private_Chain)
   - [Solidity合约](/docs/zh-CN/Solidity_Dev_Manual)
-  - [WASM合约](/docs/zh-CN/Wasm_Dev_Manual)
-  - [系统合约](/docs/zh-CN/PlatON_system_contract)
+  - [Wasm合约](/docs/zh-CN/Wasm_Operation_Principle)
   - [API参考](/docs/zh-CN/Python_SDK)
-- [Grant计划](https://forum.latticex.foundation/t/topic/1092)
+  - [PRC Token](/docs/zh-CN/PRC_Token)
+- [Grant计划](https://forum.latticex.foundation/t/topic/1092)-当你有一个好的想法，请让我们知道，并帮助你实现它
   - [Grant原则](https://forum.latticex.foundation/t/topic/4128)
   - [技术类Grant申请模板](https://forum.latticex.foundation/t/topic/4126)
   - [Grant流程](https://forum.latticex.foundation/t/topic/4129)
