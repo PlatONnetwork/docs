@@ -6,7 +6,7 @@ sidebar_label: Samurai
 
 ## 注意事项
 
-Samurai基于metamask的8.0.10版本修改，主要是适配Alaya网络。由于官方metamask自身存在一些bug。请用户使用Samurai时注意：
+Samurai基于metamask的8.0.10版本修改，主要是适配PlatON网络。由于官方metamask自身存在一些bug。请用户使用Samurai时注意：
 
 * **在交易确认页面不要点编辑按钮去编辑交易相关信息**。
 * **在交易确认页面，点击确认按钮之前，请确认接收地址是否正确**。
