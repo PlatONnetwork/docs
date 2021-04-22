@@ -1048,7 +1048,7 @@ print(platon.getAddressHrp)
 
 The PlatON blockchain supports smart contracts (evm) created using the solidity language, and it also supports WebAssembly (WASM) to execute smart contracts written by users. Among them, WASM is a binary instruction set designed for stack virtual machines. WASM is designed to be available for platform compilation targets like C/C++/Rust and other high-level languages. The original design purpose is to solve the performance problem of JavaScript. WASM is a Web standard that is being promoted by W3C and is supported by browser vendors such as Google, Microsoft, and Mozilla.
 
-For details on the introduction, creation, and compilation of evm and wasm contracts, please refer to [Platon Smart Contract](https://devdocs.platon.network/docs/zh-CN/WASM_Smart_Contract/)
+For details on the introduction, creation, and compilation of evm and wasm contracts, please refer to [Platon Smart Contract](/docs/en/WASM_Smart_Contract/)
 
 
 
