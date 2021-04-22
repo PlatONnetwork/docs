@@ -21,13 +21,10 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
 
 ## 进阶了解
 
-- [PlatON总体方案](/docs/zh-CN/PlatON_Overall_Solution)-在这里可以了解到PlatON作为隐私计算基础设施的总体架构设计，以及相关核心模块的介绍
-- [PlatON经济模型](/docs/zh-CN/Economic_Model)-在这里可以学习到PlatON经济模型设计原则和具体的经济模型方案，其中包括：
-   - [经济模型设计原则](/docs/zh-CN/Economic_Model#%E5%85%AC%E9%93%BE%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99)
-   - [经济模型设计目标](/docs/zh-CN/Economic_Model#platon%E7%9A%84%E7%BB%8F%E6%B5%8E%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87)
-   - [PlatON经济方案](/docs/zh-CN/Economic_Model#platon%E7%9A%84%E7%BB%8F%E6%B5%8E%E6%96%B9%E6%A1%88)
-- [PlatON治理机制](/docs/zh-CN/PlatON_Governance_Solution)-在这里可以了解到如何在PlatON上发起一个提案，以及提案的投票机制
-- [PlatON共识机制](/docs/zh-CN/PlatON_Solution)-详细的PlatON共识机制介绍
+- [总体架构](/docs/zh-CN/PlatON_Overall_Solution)-在这里可以了解到PlatON作为隐私计算基础设施的总体架构设计，以及相关核心模块的介绍
+- [经济模型](/docs/zh-CN/Economic_Model)-在这里可以学习到PlatON经济模型设计原则和具体的经济模型方案，其中包括：
+- [治理机制](/docs/zh-CN/PlatON_Governance_Solution)-在这里可以了解到如何在PlatON上发起一个提案，以及提案的投票机制
+- [共识机制](/docs/zh-CN/PlatON_Solution)-详细的PlatON共识机制介绍
 - [WASM虚拟机](/docs/zh-CN/Wasm_Operation_Principle)-详细解析了为什么PlatON引入WASM虚拟机，WASM运行机理、优势与使用
 
 ## 加入我们
@@ -60,7 +57,7 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
   - [技术类Grant申请模板](https://forum.latticex.foundation/t/topic/4126)
   - [Grant流程](https://forum.latticex.foundation/t/topic/4129)
 - [Bugbounty计划](https://slowmist.io/platon/index.html?utm_source=index&utm_medium=cpc&utm_campaign=platon)
-- [PlatON GitHub仓库](https://github.com/PlatONnetwork)-可以通过提交PR或者Issue的方式提交你的代码和问题
+- [GitHub仓库](https://github.com/PlatONnetwork)-可以通过提交PR或者Issue的方式提交你的代码和问题
 
 ### 普通
 
