@@ -28,6 +28,7 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
    - [PlatON经济方案](/docs/zh-CN/Economic_Model#platon%E7%9A%84%E7%BB%8F%E6%B5%8E%E6%96%B9%E6%A1%88)
 - [PlatON治理机制](/docs/zh-CN/PlatON_Governance_Solution)-在这里可以了解到如何在PlatON上发起一个提案，以及提案的投票机制
 - [PlatON共识机制](/docs/zh-CN/PlatON_Solution)-详细的PlatON共识机制介绍
+- [WASM虚拟机](/docs/zh-CN/Wasm_Operation_Principle)-详细解析了为什么PlatON引入WASM虚拟机，WASM运行机理、优势与使用
 
 ## 加入我们
 
