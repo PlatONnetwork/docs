@@ -73,7 +73,8 @@
 					"Python_SDK",
 					"JS_SDK",
 					"Java_SDK",
-					"Json_Rpc"
+					"Json_Rpc",
+					"Samurai_API"
 				]
 			},
 			"Standards"
@@ -84,7 +85,7 @@
 		],
 		"Wallet": [
 			"ATON-user-manual",
-			"PlatON_Samurai",
+			"Samurai_user_manual",
 			"Third_Party_Walle"
 		],
 		"community":["community"]
