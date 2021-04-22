@@ -1,5 +1,5 @@
 ---
-id: PRC_Token
+id: Standard
 title: PRC Token
 sidebar_label: PRC Token
 ---
