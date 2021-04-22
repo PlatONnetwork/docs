@@ -33,13 +33,6 @@ sidebar_label: PlatEye
 
 * 可以查看节点列表，详情页统计该节点相关数据，提供快照下载。
 
-### 联系方式
-
-* **联系人: 笨笨熊猫** 
-* **邮箱: haizhitiantang1@163.com** 
-* **Wechat: xdoubless** 
-* **网站: https://www.itokenpool.com** 
-
 
 ## 浏览器公开API使用说明
 
