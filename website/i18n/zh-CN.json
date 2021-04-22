@@ -145,6 +145,10 @@
 				"title": "开发网络",
 				"sidebar_label": "开发网络"
 			},
+			"PRC_Token": {
+				"title": "PRC Token",
+				"sidebar_label": "PRC Token"
+			},
 			"Install_PlatON": {
 				"title": "源码安装PlatON",
 				"sidebar_label": "源码安装PlatON"
@@ -174,7 +178,7 @@
 		"categories": {
 			"Overview": "概述",
 			"Basics": "初步了解",
-			"Advanced":"进阶了解",
+			"Advanced": "进阶了解",
 			"PlatON Node": "PlatON节点",
 			"Tools for nodes": "节点工具",
 			"Set up local environment": "设置开发环境",
