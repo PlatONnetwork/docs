@@ -165,8 +165,8 @@
         "sidebar_label": "Run a dev node"
       },
       "Join_Dev_Network": {
-        "title": "Join the dev network",
-        "sidebar_label": "Join the dev network"
+        "title": "Dev Network",
+        "sidebar_label": "Dev Network"
       },
       "Install_PlatON": {
         "title": "Source Installation PlatON",
@@ -189,8 +189,8 @@
         "sidebar_label": "Staking&Delegation"
       },
       "Build_Private_Chain": {
-        "title": "Private network",
-        "sidebar_label": "Private network"
+        "title": "Private Network",
+        "sidebar_label": "Private Network"
       }
     },
     "links": {},
