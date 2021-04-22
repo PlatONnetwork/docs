@@ -4,8 +4,6 @@ title: PRC Token
 sidebar_label: PRC Token
 ---
 
-
-
 - PRC-20
 
   PRC-20是在PlatON网络上通过部署智能合约的方式来发行资产的一套标准，它与 [ERC-20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md)完全兼容。
