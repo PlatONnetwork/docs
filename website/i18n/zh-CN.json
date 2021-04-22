@@ -145,10 +145,6 @@
 				"title": "开发网络",
 				"sidebar_label": "开发网络"
 			},
-			"PRC_Token": {
-				"title": "PRC Token",
-				"sidebar_label": "PRC Token"
-			},
 			"Install_PlatON": {
 				"title": "源码安装PlatON",
 				"sidebar_label": "源码安装PlatON"
