@@ -23,7 +23,7 @@ const siteConfig = {
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
   docsUrl :'',
-  
+  editUrl: 'https://github.com/PlatONnetwork/docs/tree/master/',
   algolia: {
     apiKey:"c2ce4863993980eb049b661be250c773",
     indexName: "platon",
