@@ -8,7 +8,7 @@ sidebar_label: Getting started
 
 ### Introduction
 
-This tutorial is mainly to guide users to create a simple HelloWorld smart contract using solidity language on PlatON, compile, deploy, and call this contract through platon-truffle. If you want to use a richer API you can refer to [Java SDK](/docs/en/Java_SDK) and  [JS SDK](/docs/en/JS_SDK)
+This tutorial is mainly to guide users to create a simple HelloWorld smart contract using solidity language on PlatON, compile, deploy, and call this contract through platon-truffle. If you want to use a richer API you can refer to [Java SDK](/docs/en/Java_SDK) and  [JS SDK](/docs/en/JS_SDK).
 
 ### Platon-truffle Introduction
 
