@@ -12,7 +12,7 @@ The highest solidity version number supported by PlatON is 0.5.13. If you migrat
 
 If you want to migrate Ethereum's smart contract to PlatON, you can do this with the `platon-truffle` development tool. First, to make sure have `platon-truffle` installed correctly, just follow these steps.
 
-The migration of Ethereum's ERC200513Token contract to PlatON is demonstrated below，`ERC200513Token.sol` contract are as follows:
+The migration of Ethereum's ERC200513Token contract to PlatON is demonstrated below, `ERC200513Token.sol` contract are as follows:
 ```
 pragma solidity 0.5.13;
 
@@ -214,7 +214,7 @@ ls contracts/
 ```
 
 - ERC200513Token.sol
-- PlatON's smart contract unit is LAT,VON. To migrate the Ethereum smart contract to PlatON,please change the Ethereum denomination to PlatON denomination.also note the ether /LAT market rate（for this contract, we assume the market exchange rate1:1,uint256 public totalSupply = 10000000000000000000 ether; change to uint256 public totalSupply = 10000000000000000000 LAT; ）
+- PlatON's smart contract unit is LAT, VON. To migrate the Ethereum smart contract to PlatON,please change the Ethereum denomination to PlatON denomination.also note the ether /LAT market rate（for this contract, we assume the market exchange rate1:1,uint256 public totalSupply = 10000000000000000000 ether; change to uint256 public totalSupply = 10000000000000000000 LAT;）
 - PlatON's smart contract block.timestamp is current block timestamp as milliseconds since unix epoch, and Ethereum smart contract is seconds.
 
 **Step4.** Modify the compilation version number and chain-dependent configuration in truffle-config.js
