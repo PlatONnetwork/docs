@@ -72,7 +72,11 @@
         "title": "Python SDK",
         "sidebar_label": "Python SDK"
       },
-      "PlatON_Samurai": {
+      "Samurai_API": {
+        "title": "Samurai API",
+        "sidebar_label": "Samurai API"
+      },
+      "Samurai_user_manual": {
         "title": "Samurai",
         "sidebar_label": "Samurai"
       },
@@ -157,6 +161,10 @@
         "sidebar_label": "Run a validator node"
       },
       "Become_PlatON_Dev_Verification": {
+        "title": "Run a dev node",
+        "sidebar_label": "Run a dev node"
+      },
+      "Join_Dev_Network": {
         "title": "Join the dev network",
         "sidebar_label": "Join the dev network"
       },

@@ -134,12 +134,16 @@
 				"sidebar_label": "成为主网验证节点"
 			},
 			"Become_PlatON_Dev_Verification": {
-				"title": "加入开发网",
-				"sidebar_label": "加入开发网"
+				"title": "成为开发网验证节点",
+				"sidebar_label": "成为开发网验证节点"
 			},
 			"Build_Private_Chain": {
 				"title": "部署私有网络",
 				"sidebar_label": "部署私有网络"
+			},
+			"Join_Dev_Network": {
+				"title": "接入开发网",
+				"sidebar_label": "接入开发网"
 			},
 			"Install_PlatON": {
 				"title": "源码安装PlatON",
