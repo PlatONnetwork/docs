@@ -16,6 +16,7 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
 - [ATON钱包](/docs/zh-CN/ATON-user-manual)-关于ATON钱包的各类操作，你都可以在这里找到相关说明
 - 区块链浏览器
   - [PlatScan](https://scan.platon.network/)
+  - [PlatEye](/docs/zh-CN/PlatEye)-由社区主导开发的浏览器，并提供了API数据查询接口
 - [网络说明](/docs/zh-CN/Network_Description)-在这里可以了解到我们有哪些网络，以及不同网络间的差异
 
 ## 进阶了解
@@ -46,7 +47,7 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
 
 ### 开发者
 
-- [开发工具和文档](/docs/zh-CN/PlatON_Overview_DevGuide)
+- [开发工具和文档](/docs/zh-CN/PlatON_Overview_DevGuide)-介绍如何使用已有的工具和资源开发Dapp
   - [加入开发网](/docs/zh-CN/Become_PlatON_Dev_Verification)
   - [部署私有网络](/docs/zh-CN/Build_Private_Chain)
   - [Solidity合约](/docs/zh-CN/Solidity_Dev_Manual)
@@ -60,7 +61,7 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
 - [Bugbounty计划](https://slowmist.io/platon/index.html?utm_source=index&utm_medium=cpc&utm_campaign=platon)
 - [PlatON GitHub仓库](https://github.com/PlatONnetwork)-可以通过提交PR或者Issue的方式提交你的代码和问题
 
-### 社区
+### 普通
 
 - [大使计划](https://forum.latticex.foundation/t/topic/4246)
 - 社区资源资源：
