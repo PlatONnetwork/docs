@@ -55,9 +55,10 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
 - [Bugbounty计划](https://slowmist.io/platon/index.html?utm_source=index&utm_medium=cpc&utm_campaign=platon)
 - [GitHub仓库](https://github.com/PlatONnetwork)-可以通过提交PR或者Issue的方式提交你的代码和问题
 
-### 普通
+### 普通用户
 
 - [大使计划](https://forum.latticex.foundation/t/topic/4246)
+- [质押&委托](/docs/en/staking_and_delegation)
 - 社区资源资源：
   - [Facebook](https://www.facebook.com/PlatONNetwork/)
   - [Twitter](https://twitter.com/PlatON_Network)
