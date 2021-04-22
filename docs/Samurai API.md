@@ -5,7 +5,7 @@ sidebar_label: Samurai API
 ---
 
 ## 简介
-Samurai是基于以太坊web钱包Metamask进行fork的，针对alaya网络进行适配性的修改, 以满足基于alaya网络的安全和可用性的需求。用户可以很方便的管理账户并连接到alaya网络。
+Samurai是基于以太坊web钱包Metamask进行fork的，针对PlatON网络进行适配性的修改, 以满足基于PlatON网络的安全和可用性的需求。用户可以很方便的管理账户并连接到PlatON网络。
 
 ## 安装
 
