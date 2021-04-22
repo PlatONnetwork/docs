@@ -1,7 +1,7 @@
 ---
-id: Standards
-title: Standards
-sidebar_label: Standards
+id: PRC_Token
+title: PRC Token
+sidebar_label: PRC Token
 ---
 
 - PRC-20
