@@ -41,15 +41,16 @@ PlatON还将支持开发以LAT为抵押的稳定币。
 
 ## LAT如何管理？
 
-PlatON钱包是您存储LAT以及与DApp进行交互的应用程序，通过钱包可以轻松的持有或发送LAT。
+钱包是您存储LAT以及与DApp进行交互的应用程序，通过钱包可以轻松的持有或发送LAT。
 
-**安装一个PlatON钱包**
+**安装一个钱包**
 
 - [ATON](https://platon.network/developer/?lang=zh#aton) -  为iOS和Android平台设计的手机移动端钱包
 
-- [Samurai](https://github.com/AlayaNetwork/Samurai) -  网页浏览器插件钱包
+- [Samurai插件钱包](https://github.com/AlayaNetwork/Samurai) -  网页浏览器插件钱包
 
 - [Cobo](https://cobo.com/)  - 支持多公链的手机移动端钱包
+- [麦子插件钱包](https://blog.mathwallet.xyz/?p=5008)
 
 *注：上述信息仅为资源汇总，并不代表我们对钱包使用的安全性负责*。
 
@@ -95,4 +96,5 @@ PlatON钱包是您存储LAT以及与DApp进行交互的应用程序，通过钱�
 随着网络利用率的增长，链上数据将存在越来越多有价值的信息，通过区块浏览器可以为您提供浏览区块、交易、账户、节点和其他链上活动的实时数据。
 
 - [PlatScan](https://scan.platon.network/) - PlatON区块链资源管理和分析平台，支持中文、英文。
+- [PlatEye](https://www.alayascan.com/)
 
