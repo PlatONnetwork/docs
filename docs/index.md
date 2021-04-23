@@ -3,7 +3,7 @@ id: index
 title: Overview
 sidebar_label: Overview
 ---
-*We shall always keep to the upper road and practice justice with prudence in every way.* —— Plato
+『*We shall always keep to the upper road and practice justice with prudence in every way.*』 —— Plato
 
 Welcome to the PlatON documentation library. This document is designed to help different users understand PlatON from different perspectives and use PlatON.
 
