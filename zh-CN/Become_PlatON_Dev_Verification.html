@@ -256,20 +256,20 @@ version: 63
 <h3><a class="anchor" aria-hidden="true" id="配置-platon-mtool"></a><a href="#配置-platon-mtool" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>配置 PlatON MTool</h3>
 <h4><a class="anchor" aria-hidden="true" id="创建钱包"></a><a href="#创建钱包" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>创建钱包</h4>
 <blockquote>
-<p>PlatON 中，参与验证节点进行出块要创建两个钱包。<font color=red>如果您想使用已有的钱包创建节点，请将质押钱包的钱包文件重命名为<code>staking.json</code>，收益钱包的钱包文件重命名为<code>reward.json</code>，并将钱包文件拷贝到<code>$PLATON_MTOOLDIR/keystore</code>目录下，即可</font><a href="#配置验证节点信息">跳过本步骤</a>。</p>
+<p>PlatON 中，参与验证节点进行出块要创建两个钱包。<font color=red>如果您想使用已有的钱包创建节点，请将质押账户的钱包文件重命名为<code>staking.json</code>，收益账户的钱包文件重命名为<code>reward.json</code>，并将钱包文件拷贝到<code>$PLATON_MTOOLDIR/keystore</code>目录下，即可</font><a href="#配置验证节点信息">跳过本步骤</a>。</p>
 </blockquote>
 <ul>
-<li>质押钱包：质押钱包用于质押 token，质押成功后才能成为备选节点候选人。 运行以下命令创建质押钱包</li>
+<li>质押账户：质押账户用于质押 token，质押成功后才能成为备选节点候选人。 运行以下命令创建质押账户</li>
 </ul>
 <pre><code class="hljs css language-bash">platon_mtool account new staking
 </code></pre>
-<p>输入一次密码，再输入一次确认密码，即可创建钱包文件，创建成功后会在目录<code>$PLATON_MTOOLDIR/keystore</code>下生成质押钱包文件<code>staking.json</code>。</p>
+<p>输入一次密码，再输入一次确认密码，即可创建钱包文件，创建成功后会在目录<code>$PLATON_MTOOLDIR/keystore</code>下生成质押账户钱包文件<code>staking.json</code>。</p>
 <ul>
-<li>收益钱包：用于收取区块奖励和Staking奖励，Staking奖励统一发放给验证节点，由验证节点自行分配。 运行以下命令创建收益钱包</li>
+<li>收益账户：用于接收所有节点奖励。 运行以下命令创建收益账户</li>
 </ul>
 <pre><code class="hljs css language-bash">platon_mtool account new reward
 </code></pre>
-<p>输入一次密码，再输入一次确认密码，即可创建钱包文件，创建成功后会在目录<code>$PLATON_MTOOLDIR/keystore</code>下生成质押钱包文件<code>reward.json</code>。</p>
+<p>输入一次密码，再输入一次确认密码，即可创建钱包文件，创建成功后会在目录<code>$PLATON_MTOOLDIR/keystore</code>下生成质押账户钱包文件<code>reward.json</code>。</p>
 <h4><a class="anchor" aria-hidden="true" id="配置验证节点信息"></a><a href="#配置验证节点信息" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>配置验证节点信息</h4>
 <h5><a class="anchor" aria-hidden="true" id="下载脚本"></a><a href="#下载脚本" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>下载脚本</h5>
 <pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> <span class="hljs-variable">$PLATON_MTOOLDIR</span> &amp;&amp; wget https://download.platon.network/platon/scripts/validator_conf.sh
@@ -320,7 +320,7 @@ version: 63
 <p>提示：用户完成质押操作后，即可在PlatScan上显示用户自定义的头像。</p>
 </blockquote>
 <h3><a class="anchor" aria-hidden="true" id="发起质押操作"></a><a href="#发起质押操作" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>发起质押操作</h3>
-<p>如果共识节点部署完成，并且节点已经追上 <a href="https://scan.platon.network/?lang=zh">PlatScan</a> 网站上的块高，您就可以使用 PlatON MTool 进行质押操作。质押操作前请确确保质押钱包余额足够，质押最低门槛为10万 LAT。接入开发网可向社区申请质押所需要的LAT，请您按照格式要求发送邮件至 <a href="mailto:support@latticex.foundation">support@latticex.foundation</a>，邮件要求：</p>
+<p>如果共识节点部署完成，并且节点已经追上 <a href="https://scan.platon.network/?lang=zh">PlatScan</a> 网站上的块高，您就可以使用 PlatON MTool 进行质押操作。质押操作前请确保质押账户余额足够，质押最低门槛为10万 LAT。接入开发网可向社区申请质押所需要的LAT，请您按照格式要求发送邮件至 <a href="mailto:support@latticex.foundation">support@latticex.foundation</a>，邮件要求：</p>
 <pre><code class="hljs css language-toml"> 标题：PlatON开发网Token申请
  姓名：
  联系方式：
@@ -332,12 +332,12 @@ version: 63
 </code></pre>
 <ul>
 <li>测试LAT没有任何价值，仅用于体验测试网络的特性。</li>
-<li>请不要将质押钱包的所有LAT进行质押，至少保留1个LAT，以备支付后续发起节点管理的交易手续费，比如升级提案的投票，解质押等交易。</li>
+<li>请不要将质押账户的所有LAT进行质押，至少保留1个LAT，以备支付后续发起节点管理的交易手续费，比如升级提案的投票，解质押等交易。</li>
 </ul>
 <p>执行命令</p>
 <pre><code class="hljs css language-bash">platon_mtool staking --config <span class="hljs-variable">$PLATON_MTOOLDIR</span>/validator/validator_config.json --keystore <span class="hljs-variable">$PLATON_MTOOLDIR</span>/keystore/staking.json --autoamount 100000 --benefit_address xxx196278ns22j23awdfj9f2d4vz0pedld8a2fzwwj --delegated_reward_rate 5000 --node_name myNode --website www.mywebsite.com --details myNodeDescription --external_id 121412312
 </code></pre>
-<p>提示：<strong>please input keystore password:</strong> 输入质押钱包的密码，然后回车，如果显示如下信息则代表质押成功：</p>
+<p>提示：<strong>please input keystore password:</strong> 输入质押账户的密码，然后回车，如果显示如下信息则代表质押成功：</p>
 <pre><code class="hljs css language-bash">operation finished
 transaction <span class="hljs-built_in">hash</span>:
 0x89b964d27d0caf1d8bf268f721eb123c4af57aed36187bea90b262f4769eeb9b
