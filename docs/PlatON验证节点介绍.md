@@ -4,96 +4,97 @@ title: Intro to validator
 sidebar_label: Intro to validator
 ---
 
-### 什么是验证节点
+### What is a validator?
 
-PlatON是实行民主治理的区块链项目，验证节点由所有LAT持有者共同推选，以维护和发展 PlatON网络。得票数最多的201名节点将成为备选节点，从中用VRF随机选出43个验证节点，参与管理整个PlatON网络。验证节点将负责：
+PlatON is a blockchain project that implements democratic governance. Validators are jointly selected by all LAT holders to maintain and develop the PlatON network. The 201 nodes with the most votes will become alternative nodes, from which 43 validators will be randomly selected by VRF to participate in the management of the entire PlatON network. The responsibilities of a validator are:
 
-- 维护 PlatON 节点和网络
-- 生产和验证区块
-- 参与提案投票决策
+- Maintaining PlatON nodes and network
+- Production and validating the blocks
+- Proposal voting and decision-making
 
-### 成为验证节点的基本要求
+### Basic requirements to become a validator
 
-#### 最低质押要求
+#### Minimum staking requirements
 
-最低质押需要超过10万LAT，可以增加质押，但是只能一次性全部取消所有质押。如果因为处罚等原因造成实际质押低于最低质押要求，节点会自动被踢出备选节点候选人行列。
+Minimum staking of 100,000 LAT is required and additional staking can be made, but all staking can only be canceled at once. If the actual staking is lower than the minimum staking due to penalties or other reasons., the node will automatically be removed from the list of alternative node candidates.
 
-#### 硬件要求
+#### Recommended configurations
 
-- 服务器: 运行PlatON软件的服务器和备份服务器(均需具备防火墙)
-- 内存: 8GB RAM 
-- 本地存储: 100GB系统盘、200GB数据盘（可在线扩容）
-- 处理器: 64位4核 (每核2.4 GHz以上)
-- 带宽: 5 MB/秒（可在线扩容）
+- Server: Server or backup server running PlatON software (firewall required)
+- Memory: 8GB RAM 
+- Local storage: 100GB system disk, 200GB data disk (online scalable)
+- Processor: 64-Bit 4 core (each core 2.4 GHz or higher)
+- Bandwidth: 5 MB/s (online scalable)
 
-#### 软件要求
+#### Software requirements
 
-- Linux: Ubuntu 18.04以上
-- 时钟同步: NTP
-- 工具: 节点管理工具（mtool或其他开源/自主开发工具）
+- Linux: Ubuntu 18.04 or higher
+- Clock synchronization: NTP
+- User tools: Node management tools (mtool or other open sources/ self-developed tools)
 
-#### 运营要求
+#### Operation requirements
 
-- 网络监控及实时支持
-- 99.9%的正常运行时间
-- 跨地域失效备援和数据备份
-- 安全保障措施
-- 支持软件升级
+- Network monitoring and real-time support
+- 99.9% uptime
+- Cross-regional failure recovery and data backup
+- Safety and security measures
+- Support software upgrade
 
-### 如何成为验证节点
+### How to be a validator?
 
-首先确认您的质押账户中有10万LAT的余额，锁仓或不锁仓皆可，同时您也需要拥有一台上文中推荐配置的服务器，当您满足以上两个条件时，即可质押[成为主网验证节点](/docs/zh-CN/Become_PlatON_Main_Verification)。
+Firstly, make sure you have a balance of 100,000 LAT in your staking account, locked or unlocked. Secondly, you have to own a server with recommended configurations mentioned above. When you meet the above two conditions, staking can be made [Become a mainnet validator](/docs/en/Become_PlatON_Main_Verification/).
 
-节点相关名词与角色说明请参考[角色说明](/docs/zh-CN/Economic_Model#角色说明)。
+Please refer to [Role Description](/docs/en/Economic_Model#role-description) for node-related terms and role descriptions.
 
-### 能获得哪些奖励
-#### 奖励来源
+### What rewards will I get for being a validator?
 
-奖励来源由两部分组成：
+#### Source of reward
 
-- [增发](/docs/zh-CN/Economic_Model/#激励基金来源)：每年增发前一年总量的2.5%，增发的80%（即总量的2%）进入奖励池
-- [基金会捐赠](/docs/zh-CN/Economic_Model/#激励基金来源)：相当于初始分配总量的3%，在前10年内分配，保持节点奖励池每年不变
+The source of reward consists of two parts:
 
-#### 节点奖励
+- [Offerings](/docs/en/Economic_Model#incentives): Each year, 2.5% of the total of the previous year is offered in increments, and 80% of the offerings (which is 2% of the total) enter the reward pool
+- [Foundation subsidy](/docs/en/Economic_Model#incentives): Equivalent to 3% of the total initial allocation. Allocated in the first 10 years. Keep the node reward pool the same every year
 
-节点奖励由三部分组成：
+### Node Rewards
 
-- [出块奖励](/docs/zh-CN/Economic_Model/#激励规则): 每成功产出一个区块，验证节点将获得定额LAT作为奖励. 每年节点奖励池总量的1/2作为出块奖励，按每年区块数（15,759,500）平均发放。
-- [交易手续费](/docs/zh-CN/Economic_Model/#激励规则): 打包交易的手续费全部由打包区块的验证节点收取。
-- [Staking奖励](/docs/zh-CN/Economic_Model/#激励规则): 节点奖励池总量的1/2作为Staking奖励，按每年Staking周期数（1466）平均发放。每个Staking周期（10,750区块，约3个小时）结束后，平均发放给所有备选节点。
+Node reward consists of three parts:
 
-#### [委托人奖励](/docs/zh-CN/Economic_Model/#委托)
+- [Block generation reward](/docs/en/Economic_Model#incentives): For each block produced, the validator will receive a fixed amount of LAT as a reward. 1/2 of the total annual node reward pool is used as block generation reward, which is distributed evenly based on the number of blocks per year (15,759,500).
+- [Transaction Fee](/docs/en/Economic_Model#incentives): The fees for packaging transactions are all charged by validators who package the blocks.
+- [Staking reward](/docs/en/Economic_Model#incentives): 1/2 of the total node reward pool is used as Staking reward, which is distributed evenly based on the number of Staking epochs per year (1466). Each staking epoch is (10,750 blocks, around 3 hours). Upon completion, the reward is distributed evenly to all alternative nodes.
 
-  Staking奖励发放给验证节点和备选节点，由验证节点和备选节点按照设定的分红比例自行分配给相关委托人。
+#### [Delegator reward](/docs/en/Economic_Model#delegated-award)
 
-### 哪些行为会被处罚
+  Staking rewards are issued to validators and alternative nodes, which will distribute them to the relevant delegators according to the set dividend proportion.
 
-#### [零出块处罚](/docs/zh-CN/Economic_Model/#零出块-系统自动判断和处罚)
+### What acts will be punished
 
-- 某个共识周期被选为验证节点，如果没有生产任何区块或生产的所有区块都没有被其他验证节点确认，则认定为零出块；
-- 某个共识周期零出块，如果在其后的20个共识周期（约2个半小时）内没有出块，则被处罚，需要被扣除相当于2500个区块的出块奖励，并被限制节点资格，如果扣除后质押金不够10万LAT，则[强制退出备选节点候选人](/docs/zh-CN/Economic_Model#platon的惩罚方式)。
+### [Zero block generation penalty](/docs/en/Economic_Model#zero-block-the-system-automatically-judges-and-punishes)
 
-- 某个共识周期被选为验证节点，如果没有生产任何区块或生产的所有区块都没有被其他验证节点确认，则认定为零出块；
-- 节点在某个共识周期开始零出块，且在其后的20个共识周期（约2个半小时）内都没有出块，则将被处罚，扣除相当于2500个区块的出块奖励的LAT，
+- A consensus round is selected as a validator, and if no blocks are produced or all blocks produced are not confirmed by other validators, it is determined that there are zero blocks generated;
+- Zero blocks were generated in a consensus round. If no blocks are produced in the following 20 consensus rounds (about 2 hours and a half), there will be a penalty equivalent to the block generation rewards of 2500 blocks, and the node qualification will be restricted. If the staking is less than 100,000 LAT after the penalty, [the status as an alternative node candidate will be revoked](/docs/en/Economic_Model#platons-way-of-punishment).
 
-#### [双签处罚](/docs/zh-CN/Economic_Model/#双签双出-人工举报和系统处罚)
+- A consensus round is selected as a validator, and if no blocks are produced or all blocks produced are not confirmed by other validators, it is determined that there are zero blocks generated;
+- If a node generates zero blocks in a consensus round and does not produce blocks for the next 20 consensus rounds (about 2 hours and a half), it will receive the penalty, which is a deduction of LAT equivalent to the block generation rewards of 2500 blocks,
 
-- 在相同的区块高度生产或签名多个区块，会被认定为双签行为；
-- 双签行为除强制退出节点外，还需要[扣除千分之十的节点自有质押金](/docs/zh-CN/Economic_Model#platon的惩罚方式)；
-- 双签行为可以由任何人发起举报，当前验证节点验证并达成共识后，被举报人将被认定为违规行为并加以处罚。处罚金的50%给与举报人，50%置入奖励池用于第二年的出块和Staking奖励。
+#### [Dual signing](/docs/en/Economic_Model#duplicateprepareduplicatevote-manual-reporting-and-systematic-penalties)
 
-> 限制节点资格：临时取消节点资格，锁定56个结算周期，锁定期间没有资格成为验证节点参与出块，也没有Staking奖励。
-> 强制退出备选节点候选人：强行解质押，并踢出备选节点候选人行列，所质押的LAT在168个结算周期后退回原质押账户，在质押金冻结期间不能重新质押成为新节点，重新质押后原委托关系废除。
-> 扣除节点自有质押金：从节点质押金中扣除LAT，置入奖励池用于第二年的出块和Staking奖励，如果处罚后质押金不够100,000LAT，则强制退出节点。
+- Producing or signing multiple blocks in the same block height is deem as dual signing;
+- Except for the revocation of nodes, a dual signing requires [a deduction of 10‰ of its staking](/docs/en/Economic_Model#platons-way-of-punishment);
+- Anyone can report a dual signing, and after the current validator verifies and reaches consensus, the reported person will be recognized as a violation and punished. 50% of the penalty is given to the informer and 50% is placed in the reward pool for the next year's block generation and Staking rewards.
 
-### 如何参与治理
+> Restrict the status for nodes: Temporary disqualification of the nodes, locking 56 epochs, during which period one cannot be a validator and cannot participate in block generation, and there will be no Staking rewards.
+> Revocation of nodes: The staking is forcibly unsecured and the violator would be kicked out from the list of alternative node candidates. The staking LAT is returned to the original staking account after 168 Epochs, and cannot be re-staked as a new node during the pledge freeze period, and the original delegation relationship is abolished after re-staking.
+> Deduct Staking LAT: Deduct LAT from the staking of the node and place the amount into the reward pool for block generation and staking rewards in the second year. If the staking is less than 100,000 LAT after the penalty, the node would be revoked.
 
-PlatON中，通过链上提案投票的方式进行治理，有以下几类提案：
+### How to participate in the governance
 
-- [文本提案](/docs/zh-CN/PlatON_Governance_Solution#提案分类)：对于无需代码实施的决策都可以用文本提案发起。
+In PlatON, governance is done through on-chain proposal voting with the following types of proposals:
 
-- [软件升级提案](/docs/zh-CN/PlatON_Governance_Solution#span-idupgrade升级机制span)：用来在链上发起版本升级投票，达到平滑升级的目的。
+- [Text proposal](/docs/en/PlatON_Governance_Solution#proposal-classification): Decisions that could be implemented without code can be initiated with a text proposal.
 
-- [参数修改提案](/docs/zh-CN/PlatON_Governance_Solution#参数治理)：用来对系统参数等可治理的参数进行修改。
+- [Upgrade proposal](/docs/en/PlatON_Governance_Solution#span-idupgradeupgrade-mechanismspan): Used for initiating version upgrade voting on the chain for smooth upgrade purposes.
 
-- [取消提案](/docs/zh-CN/PlatON_Governance_Solution#快速升级)： 用来取消链上正在投票中的软件升级或参数修改提案。
+- [Parameter proposal](/docs/en/PlatON_Governance_Solution#governance-parameters): Used for modifying the governable parameters such as system parameters.
+
+- [Cancel proposal](/docs/en/PlatON_Governance_Solution#quick-upgrade): Used for canceling a software upgrade or parameter modification proposal which is being voted on the chain.
