@@ -92,11 +92,6 @@ class LanguageDropDown extends React.Component {
       <span>
         <li key="languages">
           <a id="languages-menu" href="#">
-            <img
-              className="languages-icon"
-              src={`${this.props.baseUrl}img/language.svg`}
-              alt="Languages icon"
-            />
             {currentLanguage}
           </a>
           <div id="languages-dropdown" className="hide">

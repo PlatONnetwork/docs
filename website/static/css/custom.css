@@ -327,3 +327,13 @@ blockquote code {
 .toc .toggleNav .navGroup .sonNavGroup {
   padding-left: 20px;
 }
+
+
+#languages-dropdown-items {
+  background-color: $primaryColor;
+  display: flex;
+  flex-direction: column;
+  min-width: 80px;
+  pointer-events: all;
+}
+
