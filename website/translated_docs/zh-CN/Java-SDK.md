@@ -2621,7 +2621,7 @@ $ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
 `bin`，输出包含十六进制编码的solidity二进制文件以提供交易请求。
 `abi`，输出一个solidity的应用程序二进制接口（`ABI`）文件，它详细描述了所有可公开访问的合约方法及其相关参数。`abi`文件也用于生成solidity智能合约对应的Java包装类。
 
-* 使用`platon-truffle`编译solidity源代码([platon-truffle开发工具安装参考](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html#)|[platon-truffle开发工具使用手册](https://platon-truffle.readthedocs.io/en/v0.13.1/))：
+* 使用`platon-truffle`编译solidity源代码([platon-truffle开发工具安装参考](https://platon-truffle.readthedocs.io/en/v1.0.0/getting-started/installation.html#)|[platon-truffle开发工具使用手册](https://platon-truffle.readthedocs.io/en/v1.0.0/))：
 
 > **step1.** 使用platon-truffle初始化项目
 
@@ -2834,7 +2834,7 @@ $ platon-cpp <contract>.cpp
 `wasm`，输出Wasm合约的二进制文件以提供交易请求。
 `abi.json`，详细描述了所有可公开访问的合约方法及其相关参数。`abi`文件也用于生成Wasm智能合约对应的Java包装类。
 
-* 使用`platon-truffle`编译Wasm合约源代码([platon-truffle开发工具安装参考](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html#)|[platon-truffle开发工具使用手册](https://platon-truffle.readthedocs.io/en/v0.13.1/))
+* 使用`platon-truffle`编译Wasm合约源代码([platon-truffle开发工具安装参考](https://platon-truffle.readthedocs.io/en/v1.0.0/getting-started/installation.html#)|[platon-truffle开发工具使用手册](https://platon-truffle.readthedocs.io/en/v1.0.0/))
 
 ### Wasm智能合约Java包装类
 

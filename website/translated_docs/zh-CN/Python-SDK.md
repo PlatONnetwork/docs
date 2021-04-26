@@ -1080,7 +1080,7 @@ PlatON区块链支持使用solidity语言创建的智能合约(evm)，同时也�
 
 python sdk目前支持evm、wasm合约编译后形成的bin和abi作为合约数据与PlatON区块链进行交互。
 
-- **(1)**  evm合约(使用solidity语言创建)可使用platon-truffle进行编译、部署、调用。具体可参考[solidity编译器](https://github.com/PlatONnetwork/solidity)与[platon-truffle](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html)。
+- **(1)**  evm合约(使用solidity语言创建)可使用platon-truffle进行编译、部署、调用。具体可参考[solidity编译器](https://github.com/PlatONnetwork/solidity)与[platon-truffle](https://platon-truffle.readthedocs.io/en/v1.0.0/getting-started/installation.html)。
 - **(2)**  wasm合约(使用C/C++/Rust等语言创建)可使用PlatON-CDT 或者platon-truffle进行编译、部署、调用。具体可参考[PlatON-CDT 编译器](https://github.com/PlatONnetwork/PlatON-CDT/tree/feature/wasm)。
 
 

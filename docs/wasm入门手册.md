@@ -14,8 +14,8 @@ This tutorial is mainly to guide users to create a simple HelloWorld smart contr
 
 Platon-truffle is a tool provided by PlatON that can compile, deploy, and invoke smart contracts locally. For specific installation and usage manuals, refer to:
 
-- Platon-truffle develop tools[specific installation](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html)
-- Platon-truffle develop tools[usage manuals](https://platon-truffle.readthedocs.io/en/v0.13.1/)
+- Platon-truffle develop tools[specific installation](https://platon-truffle.readthedocs.io/en/v1.0.0/getting-started/installation.html)
+- Platon-truffle develop tools[usage manuals](https://platon-truffle.readthedocs.io/en/v1.0.0/)
 
 
 ### Create HelloWorld Contract
