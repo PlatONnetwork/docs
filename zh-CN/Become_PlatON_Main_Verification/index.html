@@ -108,6 +108,19 @@ sudo chmod +x /usr/bin/platon  /usr/bin/platonkey
 platon version
 </code></pre>
 <p>执行完上述命令后，<code>platon</code>和<code>platonkey</code>二进制就已经成功安装到您系统上的<code>/usr/bin</code>目录里，您可以在任何目录执行相关命令。</p>
+<p>当您执行完platon version后，请您仔细检查您的Git Commit值是否与下面一致，若一致则表明已经正确安装:</p>
+<blockquote>
+<p>PlatON</br>
+Version: 1.0.0-unstable</br>
+Git Commit: <font color=red>853d83b335da8c2c6a19dac7678024df12199961</font></br>
+Architecture: amd64</br>
+Protocol Versions: [63 62]</br>
+Network Id: 1</br>
+Go Version: go1.16.2</br>
+Operating System: linux</br>
+GOPATH=</br>
+GOROOT=/usr/lib/go-1.16</br></p>
+</blockquote>
 <h3><a class="anchor" aria-hidden="true" id="创建节点密钥"></a><a href="#创建节点密钥" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>创建节点密钥</h3>
 <h4><a class="anchor" aria-hidden="true" id="节点公私钥"></a><a href="#节点公私钥" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>节点公私钥</h4>
 <p>每个节点在网络中都有一个唯一的身份标识以便彼此区分，这个身份标识是一个公私钥对，可以在节点工作目录（如<code>~/platon-node</code>）下通过以下命令生成：</p>
