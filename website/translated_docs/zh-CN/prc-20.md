@@ -94,31 +94,7 @@ PRC-20标准与ERC-20完全兼容，示例可参考[这里](https://github.com/O
 
 ### 合约发行
 
-以truffle为例：
-
-- 准备工作
-
-  1. 安装platon-truffle，请参考[platon-truffle官方文档](https://platon-truffle.readthedocs.io/)
-
-  2. 创建一个truffle工程目录，进入该目录，并使用 `platon-truffle init` 初始化truffle工程
-
-- 编译说明
-
-  1. 将合约源码文件(.sol) 放入contracts目录下
-  
-  2. 修改 truffle-config.js 中的 compilers 配置项
-  
-  3. 执行 `platon-truffle compile`
-
-- 部署说明
-
-  1. 进入 migrations 目录下，复制 1_initial_migration.js，命名为 2_template.js
-  
-  2. 修改 2_template.js 的内容，将 artifacts.require 的内容修改为你要部署的合约二进制文件名称（不带后缀）
-  
-  3. 修改 truffle-config.js 中的 network 配置项
-  
-  4. 执行 `platon-truffle migrate --f 2 --to 2`
+请参考[Solidity合约入门手册](/docs/zh-CN/Solidity_Dev_Manual#入门手册)。
 
 ### 调用方法
 
@@ -143,7 +119,51 @@ from client_sdk_python import Web3, HTTPProvider
 
 rpc, chain_id, hrp = 'http://127.0.0.1:6789', 100, 'lat'
 w3 = Web3(HTTPProvider(rpc), chain_id=chain_id, hrp_type=hrp)
-abi = []								# 合约abi内容
+abi = [
+  {
+    "inputs":[
+      {"internalType":"uint256", "name":"initialSupply", "type":"uint256"},
+      {"internalType":"string", "name":"tokenName", "type":"string"},
+      {"internalType":"string", "name":"tokenSymbol", "type":"string"}
+	],
+    "stateMutability":"nonpayable",
+    "type":"constructor"
+  },
+  {
+    "inputs":[],
+    "name":"totalSupply",
+    "outputs":[{"internalType":"uint256", "name":"", "type":"uint256"}],
+    "stateMutability":"view",
+    "type":"function"
+  },
+  {
+    "inputs":[{"internalType":"address", "name":"", "type":"address"}],
+    "name":"balanceOf",
+    "outputs":[{"internalType":"uint256", "name":"", "type":"uint256"}],
+    "stateMutability":"view",
+    "type":"function"
+  },
+  {
+    "inputs":[
+      {"internalType":"address", "name":"_to", "type":"address"},
+      {"internalType":"uint256", "name":"_value", "type":"uint256"}
+	],
+    "name":"transfer",
+    "outputs":[{"internalType":"bool", "name":"success", "type":"bool"}],
+    "stateMutability":"nonpayable",
+    "type":"function"
+  },
+  {
+    "anonymous":false,
+    "inputs":[
+      {"indexed":true, "internalType":"address", "name":"from", "type":"address"},
+      {"indexed":true, "internalType":"address", "name":"to", "type":"address"},
+      {"indexed":false, "internalType":"uint256", "name":"value", "type":"uint256"}
+	],
+    "name":"Transfer",
+    "type":"event"
+  }
+]								# 合约abi内容
 prc20 = w3.eth.contract(address='contract address', abi=abi)
 # 查看合约所有的function 和 event
 print([func for func in prc20.functions])
