@@ -161,7 +161,7 @@ prc20.functions.balanceOf('your address').call()
 ```
 
 #### 发送合约交易
-Using the transfer example, other transaction methods are similar.
+以transfer示例，其他交易方法与此类似：
 
 ``` python
 # 转账令牌到指定账户
