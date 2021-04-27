@@ -1,7 +1,7 @@
 ---
 id: PRC20_contract
-title: PRC-20合约
-sidebar_label: PRC-20合约
+title: PRC-20
+sidebar_label: PRC-20
 ---
 
 ## PRC-20合约
@@ -84,11 +84,6 @@ contract PRC20 {
 
 当approve()方法被成功调用后，会触发Approval事件，在链上记录授权信息日志。
 
-
----------------------------
-列出每个接口，佩带一些说明,参考波场
----------------------------
-
 ### 示例
 
 PRC-20标准与ERC-20完全兼容，示例可参考[这里](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/9b3710465583284b8c4c5d2245749246bb2e0094/contracts/token/ERC20).
@@ -99,14 +94,91 @@ PRC-20标准与ERC-20完全兼容，示例可参考[这里](https://github.com/O
 
 ### 合约发行
 
-最好以truffle工具为例：
+以truffle为例：
+
+- 准备工作
+
+  1. 安装platon-truffle，请参考[platon-truffle官方文档](https://platon-truffle.readthedocs.io/)
+
+  2. 创建一个truffle工程目录，进入该目录，并使用 `platon-truffle init` 初始化truffle工程
 
 - 编译说明
 
+  1. 将合约源码文件(.sol) 放入contracts目录下
+  
+  2. 修改 truffle-config.js 中的 compilers 配置项
+  
+  3. 执行 `platon-truffle compile`
+
 - 部署说明
+
+  1. 进入 migrations 目录下，复制 1_initial_migration.js，命名为 2_template.js
+  
+  2. 修改 2_template.js 的内容，将 artifacts.require 的内容修改为你要部署的合约二进制文件名称（不带后缀）
+  
+  3. 修改 truffle-config.js 中的 network 配置项
+  
+  4. 执行 `platon-truffle migrate`
 
 ### 调用方法
 
-----------------------------
-请刘星补充
----------------------------
+以python为例：
+
+#### 安装依赖
+
+使用下列命令，安装PlatON python library:
+
+``` shell
+pip install client-sdk-python
+```
+
+#### 实例化合约
+
+``` python
+from client_sdk_python import Web3, HTTPProvider
+
+rpc, chain_id, hrp = 'http://127.0.0.1:6789', 100, 'lat'
+w3 = Web3(HTTPProvider(rpc), chain_id=chain_id, hrp_type=hrp)
+abi = []			# 合约abi内容
+erc20 = w3.eth.contract(address='contract address', abi=abi)
+```
+
+#### 查询令牌的总发行量
+``` python
+erc20.functions.totalSupply().call()
+```
+
+#### 查询账户的令牌余额
+``` python
+erc20.functions.balanceOf('you address').call()
+```
+
+#### 转账令牌到指定账户
+``` python
+tx = {
+    'chainId': w3.chain_id,
+    'nonce': w3.eth.getTransactionCount(account.address),
+    'gas': 4012388,
+    'value': 0,
+    'gasPrice': 1000000000,
+}
+txn = erc20.functions.transfer(to='to address', value=1 * 10 ** 18).buildTransaction(tx)
+signed_txn = w3.eth.account.signTransaction(txn, private_key=private_key)
+tx_hash = w3.eth.sendRawTransaction(signed_txn.rawTransaction).hex()
+receipt = w3.eth.waitForTransactionReceipt(tx_hash)
+```
+
+#### 授权第三方从令牌拥有者账户转账令牌
+``` python
+tx = {
+    'chainId': w3.chain_id,
+    'nonce': w3.eth.getTransactionCount(account.address),
+    'gas': 4012388,
+    'value': 0,
+    'gasPrice': 1000000000,
+}
+txn = erc20.approve(owner='owner address', spender='spender address', value=1 * 10 ** 18).buildTransaction()
+signed_txn = w3.eth.account.signTransaction(txn, private_key=private_key)
+tx_hash = w3.eth.sendRawTransaction(signed_txn.rawTransaction).hex()
+w3.eth.waitForTransactionReceipt(tx_hash)
+```
