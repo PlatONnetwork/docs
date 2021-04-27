@@ -151,7 +151,7 @@ networks: {
        host: "10.1.1.6",     // blockchain server address
        port: 8806,            // server port
        network_id: "*",       // Any network (default: none)
-       from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl",
+       from: "lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc",
        gas: 999999,
        gasPrice: 1000000000,
 	},
@@ -172,7 +172,7 @@ web3.platon.personal.importRawKey("Your wallet private key","Your wallet passwor
 ```
 Successful import will see the address corresponding to the private key as follows：
 ```
-'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'
+'lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc'
 ```
 
 Unlock wallet account
@@ -197,9 +197,9 @@ If deploying successfully，you will see log info as follows:
 receipt:  { blockHash:
    '0x266733b693ba650315a59c34e72804c06ca3e27fab145625797bd42259b572c5',
   blockNumber: 70441,
-  contractAddress: 'lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np',
+  contractAddress: 'lat1nk4errnjlulaz5y57xt4djkx3h4jjl7yy9dzqn',
   cumulativeGasUsed: 291314,
-  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
+  from: 'lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc',
   gasUsed: 291314,
   logs: [],
   logsBloom:
@@ -213,10 +213,10 @@ receipt:  { blockHash:
 ======================
 
    > transactionHash:     0x60946ebf0ccddc76a0234353435de73e7901888227fb2f03922fb0ce265a4e9d
-   > contract address:    lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np
+   > contract address:    lat1nk4errnjlulaz5y57xt4djkx3h4jjl7yy9dzqn
    > block number:        70441
    > block timestamp:     1583247148341
-   > account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
+   > account:             lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc
    > balance:             3533694129556768659166595001485837031654967793751237866225582808584074296
    > gas limit:           100000000
    > gas used:            291314
@@ -237,7 +237,7 @@ platon-truffle console
 
 ```json
 var abi = [{"baseclass":[],"fields":[{"name":"head","type":"string"}],"name":"message","type":"struct"},{"baseclass":["message"],"fields":[{"name":"body","type":"string"},{"name":"end","type":"string"}],"name":"my_message","type":"struct"},{"constant":false,"input":[{"name":"one_message","type":"my_message"}],"name":"init","output":"void","type":"Action"},{"constant":false,"input":[{"name":"one_message","type":"my_message"}],"name":"add_message","output":"void","type":"Action"},{"constant":true,"input":[],"name":"get_message_size","output":"uint8","type":"Action"},{"constant":true,"input":[{"name":"index","type":"uint8"}],"name":"get_message_body","output":"string","type":"Action"}];
-var contractAddr = 'lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np';
+var contractAddr = 'lat1nk4errnjlulaz5y57xt4djkx3h4jjl7yy9dzqn';
 
 var helloworld = new web3.platon.Contract(abi,contractAddr,{vmType: 1 }); 
 ```
@@ -251,7 +251,7 @@ Description：
 
 ```javascript
 helloworld.methods.add_message('[[["5"], "6", "7"]]').send({
-	from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',gas: 999999
+	from: 'lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc',gas: 999999
 }).on('receipt', function(receipt) {
 	console.log(receipt);
 }).on('error', console.error);
@@ -270,12 +270,12 @@ Description：
   blockNumber: 74665,
   contractAddress: null,
   cumulativeGasUsed: 108549,
-  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
+  from: 'lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc',
   gasUsed: 108549,
   logsBloom:
    '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   status: true,
-  to: 'lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np',
+  to: 'lat1nk4errnjlulaz5y57xt4djkx3h4jjl7yy9dzqn',
   transactionHash:
    '0x2b5e590df7e70ad428b1ccb06bda5dcce47f84c4d981c2fb475aca9ec9d0000a',
   transactionIndex: 0,
@@ -285,12 +285,12 @@ Description：
   blockNumber: 74665,
   contractAddress: null,
   cumulativeGasUsed: 108549,
-  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
+  from: 'lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc',
   gasUsed: 108549,
   logsBloom:
    '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   status: true,
-  to: 'lax1p0698y95s6ysfphxavl36hywppq0mz6ks673np',
+  to: 'lat1nk4errnjlulaz5y57xt4djkx3h4jjl7yy9dzqn',
   transactionHash:
    '0x2b5e590df7e70ad428b1ccb06bda5dcce47f84c4d981c2fb475aca9ec9d0000a',
   transactionIndex: 0,

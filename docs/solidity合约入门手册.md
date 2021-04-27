@@ -20,7 +20,7 @@ Platon-truffle is a tool provided by PlatON that can compile, deploy, and invoke
 ### Create HelloWorld Contract
 
 ```
-pragma solidity ^0.5.13;
+pragma solidity ^0.5.17;
 
 contract HelloWorld {
     
@@ -39,10 +39,10 @@ contract HelloWorld {
 
 Contract Files Description:
 
-- pragma solidity ^0.5.13
+- pragma solidity ^0.5.17
     -	`pragma solidity`: solidity version description
-         `0.5.13`：solidity version
-         `^` ：Indicates upward compatibility, that is, it can be compiled with a compiler above 0.5.13
+         `0.5.17`：solidity version
+         `^` ：Indicates upward compatibility, that is, it can be compiled with a compiler above 0.5.17
 - contract HelloWorld
     -	`contract`：contract keyword
          `HelloWorld`：contract name
@@ -99,7 +99,7 @@ Truffle-config.js content is  as follows:
 ```
 compilers: {
       solc: {
-            version: "^0.5.13",    // same as the version declared in HelloWorld.sol
+            version: "^0.5.17",    // same as the version declared in HelloWorld.sol
       }
 }
 ```
@@ -143,7 +143,7 @@ networks: {
        host: "10.1.1.6",     // blockchain server address
        port: 8806,            // server port
        network_id: "*",       // Any network (default: none)
-       from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", //the accout address of deploying contract
+       from: "lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc", //the accout address of deploying contract
        gas: 999999,
        gasPrice: 50000000004,
 	},
@@ -164,7 +164,7 @@ web3.platon.personal.importRawKey("Your wallet private key","Your wallet passwor
 ```
 After importing successfully, you will see the address corresponding to the private key as follows：
 ```
-'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'
+'lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc'
 ```
 
 Unlock wallet account
@@ -191,13 +191,13 @@ After deploying successfully, you will see log info as follows:
    ----------------------
    > transaction hash:    0x87cd48cc467f9bc943fd096c57c8a7e7b7fa941380538d9e59797800c6c4292c
    > Blocks: 0            Seconds: 0
-   > contract address:    lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07
+   > contract address:    lat17rcz8c3uwaf3ktf0e0d8q0jw4k3dm8z22eer96
    > block number:        282520
    > block timestamp:     1585535169200
-   > account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
+   > account:             lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc
    > balance:             16447231233352977496646259638377769924557918764752765436645.336513079692286014
    > gas used:            145569
-   > gas price:           1 gvon
+   > gas price:           50.000000004 gvon
    > value sent:          0 LAT
    > total cost:          0.000145569 LAT
 
@@ -227,7 +227,7 @@ platon-truffle console
 ```json
 var abi = [{"constant":false,"inputs":[{"internalType":"string","name":"_name","type":"string"}],"name":"setName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]; //you can refet to HelloWorld/build/contracts/HelloWorld.json
 
-var contractAddr = 'lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07';//contract address
+var contractAddr = 'lat17rcz8c3uwaf3ktf0e0d8q0jw4k3dm8z22eer96';//contract address
 var helloWorld = new web3.platon.Contract(abi,contractAddr);  
 ```
 
@@ -240,7 +240,7 @@ Description：
 **Step3.**  Call contract
 
 ```javascript
-helloWorld.methods.setName("hello world").send({from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'}).on('receipt', function(receipt) {console.log(receipt);}).on('error', console.error);
+helloWorld.methods.setName("hello world").send({from: 'lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc'}).on('receipt', function(receipt) {console.log(receipt);}).on('error', console.error);
 
 ```
 
@@ -258,12 +258,12 @@ Description：
   blockNumber: 159726, 
   contractAddress: null,
   cumulativeGasUsed: 44820,
-  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl', //the address of caller
+  from: 'lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc', //the address of caller
   gasUsed: 44820, //gas cost
   logsBloom:
    '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   status: true,
-  to: 'lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07', //contract address
+  to: 'lat17rcz8c3uwaf3ktf0e0d8q0jw4k3dm8z22eer96', //contract address
   transactionHash:'0xb7a41f72d555d4a2d9f2954fbdc5bbbb4c5ce89c836f8704276419ed416b3866', 
   transactionIndex: 0,
   events: {} 
@@ -309,12 +309,12 @@ There are two roles in the contract
 ### Crowdfunding Contract
 
 ```
-pragma solidity ^0.5.13;
+pragma solidity ^0.5.17;
 
 contract CrowdFunding {
-    address payable public beneficiaryAddress = address(0x0); //Beneficiary address, set as contract creator
-    uint256 public fundingGoal = 100 LAT;  //Crowdfunding target, unit is LAT
-    uint256 public amountRaised = 0; //The amount of money raised,the unit is VON
+    address payable public beneficiaryAddress = address(uint160(0)); //Beneficiary address, set as contract creator
+    uint256 public fundingGoal = 100 lat;  //Crowdfunding target, unit is lat
+    uint256 public amountRaised = 0; //The amount of money raised,the unit is von
     uint256 public deadline; 
     uint256 public price;  //token price
     bool public fundingGoalReached = false;  //Achieving crowdfunding goals flag
@@ -332,7 +332,7 @@ contract CrowdFunding {
     
     //Check if the address is empty
     modifier validAddress(address _address) {
-        require(_address != address(0x0));
+        require(_address != address(uint160(0)));
         _;
     }
 
@@ -347,7 +347,7 @@ contract CrowdFunding {
         uint _durationInMinutes
     )public {
 	    beneficiaryAddress = msg.sender;
-        fundingGoal = _fundingGoalInlats * 1 LAT;
+        fundingGoal = _fundingGoalInlats * 1 lat;
         deadline = now + _durationInMinutes * 1 minutes;
         price = 500 finney; //1个LAT币可以买 2 个代币
     }
@@ -469,7 +469,7 @@ Truffle-config.js content is  as follows:
 ```
 compilers: {
      solc: {
-        version: "0.5.13",    //same as the version declared in CrowdFunding.sol
+        version: "0.5.17",    //same as the version declared in CrowdFunding.sol
     }
 }
 ```
@@ -516,7 +516,7 @@ networks: {
        host: "10.1.1.6",     // blockchain server address
        port: 8806,            // server port
        network_id: "*",       // Any network (default: none)
-       from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", //the accout address of deploying contract
+       from: "lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc", //the accout address of deploying contract
        gas: 999999,
        gasPrice: 50000000004,
 	},
@@ -538,10 +538,10 @@ Compiling your contracts...
     Deploying 'CrowdFunding'
      transaction hash:    0x3a6419cd4169d7cfb430a1fc5632239ac4a01845827f20df9b3229a334c5488b
      Blocks: 0            Seconds: 0
-     contract address:    lax1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt //contract address
+     contract address:    lat1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt //contract address
      block number:        280532
      block timestamp:     1581751224032
-     account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
+     account:             lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc
      balance:             90000000.806077629992489796
      gas used:            379154
      gas price:           50.000000004 gVON
@@ -568,7 +568,7 @@ platon-truffle console
 
 ```
 var abi = [...]; //ABI of CrowdFunding contract,can get from build/contracts/CrowdFunding.json
-var contractAddr = 'lax1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt'; //CrowdFundsing contract address
+var contractAddr = 'lat1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt'; //CrowdFundsing contract address
 var crowdFunding = new web3.platon.Contract(abi,contractAddr);
 ```
 
@@ -581,7 +581,7 @@ crowdFunding.methods.amountRaised().call(null,function(error,result){console.log
 **Step4.**  Crowdfunder judge the success of crowdfunding
 
 ```
-crowdFunding.methods.safeWithdrawal().send({from:'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'}).on('data', function(event){ console.log(event);}).on('error', console.error); 
+crowdFunding.methods.safeWithdrawal().send({from:'lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc'}).on('data', function(event){ console.log(event);}).on('error', console.error); 
 ```
 
 Call contract command description:
