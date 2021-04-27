@@ -103,31 +103,7 @@ It can be viewed via PlatON [browser](https://scan.platon.network/tokens/tokensT
 
 ### Deploy
 
-Take platon-truffle as an example.
-
-- Preparation
-
-  1. To install platon-truffle, please refer to [official documentation of platon-truffle](https://platon-truffle.readthedocs.io/)
-
-  2. Create a truffle project directory, enter it, and initialize the truffle project with `platon-truffle init`
-
-- Compilation
-
-  1. Place the contract source code file (.sol) in the contracts directory
-  
-  2. Modify the compilers configuration item in truffle-config.js
-  
-  3. Exec `platon-truffle compile`
-
-- Deployment
-
-  1. Go to the migrations directory, copy 1_initial_migration.js and name it 2_template.js
-  
-  2. Modify the contents of 2_template.js by changing the contents of artifacts.require to the name of the contract binary you want to deploy (without the suffix)
-  
-  3. Modify the network configuration item in truffle-config.js
-  
-  4. exec `platon-truffle migrate --f 2 --to 2`
+please refer to [Solidity Contracts Getting Started Manual](/docs/en/Solidity_Dev_Manual#introduction)
 
 ### Invoking functions
 
