@@ -127,7 +127,7 @@ Take platon-truffle as an example.
   
   3. Modify the network configuration item in truffle-config.js
   
-  4. exec `platon-truffle migrate`
+  4. exec `platon-truffle migrate --f 2 --to 2`
 
 ### Invoking functions
 
@@ -135,11 +135,13 @@ Using python as an example:
 
 #### Installing Dependencies
 
-Use the following command to install the PlatON python library:
+Use the following command to install the PlatON python library,Python version 3.7.5+ is recommended:
 
 ``` shell
 pip install client-sdk-python
 ```
+
+During the installation process, some dependency packages will require c++14 compilation, please download [cppbuildtools](http://go.microsoft.com/fwlink/?LinkId=691126) after you see the relevant prompt, use the default value to install, and then re-execute the pip install command.
 
 #### Instantiation
 
@@ -149,45 +151,40 @@ from client_sdk_python import Web3, HTTPProvider
 rpc, chain_id, hrp = 'http://127.0.0.1:6789', 100, 'lat'
 w3 = Web3(HTTPProvider(rpc), chain_id=chain_id, hrp_type=hrp)
 abi = []			# ABI
-erc20 = w3.eth.contract(address='contract address', abi=abi)
+prc20 = w3.eth.contract(address='contract address', abi=abi)
+# View all functions and events of the contract
+print([func for func in prc20.functions])
+print([event for event in prc20.events])
 ```
 
 #### Query the total number of tokens issued
 ``` python
-erc20.functions.totalSupply().call()
+prc20.functions.totalSupply().call()
 ```
 
 #### Check the token balance of your account
 ``` python
-erc20.functions.balanceOf('you address').call()
+prc20.functions.balanceOf('you address').call()
 ```
 
 #### Transfer
 ``` python
 tx = {
     'chainId': w3.chain_id,
-    'nonce': w3.eth.getTransactionCount(account.address),
+    'nonce': w3.eth.getTransactionCount('your address'),
     'gas': 4012388,
     'value': 0,
     'gasPrice': 1000000000,
 }
-txn = erc20.functions.transfer(to='to address', value=1 * 10 ** 18).buildTransaction(tx)
-signed_txn = w3.eth.account.signTransaction(txn, private_key=private_key)
+txn = prc20.functions.transfer(to='to address', value=1 * 10 ** 18).buildTransaction(tx)
+signed_txn = w3.eth.account.signTransaction(txn, private_key='your private key')
 tx_hash = w3.eth.sendRawTransaction(signed_txn.rawTransaction).hex()
 receipt = w3.eth.waitForTransactionReceipt(tx_hash)
 ```
+#### Get contract events
 
-#### Authorize a 3rd to transfer a token from the token owner's account
+As an example of transfer transaction events, other events can be obtained in a similar way.
+
 ``` python
-tx = {
-    'chainId': w3.chain_id,
-    'nonce': w3.eth.getTransactionCount(account.address),
-    'gas': 4012388,
-    'value': 0,
-    'gasPrice': 1000000000,
-}
-txn = erc20.approve(owner='owner address', spender='spender address', value=1 * 10 ** 18).buildTransaction()
-signed_txn = w3.eth.account.signTransaction(txn, private_key=private_key)
-tx_hash = w3.eth.sendRawTransaction(signed_txn.rawTransaction).hex()
-w3.eth.waitForTransactionReceipt(tx_hash)
+events = prc20.events.Transfer().processReceipt(receipt)
 ```
