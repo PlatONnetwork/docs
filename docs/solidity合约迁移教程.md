@@ -8,7 +8,7 @@ sidebar_label: Migration tutorial
 
 ### Introduction
 
-The highest solidity version number supported by PlatON is 0.5.13. If you migrate contracts with versions above 0.5.13, you need to lower the version number and remove the syntax related to the higher version.
+The highest solidity version number supported by PlatON is (0.4.26 0.5.17 0.6.12 0.7.6 0.8.2). If you migrate contracts of other versions, you need to modify it to the corresponding version number and adjust the related syntax.
 
 If you want to migrate Ethereum's smart contract to PlatON, you can do this with the `platon-truffle` development tool. First, to make sure have `platon-truffle` installed correctly, just follow these steps.
 
@@ -73,7 +73,7 @@ contract ERC200513Token {
      */
     function _transfer(address _from, address _to, uint _value) internal returns (bool success){
         // Make sure the destination address is not 0x0, Because address 0x0 represents destruction
-        require(_to != address(0x0));
+        require(_to != address(uint160(0));
         // Check the sender balance
         require(balanceOf[_from] >= _value);
         // Make sure _value>0
@@ -226,7 +226,7 @@ module.exports = {
       host: "10.1.1.6",     // chain address
       port: 8806,            // chain rpc port
       network_id: "*",       // Any network (default: none)
-      from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", // the wallet address of deployment contract 
+      from: "lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc", // the wallet address of deployment contract 
       gas: 999999,
       gasPrice: 50000000004,	     
      },
@@ -288,10 +288,10 @@ Everything is up to date, there is nothing to compile.
    Deploying 'ERC200513Token'
      transaction hash:    0xa1770aecf4cffb0e75a172e06e75a9e9cb2d36bf89291b57d504e8c054985e99
      Blocks: 0            Seconds: 0
-     contract address:    lax1uetshtp4tp6l067tl02e4x435py9ajrfdhsrd4//new contract address
+     contract address:    lat1uetshtp4tp6l067tl02e4x435py9ajrfdhsrd4//new contract address
      block number:        265657
      block timestamp:     1581742216965
-     account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
+     account:             lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc
      balance:             90000000.826385379994114416
      gas used:            638876
      gas price:           50.000000004 gVON
