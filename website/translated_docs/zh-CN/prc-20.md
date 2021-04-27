@@ -118,7 +118,7 @@ PRC-20标准与ERC-20完全兼容，示例可参考[这里](https://github.com/O
   
   3. 修改 truffle-config.js 中的 network 配置项
   
-  4. 执行 `platon-truffle migrate`
+  4. 执行 `platon-truffle migrate --f 2 --to 2`
 
 ### 调用方法
 
@@ -126,59 +126,63 @@ PRC-20标准与ERC-20完全兼容，示例可参考[这里](https://github.com/O
 
 #### 安装依赖
 
-使用下列命令，安装PlatON python library:
+使用下列命令，安装PlatON python library，建议 Python 版本3.7.5+:
 
 ``` shell
 pip install client-sdk-python
 ```
 
+在安装过程中，部分依赖包会需要c++14 编译，请在看到相关提示后，下载[cppbuildtools](http://go.microsoft.com/fwlink/?LinkId=691126)，使用默认值安装后，重新执行pip安装命令即可。
+
 #### 实例化合约
+
+以下为python代码示例：
 
 ``` python
 from client_sdk_python import Web3, HTTPProvider
 
 rpc, chain_id, hrp = 'http://127.0.0.1:6789', 100, 'lat'
 w3 = Web3(HTTPProvider(rpc), chain_id=chain_id, hrp_type=hrp)
-abi = []			# 合约abi内容
-erc20 = w3.eth.contract(address='contract address', abi=abi)
+abi = []								# 合约abi内容
+prc20 = w3.eth.contract(address='contract address', abi=abi)
+# 查看合约所有的function 和 event
+print([func for func in prc20.functions])
+print([event for event in prc20.events])
 ```
 
-#### 查询令牌的总发行量
+#### 查询合约信息
+以totalSupply、balanceOf示例，其他查询方法与此类似：
+
 ``` python
-erc20.functions.totalSupply().call()
+# 查询令牌的总发行量
+prc20.functions.totalSupply().call()
+# 查询账户的令牌余额
+prc20.functions.balanceOf('your address').call()
 ```
 
-#### 查询账户的令牌余额
-``` python
-erc20.functions.balanceOf('you address').call()
-```
+#### 发送合约交易
+Using the transfer example, other transaction methods are similar.
 
-#### 转账令牌到指定账户
 ``` python
+# 转账令牌到指定账户
 tx = {
     'chainId': w3.chain_id,
-    'nonce': w3.eth.getTransactionCount(account.address),
+    'nonce': w3.eth.getTransactionCount('your address'),
     'gas': 4012388,
     'value': 0,
     'gasPrice': 1000000000,
 }
-txn = erc20.functions.transfer(to='to address', value=1 * 10 ** 18).buildTransaction(tx)
-signed_txn = w3.eth.account.signTransaction(txn, private_key=private_key)
+txn = prc20.functions.transfer(to='to address', value=1 * 10 ** 18).buildTransaction(tx)
+signed_txn = w3.eth.account.signTransaction(txn, private_key='your private key')
 tx_hash = w3.eth.sendRawTransaction(signed_txn.rawTransaction).hex()
 receipt = w3.eth.waitForTransactionReceipt(tx_hash)
 ```
 
-#### 授权第三方从令牌拥有者账户转账令牌
+#### 获取合约事件
+以transfer交易事件示例，其他事件获取方法与此类似：
+
 ``` python
-tx = {
-    'chainId': w3.chain_id,
-    'nonce': w3.eth.getTransactionCount(account.address),
-    'gas': 4012388,
-    'value': 0,
-    'gasPrice': 1000000000,
-}
-txn = erc20.approve(owner='owner address', spender='spender address', value=1 * 10 ** 18).buildTransaction()
-signed_txn = w3.eth.account.signTransaction(txn, private_key=private_key)
-tx_hash = w3.eth.sendRawTransaction(signed_txn.rawTransaction).hex()
-w3.eth.waitForTransactionReceipt(tx_hash)
+events = prc20.events.Transfer().processReceipt(receipt)
 ```
+
+
