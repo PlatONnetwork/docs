@@ -23,7 +23,7 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
 ## 进阶了解
 
 - [总体架构](/docs/zh-CN/PlatON_Overall_Solution)-在这里可以了解到PlatON作为隐私计算基础设施的总体架构设计，以及相关核心模块的介绍
-- [经济模型](/docs/zh-CN/Economic_Model)-在这里可以学习到PlatON经济模型设计原则和具体的经济模型方案，其中包括：
+- [经济模型](/docs/zh-CN/Economic_Model)-在这里可以学习到PlatON经济模型设计原则和具体的经济模型方案
 - [治理机制](/docs/zh-CN/PlatON_Governance_Solution)-在这里可以了解到如何在PlatON上发起一个提案，以及提案的投票机制
 - [共识机制](/docs/zh-CN/PlatON_Solution)-详细的PlatON共识机制介绍
 - [WASM虚拟机](/docs/zh-CN/Wasm_Operation_Principle)-详细解析了为什么PlatON引入WASM虚拟机，WASM运行机理、优势与使用

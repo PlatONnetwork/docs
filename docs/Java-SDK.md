@@ -2622,7 +2622,7 @@ $ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
 `bin`，Output a hex-encoded solidity binary file to provide transaction requests.
 `abi`，Output a solidity application binary interface (`ABI`) file, which details all publicly accessible contract methods and their related parameters. The `abi` file is also used to generate the Java wrapper class corresponding to the solidity smart contract.
 
-* Compile solidity source code with `platon-truffle`([platon-truffle development tool installation reference](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html#)|[platon-truffle Development tool manual](https://platon-truffle.readthedocs.io/en/v0.13.1/))：
+* Compile solidity source code with `platon-truffle`([platon-truffle development tool installation reference](https://platon-truffle.readthedocs.io/en/v1.0.0/getting-started/installation.html#)|[platon-truffle Development tool manual](https://platon-truffle.readthedocs.io/en/v1.0.0/))：
 
 > **step1.** Initialize the project with platon-truffle
 
@@ -2835,7 +2835,7 @@ After successful compilation, `<contract> .wasm` and` <contract> .abi.json` file
 `wasm`，Output binary file of WASM contract to provide transaction request.
 `abi.json`，Which details all publicly accessible contract methods and their related parameters. The `abi` file is also used to generate the Java wrapper class corresponding to the WASM smart contract.
 
-* Compile WASM source code with `platon-truffle`([platon-truffle development tool installation reference](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html#)|[platon-truffle Development tool manual](https://platon-truffle.readthedocs.io/en/v0.13.1/))
+* Compile WASM source code with `platon-truffle`([platon-truffle development tool installation reference](https://platon-truffle.readthedocs.io/en/v1.0.0/getting-started/installation.html#)|[platon-truffle Development tool manual](https://platon-truffle.readthedocs.io/en/v1.0.0/))
 
 ### WASM Smart Contract Java Packaging Class
 

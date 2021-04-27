@@ -15,8 +15,8 @@ sidebar_label: 合约入门手册
 
 platon-truffle是PlatON提供的一款能够在本地编译、部署、调用智能合约的工具，具体的安装及使用手册参见
 
-- platon-truffle开发工具[安装参考](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html)
-- platon-truffle开发工具[使用手册](https://platon-truffle.readthedocs.io/en/v0.13.1/)
+- platon-truffle开发工具[安装参考](https://platon-truffle.readthedocs.io/en/v1.0.0/getting-started/installation.html)
+- platon-truffle开发工具[使用手册](https://platon-truffle.readthedocs.io/en/v1.0.0/)
 
 
 ### 创建HelloWorld合约
