@@ -86,7 +86,7 @@ contract PRC20 {
 
 ### 示例
 
-PRC-20标准与ERC-20完全兼容，示例可参考[这里](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/9b3710465583284b8c4c5d2245749246bb2e0094/contracts/token/ERC20).
+PRC-20标准与ERC-20完全兼容，示例可参考[这里](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/9b3710465583284b8c4c5d2245749246bb2e0094/contracts/token/ERC20)。
 
 ### 查看
 
