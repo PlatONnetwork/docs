@@ -1,7 +1,7 @@
 ---
 id: PlatON_Solution
-title: Consensus mechanism
-sidebar_label: Consensus mechanism
+title: PlatON Consensus Solution
+sidebar_label: PlatON Consensus Solution
 ---
 
 ##  Summary
@@ -68,19 +68,19 @@ As shown in Figure 2, view-change will have three phases, namely view-change, vi
 
 #### Communication complexity
 
-PBFT is an agreement based on a three-phase voting process. In the prepare and commit phases, each node needs to broadcast its own prepare or commit message, so the communication complexity is $ O(n^2) $.
+PBFT is an agreement based on a three-phase voting process. In the prepare and commit phases, each node needs to broadcast its own prepare or commit message, so the communication complexity is $$ O(n^2) $$.
 
-During the view-change process, all replica nodes are required to time out first, and then a consensus is reached on view-change. Then, they let the new master node know about the reached consensus. The new master node will broadcast this message to announce view-change, so the communication complexity of view-change is $O(n^3)$.
+During the view-change process, all replica nodes are required to time out first, and then a consensus is reached on view-change. Then, they let the new master node know about the reached consensus. The new master node will broadcast this message to announce view-change, so the communication complexity of view-change is $$O(n^3)$$.
 
-The communication complexity of up to $O(n^3)$ undoubtedly has a serious impact on the consensus efficiency of PBFT, which greatly limits the scalability of PBFT.
+The communication complexity of up to $$O(n^3)$$ undoubtedly has a serious impact on the consensus efficiency of PBFT, which greatly limits the scalability of PBFT.
 
 ### Optimization of BFT protocol
 
-How to reduce the communication complexity of $O(n^3)$ to $O(n)$ and improve the efficiency of consensus is the challenge that the blockchain BFT consensus protocol faces. There are several approaches to optimize BFT consensus efficiency:
+How to reduce the communication complexity of $$O(n^3)$$ to $$O(n)$$ and improve the efficiency of consensus is the challenge that the blockchain BFT consensus protocol faces. There are several approaches to optimize BFT consensus efficiency:
 
 #### Aggregation signature
 
-E. Kokoris-Kogias et al. proposed in their paper the method of using aggregate signatures in the consensus mechanism. The **ByzCoin** [4] mentioned in the paper replaced the original MAC used by PBFT with a digital signature to reduce the communication delay from $O(n^2)$ to $O(n)$. The communication complexity is further reduced to $O(logn)$. But ByzCoin still has limitations in terms of malicious master node or 33% fault tolerance.
+E. Kokoris-Kogias et al. proposed in their paper the method of using aggregate signatures in the consensus mechanism. The **ByzCoin** [4] mentioned in the paper replaced the original MAC used by PBFT with a digital signature to reduce the communication delay from $$O(n^2)$$ to $$O(n)$$. The communication complexity is further reduced to $$O(logn)$$. But ByzCoin still has limitations in terms of malicious master node or 33% fault tolerance.
 
 After that, some public chain projects, such as **Zilliqa** [5], etc., based on this idea, adopted the EC-Schnorr multi-signature algorithm to improve the message passing efficiency in the Prepare and Commit stages of the PBFT process.
 
@@ -88,23 +88,23 @@ After that, some public chain projects, such as **Zilliqa** [5], etc., based on 
 
 PBFT uses all-to-all messages that creates $O(n)$ communication complexity.
 
-SBFT (Scale optimized PBFT) [6] proposed a linear communication mode using a collector. In this mode, the message is no longer sent to each node, but to the collector, and then broadcasted by the collector to all nodes. Further more, the message length can be reduced from linear to constant by using threshold signatures, which reduces the total overhead to $O(n)$.
+SBFT (Scale optimized PBFT) [6] proposed a linear communication mode using a collector. In this mode, the message is no longer sent to each node, but to the collector, and then broadcasted by the collector to all nodes. Further more, the message length can be reduced from linear to constant by using threshold signatures, which reduces the total overhead to $$O(n)$$.
 
-Tendermint [7] uses a gossip all-to-all mechanism, so $O(nlogn)$ messages and $O(n)$ words under optimistic conditions.
+Tendermint [7] uses a gossip all-to-all mechanism, so $$O(nlogn)$$ messages and $$O(n)$$ words under optimistic conditions.
 
 #### view-change process optimization
 
 All BFT protocols change the master node through view-change. Protocols such as PBFT and SBFT have independent view-change processes, which are triggered when there is a problem with the master node. In Tendermint, HostStuff [8] and other protocols, there is no explicit view-change process. The view-change process is integrated into the normal process, so the efficiency of view-change is improved, and the communication complexity of view-change is reduced.
 
-Tendermint integrates round-change (similar to view-change) into the normal process, so round-change is the same as the normal block message commit process. There is no separate view-change process like PBFT, so the communication complexity is reduced to $ O(n^2) $.
+Tendermint integrates round-change (similar to view-change) into the normal process, so round-change is the same as the normal block message commit process. There is no separate view-change process like PBFT, so the communication complexity is reduced to $$ O(n^2) $$.
 
-HotStuff refers to Tendermint and also merges the view-change process with the normal process, that is, there is no longer a separate view-change process. By introducing a two-stage voting lock, and adopting a leader node set BLS aggregation signature, the communication complexity of view-change is reduced to $ O(n) $.
+HotStuff refers to Tendermint and also merges the view-change process with the normal process, that is, there is no longer a separate view-change process. By introducing a two-stage voting lock, and adopting a leader node set BLS aggregation signature, the communication complexity of view-change is reduced to $$ O(n) $$.
 
 #### Chained BFT
 
-Traditional BFT requires two rounds of consensus for each block. The communication complexity of $ O(n) $ can make the block reach prepareQC, but the communication complexity of $O(n^2)$ is required for the block to reach commitQC.
+Traditional BFT requires two rounds of consensus for each block. The communication complexity of $$ O(n) $$ can make the block reach prepareQC, but the communication complexity of $$O(n^2)$$ is required for the block to reach commitQC.
 
-Hotstuff changed the two-round synchronous BFT of the traditional BFT to a three-round chain BFT. There is no clear prepare and commit consensus phase. Each block only needs to perform one round of QC. The prepare phase of the latter block is the previous one. The pre-commit phase of the next block is the commit phase of the previous block. Each time the block is generated, it only requires communication complexity of $ O(n)$. Through the two rounds of communication complexity of $O(n)$, the previous $O(n^2)$ effect is achieved.
+Hotstuff changed the two-round synchronous BFT of the traditional BFT to a three-round chain BFT. There is no clear prepare and commit consensus phase. Each block only needs to perform one round of QC. The prepare phase of the latter block is the previous one. The pre-commit phase of the next block is the commit phase of the previous block. Each time the block is generated, it only requires communication complexity of $$O(n)$$. Through the two rounds of communication complexity of $$O(n)$$, the previous $$O(n^2)$$ effect is achieved.
 
 #### Pipelining and Concurrency
 
@@ -122,9 +122,9 @@ EOS [9] 's BFT-DPoS can be considered as a completely parallel pipelining soluti
 
 In the previous content, we analyzed the problems of the BFT consensus protocol and several mainstream optimized BFT consensus protocols. These BFT consensus protocols have achieved good research results in reducing communication complexity and block production efficiency, but there are still some room for improvement.
 
-- Compared to previous BFT, Although PBFT is more practical, due to the view-change overhead of $O(n^3)$, there is a big problem in scalability.
+- Compared to previous BFT, Although PBFT is more practical, due to the view-change overhead of $$O(n^3)$$, there is a big problem in scalability.
 
-- Tendermint merges round change with normal processes, simplifies view-change logic, and reduces the communication complexity of view-change to $ O(n^2) $, but needs to wait for a relatively large network delay to ensure activity.  Further more, Tendermint is still serially producing and confirming blocks. 
+- Tendermint merges round change with normal processes, simplifies view-change logic, and reduces the communication complexity of view-change to $$ O(n^2) $$, but needs to wait for a relatively large network delay to ensure activity.  Further more, Tendermint is still serially producing and confirming blocks. 
 
 - In EOS's BFT-DPOS consensus protocol, block producers can continuously produce several blocks, and the blocks are confirmed in parallel, which increases the block production speed. The block is confirmed using the BFT protocol, but only suitable for strong synchronized communication model.
 
@@ -138,7 +138,7 @@ Based on the partially synchronous mesh communication model, CBFT proposed a thr
 
 The normal process of CBFT is similar to Hotstuff, and it is divided into prepare, pre-comit, commit, and decide stages. However, CBFT has also made key improvements: batch blocks can be proposed in a view window continuously, and the production of the next block does not need to wait for the previous block to reach QC; block producer can product the next block in parallel while receiving the vote of the previous block, which greatly improves the block production speed.
 
-CBFT has a self-adaptive view-change mechanism: in a view window, when a node receives enough blocks and votes in favor (more than 2/3 of the nodes vote, that is, QC), it will automatically switch  to the next view, no view-change vote required. Otherwise, the node will start the view-change process  which can be completed within the communication complexity of $ O(n^2) $ by using the Hotstuff-like two-stage lock rules and BLS aggregation signatures.
+CBFT has a self-adaptive view-change mechanism: in a view window, when a node receives enough blocks and votes in favor (more than 2/3 of the nodes vote, that is, QC), it will automatically switch  to the next view, no view-change vote required. Otherwise, the node will start the view-change process  which can be completed within the communication complexity of $$ O(n^2) $$ by using the Hotstuff-like two-stage lock rules and BLS aggregation signatures.
 
 In normal network environment, CBFT will not trigger a view-change unless extreme network exception, so it will have less view-change  overhead than HotStuff.
 
@@ -211,7 +211,7 @@ In order to vote more securely, voting must comply with the following rules:
 <img src="/docs/img/en/PlatON_consensus_solution.assets/viewchange_timeout_seq.jpg" alt="viewchange_timeout_seq"/>
 
 <center> Figure 6 view-change process </center>
-Assuming that each time window allows a maximum of $n$ blocks, the view-change process is as follows:
+Assuming that each time window allows a maximum of $$n$$ blocks, the view-change process is as follows:
 
 1. If within the time window, the block n prepareQC is received, the local view + 1 is updated to enter the new normal process. In this case, if the new proposer reaches the QC of n, the first block of new view is broadcasted. The block, as shown in Figure 4, has a BlockNumber (n) +1 height and will carry a prepareQC for block n.
 2. If the time window expires, the node will first refuse to generate a new vote for the block of the current proposer, and at the same time does not receive the prepareQC of the block n, it sends a view-change <ViewNumber, HighestQCBlock> message, as shown in Figure 5.
@@ -239,7 +239,7 @@ Therefore, in CBFT, there are only two message types: prepare message and view-c
 
 ##### Block Reorganization
 
-Assume each view allows $n$ blocks to be generated. The current view $ V_i $ time window expires and the view switches to $ V_ {i+1} $. At this time, only part of blocks generated by $ V_i $ get QC, and some blocks will be reorganized, the reorganization rules are as follows:
+Assume each view allows $$n$$ blocks to be generated. The current view $$ V_i $$ time window expires and the view switches to $$ V_ {i+1} $$. At this time, only part of blocks generated by $$ V_i $$ get QC, and some blocks will be reorganized, the reorganization rules are as follows:
 
 - Blocks reached Pre-Commit state will be locked and cannot be reorganized. That is, if the current node has a Pre-Commit state block at height h, the current node cannot generate new blocks at height h, and cannot Vote on other blocks with height h.
 
@@ -348,10 +348,10 @@ Assume that the maximum network delay between nodes is T and the execution time 
 
 ### Communication complexity analysis
 
-* PBFT: Mesh network topology, using a two-stage voting protocol, messages are locked when they are in the prepared state, there is a separate view-change process, the communication complexity of the normal process is $ O(n^2) $, and the communication complexity of the view-change process is $ O(n^3) $.
-* Tendermint: Mesh network topology, using a two-stage voting protocol, messages are locked when they are in the prepared state, the view-change process is merged with the normal process, and the communication complexity is $ O(n^2) $.
-* Hotstuff star network topology, using a three-phase voting protocol, the message is locked when it reaches the pre-committed state, the ViewChange process is merged with the normal process, and the communication complexity is $O(n)$.
-* CBFT: mesh network topology, using a three-phase voting protocol, messages are locked when they reach the pre-committed state, the process of self-adaptive view-change, and the communication complexity is $ O(n^2) $.
+* PBFT: Mesh network topology, using a two-stage voting protocol, messages are locked when they are in the prepared state, there is a separate view-change process, the communication complexity of the normal process is $$ O(n^2) $$, and the communication complexity of the view-change process is $$ O(n^3)$$.
+* Tendermint: Mesh network topology, using a two-stage voting protocol, messages are locked when they are in the prepared state, the view-change process is merged with the normal process, and the communication complexity is $$ O(n^2) $$.
+* Hotstuff star network topology, using a three-phase voting protocol, the message is locked when it reaches the pre-committed state, the ViewChange process is merged with the normal process, and the communication complexity is $$O(n)$$.
+* CBFT: mesh network topology, using a three-phase voting protocol, messages are locked when they reach the pre-committed state, the process of self-adaptive view-change, and the communication complexity is $$ O(n^2) $$.
 
 ## Case Analysis
 
