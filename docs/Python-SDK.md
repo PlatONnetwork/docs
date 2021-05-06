@@ -1056,7 +1056,7 @@ For details on the introduction, creation, and compilation of evm and wasm contr
 
 The python sdk currently supports bin and abi formed after the evm and wasm contracts are compiled as contract data to interact with the PlatON blockchain.
 
-**(1)** The evm contract (created in solidity language) can be compiled, deployed, and invoked using platon-truffle. For details, please refer to [solidity compiler](https://github.com/PlatONnetwork/solidity) and [platon-truffle](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/ installation.html)
+**(1)** The evm contract (created in solidity language) can be compiled, deployed, and invoked using platon-truffle. For details, please refer to [solidity compiler](https://github.com/PlatONnetwork/solidity) and [platon-truffle](https://platon-truffle.readthedocs.io/en/v1.0.0/getting-started/ installation.html)
 **(2)** The wasm contract (created in C/C++/Rust and other languages) can be compiled, deployed, and invoked using PlatON-CDT or platon-truffle. For details, please refer to [PlatON-CDT Compiler](https://github.com/PlatONnetwork/PlatON-CDT/tree/feature/wasm)
 
 

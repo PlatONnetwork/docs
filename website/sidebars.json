@@ -77,7 +77,14 @@
 					"Samurai_API"
 				]
 			},
-			"Standard"
+			{
+				"type": "subcategory",
+				"label": "PRC Token",
+				"ids": [
+					"PRC20_contract",
+					"PRC721_contract"
+				]
+			}
 		],
 		"Data and analytics": [
 			"PlatON_BlockChain_Browser",

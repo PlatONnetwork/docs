@@ -19,14 +19,14 @@ sidebar_label: 合约入门手册
 
 platon-truffle是PlatON提供的一款能够在本地编译、部署、调用智能合约的工具，具体的安装及使用手册参见
 
-- platon-truffle开发工具[安装参考](https://platon-truffle.readthedocs.io/en/v0.13.1/getting-started/installation.html)
-- platon-truffle开发工具[使用手册](https://platon-truffle.readthedocs.io/en/v0.13.1/)
+- platon-truffle开发工具[安装参考](https://platon-truffle.readthedocs.io/en/v1.0.0/getting-started/installation.html)
+- platon-truffle开发工具[使用手册](https://platon-truffle.readthedocs.io/en/v1.0.0/)
 
 
 ### 创建HelloWorld合约
 
 ```solidity
-pragma solidity ^0.5.13;
+pragma solidity ^0.5.17;
 
 contract HelloWorld {
     
@@ -45,10 +45,10 @@ contract HelloWorld {
 
 合约文件说明
 
-- pragma solidity ^0.5.13
+- pragma solidity ^0.5.17
     -	pragma solidity：是solidity版本声明
-         0.5.13：代表solidity版本
-         ^ ：表示向上兼容,即可以用0.5.13以上版本编译器进行编译
+         0.5.17：代表solidity版本
+         ^ ：表示向上兼容,即可以用0.5.17以上版本编译器进行编译
 - contract HelloWorld
     -	contract：合约声明的关键字
          HelloWorld：当前合约的名称
@@ -106,7 +106,7 @@ truffle-config.js 修改部分内容如下：
 ```
 compilers: {
       solc: {
-            version: "^0.5.13",    // 此版本号与HelloWorld.sol中声明的版本号保持一致
+            version: "^0.5.17",    // 此版本号与HelloWorld.sol中声明的版本号保持一致
       }
 }
 ```
@@ -148,7 +148,7 @@ networks: {
        host: "10.1.1.6",     // 区块链所在服务器主机
        port: 8806,            // 链端口号
        network_id: "*",       // Any network (default: none)
-       from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", //部署合约账号的钱包地址
+       from: "lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc", //部署合约账号的钱包地址
        gas: 999999,
        gasPrice: 50000000004,
 	},
@@ -168,7 +168,7 @@ web3.platon.personal.importRawKey("您的钱包私钥","您的钱包密码");
 ```
 导入成功将看到私钥对应的地址：
 ```
-'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'
+'lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc'
 ```
 
 解锁钱包账户
@@ -195,13 +195,13 @@ platon-truffle migrate
    ----------------------
    > transaction hash:    0x87cd48cc467f9bc943fd096c57c8a7e7b7fa941380538d9e59797800c6c4292c
    > Blocks: 0            Seconds: 0
-   > contract address:    lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07
+   > contract address:    lat17rcz8c3uwaf3ktf0e0d8q0jw4k3dm8z22eer96
    > block number:        282520
    > block timestamp:     1585535169200
-   > account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
+   > account:             lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc
    > balance:             16447231233352977496646259638377769924557918764752765436645.336513079692286014
    > gas used:            145569
-   > gas price:           1 gvon
+   > gas price:           50.000000004 gvon
    > value sent:          0 LAT
    > total cost:          0.000145569 LAT
 
@@ -231,7 +231,7 @@ platon-truffle console
 ```json
 var abi = [{"constant":false,"inputs":[{"internalType":"string","name":"_name","type":"string"}],"name":"setName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getName","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]; //可以从HelloWorld/build/contracts/HelloWorld.json文件中获取到
 
-var contractAddr = 'lax1h95ywjy3jwt047ph697cuuqqn4d6jyrah7fw07';//部署合约时的获取的地址
+var contractAddr = 'lat17rcz8c3uwaf3ktf0e0d8q0jw4k3dm8z22eer96';//部署合约时的获取的地址
 var helloWorld = new web3.platon.Contract(abi,contractAddr); 
 ```
 
@@ -243,7 +243,7 @@ var helloWorld = new web3.platon.Contract(abi,contractAddr);
 **step3.**  调用合约
 
 ```javascript
-helloWorld.methods.setName("hello world").send({from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'}).on('receipt', function(receipt) {console.log(receipt);}).on('error', console.error);
+helloWorld.methods.setName("hello world").send({from: 'lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc'}).on('receipt', function(receipt) {console.log(receipt);}).on('error', console.error);
  
 ```
 
@@ -262,12 +262,12 @@ helloWorld.methods.setName("hello world").send({from: 'lax1uqug0zq7rcxddndleq4ux
   blockNumber: 283911,
   contractAddress: null,
   cumulativeGasUsed: 44820,
-  from: 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl',
+  from: 'lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc',
   gasUsed: 44820,
   logsBloom:
 '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   status: true,
-  to: '0x0680df2d6e38e5a6c89e3856836e017c6572dab2',//交易调用的合约地址
+  to: 'lat17rcz8c3uwaf3ktf0e0d8q0jw4k3dm8z22eer96',//交易调用的合约地址
   transactionHash:
    '0x2b381a8efab4774ae029fdf2e2585b48c03c033c64d543c9c606c925689fca31',//交易hash
   transactionIndex: 0,
@@ -313,12 +313,12 @@ helloWorld.methods.getName().call(null,function(error,result){console.log("name 
 ### 众筹合约
 
 ```
-pragma solidity ^0.5.13;
+pragma solidity ^0.5.17;
 
 contract CrowdFunding {
-    address payable public beneficiaryAddress = address(0x0); //受益人地址，设置为合约创建者
-    uint256 public fundingGoal = 100 LAT;  //众筹目标，单位是LAT
-    uint256 public amountRaised = 0; //已筹集金额数量， 单位是VON
+    address payable public beneficiaryAddress = address(uint160(0)); //受益人地址，设置为合约创建者
+    uint256 public fundingGoal = 100 lat;  //众筹目标，单位是lat
+    uint256 public amountRaised = 0; //已筹集金额数量， 单位是von
     uint256 public deadline; //截止时间
     uint256 public price;  //代币价格
     bool public fundingGoalReached = false;  //达成众筹目标
@@ -336,7 +336,7 @@ contract CrowdFunding {
     
     //校验地址是否为空
     modifier validAddress(address _address) {
-        require(_address != address(0x0));
+        require(_address != address(uint160(0)));
         _;
     }
 
@@ -351,7 +351,7 @@ contract CrowdFunding {
         uint _durationInMinutes
     )public {
 	    beneficiaryAddress = msg.sender;
-        fundingGoal = _fundingGoalInlats * 1 LAT;
+        fundingGoal = _fundingGoalInlats * 1 lat;
         deadline = now + _durationInMinutes * 1 minutes;
         price = 500 finney; //1个LAT币可以买 2 个代币
     }
@@ -473,7 +473,7 @@ truffle-config.js 修改部分内容如下
 ```
 compilers: {
      solc: {
-        version: "0.5.13",    // 此版本号与CrowdFunding.sol中声明的版本号保持一致
+        version: "0.5.17",    // 此版本号与CrowdFunding.sol中声明的版本号保持一致
     }
 }
 ```
@@ -520,7 +520,7 @@ networks: {
        host: "10.1.1.6",     // 区块链所在服务器主机
        port: 8806,            // 链端口号
        network_id: "*",       // Any network (default: none)
-       from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", //部署合约账号的钱包地址
+       from: "lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc", //部署合约账号的钱包地址
        gas: 999999,
        gasPrice: 50000000004,
 	},
@@ -542,10 +542,10 @@ Compiling your contracts...
     Deploying 'CrowdFunding'
      transaction hash:    0x3a6419cd4169d7cfb430a1fc5632239ac4a01845827f20df9b3229a334c5488b
      Blocks: 0            Seconds: 0
-     contract address:    lax1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt //部署后的合约地址
+     contract address:    lat1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt //部署后的合约地址
      block number:        280532
      block timestamp:     1581751224032
-     account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
+     account:             lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc
      balance:             90000000.806077629992489796
      gas used:            379154
      gas price:           50.000000004 gVON
@@ -570,7 +570,7 @@ platon-truffle console
 **step2.**  构建的众筹合约对象
 ```
 var abi = [...]; //众筹合约的ABI，从编译后的文件获取
-var contractAddr = 'lax1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt'; //众筹合约地址
+var contractAddr = 'lat1qtgycm7jkrq8csa2rgef6enlru0u02g8u82kpt'; //众筹合约地址
 var crowdFunding = new web3.platon.Contract(abi,contractAddr);  
 ```
 
@@ -581,7 +581,7 @@ crowdFunding.methods.amountRaised().call(null,function(error,result){console.log
 
 **step4.**  众筹者判断众筹是否成功
 ```
-crowdFunding.methods.safeWithdrawal().send({from:'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'}).on('data', function(event){ console.log(event);}).on('error', console.error); 
+crowdFunding.methods.safeWithdrawal().send({from:'lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc'}).on('data', function(event){ console.log(event);}).on('error', console.error); 
 ```
 
 调用合约命令说明：

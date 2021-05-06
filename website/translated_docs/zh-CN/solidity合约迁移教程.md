@@ -6,13 +6,13 @@ sidebar_label: 迁移教程
 
 ### 简介
 
-PlatON支持的solidity最高版本号是0.5.13，如果迁移0.5.13以上版本的合约，需要降低版本号，去除高版本相关语法。
+PlatON支持的solidity版本号有(0.4.26 0.5.17 0.6.12 0.7.6 0.8.2)，如果迁移其它版本的合约，需要修改成对应版本号，并调整相关语法。
 
 如果您希望将以太坊的智能合约迁移到PlatON上，可以通过platon-truffle开发工具来进行。首先确保您正确安装了platon-truffle,只需按照以下步骤操作即可。
 
 以下将演示将以太坊的ERC200513Token合约迁移至PlatON上，ERC200513Token.sol合约文件如下
 ```
-pragma solidity 0.5.13;
+pragma solidity 0.5.17;
 
 contract ERC200513Token {
     string public name; // ERC20标准--代币名称
@@ -79,7 +79,7 @@ contract ERC200513Token {
      */
     function _transfer(address _from, address _to, uint _value) internal returns (bool success){
         // 确保目标地址不为0x0，因为0x0地址代表销毁
-        require(_to != address(0x0));
+        require(_to != address(uint160(0));
         // 检查发送者余额
         require(balanceOf[_from] >= _value);
         // 确保转移为正数个
@@ -218,7 +218,7 @@ ls contracts/
 ```
 
 - 将看到 ERC200513Token.sol
-- PlatON智能合约中的货币单位为LAT和VON。要将以太坊智能合约迁移至PlatON，请将以太币面额更改为PlatON面额。同时注意以太/LAT市场汇率（此合约我们假设市场汇率1:1，将uint256 public totalSupply = 10000000000000000000 ether; 修改成uint256 public totalSupply = 10000000000000000000 LAT; ）
+- PlatON智能合约中的货币单位为LAT和VON。要将以太坊智能合约迁移至PlatON，请将以太币面额更改为PlatON面额。同时注意以太/LAT市场汇率（此合约我们假设市场汇率1:1，将uint256 public totalSupply = 10000000000000000000 ether; 修改成uint256 public totalSupply = 10000000000000000000 lat; ）
 - PlatON智能合约中block.timestamp表示的是当前区块以毫秒为单位的时间戳，以太坊是以秒为单位。
 
 **step4.** 修改truffle-config.js中的编译版本号及链相关配置
@@ -230,7 +230,7 @@ module.exports = {
       host: "10.1.1.6",     // 链地址
       port: 8806,            // 链使用的rpc端口
       network_id: "*",       // Any network (default: none)
-      from: "lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl", //部署合约所使用的钱包地址
+      from: "lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc", //部署合约所使用的钱包地址
       gas: 999999,
       gasPrice: 50000000004,	     
      },
@@ -238,7 +238,7 @@ module.exports = {
 
   compilers: {
     solc: {
-       version: "^0.5.13",    // 编译合约所使用的solidity版本号，与合约定义版本一致
+       version: "0.5.17",    // 编译合约所使用的solidity版本号，与合约定义版本一致
        docker: false,        // Use "0.5.1" you've installed locally with docker
     }
   }
@@ -260,7 +260,7 @@ Compiling ./contracts/Migrations.sol
 Warning: This is a pre-release compiler version, please do not use it in production.
 Artifacts written to /home/guest/example/build/contracts
 Compiled successfully using: //表示编译成功
-  solc: 0.5.13-develop.2020.1.2+commit.9ff23752.mod.Emscripten.clang
+  solc: 0.5.17-develop.2020.1.2+commit.9ff23752.mod.Emscripten.clang
 ```
 
 **step6.** 添加合约部署配置文件
@@ -295,10 +295,10 @@ Everything is up to date, there is nothing to compile.
    --------------------------
    > transaction hash:    0x5667101234fcd3b9dadf96a19bce20d1b94d742e0fd8f3528c641fa587b17eb3
    > Blocks: 0            Seconds: 0
-   > contract address:    lax1uetshtp4tp6l067tl02e4x435py9ajrfdhsrd4
+   > contract address:    lat1uetshtp4tp6l067tl02e4x435py9ajrfdhsrd4
    > block number:        2153
    > block timestamp:     1585538899787
-   > account:             lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl
+   > account:             lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc
    > balance:             4499992.02433
    > gas used:            641243
    > gas price:           1 gvon
