@@ -37,8 +37,8 @@ PlatEye浏览器提供查看地址持仓排名功能。点击导航栏的区块�
 ## 浏览器公开API使用说明
 
 * 接口文档
-  * 文档说明: http://129.226.175.12:54444/file/docs/#/home
-  * BasePath: http://129.226.175.12:54444/alaya-api/
+  * 文档说明: https://api.alayascan.com/file/docs/#/home
+  * BasePath: https://api.alayascan.com/alaya-api/
   * 可以用postman进行接口的测试
 * 首页接口
   * 基础数据: /alaya-api/home/chainStatistic。推送ATP基础数据，如当前高度、出块节点ID等。

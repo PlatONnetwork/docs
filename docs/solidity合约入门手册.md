@@ -298,10 +298,10 @@ There are two roles in the contract
 
 ### Crowdfunding Process
 
-- 1.Creating a crowdfunding contract refers to the beneficiary.
-- 2.Deployment crowdfunding contract initializes the number and duration of crowdfunding tokens.
-- 3.Investors invest.
-- 4.Determine if crowdfunding is over.
+- 1. Creating a crowdfunding contract refers to the beneficiary.
+- 2. Deployment crowdfunding contract initializes the number and duration of crowdfunding tokens.
+- 3. Investors invest.
+- 4. Determine if crowdfunding is over.
     - If the crowdfunding time is not up and the number of crowdfunding tokens has been completed, turn off the crowdfunding switch, investors will be allocated tokens in proportion. Crowdfunding success.
     - If the crowdfunding time is up and the amount of crowdfunding tokens has been completed, investors will be allocated tokens in proportion. Crowdfunding success.
     - If the crowdfunding time is up and the number of crowdfunding tokens is not completed, the investor tokens will be returned. Crowdfunding failure.
@@ -349,7 +349,7 @@ contract CrowdFunding {
 	    beneficiaryAddress = msg.sender;
         fundingGoal = _fundingGoalInlats * 1 lat;
         deadline = now + _durationInMinutes * 1 minutes;
-        price = 500 finney; //1个LAT币可以买 2 个代币
+        price = 500 finney; //buy 2 tokens with 1 LAT
     }
 
 

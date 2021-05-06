@@ -59,9 +59,9 @@ The source of reward consists of two parts:
 
 Node reward consists of three parts:
 
-- [Block generation reward](/docs/en/Economic_Model#incentives): For each block produced, the validator will receive a fixed amount of LAT as a reward. 1/2 of the total annual node reward pool is used as block generation reward, which is distributed evenly based on the number of blocks per year (15,759,500).
+- [Block generation reward](/docs/en/Economic_Model#incentives): For each block produced, the validator will receive a fixed amount of LAT as a reward. 1/2 of the total annual node reward pool is used as block generation reward, which is distributed evenly based on the number of blocks per year (about 28,688,727).
 - [Transaction Fee](/docs/en/Economic_Model#incentives): The fees for packaging transactions are all charged by validators who package the blocks.
-- [Staking reward](/docs/en/Economic_Model#incentives): 1/2 of the total node reward pool is used as Staking reward, which is distributed evenly based on the number of Staking epochs per year (1466). Each staking epoch is (10,750 blocks, around 3 hours). Upon completion, the reward is distributed evenly to all alternative nodes.
+- [Staking reward](/docs/en/Economic_Model#incentives): 1/2 of the total node reward pool is used as Staking reward, which is distributed evenly based on the number of Staking epochs per year (about 2668). Each staking epoch is (10,750 blocks, around 3 hours). Upon completion, the reward is distributed evenly to all alternative nodes.
 
 #### [Delegator reward](/docs/en/Economic_Model#delegated-award)
 

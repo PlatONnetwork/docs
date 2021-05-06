@@ -1,18 +1,29 @@
-## 启动
 
-安装依赖包：`yarn install`
+<h1 align="left" style="margin-top: 1em; margin-bottom: 1em;">
+  <p>👋 Welcome to PlatON Documentation!</p>
+</h1>
 
-**将`editedJs/HeaderNav.js`替换`node_modules/docusaurus/lib/core/nav/HeaderNav.js`**
+This is the repo for the [devdocs.platon.network/docs](https://devdocs.platon.network/docs) website, a resource for the PlatON community. The purpose of the site is to be the best documentation portal to PlatON for our growing global community.
 
-启动命令：`yarn start`
+# Running Locally
 
-## 部署
-先进入到`website`目录，然后在`git bash`环境下执行命令：
-
-```shell
-GIT_USER=luo-dahui \yarn run publish-gh-pages
+## Clone the Repo
+```
+git clone https://github.com/PlatONnetwork/docs.git && \
+cd docs && \
+cd website
 ```
 
-> GIT_USER：为github用户名，具有提交到文档仓库的权限
->
-> publish-gh-pages：为部署到github pages的脚本，脚本会先build，然后将生成的网站文件推送到`ghpages`新分支上。
+## Install dependencies 
+Install [yarn](https://yarnpkg.com/en/). In `website` folder:
+
+ ```
+ yarn install
+ ```
+
+## Preview the site
+In `website` folder:
+```
+yarn start
+```
+Then you should be able to preview the website at `http://localhost:3000/` in your browser.
