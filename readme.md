@@ -1,5 +1,5 @@
 
-<h1 align="center" style="margin-top: 1em; margin-bottom: 1em;">
+<h1 align="left" style="margin-top: 1em; margin-bottom: 1em;">
   <p>👋 Welcome to PlatON Documentation!</p>
 </h1>
 
