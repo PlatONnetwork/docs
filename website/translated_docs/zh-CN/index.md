@@ -42,12 +42,12 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
 ### 开发者
 
 - [开发指南](/docs/zh-CN/PlatON_Overview_DevGuide)-介绍如何使用已有的工具和资源开发Dapp
-  - [开发网络](/docs/zh-CN/Become_PlatON_Dev_Verification)
-  - [私有网络](/docs/zh-CN/Build_Private_Chain)
-  - [Solidity合约](/docs/zh-CN/Solidity_Dev_Manual)
-  - [Wasm合约](/docs/zh-CN/Wasm_Operation_Principle)
-  - [API参考](/docs/zh-CN/Python_SDK)
-  - [PRC Token](/docs/zh-CN/PRC_Token)
+  - [开发网络](/docs/zh-CN/Become_PlatON_Dev_Verification)-介绍了如何使用开发网
+  - [私有网络](/docs/zh-CN/Build_Private_Chain)-在本地搭建你的私有网络来调试本地应用
+  - [Solidity合约](/docs/zh-CN/Solidity_Dev_Manual)-关于Solidity合约编写、编译、发布教程，以及一些合约开发建议
+  - [Wasm合约](/docs/zh-CN/Wasm_Operation_Principle)-关于Wasm合约的编写、编译、发布教程，以及一些合约开发建议
+  - [API参考](/docs/zh-CN/Python_SDK)-可以和PlatON网络交互的各类API、以及Web钱包API
+  - [PRC Token](/docs/zh-CN/PRC_Token)-PRC Token标准，目前支持PRC20和PRC721
 - [Grant计划](https://forum.latticex.foundation/t/topic/1092)-当你有一个好的想法，请让我们知道，并帮助你实现它
   - [Grant原则](https://forum.latticex.foundation/t/topic/4128)
   - [技术类Grant申请模板](https://forum.latticex.foundation/t/topic/4126)
@@ -57,8 +57,8 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
 
 ### 普通用户
 
-- [大使计划](https://forum.latticex.foundation/t/topic/4246)
-- [质押&委托](/docs/en/staking_and_delegation)
+- [大使计划](https://forum.latticex.foundation/t/topic/4246)-你可以作为大使为PlatON生态贡献力量
+- [质押&委托](/docs/en/staking_and_delegation)-介绍了什么是委托、什么是质押，以及相关收益问题
 - 社区资源资源：
   - [Facebook](https://www.facebook.com/PlatONNetwork/)
   - [Twitter](https://twitter.com/PlatON_Network)
