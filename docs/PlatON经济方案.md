@@ -163,7 +163,7 @@ According to the annual expected number of blocks for the additional period, LAT
 
 Therefore, the current additional period	 of LAT can be expressed as:
 
-$$f(x)=W\times(1+a\%)^x-1}\times a\%$$
+$$f(x)=W\times(1+a \\% )^{x-1}\times a \\% $$
 
 among them:
 
