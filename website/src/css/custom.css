@@ -1,0 +1,74 @@
+.navbar .navbar__inner,
+.docs-wrapper {
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+.menu__link {
+  white-space: nowrap;
+}
+
+/* footer */
+.footer__links {
+  margin-bottom: 3rem;
+}
+.row .col.footer__col:first-child {
+  flex-grow: 0;
+}
+.footer__col:first-child .footer__items {
+  width: 70px;
+}
+.footer-logo-home {
+  opacity: 0.4;
+}
+.footer-logo-home:hover {
+  opacity: 1;
+}
+.gitstar {
+  padding: 0 1em;
+}
+.footer__link-item,
+.footer__copyright {
+  color: var(--footer-link-color);
+}
+
+/* 社区项目 */
+
+.commmunity-table {
+  box-shadow: 0 2px 4px 2px #f2f2f5;
+}
+.commmunity-table tbody {
+  width: 100%;
+  display: table;
+}
+.commmunity-table td,
+.commmunity-table tr {
+  border: none;
+}
+.commmunity-table tr td:first-child {
+  width: 100px;
+  text-align: center;
+}
+.commmunity-table .color {
+  font-size: 20px;
+  color: #e40065;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.commmunity-table tr td:last-child {
+  padding-bottom: 10px;
+}
+.commmunity-table tr td {
+  vertical-align: middle;
+}
+
+/* moblie */
+.navbar__toggle {
+  color: #fff;
+}
+.navbar-sidebar {
+  background-color: #fff;
+}
+.navbar-sidebar__brand {
+  background-color: var(--ifm-navbar-background-color);
+}

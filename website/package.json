@@ -1,0 +1,26 @@
+{
+  "scripts": {
+    "examples": "docusaurus-examples",
+    "start": "docusaurus start",
+    "start:zh": "docusaurus start --locale zh-CN",
+    "serve": "docusaurus serve",
+    "build": "docusaurus build",
+    "publish-gh-pages": "docusaurus-publish",
+    "write-translations": "docusaurus-write-translations",
+    "version": "docusaurus-version",
+    "rename-version": "docusaurus-rename-version",
+    "swizzle": "docusaurus swizzle",
+    "clear": "docusaurus clear",
+    "deploy": "docusaurus deploy",
+    "docusaurus": "docusaurus"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "imagemin-gifsicle": "^7.0.0",
+    "@docusaurus/core": "2.0.0-alpha.75",
+    "@docusaurus/preset-classic": "2.0.0-alpha.75",
+    "clsx": "^1.1.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}

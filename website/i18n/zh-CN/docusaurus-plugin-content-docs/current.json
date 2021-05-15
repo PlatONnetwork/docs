@@ -1,0 +1,44 @@
+{
+  "sidebar.docs.category.Overview": {
+    "message": "概述"
+  },
+  "sidebar.docs.category.Basics": {
+    "message": "初步了解"
+  },
+  "sidebar.docs.category.Advanced": {
+    "message": "进阶了解"
+  },
+  "sidebar.docs.category.PlatON Node": {
+    "message": "PlatON节点"
+  },
+  "sidebar.docs.category.Tools for nodes": {
+    "message": "节点工具"
+  },
+  "sidebar.docs.category.Set up local environment": {
+    "message": "设置开发环境"
+  },
+  "sidebar.docs.category.Developers": {
+    "message": "开发者"
+  },
+  "sidebar.docs.category.Smart contrac": {
+    "message": "智能合约"
+  },
+  "sidebar.docs.category.Solidity contract": {
+    "message": "Solidity合约"
+  },
+  "sidebar.docs.category.Wasm contract": {
+    "message": "Wasm合约"
+  },
+  "sidebar.docs.category.References": {
+    "message": "API参考"
+  },
+  "sidebar.docs.category.Data and analytics": {
+    "message": "数据分析"
+  },
+  "sidebar.docs.category.Wallet": {
+    "message": "钱包"
+  },
+  "sidebar.docs.category.community": {
+    "message": "社区项目"
+  }
+}
