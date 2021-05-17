@@ -120,10 +120,11 @@ module.exports = {
     algolia: {
       apiKey: 'c2ce4863993980eb049b661be250c773',
       indexName: 'platon',
-      contextualSearch: true,
-      algoliaOptions: {
-        hitsPerPage: 10
-      }
+      resultsFooterComponent: null,
+      // contextualSearch: true,
+      // algoliaOptions: {
+      //   hitsPerPage: 10
+      // }
     }
   }
 };
