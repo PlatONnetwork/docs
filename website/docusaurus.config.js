@@ -2,7 +2,7 @@ module.exports = {
   title: 'PlatON',
   tagline: 'PlatON',
   url: 'https://luo-dahui.github.io/',
-  baseUrl: '/docs/',
+  baseUrl: process.env.BASE_URL || '/docs/',
   organizationName: 'luo-dahui',
   projectName: 'Docs',
   scripts: [
@@ -128,3 +128,4 @@ module.exports = {
     }
   }
 };
+// /en 路径兼容参考 https://github.com/facebook/docusaurus/issues/4723

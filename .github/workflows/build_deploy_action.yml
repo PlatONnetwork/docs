@@ -14,7 +14,7 @@ jobs:
     
     # 替换定制化js文件,生成静态文件
     - name: Build
-      run: cd website && npm install && npm run build
+      run: cd website && npm install && npm run build:all
     
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
