@@ -8,8 +8,8 @@
 import React, {useState, useRef, useCallback, useMemo} from 'react';
 import {createPortal} from 'react-dom';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import {useHistory} from '@docusaurus/router';
-import {useBaseUrlUtils} from '@docusaurus/useBaseUrl';
+// import {useHistory} from '@docusaurus/router';
+// import {useBaseUrlUtils} from '@docusaurus/useBaseUrl';
 import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
 import useSearchQuery from '@theme/hooks/useSearchQuery';
@@ -20,7 +20,6 @@ import {translate} from '@docusaurus/Translate';
 let DocSearchModal = null;
 
 function Hit({hit, children}) {
-  // autoAddBaseUrl
   return <Link to={hit.url} autoAddBaseUrl={false}>{children}</Link>;
 }
 
