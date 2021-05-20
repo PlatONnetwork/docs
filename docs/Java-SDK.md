@@ -2305,7 +2305,7 @@ CallResponse<Proposal>
   - BigInteger: endVotingBlock block height
   - BigInteger: newVersion
   - BigInteger: ID of the promotion proposal to be canceled by the toBeCanceled proposal
-  - BigInteger: activeBlock(if the vote passes) the effective block height(endVotingBlock + 20 + 4 * 250<effective block height<= endVotingBlock + 20 + 10 * 250)
+  - BigInteger: activeBlock(if the vote passes) the effective block height(endVotingBlock + 20 + 4 \* 250<effective block height<= endVotingBlock + 20 + 10 \* 250)
   - String: verifier
 
 - **Contract use**
@@ -2387,7 +2387,7 @@ CallResponse<List<Proposal>>
   - BigInteger: endVotingBlock block height
   - BigInteger: newVersion
   - String: ID of the promotion proposal to be canceled by the toBeCanceled proposal
-  - BigInteger: activeBlock(if the vote passes) the effective block height(endVotingBlock + 20 + 4 * 250<effective block height<= endVotingBlock + 20 + 10 * 250)
+  - BigInteger: activeBlock(if the vote passes) the effective block height(endVotingBlock + 20 + 4 \* 250<effective block height<= endVotingBlock + 20 + 10 \* 250)
   - String: verifier
 
 - **Contract use**
@@ -2548,7 +2548,7 @@ RestrictingPlanContract contract = RestrictingPlanContract.load(web3j, credentia
 
   - String: address lock position is released to the account
   - List&lt;RestrictingPlan&gt;: plan Locked plan list(array)
-    - epoch: indicates a multiple of the settlement cycle. The product of the number of blocks produced per settlement cycle indicates the release of locked funds at the height of the target block. If account is the incentive pool address, the period value is a multiple of 120(that is, 30 * 4). In addition, period, the number of blocks per cycle must be at least greater than the highest irreversible block height.
+    - epoch: indicates a multiple of the settlement cycle. The product of the number of blocks produced per settlement cycle indicates the release of locked funds at the height of the target block. If account is the incentive pool address, the period value is a multiple of 120(that is, 30 \* 4). In addition, period, the number of blocks per cycle must be at least greater than the highest irreversible block height.
     - amount: indicates the amount to be released on the target block.
 
 - **return value**

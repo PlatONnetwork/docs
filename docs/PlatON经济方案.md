@@ -197,7 +197,7 @@ PlatON adopts randomly selected nodes among the small-scale candidate nodes to p
 
 - Proposer
 
-  A consensus round produces 430 (43 validator * each validator produces 10 blocks in succession) blocks, 43 validators take turns to become proposers, and each validator has a block generation time of 20 seconds.
+  A consensus round produces 430 (43 validator \* each validator produces 10 blocks in succession) blocks, 43 validators take turns to become proposers, and each validator has a block generation time of 20 seconds.
 
 - Delegator
 
