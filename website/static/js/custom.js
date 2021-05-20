@@ -1,7 +1,14 @@
 // 首页重定向
-if(window.location.pathname == '/docs' || window.location.pathname == '/docs/'){
-  window.location.href = '/docs/en'
-}
+// let path = window.location.pathname;
+// let reg = /^\/docs\/(en|zh-CN)\//
+// if (path.indexOf('/docs/') == -1) {
+//   window.location.href = '/docs/en/';
+// } else if (!reg.test(path)) {
+//   window.location.href = '/docs/en/' + path.slice(6);
+// }
+// if(window.location.pathname == '/docs' || window.location.pathname == '/docs/'){
+//   window.location.href = '/docs/en'
+// }
 
 //数学公式  mathJax
 let isMathjaxConfig = false; // 防止重复调用Config，造成性能损耗

@@ -99,7 +99,7 @@ Refer [OpenZeppelin implementation](https://github.com/OpenZeppelin/openzeppelin
 
 ### View
 
-It can be viewed via PlatON [browser](https://scan.platon.network/tokens/tokensTranfer/prc20) and also via [ATON](https://devdocs.platon.network/docs/zh-CN/ ATON-user-manual/) to view the PRC-20 contract transactions.
+It can be viewed via PlatON [browser](https://scan.platon.network/tokens/tokensTranfer/prc20) and also via [ATON](/docs/en/ATON-user-manual/) to view the PRC-20 contract transactions.
 
 ### Deploy
 

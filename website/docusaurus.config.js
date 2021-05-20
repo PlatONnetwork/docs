@@ -8,7 +8,7 @@ module.exports = {
   scripts: [
     'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML',
     'https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js',
-    '/docs/js/custom.js'
+    '/docs/js/custom.js',
   ],
   i18n: {
     defaultLocale: 'en',
@@ -128,4 +128,4 @@ module.exports = {
     }
   }
 };
-// /en 路径兼容参考 https://github.com/facebook/docusaurus/issues/4723
+// /en 路径兼容参考 https://github.com/facebook/docusaurus/issues/4723, 暂时还不完美

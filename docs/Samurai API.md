@@ -17,7 +17,7 @@ Samurai是基于以太坊web钱包Metamask进行fork的，针对PlatON网络进�
 ### API列表
 
 #### PlatON JSON-RPC API
-有关PlatON JSON-RPC API的信息，请参阅[PlatON-Json-Rpc](/docs/zh-CN/Json_Rpc)
+有关PlatON JSON-RPC API的信息，请参阅[PlatON-Json-Rpc](/docs/en/Json_Rpc)
 
 比较重要的API方法如下：
 + platon_accounts
@@ -53,7 +53,7 @@ Promise {<pending>}
 ```
 
 #### Dapp开发集成
-在开发Dapp页面，由于Samurai在打开页面会注入alaya对象，因此在开发的时候可以通过javascript直接调用该对象完成对应的操作。需要web3a对象的引入及使用见[js-sdk文档](/docs/zh-CN/JS_SDK/)
+在开发Dapp页面，由于Samurai在打开页面会注入alaya对象，因此在开发的时候可以通过javascript直接调用该对象完成对应的操作。需要web3a对象的引入及使用见[js-sdk文档](/docs/en/JS_SDK/)
 
 下面例子展示的是比如点击一个页面按钮发起转账操作，在其后调用的对应的javascript脚本
 
