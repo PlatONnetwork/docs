@@ -1,3 +1,8 @@
+/**
+ * 开发时记得把 /static/js/custon.js 里面的重定向关闭
+ * 升级到这v2后， /en 路径兼容参考 https://github.com/facebook/docusaurus/issues/4723, 暂时还不完美
+ */
+
 module.exports = {
   title: 'PlatON',
   tagline: 'PlatON',
@@ -128,4 +133,3 @@ module.exports = {
     }
   }
 };
-// /en 路径兼容参考 https://github.com/facebook/docusaurus/issues/4723, 暂时还不完美

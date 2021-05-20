@@ -20,7 +20,7 @@ import {translate} from '@docusaurus/Translate';
 let DocSearchModal = null;
 
 function Hit({hit, children}) {
-  return <Link to={hit.url} autoAddBaseUrl={false}>{children}</Link>;
+  return <Link to={hit.url} autoAddBaseUrl={false} target="_self">{children}</Link>;
 }
 
 function ResultsFooter({state, onClose}) {
