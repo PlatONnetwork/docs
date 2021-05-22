@@ -52,15 +52,15 @@ export default function LocaleDropdownNavbarItem({
       href="#"
       mobile={mobile}
       label={
-        <span>
-          <IconLanguage
-            style={{
-              verticalAlign: 'text-bottom',
-              marginRight: 5,
-            }}
-          />
-          <span>{dropdownLabel}</span>
-        </span>
+        <span>{dropdownLabel}</span>
+        // <span>
+        //   <IconLanguage
+        //     style={{
+        //       verticalAlign: 'text-bottom',
+        //       marginRight: 5,
+        //     }}
+        //   />
+        // </span>
       }
       items={items}
     />

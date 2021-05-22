@@ -6,9 +6,6 @@ if (path.indexOf('/docs/') == -1) {
 } else if (!reg.test(path)) {
   window.location.href = '/docs/en/' + path.slice(6);
 }
-if(window.location.pathname == '/docs' || window.location.pathname == '/docs/'){
-  window.location.href = '/docs/en'
-}
 
 //数学公式  mathJax
 let isMathjaxConfig = false; // 防止重复调用Config，造成性能损耗
