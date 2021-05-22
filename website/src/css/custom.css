@@ -83,3 +83,27 @@ blockquote {
 .container {
   max-width: 100vw;
 }
+
+.markdown li {
+  list-style: none;
+}
+
+.markdown li p {
+  margin: 0;
+}
+
+.markdown li::before {
+  content: " ";
+  display: block;
+  position: relative;
+  left: -14px;
+  top: 16px;
+  width: 6px;
+  height: 4px;
+  border: 1px solid #ffb7d7;
+  background: #e40065;
+}
+
+a:not([href]) {
+  color: inherit;
+}

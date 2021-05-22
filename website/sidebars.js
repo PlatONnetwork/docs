@@ -19,7 +19,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'BasPlatON Nodeics',
+      label: 'PlatON Node',
       items: [
         'PlatON_Validation_Introduce',
         'Become_PlatON_Main_Verification',
