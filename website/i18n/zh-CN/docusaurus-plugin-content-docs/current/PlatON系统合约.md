@@ -1,6 +1,6 @@
 ---
 id: PlatON_system_contract
-title: PlatON系统合约
+title: 系统合约
 sidebar_label: 系统合约
 ---
 

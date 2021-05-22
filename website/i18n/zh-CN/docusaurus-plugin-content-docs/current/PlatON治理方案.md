@@ -1,7 +1,7 @@
 ---
 id: PlatON_Governance_Solution
-title: PlatON治理方案
-sidebar_label: PlatON治理方案
+title: 治理机制
+sidebar_label: 治理机制
 ---
 
 ## 概述

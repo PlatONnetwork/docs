@@ -1,7 +1,7 @@
 ---
 id: lat_introduced
-title: LAT介绍
-sidebar_label: LAT介绍
+title: 什么是LAT
+sidebar_label: 什么是LAT
 ---
 
 

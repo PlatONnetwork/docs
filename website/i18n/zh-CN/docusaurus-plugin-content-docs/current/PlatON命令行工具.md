@@ -1,7 +1,7 @@
 ---
 id: Command_Line_Tools
-title: PlatON命令行工具
-sidebar_label: PlatON命令行工具
+title: 命令行工具
+sidebar_label: 命令行工具
 ---
 
 ## PlatON命令行参数说明 

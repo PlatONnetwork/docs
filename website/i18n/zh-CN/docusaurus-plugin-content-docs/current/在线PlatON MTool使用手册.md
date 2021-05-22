@@ -1,7 +1,7 @@
 ---
 id: OnLine_MTool_Manual
-title: 在线PlatON MTool教程
-sidebar_label: 在线PlatON MTool教程
+title: MTool在线教程
+sidebar_label: MTool在线教程
 ---
 
 ## 简介

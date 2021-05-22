@@ -1,7 +1,7 @@
 ---
 id: Economic_Model
-title: PlatON经济方案
-sidebar_label: PlatON经济方案
+title: 经济模型
+sidebar_label: 经济模型
 ---
 
 ## 公链设计原则

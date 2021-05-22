@@ -1,7 +1,7 @@
 ---
 id: PlatON_Solution
-title: PlatON共识方案
-sidebar_label: PlatON共识方案
+title: 共识机制
+sidebar_label: 共识机制
 ---
 
 ## 概述

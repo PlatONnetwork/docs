@@ -1,7 +1,7 @@
 ---
 id: OffLine_MTool_Manual
-title: 离线PlatON MTool教程
-sidebar_label: 离线PlatON MTool教程
+title: MTool离线教程
+sidebar_label: MTool离线教程
 ---
 
 ## 简介
