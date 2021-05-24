@@ -109,3 +109,10 @@ blockquote {
 a:not([href]) {
   color: inherit;
 }
+
+.markdown > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
