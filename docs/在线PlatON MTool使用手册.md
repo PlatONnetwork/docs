@@ -117,8 +117,7 @@ platon_mtool account new staking
 >```shell
 >-name: staking
 >-type: NORMAL
->-address:
-lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr
+>-address: lat124xmsmd0uf5cvk7v3s36eytqezqsjfcxfw2lmr
 >-public key: 0x9521cd81ba28d5d1c23bb7ddb7042d146375203d35000c0289178027abd4dc09bca30257739df166201e73497485242f41d5f50d46bc3c7e4385f81bde560db0
 >Important write this Private Key in a safe place.
 >It is the important way to recover your account if you ever forget your password.
@@ -344,7 +343,7 @@ platon_mtool update_validator --config $PLATON_MTOOLDIR/validator/validator_conf
 
 ### Decommissioning operation
 
-<font color='red'>**It takes 168 settlement cycles to withdraw from the pledge, please be careful!**</font>
+**<font color='red'>It takes 168 settlement cycles to withdraw from the pledge, please be careful!</font>**
 
 - Command line
 

@@ -193,7 +193,7 @@ The voting result of the upgrade proposal is highly counted at the voting deadli
 
 - The total number of validators in the settlement period N: $ P_n $, and the number of validator-initiated upgrade votes is $ M_n $
 
-Then the final support rate: $SR=\frac{100\%\times \sum_{i=1}^{n}M_i}{\sum_{i=1}^{n}P_i-P_1\cap P_2 \cap ... \cap P_n}$
+Then the final support rate: $SR=\frac{100%\times \sum\_{i=1}^{n}M\_i}{\sum\_{i=1}^{n}P\_i-P\_1\cap P_2 \cap ... \cap P_n}$
 
 If $SR \geq 66.7%$, the proposal is voted through and the implementation phase is entered.
     

@@ -13,7 +13,7 @@ module.exports = {
   scripts: [
     'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML',
     'https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js',
-    '/docs/js/custom.js',
+    '/docs/js/custom.js'
   ],
   i18n: {
     defaultLocale: 'en',
@@ -62,6 +62,11 @@ module.exports = {
       // defaultMode: 'dark',
       disableSwitch: true
       // respectPrefersColorScheme: true,
+    },
+    // 高亮
+    prism: {
+      defaultLanguage: 'javascript',
+      // theme: require('prism-react-renderer/themes/dracula')
     },
     sidebarCollapsible: true,
     image: 'img/undraw_online.svg',
@@ -125,7 +130,7 @@ module.exports = {
     algolia: {
       apiKey: 'c2ce4863993980eb049b661be250c773',
       indexName: 'platon',
-      resultsFooterComponent: null,
+      resultsFooterComponent: null
       // contextualSearch: true,
       // algoliaOptions: {
       //   hitsPerPage: 10

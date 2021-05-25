@@ -20,7 +20,7 @@ Platon-truffle is a tool provided by PlatON that can compile, deploy, and invoke
 
 ### Create HelloWorld Contract
 
-```c++
+```cpp
 #include <platon/platon.hpp>
 #include <string>
 using namespace platon;

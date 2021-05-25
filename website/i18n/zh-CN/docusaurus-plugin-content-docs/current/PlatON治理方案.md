@@ -165,7 +165,7 @@ sidebar_label: 治理机制
 
 - 结算周期N内总备选节点数： $P_n$，备选节点发起升级投票数量为$M_n$
 
-则最后支持率：$SR=\frac{100\%\times \sum_{i=1}^{n}M_i}{\sum_{i=1}^{n}P_i-P_1\cap P_2 \cap ... \cap P_n}$
+则最后支持率：$SR=\frac{100%\times \sum\_{i=1}^{n}M\_i}{\sum\_{i=1}^{n}P\_i-P\_1\cap P_2 \cap ... \cap P_n}$
 
 若$SR \geq 66.7%$ ，则提案投票通过，进入实施阶段。
     

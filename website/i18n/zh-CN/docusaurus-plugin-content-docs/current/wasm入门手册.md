@@ -21,7 +21,7 @@ platon-truffle是PlatON提供的一款能够在本地编译、部署、调用智
 
 ### 创建HelloWorld合约
 
-```c++
+```cpp
 #include <platon/platon.hpp>
 #include <string>
 using namespace platon;
