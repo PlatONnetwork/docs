@@ -353,7 +353,7 @@ platon_mtool update_validator --config $PLATON_MTOOLDIR/validator/validator_conf
 
 ### 解质押操作
 
-<font color='red'>**解质押需要168个结算周期才能退出完成，请谨慎操作！**</font>
+**<font color='red'>解质押需要168个结算周期才能退出完成，请谨慎操作！</font>**
 
 - 执行命令
 

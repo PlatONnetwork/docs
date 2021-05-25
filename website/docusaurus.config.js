@@ -114,7 +114,7 @@ module.exports = {
               hrefzh: 'https://www.platon.network/'
             },
             {
-              label: 'Lattice.Foundation',
+              label: 'LatticeX.Foundation',
               href: 'https://latticex.foundation/home',
               hrefzh: 'https://latticex.foundation/home'
             },
