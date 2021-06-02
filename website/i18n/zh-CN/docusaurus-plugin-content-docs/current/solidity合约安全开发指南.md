@@ -156,7 +156,7 @@ contract TxAttackWallet {
 
 一般来说，阅读关于二的补码表示的限制，它甚至对有符号数有一些更特殊的边界情况。
 
-尝试使用 `require` 将输入的大小限制在合理的范围内，并使用 [SMT checker](https://solidity.readthedocs.io/en/latest/layout-of-source-files.html#smt-checker) 查找潜在的溢出，或使用类似的库 [SafeMath](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/math/SafeMath.sol) ，如果希望所有溢出都能还原。
+尝试使用 `require` 将输入的大小限制在合理的范围内，并使用 [SMT checker](https://solidity.readthedocs.io/en/latest/layout-of-source-files.html#smt-checker) 查找潜在的溢出，或使用类似的库 [SafeMath](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v2/contracts/math/SafeMath.sol) ，如果希望所有溢出都能还原。
 
 代码 `require((balanceOf[_to] + _value) >= balanceOf[_to])` 还可以检查值是否符合期望。
 
@@ -191,7 +191,7 @@ contract Map {
 
 考虑上面的示例和以下调用顺序: `allocate(10)`, `writeMap(4, 128, 256)`. 此时, 调用 `readMap(4, 128)` 返回256。如果调用 `eraseMaps`，状态变量 `array` 的长度是0, 但它的 `mapping` 元素没有清零, 它们的信息仍然存储在合约的存储区。删除数组之后, 调用 `allocate(5)` 允许我们再次访问 `array[4]` , 此时即使不调用 `writeMap`，当调用 `readMap(4, 128)` 仍然会返回256。
 
-如果必须删除`mapping`信息, 可以考虑使用类似 [iterable mapping](https://github.com/ethereum/dapp-bin/blob/master/library/iterable_mapping.sol)库，从而允许遍历键并在适当的`mapping`中删除其值。
+如果必须删除`mapping`信息, 可以考虑使用类似 [iterable mapping](https://github.com/ethereum/dapp-bin/blob/v2/library/iterable_mapping.sol)库，从而允许遍历键并在适当的`mapping`中删除其值。
 
 #### 权限控制错误
 
@@ -279,7 +279,7 @@ function initContract() public OnlyOwner {
 
 #### 其他
 
-1. [更多安全建议](https://github.com/guylando/KnowledgeLists/blob/master/EthereumSmartContracts.md)
+1. [更多安全建议](https://github.com/guylando/KnowledgeLists/blob/v2/EthereumSmartContracts.md)
 2. [合约最佳实践](https://consensys.github.io/smart-contract-best-practices/)
 
 ### 安全工具

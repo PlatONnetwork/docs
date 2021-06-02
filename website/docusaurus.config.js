@@ -41,11 +41,11 @@ module.exports = {
           editUrl: ({ locale, versionDocsDirPath, docPath }) => {
             // Link to Crowdin for French docs
             if (locale !== 'en') {
-              // return `https://github.com/PlatONnetwork/docs/tree/master/website/translated_docs/${locale}/${docPath}`;
-              return `https://github.com/PlatONnetwork/docs/tree/master/website/i18n/${locale}/docusaurus-plugin-content-docs/current/${docPath}`;
+              // return `https://github.com/PlatONnetwork/docs/tree/v2/website/translated_docs/${locale}/${docPath}`;
+              return `https://github.com/PlatONnetwork/docs/tree/v2/website/i18n/${locale}/docusaurus-plugin-content-docs/current/${docPath}`;
             }
             // Github 的英文文档链接
-            return `https://github.com/PlatONnetwork/docs/tree/master/docs/${docPath}`;
+            return `https://github.com/PlatONnetwork/docs/tree/v2/docs/${docPath}`;
           }
         },
         blog: false,

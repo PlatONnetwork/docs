@@ -170,7 +170,7 @@ As in many programming languages, Solidity’s integer types are not actually in
 
 In general, read about the limits of two’s complement representation, which even has some more special edge cases for signed numbers.
 
-Try to use `require` to limit the size of inputs to a reasonable range and use the [SMT checker](https://solidity.readthedocs.io/en/latest/layout-of-source-files.html#smt-checker) to find potential overflows, or use a library like [SafeMath](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol) if you want all overflows to cause a revert.
+Try to use `require` to limit the size of inputs to a reasonable range and use the [SMT checker](https://solidity.readthedocs.io/en/latest/layout-of-source-files.html#smt-checker) to find potential overflows, or use a library like [SafeMath](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2/contracts/math/SafeMath.sol) if you want all overflows to cause a revert.
 
 Code such as `require((balanceOf[_to] + _value) >= balanceOf[_to])` can also help you check if values are what you expect.
 
@@ -205,7 +205,7 @@ contract Map {
 
 Consider the example above and the following sequence of calls: `allocate(10)`, `writeMap(4, 128, 256)`. At this point, calling `readMap(4, 128)` returns 256. If we call `eraseMaps`, the length of state variable `array` is zeroed, but since its `mapping` elements cannot be zeroed, their information stays alive in the contract’s storage. After deleting `array`, calling `allocate(5)` allows us to access `array[4]` again, and calling `readMap(4, 128)` returns 256 even without another call to `writeMap`.
 
-If your `mapping` information must be deleted, consider using a library similar to [iterable mapping](https://github.com/ethereum/dapp-bin/blob/master/library/iterable_mapping.sol), which allows you to traverse the keys and delete their values in the appropriate `mapping`.
+If your `mapping` information must be deleted, consider using a library similar to [iterable mapping](https://github.com/ethereum/dapp-bin/blob/v2/library/iterable_mapping.sol), which allows you to traverse the keys and delete their values in the appropriate `mapping`.
 
 #### Permission Control Error
 
@@ -293,7 +293,7 @@ The more people examine a piece of code, the more issues are found. Asking peopl
 
 #### Other
 
-1. [More Security Recommendations ](https://github.com/guylando/KnowledgeLists/blob/master/EthereumSmartContracts.md)
+1. [More Security Recommendations ](https://github.com/guylando/KnowledgeLists/blob/v2/EthereumSmartContracts.md)
 2. [Contract Best Practices](https://consensys.github.io/smart-contract-best-practices/)
 
 ### Security Tools

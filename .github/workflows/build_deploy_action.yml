@@ -1,5 +1,8 @@
 name: GitHub Actions Build and Deploy
 on:
+  pull_request:
+    branches:
+      - v2
   push:
     branches:
       - v2
@@ -20,5 +23,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
           ACCESS_TOKEN: ${{ secrets.BUILD_DEPLOY_ACTION }}
-          BRANCH: gh-pages-v2
+          BRANCH: gh-pages
           FOLDER: website/build
