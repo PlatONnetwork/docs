@@ -32,7 +32,7 @@ class Footer extends React.Component {
             PlatON network
             </a>
             <a href={this.expectUrl('Foundation', this.props.language)}>
-            Lattice.Foundation
+            LatticeX.Foundation
             </a>
             <a href={this.expectUrl('Forum', this.props.language)}>
             Forum
