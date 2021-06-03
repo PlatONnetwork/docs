@@ -4492,9 +4492,7 @@ For cancellation proposals, there are three states: `0x01`, `0x02`, `0x03`;
 |---|---|---|
 |Yeas|0x01|agree|
 |Nays|0x02|Against|
-|Abstentions|0x03|Abstain|
-
-Note: If the value of the VoteOption is not 0x01, 0x02, 0x03, then they are all treated as Abstentions.
+|Abstentions|Other values|Abstain|
 
 #### Proposal(TextProposal)
 
