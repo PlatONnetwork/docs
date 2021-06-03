@@ -4414,9 +4414,7 @@ reply = await ppos.send(params, other);
 |---|---|---|
 |Yeas|0x01|支持|
 |Nays|0x02|反对|
-|Abstentions|0x03|弃权|
-
-备注: 如果投票的值不是0x01、0x02、0x03，那么都是按 Abstentions处理。
+|Abstentions|其他值|弃权|
 
 **Proposal接口 提案定义**
 
