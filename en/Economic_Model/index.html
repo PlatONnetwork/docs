@@ -362,7 +362,7 @@ s, and the total number of Alternative Validator Candidates is unlimited. LAT ca
 <ul>
 <li><p>Block reward</p>
 <p>All validator nodes participating in consensus block production will receive block production rewards for the blocks produced. Block rewards are issued in real time based on the blocks that are produced. 50% of the reward pool is used for block rewards. The amount of block rewards for a single block is determined based on the balance of the reward pool at the beginning of each additional period, and the entire additional period remains unchanged. The reward for a single block in the $n$ additional period is as follows:</p>
-<p>$$B(n)=\frac{R_{v\times (n-1)}\times50%}{v}$$</p>
+<p>$$B(n)=\frac{R_{v\times (n-1)}\times 50 \%}{v}$$</p>
 <p>among them,</p>
 <p>$R_{v\times (n-1)}$: The balance of the bonus pool at the beginning of the n-th year additional period (block $v\times (n-1)$).</p>
 <p>$v$ : The number of blocks in the system's additional period is a non-fixed parameter. The total number of blocks generated in one year is calculated based on the average interval of block generation.</p></li>
@@ -371,7 +371,7 @@ s, and the total number of Alternative Validator Candidates is unlimited. LAT ca
 <li><p>Staking reward</p>
 <p>All candidate validator nodes in each epoch can get Staking rewards as the return of the pledge lock. 50% of the reward pool is used for Staking rewards. Staking rewards in a single epoch are determined at the beginning of each additional period based on the balance of the reward pool at that time, and the entire additional period is unchanged. Staking rewards are evenly distributed to the candidate nodes at the time (including the validator node of the current consensus round) in the settlement block.</p>
 <p>Staking rewards for each epoch of the current issuance period:</p>
-<p>$$S(n)=\frac{c\times R_{v\times (n-1)}\times50%}{v}$$</p>
+<p>$$S(n)=\frac{c\times R_{v\times (n-1)}\times 50 \%}{v}$$</p>
 <p>On the settlement block, assuming that the number of candidate nodes in the current epoch is $m$, the Staking reward for each candidate node in the current  epoch:</p>
 <p>$$I(n)=\frac{S(n)}{m}$$</p>
 <p>among them,</p>
