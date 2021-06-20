@@ -198,7 +198,7 @@ assertThat(hex, is(<span class="hljs-string">"0x4f9c1a1efaa7d81ba1cabf07f2c3a5ac
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, Web3ClientVersion&gt; request = currentValidWeb3j.web3ClientVersion();
+Request &lt;?, Web3ClientVersion&gt; request = platonWeb3j.web3ClientVersion();
 String version = request.send().getWeb3ClientVersion();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="web3sha3"></a><a href="#web3sha3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>web3Sha3</h3>
@@ -219,7 +219,7 @@ String version = request.send().getWeb3ClientVersion();
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 String date = <span class="hljs-string">""</span>;
 Request &lt;?, Web3Sha3&gt; request = currentValidWeb3j.web3Sha3(date);
-String resDate = request.send().getWeb3ClientVersion();
+String resDate = request.send().getResult();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="netversion"></a><a href="#netversion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>netVersion</h3>
 <blockquote>
@@ -237,7 +237,7 @@ String resDate = request.send().getWeb3ClientVersion();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, NetVersion&gt; request = currentValidWeb3j.netVersion();
+Request &lt;?, NetVersion&gt; request = platonWeb3j.netVersion();
 String version = request.send().getNetVersion();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="netlistening"></a><a href="#netlistening" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>netListening</h3>
@@ -256,7 +256,7 @@ String version = request.send().getNetVersion();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, NetListening&gt; request = currentValidWeb3j.netListening();
+Request &lt;?, NetListening&gt; request = platonWeb3j.netListening();
 <span class="hljs-keyword">boolean</span> req = request.send().isListening();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="netpeercount"></a><a href="#netpeercount" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>netPeerCount</h3>
@@ -275,7 +275,7 @@ Request &lt;?, NetListening&gt; request = currentValidWeb3j.netListening();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, NetPeerCount&gt; request = currentValidWeb3j.netPeerCount();
+Request &lt;?, NetPeerCount&gt; request = platonWeb3j.netPeerCount();
 BigInteger req = request.send().getQuantity();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonprotocolversion"></a><a href="#platonprotocolversion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonProtocolVersion</h3>
@@ -294,7 +294,7 @@ BigInteger req = request.send().getQuantity();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, PlatonProtocolVersion&gt; request = currentValidWeb3j.platonProtocolVersion();
+Request &lt;?, PlatonProtocolVersion&gt; request = platonWeb3j.platonProtocolVersion();
 String req = request.send().getProtocolVersion();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonsyncing"></a><a href="#platonsyncing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonSyncing</h3>
@@ -313,7 +313,7 @@ String req = request.send().getProtocolVersion();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, PlatonSyncing&gt; request = currentValidWeb3j.platonSyncing();
+Request &lt;?, PlatonSyncing&gt; request = platonWeb3j.platonSyncing();
 <span class="hljs-keyword">boolean</span> req = request.send().isSyncing();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platongasprice"></a><a href="#platongasprice" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonGasPrice</h3>
@@ -332,7 +332,7 @@ Request &lt;?, PlatonSyncing&gt; request = currentValidWeb3j.platonSyncing();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, PlatonGasPrice&gt; request = currentValidWeb3j.platonGasPrice();
+Request &lt;?, PlatonGasPrice&gt; request = platonWeb3j.platonGasPrice();
 BigInteger req = request.send().getGasPrice();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonaccounts"></a><a href="#platonaccounts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonAccounts</h3>
@@ -351,7 +351,7 @@ BigInteger req = request.send().getGasPrice();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, PlatonAccounts&gt; request = currentValidWeb3j.platonAccounts();
+Request &lt;?, PlatonAccounts&gt; request = platonWeb3j.platonAccounts();
 List&lt;String&gt; req = request.send().getAccounts();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonblocknumber"></a><a href="#platonblocknumber" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonBlockNumber</h3>
@@ -370,7 +370,7 @@ List&lt;String&gt; req = request.send().getAccounts();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, PlatonBlockNumber&gt; request = currentValidWeb3j.platonBlockNumber();
+Request &lt;?, PlatonBlockNumber&gt; request = platonWeb3j.platonBlockNumber();
 BigInteger req = request.send().getBlockNumber();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platongetbalance"></a><a href="#platongetbalance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonGetBalance</h3>
@@ -429,7 +429,7 @@ BigInteger req = request.send().getBalance();
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 String address = <span class="hljs-string">""</span>;
-Request &lt;?, PlatonGetStorageAt&gt; request = currentValidWeb3j.platonGetStorageAt(address ,BigInteger.ZERO,DefaultBlockParameterName.LATEST );
+Request &lt;?, PlatonGetStorageAt&gt; request = platonWeb3j.platonGetStorageAt(address ,BigInteger.ZERO,DefaultBlockParameterName.LATEST );
 String req = request.send().getData();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platongetblocktransactioncountbyhash"></a><a href="#platongetblocktransactioncountbyhash" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonGetBlockTransactionCountByHash</h3>
@@ -451,7 +451,7 @@ String req = request.send().getData();
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 String blockhash = <span class="hljs-string">""</span>;
-Request &lt;?, PlatonGetBlockTransactionCountByHash&gt; request = currentValidWeb3j.platonGetBlockTransactionCountByHash(blockhash);
+Request &lt;?, PlatonGetBlockTransactionCountByHash&gt; request = platonWeb3j.platonGetBlockTransactionCountByHash(blockhash);
 BigInteger req = request.send().getTransactionCount();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platongettransactioncount"></a><a href="#platongettransactioncount" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonGetTransactionCount</h3>
@@ -480,7 +480,7 @@ BigInteger req = request.send().getTransactionCount();
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 String address = <span class="hljs-string">""</span>;
-Request &lt;?, PlatonGetTransactionCount&gt; request = currentValidWeb3j.platonGetTransactionCount(address,DefaultBlockParameterName.LATEST);
+Request &lt;?, PlatonGetTransactionCount&gt; request = platonWeb3j.platonGetTransactionCount(address,DefaultBlockParameterName.LATEST);
 BigInteger req = request.send().getTransactionCount();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platongetblocktransactioncountbynumber"></a><a href="#platongetblocktransactioncountbynumber" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonGetBlockTransactionCountByNumber</h3>
@@ -507,7 +507,7 @@ BigInteger req = request.send().getTransactionCount();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, PlatonGetBlockTransactionCountByNumber&gt; request = currentValidWeb3j.platonGetBlockTransactionCountByNumber(DefaultBlockParameterName.LATEST);
+Request &lt;?, PlatonGetBlockTransactionCountByNumber&gt; request = platonWeb3j.platonGetBlockTransactionCountByNumber(DefaultBlockParameterName.LATEST);
 BigInteger req = request.send().getTransactionCount();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platongetcode"></a><a href="#platongetcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonGetCode</h3>
@@ -536,7 +536,7 @@ BigInteger req = request.send().getTransactionCount();
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 String address = <span class="hljs-string">""</span>;
-Request &lt;?, PlatonGetCode&gt; request = currentValidWeb3j.platonGetCode(address,DefaultBlockParameterName.LATEST);
+Request &lt;?, PlatonGetCode&gt; request = platonWeb3j.platonGetCode(address,DefaultBlockParameterName.LATEST);
 String req = request.send().getCode();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonsign"></a><a href="#platonsign" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonSign</h3>
@@ -560,7 +560,7 @@ String req = request.send().getCode();
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 String address = <span class="hljs-string">""</span>;
 String sha3HashOfDataToSign   = <span class="hljs-string">""</span>;
-Request &lt;?, PlatonSign&gt; request = currentValidWeb3j.platonSign(address,DefaultBlockParameterName.LATEST);
+Request &lt;?, PlatonSign&gt; request = platonWeb3j.platonSign(address,DefaultBlockParameterName.LATEST);
 String req = request.send().getSignature();
 </code></pre>
 <p>备注：地址必须提前先解锁</p>
@@ -596,7 +596,7 @@ String req = request.send().getSignature();
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 Transaction transaction = <span class="hljs-keyword">new</span> Transaction(<span class="hljs-string">"from"</span>,<span class="hljs-string">"to"</span>,BigInteger.ZERO,BigInteger.ZERO,BigInteger.ZERO,<span class="hljs-string">"data "</span>,BigInteger.ONE);
-Request &lt;?, PlatonSendTransaction&gt; request = currentValidWeb3j.platonSendTransaction(transaction);
+Request &lt;?, PlatonSendTransaction&gt; request = platonWeb3j.platonSendTransaction(transaction);
 String req = request.send().getTransactionHash();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonsendrawtransaction"></a><a href="#platonsendrawtransaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonSendRawTransaction</h3>
@@ -618,7 +618,7 @@ String req = request.send().getTransactionHash();
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 String  data = <span class="hljs-string">""</span>;
-Request &lt;?, PlatonSendTransaction&gt; request = currentValidWeb3j.platonSendRawTransaction(data);
+Request &lt;?, PlatonSendTransaction&gt; request = platonWeb3j.platonSendRawTransaction(data);
 String req = request.send().getTransactionHash();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platoncall"></a><a href="#platoncall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonCall</h3>
@@ -653,7 +653,7 @@ String req = request.send().getTransactionHash();
 </ul>
 <pre><code class="hljs css language-javas">Web3j platonWeb3j = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Web3j</span>.</span></span>build(<span class="hljs-keyword">new</span> <span class="hljs-constructor">HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>)</span>);
 Transaction transaction = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Transaction(<span class="hljs-string">"from"</span>,<span class="hljs-string">"to"</span>,BigInteger.ZERO,BigInteger.ZERO,BigInteger.ZERO,<span class="hljs-string">"data "</span>,BigInteger.ONE)</span>;
-Request &lt;?, PlatonSendTransaction&gt; request = currentValidWeb3j.platon<span class="hljs-constructor">Call(<span class="hljs-params">transaction</span>)</span>;
+Request &lt;?, PlatonSendTransaction&gt; request = platonWeb3j.platon<span class="hljs-constructor">Call(<span class="hljs-params">transaction</span>)</span>;
 String req = request.send<span class="hljs-literal">()</span>.get<span class="hljs-constructor">Value()</span>;
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonestimategas"></a><a href="#platonestimategas" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonEstimateGas</h3>
@@ -688,7 +688,7 @@ String req = request.send<span class="hljs-literal">()</span>.get<span class="hl
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 Transaction transaction = <span class="hljs-keyword">new</span> Transaction(<span class="hljs-string">"from"</span>,<span class="hljs-string">"to"</span>,BigInteger.ZERO,BigInteger.ZERO,BigInteger.ZERO,<span class="hljs-string">"data "</span>,BigInteger.ONE);
-Request &lt;?, PlatonEstimateGas&gt; request = currentValidWeb3j.platonEstimateGas(transaction);
+Request &lt;?, PlatonEstimateGas&gt; request = platonWeb3j.platonEstimateGas(transaction);
 BigInteger req = request.send().getAmountUsed();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platongetblockbyhash"></a><a href="#platongetblockbyhash" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonGetBlockByHash</h3>
@@ -716,7 +716,7 @@ BigInteger req = request.send().getAmountUsed();
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 String blockHash  = <span class="hljs-string">""</span>;
 
-Request &lt;?, PlatonBlock&gt; request = currentValidWeb3j.platonGetBlockByHash(blockHash,<span class="hljs-keyword">true</span>);
+Request &lt;?, PlatonBlock&gt; request = platonWeb3j.platonGetBlockByHash(blockHash,<span class="hljs-keyword">true</span>);
 Block req = request.send().getBlock();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platongetblockbynumber"></a><a href="#platongetblockbynumber" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonGetBlockByNumber</h3>
@@ -748,7 +748,7 @@ Block req = request.send().getBlock();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, PlatonBlock&gt; request = currentValidWeb3j.platonGetBlockByNumber(DefaultBlockParameter.valueOf(BigInteger.ZERO) ,<span class="hljs-keyword">true</span>);
+Request &lt;?, PlatonBlock&gt; request = platonWeb3j.platonGetBlockByNumber(DefaultBlockParameter.valueOf(BigInteger.ZERO) ,<span class="hljs-keyword">true</span>);
 Block req = request.send().getBlock();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platongettransactionbyblockhashandindex"></a><a href="#platongettransactionbyblockhashandindex" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonGetTransactionByBlockHashAndIndex</h3>
@@ -771,7 +771,7 @@ Block req = request.send().getBlock();
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 String blockHash    = <span class="hljs-string">""</span>;
-Request &lt;?, PlatonTransaction&gt; request = currentValidWeb3j.platonGetTransactionByHash(blockHash,BigInteger.ZERO);
+Request &lt;?, PlatonTransaction&gt; request = platonWeb3j.platonGetTransactionByHash(blockHash,BigInteger.ZERO);
 Optional&lt;Transaction&gt; req = request.send().getTransaction();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platongettransactionbyblocknumberandindex"></a><a href="#platongettransactionbyblocknumberandindex" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonGetTransactionByBlockNumberAndIndex</h3>
@@ -800,7 +800,7 @@ Optional&lt;Transaction&gt; req = request.send().getTransaction();
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 String blockHash    = <span class="hljs-string">""</span>;
-Request &lt;?, PlatonTransaction&gt; request = currentValidWeb3j.platonGetTransactionByHash(DefaultBlockParameter.valueOf(BigInteger.ZERO) ,BigInteger.ZERO);
+Request &lt;?, PlatonTransaction&gt; request = platonWeb3j.platonGetTransactionByHash(DefaultBlockParameter.valueOf(BigInteger.ZERO) ,BigInteger.ZERO);
 Optional&lt;Transaction&gt; req = request.send().getTransaction();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platongettransactionreceipt"></a><a href="#platongettransactionreceipt" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonGetTransactionReceipt</h3>
@@ -822,7 +822,7 @@ Optional&lt;Transaction&gt; req = request.send().getTransaction();
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 String blockHash    = <span class="hljs-string">""</span>;
-Request &lt;?, PlatonGetTransactionReceipt&gt; request = currentValidWeb3j.platonGetTransactionReceipt(DefaultBlockParameter.valueOf(BigInteger.ZERO) ,BigInteger.ZERO);
+Request &lt;?, PlatonGetTransactionReceipt&gt; request = platonWeb3j.platonGetTransactionReceipt(DefaultBlockParameter.valueOf(BigInteger.ZERO) ,BigInteger.ZERO);
 Optional&lt;TransactionReceipt&gt; req = request.send().getTransactionReceipt();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonnewfilter"></a><a href="#platonnewfilter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonNewFilter</h3>
@@ -848,7 +848,7 @@ Optional&lt;TransactionReceipt&gt; req = request.send().getTransactionReceipt();
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 org.web3j.protocol.core.methods.request.PlatonFilter filter = <span class="hljs-keyword">new</span> org.web3j.protocol.core.methods.request.PlatonFilter();
 filter.addSingleTopic(<span class="hljs-string">""</span>);
-Request &lt;?, PlatonFilter&gt; request = currentValidWeb3j.platonNewFilter(filter);
+Request &lt;?, PlatonFilter&gt; request = platonWeb3j.platonNewFilter(filter);
 BigInteger req = request.send().getFilterId();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonnewblockfilter"></a><a href="#platonnewblockfilter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonNewBlockFilter</h3>
@@ -867,7 +867,7 @@ BigInteger req = request.send().getFilterId();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, PlatonFilter&gt; request = currentValidWeb3j.platonNewBlockFilter();
+Request &lt;?, PlatonFilter&gt; request = platonWeb3j.platonNewBlockFilter();
 BigInteger req = request.send().getFilterId();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonnewpendingtransactionfilter"></a><a href="#platonnewpendingtransactionfilter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonNewPendingTransactionFilter</h3>
@@ -886,7 +886,7 @@ BigInteger req = request.send().getFilterId();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, PlatonFilter&gt; request = currentValidWeb3j.platonNewPendingTransactionFilter();
+Request &lt;?, PlatonFilter&gt; request = platonWeb3j.platonNewPendingTransactionFilter();
 BigInteger req = request.send().getFilterId();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonnewpendingtransactionfilter-1"></a><a href="#platonnewpendingtransactionfilter-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonNewPendingTransactionFilter</h3>
@@ -905,7 +905,7 @@ BigInteger req = request.send().getFilterId();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, PlatonFilter&gt; request = currentValidWeb3j.platonNewPendingTransactionFilter();
+Request &lt;?, PlatonFilter&gt; request = platonWeb3j.platonNewPendingTransactionFilter();
 BigInteger req = request.send().getFilterId();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonuninstallfilter"></a><a href="#platonuninstallfilter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonUninstallFilter</h3>
@@ -927,7 +927,7 @@ BigInteger req = request.send().getFilterId();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, PlatonUninstallFilter&gt; request = currentValidWeb3j.platonNewPendingTransactionFilter(BigInteger.ZERO);
+Request &lt;?, PlatonUninstallFilter&gt; request = platonWeb3j.platonNewPendingTransactionFilter(BigInteger.ZERO);
 <span class="hljs-keyword">boolean</span> req = request.send().isUninstalled();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platongetfilterchanges"></a><a href="#platongetfilterchanges" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonGetFilterChanges</h3>
@@ -948,7 +948,7 @@ Request &lt;?, PlatonUninstallFilter&gt; request = currentValidWeb3j.platonNewPe
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, PlatonLog&gt; request = currentValidWeb3j.platonGetFilterChanges(BigInteger.ZERO);
+Request &lt;?, PlatonLog&gt; request = platonWeb3j.platonGetFilterChanges(BigInteger.ZERO);
 List&lt;PlatonLog.LogResult&gt; req = request.send().getLogs();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platongetfilterlogs"></a><a href="#platongetfilterlogs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonGetFilterLogs</h3>
@@ -970,7 +970,7 @@ List&lt;PlatonLog.LogResult&gt; req = request.send().getLogs();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request &lt;?, PlatonLog&gt; request = currentValidWeb3j.platonGetFilterLogs(BigInteger.ZERO);
+Request &lt;?, PlatonLog&gt; request = platonWeb3j.platonGetFilterLogs(BigInteger.ZERO);
 List&lt;PlatonLog.LogResult&gt; req = request.send().getLogs();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platongetlogs"></a><a href="#platongetlogs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonGetLogs</h3>
@@ -996,7 +996,7 @@ List&lt;PlatonLog.LogResult&gt; req = request.send().getLogs();
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 org.web3j.protocol.core.methods.request.PlatonFilter filter = <span class="hljs-keyword">new</span> org.web3j.protocol.core.methods.request.PlatonFilter();
 filter.addSingleTopic(<span class="hljs-string">""</span>);
-Request &lt;?, PlatonLog&gt; request = currentValidWeb3j.platonGetLogs(filter);
+Request &lt;?, PlatonLog&gt; request = platonWeb3j.platonGetLogs(filter);
 List&lt;LogResult&gt; = request.send().getLogs();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonpendingtransactions"></a><a href="#platonpendingtransactions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonPendingTransactions</h3>
@@ -1015,7 +1015,7 @@ List&lt;LogResult&gt; = request.send().getLogs();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request&lt;?, PlatonPendingTransactions&gt; req = currentValidWeb3j.platonPendingTx();
+Request&lt;?, PlatonPendingTransactions&gt; req = platonWeb3j.platonPendingTx();
 EthPendingTransactions res = req.send();
 List&lt;Transaction&gt; transactions = res.getTransactions();
 </code></pre>
@@ -1042,7 +1042,7 @@ List&lt;Transaction&gt; transactions = res.getTransactions();
 String databaseName;
 String keyName;
 String stringToStore;
-Request &lt;?, DbPutString&gt; request = currentValidWeb3j.dbPutString(databaseName,keyName,stringToStore);
+Request &lt;?, DbPutString&gt; request = platonWeb3j.dbPutString(databaseName,keyName,stringToStore);
 List&lt;DbPutString&gt; = request.send().valueStored();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="dbgetstring"></a><a href="#dbgetstring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>dbGetString</h3>
@@ -1064,7 +1064,7 @@ List&lt;DbPutString&gt; = request.send().valueStored();
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 String databaseName;
 String keyName;
-Request &lt;?, DbGetString&gt; request = currentValidWeb3j.dbGetString(databaseName,keyName);
+Request &lt;?, DbGetString&gt; request = platonWeb3j.dbGetString(databaseName,keyName);
 String req  = request.send().getStoredValue();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="dbputhex"></a><a href="#dbputhex" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>dbPutHex</h3>
@@ -1091,7 +1091,7 @@ String req  = request.send().getStoredValue();
 String databaseName;
 String keyName;
 String dataToStore;
-Request &lt;?, DbPutHex&gt; request = currentValidWeb3j.dbPutHex(databaseName,keyName,dataToStore);
+Request &lt;?, DbPutHex&gt; request = platonWeb3j.dbPutHex(databaseName,keyName,dataToStore);
 <span class="hljs-keyword">boolean</span> req  = request.send().valueStored();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="dbgethex"></a><a href="#dbgethex" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>dbGetHex</h3>
@@ -1116,7 +1116,7 @@ Request &lt;?, DbPutHex&gt; request = currentValidWeb3j.dbPutHex(databaseName,ke
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
 String databaseName;
 String keyName;
-Request &lt;?, DbGetHex&gt; request = currentValidWeb3j.dbGetHex(databaseName,keyName);
+Request &lt;?, DbGetHex&gt; request = platonWeb3j.dbGetHex(databaseName,keyName);
 String req  = request.send().getStoredValue();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="platonevidences"></a><a href="#platonevidences" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>platonEvidences</h3>
@@ -1256,7 +1256,7 @@ String req  = request.send().getStoredValue();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request&lt;?, PlatonEvidences&gt; req = currentValidWeb3j.platonEvidences();
+Request&lt;?, PlatonEvidences&gt; req = platonWeb3j.platonEvidences();
 Evidences evidences = req.send().getEvidences();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="getprogramversion"></a><a href="#getprogramversion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getProgramVersion</h3>
@@ -1275,7 +1275,7 @@ Evidences evidences = req.send().getEvidences();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request&lt;?, AdminProgramVersion&gt; req = currentValidWeb3j.getProgramVersion();
+Request&lt;?, AdminProgramVersion&gt; req = platonWeb3j.getProgramVersion();
 ProgramVersion programVersion = req.send().getAdminProgramVersion();
 </code></pre>
 <ul>
@@ -1301,7 +1301,7 @@ ProgramVersion programVersion = req.send().getAdminProgramVersion();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request&lt;?, AdminProgramVersion&gt; req = currentValidWeb3j.getSchnorrNIZKProve();
+Request&lt;?, AdminProgramVersion&gt; req = platonWeb3j.getSchnorrNIZKProve();
 String res = req.send().getAdminSchnorrNIZKProve();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="geteconomicconfig"></a><a href="#geteconomicconfig" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getEconomicConfig</h3>
@@ -1320,7 +1320,7 @@ String res = req.send().getAdminSchnorrNIZKProve();
 <li><strong>示例</strong></li>
 </ul>
 <pre><code class="hljs css language-java">Web3j platonWeb3j = Web3j.build(<span class="hljs-keyword">new</span> HttpService(<span class="hljs-string">"http://127.0.0.1:6789"</span>));
-Request&lt;?, DebugEconomicConfig&gt; req = currentValidWeb3j.getEconomicConfig();
+Request&lt;?, DebugEconomicConfig&gt; req = platonWeb3j.getEconomicConfig();
 String debugEconomicConfig = req.send().getEconomicConfigStr();
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="系统合约调用"></a><a href="#系统合约调用" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>系统合约调用</h2>
