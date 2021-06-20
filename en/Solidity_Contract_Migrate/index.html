@@ -129,7 +129,7 @@ contract ERC200513Token {
      */</span>
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_transfer</span><span class="hljs-params">(address _from, address _to, uint _value)</span> <span class="hljs-title">internal</span> <span class="hljs-title">returns</span> <span class="hljs-params">(bool success)</span></span>{
         <span class="hljs-comment">// Make sure the destination address is not 0x0, Because address 0x0 represents destruction</span>
-        <span class="hljs-keyword">require</span>(_to != address(uint160(<span class="hljs-number">0</span>));
+        <span class="hljs-keyword">require</span>(_to != address(uint160(<span class="hljs-number">0</span>)));
         <span class="hljs-comment">// Check the sender balance</span>
         <span class="hljs-keyword">require</span>(balanceOf[_from] &gt;= _value);
         <span class="hljs-comment">// Make sure _value&gt;0</span>

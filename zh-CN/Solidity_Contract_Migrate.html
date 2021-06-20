@@ -137,7 +137,7 @@ contract ERC200513Token {
      */</span>
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_transfer</span><span class="hljs-params">(address _from, address _to, uint _value)</span> <span class="hljs-title">internal</span> <span class="hljs-title">returns</span> <span class="hljs-params">(bool success)</span></span>{
         <span class="hljs-comment">// 确保目标地址不为0x0，因为0x0地址代表销毁</span>
-        <span class="hljs-keyword">require</span>(_to != address(uint160(<span class="hljs-number">0</span>));
+        <span class="hljs-keyword">require</span>(_to != address(uint160(<span class="hljs-number">0</span>)));
         <span class="hljs-comment">// 检查发送者余额</span>
         <span class="hljs-keyword">require</span>(balanceOf[_from] &gt;= _value);
         <span class="hljs-comment">// 确保转移为正数个</span>
