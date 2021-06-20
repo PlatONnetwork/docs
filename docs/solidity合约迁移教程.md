@@ -73,7 +73,7 @@ contract ERC200513Token {
      */
     function _transfer(address _from, address _to, uint _value) internal returns (bool success){
         // Make sure the destination address is not 0x0, Because address 0x0 represents destruction
-        require(_to != address(uint160(0));
+        require(_to != address(uint160(0)));
         // Check the sender balance
         require(balanceOf[_from] >= _value);
         // Make sure _value>0
