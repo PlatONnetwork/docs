@@ -96,5 +96,5 @@ PlatON还将支持开发以LAT为抵押的稳定币。
 随着网络利用率的增长，链上数据将存在越来越多有价值的信息，通过区块浏览器可以为您提供浏览区块、交易、账户、节点和其他链上活动的实时数据。
 
 - [PlatScan](https://scan.platon.network/) - PlatON区块链资源管理和分析平台，支持中文、英文。
-- [PlatEye](https://www.alayascan.com/)
+- [PlatEye](https://plateye.com/)
 
