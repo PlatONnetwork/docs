@@ -13,7 +13,7 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
 ## 初步了解
 
 - [什么是LAT](/docs/zh-CN/lat_introduced)-在这里你可以全面了解到什么是LAT、LAT有什么作用，以及相关使用方式等
-- [质押&委托](/docs/en/staking_and_delegation)
+- [质押&委托](/docs/zh-CN/staking_and_delegation)
 - [ATON钱包](/docs/zh-CN/ATON-user-manual)-关于ATON钱包的各类操作，你都可以在这里找到相关说明
 - 区块链浏览器
   - [PlatScan](https://scan.platon.network/)
