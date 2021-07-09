@@ -153,7 +153,7 @@ Web3ClientVersion属性中的string即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, Web3ClientVersion> request = currentValidWeb3j.web3ClientVersion();
+Request <?, Web3ClientVersion> request = platonWeb3j.web3ClientVersion();
 String version = request.send().getWeb3ClientVersion();
 ```
 
@@ -179,7 +179,7 @@ Web3Sha3属性中的string即为对应存储数据
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String date = "";
 Request <?, Web3Sha3> request = currentValidWeb3j.web3Sha3(date);
-String resDate = request.send().getWeb3ClientVersion();
+String resDate = request.send().getResult();
 ```
 
 ### netVersion
@@ -202,7 +202,7 @@ NetVersion属性中的string即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, NetVersion> request = currentValidWeb3j.netVersion();
+Request <?, NetVersion> request = platonWeb3j.netVersion();
 String version = request.send().getNetVersion();
 ```
 
@@ -226,7 +226,7 @@ NetListening属性中的boolean即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, NetListening> request = currentValidWeb3j.netListening();
+Request <?, NetListening> request = platonWeb3j.netListening();
 boolean req = request.send().isListening();
 ```
 
@@ -250,7 +250,7 @@ NetPeerCount属性中的BigInteger即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, NetPeerCount> request = currentValidWeb3j.netPeerCount();
+Request <?, NetPeerCount> request = platonWeb3j.netPeerCount();
 BigInteger req = request.send().getQuantity();
 ```
 
@@ -274,7 +274,7 @@ PlatonProtocolVersion属性中的String即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, PlatonProtocolVersion> request = currentValidWeb3j.platonProtocolVersion();
+Request <?, PlatonProtocolVersion> request = platonWeb3j.platonProtocolVersion();
 String req = request.send().getProtocolVersion();
 ```
 
@@ -298,7 +298,7 @@ PlatonSyncing属性中的String即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, PlatonSyncing> request = currentValidWeb3j.platonSyncing();
+Request <?, PlatonSyncing> request = platonWeb3j.platonSyncing();
 boolean req = request.send().isSyncing();
 ```
 
@@ -322,7 +322,7 @@ PlatonGasPrice属性中的BigInteger即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, PlatonGasPrice> request = currentValidWeb3j.platonGasPrice();
+Request <?, PlatonGasPrice> request = platonWeb3j.platonGasPrice();
 BigInteger req = request.send().getGasPrice();
 ```
 
@@ -346,7 +346,7 @@ PlatonAccounts属性中的String数组即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, PlatonAccounts> request = currentValidWeb3j.platonAccounts();
+Request <?, PlatonAccounts> request = platonWeb3j.platonAccounts();
 List<String> req = request.send().getAccounts();
 ```
 
@@ -370,7 +370,7 @@ PlatonBlockNumber属性中的BigInteger即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, PlatonBlockNumber> request = currentValidWeb3j.platonBlockNumber();
+Request <?, PlatonBlockNumber> request = platonWeb3j.platonBlockNumber();
 BigInteger req = request.send().getBlockNumber();
 ```
 
@@ -429,7 +429,7 @@ PlatonGetStorageAt属性中的String即为对应存储数据
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String address = "";
-Request <?, PlatonGetStorageAt> request = currentValidWeb3j.platonGetStorageAt(address ,BigInteger.ZERO,DefaultBlockParameterName.LATEST );
+Request <?, PlatonGetStorageAt> request = platonWeb3j.platonGetStorageAt(address ,BigInteger.ZERO,DefaultBlockParameterName.LATEST );
 String req = request.send().getData();
 ```
 
@@ -453,7 +453,7 @@ PlatonGetBlockTransactionCountByHash属性中的BigInteger即为对应存储数�
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String blockhash = "";
-Request <?, PlatonGetBlockTransactionCountByHash> request = currentValidWeb3j.platonGetBlockTransactionCountByHash(blockhash);
+Request <?, PlatonGetBlockTransactionCountByHash> request = platonWeb3j.platonGetBlockTransactionCountByHash(blockhash);
 BigInteger req = request.send().getTransactionCount();
 ```
 
@@ -482,7 +482,7 @@ PlatonGetTransactionCount属性中的BigInteger即为对应存储数据
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String address = "";
-Request <?, PlatonGetTransactionCount> request = currentValidWeb3j.platonGetTransactionCount(address,DefaultBlockParameterName.LATEST);
+Request <?, PlatonGetTransactionCount> request = platonWeb3j.platonGetTransactionCount(address,DefaultBlockParameterName.LATEST);
 BigInteger req = request.send().getTransactionCount();
 ```
 
@@ -509,7 +509,7 @@ PlatonGetBlockTransactionCountByNumber属性中的BigInteger即为对应存储�
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, PlatonGetBlockTransactionCountByNumber> request = currentValidWeb3j.platonGetBlockTransactionCountByNumber(DefaultBlockParameterName.LATEST);
+Request <?, PlatonGetBlockTransactionCountByNumber> request = platonWeb3j.platonGetBlockTransactionCountByNumber(DefaultBlockParameterName.LATEST);
 BigInteger req = request.send().getTransactionCount();
 ```
 
@@ -539,7 +539,7 @@ PlatonGetCode属性中的String即为对应存储数据
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String address = "";
-Request <?, PlatonGetCode> request = currentValidWeb3j.platonGetCode(address,DefaultBlockParameterName.LATEST);
+Request <?, PlatonGetCode> request = platonWeb3j.platonGetCode(address,DefaultBlockParameterName.LATEST);
 String req = request.send().getCode();
 ```
 
@@ -565,7 +565,7 @@ PlatonSign属性中的String即为对应存储数据
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String address = "";
 String sha3HashOfDataToSign   = "";
-Request <?, PlatonSign> request = currentValidWeb3j.platonSign(address,DefaultBlockParameterName.LATEST);
+Request <?, PlatonSign> request = platonWeb3j.platonSign(address,DefaultBlockParameterName.LATEST);
 String req = request.send().getSignature();
 ```
 
@@ -600,7 +600,7 @@ PlatonSendTransaction属性中的String即为对应存储数据
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 Transaction transaction = new Transaction("from","to",BigInteger.ZERO,BigInteger.ZERO,BigInteger.ZERO,"data ",BigInteger.ONE);
-Request <?, PlatonSendTransaction> request = currentValidWeb3j.platonSendTransaction(transaction);
+Request <?, PlatonSendTransaction> request = platonWeb3j.platonSendTransaction(transaction);
 String req = request.send().getTransactionHash();
 ```
 
@@ -624,7 +624,7 @@ PlatonSendTransaction属性中的String即为对应存储数据
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String  data = "";
-Request <?, PlatonSendTransaction> request = currentValidWeb3j.platonSendRawTransaction(data);
+Request <?, PlatonSendTransaction> request = platonWeb3j.platonSendRawTransaction(data);
 String req = request.send().getTransactionHash();
 ```
 
@@ -657,7 +657,7 @@ PlatonCall属性中的String即为对应存储数据
 ```javas
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 Transaction transaction = new Transaction("from","to",BigInteger.ZERO,BigInteger.ZERO,BigInteger.ZERO,"data ",BigInteger.ONE);
-Request <?, PlatonSendTransaction> request = currentValidWeb3j.platonCall(transaction);
+Request <?, PlatonSendTransaction> request = platonWeb3j.platonCall(transaction);
 String req = request.send().getValue();
 ```
 
@@ -690,7 +690,7 @@ PlatonEstimateGas属性中的BigInteger即为对应存储数据
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 Transaction transaction = new Transaction("from","to",BigInteger.ZERO,BigInteger.ZERO,BigInteger.ZERO,"data ",BigInteger.ONE);
-Request <?, PlatonEstimateGas> request = currentValidWeb3j.platonEstimateGas(transaction);
+Request <?, PlatonEstimateGas> request = platonWeb3j.platonEstimateGas(transaction);
 BigInteger req = request.send().getAmountUsed();
 ```
 
@@ -718,7 +718,7 @@ PlatonBlock属性中的Block即为对应存储数据
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String blockHash  = "";
 
-Request <?, PlatonBlock> request = currentValidWeb3j.platonGetBlockByHash(blockHash,true);
+Request <?, PlatonBlock> request = platonWeb3j.platonGetBlockByHash(blockHash,true);
 Block req = request.send().getBlock();
 ```
 
@@ -748,7 +748,7 @@ PlatonBlock属性中的Block即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, PlatonBlock> request = currentValidWeb3j.platonGetBlockByNumber(DefaultBlockParameter.valueOf(BigInteger.ZERO) ,true);
+Request <?, PlatonBlock> request = platonWeb3j.platonGetBlockByNumber(DefaultBlockParameter.valueOf(BigInteger.ZERO) ,true);
 Block req = request.send().getBlock();
 ```
 
@@ -773,7 +773,7 @@ PlatonTransaction属性中的Transaction即为对应存储数据
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String blockHash    = "";
-Request <?, PlatonTransaction> request = currentValidWeb3j.platonGetTransactionByHash(blockHash,BigInteger.ZERO);
+Request <?, PlatonTransaction> request = platonWeb3j.platonGetTransactionByHash(blockHash,BigInteger.ZERO);
 Optional<Transaction> req = request.send().getTransaction();
 ```
 
@@ -802,7 +802,7 @@ PlatonTransaction属性中的Transaction即为对应存储数据
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String blockHash    = "";
-Request <?, PlatonTransaction> request = currentValidWeb3j.platonGetTransactionByHash(DefaultBlockParameter.valueOf(BigInteger.ZERO) ,BigInteger.ZERO);
+Request <?, PlatonTransaction> request = platonWeb3j.platonGetTransactionByHash(DefaultBlockParameter.valueOf(BigInteger.ZERO) ,BigInteger.ZERO);
 Optional<Transaction> req = request.send().getTransaction();
 ```
 
@@ -826,7 +826,7 @@ PlatonGetTransactionReceipt属性中的Transaction即为对应存储数据
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String blockHash    = "";
-Request <?, PlatonGetTransactionReceipt> request = currentValidWeb3j.platonGetTransactionReceipt(DefaultBlockParameter.valueOf(BigInteger.ZERO) ,BigInteger.ZERO);
+Request <?, PlatonGetTransactionReceipt> request = platonWeb3j.platonGetTransactionReceipt(DefaultBlockParameter.valueOf(BigInteger.ZERO) ,BigInteger.ZERO);
 Optional<TransactionReceipt> req = request.send().getTransactionReceipt();
 ```
 
@@ -852,7 +852,7 @@ PlatonFilter属性中的BigInteger即为对应存储数据
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 org.web3j.protocol.core.methods.request.PlatonFilter filter = new org.web3j.protocol.core.methods.request.PlatonFilter();
 filter.addSingleTopic("");
-Request <?, PlatonFilter> request = currentValidWeb3j.platonNewFilter(filter);
+Request <?, PlatonFilter> request = platonWeb3j.platonNewFilter(filter);
 BigInteger req = request.send().getFilterId();
 ```
 
@@ -876,7 +876,7 @@ PlatonFilter属性中的BigInteger即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, PlatonFilter> request = currentValidWeb3j.platonNewBlockFilter();
+Request <?, PlatonFilter> request = platonWeb3j.platonNewBlockFilter();
 BigInteger req = request.send().getFilterId();
 ```
 
@@ -900,7 +900,7 @@ PlatonFilter属性中的BigInteger即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, PlatonFilter> request = currentValidWeb3j.platonNewPendingTransactionFilter();
+Request <?, PlatonFilter> request = platonWeb3j.platonNewPendingTransactionFilter();
 BigInteger req = request.send().getFilterId();
 ```
 
@@ -924,7 +924,7 @@ PlatonFilter属性中的BigInteger即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, PlatonFilter> request = currentValidWeb3j.platonNewPendingTransactionFilter();
+Request <?, PlatonFilter> request = platonWeb3j.platonNewPendingTransactionFilter();
 BigInteger req = request.send().getFilterId();
 ```
 
@@ -947,7 +947,7 @@ PlatonUninstallFilter属性中的boolean即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, PlatonUninstallFilter> request = currentValidWeb3j.platonNewPendingTransactionFilter(BigInteger.ZERO);
+Request <?, PlatonUninstallFilter> request = platonWeb3j.platonNewPendingTransactionFilter(BigInteger.ZERO);
 boolean req = request.send().isUninstalled();
 ```
 
@@ -970,7 +970,7 @@ PlatonLog属性中的LogResult数组即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, PlatonLog> request = currentValidWeb3j.platonGetFilterChanges(BigInteger.ZERO);
+Request <?, PlatonLog> request = platonWeb3j.platonGetFilterChanges(BigInteger.ZERO);
 List<PlatonLog.LogResult> req = request.send().getLogs();
 ```
 
@@ -993,7 +993,7 @@ PlatonLog属性中的LogResult数组即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request <?, PlatonLog> request = currentValidWeb3j.platonGetFilterLogs(BigInteger.ZERO);
+Request <?, PlatonLog> request = platonWeb3j.platonGetFilterLogs(BigInteger.ZERO);
 List<PlatonLog.LogResult> req = request.send().getLogs();
 ```
 
@@ -1019,7 +1019,7 @@ PlatonLog属性中的BigInteger即为对应存储数据
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 org.web3j.protocol.core.methods.request.PlatonFilter filter = new org.web3j.protocol.core.methods.request.PlatonFilter();
 filter.addSingleTopic("");
-Request <?, PlatonLog> request = currentValidWeb3j.platonGetLogs(filter);
+Request <?, PlatonLog> request = platonWeb3j.platonGetLogs(filter);
 List<LogResult> = request.send().getLogs();
 ```
 
@@ -1042,7 +1042,7 @@ PlatonPendingTransactions属性中的transactions即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request<?, PlatonPendingTransactions> req = currentValidWeb3j.platonPendingTx();
+Request<?, PlatonPendingTransactions> req = platonWeb3j.platonPendingTx();
 EthPendingTransactions res = req.send();
 List<Transaction> transactions = res.getTransactions();
 ```
@@ -1071,7 +1071,7 @@ Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String databaseName;
 String keyName;
 String stringToStore;
-Request <?, DbPutString> request = currentValidWeb3j.dbPutString(databaseName,keyName,stringToStore);
+Request <?, DbPutString> request = platonWeb3j.dbPutString(databaseName,keyName,stringToStore);
 List<DbPutString> = request.send().valueStored();
 ```
 
@@ -1097,7 +1097,7 @@ DbGetString属性中的String即为对应存储数据
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String databaseName;
 String keyName;
-Request <?, DbGetString> request = currentValidWeb3j.dbGetString(databaseName,keyName);
+Request <?, DbGetString> request = platonWeb3j.dbGetString(databaseName,keyName);
 String req  = request.send().getStoredValue();
 ```
 
@@ -1125,7 +1125,7 @@ Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String databaseName;
 String keyName;
 String dataToStore;
-Request <?, DbPutHex> request = currentValidWeb3j.dbPutHex(databaseName,keyName,dataToStore);
+Request <?, DbPutHex> request = platonWeb3j.dbPutHex(databaseName,keyName,dataToStore);
 boolean req  = request.send().valueStored();
 ```
 
@@ -1151,7 +1151,7 @@ DbGetHex属性中的String即为对应存储数据
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
 String databaseName;
 String keyName;
-Request <?, DbGetHex> request = currentValidWeb3j.dbGetHex(databaseName,keyName);
+Request <?, DbGetHex> request = platonWeb3j.dbGetHex(databaseName,keyName);
 String req  = request.send().getStoredValue();
 ```
 
@@ -1295,7 +1295,7 @@ PlatonEvidences属性中的Evidences对象即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request<?, PlatonEvidences> req = currentValidWeb3j.platonEvidences();
+Request<?, PlatonEvidences> req = platonWeb3j.platonEvidences();
 Evidences evidences = req.send().getEvidences();
 ```
 
@@ -1319,7 +1319,7 @@ AdminProgramVersion属性中的ProgramVersion对象即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request<?, AdminProgramVersion> req = currentValidWeb3j.getProgramVersion();
+Request<?, AdminProgramVersion> req = platonWeb3j.getProgramVersion();
 ProgramVersion programVersion = req.send().getAdminProgramVersion();
 ```
 
@@ -1347,7 +1347,7 @@ AdminSchnorrNIZKProve属性中的String即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request<?, AdminProgramVersion> req = currentValidWeb3j.getSchnorrNIZKProve();
+Request<?, AdminProgramVersion> req = platonWeb3j.getSchnorrNIZKProve();
 String res = req.send().getAdminSchnorrNIZKProve();
 ```
 
@@ -1371,7 +1371,7 @@ DebugEconomicConfig属性中的String即为对应存储数据
 
 ```java
 Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
-Request<?, DebugEconomicConfig> req = currentValidWeb3j.getEconomicConfig();
+Request<?, DebugEconomicConfig> req = platonWeb3j.getEconomicConfig();
 String debugEconomicConfig = req.send().getEconomicConfigStr();
 ```
 
@@ -1588,7 +1588,7 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 CallResponse<Node> baseRespons
 ```
 
-- CallResponse&lt;Node&gt;描述
+- CallResponse<Node>描述
 	- int： code   结果标识，0为成功
 	- Node：data   Node对象数据
 	- String：errMsg   错误信息，失败时存在
@@ -1662,7 +1662,7 @@ CallResponse<Node> baseResponse = stakingContract.getStakingInfo(nodeId).send();
 CallResponse<BigInteger> baseResponse
 ```
 
-- CallResponse&lt;BigInteger&gt;描述
+- CallResponse<BigInteger>描述
 	- int：code   结果标识，0为成功
 	- BigInteger：reward   当前结算周期的区块奖励
 	- String：errMsg   错误信息，失败时存在
@@ -1687,7 +1687,7 @@ CallResponse<BigInteger> response = stakingContract.getPackageReward().send();
 CallResponse<BigInteger> baseResponse
 ```
 
-- CallResponse&lt;List&lt;Node&gt;&gt;描述
+- CallResponse<List<Node>>描述
 	- int：code   结果标识，0为成功
 	- BigInteger：reward   当前结算周期的质押奖励
 	- String：errMsg   错误信息，失败时存在
@@ -1712,7 +1712,7 @@ CallResponse<BigInteger> response = stakingContract.getStakingReward().send();
 CallResponse<BigInteger> baseResponse
 ```
 
-- CallResponse&lt;BigInteger&gt;描述
+- CallResponse<BigInteger>描述
 	- int：code   结果标识，0为成功
 	- BigInteger：data   打包区块的平均时间（单位为毫秒）
 	- String：errMsg   错误信息，失败时存在
@@ -1785,9 +1785,9 @@ TransactionResponse baseResponse = delegateContract.getTransactionResponse(plato
 CallResponse<List<DelegationIdInfo>> baseRespons
 ```
 
-- CallResponse&lt;List&lt;DelegationIdInfo&gt;&gt;描述
+- CallResponse<List<DelegationIdInfo>>描述
 	- int：code   结果标识，0为成功
-	- List&lt;DelegationIdInfo&gt;：data   DelegationIdInfo对象列表
+	- List<DelegationIdInfo>：data   DelegationIdInfo对象列表
 	- String：errMsg   错误信息，失败时存在
 
 * **DelegationIdInfo**：保存当前账户地址所委托的节点的NodeID和质押区块高度的对象
@@ -1817,7 +1817,7 @@ CallResponse<List<DelegationIdInfo>> baseResponse = delegateContract.getRelatedL
 CallResponse<Delegation>
 ```
 
-- CallResponse&lt;Delegation&gt;描述
+- CallResponse<Delegation>描述
 	- int：code   结果标识，0为成功
 	- Delegation：data   Delegation对象数据
 	- String：errMsg   错误信息，失败时存在
@@ -1939,7 +1939,7 @@ if(baseResponse.isStatusOk()){
 
 * **入参**
   - String：address   委托人的账户地址
-  - List&lt;String&gt;： nodeList  节点列表，如果为空查全部
+  - List<String>： nodeList  节点列表，如果为空查全部
 
 * **返回值**
 
@@ -1947,9 +1947,9 @@ if(baseResponse.isStatusOk()){
 CallResponse<List<Reward>> baseRespons
 ```
 
-- CallResponse&lt;List&lt;Reward&gt;&gt;描述
+- CallResponse<List<Reward>>描述
 	- int：code   结果标识，0为成功
-	- List&lt;Reward&gt;：data   Reward对象列表
+	- List<Reward>：data   Reward对象列表
 	- String：errMsg   错误信息，失败时存在
 
 * **Reward**：奖励明细
@@ -1995,9 +1995,9 @@ NodeContract nodeContract = NodeContract.load(web3j, credentials, chainId);
 CallResponse<List<Node>> baseResponse
 ```
 
-- CallResponse&lt;List&lt;Node&gt;&gt;描述
+- CallResponse<List<Node>>描述
 	- int：code   结果标识，0为成功
-	- List&lt;Node&gt;：data   nodeList对象数据
+	- List<Node>：data   nodeList对象数据
 	- String：errMsg   错误信息，失败时存在
 
 * **Node**：保存单个当前结算周期验证节点信息的对象
@@ -2053,9 +2053,9 @@ CallResponse<List<Node>> baseResponse = nodeContract.getVerifierList().send();
 CallResponse<List<Node>> baseResponse
 ```
 
-- CallResponse&lt;List&lt;Node&gt;&gt;描述
+- CallResponse<List<Node>>描述
 	- int：code   结果标识，0为成功
-	- List&lt;Node&gt;：data   nodeList对象数据
+	- List<Node>：data   nodeList对象数据
 	- String：errMsg   错误信息，失败时存在
 
 * **Node**：保存单个当前共识周期验证节点信息的对象
@@ -2116,9 +2116,9 @@ CallResponse<List<Node>> baseResponse = nodeContract.getValidatorList().send();
 CallResponse<List<Node>> baseResponse
 ```
 
-- CallResponse&lt;List&lt;Node&gt;&gt;描述
+- CallResponse<List<Node>>描述
 	- int：code   结果标识，0为成功
-	- List&lt;Node&gt;：data   nodeList对象数据
+	- List<Node>：data   nodeList对象数据
 	- String：errMsg   错误信息，失败时存在
 
 * **Node**：保存单个候选节点信息对象
@@ -2290,7 +2290,7 @@ TransactionResponse baseResponse = proposalContract.getTransactionResponse(plato
 CallResponse<Proposal>
 ```
 
-- CallResponse&lt;Proposal&gt;描述
+- CallResponse<Proposal>描述
 	- int：code   结果标识，0为成功
 	- Proposal：data   Proposal对象数据
 	- String：errMsg   错误信息，失败时存在
@@ -2329,7 +2329,7 @@ CallResponse<Proposal> baseResponse = proposalContract.getProposal(proposalID).s
 CallResponse<TallyResult>
 ```
 
-- CallResponse&lt;TallyResult&gt;描述
+- CallResponse<TallyResult>描述
   - int：code   结果标识，0为成功
   - TallyResult：data   TallyResult对象数据
   - String：errMsg   错误信息，失败时存在
@@ -2372,9 +2372,9 @@ CallResponse<TallyResult> baseResponse = proposalContract.getTallyResult(proposa
 CallResponse<List<Proposal>>
 ```
 
-- CallResponse&lt;List&lt;Proposal&gt;&gt;描述
+- CallResponse<List<Proposal>>描述
 	- int：code   结果标识，0为成功
-	- List&lt;Proposal&gt;：data   ProposalList对象数据
+	- List<Proposal>：data   ProposalList对象数据
 	- String：errMsg   错误信息，失败时存在
 
 * **Proposal**：保存单个提案的对象
@@ -2439,7 +2439,7 @@ TransactionResponse baseResponse = proposalContract.getTransactionResponse(plato
 CallResponse
 ```
 
-- CallResponse&lt;BigInteger&gt;： 通用应答包
+- CallResponse<BigInteger>： 通用应答包
 	- int：code   结果标识，0为成功
 	- BigInteger：data   版本信息
 	- String：errMsg   错误信息，失败时存在
@@ -2546,7 +2546,7 @@ RestrictingPlanContract contract = RestrictingPlanContract.load(web3j, credentia
 * **入参**
 
   - String：address   锁仓释放到账账户
-  - List&lt;RestrictingPlan&gt;：plan   锁仓计划列表（数组）
+  - List<RestrictingPlan>：plan   锁仓计划列表（数组）
     - epoch：锁仓的周期，表示结算周期的倍数
     - amount：表示目标区块上待释放的金额。
 
@@ -2586,7 +2586,7 @@ TransactionResponse baseResponse = restrictingPlanContract.getTransactionRespons
 CallResponse<RestrictingItem> baseResponse
 ```
 
-- CallResponse&lt;RestrictingItem&gt;描述
+- CallResponse<RestrictingItem>描述
 	- int：code   结果标识，0为成功
 	- RestrictingItem：Data   RestrictingItem对象数据
 	- String：errMsg   错误信息，失败时存在
@@ -2595,7 +2595,7 @@ CallResponse<RestrictingItem> baseResponse
   - BigInteger：balance    锁仓余额
   - BigInteger：pledge   质押/抵押金额
   - BigInteger：debt   欠释放金额
-  - List&lt;RestrictingInfo&gt;：info   锁仓分录信息
+  - List<RestrictingInfo>：info   锁仓分录信息
 * **RestrictingInfo**：保存单个锁仓分录信息的对象
   - BigInteger：blockNumber    释放区块高度
   - BigInteger：amount   释放金额
@@ -2744,7 +2744,7 @@ YourSmartContract contract = YourSmartContract.deploy(
 
 这个方法将在区块链上部署智能合约。部署成功以后，它将会返回一个智能合约的包装类实例，包含智能合约的地址。
 
-如果你的智能合约在构造上接受LAT转账，则需要初始化参数值&lt;initialValue&gt;。
+如果你的智能合约在构造上接受LAT转账，则需要初始化参数值<initialValue>。
 
 通过智能合约的地址也可以创建智能合约对应的Java包装类的实例：
 
@@ -2879,7 +2879,7 @@ YourSmartContract contract = YourSmartContract.deploy(
 
 这个方法将在区块链上部署智能合约。部署成功以后，它将会返回一个智能合约的包装类实例，包含智能合约的地址。
 
-如果你的智能合约在构造上接受LAT转账，则需要初始化参数值&lt;initialValue&gt;。
+如果你的智能合约在构造上接受LAT转账，则需要初始化参数值<initialValue>。
 
 通过智能合约的地址也可以创建智能合约对应的Java包装类的实例：
 
