@@ -94,7 +94,7 @@ Ethereum
 
 **Sample Code**
 
-[Click to view code](https://github.com/PlatONnetwork/docs/blob/v2/docs/SmartDevelopment.assets/account.sol)
+[Click to view code](https://github.com/PlatONnetwork/docs/blob/master/docs/SmartDevelopment.assets/account.sol)
 
 
 ByteCode
@@ -127,7 +127,7 @@ Ethereum
 
 **Sample Code**
 
-[Click to view code](https://github.com/PlatONnetwork/docs/blob/v2/docs/SmartDevelopment.assets/token.sol)
+[Click to view code](https://github.com/PlatONnetwork/docs/blob/master/docs/SmartDevelopment.assets/token.sol)
 
 
 ByteCode

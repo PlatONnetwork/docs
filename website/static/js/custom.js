@@ -1,11 +1,11 @@
 // 首页重定向，开发环境记得注释
 let path = window.location.pathname;
-// let reg = /^\/docs\/(en|zh-CN)\//
-// if (path.indexOf('/docs/') == -1) {
-//   window.location.href = '/docs/en/';
-// } else if (!reg.test(path)) {
-//   window.location.href = '/docs/en/' + path.slice(6);
-// }
+let reg = /^\/docs\/(en|zh-CN)\//
+if (path.indexOf('/docs/') == -1) {
+  window.location.href = '/docs/en/';
+} else if (!reg.test(path)) {
+  window.location.href = '/docs/en/' + path.slice(6);
+}
 
 //数学公式  mathJax
 let isMathjaxConfig = false; // 防止重复调用Config，造成性能损耗

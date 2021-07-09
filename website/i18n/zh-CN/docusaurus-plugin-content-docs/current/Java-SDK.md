@@ -1588,7 +1588,7 @@ TransactionResponse baseResponse = stakingContract.getTransactionResponse(platon
 CallResponse<Node> baseRespons
 ```
 
-- CallResponse<Node>描述
+- CallResponse&lt;Node&gt;描述
 	- int： code   结果标识，0为成功
 	- Node：data   Node对象数据
 	- String：errMsg   错误信息，失败时存在
@@ -1662,7 +1662,7 @@ CallResponse<Node> baseResponse = stakingContract.getStakingInfo(nodeId).send();
 CallResponse<BigInteger> baseResponse
 ```
 
-- CallResponse<BigInteger>描述
+- CallResponse&lt;BigInteger&gt;描述
 	- int：code   结果标识，0为成功
 	- BigInteger：reward   当前结算周期的区块奖励
 	- String：errMsg   错误信息，失败时存在
@@ -1687,7 +1687,7 @@ CallResponse<BigInteger> response = stakingContract.getPackageReward().send();
 CallResponse<BigInteger> baseResponse
 ```
 
-- CallResponse<List<Node>>描述
+- CallResponse&lt;List&lt;Node&gt;&gt;描述
 	- int：code   结果标识，0为成功
 	- BigInteger：reward   当前结算周期的质押奖励
 	- String：errMsg   错误信息，失败时存在
@@ -1712,7 +1712,7 @@ CallResponse<BigInteger> response = stakingContract.getStakingReward().send();
 CallResponse<BigInteger> baseResponse
 ```
 
-- CallResponse<BigInteger>描述
+- CallResponse&lt;BigInteger&gt;描述
 	- int：code   结果标识，0为成功
 	- BigInteger：data   打包区块的平均时间（单位为毫秒）
 	- String：errMsg   错误信息，失败时存在
@@ -1785,9 +1785,9 @@ TransactionResponse baseResponse = delegateContract.getTransactionResponse(plato
 CallResponse<List<DelegationIdInfo>> baseRespons
 ```
 
-- CallResponse<List<DelegationIdInfo>>描述
+- CallResponse&lt;List&lt;DelegationIdInfo&gt;&gt;描述
 	- int：code   结果标识，0为成功
-	- List<DelegationIdInfo>：data   DelegationIdInfo对象列表
+	- List&lt;DelegationIdInfo&gt;：data   DelegationIdInfo对象列表
 	- String：errMsg   错误信息，失败时存在
 
 * **DelegationIdInfo**：保存当前账户地址所委托的节点的NodeID和质押区块高度的对象
@@ -1817,7 +1817,7 @@ CallResponse<List<DelegationIdInfo>> baseResponse = delegateContract.getRelatedL
 CallResponse<Delegation>
 ```
 
-- CallResponse<Delegation>描述
+- CallResponse&lt;Delegation&gt;描述
 	- int：code   结果标识，0为成功
 	- Delegation：data   Delegation对象数据
 	- String：errMsg   错误信息，失败时存在
@@ -1939,7 +1939,7 @@ if(baseResponse.isStatusOk()){
 
 * **入参**
   - String：address   委托人的账户地址
-  - List<String>： nodeList  节点列表，如果为空查全部
+  - List&lt;String&gt;： nodeList  节点列表，如果为空查全部
 
 * **返回值**
 
@@ -1947,9 +1947,9 @@ if(baseResponse.isStatusOk()){
 CallResponse<List<Reward>> baseRespons
 ```
 
-- CallResponse<List<Reward>>描述
+- CallResponse&lt;List&lt;Reward&gt;&gt;描述
 	- int：code   结果标识，0为成功
-	- List<Reward>：data   Reward对象列表
+	- List&lt;Reward&gt;：data   Reward对象列表
 	- String：errMsg   错误信息，失败时存在
 
 * **Reward**：奖励明细
@@ -1995,9 +1995,9 @@ NodeContract nodeContract = NodeContract.load(web3j, credentials, chainId);
 CallResponse<List<Node>> baseResponse
 ```
 
-- CallResponse<List<Node>>描述
+- CallResponse&lt;List&lt;Node&gt;&gt;描述
 	- int：code   结果标识，0为成功
-	- List<Node>：data   nodeList对象数据
+	- List&lt;Node&gt;：data   nodeList对象数据
 	- String：errMsg   错误信息，失败时存在
 
 * **Node**：保存单个当前结算周期验证节点信息的对象
@@ -2053,9 +2053,9 @@ CallResponse<List<Node>> baseResponse = nodeContract.getVerifierList().send();
 CallResponse<List<Node>> baseResponse
 ```
 
-- CallResponse<List<Node>>描述
+- CallResponse&lt;List&lt;Node&gt;&gt;描述
 	- int：code   结果标识，0为成功
-	- List<Node>：data   nodeList对象数据
+	- List&lt;Node&gt;：data   nodeList对象数据
 	- String：errMsg   错误信息，失败时存在
 
 * **Node**：保存单个当前共识周期验证节点信息的对象
@@ -2116,9 +2116,9 @@ CallResponse<List<Node>> baseResponse = nodeContract.getValidatorList().send();
 CallResponse<List<Node>> baseResponse
 ```
 
-- CallResponse<List<Node>>描述
+- CallResponse&lt;List&lt;Node&gt;&gt;描述
 	- int：code   结果标识，0为成功
-	- List<Node>：data   nodeList对象数据
+	- List&lt;Node&gt;：data   nodeList对象数据
 	- String：errMsg   错误信息，失败时存在
 
 * **Node**：保存单个候选节点信息对象
@@ -2290,7 +2290,7 @@ TransactionResponse baseResponse = proposalContract.getTransactionResponse(plato
 CallResponse<Proposal>
 ```
 
-- CallResponse<Proposal>描述
+- CallResponse&lt;Proposal&gt;描述
 	- int：code   结果标识，0为成功
 	- Proposal：data   Proposal对象数据
 	- String：errMsg   错误信息，失败时存在
@@ -2329,7 +2329,7 @@ CallResponse<Proposal> baseResponse = proposalContract.getProposal(proposalID).s
 CallResponse<TallyResult>
 ```
 
-- CallResponse<TallyResult>描述
+- CallResponse&lt;TallyResult&gt;描述
   - int：code   结果标识，0为成功
   - TallyResult：data   TallyResult对象数据
   - String：errMsg   错误信息，失败时存在
@@ -2372,9 +2372,9 @@ CallResponse<TallyResult> baseResponse = proposalContract.getTallyResult(proposa
 CallResponse<List<Proposal>>
 ```
 
-- CallResponse<List<Proposal>>描述
+- CallResponse&lt;List&lt;Proposal&gt;&gt;描述
 	- int：code   结果标识，0为成功
-	- List<Proposal>：data   ProposalList对象数据
+	- List&lt;Proposal&gt;：data   ProposalList对象数据
 	- String：errMsg   错误信息，失败时存在
 
 * **Proposal**：保存单个提案的对象
@@ -2439,7 +2439,7 @@ TransactionResponse baseResponse = proposalContract.getTransactionResponse(plato
 CallResponse
 ```
 
-- CallResponse<BigInteger>： 通用应答包
+- CallResponse&lt;BigInteger&gt;： 通用应答包
 	- int：code   结果标识，0为成功
 	- BigInteger：data   版本信息
 	- String：errMsg   错误信息，失败时存在
@@ -2546,7 +2546,7 @@ RestrictingPlanContract contract = RestrictingPlanContract.load(web3j, credentia
 * **入参**
 
   - String：address   锁仓释放到账账户
-  - List<RestrictingPlan>：plan   锁仓计划列表（数组）
+  - List&lt;RestrictingPlan&gt;：plan   锁仓计划列表（数组）
     - epoch：锁仓的周期，表示结算周期的倍数
     - amount：表示目标区块上待释放的金额。
 
@@ -2586,7 +2586,7 @@ TransactionResponse baseResponse = restrictingPlanContract.getTransactionRespons
 CallResponse<RestrictingItem> baseResponse
 ```
 
-- CallResponse<RestrictingItem>描述
+- CallResponse&lt;RestrictingItem&gt;描述
 	- int：code   结果标识，0为成功
 	- RestrictingItem：Data   RestrictingItem对象数据
 	- String：errMsg   错误信息，失败时存在
@@ -2595,7 +2595,7 @@ CallResponse<RestrictingItem> baseResponse
   - BigInteger：balance    锁仓余额
   - BigInteger：pledge   质押/抵押金额
   - BigInteger：debt   欠释放金额
-  - List<RestrictingInfo>：info   锁仓分录信息
+  - List&lt;RestrictingInfo&gt;：info   锁仓分录信息
 * **RestrictingInfo**：保存单个锁仓分录信息的对象
   - BigInteger：blockNumber    释放区块高度
   - BigInteger：amount   释放金额
@@ -2744,7 +2744,7 @@ YourSmartContract contract = YourSmartContract.deploy(
 
 这个方法将在区块链上部署智能合约。部署成功以后，它将会返回一个智能合约的包装类实例，包含智能合约的地址。
 
-如果你的智能合约在构造上接受LAT转账，则需要初始化参数值<initialValue>。
+如果你的智能合约在构造上接受LAT转账，则需要初始化参数值&lt;initialValue&gt;。
 
 通过智能合约的地址也可以创建智能合约对应的Java包装类的实例：
 
@@ -2879,7 +2879,7 @@ YourSmartContract contract = YourSmartContract.deploy(
 
 这个方法将在区块链上部署智能合约。部署成功以后，它将会返回一个智能合约的包装类实例，包含智能合约的地址。
 
-如果你的智能合约在构造上接受LAT转账，则需要初始化参数值<initialValue>。
+如果你的智能合约在构造上接受LAT转账，则需要初始化参数值&lt;initialValue&gt;。
 
 通过智能合约的地址也可以创建智能合约对应的Java包装类的实例：
 
