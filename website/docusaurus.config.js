@@ -16,7 +16,7 @@ module.exports = {
     '/docs/js/custom.js'
   ],
   i18n: {
-    defaultLocale: 'zh-CN',
+    defaultLocale: 'en',
     locales: ['en', 'zh-CN'],
     localeConfigs: {
       en: {
