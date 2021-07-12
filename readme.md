@@ -15,15 +15,15 @@ cd website
 ```
 
 ## Install dependencies 
-Install [yarn](https://yarnpkg.com/en/). In `website` folder:
+In `website` folder:
 
  ```
- yarn install
+ npm install
  ```
 
 ## Preview the site
 In `website` folder:
 ```
-yarn start
+yarn run start
 ```
 Then you should be able to preview the website at `http://localhost:3000/` in your browser.
