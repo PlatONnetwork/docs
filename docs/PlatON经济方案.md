@@ -163,7 +163,7 @@ According to the annual expected number of blocks for the additional period, LAT
 
 Therefore, the current additional period	 of LAT can be expressed as:
 
-$$f(x)=W\times(1+a\%)^{x-1}\times a\%$$
+$$f(x)=W\times(1+a \\% )^{x-1}\times a \\% $$
 
 among them:
 
@@ -508,7 +508,7 @@ In PlatON, there are three types of incentive methods for the validator:
 
   All validator nodes participating in consensus block production will receive block production rewards for the blocks produced. Block rewards are issued in real time based on the blocks that are produced. 50% of the reward pool is used for block rewards. The amount of block rewards for a single block is determined based on the balance of the reward pool at the beginning of each additional period, and the entire additional period remains unchanged. The reward for a single block in the $n$ additional period is as follows:
 
-  $$B(n)=\frac{R_{v\times (n-1)}\times50%}{v}$$
+  $$B(n)=\frac{R_{v\times (n-1)}\times 50 \\%}{v}$$
 
   among them,
 
@@ -526,7 +526,7 @@ In PlatON, there are three types of incentive methods for the validator:
 
   Staking rewards for each epoch of the current issuance period:
 
-  $$S(n)=\frac{c\times R_{v\times (n-1)}\times50%}{v}$$
+  $$S(n)=\frac{c\times R_{v\times (n-1)}\times 50 \\%}{v}$$
 
   On the settlement block, assuming that the number of candidate nodes in the current epoch is $m$, the Staking reward for each candidate node in the current  epoch:
 

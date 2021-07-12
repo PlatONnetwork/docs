@@ -103,7 +103,7 @@ PLATON_DISPATCH(SimpleStorage,(init)(set)(get))
 
 字节码
 
-[查看字节码](https://github.com/PlatONnetwork/docs/tree/v2/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/SimpleStorage_wasm.bin)
+[查看字节码](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/SimpleStorage_wasm.bin)
 
 字节大小：`13882 byte => 13.55 kb`
 
@@ -137,12 +137,12 @@ PlatON-WASM
 
 **EVM示例代码**
 
-[点击查看微博客账户合约](https://github.com/PlatONnetwork/docs/tree/v2/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/account.sol)
+[点击查看微博客账户合约](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/account.sol)
 
 
 字节码
 
-[查看字节码](https://github.com/PlatONnetwork/docs/tree/v2/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Tweet_wasm.bin)
+[查看字节码](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Tweet_wasm.bin)
 
 
 字节大小： `2130.5 byte => 2.08 kb`
@@ -268,7 +268,7 @@ PLATON_DISPATCH(TweetAccount,(init)(isAdmin)(tweet)(getTweet)(getLatestTweet)
 
 字节码
 
-[查看字节码](https://github.com/PlatONnetwork/docs/tree/v2/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Tweet_wasm.bin)
+[查看字节码](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Tweet_wasm.bin)
 
 字节大小： `30788` byte => 30.07 kb`
 
@@ -302,12 +302,12 @@ PlatON-WASM
 
 **EVM示例代码**
 
-[点击查看PRC20标准的智能合约](https://github.com/PlatONnetwork/docs/tree/v2/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/token.sol)
+[点击查看PRC20标准的智能合约](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/token.sol)
 
 
 字节码
 
-[查看字节码](https://github.com/PlatONnetwork/docs/tree/v2/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Token_evm.bin)
+[查看字节码](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Token_evm.bin)
 
 
 字节大小： `4557.5 byte => 4.45 kb`
@@ -478,7 +478,7 @@ PLATON_DISPATCH(LATToken,(init)(balanceOf)(transfer)(transferFrom)(approve)(allo
 
 字节码
 
-[查看字节码](https://github.com/PlatONnetwork/docs/tree/v2/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Token_wasm.bin)
+[查看字节码](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Token_wasm.bin)
 
 
 字节大小： `36764 byte => 35.9 kb`

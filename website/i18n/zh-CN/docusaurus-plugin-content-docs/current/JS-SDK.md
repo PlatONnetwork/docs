@@ -804,7 +804,7 @@ web3.platon.getTransactionCount("lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2")
 
 #### web3.platon.sendTransaction
 
-`web3.platon.sendTransaction()`方法向以太坊网络提交一个交易。
+`web3.platon.sendTransaction()`方法向网络提交一个交易。
 
 调用：
 
@@ -4432,7 +4432,7 @@ reply = await ppos.send(params, other);
 | ----------- | ---- | ---- |
 | Yeas        | 0x01 | 支持 |
 | Nays        | 0x02 | 反对 |
-| Abstentions | 0x03 | 弃权 |
+|Abstentions  | 其他值|弃权  |
 
 **Proposal 接口 提案定义**
 

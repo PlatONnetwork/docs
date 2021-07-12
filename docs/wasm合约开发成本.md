@@ -104,7 +104,7 @@ PLATON_DISPATCH(SimpleStorage,(init)(set)(get))
 
 ByteCode
 
-[Click to view bincode](https://github.com/PlatONnetwork/docs/blob/v2/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/SimpleStorage_wasm.bin)
+[Click to view bincode](https://github.com/PlatONnetwork/docs/blob/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/SimpleStorage_wasm.bin)
 
 ByteSize: `13882 byte => 13.55 kb`
 
@@ -138,12 +138,12 @@ PlatON-WASM
 
 **EVM Sample Code**
 
-[Click to view code](https://github.com/PlatONnetwork/docs/tree/v2/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/account.sol)
+[Click to view code](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/account.sol)
 
 
 ByteCode
 
-[Click to view bincode](https://github.com/PlatONnetwork/docs/tree/v2/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Tweet_evm.bin)
+[Click to view bincode](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Tweet_evm.bin)
 
 
 ByteSize: `2130.5 byte => 2.08 kb`
@@ -269,7 +269,7 @@ PLATON_DISPATCH(TweetAccount,(init)(isAdmin)(tweet)(getTweet)(getLatestTweet)
 
 ByteCode
 
-[Click to view bincode](https://github.com/PlatONnetwork/docs/tree/v2/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Tweet_wasm.bin)
+[Click to view bincode](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Tweet_wasm.bin)
 
 ```
 
@@ -307,12 +307,12 @@ PlatON-WASM
 
 **EVM Sample Code**
 
-[Click to view code](https://github.com/PlatONnetwork/docs/tree/v2/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/token.sol)
+[Click to view code](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/token.sol)
 
 
 ByteCode
 
-[Click to view bincode](https://github.com/PlatONnetwork/docs/tree/v2/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Token_evm.bin)
+[Click to view bincode](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Token_evm.bin)
 
 
 ByteSize: `4557.5 byte => 4.45 kb`
@@ -483,7 +483,7 @@ PLATON_DISPATCH(LATToken,(init)(balanceOf)(transfer)(transferFrom)(approve)(allo
 
 ByteCode
 
-[Click to view bincode](https://github.com/PlatONnetwork/docs/tree/v2/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Token_wasm.bin)
+[Click to view bincode](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Token_wasm.bin)
 
 ByteSize: `36764 byte => 35.9 kb`
 

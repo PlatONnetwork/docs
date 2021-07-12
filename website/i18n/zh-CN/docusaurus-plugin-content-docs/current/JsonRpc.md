@@ -1422,3 +1422,31 @@ curl -X POST --data '{ "jsonrpc": "2.0", "method": "admin_datadir", "params": []
 }
 ```
 ***
+
+#### debug_getWaitSlashingNodeList
+
+获取零出块的节点，因为零出块而被观察的节点列表。
+
+##### 参数
+no
+
+##### 返回
+`array` - 零出块的节点列表，每个结构包含三个字段，NodeId：零出块的节点ID，Round：观察期内第一次零出块时所处共识轮数，CountBit：零出块次数位图（从Round开始，1表示该轮未出块）。
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{ "jsonrpc": "2.0", "method": "debug_getWaitSlashingNodeList", "params": [], "id": 74}'
+
+// Result
+{
+  "id": 74,
+  "jsonrpc": "2.0",
+  "result": "[{
+    "NodeId": "8e91f562c1798dc8c567a5c4a99a840eb86e43324b622fd0a4a8defdf873baf8f822313d7f35227fe15b6f4a2767dfb9ea7f7968d0a3a243e57b4d1090f6fc6c",
+    "Round": 1000,
+    "CountBit": 7
+  }]"
+}
+```
+***
