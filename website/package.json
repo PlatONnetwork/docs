@@ -7,7 +7,7 @@
     "start": "docusaurus start",
     "start:zh": "docusaurus start --locale zh-CN",
     "build": "docusaurus build",
-    "build:en": "cross-env BASE_URL='/devdocs/en/' docusaurus build --locale en --out-dir build/en",
+    "build:en": "cross-env BASE_URL='/docs/en/' docusaurus build --locale en --out-dir build/en",
     "build:all": "npm run build && npm run build:en",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
