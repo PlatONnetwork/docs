@@ -1,0 +1,342 @@
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/* your custom css */
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (max-width: 1023px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}
+
+@media only screen and (min-width: 1500px) {
+}
+
+body {
+  color: #000000;
+}
+
+.fixedHeaderContainer {
+  background: #030418;
+}
+
+.navigationSlider .slidingNav ul li > a:focus,
+.navigationSlider .slidingNav ul li > a:hover,
+.navigationSlider .slidingNav ul li.siteNavItemActive > a,
+.navigationSlider .slidingNav ul li.siteNavGroupActive > a {
+  background-color: #030418;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+.container li {
+  list-style: none;
+}
+
+.container li p {
+  margin: 0;
+}
+
+.container li::before {
+  content: " ";
+  display: block;
+  position: relative;
+  left: -14px;
+  top: 16px;
+  width: 6px;
+  height: 4px;
+  border: 1px solid #ffb7d7;
+  background: #e40065;
+}
+
+/* Inner page navigation */
+
+.docsNavContainer::-webkit-scrollbar {
+  width: 7px;
+}
+
+.docsNavContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.docsNavContainer::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.docsNavContainer::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.toc .toggleNav .navGroup .navGroupCategoryTitle {
+  color: #000000;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2em;
+  margin-bottom: 13px;
+  margin-top: 13px;
+}
+.toc .toggleNav ul li a {
+  border: none;
+  color: #717171;
+  display: block;
+  font-size: 14px;
+  padding: 2px 0 !important;
+  transition: color 0.3s;
+}
+
+.toc .toggleNav ul li.navListItemActive a {
+  font-weight: 700;
+}
+
+.mainContainer {
+  margin: 0 36px;
+}
+
+code {
+  background-color: #eaeaea;
+}
+
+blockquote code {
+  background-color: rgba(234, 234, 234, 0.5);
+}
+
+.hljs,
+.hljs-subst {
+  color: #fff;
+}
+
+.hljs {
+  background: #000000;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #c678dd;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e06c75;
+}
+
+.hljs-literal {
+  color: #56b6c2;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string {
+  color: #98c379;
+}
+
+.hljs-built_in,
+.hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #d19a66;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #61aeee;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+.navGroup:first-child h3,
+.navGroup:last-child h3 {
+  display: none;
+}
+.navGroup:first-child ul,
+.navGroup:last-child ul {
+  display: block;
+  padding-left: 0;
+}
+
+.navGroup:first-child ul li a,
+.navGroup:last-child ul li a {
+  padding: 0;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 13px;
+  margin-top: 13px;
+}
+
+/* .navGroup:nth-child(5) ul .subNavGroup:nth-child(3),
+.navGroup:nth-child(5) ul .subNavGroup:nth-child(4) {
+  padding-left: 20px;
+} */
+
+.card-wrap {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(2, 345px);
+}
+@media screen and (max-width: 1350px) {
+  .card-wrap {
+    grid-template-columns: repeat(1, 345px);
+  }
+}
+.homepage-card {
+  width: 345px;
+  height: 150px;
+  padding: 25px 20px;
+  color: #000000;
+  background-color: white;
+  border: 1px solid #f2f2f5;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px #f2f2f5;
+}
+.homepage-card img {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 9px;
+  vertical-align: middle;
+}
+.homepage-card a {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  vertical-align: middle;
+}
+.card-description {
+  margin-top: 17px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.commmunity-table {
+  box-shadow: 0 2px 4px 2px #f2f2f5;
+}
+.commmunity-table tbody {
+  width: 100%;
+  display: table;
+}
+.commmunity-table td,
+.commmunity-table tr {
+  border: none;
+}
+.commmunity-table tr td:first-child {
+  width: 100px;
+  text-align: center;
+}
+
+.commmunity-table .color {
+  font-size: 20px;
+  color: #e40065;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.commmunity-table tr td:last-child {
+  padding-bottom: 10px;
+}
+
+.commmunity-table tr td {
+  vertical-align: middle;
+}
+
+.nav-footer .sitemap .gitstar {
+  flex: 0;
+  width: 100px;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.toc .toggleNav .navGroup .navGroupSubcategoryTitle,
+.toc .toggleNav ul li a {
+  color: #717171;
+  font-weight: 400;
+}
+.toc .toggleNav .navGroup ul .navItem {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.toc .toggleNav .navGroup .subNavGroup ul {
+  padding-left: 20px;
+}
+.toc .toggleNav .navGroup .subNavGroup ul .navItem {
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.toc .toggleNav .navGroup .sonNavGroup {
+  padding-left: 20px;
+}
+
+
+#languages-dropdown-items {
+  background-color: --ifm-color-primary;
+  display: flex;
+  flex-direction: column;
+  min-width: 80px;
+  pointer-events: all;
+}
+
+.menu__link {
+  white-space: nowrap;
+}
