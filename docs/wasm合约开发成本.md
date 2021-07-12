@@ -406,6 +406,7 @@ class StandardToken: public Token
 				&& allowed.self()[_from][sender] >= _value && _value > 0){
 				balances.self()[_to] += _value;
 				balances.self()[_from] -= _value;
+				allowed.self()[_from][sender] -= _value;
 				PLATON_EMIT_EVENT2(Transfer, _from, _to, _value);
 				return true;
 			} else {
