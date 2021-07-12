@@ -3105,7 +3105,7 @@ web3.utils.toBech32Address('lat', '0x1234567890123456789012345678901234567891');
 Method:
 
 ```js
-web3.utils.decodeBech32Address(hrp, bech32Address)
+web3.utils.decodeBech32Address(bech32Address, hrp)
 ```
 
 Parameters:
@@ -3121,10 +3121,10 @@ Returns:
 Sample code: 
 
 ```js
-web3.utils.decodeBech32Address('lax', 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf');
+web3.utils.decodeBech32Address('lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf', 'lax');
 > '0x1234567890123456789012345678901234567891'
 
-web3.utils.decodeBech32Address('lat', 'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
+web3.utils.decodeBech32Address('lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx', 'lat');
 > '0x1234567890123456789012345678901234567891'
 ```
 
