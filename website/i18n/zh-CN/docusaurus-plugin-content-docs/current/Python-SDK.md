@@ -33,10 +33,9 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 - 下载源码
 
   ```
-  git clone -b 0.15.1-develop https://github.com/PlatONnetwork/client-sdk-python.git
+  git clone https://github.com/PlatONnetwork/client-sdk-python.git
   ```
 
-  > 其中`0.15.1-develop`为当前使用的分支。
 
 
 ### 使用
@@ -292,7 +291,7 @@ client-sdk-python 是一个服务于PlatON底层链的python sdk。通过web3对
 
   参数：
 
-  - `address`：String - 要检查余额的账户地址，bech32 address格式，lax开头的为测试网，lat开头的为主网。
+  - `address`：String - 要检查余额的账户地址，bech32 address格式。
 
   返回值：
 
@@ -548,9 +547,9 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
 
   - `transactionObject`：Object - 要发送的交易对象，包含以下字段：
     - from - String|Number: 交易发送方账户地址，不设置该字段的话，则使用platon.defaultAccount属性值。可设置为一个地址或本地钱包platon.accounts.wallet中的索引序号。
-    - to - String: 可选，消息的目标地址，对于合约创建交易该字段为null。
-    - value - Number|String|BN|BigNumber: (optional) The value transferred for the transaction in VON, also the endowment if it’s a contract-creation transaction.
-    - gas - Number: 可选，默认值：待定，用于交易的gas总量，未用完的gas会退还。
+    - to - String：可选，消息的目标地址，对于合约创建交易该字段为null。
+    - value - Number|String|BN|BigNumber：可选，交易需要转移的Token，单位为VON。
+    - gas - Number: 可选，用于交易的gas总量，未用完的gas会退还。
     - gasPrice - Number|String|BN|BigNumber: 可选，该交易的gas价格，单位为VON，默认值为platon.gasPrice属性值。
     - data - String: 可选，可以是包含合约方法数据的ABI字符串，或者是合约创建交易中的初始化代码。
     - nonce - Number: 可选，使用该字段覆盖使用相同nonce值的挂起交易。
@@ -568,7 +567,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
   参数：
 
   - `transaction_hash`：String - 交易的哈希值。
-  - `timeout`：Number- 可选的等待时间长度，单位为秒。默认为120。
+  - `timeout`：Number- 可选的等待时间长度，单位为秒，默认值为120秒。
 
   返回值：
 
@@ -666,7 +665,7 @@ platon.sendRawTransaction(signTransaction，private_key)
     
     - from - String|Number: 交易发送方账户地址，不设置该字段的话，则使用platon.defaultAccount属性值。可设置为一个地址或本地钱包platon.accounts.wallet中的索引序号。
     - to - String: 可选，消息的目标地址，对于合约创建交易该字段为null。
-    - value - Number|String|BN|BigNumber: (optional) The value transferred for the transaction in VON, also the endowment if it’s a contract-creation transaction.
+    - value - Number|String|BN|BigNumber：可选，交易需要转移的Token，单位为VON。
     
     - gas - Number: 可选，默认值：待定，用于交易的gas总量，未用完的gas会退还。
     
@@ -1592,7 +1591,7 @@ ppos.increaseStaking(node_id, amount, pri_key, typ=2, transaction_cfg=None)
 
   
 
-##### 撤销质押(一次性发起全部撤销，多次到账)
+##### 撤销质押(一次性发起全部撤销)
 
 调用：
 
@@ -2003,9 +2002,8 @@ pip.submitVersion(verifier, pip_id, new_version, end_voting_rounds, pri_key, tra
 - **new_version**:新的版本。
 
 - **end_voting_rounds**:投票共识轮数。    
-   
-   说明：假设在共识回合中对提案提交的交易进行了舍入程序包的编号被打包到该区块中，那么提案投票区块为高，这是回合1 + endVotingRounds的回合的第230个块高度（假设协商一致意见出自第250块，ppos该列表提前了20块， 250、20是可配置的），其中0 <endVotingRounds <= 4840（大约2周，实际讨论
-   （可以根据配置进行计算），并且是整数）。
+  
+   说明：指定投票的共识轮数。提案将在最后一个共识轮的第230个块结束投票，如果投票通过，则在共识轮完成后生效。该参数取值范围为0 < endVotingRounds <= 4840的整数，大约为2周时间。
    
 - **pri_key**: 交易私钥。
 

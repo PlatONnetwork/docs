@@ -278,7 +278,7 @@ After successfully connecting with the nodes on the Platon chain, you can query 
 
   parameter:
 
-  - `address`: String-the account address to check the balance, bech32 address format, the beginning of lax is the testnet, the beginning of lat is the mainnet
+  - `address`: String-the account address to check the balance, bech32 address format.
 
   return value:
 
@@ -1581,7 +1581,7 @@ Parameter Description
   
   
 
-##### Cancel the pledge (initiate all cancellation at one time, and arrive at the account multiple times)
+##### Cancel the pledge (initiate all cancellation at one time)
 
 Calling method
 
@@ -1998,12 +1998,7 @@ Parameter Description
 - **new_version**: upgraded version.
 
 - **end_voting_rounds**: The number of voting consensus rounds.
-  Explanation: Assume that the transaction submitted by the proposal is rounded when the consensus round
-  number of the package is packed into the block, then the proposal voting block is high,
-  which is the 230th block height of the round of the round1 + endVotingRounds
-  (assuming a consensus round out of block 250, ppos The list is 20 blocks high in advance,
-  250, 20 are configurable), where 0 <endVotingRounds <= 4840 (about 2 weeks, the actual discussion
-  can be calculated according to the configuration), and is an integer).
+  Explanation: Specifies the number of consensus rounds of voting.  The proposal will end voting in the 230th block of the last consensus round, and if approved, will become effective after the conclusion of the consensus round.  The value ranges from 0 < endVotingRounds <= 4840.
   
 - **pri_key**: Private key for transaction.
 
