@@ -2004,8 +2004,7 @@ pip.submitVersion(verifier, pip_id, new_version, end_voting_rounds, pri_key, tra
 
 - **end_voting_rounds**:投票共识轮数。    
    
-   说明：假设在共识回合中对提案提交的交易进行了舍入程序包的编号被打包到该区块中，那么提案投票区块为高，这是回合1 + endVotingRounds的回合的第230个块高度（假设协商一致意见出自第250块，ppos该列表提前了20块， 250、20是可配置的），其中0 <endVotingRounds <= 4840（大约2周，实际讨论
-   （可以根据配置进行计算），并且是整数）。
+   说明：指定投票的共识轮数，提案将在最后一个共识轮的第230个块结束投票，如果投票通过，则在共识轮完成后生效。该参数取值范围为0 < endVotingRounds <= 4840的整数，大约为2周时间。
    
 - **pri_key**: 交易私钥。
 
