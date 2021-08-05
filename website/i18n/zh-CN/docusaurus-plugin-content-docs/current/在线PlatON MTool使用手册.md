@@ -41,7 +41,7 @@ platon_mtool --version
 
 **step1. 下载PlatON MTool安装包**
 
-在在线机器上，复制链接https://download.platon.network/platon/mtool/windows/1.0.0/platon_mtool.exe 到浏览器下载PlatON MTool安装包。
+在在线机器上，复制链接https://download.platon.network/platon/mtool/windows/1.0.1/platon_mtool.exe 到浏览器下载PlatON MTool安装包。
 
 **step2. 安装PlatON MTool**
 
@@ -58,7 +58,7 @@ platon_mtool --version
 **step1. 下载PlatON MTool工具包**
 
 ``` bash
-wget https://download.platon.network/platon/mtool/linux/1.0.0/platon_mtool.zip
+wget https://download.platon.network/platon/mtool/linux/1.0.1/platon_mtool.zip
 ```
 
 **step2. 解压PlatON MTool工具包**
