@@ -67,6 +67,6 @@ If you want to join the PlatON network as a node, the following documents can gi
   - [Twitter](https://twitter.com/PlatON_Network)
   - [GitHub](https://github.com/PlatONnetwork)
   - [Medium](https://medium.com/platon-network)
-  - [Telegram](https://t.me/PlatONNetworkCN)
+  - [Telegram](https://t.me/PlatONNetwork)
   - [Discord](https://discord.com/invite/jAjFzJ3Cff)
   - [Forum](https://forum.latticex.foundation/)
