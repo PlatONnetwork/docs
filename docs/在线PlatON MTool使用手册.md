@@ -32,7 +32,7 @@ If the execution result shows the version number, timestamp and other informatio
 
 **Step1. Backup directory**
 
-Back up all files in the directory `C:\platon_mtool\mtool\current\keystore` to the D drive or other non `C:\platon_mtool` directory. After installing the new version, you need to copy the backup file back to the `C:\platon_mtool\mtool\current\keystore` directory.
+Back up the `C:\platon_mtool\mtool\current\keystore` and `C:\platon_mtool\mtool\current\validator` directories to other directories (do not back them up to `C:\platon_mtool`). After installing the new version, you need to copy the backup directory back to the `C:\platon_mtool\mtool\current\` directory. (If the installation directory is a custom directory, the actual one shall prevail)
 
 **Step2. Uninstall old version**
 
@@ -42,7 +42,7 @@ Double-click `C:\platon_mtool\unins000.exe` to uninstall all old versions of Pla
 
 **Step1. Download PlatON MTool installation package**
 
-On the online machine, copy the link https://download.platon.network/platon/mtool/windows/1.0.0/platon_mtool.exe  to the browser and download the PlatON MTool installation package.
+On the online machine, copy the link https://download.platon.network/platon/mtool/windows/1.0.1/platon_mtool.exe  to the browser and download the PlatON MTool installation package.
 
 **Step2. Install PlatON MTool**
 
@@ -54,12 +54,18 @@ After installation is complete, you need to <font color='red'>restart the termin
 
 ### Install PlatON MTool under Ubuntu
 
+#### Preparation before installation
+
+Back up the `~/platon_mtool/keystore` and `~/platon_mtool/validator` directories to other directories (do not back them up to `~/platon_mtool`). After installing the new version, you need to copy the backup directory back to the `~/platon_mtool/` directory. (If the installation directory is a custom directory, the actual one shall prevail)
+
+#### start installation
+
 Proceed as follows:
 
 **Step1. Download PlatON MTool toolkit**
 
 ```bash
-wget https://download.platon.network/platon/mtool/linux/1.0.0/platon_mtool.zip
+wget https://download.platon.network/platon/mtool/linux/1.0.1/platon_mtool.zip
 ```
 
 **Step2. Extract the PlatON MTool toolkit**

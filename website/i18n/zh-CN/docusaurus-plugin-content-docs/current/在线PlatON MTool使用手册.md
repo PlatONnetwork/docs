@@ -31,7 +31,7 @@ platon_mtool --version
 
 **step1. 备份目录**
 
-将 `C:\platon_mtool\mtool\current\keystore` 下的所有文件到 D 盘或其他非 `C:\platon_mtool` 的目录下。安装完新版本之后需要将备份文件拷贝回 `C:\platon_mtool\mtool\current\keystore` 目录下。
+将 `C:\platon_mtool\mtool\current\keystore` 和 `C:\platon_mtool\mtool\current\validator` 目录备份到其他目录下（请勿备份到 `C:\platon_mtool`下）。安装完新版本之后需要将备份目录拷贝回 `C:\platon_mtool\mtool\current\` 目录下。 （如果安装目录为自定义目录，则以实际为准）
 
 **step2. 卸载旧版本**
 
@@ -41,7 +41,7 @@ platon_mtool --version
 
 **step1. 下载PlatON MTool安装包**
 
-在在线机器上，复制链接https://download.platon.network/platon/mtool/windows/1.0.0/platon_mtool.exe 到浏览器下载PlatON MTool安装包。
+在在线机器上，复制链接https://download.platon.network/platon/mtool/windows/1.0.1/platon_mtool.exe 到浏览器下载PlatON MTool安装包。
 
 **step2. 安装PlatON MTool**
 
@@ -53,12 +53,18 @@ platon_mtool --version
 
 ### Ubuntu下安装PlatON MTool
 
+#### 安装前准备
+
+将 `~/platon_mtool/keystore` 和 `~/platon_mtool/validator` 目录备份到其他目录下（请勿备份到 `~/platon_mtool`下）。安装完新版本之后需要将备份目录拷贝回 `~/platon_mtool/` 目录下。 （如果安装目录为自定义目录，则以实际为准）
+
+#### 开始安装
+
 步骤如下：
 
 **step1. 下载PlatON MTool工具包**
 
 ``` bash
-wget https://download.platon.network/platon/mtool/linux/1.0.0/platon_mtool.zip
+wget https://download.platon.network/platon/mtool/linux/1.0.1/platon_mtool.zip
 ```
 
 **step2. 解压PlatON MTool工具包**
