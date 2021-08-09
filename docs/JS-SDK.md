@@ -14,8 +14,8 @@ First, make sure the nodeJS environment is successfully installed locally. `WEB3
 
 Then you can integrate client-sdk-js into the project through package management tools such as npm or yarn, the steps are as follows:
 
-- npm: `npm i PlatONnetwork/client-sdk-js#0.15.1-develop`
-- yarn: `yarn add PlatONnetwork/client-sdk-js#0.15.1-develop`
+- npm: `npm i PlatONnetwork/client-sdk-js#master`
+- yarn: `yarn add PlatONnetwork/client-sdk-js#master`
 
 Create a web3 instance and set up a provider. You can refer to the following code:
 
@@ -366,6 +366,44 @@ web3.platon.isSyncing().then(console.log);
     knownStates: 234566,
     pulledStates: 123455
 }
+```
+
+---
+
+#### platon.chainId
+
+The `platon.chainId()` method is used to obtain the rpc interface of the chain ID of the current chain.
+
+Example:
+
+```js
+const get_chainid = async function () {
+    let chainid = web3.utils.toDecimal(await web3.ppos.rpc("platon_chainId",[]));
+    console.log("chainid:", chainid);
+}
+```
+
+---
+
+#### web3.platon.getAddressHrp
+
+The `web3.platon.getAddressHrp()` method is used to obtain the address prefix of the current chain.
+
+Method:
+
+```
+web3.platon.getAddressHrp([callback])
+```
+
+Returns:
+
+A Promise object whose resolved value is a string representing the address prefix of the current chain.
+
+Example:
+
+```js
+web3.platon.getAddressHrp().then(console.log);
+> "atp"
 ```
 
 ---
@@ -874,6 +912,40 @@ web3.platon.sendTransaction({
 
 ---
 
+#### Accounts.privateKeyToAccount
+
+The `Accounts.privateKeyToAccount()` method converts the private key into an address in the specified format.
+
+Method:
+
+```js
+let address = Accounts.privateKeyToAccount(privateKey).address
+```
+
+参数：
+
+- `privateKey`：String - Private key in hexadecimal format;
+
+Parameter:
+
+- address：The address corresponding to the private key;
+
+Example:
+
+```js
+var Web3 = require('web3')
+var Account = require('account')
+const transaction_demo = async function () {
+  web3 = new Web3('http://127.0.0.1:6789')
+  var privateKey = '0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba'
+  var hrp = await web3.platon.getAddressHrp()
+  var alayaAccounts = new Accounts(web3, hrp);
+  let address = alayaAccounts.privateKeyToAccount(privateKey).address
+}
+```
+
+---
+
 #### web3.platon.sendSignedTransaction
 
 `web3.platon.sendSignedTransaction()` Sends an already signed transaction, generated for example using web3.platon.accounts.signTransaction.
@@ -898,13 +970,15 @@ Please see the return values for web3.platon.sendTransaction for details.
 Example:
 
 ```js
-var Web3 = require('web3');
+var Web3 = require('web3')
+var Account = require('account')
 const transaction_demo = async function () {
-  web3 = new Web3('http://127.0.0.1:6789');
-  var privateKey = '0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba';
-  // 主网地址
-  let from = web3.platon.accounts.privateKeyToAccount(privateKey).address;
-  let nonce = web3.utils.numberToHex(await web3.platon.getTransactionCount(from));
+  web3 = new Web3('http://127.0.0.1:6789')
+  var privateKey = '0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba'
+  var hrp = await web3.platon.getAddressHrp()
+  var platonAccounts = new Accounts(web3, hrp);
+  let from = platonAccounts.privateKeyToAccount(privateKey).address
+  let nonce = web3.utils.numberToHex(await web3.platon.getTransactionCount(from))
   let tx = {
     from: from,
     to: 'atp1j9x482k50kl86qvx5cyw7hp48qcx5mezayxj8t',
@@ -3993,12 +4067,12 @@ Returns:
 
 Call the interface that initiates the delegation. The input parameters are:
 
-| Parameter | Type           | Desc                                                                                                                                            |
-| --------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| funcType  | uint16(2bytes) | type code of method. (1004)                                                                                                                     |
-| typ       | uint16(2bytes) | Indicates whether to use the free amount of the account or the locked amount of the account as the commission, 0: free amount; 1: locked amount |
-| nodeId    | 64bytes        | NodeId of the pledged node                                                                                                                      |
-| amount    | big.Int(bytes) | Amount entrusted (Calculated in the smallest unit，1LAT = 10^18 von)                                                                            |
+| Parameter | Type           | Desc                                                         |
+| --------- | -------------- | ------------------------------------------------------------ |
+| funcType  | uint16(2bytes) | type code of method. (1004)                                  |
+| typ       | uint16(2bytes) | Indicates whether to use the free amount of the account or the locked amount of the account as the commission, 0: free amount; 1: locked amount;2:Give priority to the use of the locked balance, and use the free amount for the remaining part if the locked balance is insufficient; |
+| nodeId    | 64bytes        | NodeId of the pledged node                                   |
+| amount    | big.Int(bytes) | Amount entrusted (Calculated in the smallest unit，1LAT = 10^18 von) |
 
 Example:
 
@@ -4034,22 +4108,22 @@ reply = await ppos.send(params, other);
 
 Pledge by sending transactions via send.
 
-| Parameter          | Type             | Desc                                                                                                                          |
-| ------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| funcType           | uint16(2bytes)   | Type code of method(1000)                                                                                                     |
-| typ                | uint16(2bytes)   | Indicates whether to use the account free amount or the account's locked amount as a pledge, 0: free amount; 1: locked amount |
-| benefitAddress     | 20bytes          | Revenue account for receiving block rewards and pledged rewards                                                               |
-| nodeId             | 64bytes          | The node ID of the pledged (also called the node ID of the candidate)                                                         |
-| externalId         | string           | External Id (with a length limit, the Id described by the third-party pull node)                                              |
-| nodeName           | string           | The name of the node being pledged (there is a length limitation, indicating the name of the node)                            |
-| website            | string           | The third-party home page of the node (the length is limited, indicating the home page of the node)                           |
-| details            | string           | The description of the node (the length is limited, indicating the description of the node)                                   |
-| amount             | \*big.Int(bytes) | Pledged von                                                                                                                   |
-| rewardPer          | uint16(2bytes)   | The percentage of rewards obtained from delegation is BasePoint 1BP = 0.01%                                                   |
-| programVersion     | uint32           | Real version of the program, governance rpc acquisition                                                                       |
-| programVersionSign | 65bytes          | The true version signature of the program and the rpc interface of the governance module                                      |
-| blsPubKey          | 96bytes          | bls public key                                                                                                                |
-| blsProof           | 64bytes          | Proof of bls, obtained by pulling the proof interface                                                                         |
+| Parameter          | Type             | Desc                                                         |
+| ------------------ | ---------------- | ------------------------------------------------------------ |
+| funcType           | uint16(2bytes)   | Type code of method(1000)                                    |
+| typ                | uint16(2bytes)   | Indicates whether to use the account free amount or the account's locked amount as a pledge, 0: free amount; 1: locked amount; 2:Give priority to the use of the locked balance, and use the free amount for the remaining part if the locked balance is insufficient; |
+| benefitAddress     | 20bytes          | Revenue account for receiving block rewards and pledged rewards |
+| nodeId             | 64bytes          | The node ID of the pledged (also called the node ID of the candidate) |
+| externalId         | string           | External Id (with a length limit, the Id described by the third-party pull node) |
+| nodeName           | string           | The name of the node being pledged (there is a length limitation, indicating the name of the node) |
+| website            | string           | The third-party home page of the node (the length is limited, indicating the home page of the node) |
+| details            | string           | The description of the node (the length is limited, indicating the description of the node) |
+| amount             | \*big.Int(bytes) | Pledged von                                                  |
+| rewardPer          | uint16(2bytes)   | The percentage of rewards obtained from delegation is BasePoint 1BP = 0.01% |
+| programVersion     | uint32           | Real version of the program, governance rpc acquisition      |
+| programVersionSign | 65bytes          | The true version signature of the program and the rpc interface of the governance module |
+| blsPubKey          | 96bytes          | bls public key                                               |
+| blsProof           | 64bytes          | Proof of bls, obtained by pulling the proof interface        |
 
 #### Update Pledge Information
 
@@ -4072,12 +4146,12 @@ Increase pledge by sending transactions.
 
 Parameters:
 
-| Parameter | Type             | Desc                                                                                                                          |
-| --------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| funcType  | uint16(2bytes)   | Method type code(1002)                                                                                                        |
-| nodeId    | 64bytes          | The node ID of the pledged (also called the node ID of the candidate)                                                         |
-| typ       | uint16(2bytes)   | Indicates whether to use the account free amount or the account's locked amount as a pledge, 0: free amount; 1: locked amount |
-| amount    | \*big.Int(bytes) | Increased von                                                                                                                 |
+| Parameter | Type             | Desc                                                         |
+| --------- | ---------------- | ------------------------------------------------------------ |
+| funcType  | uint16(2bytes)   | Method type code(1002)                                       |
+| nodeId    | 64bytes          | The node ID of the pledged (also called the node ID of the candidate) |
+| typ       | uint16(2bytes)   | Indicates whether to use the account free amount or the account's locked amount as a pledge, 0: free amount; 1: locked amount; 2:Give priority to the use of the locked balance, and use the free amount for the remaining part if the locked balance is insufficient; |
+| amount    | \*big.Int(bytes) | Increased von                                                |
 
 #### Cancellation Of Pledge
 
@@ -4094,12 +4168,12 @@ Notes: All cancellations are initiated at once, and the amount is divided into m
 
 Initiate delegation by sending a transaction.
 
-| Parameter | Type             | Desc                                                                                                                                            |
-| --------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| funcType  | uint16(2bytes)   | Method type code(1004)                                                                                                                          |
-| typ       | uint16(2bytes)   | Indicates whether to use the free amount of the account or the locked amount of the account as the commission, 0: free amount; 1: locked amount |
-| nodeId    | 64bytes          | NodeId of the pledged node                                                                                                                      |
-| amount    | \*big.Int(bytes) | Amount entrusted (based on the smallest unit, 1LAT = 10 \*\* 18 von)                                                                            |
+| Parameter | Type             | Desc                                                         |
+| --------- | ---------------- | ------------------------------------------------------------ |
+| funcType  | uint16(2bytes)   | Method type code(1004)                                       |
+| typ       | uint16(2bytes)   | Indicates whether to use the free amount of the account or the locked amount of the account as the commission, 0: free amount; 1: locked amount; 2:Give priority to the use of the locked balance, and use the free amount for the remaining part if the locked balance is insufficient; |
+| nodeId    | 64bytes          | NodeId of the pledged node                                   |
+| amount    | \*big.Int(bytes) | Amount entrusted (based on the smallest unit, 1LAT = 10 \*\* 18 von) |
 
 #### Reduction/Revocation Delegation
 

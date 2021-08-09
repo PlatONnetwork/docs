@@ -14,8 +14,8 @@ sidebar_label: JS SDK
 
 然后你就可以通过 npm 包管理工具或者 yarn 包管理工具将 client-sdk-js 引入到项目工程中，通过如下步骤：
 
-- npm: `npm i PlatONnetwork/client-sdk-js#0.15.1-develop`
-- yarn: `yarn add PlatONnetwork/client-sdk-js#0.15.1-develop`
+- npm: `npm i PlatONnetwork/client-sdk-js#master`
+- yarn: `yarn add PlatONnetwork/client-sdk-js#master`
 
 然后需要创建 web3 的实例，设置一个 provider。可参考如下代码：
 
@@ -370,6 +370,44 @@ web3.platon.isSyncing().then(console.log);
     knownStates: 234566,
     pulledStates: 123455
 }
+```
+
+---
+
+#### platon.chainId
+
+`platon.chainId()`方法用来获取当前链的链ID的rpc接口。
+
+示例代码：
+
+```js
+const get_chainid = async function () {
+    let chainid = web3.utils.toDecimal(await web3.ppos.rpc("platon_chainId",[]));
+    console.log("chainid:", chainid);
+}
+```
+
+---
+
+#### web3.platon.getAddressHrp
+
+`web3.platon.getAddressHrp()`方法用来获取当前链的地址前缀。
+
+调用：
+
+```
+web3.platon.getAddressHrp([callback])
+```
+
+返回值：
+
+一个 Promise 对象，其解析值为表示当前链的地址前缀的字符串。
+
+示例代码：
+
+```js
+web3.platon.getAddressHrp().then(console.log);
+> "atp"
 ```
 
 ---
@@ -878,6 +916,40 @@ web3.platon.sendTransaction({
 
 ---
 
+#### Accounts.privateKeyToAccount
+
+`Accounts.privateKeyToAccount()`方法将私钥转成指定格式的地址。
+
+调用：
+
+```js
+let address = Accounts.privateKeyToAccount(privateKey).address
+```
+
+参数：
+
+- `privateKey`：String - 16 进制格式的私钥；
+
+返回值：
+
+- address：和私钥对应的地址；
+
+示例代码：
+
+```js
+var Web3 = require('web3')
+var Account = require('account')
+const transaction_demo = async function () {
+  web3 = new Web3('http://127.0.0.1:6789')
+  var privateKey = '0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba'
+  var hrp = await web3.platon.getAddressHrp()
+  var alayaAccounts = new Accounts(web3, hrp);
+  let address = alayaAccounts.privateKeyToAccount(privateKey).address
+}
+```
+
+---
+
 #### web3.platon.sendSignedTransaction
 
 `web3.platon.sendSignedTransaction()`方法用来发送已经签名的交易，例如，可以使用`web3.platon.accounts.signTransaction()`
@@ -901,13 +973,15 @@ PromiEvent: 一个整合了事件发生器的 Promise 对象。当交易收据�
 示例代码：
 
 ```js
-var Web3 = require('web3');
+var Web3 = require('web3')
+var Account = require('account')
 const transaction_demo = async function () {
-  web3 = new Web3('http://127.0.0.1:6789');
-  var privateKey = '0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba';
-  // 主网地址
-  let from = web3.platon.accounts.privateKeyToAccount(privateKey).address;
-  let nonce = web3.utils.numberToHex(await web3.platon.getTransactionCount(from));
+  web3 = new Web3('http://127.0.0.1:6789')
+  var privateKey = '0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba'
+  var hrp = await web3.platon.getAddressHrp()
+  var platonAccounts = new Accounts(web3, hrp);
+  let from = platonAccounts.privateKeyToAccount(privateKey).address
+  let nonce = web3.utils.numberToHex(await web3.platon.getTransactionCount(from))
   let tx = {
     from: from,
     to: 'atp1j9x482k50kl86qvx5cyw7hp48qcx5mezayxj8t',
@@ -4020,12 +4094,12 @@ reply = await ppos.call(params);
 
 以调用 `发起委托`这个接口，入参顺序从上到下，入参如下所示：
 
-| 参数     | 类型           | 说明                                                                    |
-| -------- | -------------- | ----------------------------------------------------------------------- |
-| funcType | uint16(2bytes) | 代表方法类型码(1004)                                                    |
-| typ      | uint16(2bytes) | 表示使用账户自由金额还是账户的锁仓金额做委托，0: 自由金额； 1: 锁仓金额 |
-| nodeId   | 64bytes        | 被质押的节点的 NodeId                                                   |
-| amount   | big.Int(bytes) | 委托的金额(按照最小单位算，1LAT = 10^18 von)                            |
+| 参数     | 类型           | 说明                                                         |
+| -------- | -------------- | ------------------------------------------------------------ |
+| funcType | uint16(2bytes) | 代表方法类型码(1004)                                         |
+| typ      | uint16(2bytes) | 表示使用账户自由金额还是账户的锁仓金额做委托，0: 自由金额； 1: 锁仓金额；2: 优先使用锁仓余额，锁仓余额不足则剩下的部分使用自由金额 |
+| nodeId   | 64bytes        | 被质押的节点的 NodeId                                        |
+| amount   | big.Int(bytes) | 委托的金额(按照最小单位算，1LAT = 10^18 von)                 |
 
 调用示例
 
@@ -4061,22 +4135,22 @@ reply = await ppos.send(params, other);
 
 - 发起质押，send 发送交易。
 
-| 参数               | 类型             | 说明                                                                    |
-| ------------------ | ---------------- | ----------------------------------------------------------------------- |
-| funcType           | uint16(2bytes)   | 代表方法类型码(1000)                                                    |
-| typ                | uint16(2bytes)   | 表示使用账户自由金额还是账户的锁仓金额做质押，0: 自由金额； 1: 锁仓金额 |
-| benefitAddress     | 20bytes          | 用于接受出块奖励和质押奖励的收益账户                                    |
-| nodeId             | 64bytes          | 被质押的节点 Id(也叫候选人的节点 Id)                                    |
-| externalId         | string           | 外部 Id(有长度限制，给第三方拉取节点描述的 Id)                          |
-| nodeName           | string           | 被质押节点的名称(有长度限制，表示该节点的名称)                          |
-| website            | string           | 节点的第三方主页(有长度限制，表示该节点的主页)                          |
-| details            | string           | 节点的描述(有长度限制，表示该节点的描述)                                |
-| amount             | \*big.Int(bytes) | 质押的 von                                                              |
-| rewardPer          | uint16(2bytes)   | 委托所得到的奖励分成比例，采用 BasePoint 1BP=0.01%                      |
-| programVersion     | uint32           | 程序的真实版本，治理 rpc 获取                                           |
-| programVersionSign | 65bytes          | 程序的真实版本签名，治理 rpc 获取                                       |
-| blsPubKey          | 96bytes          | bls 的公钥                                                              |
-| blsProof           | 64bytes          | bls 的证明,通过拉取证明接口获取                                         |
+| 参数               | 类型             | 说明                                                         |
+| ------------------ | ---------------- | ------------------------------------------------------------ |
+| funcType           | uint16(2bytes)   | 代表方法类型码(1000)                                         |
+| typ                | uint16(2bytes)   | 表示使用账户自由金额还是账户的锁仓金额做质押，0: 自由金额； 1: 锁仓金额；2: 优先使用锁仓余额，锁仓余额不足则剩下的部分使用自由金额 |
+| benefitAddress     | 20bytes          | 用于接受出块奖励和质押奖励的收益账户                         |
+| nodeId             | 64bytes          | 被质押的节点 Id(也叫候选人的节点 Id)                         |
+| externalId         | string           | 外部 Id(有长度限制，给第三方拉取节点描述的 Id)               |
+| nodeName           | string           | 被质押节点的名称(有长度限制，表示该节点的名称)               |
+| website            | string           | 节点的第三方主页(有长度限制，表示该节点的主页)               |
+| details            | string           | 节点的描述(有长度限制，表示该节点的描述)                     |
+| amount             | \*big.Int(bytes) | 质押的 von                                                   |
+| rewardPer          | uint16(2bytes)   | 委托所得到的奖励分成比例，采用 BasePoint 1BP=0.01%           |
+| programVersion     | uint32           | 程序的真实版本，治理 rpc 获取                                |
+| programVersionSign | 65bytes          | 程序的真实版本签名，治理 rpc 获取                            |
+| blsPubKey          | 96bytes          | bls 的公钥                                                   |
+| blsProof           | 64bytes          | bls 的证明,通过拉取证明接口获取                              |
 
 - 修改质押信息，send 发送交易。
 
@@ -4095,12 +4169,12 @@ reply = await ppos.send(params, other);
 
 入参：
 
-| 参数     | 类型             | 说明                                                                    |
-| -------- | ---------------- | ----------------------------------------------------------------------- |
-| funcType | uint16(2bytes)   | 代表方法类型码(1002)                                                    |
-| nodeId   | 64bytes          | 被质押的节点 Id(也叫候选人的节点 Id)                                    |
-| typ      | uint16(2bytes)   | 表示使用账户自由金额还是账户的锁仓金额做质押，0: 自由金额； 1: 锁仓金额 |
-| amount   | \*big.Int(bytes) | 增持的 von                                                              |
+| 参数     | 类型             | 说明                                                         |
+| -------- | ---------------- | ------------------------------------------------------------ |
+| funcType | uint16(2bytes)   | 代表方法类型码(1002)                                         |
+| nodeId   | 64bytes          | 被质押的节点 Id(也叫候选人的节点 Id)                         |
+| typ      | uint16(2bytes)   | 表示使用账户自由金额还是账户的锁仓金额做质押，0: 自由金额； 1: 锁仓金额；2: 优先使用锁仓余额，锁仓余额不足则剩下的部分使用自由金额 |
+| amount   | \*big.Int(bytes) | 增持的 von                                                   |
 
 - 撤销质押(一次性发起全部撤销，多次到账)，send 发送交易。
 
