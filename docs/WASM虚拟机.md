@@ -71,13 +71,13 @@ The WASM virtual machine is a completely independent sandbox. Fully isolated fro
 
 **The working principle of dual virtual machines:**
 
-<img src="/docs/img/zh-CN/Wasm.assets/wasm-dual.png"/>
+<img src="/docs/img/en/Wasm.assets/wasm-dual.png"/>
 
 As shown in the figure: Smart contracts written in languages such as solidity/c/c++ are compiled into bytecode by a compiler. At the same time, different types of contracts come with different bytecode features. By recognizing the features, the engine of the dual virtual machines of PlatON can select a specific virtual machine to load the bytecode, parse it, and then execute the corresponding function according to the instruction.
 
 **Usage process of the smart contract:**
 
-<img src="/docs/img/zh-CN/Wasm.assets/wasm-contract.webp"/>
+<img src="/docs/img/en/Wasm.assets/wasm-contract.webp"/>
 
 As shown in the figure, you can use C++ to write a smart contract based on WASM, or solidity to write a smart contract that belongs to the EVM, then compile and generate bytecode and other information through the toolset, and then send it to a node on the PlatON network by the transaction through the SDK development toolset. That is a complete process of a contract-related transaction.
 
