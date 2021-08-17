@@ -411,7 +411,7 @@ An AttributeDict object whose parsed value is a block object that meets the sear
 
 - gasUsed-Number: The total amount of gas used by all transactions in the block.
 
-- timestamp-Number: the unix timestamp of the block.
+- timestamp-Number: the unix timestamp of the block (millisecond).
 
 - transactions-Array: transaction object array, or 32-byte transaction hash value, depending on the setting of returnTransactionObjects.
 
