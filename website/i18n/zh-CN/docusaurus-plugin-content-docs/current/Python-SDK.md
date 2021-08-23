@@ -424,7 +424,7 @@ AttributeDict({'blockTree': AttributeDict({'root': AttributeDict({'viewNumber': 
   
 - gasUsed - Number: 该块中所有交易使用的gas总量。
   
-- timestamp - Number: 出块的unix时间戳。
+- timestamp - Number: 出块的unix时间戳（毫秒）。
   
 - transactions - Array: 交易对象数组，或者32字节长的交易哈希值，取决于returnTransactionObjects的设置。
   
