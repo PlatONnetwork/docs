@@ -2749,7 +2749,7 @@ Warning: This is a pre-release compiler version, please do not use it in product
 
 Java SDK支持从`abi`文件中自动生成Solidity智能合约对应的Java包装类。
 
-* 通过命令行工具生成Java包装类（[platon-web3j下载](https://download.platon.network/sdk/0.13.1.5-20200915/platon-web3j-0.13.1.5.zip)）：
+* 通过命令行工具生成Java包装类（[platon-web3j下载](https://download.platon.network/platon/sdk/1.1.0/platon-web3j-1.1.0.0.zip)）：
 
 ```shell
 $ platon-web3j solidity generate [--javaTypes|--solidityTypes] /path/to/<smart-contract>.bin /path/to/<smart-contract>.abi -o /path/to/src/main/java -p com.your.organisation.name
