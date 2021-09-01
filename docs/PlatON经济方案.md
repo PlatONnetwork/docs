@@ -121,7 +121,7 @@ The token in the PlatON public blockchain is called LAT. LAT does not have a har
 
 #### Initial release
 
-LAT's initial issuance is distributed to the Founding Team, LatticeX Foundation, Research Fund, Ecosystem Fund, Developer Fund, Private Round and Reserve in a certain proportion. This is achieved by writing the allocated account and balance parameter information into the genesis block configuration. And introduce the corresponding locking mechanism.
+LAT's initial issuance is distributed to the Founding Team, LatticeX Foundation, Research Fund, Ecosystem Fund, Developer Fund, Private Round and Reserve in a certain proportion. This is achieved by writing the allocated account and balance parameter information into the genesis block configuration, and introduce the corresponding locking mechanism.
 
 <img src="/docs/img/en/PlatON_economic_plan.assets/Initial distribution.jpg" alt="Initial distribution"/>
 
