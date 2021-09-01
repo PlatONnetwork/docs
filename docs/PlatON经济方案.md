@@ -159,7 +159,7 @@ There are usually two ways to issue additional shares:
 
 PlatON adopts the batch issuance mode, that is, one issuance per year (one additional period). Compared to continuous issuance, batch issuance is simpler and more practical, and can improve the performance of the chain.
 
-According to the annual expected number of blocks for the additional period, LAT issuance. **Compared to LAT's total issuance at the end of the previous year**, **a fixed additional 2.5% issuance per year**. Additional issuances are made in the additional issuance block (the last block in the last additional period), and 2% of the additional issuance is transferred to the reward pool controlled by smart contracts. And the reward is given to the validator	 by the running of the PPoS consensus algorithm. The remaining 0.5% is transferred to a trust fund, which is used by the PlatON Foundation as a trustee to reward future developers of the PlatON basic agreement.
+According to the annual expected number of blocks for the additional period, LAT issuance. **Compared to LAT's total issuance at the end of the previous year**, **a fixed additional 2.5% issuance per year**. Additional issuances are made in the additional issuance block (the last block in the last additional period), and 2% of the additional issuance is transferred to the reward pool controlled by smart contracts. And the reward is given to the validator	 by the running of the PPoS consensus algorithm. The remaining 0.5% is transferred to a trust fund, which is used by the LatticeX Foundation as a trustee to reward future developers of the PlatON basic agreement.
 
 <img src="/docs/img/en/PlatON_economic_plan.assets/additional_period.png" alt="additional_period"/>
 
@@ -488,13 +488,13 @@ The sources of PlatON network incentives include the following:
   
   Each additional issuance cycle is fixed at 80% (equivalent to 2% of the previous year's total issuance) transferred to the reward pool. Additional issues are the main source of incentive funds.
 
-- PlatON Foundation subsidy
+- LatticeX Foundation subsidy
 
   In the first 10 years (additional period), in order to encourage and attract more nodes to join, the fund is subsidized to the reward pool by means of lock-up issuance, thereby increasing the profitability of the node in the first 10 years (additional period).
 
-- PlatON Foundation validator revenue
+- LatticeX Foundation validator revenue
 
-  In order to maintain the stable operation of the main network, the PlatON Foundation sponsored the pledge and maintained 7 validator nodes. The proceeds from the validator node sponsored by the PlatON Foundation will all enter the reward pool as an incentive fund for community validator nodes.
+  In order to maintain the stable operation of the main network, the LatticeX Foundation sponsored the pledge and maintained 7 validator nodes. The proceeds from the validator node sponsored by the LatticeX Foundation will all enter the reward pool as an incentive fund for community validator nodes.
 
 - Slash cuts fines
 
