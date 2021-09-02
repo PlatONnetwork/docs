@@ -123,7 +123,7 @@ The token in the PlatON public blockchain is called LAT. LAT does not have a har
 
 LAT's initial issuance is distributed to the Founding Team, LatticeX Foundation, Research Fund, Ecosystem Fund, Developer Fund, Private Round and Reserve in a certain proportion. This is achieved by writing the allocated account and balance parameter information into the genesis block configuration, and introduce the corresponding locking mechanism.
 
-<img src="/docs/img/en/PlatON_economic_plan.assets/Initial distribution.jpg" alt="Initial distribution"/>
+<img src="/docs/img/en/PlatON_economic_plan.assets/Initial distribution.svg" alt="Initial distribution"/>
 
 The initial issuance of locks is controlled through the Lockup contract, and the lock-up and unlocking are performed according to the set Lockup period. The amount of the Locked up Tokens	 cannot be unlocked in advance. In order to improve the processing performance of the system, the locking period must be a multiple of the Epoch (10750blocks). Therefore, the unlocking point (unlocking block height) of each locking period is the Epoch block (the last block of the Epoch).
 
