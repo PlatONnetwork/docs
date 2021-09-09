@@ -926,7 +926,7 @@ MultiIndex supports unique indexes and ordinary indexes. The unique index should
       IndexedBy<"index2"_n, IndexMemberFun<Member, uint8_t, &Member::Age,
                                           IndexType::NormalIndex>>>
       member_table;
-      auto vect_iter = member_table.find<"index2"_n>(uint8_t(10));
+      auto vect_iter = member_table.find<"index"_n>(std::string("use to find data"));
       member_table.erase(vect_iter[0]);
       ```
 
@@ -956,7 +956,7 @@ MultiIndex supports unique indexes and ordinary indexes. The unique index should
       IndexedBy<"index2"_n, IndexMemberFun<Member, uint8_t, &Member::Age,
                                             IndexType::NormalIndex>>>
       member_table;
-      auto vect_iter = member_table.find<"index2"_n>(uint8_t(10));
+      auto vect_iter = member_table.find<"index"_n>(std::string("use to find data"));
       ```
 
     * `template<Name::Raw TableName, typename T , typename... Indices> template<Name::Raw IndexName>auto platon::db::MultiIndex< TableName, T, Indices >::get_index()`
