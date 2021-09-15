@@ -18,6 +18,197 @@ The following just shows the RPC call process with curl procedure. Actually you 
 
 ## JSON RPC API Reference
 
+#### admin_startWS
+
+The startWS administrative method starts an WebSocket based JSON RPC API webserver to handle client requests. 
+
+##### Parameters
+All the parameters are optional:
+1. host: network interface to open the listener socket on (defaults to "localhost")
+2. port: network port to open the listener socket on (defaults to 8546)
+3. cors: cross-origin resource sharing header to use (defaults to "")
+4. apis: API modules to offer over this interface (defaults to "eth,net,web3")
+
+##### Returns
+
+`Boolean` - The method returns a boolean flag specifying whether the WebSocket RPC listener was opened or not. Please note, only one WebSocket endpoint is allowed to be active at any time.
+
+##### Example
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_startWS","params":[host, port, cors, apis],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_stopWS
+
+The stopWS administrative method closes the currently open WebSocket RPC endpoint. As the node can only have a single WebSocket endpoint running.
+
+##### Parameters
+none
+
+##### Returns
+
+`Boolean` -  whether the endpoint was closed or not.
+
+##### Example
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_stopWS","params":[],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+
+#### admin_startRPC
+
+The startRPC administrative method starts an HTTP based JSON RPC API webserver to handle client requests. 
+
+##### Parameters
+All the parameters are optional:
+1. host: network interface to open the listener socket on (defaults to "localhost")
+2. port: network port to open the listener socket on (defaults to 8545)
+3. cors: cross-origin resource sharing header to use (defaults to "")
+4. apis: API modules to offer over this interface (defaults to "eth,net,web3")
+
+##### Returns
+
+`Boolean` - The method returns a boolean flag specifying whether the HTTP RPC listener was opened or not. Please note, only one HTTP endpoint is allowed to be active at any time..
+
+##### Example
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_startRPC","params":[host, port, cors, apis],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_stopRPC
+
+The stopRPC administrative method closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running.
+
+##### Parameters
+none
+
+##### Returns
+
+`Boolean` -  whether the endpoint was closed or not.
+
+##### Example
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_stopRPC","params":[],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_removePeer
+
+disconnects from a remote node if the connection exists.
+
+##### Parameters
+`string` -  enode URL of peer to remove.
+
+##### Returns
+
+`boolean` -  true if peer removed or false if peer not remove.
+
+##### Example
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_exportChain
+
+exports the current blockchain into a local file.
+
+##### Parameters
+`string` -  The location where the file needs to be exported.
+
+##### Returns
+
+`boolean` -  Whether the export is successful.
+
+##### Example
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_exportChain","params":["/home/develop/blockchain.gz"],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_importChain
+
+imports a blockchain from a local file.
+
+##### Parameters
+`string` -  The location where the file needs to be imported.
+
+##### Returns
+
+`boolean` -  Whether the imported is successful.
+
+##### Example
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/home/develop/blockchain.gz"],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
 #### web3_clientVersion
 
 Returns the current client version.
