@@ -2,6 +2,7 @@
 id: Json_Rpc
 title: JSON-RPC
 sidebar_label: JSON-RPC
+
 ---
 
 [JSON](http://json.org/) is a lightweight data-interchange format. It can represent numbers, strings, ordered sequences of values, and collections of name/value pairs.
@@ -23,7 +24,9 @@ The following just shows the RPC call process with curl procedure. Actually you 
 The startWS administrative method starts an WebSocket based JSON RPC API webserver to handle client requests. 
 
 ##### Parameters
+
 All the parameters are optional:
+
 1. host: network interface to open the listener socket on (defaults to "localhost")
 2. port: network port to open the listener socket on (defaults to 8546)
 3. cors: cross-origin resource sharing header to use (defaults to "")
@@ -34,6 +37,7 @@ All the parameters are optional:
 `Boolean` - The method returns a boolean flag specifying whether the WebSocket RPC listener was opened or not. Please note, only one WebSocket endpoint is allowed to be active at any time.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"admin_startWS","params":[host, port, cors, apis],"id":1}'
@@ -53,6 +57,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_startWS","params":[host, p
 The stopWS administrative method closes the currently open WebSocket RPC endpoint. As the node can only have a single WebSocket endpoint running.
 
 ##### Parameters
+
 none
 
 ##### Returns
@@ -60,6 +65,7 @@ none
 `Boolean` -  whether the endpoint was closed or not.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"admin_stopWS","params":[],"id":1}'
@@ -80,7 +86,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_stopWS","params":[],"id":1
 The startRPC administrative method starts an HTTP based JSON RPC API webserver to handle client requests. 
 
 ##### Parameters
+
 All the parameters are optional:
+
 1. host: network interface to open the listener socket on (defaults to "localhost")
 2. port: network port to open the listener socket on (defaults to 8545)
 3. cors: cross-origin resource sharing header to use (defaults to "")
@@ -91,6 +99,7 @@ All the parameters are optional:
 `Boolean` - The method returns a boolean flag specifying whether the HTTP RPC listener was opened or not. Please note, only one HTTP endpoint is allowed to be active at any time..
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"admin_startRPC","params":[host, port, cors, apis],"id":1}'
@@ -110,6 +119,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_startRPC","params":[host, 
 The stopRPC administrative method closes the currently open HTTP RPC endpoint. As the node can only have a single HTTP endpoint running.
 
 ##### Parameters
+
 none
 
 ##### Returns
@@ -117,6 +127,7 @@ none
 `Boolean` -  whether the endpoint was closed or not.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"admin_stopRPC","params":[],"id":1}'
@@ -136,6 +147,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_stopRPC","params":[],"id":
 disconnects from a remote node if the connection exists.
 
 ##### Parameters
+
 `string` -  enode URL of peer to remove.
 
 ##### Returns
@@ -143,6 +155,7 @@ disconnects from a remote node if the connection exists.
 `boolean` -  true if peer removed or false if peer not remove.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}'
@@ -162,6 +175,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["eno
 exports the current blockchain into a local file.
 
 ##### Parameters
+
 `string` -  The location where the file needs to be exported.
 
 ##### Returns
@@ -169,6 +183,7 @@ exports the current blockchain into a local file.
 `boolean` -  Whether the export is successful.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"admin_exportChain","params":["/home/develop/blockchain.gz"],"id":1}'
@@ -188,6 +203,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_exportChain","params":["/h
 imports a blockchain from a local file.
 
 ##### Parameters
+
 `string` -  The location where the file needs to be imported.
 
 ##### Returns
@@ -195,6 +211,7 @@ imports a blockchain from a local file.
 `boolean` -  Whether the imported is successful.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/home/develop/blockchain.gz"],"id":1}'
@@ -214,6 +231,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/h
 Returns the current client version.
 
 ##### Parameters
+
 none
 
 ##### Returns
@@ -221,6 +239,7 @@ none
 `String` - The current client version.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}'
@@ -254,6 +273,7 @@ params: [
 `DATA` - The SHA3 result of the given string.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}'
@@ -273,6 +293,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c
 Returns the current network protocol version.
 
 ##### Parameters
+
 none
 
 ##### Returns
@@ -280,6 +301,7 @@ none
 `String` - The current network protocol version.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'
@@ -299,6 +321,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67
 Returns `true` if client is actively listening for network connections.
 
 ##### Parameters
+
 none
 
 ##### Returns
@@ -306,6 +329,7 @@ none
 `Boolean` - `true` when listening, otherwise `false`.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":67}'
@@ -325,6 +349,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":
 Returns number of peers currenly connected to the client.
 
 ##### Parameters
+
 none
 
 ##### Returns
@@ -332,6 +357,7 @@ none
 `QUANTITY` - integer of the number of connected peers.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}'
@@ -351,6 +377,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":
 Returns the current platon protocol version.
 
 ##### Parameters
+
 none
 
 ##### Returns
@@ -358,6 +385,7 @@ none
 `String` - The current platon protocol version.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_protocolVersion","params":[],"id":67}'
@@ -378,16 +406,19 @@ Returns an object with data about the sync status or FALSE.
 
 
 ##### Parameters
+
 none
 
 ##### Returns
 
 `Object|Boolean`, An object with sync status data or `FALSE`, when not syncing:
+
   - `startingBlock`: `QUANTITY` - The block at which the import started (will only be reset, after the sync reached his head).
   - `currentBlock`: `QUANTITY` - The current block, same as platon_blockNumber.
   - `highestBlock`: `QUANTITY` - The estimated highest block.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_syncing","params":[],"id":1}'
@@ -417,6 +448,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_syncing","params":[],"id"
 Returns the current price per gas in von.
 
 ##### Parameters
+
 none
 
 ##### Returns
@@ -424,6 +456,7 @@ none
 `QUANTITY` - integer of the current gas price in von.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_gasPrice","params":[],"id":73}'
@@ -444,6 +477,7 @@ Returns a list of addresses owned client.
 
 
 ##### Parameters
+
 none
 
 ##### Returns
@@ -451,6 +485,7 @@ none
 `Array of DATA`, string - address string in bech32 format owned by the client.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_accounts","params":[],"id":1}'
@@ -470,6 +505,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_accounts","params":[],"id
 Returns the number of most recent block.
 
 ##### Parameters
+
 none
 
 ##### Returns
@@ -477,6 +513,7 @@ none
 `QUANTITY` - integer of the current block number the client is on.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_blockNumber","params":[],"id":83}'
@@ -513,6 +550,7 @@ params: [
 
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBalance","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3", "latest"],"id":1}'
@@ -552,6 +590,7 @@ params: [
 
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getStorageAt","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3", "0x0", "0x2"],"id":1}'
@@ -589,6 +628,7 @@ params: [
 
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionCount","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3","latest"],"id":1}'
@@ -624,6 +664,7 @@ params: [
 
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockTransactionCountByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'
@@ -658,6 +699,7 @@ params: [
 `QUANTITY` - integer of the number of transactions in this block.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockTransactionCountByNumber","params":["0xe8"],"id":1}'
@@ -695,6 +737,7 @@ params: [
 
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getCode","params":["lax14984xa8uuhkmer32s6tuz5e3valxa0ct68a0c5", "0x2"],"id":1}'
@@ -747,6 +790,7 @@ Creates new message call transaction or a contract creation, if the data field c
 ##### Parameters
 
 1. `Object` - The transaction object.
+
   - `from`: `DATA`, string - address string in bech32 format of the transaction is send from.
   - `to`: `DATA`, string - address string in bech32 format - (optional when creating new contract) The address the transaction is directed to.
   - `gas`: `QUANTITY`  - (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas.
@@ -773,6 +817,7 @@ params: [{
 Use platon_getTransactionReceipt to get the contract address, after the transaction was mined, when you created a contract.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_sendTransaction","params":[{see above}],"id":1}'
@@ -794,6 +839,7 @@ Creates new message call transaction or a contract creation for signed transacti
 ##### Parameters
 
 1. `Object` - The transaction object.
+
   - `data`: `DATA`, The signed transaction data.
 
 ```js
@@ -809,6 +855,7 @@ params: [{
 Use platon_getTransactionReceipt to get the contract address, after the transaction was mined, when you created a contract.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_sendRawTransaction","params":[{see above}],"id":1}'
@@ -831,12 +878,14 @@ Executes a new message call immediately without creating a transaction on the bl
 ##### Parameters
 
 1. `Object` - The transaction call object
+
   - `from`: `DATA`, string - address string in bech32 format - (optional) The address the transaction is send from.
   - `to`: `DATA`, string - address string in bech32 format - The address the transaction is directed to.
   - `gas`: `QUANTITY`  - (optional) Integer of the gas provided for the transaction execution. platon_call consumes zero gas, but this parameter may be needed by some executions.
   - `gasPrice`: `QUANTITY`  - (optional) Integer of the gasPrice used for each paid gas.
   - `value`: `QUANTITY`  - (optional) Integer of the value send with this transaction.
   - `data`: `DATA`  - (optional) The compiled code of a contract.
+
 2. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`.
 
 ##### Returns
@@ -844,6 +893,7 @@ Executes a new message call immediately without creating a transaction on the bl
 `DATA` - the return value of executed contract.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_call","params":[{see above}],"id":1}'
@@ -853,6 +903,446 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_call","params":[{see abov
   "id":1,
   "jsonrpc": "2.0",
   "result": "0x0"
+}
+```
+
+***
+
+#### platon_chainId
+
+Returns the chain ID used for transaction signing at the current best block. Null is returned if not available.
+
+
+##### Parameters
+
+None
+
+##### Returns
+
+`QUANTITY` - Chain ID, or null if not available.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_chainId","params":[],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0x1"
+}
+```
+
+***
+
+#### platon_getAddressHrp
+
+Returns the account address prefix of the current chain.
+
+
+##### Parameters
+
+None
+
+##### Returns
+
+`DATA` - Prefix of account address.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getAddressHrp","params":[],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "lat"
+}
+```
+
+***
+
+#### platon_getProof
+
+Return the Merkle-proof for a given account and optionally some storage keys.
+
+
+##### Parameters
+
+1. `Address`, 20 Bytes - Address of a contract.
+2. `StorageKeys` - key in storageTrie
+3. `BlockNumber` - Block height
+
+```js
+params: [
+   'lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm',
+   ["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],
+   '0x1'
+]
+```
+
+##### Returns
+
+`Object` - Account related data and proof.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getProof","params":[see above],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": {
+      "address": "lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm",
+      "accountProof": ["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],
+      "balance": "0x99",
+      "codeHash": "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238",
+      "nonce": "0x1",
+      "storageHash": "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238",
+      "storageProof":[
+          {
+            "key": "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238",
+            "value": "0x9",
+            "proof": ["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"]
+          }
+      ]
+  }
+}
+```
+
+***
+
+#### platon_resend
+
+Resend accepts an existing transaction and a new gas price and limit. It will remove the given transaction from the pool and reinsert it with the new gas price and limit.
+
+##### Parameters
+
+1. `Object` - The transaction object.
+
+  - `from`: `DATA`, string - address string in bech32 format of the transaction is send from.
+  - `to`: `DATA`, string - address string in bech32 format - (optional when creating new contract) The address the transaction is directed to.
+  - `gas`: `QUANTITY`  - (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas.
+  - `gasPrice`: `QUANTITY`  - (optional, default: To-Be-Determined) Integer of the gasPrice used for each paid gas.
+  - `value`: `QUANTITY`  - (optional) Integer of the value send with this transaction.
+  - `data`: `DATA`  - (optional) The compiled code of a contract.
+  - `nonce`: `QUANTITY`  - (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce.
+
+2. `QUANTITY` - Integer of the gasPrice used for each paid gas.
+3. `QUANTITY` - Integer of the gas provided for the transaction execution.
+
+```js
+params: [{
+  "from": "lat1lfxu0c2s4g2z872hgutpytlyekclw7272sj8dy",
+  "to": "lat1wgs4njks2wm4s596prdktrvsnfayh0kzv5ntru",
+  "gas": "0x76c0", // 30400,
+  "gasPrice": "0x9184e72a000", // 10000000000000
+  "value": "0x9184e72a", // 2441406250
+  "data": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"
+},
+"0x1",
+"0x1"
+]
+```
+
+##### Returns
+
+`DATA`, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
+
+Use platon_getTransactionReceipt to get the contract address, after the transaction was mined, when you created a contract.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_resend","params":[{see above}],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+}
+```
+
+***
+
+#### platon_pendingTransactionsLength
+
+Return the number of pending transactions in the transaction pool.
+
+
+##### Parameters
+
+None
+
+##### Returns
+
+`QUANTITY` - Number of pending transactions.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_pendingTransactionsLength","params":[],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": 1
+}
+```
+
+***
+
+#### platon_getPoolNonce
+
+Return the latest Nonce for a given account.
+
+
+##### Parameters
+
+1. `Address`, 20 Bytes - Account address.
+
+```js
+params: ['lat1wgs4njks2wm4s596prdktrvsnfayh0kzv5ntru']
+```
+
+##### Returns
+
+`QUANTITY` - Number of account nonce.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getPoolNonce","params":[see above],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": '0x1'
+}
+```
+
+***
+
+#### platon_pendingTransactions
+
+returns the transactions that are in the transaction pool and have a from address that is one of the accounts this node manages.
+
+
+##### Parameters
+
+None
+
+##### Returns
+
+`Array` - Transaction collection:
+
+  - `blockHash`: `DATA`, 32 Bytes - hash of the block. `null` when it's pending block.
+  - `blockNumber`: `QUANTITY` - the block number. `null` when it's pending block.
+  - `from`: `DATA`, string - address string in bech32 format.The sender of the transaction.
+  - `gas`: `QUANTITY` - The gas consumed by the transaction.
+  - `gasPrice`: `QUANTITY` - GasPrice provided for transaction execution.
+  - `hash`: `DATA`, 32 Bytes - hash of the transaction.
+  - `input`: `DATA` - the data send along with the transaction.
+  - `nonce`: `QUANTITY` - the number of transactions made by the sender prior to this one.
+  - `to`: `DATA`, string - address string in bech32 format of the receiver. `null` when it's a contract creation transaction.
+  - `transactionIndex`: `QUANTITY` - integer of the transactions index position in the block. `null` when it's pending.
+  - `value`: `QUANTITY` - value transferred in von.
+  - `r`: `Quantity` - the R field of the signature.
+  - `s`: `Quantity` - the S field of the signature.
+  - `v`: `Quantity` - the V field of the signature.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_pendingTransactions","params":[see above],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": [
+      {
+          blockHash: "",
+          blockNumber: 26774895,
+          from: "lat1lfxu0c2s4g2z872hgutpytlyekclw7272sj8dy",
+          gas: 49220,
+          gasPrice: 1000000000,
+          hash: "0x926694537d833a406cb3b321f79966c7cab24e461ac419d4366e94dccc5f2e6e",
+          input: "0xf855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd400000",
+          nonce: 1787,
+          r: "0x61b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283af",
+          s: "0xc0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca",
+          to: "lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm",
+          transactionIndex: 0,
+          v: "0x62297",
+          value: 0
+        }
+  ]
+}
+```
+
+***
+
+#### platon_getRawTransactionByBlockHashAndIndex
+
+Returns the bytes of the transaction for the given block hash and index.
+
+##### Parameters
+
+1. `Hash` - 32 Bytes - Block hash.
+2. `Quantity` - The index of the transaction in the block.
+
+```js
+params: [
+    '0x926694537d833a406cb3b321f79966c7cab24e461ac419d4366e94dccc5f2e6e', 
+    '0x1'
+]
+```
+
+##### Returns
+
+- `Data` - The raw byte data of the transaction (after RLP).
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByBlockHashAndIndex","params":[{see above}],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xf8c08206fb843b9aca0082c04494100000000000000000000000000000000000000280b857f855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd40000083062297a061b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283afa00c0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca"
+}
+```
+
+***
+
+#### platon_getRawTransactionByBlockNumberAndIndex
+
+Returns the bytes of the transaction for the given block number and index.
+
+##### Parameters
+
+1. `Quantity` - Block number.
+2. `Quantity` - The index of the transaction in the block.
+
+```js
+params: [
+    '0x1b4', 
+    '0x1'
+]
+```
+
+##### Returns
+
+- `Data` - The raw byte data of the transaction (after RLP).
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByBlockNumberAndIndex","params":[{see above}],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xf8c08206fb843b9aca0082c04494100000000000000000000000000000000000000280b857f855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd40000083062297a061b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283afa00c0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca"
+}
+```
+
+***
+
+#### platon_signTransaction
+
+Signs transactions without dispatching it to the network. It can be later submitted using platon_sendRawTransaction.
+
+##### Parameters
+
+1. `Object` - Transaction object. See platon_sendTransaction.
+
+##### Returns
+
+- `Object` - Signed transaction and it’s details:
+  - `raw`: `Data` - The signed, RLP encoded transaction.
+  - `tx`: `Object` - Transaction Response Object
+
+##### Example
+
+```js
+// Request
+curl -X POST localhost:6789 --data '{"jsonrpc":"2.0","method":"platon_signTransaction","params":[{see above}],"id":1}' -H "Content-Type: application/json" 
+
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": {
+    "raw": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+    "tx": {
+      "hash": "0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b",
+      "nonce": "0x0", // 0
+      "blockHash": "0xbeab0aa2411b7ab17f30a99d3cb9c6ef2fc5426d6ad6fd9e2a26a6aed1d1055b",
+      "blockNumber": "0x15df", // 5599
+      "transactionIndex": "0x1", // 1
+      "from": "lat1lfxu0c2s4g2z872hgutpytlyekclw7272sj8dy",
+      "to": "lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm",
+      "value": "0x7f110", // 520464
+      "gas": "0x7f110", // 520464
+      "gasPrice": "0x09184e72a000",
+      "input": "0x603880600c6000396000f300603880600c6000396000f3603880600c6000396000f360"
+    }
+  }
+}
+```
+
+***
+
+#### platon_getRawTransactionByHash
+
+Returns the bytes of the transaction for the given hash.
+
+##### Parameters
+
+1. `Hash` - 32 Bytes - Transaction hash.
+
+```js
+params: [
+    '0x926694537d833a406cb3b321f79966c7cab24e461ac419d4366e94dccc5f2e6e'
+]
+```
+
+##### Returns
+
+- `Data` - The raw byte data of the transaction (after RLP).
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByHash","params":[{see above}],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xf8c08206fb843b9aca0082c04494100000000000000000000000000000000000000280b857f855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd40000083062297a061b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283afa00c0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca"
 }
 ```
 
@@ -871,6 +1361,7 @@ See platon_call parameters, expect that all properties are optional.
 `QUANTITY` - the amount of gas used.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_estimateGas","params":[{see above}],"id":1}'
@@ -928,6 +1419,7 @@ params: [
 
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockByHash","params":["0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331", true],"id":1}'
@@ -983,6 +1475,7 @@ params: [
 See platon_getBlockByHash
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockByNumber","params":["0x1b4", true],"id":1}'
@@ -1024,6 +1517,7 @@ params: [
   - `input`: `DATA` - the data send along with the transaction.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'
@@ -1072,6 +1566,7 @@ params: [
 See platon_getBlockByHash.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}'
@@ -1103,6 +1598,7 @@ params: [
 See platon_getBlockByHash.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}'
@@ -1143,6 +1639,7 @@ params: [
   - `logs`: `Array` - Array of log objects, which this transaction generated.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionReceipt","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'
@@ -1176,6 +1673,7 @@ To check if the state has changed, call platon_getFilterChanges.
 ##### Parameters
 
 1. `Object` - The filter options:
+
   - `fromBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions.
   - `toBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions.
   - `address`: `DATA|Array`, string - address string in bech32 format  - (optional) Contract address or a list of addresses from which logs should originate.
@@ -1195,6 +1693,7 @@ params: [{
 `QUANTITY` - A filter id.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_newFilter","params":[{"topics":["0x12341234"]}],"id":73}'
@@ -1215,6 +1714,7 @@ Creates a filter in the node, to notify when a new block arrives.
 To check if the state has changed, call platon_getFilterChanges.
 
 ##### Parameters
+
 None
 
 ##### Returns
@@ -1222,6 +1722,7 @@ None
 `QUANTITY` - A filter id.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_newBlockFilter","params":[],"id":73}'
@@ -1242,6 +1743,7 @@ Creates a filter in the node, to notify when new pending transactions arrive.
 To check if the state has changed, call platon_getFilterChanges.
 
 ##### Parameters
+
 None
 
 ##### Returns
@@ -1249,6 +1751,7 @@ None
 `QUANTITY` - A filter id.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_newPendingTransactionFilter","params":[],"id":73}'
@@ -1284,6 +1787,7 @@ params: [
 `Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_uninstallFilter","params":["0xb"],"id":73}'
@@ -1332,6 +1836,7 @@ params: [
   - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In *solidity*: The first topic is the *hash* of the signature of the event (e.g. `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.).
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getFilterChanges","params":["0x16"],"id":73}'
@@ -1377,6 +1882,7 @@ params: [
 See platon_getFilterChanges.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getFilterLogs","params":["0x16"],"id":74}'
@@ -1405,6 +1911,7 @@ params: [{
 See platon_getFilterChanges.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getLogs","params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],"id":74}'
@@ -1415,24 +1922,28 @@ Result see platon_getFilterChanges.
 ***
 
 #### platon_evidences
+
 Return double sign report data.
 
 ##### Parameters
+
 no
 
 ##### Returns
+
 `String` - The evidence string contains three types of evidence: duplicatePrepare, duplicateVote, duplicateViewchange. Each type contains multiple pieces of evidence, so it is an array structure. Please pay attention when parsing.
 
 ##### Example
+
 ```js
 // Request
 Curl -X POST --data '{"jsonrpc":"2.0","method":"platon_evidences","params":[],"id":74}'
 
 // Result
 {
-  "id": 74,
-  "jsonrpc": "2.0",
-  "result": "evidences data..."
+  "id": 74,
+  "jsonrpc": "2.0",
+  "result": "evidences data..."
 }
 ```
 
@@ -1454,15 +1965,16 @@ Add a node.
 
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{ "jsonrpc": "2.0", "method": "admin_addPeer", "params": [ "enode: //acb2281452fb9fc25d40113fb6afe82b498361de0ee4ce69f55c180bb2afce2c5a00f97bfbe0270fadba174264cdf6da76ba334a6380c0005a84e8a6449c2502@127.0.0.1: 14789"], "id": 74 }'
 
 // Result
 {
-  "id": 74,
-  "jsonrpc": "2.0",
-  "result": true
+  "id": 74,
+  "jsonrpc": "2.0",
+  "result": true
 }
 ```
 
@@ -1484,15 +1996,16 @@ no
 
 
 ##### Example
+
 ```js
 // Request
 Curl -X POST --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","params":[],"id":74}'
 
 // Result
 {
-  "id": 74,
-  "jsonrpc": "2.0",
-  "result": {node information }
+  "id": 74,
+  "jsonrpc": "2.0",
+  "result": {node information }
 }
 ```
 
@@ -1514,15 +2027,16 @@ no
 
 
 ##### Example
+
 ```js
 // Request
 Curl -X POST --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}'
 
 // Result
 {
-  "id": 74,
-  "jsonrpc": "2.0",
-  "Result": [{Node 1 information} ,  {Node 2 information}, ..., {node information N}]
+  "id": 74,
+  "jsonrpc": "2.0",
+  "Result": [{Node 1 information} ,  {Node 2 information}, ..., {node information N}]
 }
 ```
 
@@ -1544,18 +2058,19 @@ no
 
 
 ##### Example
+
 ```js
 // Request
 Curl -X POST --data '{"jsonrpc":"2.0","method":"admin_getProgramVersion","params":[],"id":74}'
 
 // Result
 {
-  "id": 74,
-  "jsonrpc": "2.0",
-  "result": {
-        "Version": 1794,
-        "Sign": "0xa5eb0a935f63006b8f3a2f4dcb007a2bf50c6eb4755f3c27ff3b3af63078da2f5f1eed9beafd1e2dd8f4e588a8eafa60337b7f95aba5a0167fa600115542763a00"
-    }
+  "id": 74,
+  "jsonrpc": "2.0",
+  "result": {
+        "Version": 1794,
+        "Sign": "0xa5eb0a935f63006b8f3a2f4dcb007a2bf50c6eb4755f3c27ff3b3af63078da2f5f1eed9beafd1e2dd8f4e588a8eafa60337b7f95aba5a0167fa600115542763a00"
+    }
 }
 ```
 
@@ -1577,41 +2092,47 @@ no
 
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{ "jsonrpc": "2.0", "method": "admin_getSchnorrNIZKProve", "params": [], "id": 74}'
 
 // Result
 {
-  "id": 74,
-  "jsonrpc": "2.0",
-  "result": "02705b94701eec4f4619d42796f3241a93035b8b8df3f098ae21f428339ed90599e77f4c90944854b70cbca341cb22480c8872da3b0ae4f6fda29df7293df93d"
+  "id": 74,
+  "jsonrpc": "2.0",
+  "result": "02705b94701eec4f4619d42796f3241a93035b8b8df3f098ae21f428339ed90599e77f4c90944854b70cbca341cb22480c8872da3b0ae4f6fda29df7293df93d"
 }
 ```
 
 ***
 
 #### admin_datadir
+
 Get the data directory.
 
 ##### Parameters
+
 no
 
 ##### Returns
+
 `String` - data directory.
 
 ##### Example
+
 ```js
 // Request
 curl -X POST --data '{ "jsonrpc": "2.0", "method": "admin_datadir", "params": [], "id": 74}'
 
 // Result
 {
-  "id": 74,
-  "jsonrpc": "2.0",
-  "result": "/home/platon/network/data"
+  "id": 74,
+  "jsonrpc": "2.0",
+  "result": "/home/platon/network/data"
 }
 ```
+
 ***
 
 #### personal_openWallet
@@ -1644,6 +2165,7 @@ Sends transaction and signs it in a single call. The account does not need to be
 ##### Parameters
 
 1. `Object` - The transaction object.
+
   - `from`: `DATA`, string - address string in bech32 format of the transaction is send from.
   - `to`: `DATA`, string - address string in bech32 format - (optional when creating new contract) The address the transaction is directed to.
   - `gas`: `QUANTITY`  - (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas.
@@ -1750,6 +2272,7 @@ curl --data '{"method":"personal_importRawKey","params":["cd3376bb711cb332ee3fb2
 Lists all stored accounts.
 
 ##### Parameters
+
 no
 
 ##### Returns
@@ -1779,6 +2302,7 @@ curl --data '{"method":"personal_listAccounts","params":[],"id":1,"jsonrpc":"2.0
 list all your accounts you’ve used before + 1 empty new one
 
 ##### Parameters
+
 no
 
 ##### Returns
@@ -1899,6 +2423,7 @@ Signs a transaction without dispatching it to the network. It can later be submi
 ##### Returns
 
 `Object` - Signed transaction and its details:
+
 - raw: Data - The signed, RLP encoded transaction.
 - tx: Object - Transaction object.
 - from: Address - 20 Bytes - The address the transaction is send from.
@@ -1987,6 +2512,7 @@ Sets the minimal accepted gas price when mining transactions. Any transactions t
 
 
 ##### Example
+
 ```js
 //Request
 curl --data '{"method":"miner_setGasPrice","params":[19999999],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
