@@ -1423,30 +1423,388 @@ curl -X POST --data '{ "jsonrpc": "2.0", "method": "admin_datadir", "params": []
 ```
 ***
 
-#### debug_getWaitSlashingNodeList
+#### personal_openWallet
 
-获取零出块的节点，因为零出块而被观察的节点列表。
+OpenWallet启动硬件钱包的打开程序，建立USB连接，并试图通过提供的口令进行验证。
 
-##### 参数
-no
+##### Parameters
 
-##### 返回
-`array` - 零出块的节点列表，每个结构包含三个字段，NodeId：零出块的节点ID，Round：观察期内第一次零出块时所处共识轮数，CountBit：零出块次数位图（从Round开始，1表示该轮未出块）。
+1. `String` - 钱包文件路径。
+2. `String` - 钱包的密码。
 
-##### 例子
+##### Returns
+
+`Boolean` - 成功返回`true`, 否则返回`false`.
+
+##### Example
+
 ```js
 // Request
-curl -X POST --data '{ "jsonrpc": "2.0", "method": "debug_getWaitSlashingNodeList", "params": [], "id": 74}'
+curl -X POST --data '{ "jsonrpc": "2.0", "method": "personal_openWallet", "params": ["keycard://044def09","abcdefg"], "id": 75}'
 
-// Result
+```
+
+***
+
+#### personal_sendTransaction
+
+在一次call调用中发送交易并签名。帐户不需要解锁来进行这个调用，之后也不会被解锁。
+
+##### Parameters
+
+1. `Object` - 交易对象。
+  - `from`: `DATA`，string - 发送事务的bech32格式的地址字符串。
+  - `to`: `DATA`，string - bech32格式的地址字符串-(在创建新合约时是可选的)交易指向的地址。
+  - `gas`: `QUANTITY` - (可选，默认值: 90000)为交易执行提供的gas的整数。它将返回未使用的气体。
+  - `gasPrice`: `QUANTITY` - (可选，默认值: 待定)gasPrice。
+  - `value`: `QUANTITY` - (可选)此交易发送的值的整数。
+  - `data`: `DATA` - (可选)合同的编译代码。
+  - `nonce`: `QUANTITY` - (可选)随机数的整数。这样可以覆盖使用相同随机数的未决事务。
+
+```js
+params: [{
+  "from": "lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q",
+  "to": "lat163hgm4nut5etaqzchw8tjuy8purjg3t83gevx0",
+  "gas": "0x76c0", // 30400,
+  "gasPrice": "0x9184e72a000", // 10000000000000
+  "value": "0x9184e72a", // 2441406250
+  "data": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"
+}]
+```
+
+##### Returns
+
+`DATA`, 32字节-交易哈希，如果交易不可用，则为零字节哈希。
+
+##### Example
+
+
+```js
+//Request
+curl --data '{"method":"personal_sendTransaction","params":[{"from":"lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q","to":"lat163hgm4nut5etaqzchw8tjuy8purjg3t83gevx0","data":"0x41cd5add4fd13aedd64521e363ea279923575ff39718065d38bd46f0e6632e8e","value":"0x186a0"},"hunter2"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+
+//Result
 {
-  "id": 74,
-  "jsonrpc": "2.0",
-  "result": "[{
-    "NodeId": "8e91f562c1798dc8c567a5c4a99a840eb86e43324b622fd0a4a8defdf873baf8f822313d7f35227fe15b6f4a2767dfb9ea7f7968d0a3a243e57b4d1090f6fc6c",
-    "Round": 1000,
-    "CountBit": 7
-  }]"
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": "0x62e05075829655752e146a129a044ad72e95ce33e48ff48118b697e15e7b41e4"
 }
 ```
+
+***
+
+#### personal_ecRecover
+
+返回与用于计算`personal_sign`中签名的私钥相关的地址。
+
+##### Parameters
+
+1. `Data` - hash数据的原文。
+2. `Data` - hash签名后的数据。
+
+```js
+params: [
+  "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+  "0xe7225f986f192f859a9bf84e34b2b7001dfa11aeb5c7164f81a2bee0d79943e2587be1faa11502eba0f803bb0ee071a082b6fe40fba025f3309263a1eef52c711c"
+]
+```
+
+##### Returns
+
+`Address` - 签名数据的地址。
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_ecRecover","params":["0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675","0xe7225f986f192f859a9bf84e34b2b7001dfa11aeb5c7164f81a2bee0d79943e2587be1faa11502eba0f803bb0ee071a082b6fe40fba025f3309263a1eef52c711c"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": "lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q"
+}
+```
+
+***
+
+#### personal_importRawKey
+
+将给定的私钥导入仓库，用口令对其进行加密。
+
+##### Parameters
+
+1. `String` - 16进制的私钥明问。
+2. `String` - 账户口令。
+
+##### Returns
+
+`String` - 账户的地址。
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_importRawKey","params":["cd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295e","password1234"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+
+//Result
+"lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q"
+```
+
+***
+
+#### personal_listAccounts
+
+列出所有账户地址。
+
+##### Parameters
+no
+
+##### Returns
+
+`Array` - 20字节的账户地址列表。
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_listAccounts","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": [
+    "lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q",
+    "lat1e2q84y8avn0w6as0hx9lpp5mgawydy6g4lups0"
+  ]
+}
+```
+
+***
+
+#### personal_listWallets
+
+列出你以前使用过的所有钱包和一个空的新钱包。
+
+##### Parameters
+no
+
+##### Returns
+
+`rawWalletArray` - 钱包列表。
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_listWallets","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  accounts: [{
+      address: "atp1v79he42uvxghmmajx4r2gxqrckl7l0r6w2pwk8",
+      url: "keycard://044d/m/44'/60'/0'/0/0"
+  }],
+  status: "Online",
+  url: "keycard://044def09"
+}
+```
+
+***
+
+#### personal_lockAccount
+
+解锁指定账户。
+
+##### Parameters
+
+1. `String` - 账户地址。
+2. `Function` - (可选) 可选的回调，返回一个错误对象作为第一个参数，返回结果作为第二个参数。
+
+##### Returns
+
+`Boolean` - 如果账户被成功锁定，则为 "true"，否则为 "false"。
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_lockAccount","params":["lat1v79he42uvxghmmajx4r2gxqrckl7l0r6huhkfg"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  result: true
+}
+```
+
+***
+
+#### personal_newAccount
+
+创建新账户。
+
+注意：它将成为当前新的解锁账户。一次只能有一个解锁的账户。
+
+##### Parameters
+
+1. `String` - 新账户的密码。
+
+##### Returns
+
+`Address` - 20 字节 - 新账户的标识符。
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_newAccount","params":["abc123"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": "lat13upz04zc2wjsam753h20asjatvlay227nmyk6p"
+}
+```
+
+***
+
+#### personal_sign
+
+计算一个PlatON特定的签名： sign(keccak256("PlatON Signed Message: " + len(message) + message))。
+
+##### Parameters
+
+1. `Data` - 要签名的数据。
+2. `Address` - 签名的账户地址。
+3. `String` - 签名账户的口令。
+
+##### Returns
+
+`Data` - 被签名的数据。
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_sign","params":[0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675","lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q","hunter"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": "0xe7225f986f192f859a9bf84e34b2b7001dfa11aeb5c7164f81a2bee0d79943e2587be1faa11502eba0f803bb0ee071a082b6fe40fba025f3309263a1eef52c711c"
+}
+```
+
+***
+
+#### personal_signTransaction
+
+签署一个交易，而不把它派发到网络。之后可以使用`platon_sendRawTransaction`提交。帐户不需要解锁来进行这个调用，之后也不会被解锁。
+
+##### Parameters
+
+1. `Object` - 带有可选的条件字段的交易对象。见platon_sendRawTransaction。
+2. `String` - 解锁账户的密码。
+
+##### Returns
+
+`Object` - 签署的交易及其细节:
+- raw: 数据 - 经过签名的、RLP编码的交易。
+- tx: 对象 - 交易对象。
+- from: 地址 - 20字节 - 交易的发送地址。
+- to: 地址 - (可选) 20字节 - 交易指向的地址。
+- gas: 数量 - （可选）为交易执行提供的gas的整数。 eth_call消耗的gas为零，但某些执行可能需要这个参数。
+- gasPrice: 数量 -（可选）每个付费gas使用的gas价格的整数。
+- value: 数量 - （可选）随该交易发送的价值的整数。
+- data: 数据 -（可选）方法签名的4个字节的哈希值，后面是编码的参数。详见Ethereum Contract ABI。
+- nonce: 数量 - （可选）nonce的整数。这允许覆盖你自己的使用相同nonce的未决交易。
+- condition: 对象 - （可选）交易的有条件提交。可以是整数块数 { block: 1 } 或UTC时间戳（秒） { time: 1491290692 } 或空。
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_signTransaction","params":[{"from":"lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpunjvg7","to":"lat14984xa8uuhkmer32s6tuz5e3valxa0ct4z0qkm","data":"0x41cd5add4fd13aedd64521e363ea279923575ff39718065d38bd46f0e6632e8e","value":"0x186a0"},"hunter2"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": {
+    "raw": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+    "tx": {
+      "hash": "0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b",
+      "nonce": "0x0",
+      "blockHash": "0xbeab0aa2411b7ab17f30a99d3cb9c6ef2fc5426d6ad6fd9e2a26a6aed1d1055b",
+      "blockNumber": "0x15df",
+      "transactionIndex": "0x1",
+      "from": "lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpunjvg7",
+      "to": "lat1s5l58k9ynm4ct5ev73j4qlwhr4g8zqxpkhv75y",
+      "value": "0x7f110",
+      "gas": "0x7f110",
+      "gasPrice": "0x09184e72a000",
+      "input": "0x603880600c6000396000f300603880600c6000396000f3603880600c6000396000f360"
+    }
+  }
+}
+```
+
+***
+
+#### personal_unlockAccount
+
+解锁指定的账户以供使用。
+
+如果永久解锁被禁用（默认），那么持续时间参数将被忽略，账户将被解锁为一个单一的签名。在启用永久锁定的情况下，持续时间设置保持账户开放的秒数。它将默认为300秒。通过0可以无限期地解锁账户。
+
+一次只能有一个解锁的账户。
+
+##### Parameters
+
+1. `Address` - 20字节 - 要解锁的账户地址。
+2. `String` - 解锁账户的密码。
+3. `Quantity` - (默认值：300) 整数或空值 - 帐户解锁的时间，以秒为单位，应该保持多久。
+
+##### Returns
+
+`Boolean` - 调用是否成功。
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_unlockAccount","params":["lat13upz04zc2wjsam753h20asjatvlay227nmyk6p","hunter2",null],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": true
+}
+```
+
+***
+
+#### miner_setGasPrice
+
+设定开采交易时可接受的最小gas价格。任何低于此限制的交易都被排除在开采过程之外。
+
+##### Parameters
+
+1. Uint - gas数量。
+
+##### Returns
+
+`Boolean` - 设置成功返回`true`，否则返回`false`。
+
+
+##### Example
+```js
+//Request
+curl --data '{"method":"miner_setGasPrice","params":[19999999],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": true
+}
+```
+
 ***

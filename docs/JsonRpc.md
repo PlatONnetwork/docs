@@ -1422,3 +1422,389 @@ curl -X POST --data '{ "jsonrpc": "2.0", "method": "admin_datadir", "params": []
 }
 ```
 ***
+
+#### personal_openWallet
+
+OpenWallet initiates a hardware wallet opening procedure, establishing a USB connection and attempting to authenticate via the provided passphrase.
+
+##### Parameters
+
+1. `String` - path of the wallet.
+2. `String` - passphrase of the wallet.
+
+##### Returns
+
+`Boolean` - `true` if the wallet was successfully opened, otherwise `false`.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{ "jsonrpc": "2.0", "method": "personal_openWallet", "params": ["keycard://044def09","abcdefg"], "id": 75}'
+
+```
+
+***
+
+#### personal_sendTransaction
+
+Sends transaction and signs it in a single call. The account does not need to be unlocked to make this call, and will not be left unlocked after.
+
+##### Parameters
+
+1. `Object` - The transaction object.
+  - `from`: `DATA`, string - address string in bech32 format of the transaction is send from.
+  - `to`: `DATA`, string - address string in bech32 format - (optional when creating new contract) The address the transaction is directed to.
+  - `gas`: `QUANTITY`  - (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas.
+  - `gasPrice`: `QUANTITY`  - (optional, default: To-Be-Determined) Integer of the gasPrice used for each paid gas.
+  - `value`: `QUANTITY`  - (optional) Integer of the value send with this transaction.
+  - `data`: `DATA`  - (optional) The compiled code of a contract.
+  - `nonce`: `QUANTITY`  - (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce.
+
+```js
+params: [{
+  "from": "lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q",
+  "to": "lat163hgm4nut5etaqzchw8tjuy8purjg3t83gevx0",
+  "gas": "0x76c0", // 30400,
+  "gasPrice": "0x9184e72a000", // 10000000000000
+  "value": "0x9184e72a", // 2441406250
+  "data": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"
+}]
+```
+
+##### Returns
+
+`DATA`, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
+
+##### Example
+
+
+```js
+//Request
+curl --data '{"method":"personal_sendTransaction","params":[{"from":"lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q","to":"lat163hgm4nut5etaqzchw8tjuy8purjg3t83gevx0","data":"0x41cd5add4fd13aedd64521e363ea279923575ff39718065d38bd46f0e6632e8e","value":"0x186a0"},"hunter2"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": "0x62e05075829655752e146a129a044ad72e95ce33e48ff48118b697e15e7b41e4"
+}
+```
+
+***
+
+#### personal_ecRecover
+
+Returns the address associated with the private key that was used to calculate the signature in `personal_sign`.
+
+##### Parameters
+
+1. `Data` - The data which hash was signed.
+2. `Data` - Signed data.
+
+```js
+params: [
+  "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+  "0xe7225f986f192f859a9bf84e34b2b7001dfa11aeb5c7164f81a2bee0d79943e2587be1faa11502eba0f803bb0ee071a082b6fe40fba025f3309263a1eef52c711c"
+]
+```
+
+##### Returns
+
+`Address` - Address of the signer of the message.
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_ecRecover","params":["0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675","0xe7225f986f192f859a9bf84e34b2b7001dfa11aeb5c7164f81a2bee0d79943e2587be1faa11502eba0f803bb0ee071a082b6fe40fba025f3309263a1eef52c711c"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": "lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q"
+}
+```
+
+***
+
+#### personal_importRawKey
+
+Imports the given private key into the key store, encrypting it with the passphrase.
+
+##### Parameters
+
+1. `String` - An unencrypted private key (hex string).
+2. `String` - The password of the account.
+
+##### Returns
+
+`String` - The address of the account.
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_importRawKey","params":["cd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295e","password1234"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+
+//Result
+"lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q"
+```
+
+***
+
+#### personal_listAccounts
+
+Lists all stored accounts.
+
+##### Parameters
+no
+
+##### Returns
+
+`Array` - A list of 20 byte account identifiers.
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_listAccounts","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": [
+    "lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q",
+    "lat1e2q84y8avn0w6as0hx9lpp5mgawydy6g4lups0"
+  ]
+}
+```
+
+***
+
+#### personal_listWallets
+
+list all your accounts you’ve used before + 1 empty new one
+
+##### Parameters
+no
+
+##### Returns
+
+`rawWalletArray` - A list of raw wallets.
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_listWallets","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  accounts: [{
+      address: "atp1v79he42uvxghmmajx4r2gxqrckl7l0r6w2pwk8",
+      url: "keycard://044d/m/44'/60'/0'/0/0"
+  }],
+  status: "Online",
+  url: "keycard://044def09"
+}
+```
+
+***
+
+#### personal_lockAccount
+
+Locks the given account.
+
+##### Parameters
+
+1. `String` - The account address. 
+2. `Function` - (optional) Optional callback, returns an error object as first parameter and the result as second.
+
+##### Returns
+
+`Boolean` - `true` if the account was successfully locked, otherwise `false`.
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_lockAccount","params":["lat1v79he42uvxghmmajx4r2gxqrckl7l0r6huhkfg"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  result: true
+}
+```
+
+***
+
+#### personal_newAccount
+
+Creates new account.
+
+Note: it becomes the new current unlocked account. There can only be one unlocked account at a time.
+
+##### Parameters
+
+1. `String` - Password for the new account.
+
+##### Returns
+
+`Address` - 20 Bytes - The identifier of the new account.
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_newAccount","params":["abc123"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": "lat13upz04zc2wjsam753h20asjatvlay227nmyk6p"
+}
+```
+
+***
+
+#### personal_sign
+
+Calculates an PlatON specific signature with: sign(keccak256("PlatON Signed Message: " + len(message) + message))).
+
+##### Parameters
+
+1. `Data` - The data to sign
+2. `Address` - 20 Bytes - The address of the account to sign with
+3. `String` - Passphrase to unlock the from account.
+
+##### Returns
+
+`Data` - Signed data.
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_sign","params":[0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675","lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q","hunter"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": "0xe7225f986f192f859a9bf84e34b2b7001dfa11aeb5c7164f81a2bee0d79943e2587be1faa11502eba0f803bb0ee071a082b6fe40fba025f3309263a1eef52c711c"
+}
+```
+
+***
+
+#### personal_signTransaction
+
+Signs a transaction without dispatching it to the network. It can later be submitted using `platon_sendRawTransaction`. The account does not need to be unlocked to make this call, and will not be left unlocked after.
+
+##### Parameters
+
+1. `Object` - Transaction object with optional condition field. see platon_sendRawTransaction.
+2. `String` - Passphrase to unlock the from account.
+
+##### Returns
+
+`Object` - Signed transaction and its details:
+- raw: Data - The signed, RLP encoded transaction.
+- tx: Object - Transaction object.
+- from: Address - 20 Bytes - The address the transaction is send from.
+- to: Address - (optional) 20 Bytes - The address the transaction is directed to.
+- gas: Quantity - (optional) Integer of the gas provided for the transaction execution. eth_call consumes zero gas, but this parameter may be needed by some executions.
+- gasPrice: Quantity - (optional) Integer of the gas price used for each paid gas.
+- value: Quantity - (optional) Integer of the value sent with this transaction.
+- data: Data - (optional) 4 byte hash of the method signature followed by encoded parameters. For details see Ethereum Contract ABI.
+- nonce: Quantity - (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce.
+- condition: Object - (optional) Conditional submission of the transaction. Can be either an integer block number { block: 1 } or UTC timestamp (in seconds) { time: 1491290692 } or null.
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_signTransaction","params":[{"from":"lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpunjvg7","to":"lat14984xa8uuhkmer32s6tuz5e3valxa0ct4z0qkm","data":"0x41cd5add4fd13aedd64521e363ea279923575ff39718065d38bd46f0e6632e8e","value":"0x186a0"},"hunter2"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": {
+    "raw": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+    "tx": {
+      "hash": "0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b",
+      "nonce": "0x0",
+      "blockHash": "0xbeab0aa2411b7ab17f30a99d3cb9c6ef2fc5426d6ad6fd9e2a26a6aed1d1055b",
+      "blockNumber": "0x15df",
+      "transactionIndex": "0x1",
+      "from": "lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpunjvg7",
+      "to": "lat1s5l58k9ynm4ct5ev73j4qlwhr4g8zqxpkhv75y",
+      "value": "0x7f110",
+      "gas": "0x7f110",
+      "gasPrice": "0x09184e72a000",
+      "input": "0x603880600c6000396000f300603880600c6000396000f3603880600c6000396000f360"
+    }
+  }
+}
+```
+
+***
+
+#### personal_unlockAccount
+
+Unlocks specified account for use.
+
+If permanent unlocking is disabled (the default) then the duration argument will be ignored, and the account will be unlocked for a single signing. With permanent locking enabled, the duration sets the number of seconds to hold the account open for. It will default to 300 seconds. Passing 0 unlocks the account indefinitely.
+
+There can only be one unlocked account at a time.
+
+##### Parameters
+
+1. `Address` - 20 Bytes - The address of the account to unlock.
+2. `String` - Passphrase to unlock the account.
+3. `Quantity` - (default: 300) Integer or null - Duration in seconds how long the account should remain unlocked for.
+
+##### Returns
+
+`Boolean` - whether the call was successful
+
+##### Example
+
+```js
+//Request
+curl --data '{"method":"personal_unlockAccount","params":["lat13upz04zc2wjsam753h20asjatvlay227nmyk6p","hunter2",null],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": true
+}
+```
+
+***
+
+#### miner_setGasPrice
+
+Sets the minimal accepted gas price when mining transactions. Any transactions that are below this limit are excluded from the mining process.
+
+##### Parameters
+
+1. Uint - number of gas.
+
+##### Returns
+
+`Boolean` - whether the gas price was successfully set.
+
+
+##### Example
+```js
+//Request
+curl --data '{"method":"miner_setGasPrice","params":[19999999],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+//Result
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": true
+}
+```
+
+***
