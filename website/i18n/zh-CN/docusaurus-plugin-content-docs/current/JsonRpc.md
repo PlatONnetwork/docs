@@ -10,13 +10,204 @@ sidebar_label: JSON RPC
 
 ## JavaScript API
 
-要从JavaScript应用程序内部与platon节点通信，请使用 [web3.js](https://github.com/PlatONnetwork/client-sdk-js) 库，该库为RPC方法提供了方便的接口。
+要从JavaScript应用程序内部与Alaya节点通信，请使用 [web3.js](https://github.com/AlayaNetwork/client-sdk-js) 库，该库为RPC方法提供了方便的接口。
 
 ## 注意
 
-下面仅显示带有curl过程的RPC调用过程。实际上，您需要根据服务器的具体情况进行一些调整。例如，PlatON的可能调用过程是 `curl -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}' 127.0.0.1:6789`.
+下面仅显示带有curl过程的RPC调用过程。实际上，您需要根据服务器的具体情况进行一些调整。例如，Alaya的可能调用过程是 `curl -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}' 127.0.0.1:6789`.
 
 ## JSON RPC API参考
+
+#### admin_startWS
+
+startWS 启动一个基于 WebSocket 的 JSON RPC API 网络服务来处理客户端请求. 
+
+##### 参数
+所有参数是可选的:
+1. host: 监听的网络地址 (默认值是 "localhost")
+2. port: 监听的端口号 (默认值是 8546)
+3. cors: 要使用的跨源资源共享标头 (默认值是 "")
+4. apis: 通过此接口提供的 API 模块 (默认值是 "platon,net,web3")
+
+##### 返回
+
+`Boolean` - 该方法返回一个布尔标志，指定是否打开了 WebSocket RPC 服务器。请注意，任何时候都只允许一个 WebSocket 端点处于活动状态。
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_startWS","params":[host, port, cors, apis],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_stopWS
+
+stopWS 方法关闭当前打开的 WebSocket RPC 服务。
+
+##### 参数
+none
+
+##### 返回
+
+`Boolean` -  服务是否关闭.
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_stopWS","params":[],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+
+#### admin_startRPC
+
+startRPC 启动一个基于 WebSocket 的 HTTP RPC API 网络服务来处理客户端请求. 
+
+##### 参数
+所有参数是可选的:
+1. host: 监听的网络地址 (默认值是 "localhost")
+2. port: 监听的端口号 (默认值是 8546)
+3. cors: 要使用的跨源资源共享标头 (默认值是 "")
+4. apis: 通过此接口提供的 API 模块 (默认值是 "platon,net,web3")
+
+##### 返回
+
+`Boolean` - 该方法返回一个布尔标志，指定是否打开了 HTTP RPC 服务器。请注意，任何时候都只允许一个 HTTP 服务处于活动状态.
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_startRPC","params":[host, port, cors, apis],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_stopRPC
+
+stopRPC 方法关闭当前打开的 HTTP RPC 服务。
+
+##### 参数
+none
+
+##### 返回
+
+`Boolean` -  服务是否关闭.
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_stopRPC","params":[],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_removePeer
+
+如果连接存在，则与远程节点断开连接.
+
+##### 参数
+`string` -  要删除的对等节点的 enode URL.
+
+##### 返回
+
+`boolean` -  远程节点是否被移除.
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_exportChain
+
+将当前区块链导出到本地文件.
+
+##### 参数
+`string` -  文件需要导出的位置.
+
+##### 返回
+
+`boolean` -  是否导出成功.
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_exportChain","params":["/home/develop/blockchain.gz"],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_importChain
+
+从本地文件导入区块链.
+
+##### 参数
+`string` -  需要导入文件的位置.
+
+##### 返回
+
+`boolean` -  是否导入成功.
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/home/develop/blockchain.gz"],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
 
 #### web3_clientVersion
 
