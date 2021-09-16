@@ -861,6 +861,427 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_call","params":[{see abov
 
 ***
 
+#### platon_chainId
+
+返回用于在当前最佳区块进行交易签名的链 ID。 如果不可用，则返回 Null。
+
+
+##### 参数
+
+None
+
+##### 返回
+
+`QUANTITY` - 链 ID，如果不可用，则为 null。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_chainId","params":[],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0x1"
+}
+```
+
+***
+
+#### platon_getAddressHrp
+
+返回当前链的账户地址前缀。
+
+
+##### 参数
+
+None
+
+##### 返回
+
+`DATA` - 帐户地址的前缀。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getAddressHrp","params":[],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "lat"
+}
+```
+
+***
+
+#### platon_getProof
+
+返回给定帐户的 Merkle-proof 和可选的一些存储密钥。
+
+
+##### 参数
+
+1. `Address`, 20 Bytes - 合约账户地址.
+2. `StorageKeys` - StorageTrie中的key
+3. `BlockNumber` - 区块高度
+
+```js
+params: [
+   'lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm',
+   ["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],
+   '0x1'
+]
+```
+
+##### 返回
+
+`Object` - 账户相关数据和证明.
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getProof","params":[see above],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": {
+      "address": "lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm",
+      "accountProof": ["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],
+      "balance": "0x99",
+      "codeHash": "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238",
+      "nonce": "0x1",
+      "storageHash": "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238",
+      "storageProof":[
+          {
+            "key": "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238",
+            "value": "0x9",
+            "proof": ["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"]
+          }
+      ]
+  }
+}
+```
+
+***
+
+#### platon_resend
+
+重新发送接受现有交易和新的天然气价格和limit。 它将从池中删除给定的交易，并使用新的 gas 价格和limit重新插入它。
+
+##### 参数
+
+1. `Object` - 交易对象 - 参照 `platon_sendTransaction`
+
+2. `QUANTITY` - `gasPrice` - 用于每个付费gas 的gasPrice 的整数。
+3. `QUANTITY` - `gasLimit` - 为交易执行提供的gas整数。
+
+```js
+params: [{
+  "from": "lat1lfxu0c2s4g2z872hgutpytlyekclw7272sj8dy",
+  "to": "lat1wgs4njks2wm4s596prdktrvsnfayh0kzv5ntru",
+  "gas": "0x76c0", // 30400,
+  "gasPrice": "0x9184e72a000", // 10000000000000
+  "value": "0x9184e72a", // 2441406250
+  "data": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"
+},
+"0x1",
+"0x1"
+]
+```
+
+##### 返回
+
+`DATA`, 32 Bytes - 交易Hash，如果交易尚不可用则为空Hash。
+
+当你创建合约时，在交易被打包后，使用 platon_getTransactionReceipt 获取合约地址。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_resend","params":[{see above}],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+}
+```
+
+***
+
+#### platon_pendingTransactionsLength
+
+返回交易池中待处理交易的数量。
+
+
+##### 参数
+
+None
+
+##### 返回
+
+`QUANTITY` - 待处理交易的数量。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_pendingTransactionsLength","params":[],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": 1
+}
+```
+
+***
+
+#### platon_getPoolNonce
+
+返回给定帐户的最新 Nonce。
+
+
+##### 参数
+
+1. `Address`, 20 Bytes - 账户地址.
+
+```js
+params: ['lat1wgs4njks2wm4s596prdktrvsnfayh0kzv5ntru']
+```
+
+##### 返回
+
+`QUANTITY` - 账户的Nonce.
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getPoolNonce","params":[see above],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": '0x1'
+}
+```
+
+***
+
+#### platon_pendingTransactions
+
+返回交易池中的交易，并且具有作为该节点管理的帐户之一的发起人地址。
+
+
+##### 参数
+
+None
+
+##### 返回
+
+`Array` - 交易集合:
+
+  - `blockHash`: `DATA`, 32 Bytes - 区块的哈希值。 等待被打包时为`null` 。
+  - `blockNumber`: `QUANTITY` - 区块高度。等待被打包时为`null` 。
+  - `from`: `DATA`, string - bech32 格式的地址字符串。交易的发送方。
+  - `gas`: `QUANTITY` - 交易消耗的gas。
+  - `gasPrice`: `QUANTITY` - GasPrice 为交易执行提供price。
+  - `hash`: `DATA`, 32 Bytes - 交易的Hash。
+  - `input`: `DATA` - 随交易一起发送的数据。
+  - `nonce`: `QUANTITY` - 发件人在此之前进行的交易数量。
+  - `to`: `DATA`, string - 接收方bech32格式的地址字符串。 当是合约创建的交易时为`null` 。
+  - `transactionIndex`: `QUANTITY` - 区块中交易索引的位置，未打包时为`null`。
+  - `value`: `QUANTITY` - 以 von 为单位转移的价值。
+  - `r`: `Quantity` - 签名的 R 字段。
+  - `s`: `Quantity` - 签名的 S 字段。
+  - `v`: `Quantity` - 签名的 V 字段。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_pendingTransactions","params":[see above],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": [
+      {
+          blockHash: "",
+          blockNumber: 26774895,
+          from: "lat1lfxu0c2s4g2z872hgutpytlyekclw7272sj8dy",
+          gas: 49220,
+          gasPrice: 1000000000,
+          hash: "0x926694537d833a406cb3b321f79966c7cab24e461ac419d4366e94dccc5f2e6e",
+          input: "0xf855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd400000",
+          nonce: 1787,
+          r: "0x61b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283af",
+          s: "0xc0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca",
+          to: "lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm",
+          transactionIndex: 0,
+          v: "0x62297",
+          value: 0
+        }
+  ]
+}
+```
+
+***
+
+#### platon_getRawTransactionByBlockHashAndIndex
+
+返回给定区块哈希和索引的交易字节数。
+
+##### 参数
+
+1. `Hash` - 32 Bytes - 区块Hash。
+2. `Quantity` - 交易在区块中的索引。
+
+```js
+params: [
+    '0x926694537d833a406cb3b321f79966c7cab24e461ac419d4366e94dccc5f2e6e', 
+    '0x1'
+]
+```
+
+##### 返回
+
+- `Data` - 交易的原始字节数据（在 RLP 之后）。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByBlockHashAndIndex","params":[{see above}],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xf8c08206fb843b9aca0082c04494100000000000000000000000000000000000000280b857f855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd40000083062297a061b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283afa00c0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca"
+}
+```
+
+***
+
+#### platon_getRawTransactionByBlockNumberAndIndex
+
+返回给定块号和索引的交易字节。
+
+##### 参数
+
+1. `Quantity` - 区块高度。
+2. `Quantity` - 交易在区块中的索引。
+
+```js
+params: [
+    '0x1b4', 
+    '0x1'
+]
+```
+
+##### 返回
+
+- `Data` - 交易的原始字节数据（在 RLP 之后）。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByBlockNumberAndIndex","params":[{see above}],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xf8c08206fb843b9aca0082c04494100000000000000000000000000000000000000280b857f855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd40000083062297a061b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283afa00c0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca"
+}
+```
+
+***
+
+#### platon_signTransaction
+
+签名交易而不将其发送到网络，可以使用 platon_sendRawTransaction 提交。
+
+##### 参数
+
+1. `Object` - 交易对象. 参考 platon_sendTransaction。
+
+##### 返回
+
+- `Object` - 签名的交易及其详细信息：
+  - `raw`: `Data` - 已签名的 RLP 编码交易。
+  - `tx`: `Object` - 交易对象。
+
+##### 例子
+
+```js
+// Request
+curl -X POST localhost:6789 --data '{"jsonrpc":"2.0","method":"platon_signTransaction","params":[{see above}],"id":1}' -H "Content-Type: application/json" 
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": {
+    "raw": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+    "tx": {
+      "hash": "0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b",
+      "nonce": "0x0", // 0
+      "blockHash": "0xbeab0aa2411b7ab17f30a99d3cb9c6ef2fc5426d6ad6fd9e2a26a6aed1d1055b",
+      "blockNumber": "0x15df", // 5599
+      "transactionIndex": "0x1", // 1
+      "from": "lat1lfxu0c2s4g2z872hgutpytlyekclw7272sj8dy",
+      "to": "lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm",
+      "value": "0x7f110", // 520464
+      "gas": "0x7f110", // 520464
+      "gasPrice": "0x09184e72a000",
+      "input": "0x603880600c6000396000f300603880600c6000396000f3603880600c6000396000f360"
+    }
+  }
+}
+```
+
+***
+
+#### platon_getRawTransactionByHash
+
+返回给定哈希的交易字节。
+
+##### 参数
+
+1. `Hash` - 32 Bytes - 交易Hash。
+
+```js
+params: [
+    '0x926694537d833a406cb3b321f79966c7cab24e461ac419d4366e94dccc5f2e6e'
+]
+```
+
+##### 返回
+
+- `Data` - 交易的原始字节数据（在 RLP 之后）。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByHash","params":[{see above}],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xf8c08206fb843b9aca0082c04494100000000000000000000000000000000000000280b857f855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd40000083062297a061b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283afa00c0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca"
+}
+```
+
+***
+
 #### platon_estimateGas
 
 预估发送交易所需要的gas费用。
