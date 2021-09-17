@@ -865,6 +865,435 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_call","params":[{see abov
 
 ***
 
+#### platon_chainId
+
+Returns the chain ID used for transaction signing at the current best block. Null is returned if not available.
+
+
+##### Parameters
+
+None
+
+##### Returns
+
+`QUANTITY` - Chain ID, or null if not available.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_chainId","params":[],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0x1"
+}
+```
+
+***
+
+#### platon_getAddressHrp
+
+Returns the account address prefix of the current chain.
+
+
+##### Parameters
+
+None
+
+##### Returns
+
+`DATA` - Prefix of account address.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getAddressHrp","params":[],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "lat"
+}
+```
+
+***
+
+#### platon_getProof
+
+Return the Merkle-proof for a given account and optionally some storage keys.
+
+
+##### Parameters
+
+1. `Address`, 20 Bytes - Address of a contract.
+2. `StorageKeys` - key in storageTrie
+3. `BlockNumber` - Block height
+
+```js
+params: [
+   'lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm',
+   ["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],
+   '0x1'
+]
+```
+
+##### Returns
+
+`Object` - Account related data and proof.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getProof","params":[see above],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": {
+      "address": "lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm",
+      "accountProof": ["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],
+      "balance": "0x99",
+      "codeHash": "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238",
+      "nonce": "0x1",
+      "storageHash": "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238",
+      "storageProof":[
+          {
+            "key": "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238",
+            "value": "0x9",
+            "proof": ["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"]
+          }
+      ]
+  }
+}
+```
+
+***
+
+#### platon_resend
+
+Resend accepts an existing transaction and a new gas price and limit. It will remove the given transaction from the pool and reinsert it with the new gas price and limit.
+
+##### Parameters
+
+1. `Object` - The transaction object.
+
+  - `from`: `DATA`, string - address string in bech32 format of the transaction is send from.
+  - `to`: `DATA`, string - address string in bech32 format - (optional when creating new contract) The address the transaction is directed to.
+  - `gas`: `QUANTITY`  - (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas.
+  - `gasPrice`: `QUANTITY`  - (optional, default: To-Be-Determined) Integer of the gasPrice used for each paid gas.
+  - `value`: `QUANTITY`  - (optional) Integer of the value send with this transaction.
+  - `data`: `DATA`  - (optional) The compiled code of a contract.
+  - `nonce`: `QUANTITY`  - (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce.
+
+2. `QUANTITY` - Integer of the gasPrice used for each paid gas.
+3. `QUANTITY` - Integer of the gas provided for the transaction execution.
+
+```js
+params: [{
+  "from": "lat1lfxu0c2s4g2z872hgutpytlyekclw7272sj8dy",
+  "to": "lat1wgs4njks2wm4s596prdktrvsnfayh0kzv5ntru",
+  "gas": "0x76c0", // 30400,
+  "gasPrice": "0x9184e72a000", // 10000000000000
+  "value": "0x9184e72a", // 2441406250
+  "data": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"
+},
+"0x1",
+"0x1"
+]
+```
+
+##### Returns
+
+`DATA`, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
+
+Use platon_getTransactionReceipt to get the contract address, after the transaction was mined, when you created a contract.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_resend","params":[{see above}],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+}
+```
+
+***
+
+#### platon_pendingTransactionsLength
+
+Return the number of pending transactions in the transaction pool.
+
+
+##### Parameters
+
+None
+
+##### Returns
+
+`QUANTITY` - Number of pending transactions.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_pendingTransactionsLength","params":[],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": 1
+}
+```
+
+***
+
+#### platon_getPoolNonce
+
+Return the latest Nonce for a given account.
+
+
+##### Parameters
+
+1. `Address`, 20 Bytes - Account address.
+
+```js
+params: ['lat1wgs4njks2wm4s596prdktrvsnfayh0kzv5ntru']
+```
+
+##### Returns
+
+`QUANTITY` - Number of account nonce.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getPoolNonce","params":[see above],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": '0x1'
+}
+```
+
+***
+
+#### platon_pendingTransactions
+
+returns the transactions that are in the transaction pool and have a from address that is one of the accounts this node manages.
+
+
+##### Parameters
+
+None
+
+##### Returns
+
+`Array` - Transaction collection:
+
+  - `blockHash`: `DATA`, 32 Bytes - hash of the block. `null` when it's pending block.
+  - `blockNumber`: `QUANTITY` - the block number. `null` when it's pending block.
+  - `from`: `DATA`, string - address string in bech32 format.The sender of the transaction.
+  - `gas`: `QUANTITY` - The gas consumed by the transaction.
+  - `gasPrice`: `QUANTITY` - GasPrice provided for transaction execution.
+  - `hash`: `DATA`, 32 Bytes - hash of the transaction.
+  - `input`: `DATA` - the data send along with the transaction.
+  - `nonce`: `QUANTITY` - the number of transactions made by the sender prior to this one.
+  - `to`: `DATA`, string - address string in bech32 format of the receiver. `null` when it's a contract creation transaction.
+  - `transactionIndex`: `QUANTITY` - integer of the transactions index position in the block. `null` when it's pending.
+  - `value`: `QUANTITY` - value transferred in von.
+  - `r`: `Quantity` - the R field of the signature.
+  - `s`: `Quantity` - the S field of the signature.
+  - `v`: `Quantity` - the V field of the signature.
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_pendingTransactions","params":[see above],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": [
+      {
+          blockHash: "",
+          blockNumber: 26774895,
+          from: "lat1lfxu0c2s4g2z872hgutpytlyekclw7272sj8dy",
+          gas: 49220,
+          gasPrice: 1000000000,
+          hash: "0x926694537d833a406cb3b321f79966c7cab24e461ac419d4366e94dccc5f2e6e",
+          input: "0xf855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd400000",
+          nonce: 1787,
+          r: "0x61b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283af",
+          s: "0xc0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca",
+          to: "lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm",
+          transactionIndex: 0,
+          v: "0x62297",
+          value: 0
+        }
+  ]
+}
+```
+
+***
+
+#### platon_getRawTransactionByBlockHashAndIndex
+
+Returns the bytes of the transaction for the given block hash and index.
+
+##### Parameters
+
+1. `Hash` - 32 Bytes - Block hash.
+2. `Quantity` - The index of the transaction in the block.
+
+```js
+params: [
+    '0x926694537d833a406cb3b321f79966c7cab24e461ac419d4366e94dccc5f2e6e', 
+    '0x1'
+]
+```
+
+##### Returns
+
+- `Data` - The raw byte data of the transaction (after RLP).
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByBlockHashAndIndex","params":[{see above}],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xf8c08206fb843b9aca0082c04494100000000000000000000000000000000000000280b857f855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd40000083062297a061b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283afa00c0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca"
+}
+```
+
+***
+
+#### platon_getRawTransactionByBlockNumberAndIndex
+
+Returns the bytes of the transaction for the given block number and index.
+
+##### Parameters
+
+1. `Quantity` - Block number.
+2. `Quantity` - The index of the transaction in the block.
+
+```js
+params: [
+    '0x1b4', 
+    '0x1'
+]
+```
+
+##### Returns
+
+- `Data` - The raw byte data of the transaction (after RLP).
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByBlockNumberAndIndex","params":[{see above}],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xf8c08206fb843b9aca0082c04494100000000000000000000000000000000000000280b857f855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd40000083062297a061b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283afa00c0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca"
+}
+```
+
+***
+
+#### platon_signTransaction
+
+Signs transactions without dispatching it to the network. It can be later submitted using platon_sendRawTransaction.
+
+##### Parameters
+
+1. `Object` - Transaction object. See platon_sendTransaction.
+
+##### Returns
+
+- `Object` - Signed transaction and it’s details:
+  - `raw`: `Data` - The signed, RLP encoded transaction.
+  - `tx`: `Object` - Transaction Response Object
+
+##### Example
+
+```js
+// Request
+curl -X POST localhost:6789 --data '{"jsonrpc":"2.0","method":"platon_signTransaction","params":[{see above}],"id":1}' -H "Content-Type: application/json" 
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": {
+    "raw": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+    "tx": {
+      "hash": "0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b",
+      "nonce": "0x0", // 0
+      "blockHash": "0xbeab0aa2411b7ab17f30a99d3cb9c6ef2fc5426d6ad6fd9e2a26a6aed1d1055b",
+      "blockNumber": "0x15df", // 5599
+      "transactionIndex": "0x1", // 1
+      "from": "lat1lfxu0c2s4g2z872hgutpytlyekclw7272sj8dy",
+      "to": "lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm",
+      "value": "0x7f110", // 520464
+      "gas": "0x7f110", // 520464
+      "gasPrice": "0x09184e72a000",
+      "input": "0x603880600c6000396000f300603880600c6000396000f3603880600c6000396000f360"
+    }
+  }
+}
+```
+
+***
+
+#### platon_getRawTransactionByHash
+
+Returns the bytes of the transaction for the given hash.
+
+##### Parameters
+
+1. `Hash` - 32 Bytes - Transaction hash.
+
+```js
+params: [
+    '0x926694537d833a406cb3b321f79966c7cab24e461ac419d4366e94dccc5f2e6e'
+]
+```
+
+##### Returns
+
+- `Data` - The raw byte data of the transaction (after RLP).
+
+##### Example
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByHash","params":[{see above}],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xf8c08206fb843b9aca0082c04494100000000000000000000000000000000000000280b857f855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd40000083062297a061b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283afa00c0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca"
+}
+```
+
+***
+
 #### platon_estimateGas
 
 Makes a call or transaction, which won't be added to the blockchain and returns the used gas, which can be used for estimating the used gas.
