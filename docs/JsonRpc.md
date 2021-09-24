@@ -2578,3 +2578,31 @@ curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","metho
 	}
 }
 ```
+
+***
+
+#### debug_getWaitSlashingNodeList
+
+Get all nodes with zero production blocks, and a list of nodes that have been observed because of zero production blocks.
+
+##### Parameters
+no
+
+##### Returns
+`array` - The node list of the zero production block, each structure contains three fields, NodeId: the node ID of the zero production block, Round: the number of consensus rounds in the first zero production during the observation period, CountBit: the zero production block Bitmap of the number of times (starting from Round, 1 means that no block is produced in this round).
+
+##### Example
+```js
+// Request
+curl -X POST --data '{ "jsonrpc": "2.0", "method": "debug_getWaitSlashingNodeList", "params": [], "id": 74}'
+// Result
+{
+  "id": 74,
+  "jsonrpc": "2.0",
+  "result": "[{
+    "NodeId": "8e91f562c1798dc8c567a5c4a99a840eb86e43324b622fd0a4a8defdf873baf8f822313d7f35227fe15b6f4a2767dfb9ea7f7968d0a3a243e57b4d1090f6fc6c",
+    "Round": 1000,
+    "CountBit": 7
+  }]"
+}
+```
