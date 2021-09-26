@@ -2378,7 +2378,7 @@ curl --data '{"method":"personal_signTransaction","params":[{"from":"lat1gp7h8k9
 
 #### personal_unlockAccount
 
-Unlocks specified account for use.
+Unlocks specified account for use.This method is disabled by default in the PlatON 1.1.1 version and above, and needs to be enabled by adding --allow-insecure-unlock to the startup parameters.
 
 If permanent unlocking is disabled (the default) then the duration argument will be ignored, and the account will be unlocked for a single signing. With permanent locking enabled, the duration sets the number of seconds to hold the account open for. It will default to 300 seconds. Passing 0 unlocks the account indefinitely.
 
