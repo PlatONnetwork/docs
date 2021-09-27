@@ -2368,11 +2368,11 @@ curl --data '{"method":"personal_signTransaction","params":[{"from":"lat1gp7h8k9
 
 #### personal_unlockAccount
 
-解锁指定的账户以供使用。
+从节点的key store中解锁指定的账户。该方法在底层1.1.1版本及以上默认禁用，需要在节点的启动参数中加入--allow-insecure-unlock以启用。
 
-如果永久解锁被禁用（默认），那么持续时间参数将被忽略，账户将被解锁为一个单一的签名。在启用永久锁定的情况下，持续时间设置保持账户开放的秒数。它将默认为300秒。通过0可以无限期地解锁账户。
+解锁的账户会保存到内存中直到解锁周期超时。默认的解锁周期为300秒。如果将解锁周期设为0s，将永久解锁账户,直到节点被关闭。
 
-一次只能有一个解锁的账户。
+账号解锁后可以用于platon_sign和platon_sendTransaction调用。
 
 ##### Parameters
 
