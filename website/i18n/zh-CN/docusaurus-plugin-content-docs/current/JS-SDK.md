@@ -6,16 +6,88 @@ sidebar_label: JS SDK
 
 ## Web3.js 调用接口
 
-通过 web3.js 提供的 web3 对象与底层链进行交互。底层实现上，它通过 RPC 调用与本地节点通信。web3.js 可以与任何暴露了 RPC 接口的 PlatON 节点连接。
+通过 web3.js 提供的 web3 对象与底层链进行交互。底层实现上，它通过 RPC 调用与本地节点通信。web3.js 可以与任何暴露了 RPC 接口的 PlatON 节点连接。如下主要介绍Windows 10和Ubuntu下的安装和使用。
 
-### 准备工作
+### Windows下安装使用
 
-首先请确保本地成功安装了 nodeJS 环境，由于该项目使用了[lerna](https://github.com/lerna/lerna)管理工具来优化托管在 git\npm 上的多 package 代码库的工作流，所以你在安装之前确保已经全局安装了 lerna 包。**如果没有，执行命令`npm i lerna -g`进行全局安装。**
+在windows10下使用js sdk需要提前安装nvm等相关工具，具体步骤如下：
 
-然后你就可以通过 npm 包管理工具或者 yarn 包管理工具将 client-sdk-js 引入到项目工程中，通过如下步骤：
+- 安装nvm
 
-- npm: `npm i PlatONnetwork/client-sdk-js#master`
-- yarn: `yarn add PlatONnetwork/client-sdk-js#master`
+  - 如安装可忽略此步骤，[下载地址](https://github.com/coreybutler/nvm-windows/releases/download/1.1.8/nvm-setup.zip)。
+
+  - 安装nodejs
+
+    ```bash
+    nvm install v12.16.1
+    ```
+
+  - 切换版本
+
+    ```bash
+    nvm use 12.16.1
+    ```
+
+  - 设置环境变量
+
+    > NVM_SYMLINK：%NVM_HOME%\v12.16.1
+
+- 安装git
+
+  如安装可忽略此步骤，[下载地址](https://github.com/git-for-windows/git/releases/download/v2.33.0.windows.2/Git-2.33.0.2-64-bit.exe)。
+
+- 安装lerna
+
+  建议在git bash上执行命令；
+
+  ```bash
+  npm install --global lerna@^3.22.1
+  ```
+
+  > 注意:
+  >
+  > - 配置lerna安装目录的环境变量；
+  > - 检查lerna是否安装成功：`lerna -v`。
+
+- 安装client-sdk-js
+
+  ```bash
+  npm i PlatONnetwork/client-sdk-js#master
+  ```
+
+  > 如提示：`git-sh-setup: file not found`相关的error，需要配置git submodule的环境变量；如git安装在`C:\Program Files\Git`目录下，需要配置如下路径到PATH环境变量中：
+  >
+  > ```bash
+  > Git_Home : C:\Program Files\Git
+  > 
+  > Path:
+  > %Git_Home%\usr\bin
+  > %Git_Home%\mingw64\libexec\git-core
+  > ```
+
+### Ubuntu下安装使用
+
+首先请确保本地成功安装了 nodeJS 环境，由于该项目使用了[lerna](https://github.com/lerna/lerna)管理工具来优化托管在 git\npm 上的多 package 代码库的工作流，所以你在安装之前确保已经全局安装了 lerna 包。**如果没有，需要进行全局安装。**
+
+- 安装lerna
+
+  ```bash
+  npm i lerna -g
+  ```
+
+- 安装client-sdk-js
+
+  可以通过 npm 包管理工具或者 yarn 包管理工具将 client-sdk-js 引入到项目工程中，通过如下步骤：
+
+  ```bash
+  npm i PlatONnetwork/client-sdk-js#master
+  ```
+
+  或
+
+  ```bash
+  yarn add PlatONnetwork/client-sdk-js#master
+  ```
 
 然后需要创建 web3 的实例，设置一个 provider。可参考如下代码：
 
