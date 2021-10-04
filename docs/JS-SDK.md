@@ -6,16 +6,89 @@ sidebar_label: JS SDK
 
 ## Web3.js Interface
 
-Interact with nodes through web3 objects provided by web3.js. On the underlying implementation, it communicates with the local node through RPC calls. web3.js can connect to any PlatON node that exposes the RPC interface.
+Interact with nodes through web3 objects provided by web3.js. On the underlying implementation, it communicates with the local node through RPC calls. web3.js can connect to any PlatON node that exposes the RPC interface. The installation and use under Windows 10 and Ubuntu are introduced in following.
 
-### Usage
+### Install and use under Windows
 
-First, make sure the nodeJS environment is successfully installed locally. `WEB3.JS` uses the [lerna](https://github.com/lerna/lerna) management tool to optimize the workflow of the multi-package code base hosted on `git/npm`, so you should make sure the lerna package has been installed globally before installing. If not, execute the command `npm i lerna -g` for global installation.
+To use js sdk under windows10, you need to install nvm and other related tools in advance. Steps are as follows:
 
-Then you can integrate client-sdk-js into the project through package management tools such as npm or yarn, the steps are as follows:
+- Install `nvm`
 
-- npm: `npm i PlatONnetwork/client-sdk-js#master`
-- yarn: `yarn add PlatONnetwork/client-sdk-js#master`
+  - Skip this step if already installed, [download here](https://github.com/coreybutler/nvm-windows/releases/download/1.1.8/nvm-setup.zip)
+  
+  - Install `nodejs`
+
+    ```bash
+    nvm install v12.16.1
+    ```
+
+  - Switch version
+
+    ```bash
+    nvm use 12.16.1
+    ```
+
+  - Set environment variables
+
+    > NVM_SYMLINK：%NVM_HOME%\v12.16.1
+
+- Install `git`
+
+Skip this step if already installed, [download here](https://github.com/git-for-windows/git/releases/download/v2.33.0.windows.2/Git-2.33.0.2-64-bit.exe)
+
+- Install `lerna`
+
+  Recommanded to execute in `git bash`;
+
+  ```bash
+  npm install --global lerna@^3.22.1
+  ```
+
+  > Attention:
+  >
+  > - Configure the environment variables of lerna installation directory
+  > - Check if lerna is installed successfully: `learna -v`
+
+- Install `client-sdk-js`
+
+  ```bash
+  npm i PlatONnetwork/client-sdk-js#master
+  ```
+
+  > If got errors like: `git-sh-setup: file not found`, means you need to configure the environment variables of the git submodule; If git is installed under the `C:\Program Files\Git` directory, you need to configure the following path to the PATH environment variable:
+  >
+  > ```bash
+  > Git_Home : C:\Program Files\Git
+  > 
+  > Path:
+  > %Git_Home%\usr\bin
+  > %Git_Home%\mingw64\libexec\git-core
+  > ```
+
+### Install and use under Ubuntu
+
+First of all, please make sure that the nodeJS environment is installed locally. Because this project also uses the [lerna](https://github.com/lerna/lerna) management tool to optimize the workflow of the multi-package code library hosted on git\npm, So before you install the project, make sure that the lerna package has been installed globally. **If not, you need to install it globally. **
+
+- Install `lerna`
+
+  ```bash
+  npm i lerna -g
+  ```
+
+- Install `client-sdk-js`
+
+  `client-sdk-js` can be installed into the project through the npm package management tool or the yarn package management tool, specific steps are as the following:
+
+  ```bash
+  npm i PlatONnetwork/client-sdk-js#master
+  ```
+
+  Or
+
+  ```bash
+  yarn add PlatONnetwork/client-sdk-js#master
+  ```
+
 
 Create a web3 instance and set up a provider. You can refer to the following code:
 
