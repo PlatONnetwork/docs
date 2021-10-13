@@ -10,11 +10,11 @@ sidebar_label: JSON-RPC
 
 ## JavaScript API
 
-After upgrading to version 1.1.1, PlatON has extended JSON-RPC 2.0 through [Ethereum Compatible](https://github.com/PlatONnetwork/PIPs/blob/master/PIPs/PIP-2.md) to extend JSON-RPC 2.0 to request The request object adds bech32 field, Booleans type. If bech32 is true, it means that the codec format of the address part in this rpc call is bech32, and the default is EIP55. And it supports Ethereum's RPC call, [Reference](https://geth.ethereum.org/docs/rpc/ns-eth).
-
 To talk to an platon node from inside a JavaScript application use the [web3.js](https://github.com/PlatONnetwork/client-sdk-js) library, which gives an convenient interface for the RPC methods.
 
 ## Note
+
+After upgrading to version 1.1.1, PlatON has extended JSON-RPC 2.0 through [Ethereum Compatible](https://github.com/PlatONnetwork/PIPs/blob/master/PIPs/PIP-2.md) to extend JSON-RPC 2.0 to request The request object adds bech32 field, Booleans type. If bech32 is true, it means that the codec format of the address part in this rpc call is bech32, and the default is EIP55. And it supports Ethereum's RPC call, [Reference](https://geth.ethereum.org/docs/rpc/ns-eth).
 
 The following just shows the RPC call process with curl procedure. Actually you need to make some adjustments according to the specific situation of your server. For example, a possible call procedure for PlatON is `curl -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","bech32":true,"method":"web3_clientVersion","params":[],"id":67}' 127.0.0.1:6789`.
 
