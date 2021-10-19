@@ -40,5 +40,8 @@
   },
   "sidebar.docs.category.community": {
     "message": "社区项目"
+  },
+   "sidebar.docs.category.Tutorials": {
+    "message": "示例教程"
   }
 }
