@@ -944,7 +944,7 @@ Promise {<pending>}
 
 ### DApp Development Integration
 
-On the DApp development page, since Samurai will inject a platon object when opening the page, the object can be directly called through javascript to complete the corresponding operation during development. For the introduction and use of web3a objects, see [js-sdk document](https://devdocs.alaya.network/alaya-devdocs/en/JS_SDK/).
+On the DApp development page, since Samurai will inject a platon object when opening the page, the object can be directly called through javascript to complete the corresponding operation during development. For the introduction and use of web3a objects, see [js-sdk document](https://devdocs.platon.network/docs/zh-CN/JS_SDK/).
 
 The following example shows the corresponding `javascript` script that is called after clicking a page button to initiate a transfer.
 ```
