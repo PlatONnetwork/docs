@@ -83,7 +83,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Tutorials',
-      items: ['DApp_migrate']
+      items: ['DApp_migrate', 'qianqian_prc721_tutorial']
     },
     {
       type: 'category',
