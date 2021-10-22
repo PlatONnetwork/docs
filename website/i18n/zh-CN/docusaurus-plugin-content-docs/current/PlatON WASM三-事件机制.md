@@ -1,7 +1,7 @@
 ---
 id: WASM_Contract_3
-title: WASM——事件机制
-sidebar_label: PlatOn WASM contract (三) -- 事件机制
+title: PlatON WASM合约开发（三）—— 事件机制
+sidebar_label: WASM事件机制
 ---
 
 ## 概述

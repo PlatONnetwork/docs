@@ -1,7 +1,7 @@
 ---
 id: WASM_Contract_4
-title: WASM——Parameters
-sidebar_label: PlatOn WASM contract (4) -- Parameters
+title: PlatON WASM contract (4) - Parameters
+sidebar_label: WASM—Parameters
 ---
 
 ### EN is under construction
