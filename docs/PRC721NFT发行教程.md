@@ -1,7 +1,7 @@
 ---
-id:qianqian_prc721_tutorial
-title:PRC721 NFT Release Tutorial
-sidebar_label:PRC721 NFT Release Tutorial
+id: qianqian_prc721_tutorial
+title: PRC721 NFT Release Tutorial
+sidebar_label: PRC721 NFT Release Tutorial
 ---
 
 ### Foreword
