@@ -6,17 +6,17 @@ sidebar_label: JS SDK
 
 ## Web3.js 调用接口
 
-通过 web3.js 提供的 web3 对象与底层链进行交互。底层实现上，它通过 RPC 调用与本地节点通信。web3.js 可以与任何暴露了 RPC 接口的 PlatON 节点连接。如下主要介绍Windows 10和Ubuntu下的安装和使用。
+通过 web3.js 提供的 web3 对象与底层链进行交互。底层实现上，它通过 RPC 调用与本地节点通信。web3.js 可以与任何暴露了 RPC 接口的 PlatON 节点连接。如下主要介绍 Windows 10 和 Ubuntu 下的安装和使用。
 
-### Windows下安装使用
+### Windows 下安装使用
 
-在windows10下使用js sdk需要提前安装nvm等相关工具，具体步骤如下：
+在 windows10 下使用 js sdk 需要提前安装 nvm 等相关工具，具体步骤如下：
 
-- 安装nvm
+- 安装 nvm
 
   - 如安装可忽略此步骤，[下载地址](https://github.com/coreybutler/nvm-windows/releases/download/1.1.8/nvm-setup.zip)。
 
-  - 安装nodejs
+  - 安装 nodejs
 
     ```bash
     nvm install v12.16.1
@@ -32,13 +32,13 @@ sidebar_label: JS SDK
 
     > NVM_SYMLINK：%NVM_HOME%\v12.16.1
 
-- 安装git
+- 安装 git
 
   如安装可忽略此步骤，[下载地址](https://github.com/git-for-windows/git/releases/download/v2.33.0.windows.2/Git-2.33.0.2-64-bit.exe)。
 
-- 安装lerna
+- 安装 lerna
 
-  建议在git bash上执行命令；
+  建议在 git bash 上执行命令；
 
   ```bash
   npm install --global lerna@^3.22.1
@@ -46,36 +46,36 @@ sidebar_label: JS SDK
 
   > 注意:
   >
-  > - 配置lerna安装目录的环境变量；
-  > - 检查lerna是否安装成功：`lerna -v`。
+  > - 配置 lerna 安装目录的环境变量；
+  > - 检查 lerna 是否安装成功：`lerna -v`。
 
-- 安装client-sdk-js
+- 安装 client-sdk-js
 
   ```bash
   npm i PlatONnetwork/client-sdk-js#master
   ```
 
-  > 如提示：`git-sh-setup: file not found`相关的error，需要配置git submodule的环境变量；如git安装在`C:\Program Files\Git`目录下，需要配置如下路径到PATH环境变量中：
+  > 如提示：`git-sh-setup: file not found`相关的 error，需要配置 git submodule 的环境变量；如 git 安装在`C:\Program Files\Git`目录下，需要配置如下路径到 PATH 环境变量中：
   >
   > ```bash
   > Git_Home : C:\Program Files\Git
-  > 
+  >
   > Path:
   > %Git_Home%\usr\bin
   > %Git_Home%\mingw64\libexec\git-core
   > ```
 
-### Ubuntu下安装使用
+### Ubuntu 下安装使用
 
 首先请确保本地成功安装了 nodeJS 环境，由于该项目使用了[lerna](https://github.com/lerna/lerna)管理工具来优化托管在 git\npm 上的多 package 代码库的工作流，所以你在安装之前确保已经全局安装了 lerna 包。**如果没有，需要进行全局安装。**
 
-- 安装lerna
+- 安装 lerna
 
   ```bash
   npm i lerna -g
   ```
 
-- 安装client-sdk-js
+- 安装 client-sdk-js
 
   可以通过 npm 包管理工具或者 yarn 包管理工具将 client-sdk-js 引入到项目工程中，通过如下步骤：
 
@@ -191,15 +191,15 @@ web3.platon.setProvider(myProvider)
 示例代码：
 
 ```js
-var Web3 = require('web3');
-var web3 = new Web3('http://localhost:8545');
+var Web3 = require("web3");
+var web3 = new Web3("http://localhost:8545");
 // 或者
-var web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
 // 改变服务提供器
-web3.setProvider('ws://localhost:8546');
+web3.setProvider("ws://localhost:8546");
 // 或者
-web3.setProvider(new Web3.providers.WebsocketProvider('ws://localhost:8546'));
+web3.setProvider(new Web3.providers.WebsocketProvider("ws://localhost:8546"));
 ```
 
 ---
@@ -226,18 +226,21 @@ web3.platon.providers
 示例代码：
 
 ```js
-var Web3 = require('web3');
+var Web3 = require("web3");
 // 使用指定的服务提供器（例如在Mist中）或实例化一个新的websocket提供器
-var web3 = new Web3(Web3.givenProvider || 'ws://remotenode.com:8546');
+var web3 = new Web3(Web3.givenProvider || "ws://remotenode.com:8546");
 // 或者
-var web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider('ws://remotenode.com:8546'));
+var web3 = new Web3(
+  Web3.givenProvider ||
+    new Web3.providers.WebsocketProvider("ws://remotenode.com:8546")
+);
 ```
 
 ---
 
 #### web3.givenProvider
 
-在以太坊兼容的浏览器中使用 web3.js 时，`web3.givenProvider`属性将返回浏览器设置的原生
+在 PlatON 兼容的浏览器中使用 web3.js 时，`web3.givenProvider`属性将返回浏览器设置的原生
 服务提供器，否则返回`null`。
 
 调用：
@@ -300,9 +303,20 @@ new web3.platon.BatchRequest()
 var contract = new web3.platon.Contract(abi, address);
 
 var batch = new web3.BatchRequest();
-batch.add(web3.platon.getBalance.request('lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35', 'latest', callback));
 batch.add(
-  contract.methods.balance(address).call.request({ from: 'lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35' }, callback2)
+  web3.platon.getBalance.request(
+    "lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35",
+    "latest",
+    callback
+  )
+);
+batch.add(
+  contract.methods
+    .balance(address)
+    .call.request(
+      { from: "lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35" },
+      callback2
+    )
 );
 batch.execute();
 ```
@@ -327,7 +341,7 @@ web3.platon.defaultAccount
 
 属性：
 
-`String` - 以太坊地址对应的 bech32 编码地址，你应当在节点或 keystore 中存有该地址的私钥。默认值为`undefined`
+`String` - 地址对应的 bech32 编码地址，你应当在节点或 keystore 中存有该地址的私钥。默认值为`undefined`
 
 示例代码：
 
@@ -389,7 +403,7 @@ web3.platon.defaultBlock = 231;
 
 #### web3.platon.getProtocolVersion
 
-返回节点的以太坊协议版本。
+返回节点的 PlatON 协议版本。
 
 调用：
 
@@ -448,15 +462,15 @@ web3.platon.isSyncing().then(console.log);
 
 #### platon.chainId
 
-`platon.chainId()`方法用来获取当前链的链ID的rpc接口。
+`platon.chainId()`方法用来获取当前链的链 ID 的 rpc 接口。
 
 示例代码：
 
 ```js
 const get_chainid = async function () {
-    let chainid = web3.utils.toDecimal(await web3.ppos.rpc("platon_chainId",[]));
-    console.log("chainid:", chainid);
-}
+  let chainid = web3.utils.toDecimal(await web3.ppos.rpc("platon_chainId", []));
+  console.log("chainid:", chainid);
+};
 ```
 
 ---
@@ -586,7 +600,7 @@ web3.platon.getBalance("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 
 #### web3.platon.getStorageAt
 
-`web3.platon.getStorageAt()`方法返回一个以太坊地址的指定位置存储内容。
+`web3.platon.getStorageAt()`方法返回一个 PlatON 地址的指定位置存储内容。
 
 调用：
 
@@ -617,7 +631,7 @@ web3.platon.getStorageAt("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6", 0)
 
 #### web3.platon.getCode
 
-`web3.platon.getCode()`方法返回指定以太坊地址处的代码。
+`web3.platon.getCode()`方法返回指定 PlatON 地址处的代码。
 
 调用：
 
@@ -995,7 +1009,7 @@ web3.platon.sendTransaction({
 调用：
 
 ```js
-let address = Accounts.privateKeyToAccount(privateKey).address
+let address = Accounts.privateKeyToAccount(privateKey).address;
 ```
 
 参数：
@@ -1009,15 +1023,16 @@ let address = Accounts.privateKeyToAccount(privateKey).address
 示例代码：
 
 ```js
-var Web3 = require('web3')
-var Account = require('account')
+var Web3 = require("web3");
+var Account = require("account");
 const transaction_demo = async function () {
-  web3 = new Web3('http://127.0.0.1:6789')
-  var privateKey = '0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba'
-  var hrp = await web3.platon.getAddressHrp()
+  web3 = new Web3("http://127.0.0.1:6789");
+  var privateKey =
+    "0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba";
+  var hrp = await web3.platon.getAddressHrp();
   var alayaAccounts = new Accounts(web3, hrp);
-  let address = alayaAccounts.privateKeyToAccount(privateKey).address
-}
+  let address = alayaAccounts.privateKeyToAccount(privateKey).address;
+};
 ```
 
 ---
@@ -1045,29 +1060,32 @@ PromiEvent: 一个整合了事件发生器的 Promise 对象。当交易收据�
 示例代码：
 
 ```js
-var Web3 = require('web3')
-var Account = require('account')
+var Web3 = require("web3");
+var Account = require("account");
 const transaction_demo = async function () {
-  web3 = new Web3('http://127.0.0.1:6789')
-  var privateKey = '0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba'
-  var hrp = await web3.platon.getAddressHrp()
+  web3 = new Web3("http://127.0.0.1:6789");
+  var privateKey =
+    "0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba";
+  var hrp = await web3.platon.getAddressHrp();
   var platonAccounts = new Accounts(web3, hrp);
-  let from = platonAccounts.privateKeyToAccount(privateKey).address
-  let nonce = web3.utils.numberToHex(await web3.platon.getTransactionCount(from))
+  let from = platonAccounts.privateKeyToAccount(privateKey).address;
+  let nonce = web3.utils.numberToHex(
+    await web3.platon.getTransactionCount(from)
+  );
   let tx = {
     from: from,
-    to: 'atp1j9x482k50kl86qvx5cyw7hp48qcx5mezayxj8t',
-    value: '1000000000000000000',
+    to: "atp1j9x482k50kl86qvx5cyw7hp48qcx5mezayxj8t",
+    value: "1000000000000000000",
     chainId: 201018,
-    gasPrice: '10000000000000',
-    gas: '21000',
-    nonce: nonce
+    gasPrice: "10000000000000",
+    gas: "21000",
+    nonce: nonce,
   };
   // 签名交易
   let signTx = await web3.platon.accounts.signTransaction(tx, privateKey);
   // 发送交易
   let receipt = await web3.platon.sendSignedTransaction(signTx.rawTransaction);
-  console.log('sign tx data:\n', signTx.rawTransaction);
+  console.log("sign tx data:\n", signTx.rawTransaction);
 };
 ```
 
@@ -1283,10 +1301,10 @@ Mixed - 取决于具体的订阅类型
 
 ```js
 var subscription = web3.platon.subscribe(
-  'logs',
+  "logs",
   {
-    address: 'lax..',
-    topics: ['lax...']
+    address: "lax..",
+    topics: ["lax..."],
   },
   function (error, result) {
     if (!error) console.log(log);
@@ -1295,7 +1313,7 @@ var subscription = web3.platon.subscribe(
 
 // unsubscribes the subscription
 subscription.unsubscribe(function (error, success) {
-  if (success) console.log('Successfully unsubscribed!');
+  if (success) console.log("Successfully unsubscribed!");
 });
 ```
 
@@ -1365,16 +1383,16 @@ web3.platon.subscribe('pendingTransactions' [, callback]);
 
 ```js
 var subscription = web3.platon
-  .subscribe('pendingTransactions', function (error, result) {
+  .subscribe("pendingTransactions", function (error, result) {
     if (!error) console.log(result);
   })
-  .on('data', function (transaction) {
+  .on("data", function (transaction) {
     console.log(transaction);
   });
 
 // unsubscribes the subscription
 subscription.unsubscribe(function (error, success) {
-  if (success) console.log('Successfully unsubscribed!');
+  if (success) console.log("Successfully unsubscribed!");
 });
 ```
 
@@ -1428,14 +1446,14 @@ EventEmitter: 订阅对象实例，是一个事件发生器，定义有如下事
 
 ```js
 var subscription = web3.platon
-  .subscribe('newBlockHeaders', function (error, result) {
+  .subscribe("newBlockHeaders", function (error, result) {
     if (error) console.log(error);
   })
-  .on('data', function (blockHeader) {});
+  .on("data", function (blockHeader) {});
 
 // unsubscribes the subscription
 subscription.unsubscribe(function (error, success) {
-  if (success) console.log('Successfully unsubscribed!');
+  if (success) console.log("Successfully unsubscribed!");
 });
 ```
 
@@ -1475,13 +1493,13 @@ EventEmitter: 订阅对象实例，是一个事件发生器，定义有如下事
 
 ```js
 var subscription = web3.platon
-  .subscribe('syncing', function (error, sync) {
+  .subscribe("syncing", function (error, sync) {
     if (!error) console.log(sync);
   })
-  .on('data', function (sync) {
+  .on("data", function (sync) {
     // show some syncing stats
   })
-  .on('changed', function (isSyncing) {
+  .on("changed", function (isSyncing) {
     if (isSyncing) {
       // stop app operation
     } else {
@@ -1491,7 +1509,7 @@ var subscription = web3.platon
 
 // unsubscribes the subscription
 subscription.unsubscribe(function (error, success) {
-  if (success) console.log('Successfully unsubscribed!');
+  if (success) console.log("Successfully unsubscribed!");
 });
 ```
 
@@ -1536,23 +1554,23 @@ EventEmitter: 订阅实例对象，是一个事件发生器，定义有如下事
 ```js
 var subscription = web3.platon
   .subscribe(
-    'logs',
+    "logs",
     {
-      address: 'lax..',
-      topics: ['lax...']
+      address: "lax..",
+      topics: ["lax..."],
     },
     function (error, result) {
       if (!error) console.log(result);
     }
   )
-  .on('data', function (log) {
+  .on("data", function (log) {
     console.log(log);
   })
-  .on('changed', function (log) {});
+  .on("changed", function (log) {});
 
 // unsubscribes the subscription
 subscription.unsubscribe(function (error, success) {
-  if (success) console.log('Successfully unsubscribed!');
+  if (success) console.log("Successfully unsubscribed!");
 });
 ```
 
@@ -1560,7 +1578,7 @@ subscription.unsubscribe(function (error, success) {
 
 #### web3.platon.Contract
 
-`web3.platon.Contract`类简化了与以太坊区块链上智能合约的交互。创建合约对象时，
+`web3.platon.Contract`类简化了与区块链上智能合约的交互。创建合约对象时，
 只需指定相应智能合约的 json 接口，web3 就可以自动地将所有的调用转换为底层
 基于 RPC 的 ABI 调用。
 
@@ -2323,24 +2341,29 @@ myContract.getFilterLogs(rpcId[, callback])
 示例代码：
 
 ```js
-contract.getFilterLogs('0xa081d1f00117ade0e08769bb053ae7e', function (error, events) {
-  console.log(events);
-}) >
+contract.getFilterLogs(
+  "0xa081d1f00117ade0e08769bb053ae7e",
+  function (error, events) {
+    console.log(events);
+  }
+) >
   [
     {
-      address: 'lat1dw8t6q5jy6r3xqqkgc43nn403gpuzwx7penk3q',
+      address: "lat1dw8t6q5jy6r3xqqkgc43nn403gpuzwx7penk3q",
       topics: [
-        '0x0000000000000000000000000000000000000000007374727563744576656e74',
-        '0x000000000000000000000000000000000000000000000000000000000000c180'
+        "0x0000000000000000000000000000000000000000007374727563744576656e74",
+        "0x000000000000000000000000000000000000000000000000000000000000c180",
       ],
-      data: '0xc0',
-      blockNumber: '0x16375a',
-      transactionHash: '0x59d68e32b6566877fb024f3ab356d9c5d2947f6f7a89bc4b34432496c34193d5',
-      transactionIndex: '0x0',
-      blockHash: '0x2843f645de8147cce62e6d18bb287c4cf06bbb6a3f3f5ec97917a7a09e300eee',
-      logIndex: '0x0',
-      removed: false
-    }
+      data: "0xc0",
+      blockNumber: "0x16375a",
+      transactionHash:
+        "0x59d68e32b6566877fb024f3ab356d9c5d2947f6f7a89bc4b34432496c34193d5",
+      transactionIndex: "0x0",
+      blockHash:
+        "0x2843f645de8147cce62e6d18bb287c4cf06bbb6a3f3f5ec97917a7a09e300eee",
+      logIndex: "0x0",
+      removed: false,
+    },
   ];
 ```
 
@@ -2350,7 +2373,7 @@ contract.getFilterLogs('0xa081d1f00117ade0e08769bb053ae7e', function (error, eve
 
 #### web3.platon.personal
 
-使用 web3-eth-personal 包和以太坊节点账户进行交互。
+使用 web3-eth-personal 包和节点账户进行交互。
 
 注意，这个包中的许多函数包含敏感信息，例如密码，因此不要在未加密的
 websocket 或 http 服务提供器上调用这些函数，因为你的密码是明文发送的！
@@ -2360,7 +2383,7 @@ websocket 或 http 服务提供器上调用这些函数，因为你的密码是�
 ```
 var Personal = require('web3.platon-personal');
 
-// 在以太坊兼容浏览器中，"Personal.providers.givenProvider"将自动被设置
+// 在兼容浏览器中，"Personal.providers.givenProvider"将自动被设置
 var personal = new Personal(Personal.givenProvider || 'ws://some.local-or-remote.node:8546');
 
 
@@ -2524,7 +2547,7 @@ web3.platon.signTransaction({
 #### web3.platon.abi
 
 web3.platon.abi 系列函数用来将参数编码为 ABI (Application Binary Interface)，或者从 ABI 解码回来。
-以便在以太坊虚拟机 EVM 上执行函数函数调用。
+以便在虚拟机 EVM 上执行函数函数调用。
 
 函数列表：
 
@@ -2563,22 +2586,23 @@ web3.platon.abi.encodeFunctionSignature(functionName);
 ```js
 // 传入JSON接口对象
 web3.platon.abi.encodeFunctionSignature({
-  name: 'myMethod',
-  type: 'function',
+  name: "myMethod",
+  type: "function",
   inputs: [
     {
-      type: 'uint256',
-      name: 'myNumber'
+      type: "uint256",
+      name: "myNumber",
     },
     {
-      type: 'string',
-      name: 'myString'
-    }
-  ]
+      type: "string",
+      name: "myString",
+    },
+  ],
 }) > 0x24ee0097;
 
 // 传入字符串
-web3.platon.abi.encodeFunctionSignature('myMethod(uint256,string)') > '0x24ee0097';
+web3.platon.abi.encodeFunctionSignature("myMethod(uint256,string)") >
+  "0x24ee0097";
 ```
 
 ---
@@ -2606,23 +2630,23 @@ web3.platon.abi.encodeEventSignature(eventName);
 
 ```js
 // 使用字符串参数
-web3.platon.abi.encodeEventSignature('myEvent(uint256,bytes32)') >
+web3.platon.abi.encodeEventSignature("myEvent(uint256,bytes32)") >
   0xf2eeb729e636a8cb783be044acf6b7b1e2c5863735b60d6daae84c366ee87d97;
 
 // 使用json接口对象
 web3.platon.abi.encodeEventSignature({
-  name: 'myEvent',
-  type: 'event',
+  name: "myEvent",
+  type: "event",
   inputs: [
     {
-      type: 'uint256',
-      name: 'myNumber'
+      type: "uint256",
+      name: "myNumber",
     },
     {
-      type: 'bytes32',
-      name: 'myBytes'
-    }
-  ]
+      type: "bytes32",
+      name: "myBytes",
+    },
+  ],
 }) > 0xf2eeb729e636a8cb783be044acf6b7b1e2c5863735b60d6daae84c366ee87d97;
 ```
 
@@ -2822,15 +2846,16 @@ web3.utils.randomHex(size)
 示例代码：
 
 ```js
-web3.utils.randomHex(32) > '0xa5b9d60f32436310afebcfda832817a68921beb782fabf7915cc0460b443116a';
+web3.utils.randomHex(32) >
+  "0xa5b9d60f32436310afebcfda832817a68921beb782fabf7915cc0460b443116a";
 
-web3.utils.randomHex(4) > '0x6892ffc6';
+web3.utils.randomHex(4) > "0x6892ffc6";
 
-web3.utils.randomHex(2) > '0x99d6';
+web3.utils.randomHex(2) > "0x99d6";
 
-web3.utils.randomHex(1) > '0x9a';
+web3.utils.randomHex(1) > "0x9a";
 
-web3.utils.randomHex(0) > '0x';
+web3.utils.randomHex(0) > "0x";
 ```
 
 ---
@@ -3163,7 +3188,7 @@ web3.utils.isHex('Hello');
 
 #### web3.utils.isAddress
 
-检查指定的字符串是否是有效的以太坊地址。如果地址同时使用了大小写字符，
+检查指定的字符串是否是有效的地址。如果地址同时使用了大小写字符，
 `web3.utils.isAddress()`方法也会检查校验和。
 
 调用：
@@ -3239,7 +3264,7 @@ web3.utils.isBech32Address('lax1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
 
 #### web3.utils.toBech32Address
 
-将有效的以太坊地址转成指定网络的 bech32 格式地址。
+将有效的地址转成指定网络的 bech32 格式地址。
 
 调用：
 
@@ -3251,7 +3276,7 @@ web3.utils.toBech32Address(hrp, address)
 
 `hrp` - String: 指定网络参数，lax 表示测试网地址，lat 表示主网地址。
 
-`address` - String: 以太坊地址字符串。
+`address` - String: 地址字符串。
 
 返回值：
 
@@ -3271,7 +3296,7 @@ web3.utils.toBech32Address('lat', '0x1234567890123456789012345678901234567891');
 
 #### web3.utils.decodeBech32Address
 
-将指定网络的的 bech32 格式地址解析成有效的以太坊地址。
+将指定网络的的 bech32 格式地址解析成有效的地址。
 
 调用：
 
@@ -3287,7 +3312,7 @@ web3.utils.decodeBech32Address(hrp, bech32Address)
 
 返回值：
 
-`String`：解析正确返回有效的以太坊地址，否则返回为空。
+`String`：解析正确返回有效的地址，否则返回为空。
 
 示例代码：
 
@@ -3303,7 +3328,7 @@ web3.utils.decodeBech32Address('lat', 'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluq
 
 #### web3.utils.toChecksumAddress
 
-将给定的大写或小写以太坊地址转换为校验和地址。
+将给定的大写或小写地址转换为校验和地址。
 
 调用：
 
@@ -3665,7 +3690,6 @@ web3.utils.toVon(number [, unit])
   - mlat
   - glat
   - tlat
-
 
 返回值：
 
@@ -4164,12 +4188,12 @@ reply = await ppos.call(params);
 
 以调用 `发起委托`这个接口，入参顺序从上到下，入参如下所示：
 
-| 参数     | 类型           | 说明                                                         |
-| -------- | -------------- | ------------------------------------------------------------ |
-| funcType | uint16(2bytes) | 代表方法类型码(1004)                                         |
+| 参数     | 类型           | 说明                                                                                                                               |
+| -------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| funcType | uint16(2bytes) | 代表方法类型码(1004)                                                                                                               |
 | typ      | uint16(2bytes) | 表示使用账户自由金额还是账户的锁仓金额做委托，0: 自由金额； 1: 锁仓金额；2: 优先使用锁仓余额，锁仓余额不足则剩下的部分使用自由金额 |
-| nodeId   | 64bytes        | 被质押的节点的 NodeId                                        |
-| amount   | big.Int(bytes) | 委托的金额(按照最小单位算，1LAT = 10^18 von)                 |
+| nodeId   | 64bytes        | 被质押的节点的 NodeId                                                                                                              |
+| amount   | big.Int(bytes) | 委托的金额(按照最小单位算，1LAT = 10^18 von)                                                                                       |
 
 调用示例
 
@@ -4205,22 +4229,22 @@ reply = await ppos.send(params, other);
 
 - 发起质押，send 发送交易。
 
-| 参数               | 类型             | 说明                                                         |
-| ------------------ | ---------------- | ------------------------------------------------------------ |
-| funcType           | uint16(2bytes)   | 代表方法类型码(1000)                                         |
+| 参数               | 类型             | 说明                                                                                                                               |
+| ------------------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| funcType           | uint16(2bytes)   | 代表方法类型码(1000)                                                                                                               |
 | typ                | uint16(2bytes)   | 表示使用账户自由金额还是账户的锁仓金额做质押，0: 自由金额； 1: 锁仓金额；2: 优先使用锁仓余额，锁仓余额不足则剩下的部分使用自由金额 |
-| benefitAddress     | 20bytes          | 用于接受出块奖励和质押奖励的收益账户                         |
-| nodeId             | 64bytes          | 被质押的节点 Id(也叫候选人的节点 Id)                         |
-| externalId         | string           | 外部 Id(有长度限制，给第三方拉取节点描述的 Id)               |
-| nodeName           | string           | 被质押节点的名称(有长度限制，表示该节点的名称)               |
-| website            | string           | 节点的第三方主页(有长度限制，表示该节点的主页)               |
-| details            | string           | 节点的描述(有长度限制，表示该节点的描述)                     |
-| amount             | \*big.Int(bytes) | 质押的 von                                                   |
-| rewardPer          | uint16(2bytes)   | 委托所得到的奖励分成比例，采用 BasePoint 1BP=0.01%           |
-| programVersion     | uint32           | 程序的真实版本，治理 rpc 获取                                |
-| programVersionSign | 65bytes          | 程序的真实版本签名，治理 rpc 获取                            |
-| blsPubKey          | 96bytes          | bls 的公钥                                                   |
-| blsProof           | 64bytes          | bls 的证明,通过拉取证明接口获取                              |
+| benefitAddress     | 20bytes          | 用于接受出块奖励和质押奖励的收益账户                                                                                               |
+| nodeId             | 64bytes          | 被质押的节点 Id(也叫候选人的节点 Id)                                                                                               |
+| externalId         | string           | 外部 Id(有长度限制，给第三方拉取节点描述的 Id)                                                                                     |
+| nodeName           | string           | 被质押节点的名称(有长度限制，表示该节点的名称)                                                                                     |
+| website            | string           | 节点的第三方主页(有长度限制，表示该节点的主页)                                                                                     |
+| details            | string           | 节点的描述(有长度限制，表示该节点的描述)                                                                                           |
+| amount             | \*big.Int(bytes) | 质押的 von                                                                                                                         |
+| rewardPer          | uint16(2bytes)   | 委托所得到的奖励分成比例，采用 BasePoint 1BP=0.01%                                                                                 |
+| programVersion     | uint32           | 程序的真实版本，治理 rpc 获取                                                                                                      |
+| programVersionSign | 65bytes          | 程序的真实版本签名，治理 rpc 获取                                                                                                  |
+| blsPubKey          | 96bytes          | bls 的公钥                                                                                                                         |
+| blsProof           | 64bytes          | bls 的证明,通过拉取证明接口获取                                                                                                    |
 
 - 修改质押信息，send 发送交易。
 
@@ -4239,12 +4263,12 @@ reply = await ppos.send(params, other);
 
 入参：
 
-| 参数     | 类型             | 说明                                                         |
-| -------- | ---------------- | ------------------------------------------------------------ |
-| funcType | uint16(2bytes)   | 代表方法类型码(1002)                                         |
-| nodeId   | 64bytes          | 被质押的节点 Id(也叫候选人的节点 Id)                         |
+| 参数     | 类型             | 说明                                                                                                                               |
+| -------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| funcType | uint16(2bytes)   | 代表方法类型码(1002)                                                                                                               |
+| nodeId   | 64bytes          | 被质押的节点 Id(也叫候选人的节点 Id)                                                                                               |
 | typ      | uint16(2bytes)   | 表示使用账户自由金额还是账户的锁仓金额做质押，0: 自由金额； 1: 锁仓金额；2: 优先使用锁仓余额，锁仓余额不足则剩下的部分使用自由金额 |
-| amount   | \*big.Int(bytes) | 增持的 von                                                   |
+| amount   | \*big.Int(bytes) | 增持的 von                                                                                                                         |
 
 - 撤销质押(一次性发起全部撤销，多次到账)，send 发送交易。
 
@@ -4572,11 +4596,11 @@ reply = await ppos.send(params, other);
 
 **VoteOption 投票选项定义**
 
-| 类型        | 定义 | 说明 |
-| ----------- | ---- | ---- |
-| Yeas        | 0x01 | 支持 |
-| Nays        | 0x02 | 反对 |
-|Abstentions  | 其他值|弃权  |
+| 类型        | 定义   | 说明 |
+| ----------- | ------ | ---- |
+| Yeas        | 0x01   | 支持 |
+| Nays        | 0x02   | 反对 |
+| Abstentions | 其他值 | 弃权 |
 
 **Proposal 接口 提案定义**
 

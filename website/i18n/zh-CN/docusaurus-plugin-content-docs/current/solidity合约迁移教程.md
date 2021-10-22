@@ -6,11 +6,12 @@ sidebar_label: 迁移教程
 
 ### 简介
 
-PlatON支持的solidity版本号有(0.4.26 0.5.17 0.6.12 0.7.6 0.8.2)，如果迁移其它版本的合约，需要修改成对应版本号，并调整相关语法。
+PlatON 支持的 solidity 版本号有(0.4.26 0.5.17 0.6.12 0.7.6 0.8.2)，如果迁移其它版本的合约，需要修改成对应版本号，并调整相关语法。
 
-如果您希望将以太坊的智能合约迁移到PlatON上，可以通过platon-truffle开发工具来进行。首先确保您正确安装了platon-truffle,只需按照以下步骤操作即可。
+如果您希望将 PlatON 的智能合约迁移到 PlatON 上，可以通过 platon-truffle 开发工具来进行。首先确保您正确安装了 platon-truffle,只需按照以下步骤操作即可。
 
-以下将演示将以太坊的ERC200513Token合约迁移至PlatON上，ERC200513Token.sol合约文件如下
+以下将演示将 PlatON 的 ERC200513Token 合约迁移至 PlatON 上，ERC200513Token.sol 合约文件如下
+
 ```
 pragma solidity 0.5.17;
 
@@ -188,14 +189,15 @@ contract ERC200513Token {
 
 ### 操作步聚
 
-**step1.** 创建一个新的工作目录如example
+**step1.** 创建一个新的工作目录如 example
 
 ```
 mkdir example && cd example
 ```
-- 以下命令如果没有特殊说明都在example目录下进行
 
-**step2.** 使用platon-truffle初始化一个工程
+- 以下命令如果没有特殊说明都在 example 目录下进行
+
+**step2.** 使用 platon-truffle 初始化一个工程
 
 ```
 platon-truffle init
@@ -203,7 +205,7 @@ platon-truffle init
 
 在操作完成之后，就有这样的一个项目结构：
 
-- contracts/: Solidity合约目录
+- contracts/: Solidity 合约目录
 
 - migrations/: 部署脚本文件目录
 
@@ -211,17 +213,17 @@ platon-truffle init
 
 - truffle-config.js: platon-truffle 配置文件
 
-**step3.** 将以太坊合约文件ERC200513Token.sol放至example/contracts目录下
+**step3.** 将 PlatON 合约文件 ERC200513Token.sol 放至 example/contracts 目录下
 
 ```
 ls contracts/
 ```
 
 - 将看到 ERC200513Token.sol
-- PlatON智能合约中的货币单位为LAT和VON。要将以太坊智能合约迁移至PlatON，请将以太币面额更改为PlatON面额。同时注意以太/LAT市场汇率（此合约我们假设市场汇率1:1，将uint256 public totalSupply = 10000000000000000000 ether; 修改成uint256 public totalSupply = 10000000000000000000 lat; ）
-- PlatON智能合约中block.timestamp表示的是当前区块以毫秒为单位的时间戳，以太坊是以秒为单位。
+- PlatON 智能合约中的货币单位为 LAT 和 VON。要将 PlatON 智能合约迁移至 PlatON，请将以太币面额更改为 PlatON 面额。同时注意以太/LAT 市场汇率（此合约我们假设市场汇率 1:1，将 uint256 public totalSupply = 10000000000000000000 ether; 修改成 uint256 public totalSupply = 10000000000000000000 lat; ）
+- PlatON 智能合约中 block.timestamp 表示的是当前区块以毫秒为单位的时间戳，PlatON 是以秒为单位。
 
-**step4.** 修改truffle-config.js中的编译版本号及链相关配置
+**step4.** 修改 truffle-config.js 中的编译版本号及链相关配置
 
 ```
 module.exports = {
@@ -232,7 +234,7 @@ module.exports = {
       network_id: "*",       // Any network (default: none)
       from: "lat1wxadw8yzr6qxdw5yl3f2surp6ue6f03e07kcqc", //部署合约所使用的钱包地址
       gas: 999999,
-      gasPrice: 50000000004,	     
+      gasPrice: 50000000004,
      },
   },
 
@@ -250,7 +252,9 @@ module.exports = {
 ```
 platon-truffle compile
 ```
+
 编译成功输出如下信息：
+
 ```
 Compiling your contracts...
 Compiling ./contracts/ERC200513Token.sol
@@ -269,12 +273,13 @@ Compiled successfully using: //表示编译成功
 cd migrations && touch 2_initial_ERC200513Token.js
 ```
 
-合约部署配置文件2_initial_ERC200513Token.js内容如下：
+合约部署配置文件 2_initial_ERC200513Token.js 内容如下：
+
 ```
 const ERC200513Token = artifacts.require("ERC200513Token"); //括号中为迁移合约类名
 module.exports = function(deployer) {
   deployer.deploy(ERC200513Token,100,'PLA','PLAT'); //ERC200513Token后面三个参数为合约构造函数参数
-};  
+};
 ```
 
 **step7.** 部署合约
@@ -315,4 +320,5 @@ Summary
 > Total deployments:   2
 > Final cost:          0.000755566 LAT
 ```
----------
+
+---

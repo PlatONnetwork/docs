@@ -6,56 +6,51 @@ sidebar_label: 开发成本
 
 ### 概要
 
-
-在区块链系统中，基于任何一条公链系统开发智能合约都涉及资源支出的开发成本。例如，在网络上部署/调用智能合约，进行能量转移，质押/委托等操作都需要花费一定的成本，不同的区块链网络开发成本不一样，在 `PlatON` 网络中运行着两种虚拟机EVM和WASM，在不同虚拟机上上开发智能合约的成本也是不一样的。本手册将重点介绍使用 `WASN` 虚拟机涉及到的成本使用，本文将用表格的形式对比小型合约、中型合约和大型合约的不同开发成本，同时将 `PlatON` 的 `EVM`/`WASM`虚拟机和以太坊虚拟机之间进行对比。在合约方面，使用一个简单的`SET/GET`功能的合约作为小型测试合约，中型合约示例将使用一个开源的[微博客](https://github.com/yep/eth-tweet)合约，而大型合约则是一个符合 `PRC20` 标准的智能合约。
-
+在区块链系统中，基于任何一条公链系统开发智能合约都涉及资源支出的开发成本。例如，在网络上部署/调用智能合约，进行能量转移，质押/委托等操作都需要花费一定的成本，不同的区块链网络开发成本不一样，在 `PlatON` 网络中运行着两种虚拟机 EVM 和 WASM，在不同虚拟机上上开发智能合约的成本也是不一样的。本手册将重点介绍使用 `WASN` 虚拟机涉及到的成本使用，本文将用表格的形式对比小型合约、中型合约和大型合约的不同开发成本，同时将 `PlatON` 的 `EVM`/`WASM`虚拟机和 PlatON 虚拟机之间进行对比。在合约方面，使用一个简单的`SET/GET`功能的合约作为小型测试合约，中型合约示例将使用一个开源的[微博客](https://github.com/yep/eth-tweet)合约，而大型合约则是一个符合 `PRC20` 标准的智能合约。
 
 #### 资源消耗
 
-**简单set/get合约**
+**简单 set/get 合约**
 
-| 系统        | 合约级别 | 合约大小 | 消耗Gas | Gas 单价            | 能量损耗      | 备注              |
-| :---------- | :------- | :------- | :------ | :------------------ | :------------ | :---------------- |
-| PlatON-EVM  | 小型合约 | 0.3 kb   | 76953   | 5,000,000,000 `VON` | 384765 `gVON` | 0.000384765 `LAT` |
-| Ethereum    | 小型合约 | 0.3 kb   | 127173  | 5,000,000,000 `wei` | 635865 `Gwei` | 0.000635865 `ETH` |
-| PlatON-WASM | 小型合约 | 13.55 kb | 184043  | 5,000,000,000 `VON` | 920215 `gVON` | 0.000920215 `LAT` |
-
+| 系统        | 合约级别 | 合约大小 | 消耗 Gas | Gas 单价            | 能量损耗      | 备注              |
+| :---------- | :------- | :------- | :------- | :------------------ | :------------ | :---------------- |
+| PlatON-EVM  | 小型合约 | 0.3 kb   | 76953    | 5,000,000,000 `VON` | 384765 `gVON` | 0.000384765 `LAT` |
+| Ethereum    | 小型合约 | 0.3 kb   | 127173   | 5,000,000,000 `wei` | 635865 `Gwei` | 0.000635865 `ETH` |
+| PlatON-WASM | 小型合约 | 13.55 kb | 184043   | 5,000,000,000 `VON` | 920215 `gVON` | 0.000920215 `LAT` |
 
 **微博客**
 
-| 系统        | 合约级别 | 合约大小 | 消耗Gas | Gas 单价            | 能量损耗       | 备注              |
-| :---------- | :------- | :------- | :------ | :------------------ | :------------- | :---------------- |
-| PlatON-EVM  | 中型合约 | 2.08 kb  | 257065  | 5,000,000,000 `VON` | 1285325 `gVON` | 0.001285325 `LAT` |
-| Ethereum    | 中型合约 | 2.08 kb  | 621385  | 5,000,000,000 `wei` | 3106925 `Gwei` | 0.003106925 `ETH` |
-| PlatON-WASM | 中型合约 | 30.07 kb | 349713  | 5,000,000,000 `VON` | 1748565 `gVON` | 0.001748565 `LAT` |
+| 系统        | 合约级别 | 合约大小 | 消耗 Gas | Gas 单价            | 能量损耗       | 备注              |
+| :---------- | :------- | :------- | :------- | :------------------ | :------------- | :---------------- |
+| PlatON-EVM  | 中型合约 | 2.08 kb  | 257065   | 5,000,000,000 `VON` | 1285325 `gVON` | 0.001285325 `LAT` |
+| Ethereum    | 中型合约 | 2.08 kb  | 621385   | 5,000,000,000 `wei` | 3106925 `Gwei` | 0.003106925 `ETH` |
+| PlatON-WASM | 中型合约 | 30.07 kb | 349713   | 5,000,000,000 `VON` | 1748565 `gVON` | 0.001748565 `LAT` |
 
+**PRC20 标准 Token**
 
-**PRC20标准Token**
-
-| 系统        | 合约级别 | 合约大小 | 消耗Gas | Gas 单价            | 能量损耗        | 备注              |
-| :---------- | :------- | :------- | :------ | :------------------ | :-------------- | :---------------- |
-| PlatON-EVM  | 大型合约 | 4.45 kb  | 552823  | 5,000,000,000 `VON` | 2764115  `gVON` | 0.002764115 `LAT` |
-| Ethereum    | 大型合约 | 4.45 kb  | 1282171 | 5,000,000,000 `wei` | 6410855  `Gwei` | 0.006410855 `ETH` |
-| PlatON-WASM | 大型合约 | 35.9 kb  | 486274  | 5,000,000,000 `VON` | 2431370  `gVON` | 0.00243137 `LAT`  |
-
+| 系统        | 合约级别 | 合约大小 | 消耗 Gas | Gas 单价            | 能量损耗       | 备注              |
+| :---------- | :------- | :------- | :------- | :------------------ | :------------- | :---------------- |
+| PlatON-EVM  | 大型合约 | 4.45 kb  | 552823   | 5,000,000,000 `VON` | 2764115 `gVON` | 0.002764115 `LAT` |
+| Ethereum    | 大型合约 | 4.45 kb  | 1282171  | 5,000,000,000 `wei` | 6410855 `Gwei` | 0.006410855 `ETH` |
+| PlatON-WASM | 大型合约 | 35.9 kb  | 486274   | 5,000,000,000 `VON` | 2431370 `gVON` | 0.00243137 `LAT`  |
 
 ### 小型合约示例
 
-#### 简单set/get合约
+#### 简单 set/get 合约
 
-**EVM示例代码**
+**EVM 示例代码**
 
 ```
 pragma solidity ^0.4.12;
 
 contract SimpleTest {
-    
+
 	uint public age;
- 
+
 	function setAge(uint _input) public {
 		age = _input;
 	}
- 
+
 	function getAge() public constant returns (uint) {
 		return age;
 	}
@@ -70,9 +65,9 @@ contract SimpleTest {
 
 字节大小：`311 byte => 0.3 kb`
 
--------------------
+---
 
-**WASM示例代码**
+**WASM 示例代码**
 
 ```
 #include <platon/platon.hpp>
@@ -83,12 +78,12 @@ CONTRACT SimpleStorage: public platon::Contract
 {
 	public:
 		ACTION void init(){}
-	
+
 		ACTION void set(uint64_t input)
 		{
-			storedData.self() = input;		
+			storedData.self() = input;
 		}
-		
+
 		CONST uint64_t get()
 		{
 			return storedData.self();
@@ -107,49 +102,47 @@ PLATON_DISPATCH(SimpleStorage,(init)(set)(get))
 
 字节大小：`13882 byte => 13.55 kb`
 
--------------------
+---
 
 ###### 创建&部署合约成本
 
 PlatON-EVM
 
-* Gas消耗: 76953
-* Gas单价: 5,000,000,000 (5 `gVON`)
-* 总成本:  384765 `gVON`（0.000384765 `LAT`）
+- Gas 消耗: 76953
+- Gas 单价: 5,000,000,000 (5 `gVON`)
+- 总成本: 384765 `gVON`（0.000384765 `LAT`）
 
-以太坊
+PlatON
 
-* Gas消耗: 127173
-* Gas单价: 5,000,000,000 (5 `Gwei`)
-* 总成本:  635865 `Gwei`（0.000635865 `ETH`）
+- Gas 消耗: 127173
+- Gas 单价: 5,000,000,000 (5 `Gwei`)
+- 总成本: 635865 `Gwei`（0.000635865 `ETH`）
 
 PlatON-WASM
 
-* Gas消耗: 184043
-* Gas单价: 5,000,000,000 (5 `gVON`)
-* 总成本:  920215 `gVON`（0.000920215 `LAT`）
+- Gas 消耗: 184043
+- Gas 单价: 5,000,000,000 (5 `gVON`)
+- 总成本: 920215 `gVON`（0.000920215 `LAT`）
 
------------------------------------
+---
 
 ### 中型合约示例
 
 #### 微博客合约
 
-**EVM示例代码**
+**EVM 示例代码**
 
 [点击查看微博客账户合约](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/account.sol)
-
 
 字节码
 
 [查看字节码](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Tweet_wasm.bin)
 
-
 字节大小： `2130.5 byte => 2.08 kb`
 
----------------
+---
 
-**WASM示例代码**
+**WASM 示例代码**
 
 ```
 #include <platon/platon.hpp>
@@ -181,22 +174,22 @@ CONTRACT TweetAccount: public platon::Contract
 		platon::StorageType<"suint"_n, uint64_t> _numberOfTweets;
 		// "owner" of this account: only admin is allowed to tweet.
 		platon::StorageType<"saddress"_n, Address> _adminAddress;
-	
+
 	public:
 		ACTION void init()
 		{
 			_numberOfTweets.self() = 0;
 			_adminAddress.self() = platon::platon_caller();
 		}
-		
+
 		// returns true if caller of function("sender") is admin.
 		CONST bool isAdmin(){
-			return platon::platon_caller() == _adminAddress.self();		
+			return platon::platon_caller() == _adminAddress.self();
 		}
-	
+
 		// create new tweet
 		ACTION int64_t tweet(const std::string& tweetString) {
-			int64_t result = 0;		
+			int64_t result = 0;
 			if(!isAdmin()){
 				// only owner is allowed to create tweets for this account.
 				result = -1;
@@ -206,58 +199,58 @@ CONTRACT TweetAccount: public platon::Contract
 			} else {
 				_tweets.self()[_numberOfTweets].timestamp = platon_timestamp();
 				_tweets.self()[_numberOfTweets].tweetString = tweetString;
-				_numberOfTweets.self() = _numberOfTweets.self() + 1;	
-				result = 0; // success.		
+				_numberOfTweets.self() = _numberOfTweets.self() + 1;
+				result = 0; // success.
 			}
 			return result;
 		}
 
 		CONST std::string getTweet(uint64_t tweetId){
-			// returns two values 
+			// returns two values
 			std::string tweetString = _tweets.self()[tweetId].tweetString;
 			uint64_t timestamp = _tweets.self()[tweetId].timestamp;
-			return tweetString;		
+			return tweetString;
 		}
-	
+
 		CONST std::string getLatestTweet() {
 			// returns three values.
 			std::string tweetString = _tweets.self()[_numberOfTweets.self() - 1].tweetString;
 			uint64_t timestamp = _tweets.self()[_numberOfTweets.self() - 1].timestamp;
 			uint64_t numberOfTweets = _numberOfTweets.self();
-			return tweetString;		
-		} 
-		
+			return tweetString;
+		}
+
 		CONST Address getOwnerAddress() {
-			return _adminAddress.self();		
+			return _adminAddress.self();
 		}
 
 		CONST uint64_t getNumberOfTweets() {
-			return _numberOfTweets.self();			
+			return _numberOfTweets.self();
 		}
-		
+
 		ACTION void adminRetrieveDonations(const Address& receiver) {
 			if(isAdmin()){
 				Address caddr = platon_address();
 				Energon e = platon_balance(caddr);
 				platon_transfer(receiver, e);
-			}		
+			}
 		}
-		
+
 		CONST Address caddr(){
-			return platon_address();		
+			return platon_address();
 		}
-	
+
 		CONST std::string caddrBalance(Address receiver){
 			//Address caddr = platon_address();
 			Energon e = platon_balance(receiver);
-			return std::to_string(e.Get());		
+			return std::to_string(e.Get());
 		}
-			
+
 		ACTION void adminDeleteAccount(){
 			if(isAdmin()){
-				// this is a predefined function, it deletes theh contract and returns all funds to the owner.	
-				platon_destroy(_adminAddress.self());	
-			}		
+				// this is a predefined function, it deletes theh contract and returns all funds to the owner.
+				platon_destroy(_adminAddress.self());
+			}
 		}
 };
 
@@ -272,49 +265,47 @@ PLATON_DISPATCH(TweetAccount,(init)(isAdmin)(tweet)(getTweet)(getLatestTweet)
 
 字节大小： `30788` byte => 30.07 kb`
 
----------------
+---
 
 ###### 创建&部署合约成本
 
 PlatON-EVM
 
-* Gas消耗: 257065
-* Gas单价: 5,000,000,000 (5 `gVON`)
-* 总成本:  1285325 `gVON`（0.001285325 `LAT`）
+- Gas 消耗: 257065
+- Gas 单价: 5,000,000,000 (5 `gVON`)
+- 总成本: 1285325 `gVON`（0.001285325 `LAT`）
 
-以太坊
+PlatON
 
-* Gas消耗: 621385
-* Gas单价: 5,000,000,000 (5 `Gwei`)
-* 总成本:  3106925 `Gwei`（0.003106925 `ETH`）
+- Gas 消耗: 621385
+- Gas 单价: 5,000,000,000 (5 `Gwei`)
+- 总成本: 3106925 `Gwei`（0.003106925 `ETH`）
 
 PlatON-WASM
 
-* Gas消耗: 349713
-* Gas单价: 5,000,000,000 (5 `gVON`)
-* 总成本:  1748565 `gVON`（0.001748565 `LAT`）
+- Gas 消耗: 349713
+- Gas 单价: 5,000,000,000 (5 `gVON`)
+- 总成本: 1748565 `gVON`（0.001748565 `LAT`）
 
-------------------------
+---
 
 ### 大型合约示例
 
-#### PRC20标准token合约
+#### PRC20 标准 token 合约
 
-**EVM示例代码**
+**EVM 示例代码**
 
-[点击查看PRC20标准的智能合约](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/token.sol)
-
+[点击查看 PRC20 标准的智能合约](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/token.sol)
 
 字节码
 
 [查看字节码](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Token_evm.bin)
 
-
 字节大小： `4557.5 byte => 4.45 kb`
 
------------------------------
+---
 
-**WASM示例代码**
+**WASM 示例代码**
 
 ```
 #include <platon/platon.hpp>
@@ -325,7 +316,7 @@ class Token {
 	public:
 		// total amount of tokens
 		platon::StorageType<"totalsupply"_n, uint64_t> totalSupply;
-	
+
 	public: // event
 		// define: _from, _to, _value
 		PLATON_EVENT2(Transfer, Address, Address, uint64_t);
@@ -368,13 +359,13 @@ class Token {
 // If you deploy this, you won't have anthing useful.)
 class StandardToken: public Token
 {
-	protected: 
+	protected:
 		platon::StorageType<"balances"_n, std::map<Address, uint64_t>> balances;
 		platon::StorageType<"allowed"_n, std::map<Address, std::map<Address, uint64_t>>> allowed;
 
 	public:
 		CONST uint64_t balanceOf(Address _owner) {
-			return balances.self()[_owner];		
+			return balances.self()[_owner];
 		}
 
 		ACTION bool transfer(Address _to, uint64_t _value){
@@ -389,7 +380,7 @@ class StandardToken: public Token
 				PLATON_EMIT_EVENT2(Transfer, sender, _to, _value);
 				return true;
 			} else {
-				return false;			
+				return false;
 			}
 		}
 
@@ -397,33 +388,33 @@ class StandardToken: public Token
 			// same as above. Replace this line with the following if you want to protect against
 			// wrapping uints.
 			Address sender = platon_caller();
-			if(balances.self()[_from] >= _value 
+			if(balances.self()[_from] >= _value
 				&& allowed.self()[_from][sender] >= _value && _value > 0){
 				balances.self()[_to] += _value;
 				balances.self()[_from] -= _value;
 				PLATON_EMIT_EVENT2(Transfer, _from, _to, _value);
 				return true;
 			} else {
-				return false;			
+				return false;
 			}
 		}
 
 		ACTION bool approve(Address _spender, uint64_t _value){
-			Address sender = platon_caller();			
+			Address sender = platon_caller();
 			allowed.self()[sender][_spender] = _value;
 			PLATON_EMIT_EVENT2(Approval, sender, _spender, _value);
-			return true;		
+			return true;
 		}
 
 		CONST uint64_t allowance(Address _owner, Address _spender){
-			return allowed.self()[_owner][_spender];		
+			return allowed.self()[_owner][_spender];
 		}
 };
 
 
 CONTRACT LATToken: public platon::Contract, public StandardToken
 {
-	
+
 	public:
 		platon::StorageType<"name"_n, std::string> name;		// fancy name: eg PlatON Token
 		platon::StorageType<"decimals"_n, uint8_t> decimals;	// HOw many decimals to show.
@@ -443,28 +434,28 @@ CONTRACT LATToken: public platon::Contract, public StandardToken
 		}
 
 		CONST std::string getName(){
-			return name.self();		
+			return name.self();
 		}
 
 		CONST uint8_t getDecimals(){
-			return decimals.self();		
+			return decimals.self();
 		}
 
 		CONST std::string getSymbol(){
-			return symbol.self();		
+			return symbol.self();
 		}
 
 		CONST uint64_t getTotalSupply(){
-			return totalSupply.self();		
+			return totalSupply.self();
 		}
-		
+
 		// Approves and then calls the receiving contract.
 		ACTION bool approveAndCall(Address _spender, uint64_t _value, const bytes& _extraData) {
 			Address sender = platon_caller();
 			allowed.self()[sender][_spender] = _value;
 			PLATON_EMIT_EVENT2(Approval, sender, _spender, _value);
-			// call the receiveApproval function on the contract you want to be notified. This 
-			// crafts the function signature manually so one doesn't have to include a contract 
+			// call the receiveApproval function on the contract you want to be notified. This
+			// crafts the function signature manually so one doesn't have to include a contract
 			// in here just for this.
 			// define: receiveApproval(Address _from, uint64_t _value, Address _tokenContract, bytes& _extraDaa)
 			// it is assumed that when does this that the call should succeed.
@@ -480,31 +471,28 @@ PLATON_DISPATCH(LATToken,(init)(balanceOf)(transfer)(transferFrom)(approve)(allo
 
 [查看字节码](https://github.com/PlatONnetwork/docs/tree/master/website/i18n/zh-CN/docusaurus-plugin-content-docs/current/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91.assets/Token_wasm.bin)
 
-
 字节大小： `36764 byte => 35.9 kb`
 
------------------------------
+---
 
 ###### 创建&部署合约成本
 
 PlatON-EVM
 
-* Gas消耗: 552823
-* Gas单价: 5,000,000,000 (5 `gVON`)
-* 总成本:  2764115 `gVON`（0.002764115 `LAT`）
+- Gas 消耗: 552823
+- Gas 单价: 5,000,000,000 (5 `gVON`)
+- 总成本: 2764115 `gVON`（0.002764115 `LAT`）
 
-以太坊
+PlatON
 
-* Gas消耗: 1282171
-* Gas单价: 5,000,000,000 (5 `Gwei`)
-* 总成本:  6410855 `Gwei`（0.006410855 `ETH`）
+- Gas 消耗: 1282171
+- Gas 单价: 5,000,000,000 (5 `Gwei`)
+- 总成本: 6410855 `Gwei`（0.006410855 `ETH`）
 
 PlatON-WASM
 
-* Gas消耗: 486274
-* Gas单价: 5,000,000,000 (5 `gVON`)
-* 总成本:  2431370 `gVON`（0.00243137 `LAT`）
+- Gas 消耗: 486274
+- Gas 单价: 5,000,000,000 (5 `gVON`)
+- 总成本: 2431370 `gVON`（0.00243137 `LAT`）
 
-------------------------
-
-
+---
