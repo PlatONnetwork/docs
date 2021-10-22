@@ -3654,17 +3654,17 @@ web3.utils.toVon(number [, unit])
 
 - `number` - String|Number|BN: 要转换的金额
 - `unit` - String（可选，默认值为`lat`）: 要转换的 lat 单位. 支持的单位包括:
-- von
-- kvon
-- mvon
-- gvon
-- microlat
-- millilat
-- lat
-- klat
-- mlat
-- glat
-- tlat
+  - von
+  - kvon
+  - mvon
+  - gvon
+  - microlat
+  - millilat
+  - lat
+  - klat
+  - mlat
+  - glat
+  - tlat
 
 
 返回值：
