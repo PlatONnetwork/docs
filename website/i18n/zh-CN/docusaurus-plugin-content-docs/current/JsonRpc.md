@@ -10,11 +10,13 @@ sidebar_label: JSON RPC
 
 ## JavaScript API
 
-要从JavaScript应用程序内部与Alaya节点通信，请使用 [web3.js](https://github.com/AlayaNetwork/client-sdk-js) 库，该库为RPC方法提供了方便的接口。
+要从JavaScript应用程序内部与PlatON节点通信，请使用 [web3.js](https://github.com/AlayaNetwork/client-sdk-js) 库，该库为RPC方法提供了方便的接口。
 
 ## 注意
 
-下面仅显示带有curl过程的RPC调用过程。实际上，您需要根据服务器的具体情况进行一些调整。例如，Alaya的可能调用过程是 `curl -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}' 127.0.0.1:6789`.
+PlatON在升级到1.1.1版本之后，通过[兼容以太坊](https://github.com/PlatONnetwork/PIPs/blob/master/PIPs/PIP-2.md)扩展了 JSON-RPC 2.0，对 request 请求对象增加 bech32 字段，Booleans 类型。bech32 为 true 表示此次 rpc 调用中地址部分的编解码格式为 bech32，默认为 EIP55。并且支持了以太坊的RPC调用，[参考](https://geth.ethereum.org/docs/rpc/ns-eth).
+
+下面仅显示带有curl过程的RPC调用过程。实际上，您需要根据服务器的具体情况进行一些调整。例如，PlatON的可能调用过程是 `curl -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","bech32":true,"method":"web3_clientVersion","params":[],"id":67}' 127.0.0.1:6789`.
 
 ## JSON RPC API参考
 
@@ -36,7 +38,7 @@ startWS 启动一个基于 WebSocket 的 JSON RPC API 网络服务来处理客�
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_startWS","params":[host, port, cors, apis],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_startWS","params":[host, port, cors, apis],"id":1}'
 
 // Result
 {
@@ -62,7 +64,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_stopWS","params":[],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_stopWS","params":[],"id":1}'
 
 // Result
 {
@@ -93,7 +95,7 @@ startRPC 启动一个基于 WebSocket 的 HTTP RPC API 网络服务来处理客�
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_startRPC","params":[host, port, cors, apis],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_startRPC","params":[host, port, cors, apis],"id":1}'
 
 // Result
 {
@@ -119,7 +121,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_stopRPC","params":[],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_stopRPC","params":[],"id":1}'
 
 // Result
 {
@@ -145,7 +147,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_stopRPC","params":[],"id":
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_removePeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}'
 
 // Result
 {
@@ -171,7 +173,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_removePeer","params":["eno
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_exportChain","params":["/home/develop/blockchain.gz"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_exportChain","params":["/home/develop/blockchain.gz"],"id":1}'
 
 // Result
 {
@@ -197,7 +199,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"admin_exportChain","params":["/h
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"admin_importChain","params":["/home/develop/blockchain.gz"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_importChain","params":["/home/develop/blockchain.gz"],"id":1}'
 
 // Result
 {
@@ -223,7 +225,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"web3_clientVersion","params":[],"id":67}'
 
 // Result
 {
@@ -256,7 +258,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}'
 
 // Result
 {
@@ -282,7 +284,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"net_version","params":[],"id":67}'
 
 // Result
 {
@@ -308,7 +310,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":67}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"net_listening","params":[],"id":67}'
 
 // Result
 {
@@ -334,7 +336,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"net_peerCount","params":[],"id":74}'
 
 // Result
 {
@@ -1911,7 +1913,7 @@ no
 ##### 例子
 ```js
 // Request
-Curl -X POST --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","params":[],"id":74}'
+Curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_nodeInfo","params":[],"id":74}'
 
 // Result
 {
@@ -1941,7 +1943,7 @@ no
 ##### 例子
 ```js
 // Request
-Curl -X POST --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}'
+Curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_peers","params":[],"id":74}'
 
 // Result
 {
@@ -1971,7 +1973,7 @@ no
 ##### 例子
 ```js
 // Request
-Curl -X POST --data '{"jsonrpc":"2.0","method":"admin_getProgramVersion","params":[],"id":74}'
+Curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_getProgramVersion","params":[],"id":74}'
 
 // Result
 {
@@ -2098,7 +2100,7 @@ params: [{
 
 ```js
 //Request
-curl --data '{"method":"personal_sendTransaction","params":[{"from":"lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q","to":"lat163hgm4nut5etaqzchw8tjuy8purjg3t83gevx0","data":"0x41cd5add4fd13aedd64521e363ea279923575ff39718065d38bd46f0e6632e8e","value":"0x186a0"},"hunter2"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_sendTransaction","params":[{"from":"lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q","to":"lat163hgm4nut5etaqzchw8tjuy8purjg3t83gevx0","data":"0x41cd5add4fd13aedd64521e363ea279923575ff39718065d38bd46f0e6632e8e","value":"0x186a0"},"hunter2"],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 
 //Result
 {
@@ -2134,7 +2136,7 @@ params: [
 
 ```js
 //Request
-curl --data '{"method":"personal_ecRecover","params":["0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675","0xe7225f986f192f859a9bf84e34b2b7001dfa11aeb5c7164f81a2bee0d79943e2587be1faa11502eba0f803bb0ee071a082b6fe40fba025f3309263a1eef52c711c"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_ecRecover","params":["0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675","0xe7225f986f192f859a9bf84e34b2b7001dfa11aeb5c7164f81a2bee0d79943e2587be1faa11502eba0f803bb0ee071a082b6fe40fba025f3309263a1eef52c711c"],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 
 //Result
 {
@@ -2163,7 +2165,7 @@ curl --data '{"method":"personal_ecRecover","params":["0xd46e8dd67c5d32be8d46e8d
 
 ```js
 //Request
-curl --data '{"method":"personal_importRawKey","params":["cd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295e","password1234"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_importRawKey","params":["cd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295e","password1234"],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 
 //Result
 "lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q"
@@ -2186,7 +2188,7 @@ no
 
 ```js
 //Request
-curl --data '{"method":"personal_listAccounts","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_listAccounts","params":[],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   "id": 1,
@@ -2215,7 +2217,7 @@ no
 
 ```js
 //Request
-curl --data '{"method":"personal_listWallets","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_listWallets","params":[],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   accounts: [{
@@ -2246,7 +2248,7 @@ curl --data '{"method":"personal_listWallets","params":[],"id":1,"jsonrpc":"2.0"
 
 ```js
 //Request
-curl --data '{"method":"personal_lockAccount","params":["lat1v79he42uvxghmmajx4r2gxqrckl7l0r6huhkfg"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_lockAccount","params":["lat1v79he42uvxghmmajx4r2gxqrckl7l0r6huhkfg"],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   result: true
@@ -2273,7 +2275,7 @@ curl --data '{"method":"personal_lockAccount","params":["lat1v79he42uvxghmmajx4r
 
 ```js
 //Request
-curl --data '{"method":"personal_newAccount","params":["abc123"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_newAccount","params":["abc123"],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   "id": 1,
@@ -2302,7 +2304,7 @@ curl --data '{"method":"personal_newAccount","params":["abc123"],"id":1,"jsonrpc
 
 ```js
 //Request
-curl --data '{"method":"personal_sign","params":[0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675","lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q","hunter"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_sign","params":[0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675","lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q","hunter"],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   "id": 1,
@@ -2340,7 +2342,7 @@ curl --data '{"method":"personal_sign","params":[0xd46e8dd67c5d32be8d46e8dd67c5d
 
 ```js
 //Request
-curl --data '{"method":"personal_signTransaction","params":[{"from":"lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpunjvg7","to":"lat14984xa8uuhkmer32s6tuz5e3valxa0ct4z0qkm","data":"0x41cd5add4fd13aedd64521e363ea279923575ff39718065d38bd46f0e6632e8e","value":"0x186a0"},"hunter2"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_signTransaction","params":[{"from":"lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpunjvg7","to":"lat14984xa8uuhkmer32s6tuz5e3valxa0ct4z0qkm","data":"0x41cd5add4fd13aedd64521e363ea279923575ff39718065d38bd46f0e6632e8e","value":"0x186a0"},"hunter2"],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   "id": 1,
@@ -2388,7 +2390,7 @@ curl --data '{"method":"personal_signTransaction","params":[{"from":"lat1gp7h8k9
 
 ```js
 //Request
-curl --data '{"method":"personal_unlockAccount","params":["lat13upz04zc2wjsam753h20asjatvlay227nmyk6p","hunter2",null],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_unlockAccount","params":["lat13upz04zc2wjsam753h20asjatvlay227nmyk6p","hunter2",null],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   "id": 1,
@@ -2415,7 +2417,7 @@ curl --data '{"method":"personal_unlockAccount","params":["lat13upz04zc2wjsam753
 ##### Example
 ```js
 //Request
-curl --data '{"method":"miner_setGasPrice","params":[19999999],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"miner_setGasPrice","params":[19999999],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   "id": 1,
@@ -2442,7 +2444,7 @@ none
 ##### Example
 ```js
 //Request
-curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"txpool_status","params":[],"id":1}' http://127.0.0.1:6789
+curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"txpool_status","params":[],"id":1}' http://127.0.0.1:6789
 //Result
 {
   "id": 1,
@@ -2472,7 +2474,7 @@ none
 ##### Example
 ```js
 //Request
-curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"txpool_content","params":[],"id":1}' http://127.0.0.1:6789
+curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"txpool_content","params":[],"id":1}' http://127.0.0.1:6789
 //Result
 {
   "id": 1,
@@ -2534,7 +2536,7 @@ none
 ##### Example
 ```js
 //Request
-curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"txpool_inspect","params":[],"id":1}' http://127.0.0.1:6789
+curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"txpool_inspect","params":[],"id":1}' http://127.0.0.1:6789
 //Result
 {
 	"jsonrpc": "2.0",
