@@ -82,6 +82,11 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Tutorials',
+      items: ['DApp_migrate']
+    },
+    {
+      type: 'category',
       label: 'Wallet',
       items:['ATON-user-manual', 'Samurai_user_manual', 'Third_Party_Walle']
     },
