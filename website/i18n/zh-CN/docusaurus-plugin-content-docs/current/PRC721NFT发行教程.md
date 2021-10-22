@@ -1,7 +1,7 @@
 ---
-id:qianqian_prc721_tutorial
-title:PRC721NFT发行教程
-sidebar_label:PRC721NFT发行教程
+id: qianqian_prc721_tutorial
+title: PRC721NFT发行教程
+sidebar_label: PRC721NFT发行教程
 ---
 
 ### 前言
