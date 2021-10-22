@@ -948,7 +948,7 @@ PromiEvent: 一个整合事件发生器的 Promise 对象，将在收到交易�
 示例代码：
 
 ```js
-// compiled solidity source code using https://remix.ethereum.org
+// compiled solidity source code using https://remix.ethereum.org Or PlatON Studio (https://github.com/ObsidianLabs/PlatON-Studio)
 var code = "603d80600c6000396000f3007c01000000000000000000000000000000000000000000000000000000006000350463c6888fa18114602d57005b6007600435028060005260206000f3";
 
 // 使用回调函数
@@ -3628,19 +3628,7 @@ web3.utils.hexToBytes(0x000000ea);
 
 #### web3.utils.toVon
 
-按对应货币转为以 von 为单位。可选择的单位如下：
-
-- von
-- kvon
-- mvon
-- gvon
-- microlat
-- millilat
-- lat
-- klat
-- mlat
-- glat
-- tlat
+将任意 lat 值转换为 von 。
 
 ```
 'von':          '1',
@@ -3664,8 +3652,20 @@ web3.utils.toVon(number [, unit])
 
 参数：
 
-- `number` - String|Number|BN: 金额
-- `unit` - String，可选，默认值为`ether`
+- `number` - String|Number|BN: 要转换的金额
+- `unit` - String（可选，默认值为`lat`）: 要转换的 lat 单位. 支持的单位包括:
+- von
+- kvon
+- mvon
+- gvon
+- microlat
+- millilat
+- lat
+- klat
+- mlat
+- glat
+- tlat
+
 
 返回值：
 
@@ -3682,7 +3682,7 @@ web3.utils.toVon('1', 'lat');
 
 #### web3.utils.fromVon
 
-将给定的以 von 为单位的值转换为其他单位的数值。
+将任意数量的 von 转换为 lat 。
 
 调用：
 
@@ -3690,12 +3690,10 @@ web3.utils.toVon('1', 'lat');
 web3.utils.fromVon(number [, unit])
 ```
 
-Converts any von value into a lat value.
-
 参数：
 
-`number` - String|Number|BN: VON 为单位的数值
-`unit` - String，可选，默认值为`lat`，可选的单位有：
+`number` - String|Number|BN: 以 VON 为单位的数值
+`unit` - String（可选，默认值为`lat`）：要转换到的 lat 单位. 可能支持的单位包括:
 
 - von
 - kvon
