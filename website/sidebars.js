@@ -83,7 +83,8 @@ module.exports = {
     {
       type: 'category',
       label: 'Tutorials',
-      items: ['DApp_migrate', 'WASM_Contract_2', 'WASM_Contract_3', 'WASM_Contract_4', 'WASM_Contract_5']
+      items: ['DApp_migrate', 'qianqian_prc721_tutorial', 'WASM_Contract_2', 'WASM_Contract_3', 'WASM_Contract_4', 'WASM_Contract_5']
+
     },
     {
       type: 'category',
