@@ -341,7 +341,7 @@ web3.platon.defaultAccount
 
 属性：
 
-`String` - PlatON 地址对应的 bech32 编码地址，你应当在节点或 keystore 中存有该地址的私钥。默认值为`undefined`
+`String` - 十六进制地址（如以太坊地址）对应的 bech32 编码地址，你应当在节点或 keystore 中存有该地址的私钥。默认值为`undefined`
 
 示例代码：
 
@@ -3188,7 +3188,7 @@ web3.utils.isHex('Hello');
 
 #### web3.utils.isAddress
 
-检查指定的字符串是否是有效的 PlatON 地址。如果地址同时使用了大小写字符，
+检查指定的字符串是否是有效的 十六进制地址（如以太坊地址）。如果地址同时使用了大小写字符，
 `web3.utils.isAddress()`方法也会检查校验和。
 
 调用：
@@ -3228,7 +3228,7 @@ web3.utils.isAddress('0xC1912fEE45d61C87Cc5EA59DaE31190FFFFf232d');
 
 #### web3.utils.isBech32Address
 
-检查指定的字符串是否是有效的 bech32 格式地址。
+检查指定的字符串是否是有效的 bech32 格式地址（如PlatON 地址）。
 
 调用：
 
@@ -3264,7 +3264,7 @@ web3.utils.isBech32Address('lax1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
 
 #### web3.utils.toBech32Address
 
-将有效的 PlatON 地址转成指定网络的 bech32 格式地址。
+将有效的十六进制地址（如以太坊地址）转成指定网络的 bech32 格式地址（如PlatON 地址）。
 
 调用：
 
@@ -3276,7 +3276,7 @@ web3.utils.toBech32Address(hrp, address)
 
 `hrp` - String: 指定网络参数，lax 表示测试网地址，lat 表示主网地址。
 
-`address` - String: PlatON 地址字符串。
+`address` - String:  十六进制地址（如以太坊地址）字符串。
 
 返回值：
 
@@ -3296,7 +3296,7 @@ web3.utils.toBech32Address('lat', '0x1234567890123456789012345678901234567891');
 
 #### web3.utils.decodeBech32Address
 
-将指定网络的的 bech32 格式地址解析成有效的 PlatON 地址。
+将指定网络的的 bech32 格式地址（如PlatON 地址）解析成有效的 十六进制地址（如以太坊地址）。
 
 调用：
 
@@ -3312,7 +3312,7 @@ web3.utils.decodeBech32Address(hrp, bech32Address)
 
 返回值：
 
-`String`：解析正确返回有效的 PlatON 地址，否则返回为空。
+`String`：解析正确返回有效的十六进制地址（如以太坊地址），否则返回为空。
 
 示例代码：
 
@@ -3328,7 +3328,7 @@ web3.utils.decodeBech32Address('lat', 'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluq
 
 #### web3.utils.toChecksumAddress
 
-将给定的大写或小写 PlatON 地址转换为校验和地址。
+将给定的大写或小写十六进制地址（如以太坊地址）转换为校验和地址。
 
 调用：
 

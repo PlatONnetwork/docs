@@ -3137,7 +3137,7 @@ web3.utils.isHex('Hello');
 
 #### web3.utils.isAddress
 
-Checks if a given string is a valid PlatON address. It will also check the checksum, if the address has upper and lowercase letters.
+Checks if a given string is a valid Hexadecimal address (ie. Ethereum address). It will also check the checksum, if the address has upper and lowercase letters.
 
 Method:
 
@@ -3176,7 +3176,7 @@ web3.utils.isAddress('0xC1912fEE45d61C87Cc5EA59DaE31190FFFFf232d');
 
 #### web3.utils.isBech32Address
 
-Check whether the specified character string is a valid address in bech32 format.
+Check whether the specified character string is a valid address in bech32 format（ie.PlatON address）.
 
 Method:
 
@@ -3212,7 +3212,7 @@ web3.utils.isBech32Address('lax1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
 
 #### web3.utils.toBech32Address
 
-Convert a valid PlatON address to a bech32 format address of the designated network.
+Convert a valid Hexadecimal address (ie. Ethereum address) format address of the designated network.
 
 Method:
 
@@ -3224,7 +3224,7 @@ Parameters:
 
 `hrp` - String: Specify the network parameters, lax indicates the test network address, and lat indicates the main network address.
 
-`address` - String: PlatON address format string.
+`address` - String: Hexadecimal address (ie. Ethereum address)  format string.
 
 Returns:
 
@@ -3244,7 +3244,7 @@ web3.utils.toBech32Address('lat', '0x1234567890123456789012345678901234567891');
 
 #### web3.utils.decodeBech32Address
 
-Resolve the bech32 format address of the specified network into a valid PlatON address.
+Resolve the bech32 format address(ie. PlatON address) of the specified network into a valid Hexadecimal address (ie. Ethereum address).
 
 Method:
 
@@ -3256,11 +3256,11 @@ Parameters:
 
 `hrp` - String: Specify the network parameters, lax indicates the test network address, and lat indicates the main network address.
 
-`bech32Address` - String: Address string in bech32 format.
+`bech32Address` - String: Address string in bech32 format(ie.  PlatON address).
 
 Returns:
 
-`String`: The resolution correctly returns a valid PlatON address, otherwise it returns null.
+`String`: The resolution correctly returns a valid Hexadecimal address (ie. Ethereum address), otherwise it returns null.
 
 Sample code:
 
@@ -3276,7 +3276,7 @@ web3.utils.decodeBech32Address('lat', 'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluq
 
 #### web3.utils.toChecksumAddress
 
-Will convert an upper or lowercase PlatON address to a checksum address.
+Will convert an upper or lowercase Hexadecimal address (ie. Ethereum address) to a checksum address.
 
 Method:
 
