@@ -55,7 +55,7 @@ if (typeof window.platon !== 'undefined') {
     }
 ```
 
-You can review the full API for the `window.platon` object [here](#References)
+You can review the full API for the `window.platon` object [ here ](References)
 
 
 
@@ -74,7 +74,7 @@ Currently, there are something stateful to consider in the interaction with the 
   + What is the current network?
   + What is the current account? 
 
-Both of these are available synchronously as `platon.networkVersion` and `platon.selectedAddress`. You can also use events to listen for changes. See the [API reference](References).
+Both of these are available synchronously as `platon.networkVersion` and `platon.selectedAddress`. You can also use events to listen for changes. See the [ API-reference ](References).
 
 
 
