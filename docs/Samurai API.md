@@ -1,215 +1,295 @@
 ---
 id: Samurai_API
 title: Samurai API
-sidebar_label: Samurai API
+sidebar_label: Samurai API	
 ---
 
-## 指导
-Samurai是基于以太坊web钱包Metamask进行fork的，针对PlatON/Alaya网络进行适配性的修改, 以满足基于PlatON/Alaya网络的安全和可用性的需求。用户可以很方便的管理账户并连接到PlatON/Alaya网络。
+Samurai is an open source web browser plugin wallet for the PlatON/Alaya network, adapted from the open source code of the Ethernet web wallet [MetaMask](https://github.com/MetaMask/metamask-extension). Users can easily manage accounts and connect to the PlatON/Alaya network.
 
-### 介绍
-+ __为什么选择Samurai__
 
-  Samurai是为了满足基于PlatON/Alaya网络的安全和可用网站的需求，特别是它处理账户管理并将用户连接到区块链网络。
-+ __账户管理__
 
-  Samurai允许用户以各种方式管理帐户及其密钥，同时将它们与站点上下文隔离。与将用户密钥存储在单个中央服务器甚至本地存储上相比，这是一个很大的安全性改进，它可以防止大量帐户被盗。
+## Introduction
 
-  此安全功能使开发者的更加方便：对于开发者来说，只需与全局可用的交platon API，用于标识WEB3兼容的浏览器的用户（如Samurai用户），每当你请求一个交易签名（如platon_sendTransaction，platon_signTypedData或其他）， Samurai将以一种易于理解的方式提示用户。这样可以使用户保持了解情况，并使攻击者可以尝试对单个用户进行网络钓鱼，而不是进行大规模的黑客攻击（尽管DNS黑客攻击仍然可以用于大规模网络钓鱼）
-+ __区块链连接__
++ **Why Samurai**
 
-  Samurai预先加载了PlatON/Alaya区块链和多个测试网络的快速连接。这可以使您在不同步整个节点的情况下开始使用。
+  Samurai was created to meet the needs of secure and usable PlatON/Alaya-based web sites, , supporting account management and connecting users to the blockchain network.
 
-  同时，Samurai可以与任何公开的PlatON兼容的JSON RPC API的区块链都兼容，包括自定义和私有的区块链。
+  
 
-### 入门
-要利用Samurai进行开发，首先在你的开发机器上安装samurai，具体安装见下文
++ **Account management**
+
+  Samurai allows users to manage accounts and their keys in various ways while isolating them from the site context. This is a great security improvement over storing the user keys on a single central server, or even in local storage, which can allow for mass account thefts. 
+
+  This security feature also comes with developer convenience: Developers only need to interact with the globally available platon API that identifies users of WEB3-compatible browsers (such as Samurai users). Whenever you request a transaction signature (such as `platon_sendTransaction` and `platon_signTypedData`), Samurai will prompt the user in as comprehensible a way as possible. This keeps users informed, and leaves attackers left trying to phish individual users rather than performing mass hacks (although DNS hacks can still be used for phishing en masse).
+
+  
+
++ __Blockchain connection__
+
+  Samurai comes pre-loaded with fast connections to the PlatON/Alaya blockchain and several testnets. This allows you to get started without synchronizing a full node.
+
+  At the same time, Samurai is compatible with any blockchain that exposes an  PlatON/Alaya-compatible JSON RPC API, including custom and private blockchains. 
+
+
+
+## Getting Started
+
+To use Samurai for development, first install Samurai on your development machine. See below for specific installation.
+
+> Quick note...
+> This guide assumes that you have intermediate knowledge of HTML, CSS and JavaScript
+
+Once Samurai is installed and running, you will find that new browser tabs have a `window.platon` object available in the developer console. This is how your website will interact with Samurai.
+
+
+
+### Basic considerations
+
+#### **Web3 browser detection**
+
+To verify whether the browser is running Samurai, copy and paste the following code snippet into the developer console of the web browser:
+
 ```
-快速说明...
-本指南假定您具有HTML, CSS和JavaScript的中级知识
-```
-一旦安装并运行了Samurai，您应该发现新的浏览器选项卡中有对象window.platon在开发人员控制台中可用。这就是您的网Samurai交互的方式。
-
-+ __基本注意事项__
-  + __web3检测__
-
-    要验证浏览器是否正在运行Samurai，请将下面的代码片段复制并粘贴到Web浏览器的开发者控制台中：
-    ```
-    if (typeof window.platon !== 'undefined') {
+if (typeof window.platon !== 'undefined') {
       console.log('Samurai is installed!');
     }
-    ```
-    您可以在3中查看该window.platon对象的完整API
-  + __重置本地随机数__
+```
 
-    如果您正在运行测试区块链并重新启动它，您可能会意外混淆Samurai，因为它会根据网络状态和已知的已发送交易来计算下一个nonce。
+You can review the full API for the `window.platon` object [ here ](References)
 
-    要清除Samurai的交易队列并有效地重置其nonce计算，您可以使用Reset Account按钮在Settings中（位于右上角的三明治菜单中）
-  + __用户状态__
 
-    当前，与API交互时需要考虑一些有状态的事情：
-    + 当前的网络是什么？
-    + 当前的账户是哪个？
 
-    这两个都可以通过platon.networkVersion和同步使用platon.selectedAddress。您也可以使用事件来监听更改，请参阅后续的API章节
-  + __连接到Samurai__
+#### Resetting your local nonce calculation 
 
-    “连接”或“登录”到Samurai实际上意味着“访问用户的PlatON/Alaya帐户”。
+If you are running a test blockchain and restart it, you may accidentally confuse Samurai because it calculates the next nonce based on both the network state and the sent transactions already known.
 
-    您仅应响应用户的直接操作（例如单击按钮）来发起连接请求。连接请求待处理时，您应始终禁用“连接”按钮。您永远不要在页面加载时启动连接请求。
+To clear Samurai's transaction queue and effectively reset its nonce calculation, you can use the Reset Account button in Settings (available in the sandwich menu in the upper right corner).
 
-    我们建议您提供一个按钮，以允许用户将Samurai连接到您的dapp。单击此按钮应调用以下方法：
-    ```
-    platon.request({ method: 'platon_requestAccounts' });
-    ```
-+ __选择便利的开发库__
-  存在便利的开发库的原因多种多样
 
-  其中一些简化了特定用户接口元素的创建，一些完全管理了用户帐户，另一些则为您提供了与智能合约进行交互的各种方法，以用于从promise，callback到强类型和各种API偏好，等等。
 
-  提供者API本身非常简单，并且包装PlatON JSON-RPC格式化的消息，这就是为什么开发人员通常使用便捷库与提供者进行交互的原因，例如platon-truffle等。通过这些工具，您通常可以找到足够的文档来与提供程序进行交互，而无需阅读此较低级别的API。
-### 基础知识
-#### 专业术语
-+ __钱包(Wallet)__
+#### User state
 
-  + 你用来管理你自己账户的interface/client/wrapper/holder。
-+ __账户(Account)__
-  + 一个公私钥对，可以持有您的资金。
-  + 您的资金实际上存储在区块链上而不是在钱包或账户中。
-  + 就像您的Reddit帐户具有用户名 (public)和密码 (private)一样，PlatON帐户也是如此。为了提高安全性，您可以使用密码来加密您的私钥。请参阅本 Keystore File节。
-+ __地址(Address)__
-  + 您可以使用此发送资金到一个帐户。
-  + 有时也称为“公钥”。
-  + 由lat/atp+39个字符组成的字符串，bech32类型地址。
-  + 在PlatON中，地址以lat开头。
-  + 例子：lat1kkydpwmnhqrp9cqtq47fcz0segsjzffqs6uha5
-+ __公钥(Public Key)__
-  + 在密码学中，您有一个密钥对：公钥和私钥。
-  + 您可以从私钥中派生公钥，但不能从公钥中派生私钥。
-  + （高级）在PlatON中，地址像公钥一样“起作用”，但实际上不是公钥。
-  + （高级）在PlatON中，公钥是从私钥派生的，并且是128个十六进制字符。然后，您将其"SHA3" (Keccak-256)哈希值（64个字符），最后40个字符，并以0x作为前缀，给您42个字符的字符串。 然后将该字符串转换成lat开头的bech32地址。
-+ __私钥(Private Key)__
-  + 您可以用它从一个帐户中转账。
-  + 地址/公钥的秘密部分。
-  + 一串64个十六进制字符组成的字符串。
-  + （几乎）由64个十六进制字符组成的每个字符串都是一个私钥。
-  + 如果您今天和昨天用手动方式键入不同的私钥，则将访问其他钱包。切勿手动输入私钥。
-  + 这是您需要从帐户发送的字符串。没有它，您将无法使用您的资金。虽然，您无需以这种格式保存此原始的未加密的私钥。您可以保存它的优雅版本（例如，keystore文件/助记词）。
-  + 例子：
-    ```
-    afdfd9c3d2095ef696594f6cedcae59e72dcd697e2a7521b1578140422a4f890
-    ```
-+ __Keystore文件__
-  + 以JSON格式保存的私钥加密版本(尽管没有JSON的扩展名)。
-  + 您的私钥的优雅版本，受您选择的密码口令保护。
-  + 与密码口令结合使用时，它具有私钥。
-  + 比私钥安全，因为您需要密码口令。
-  + 文件名通常采用UTC + -- + DATE——CREATED + -- +格式没有0x开头的地址字符串
-  + 文件名示例：UTC--2021-03-29T03-48-12.719637196Z--e25087902d0e6ede370d79a2674311b9f23d10fe
-  + 内容示例：
+Currently, there are something stateful to consider in the interaction with the API:
+
+  + What is the current network?
+  + What is the current account? 
+
+Both of these are available synchronously as `platon.networkVersion` and `platon.selectedAddress`. You can also use events to listen for changes. See the [ API-reference ](References).
+
+
+
+#### Connecting to Samurai
+
+"Connecting" or "logging in" to Samurai effectively means "accessing the user's PlatON/Alaya account(s)".
+
+You should only initiate a connection request in response to direct user action (such as clicking a button). You should always disable the "Connect" button while the connection request is pending. You should never initiate a connection request when the page loads.
+
+We recommend that you provide a button to allow users to connect Samurai to your dapp. Clicking this button,  you will call the following method:
+
+```
+platon.request({ method: 'platon_requestAccounts' });
+```
+
+
+
+#### Choose a convenience library
+
+Convenience libraries exist for a variety of reasons.
+
+Some of them simplify the creation of specific user interface elements, some entirely manage the user account onboarding, and others provide you with various ways to interact with smart contracts for a variety of API preferences, from promises through callbacks to strong types.
+
+The provider API itself is very simple and wraps PlatON/Alaya JSON-RPC formatted messages. This is why developers usually use convenience libraries to interact with providers, such as platon-truffle. With these tools, you can usually find enough documentation to interact with the provider without having to read this lower-level API.
+
+
+
+## Common Terms
+
+This is a list of terms you might encounter when using the Samurai interface.
+
++ __Wallet__
+  + The interface/client/wrapper/holder you use to manage your account(s).
+
++ __Account__
+  + A public and private key pair that can hold your funds.
+  + Your funds are actually stored on the blockchain, not in a wallet or account.
+  + Just like your Reddit account has a `username (public)` and a `password (private)`, so does your PlatON/Alaya account. For the sake of security, you can use a password to encrypt your private key. Please refer to the `Keystore File` section in this guide.
+
++  __Address__
+  + You can transfer funds to an account through an address.
+  + Sometimes referred to as the "public key".
+  + A string made up of `lat/atp` + `39 characters`, in bech32 type.
+
+  + In PlatON, an address starts with `lat`. In Alaya, an address starts with `atp`.  
+  + Example: `lat1kkydpwmnhqrp9cqtq47fcz0segsjzffqs6uha5` / `atp1jtfqqqr6436ppj6ccnrh8xjg7qals3ctnnmurp`
+
++ __Public key__
+  + In cryptography, you have a key pair: the public key and private key.
+  + You can derive a public key from a private key, but you cannot derive a private key from a public key.
+  + (Advanced) In PlatON/Alaya, the address "acts" like the public key, but it is not actually the public key.
+  + (Advanced) In PlatON/Alaya, the public key is derived from the private key and contains 128 hexadecimal characters. Then you take the `"SHA3" (Keccak-256)` hash of this (64 characters), take the last 40 characters, and prefix with `0x`,  then convert the string to a bech32 address starting with `lat`/`atp` to give you a 42 character address.
+
++ __Private key__
+
+  + You can use the private key to transfer funds from an account.
+
+  + The secret part of your address/public key.
+
+  + A string of 64 hexadecimal characters.
+
+  + (Almost) Each string of 64 hexadecimal characters is a private key.
+
+  + If you hand-type a private key today yet a different private key the next day, you will access a different wallet. So never hand-type your private key.
+
+  + This is the string you need to send from your account. Without it, you cannot access your funds. Although you don't need to save this raw, unencrypted private key in this format, you can save the fancy version of it (for example, the keystore file/mnemonic phrase).
+
+  + Example: `afdfd9c3d2095ef696594f6cedcae59e72dcd697e2a7521b1578140422a4f890`
+
++  __Keystore file__
+
+  + Encrypted version of your private key saved in JSON format (although without a JSON extension).
+
+  + A fancy version of your private key that is protected by a password you have chosen.
+
+  + When combined with a password, it has the private key.
+
+  + Safer than a private key, because you need the password.
+
+  + The file name is usually an address string without starting with `0x` in the format of `UTC` + `--` + `DATE_CREATED` + `--` + `YOUR_ADDRESS_WITH_THE_atp/lat` .
+
+  + File name example: `UTC--2021-03-29T03-48-12.719637196Z--lat1kkydpwmnhqrp9cqtq47fcz0segsjzffqs6uha5   /  atp1jtfqqqr6436ppj6ccnrh8xjg7qals3ctnnmurp`
+
+  + Content example:
+
     ```json
     {"address":"lat1ufgg0ypdpehdudcd0x3xwsc3h8er6y87jzjlcn","crypto":{"cipher":"aes-128-ctr","ciphertext":"2967a0ef519f86915292a61e9a6aed36edb9abbf069a7256f6e0434ab45e4f84","cipherparams":{"iv":"ab2ec5b9be6c9d3c4681e106b6c930e7"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"0267ddb5deb6a39f21068e51e26cb24f8771c7764cce716a2f3da96f809c1a80"},"mac":"c00149c28b8d938e42c66835d06810a02d831a99829c72f637806f8e7e7bbaef"},"id":"292f227a-69ad-4148-914d-a6d22612931e","version":3}
     ```
-+ __助记词/种子短语/种子词(Mnemonic Phrase/Seed Phrase/Seed Words)__
-  + 您的私钥的另一个高级版本，实际上用于派生多个私钥。
-  + 一个（通常）12或24个单词的短语，使您可以访问无限数量的帐户。
-  + 由ATON, Samurai等使用。
-  + 源自[BIP 39 Spec](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki)
-  + 您可以使用此短语访问的由“路径”决定的帐户。
-  + 示例12个单词： brain surround have swap horror body response double fire dumb bring hazard
-  + 示例24个单词： card enrich gesture connect kick topple fan body blind engine lemon swarm venue praise addict agent unaware equal bean sing govern income link leg
-+ __识别码/地址识别码/地址图标(Identicon / AddressIdenticon / AddressIcon)__
-  + 与您的地址相对应的彩色斑点。
-  + 这是查看您的地址是否正确的简单方法。
-  + 注意：以上地址是单个字符，但图标和颜色明显不同。
-+ __十六进制(Hexadecimal)__
 
-  + 在整个PlatON中用于大部分的事物，十六进制字符串由数字0 1 2 3 4 5 6 7 8 9和A B C D E F组成。
-+ __种子(Seed)__
-  + 为获得私钥而提供的输入。这应该始终以一种真正随机的方式生成，而不是由您可怜的人脑组成的东西。
-  + 如果您选择了种子，则称为 brain wallet
-+ __脑钱包(Brain Wallet)__
-  + 根据您选择的种子或密码或密码生成的帐户。
-  + 人类没有能力产生足够的熵，因此从这些短语中得出的钱包是不安全的。
-  + 超快计算机可能会强行破解大脑钱包。
-  + 脑钱包是不安全的。
-  + 不要使用脑钱包。
-+ __熵(Entropy)__
-  + 也称为“随机性”。
-  + 事物越随机，它的熵就越大，它的安全性就越高。
-  + 通常以“熵的位数”或强行获得具有这么大熵的\ _ \ _ \ _ \ _（例如私钥）所需的年数来定义。
-  + PlatON的私钥是256位密钥
-  + 24词助记词短语也是256位熵。字典中有2048个单词。11位熵（单词）。11 * 24 = 264。最后一个字是校验和。
-+ __派生(Derive/Derivation)__
-  + 派生某物就是从原始来源获得它。
-  + 例如，如果我们要从私钥和口令派生keystore，则意味着keystore是从这两个来源创建的。
-  + keystore是两者的乘积，因此它是从两者派生的。
-+ __加密(Encryption)__
-  + 加密是采取一串字母/数字（例如您的私钥），然后通过私有转换的方法将它们转换为另一串字母/数字的行为。
-  + 有多种不同的加密方法。
-  + 加密为那些试图窃取的您的信息提供了保护！
-+ __加密密钥和未加密密钥(Encrypted vs Unencrypted Keys)__
-  + 未加密的私钥长度为64个字符，用于解锁或恢复钱包。
-  + 加密密钥的长度也为64个字母，并且是经过上述加密过程的常规私钥。
-  + 例如，如果单词“ Apple”是您的缩短的私钥，那么它被加密为字母下方的三个字母，则新的缩短的加密密钥为“ Dssoh”。由于您知道加密此密钥的方法，因此可以通过反转加密方法从中获得原始私钥。
-  + 通常，加密的私钥保存在扩展程序或加密设备中，并且不会被用户看到。这旨在增加另一层安全性，以确保用户的钱包信息安全。
-+ __去中心化(Decentralize / Decentralization)__
++ __Mnemonic phrase/seed phrase/seed words__
 
-  + 将单个实体（例如政府或大型公司）的权限转移到多个较小实体的过程。
-+ __不信任(Trustless)__
+  + Another fancy version of your private key that is actually used to derive multiple private keys.
+  + (Typically) a phrase of 12 or 24 words that allows you to access an unlimited number of accounts.
+  + Used by ATON, Samurai, etc.
+  + Derived from [BIP 39 Spec](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) 
+  + The accounts you can access with this phrase are determined by the "path".
+  + Example of a 12-word phrase: `brain surround have swap horror body response double fire dumb bring hazard`
+  + Example of a 24-word phrase: `card enrich gesture connect kick topple fan body blind engine lemon swarm venue praise addict agent unaware equal bean sing govern income link leg`
 
-  + 区块链负责的分布式无信任共识。由于每个人都有曾经执行过的所有交易的分类帐的副本，因此不需要第三方。您可以自己验证交易，但是创建了以太坊区块链和比特币区块链以确保当满足所有条件时各方之间执行规则和协议。
-+ __智能合约(Smart Contracts)__
++ __Identicon / AddressIdenticon / AddressIcon__
 
-  + 存储在区块链网络上的一段代码（或程序）。合约的条件由用户预先定义，如果满足所有条件，则合约（程序）将执行某些操作。
-+ __区块链(Blockchain)__
+  + The colorful blob that corresponds to your address.
+  + An easy way to check the correctness of your address.
 
-  + 去中心化的公共帐本。
++ __Hexadecimal__
 
-### 初始化Dapps
-+ __合约网络__
+  + Used for most things throughout PlatON/Alaya. A hexadecimal string consists of the numbers `0, 1, 2, 3, 4, 5, 6, 7, 8，9`, and letters `A, B, C, D, E, F`.
 
-  如果您未连接到正确的网络，则不会有任何将交易发送到合约，因此请确保您连接正确的网络！
++ __Seed__
 
-  许多聪明的dapp都能识别用户的当前网络，并真正适应它！例如，如果您检测到测试网络，则可以故意连接到智能合约的测试网络版本，这使用户可以轻松地“试用”您的系统而无需花费真金白银！
-+ __合约地址__
+  + The input given to derive a private key. This should always be generated in a truly random way, not something you make up with your measly human brain.
+  + The seed you chose is known as a brain wallet
 
-  PlatON中的每个账户都有一个地址，无论是外部密钥对账户还是智能合约。为了使任何智能合约库都能与您的合约进行通信，他们需要知道其确切地址。
-+ __合约ABI__
++ __Brain wallet__
 
-  在PlatON中，ABI规范是一种以用户界面可以理解的方式对智能合约的界面进行编码的方法。它是一个描述方法的对象数组，当您将其和地址提供给合同抽象库时，它会ABI告诉这些库要提供的方法以及如何编写调用这些方法的事务。
-+ __合约bytecode__
+  + An account generated from a seed or password or password you choose.
+  + Humans are not capable of generating enough entropy, so the wallets derived from these phrases are insecure.
+  + Brain wallets can be brute-forced by super fast computers.
+  + Brain wallets are insecure.
+  + Don't use brain wallets.
 
-  如果您的Web应用程序要发布预先编译的新智能合约，则可能需要包含一些bytecode。在这种情况下，您将不会事先知道合同地址，而必须发布，监视要处理的交易，然后从完成的交易中提取最终合约地址。
++ __Entropy__
 
-  如果从bytecode发布合同，则您还需要ABI与之交互！字节码未描述如何与最终合同交互。
-+ __合约源代码__
+  + Also called "randomness".
+  + The more random something is, the more entropy it has and the more secure it is. 
+  + Usually defined in "bits of entropy" 
+  + PlatON/Alaya's private key is a 256-bit key
+  + The 24-word mnemonic phrase also represents 256 bits of entropy. There are 2,048 words in the dictionary. 11 bits of entropy (the words). `11 * 24 = 264`. The last word is a checksum.
 
-  如果您的网站将允许用户编辑智能合约源代码并进行编译，您可以导入整个编译器，在这种情况下，您将从该源代码派生您的字节码和ABI，最终您将从发布该字节码的已完成交易中获取合同的地址。
-### 访问账户
++  __Derive/Derivation__
 
-用户账户在PlatON的各种环境中都可以使用，包括用作身份标识符和签署交易。为了请求用户签名或让用户批准交易，必须能够访问用户的帐户。在wallet methods下面涉及的签名或交易的批准，所有都需要发送帐户作为函数参数。
-+ platon_sendTransaction
-+ platon_sign(不安全且不建议使用)
-+ platon_personalSign
-+ platon_signTypedData
+  + To derive something is to obtain it from an original source.
+  + For example, if we want to derive a keystore from a private key and password, it means that the keystore was made from these two sources.
+  + The keystore is the product of the two, so it is derived from them.
 
-一旦你连接到用户，可以随时通过检查platon.selectedAddress去检查当前账户。
++ __Encryption__
 
-__Account changed to__:
+  + Encryption is the act of converting a string of letters/numbers (such as your private key) into another string of letters/numbers through private translation.
+  + There are many different ways of encryption.
+  + Encryption protects your information from those who try to steal it!
 
-如果您希望在地址更改时收到通知，我们可以订阅一个event：
++ __Smart contracts__
+
+  + A piece of code (or program) stored on the blockchain network. Conditions of the contract are pre-defined by the user. If all the conditions are met, the contract (program) will execute certain actions.
+
++ __Blockchain__
+
+  + A decentralized publicly owned ledger.
+
+
+
+## Initializing DApps
+
+Once you have your basic dev environment set up, you are ready to start interacting with some smart contracts. There are some basic things you'll need when communicating with a smart contract:
+
+### Contract network
+
+If you are not connected to the right network, you aren't going to have any luck sending transactions to your contract. So make sure you have this right!
+
+Many clever dapps can recognize the user's current network and get adapted to it! For example, you could deliberately connect to the testnet (if you detect one) of your smart contract, which allows users to easily "try out" your system without any costs!
+
+### Contract address
+
+Every account in PlatON/Alaya has an address, be it an external key-pair account or a smart contract. To communicate with your contract, smart contract libraries need to know its exact address.
+
+### Contract ABI
+
+In PlatON/Alaya, the ABI specification is a way to encode the interface of a smart contract in a way that the user interface can make sense of. It is an array of objects describing methods. When you feed this and the addresses into a contract-abstraction library, this ABI will tell the library about what methods to provide and how to compose transactions to call these methods.
+
+### Contract bytecode
+
+If your web application is to publish a new pre-compiled smart contract, some bytecode may be required. In this case, you will not know the contract address in advance, but will have to publish and monitor the transaction to be processed, and then extract the final contract's address from the completed transaction.
+
+To publish a contract from bytecode, you also need an ABI to interact with it! The bytecode does not describe how to interact with the final contract.
+
+### Contract Source Code
+
+If your website allows users to edit the smart contract source code and compile it, you can import a whole compiler. In this case, you will derive your bytecode and ABI from the source code, and eventually you will derive the contract's address from the completed transaction publishing that bytecode.
+
+
+
+## Accessing Accounts
+
+User accounts can be used in a variety of contexts in PlatON, including as identifiers and for signing transactions. To request a signature from the user or allow the user to approve a transaction, it is necessary to access the user's account. All signatures or transaction approvals involved in wallet methods below require the sending account as a function parameter.
+
++ `platon_sendTransaction`
++ `platon_sign`( insecure and unadvised to use)
++ `platon_sign (unsafe and not recommended)`
++ `platon_personalSign`
++ `platon_signTypedData`
+
+Once connected to a user, you can check the current account at any time by checking `platon.selectedAddress`.
+
+#### __Account changed to__:
+
+If you want to be notified when your address changes, you can subscribe to an event:
+
 ```javascript
 platon.on('accountsChanged', function (accounts) {
   // Time to reload your interface with accounts[0]!
 });
 ```
-如果返回数组中的第一个帐户不是您期望的帐户，则应通知用户！将来，帐户数组可能包含多个帐户。但是，数组中的第一个帐户将继续被视为用户的“选定”帐户。
-### 发送交易
 
-交易是区块链中的常规操作。它们总是在Samurai中通过调用该platon_sendTransaction方法去调用。它们可能涉及简单的lat/atp发送，可能是发送tokens，创建新的智能合约或以多种方式更改区块链上的状态。它们始终由外部帐户的签名或简单的密钥对启动。
 
-在Samurai中，platon.request直接使用该方法，发送交易将涉及到组成这样的options对象：
+
+If the first account in the returned array is not the account you expected, you should notify the user! In the future, the account array may contain more than one account. However, the first account in the array will continue to be considered the user's "selected" account.
+
+
+
+## Sending Transactions
+
+Transactions are a formal action on a blockchain. They are always initiated in Samurai with a call to the `platon_sendTransaction` method. They can involve a simple sending of lat/atp, may result in sending tokens, creating a new smart contract, or changing the state on the blockchain in a variety of ways. They are always initiated by a signature from an external account or a simple key pair.
+
+In Samurai, using the platon.request method directly and sending a transaction will involve composing an options object like this:
+
 ```javascript
 const transactionParameters = {
   nonce: '0x0', // ignored by Samurai
@@ -231,142 +311,150 @@ const txHash = await platon.request({
 });
 ```
 
-__交易参数__
+#### Transaction parameters
 
-Samurai为您处理了许多交易参数，但是最好知道所有参数的作用。
+Samurai handles many transaction parameters for you, but you'd better know what all the parameters do.
 
-+ __Nonce [ignored]__
+##### Nonce [ignored]
 
+This field will be ignored in Samurai.
 
-  Samurai将忽略此字段。
+In PlatON, every transaction has a nonce. In this way, each transaction can only be processed once by the blockchain. In addition, to make a transaction valid, either the nonce must be 0, or a transaction with the previous number must have been processed.
 
+This means that transactions are always processed in the order of a given account, so incrementing nonces is a very sensitive issue and can easily be messed up, especially when a user is interacting with multiple applications with pending transactions using the same account (potentially across multiple devices).
 
-  在PlatON中，每笔交易都有一个随机数。这样一来，每个交易只能由区块链处理一次。此外，要成为有效交易，随机数必须为0，或者必须已经处理了具有先前编号的交易。
+Due to these reasons, Samurai does not provide application developers with any way to customize the nonce of transactions it suggests, and instead assists users in managing their transaction queues themselves.
 
+##### Gas Price [optional]
 
-  这意味着始终按给定帐户的顺序处理交易，因此增加随机数是一个非常敏感的问题，很容易搞砸，尤其是当用户与多个应用程序通过同一帐户使用待处理交易进行交互时（可能跨多个帐户）设备。
+Optional parameters-better used on private blockchains.
 
-  由于这些原因，Samurai当前无法为应用程序开发人员提供任何自定义其建议的事务随机数的方法，而是帮助用户自己管理其事务队列。
-+ __Gas Price [optional]__
+In PlatON, the pool of pending transactions provides its gas price as a sort of auction bid to the validators to include the transaction in a block in exchange for transaction fees. In this sense, a high gas price can mean faster processing yet higher transaction costs.
 
+Samurai helps users select a competitive gas price on the PlatON mainnet and popular testnets. We make requests to an API and allow users to choose between "slow", "medium" and "fast" options for their gas price.
 
-  可选参数-最好在私有区块链上使用。
+We cannot know about the gas price on all blockchains because it requires in-depth analysis. Therefore, although you can safely ignore this parameter on our main hosted networks, you may still need to suggest a gas fee if your application knows the target network better than we do.
 
+##### Gas Limit [optional]
 
-  在PlatON中，未决交易池将其Gas price作为一种拍卖竞标价格提供给验证者，以将该交易包含在一个区块中以换取交易费。这意味着高昂的Gas price可能意味着更快的处理速度，但也意味着交易成本更高。
+Optional parameter. Rarely useful to Dapp developers.
 
+Gas limit is a highly optional parameter. We will automatically calculate a reasonable price for it. 
 
-  Samurai帮助用户在PlatON主网络和流行的测试网络上选择具有竞争力的Gas price。我们向网络发出API请求，并允许用户在其Gas price的“慢”，“中”和“快速”选项之间进行选择。
+##### To [semi-optional]
 
+A PlatON address encoded by Bech32, required for transactions with a recipient (all transactions except for contract creation).
 
-  我们无法了解所有区块链上的Gas Price，因为它需要进行深入分析。因此，尽管您可以放心地在我们的主要托管网络上忽略此参数，但是在您的应用程序比我们更了解目标网络的情况下，您可能需要建议Gas price。
+A contract will be created when the value of the to field is empty but the value of the data field is not empty.
 
-+ __Gas Limit [optional]__
+##### Value [optional]
 
+Hex-encoded value of the network's native currency to be sent. On the PlatON mainnet, this is `lat`. On the Alaya mainnet, this is `atp`, which is denominated in `von`, which is `1e-18 lat`.
 
-  可选参数。对Dapp开发人员而言很少用到。
+Please note that these numbers often used in PlatON/Alaya have higher precision than native JavaScript numbers, and can lead to unpredictable behavior if not anticipated. Therefore, when manipulating values intended for the blockchain, we strongly recommend you use BN.js.
 
-  Gas limit是一个高度可选的参数，我们会自动为它计算一个合理的价格。您可能会知道，由于某种原因，您的智能合约会从自定义Gas limit中受益。
-+ __To [semi-optional]__
+##### Data [semi-optional]
 
+Required to create smart contracts.
 
-  Bech32编码的PlatON地址。与收件人进行交易时必需（所有交易（合同创建除外））。
+This field is also used to specify the contract method and its parameters. You can learn more about how to encode data on the [Solidity ABI specification](https://solidity.readthedocs.io/en/develop/abi-spec.html).
 
+##### Chain ID [currently ignored]
 
-  当to字段的值为空但data字段值不为空时，便会创建合约。
-+ __Value [optional]__
-
-
-  要发送的网络本地货币的十六进制编码值。在PlatON主网络上，这是lat币，以von表示，即1e-18 lat。
-
-
-  请注意，PlatON中经常使用的这些数字比本地JavaScript数字具有更高的精度，并且如果无法预料，可能会导致不可预测的行为。因此，在处理打算用于区块链的值时, 我们强烈建议使用BN.js。
-+ __Data [semi-optional]__
-
-
-  创建智能合约所需。
-
-  此字段还用于指定合同方法及其参数。您可以了解有关如何在Solidity ABI规范上对数据进行编码的更多信息。
-
-+ __Chain ID [currently ignored]__
+Chain ID is currently derived from the network at `platon.networkVersion` currently selected by the user. In the future, we may allow a way to connect to multiple networks at the same time. In that case, this parameter will become very important, so it may be useful to be in the habit of including now.
 
 
-链ID当前由用户当前选择的网络（位于）得出。将来，我们可能会允许一种同时连接到多个网络的方法，这时该参数将变得很重要，因此养成现在的习惯可能会很有用。
 
-## 安装
 
-+ 下载[Samurai插件包](https://github.com/AlayaNetwork/Samurai/releases)
-+ 解压Samurai插件包
-+ [通过chrome加载已解压的插件包](https://github.com/AlayaNetwork/Samurai/blob/feature/multi-networks/docs/add-to-chrome.md)
 
-## 参考
+## Installation
+
++ Download [Samurai plugin package](https://github.com/AlayaNetwork/Samurai/releases)
++ Unzip the Samurai plugin package
++ [Load the decompressed plugin package via chrome](https://github.com/AlayaNetwork/Samurai/blob/feature/multi-networks/docs/add-to-chrome.md)
+
+
+
+## References
 
 ### PlatON provider API
 
-Samurai以window.platon将全局API注入其用户访问的网站。该API允许网站请求用户的PlatON帐户，从用户连接的区块链中读取数据，并建议用户签署消息和交易。
-
-+ __基本用法__
+Samurai injects a global API into websites visited by its users at `window.platon`(currently `window.alaya` is also supported, in line with `window.platon`). This API allows websites to request the user's PlatON/Alaya accounts, read data from blockchains the user is connected to, and suggest that the user sign messages and transactions.
 
 
-  为了使任何重要的PlatON Web应用程序（又名dapp，web3网站等）正常工作，您必须：
+
+#### Basic usage
+
+For the normal operation of all important PlatON/Alaya web applications (aka dapp, web3 website, etc.), you must:
 
 
-  + 检测PlatON provider（window.platon）
-  + 检测用户连接到哪个网络
-  + 获取用户的PlatON账户
++ Detect the PlatON provider（`window.platon`）
++ Detect which network the user is connected to
++ Access the user's PlatON/Alaya account(s)
 
-  您可以通过查看“使用provider”部分中的代码片段来学习如何完成另外两个步骤。
+You can learn how to accomplish the other two in the code snippets in the "Using the Provider" section.
 
-  provider API提供创建完整功能的web3应用程序所需的全部接口。
+The provider API is all you need to create a full-featured web3 application.
 
-  也就是说，许多开发人员都使用便利库，而不是直接使用provider。如果您需要比此API提供的抽象更高的抽象，我们建议您使用便捷库。
-+ __链ID(Chain ID)__
+In other words, many developers use a convenience library instead of directly using providers. If you need a higher abstraction than the one provided by this API, we recommend that you use a convenience library.
 
 
-  这些是默认情况下Samurai支持的PlatON的链ID。
 
-| 十六进制 | 十进制 |网络|
-|-------|----|------|
-| 0x64  | 100 | PlatON主网|
-| 0x33585 | 210309 | PlatON开发测试网|
-| 0x3113a | 201018 | Alaya网络|
-| 0x31146 | 201030 | Alaya开发测试网|
+#### Chain ID
 
-+ __方法(Methods)__
+These are the IDs of the PlatON/Alaya chain supported by Samurai by default.
 
-  + platon.isConnected()
-    ```
-    Tip
-    请注意，此方法与用户帐户无关。
+| Hexadecimal | Decimal | Network        |
+| ----------- | ------- | -------------- |
+| 0x64        | 100     | PlatON mainnet |
+| 0x33585     | 210309  | PlatON testnet |
+| 0x3113a     | 201018  | Alaya network  |
+| 0x31146     | 201030  | Alaya testnet  |
 
-    关于一个web3网站是否可以访问该用户的帐户，您可能经常遇到“已连接”一词。但是，在provider接口中，“已连接”和“已断开连接”是指provider是否可以向当前链发出RPC请求。
-    ```
-    ```javascript
-    platon.isConnected(): boolean;
-    ```
 
-    如果provider连接到当前链，返回true，否则返回false。
 
-    如果provider未连接，则必须重新加载页面才能重新建立连接。请参阅connect和disconnect事件以获取更多信息
-  + platon.request(args)
-    ```javascript
+#### Methods 
+
+##### platon.isConnected()
+
+> Tip
+> Please note that this method has nothing to do with user accounts.
+> In reference to whether a web3 website can access the user's account, you may have often encountered the word "connected". However, in the provider interface, "connected" and "disconnected" refer to whether the provider can issue RPC requests to the current chain.
+
+```javascript
+platon.isConnected(): boolean;
+```
+
+If the provider is connected to the current chain, it returns `true`; otherwise it returns `false`.
+
+If the provider is not connected, the page will have to be reloaded to re-establish the connection. See `connect` and `disconnect` events for more information.
+
+
+
+##### platon.request(args)
+
+```javascript
     interface RequestArguments {
       method: string;
       params?: unknown[] | object;
     }
 
-    platon.request(args: RequestArguments): Promise<unknown>;
-    ```
-    用于request通过Samurai将RPC请求提交给PlatON网络。它返回一个Promise以返回RPC方法调用的结果。
+platon.request(args: RequestArguments): Promise<unknown>;
+```
 
-    params和返回值根据RPC方法而变化。实际上，如果一个方法有任意数量的params，它们类型几乎总是Array&lt;any&gt;。
+Used for `request` to submit RPC request to PlatON/Alaya network through Samurai. It returns a `Promise` to return the result of the RPC method call.
 
-    如果请求由于任何原因而失败，则Promise将以RPC Error的形式reject。
+The `params` and return value will vary by the RPC method. In practice, if a method has any `params`, they are almost always of type `Array`.
 
-    除了许多其他钱包可能不支持的方法外，Samurai还支持大多数标准化的PlatON RPC方法。有关详细信息，请参见Samurai RPC API文档。
+If the request fails for any reason, the Promise will reject with an RPC Error.
 
-    Example
-    ```javascript
+Samurai supports most of the standardized PlatON/Alaya RPC methods. For details, see the [Samurai RPC API](#RPC API) documentation.
+
+
+
+**Example**
+
+```javascript
     params: [
       {
         from: 'lat1gyxmu70ppgmr37rme7a8segs0s3hgpwwxfa6vq',
@@ -391,10 +479,14 @@ Samurai以window.platon将全局API注入其用户访问的网站。该API允许
       .catch((error) => {
         // If the request fails, the Promise will reject with an error.
       });
-    ```
-+ __事件(Events)__
+```
 
-  Samurai提供程序实现Node.js EventEmitter API。本节详细介绍了通过该API发出的事件。在EventEmitter其他地方有无数的指南，但是您可以听这样的事件：
+
+
+#### Events
+
+The Samurai provider implements the [Node.js EventEmitter](https://nodejs.org/api/events.html) API. This section details the events emitted via this API. There are countless EventEmitter guides elsewhere, but you may listen for events like this:
+
   ```javascript
   platon.on('accountsChanged', (accounts) => {
     // Handle the new accounts, or lack thereof.
@@ -408,78 +500,109 @@ Samurai以window.platon将全局API注入其用户访问的网站。该API允许
     window.location.reload();
   });
   ```
-  + __connect__
-  ```javascript
+
+##### connect
+
+```javascript
   interface ConnectInfo {
     chainId: string;
   }
 
   platon.on('connect', handler: (connectInfo: ConnectInfo) => void);
-  ```
-  当Samurai provider能够将RPC请求提交到链时，它将发出此事件。我们建议使用connect事件处理程序和platon.isConnected()方法来确定何时/是否连接了provider。
-  + __disconnect__
-  ```javascript
-  platon.on('disconnect', handler: (error: ProviderRpcError) => void);
-  ```
-  如果Samurai provider无法将RPC请求提交到任何链，它将发出此事件。通常，这只会由于网络连接问题或某些无法预料的错误而发生。
+```
 
-  一旦disconnect已经发出，provider将不会接受任何新的请求，直到该链的连接已经重新建立，这就需要重新加载页面。您还可以使用该platon.isConnected()方法来确定provider是否已断开连接。
-  + __accountChanged__
-  ```javascript
-  platon.on('accountsChanged', handler: (accounts: Array<string>) => void);
-  ```
-  每当platon_accounts RPC方法的返回值更改时，Samurai provider都会发出此事件。 platon_accounts返回一个为空或包含单个帐户地址的数组。返回的地址（如果有）是允许caller访问的最近使用的帐户的地址。caller通过其URL来源进行标识，这意味着所有具有相同来源的网站都共享相同的权限。
+When the Samurai provider is able to submit the RPC request to a chain, it will emit this event. We recommend you use a connect event handler and the `platon.isConnected()` method to determine when/whether the provider is connected.
 
-  这意味着accountsChanged只要用户的公开帐户地址发生更改，就会发出该消息。
-  + __chainChanged__
-  ```
-  platon.on('chainChanged', handler: (chainId: string) => void);
-  ```
-  当前连接的链发生更改时，Samurai provider将发出此事件。
+##### disconnect
 
-  所有RPC请求都将提交到当前连接的链。因此，通过侦听此事件来跟踪当前链ID是至关重要的。
+```javascript
+platon.on('disconnect', handler: (error: ProviderRpcError) => void);
+```
 
-  除非您有充分的理由，否则我们强烈建议您重新加载页面以进行链ID更改。
-  ```
-  platon.on('chainChanged', (_chainId) => window.location.reload());
-  ```
-  + __message__
-  ```
-  interface ProviderMessage {
-    type: string;
-    data: unknown;
-  }
+If the Samurai provider cannot submit the RPC request to any chain, it will emit this event. In general, this will only happen due to network connection problems or some unforeseen errors.
 
-  platon.on('message', handler: (message: ProviderMessage) => void);
-  ```
-  当Samurai provider收到一些应通知消费者的消息时，它将发出此事件。消息的类型由type字符串标识。
+Once the `disconnect` has been emitted, the provider will not accept any new requests until the chain connection has been re-established, which requires the page to be reloaded. You can also use the `platon.isConnected()` method to determine if the provider is disconnected.
 
-  RPC订阅更新是该message事件的常见用例。例如，如果您使用platon_subscribe创建一个订阅，每个订阅更新将被发出作为type的platon_subscription message事件。
-+  __错误(Errors)__
-   Samurai provider引发或返回的所有错误均遵循以下接口：
-   ```
-   interface ProviderRpcError extends Error {
-     message: string;
-     code: number;
-     data?: unknown;
-   }
-   ```
-   platon.request(args)方法急于引发错误。您通常可以使用errorcode属性来确定请求失败的原因。常用代码及其含义包括：
+##### accountChanged
 
-   + 4001
-     + 该请求被用户拒绝
-   + 32602
-     + 参数无效
-   + 32603
-     + 内部错误
-+ __使用provider(Using the Provider)__
+```javascript
+platon.on('accountsChanged', handler: (accounts: Array<string>) => void);
+```
 
-  此代码段说明了如何满足web3网站的三个最常见的要求：
+The Samurai provider emits this event whenever the return value of the `platon_accounts` RPC method changes. `platon_accounts` returns an array that is either empty or contains a single account address. The returned address (if any) is the address of the most recently used account that the caller is allowed to access. The caller is identified by its URL origin, which means that all websites with the same origin share the same permissions.
 
-  + 检测PlatON provider（window.platon）
-  + 检测用户连接到哪个PlatON网络
-  + 获取用户的PlatON账户
-  ```javascript
+This means that `accountsChanged` will send out this message whenever the user's exposed account address changes.
+
+##### chainChanged
+
+```
+platon.on('chainChanged', handler: (chainId: string) => void);
+```
+
+When the currently connected chain changes, the Samurai provider will emit this event.
+
+All RPC requests will be submitted to the currently connected chain. Therefore, it is crucial to track the current chain ID by listening for this event.
+
+We strongly recommend reloading the page on chain ID changes, unless you have good reason not to.
+
+```
+platon.on('chainChanged', (_chainId) => window.location.reload());
+```
+
+##### message
+
+```
+interface ProviderMessage {
+  type: string;
+  data: unknown;
+}
+
+platon.on('message', handler: (message: ProviderMessage) => void);
+```
+
+When the Samurai provider receives some messages that the consumer should be notified of, it will emit this event. Such messages are identified by the `type` string.
+
+RPC subscription update is a common use case for this message event. For example, if you use `platon_subscribe` to create a subscription, each subscription update will be emitted as a `message` event with a `type` of `platon_subscription`.
+
+
+
+#### Errors
+
+All errors thrown or returned by the Samurai provider follow this interface:
+
+```
+interface ProviderRpcError extends Error {
+  message: string;
+  code: number;
+  data?: unknown;
+}
+```
+
+The `platon.request(args)` method throws errors eagerly. You can often use the errorcode property to determine why the request failed. Common codes and their meanings include:
+
+ + `4001`
+
+   + The request was rejected by the user
+
+ + `32602`
+
+   + The parameter is invalid
+
+ + `32603`
+
+   + Internal error
+
+   
+
+#### Using the provider
+
+This snippet explains how to accomplish the three most common requirements for web3 sites:
+
+  + Check PlatON provider (window.platon)
+  + Detect which PlatON/Alaya network the user is connected to
+  + Access the user's PlatON/Alaya account
+
+```javascript
   /*****************************************/
   /* Detect the Samurai PlatON provider */
   /*****************************************/
@@ -575,65 +698,77 @@ Samurai以window.platon将全局API注入其用户访问的网站。该API允许
       });
   }
   ```
-+ __实验性API(Experimental API)__
-  我们在此platon._samurai属性下公开了一些实验性的Samurai专用方法。
-+ __实验性方法(Experimental Methods)__
-  ```javascript
-  platon._samurai.isUnlocked(): Promise<boolean>;
-  ```
-  此方法返回Promise，解析为一个boolean值，指示用户是否已解锁Samurai。必须解锁Samurai才能执行涉及用户帐户的任何操作。请注意，此方法不表示用户是否向caller公开了任何帐户。
-+ __遗留属性(Legacy Properties)__
-  + platon.chainId
 
-    代表当前链ID的十六进制字符串。
-  + platon.networkVersion
 
-    代表当前区块链网络ID的十进制字符串。
-  + platon.selectedAddress
 
-    返回代表用户“当前选定”地址的十六进制字符串。
+#### Legacy properties
+
++ `platon.chainId`
+
+  A hexadecimal string representing the current chain ID.
+
++ `platon.networkVersion`
+
+  The decimal string representing the current blockchain network ID.
+
++ `platon.selectedAddress`
+
+  To return a hexadecimal string representing the user's "currently selected" address.
+
+  
 
 ### RPC API
 
-Samurai使用该platon.request(args)方法包装RPC API。
+Samurai uses the `platon.request(args)` method to encapsulate the RPC API.
 
-该API基于所有PlatON客户端公开的接口，以及越来越多的其他钱包可能支持或可能不支持的方法。
-```
-Tips
-所有RPC方法请求都可能返回错误。确保每次调用platon.request(args)都会处理异常。
-```
+The API is based on the interfaces exposed by all PlatON/Alaya clients, as well as more and more methods that may or may not be supported by other wallets.
 
-+ __PlatON JSON-RPC方法__
+> Tips
+> All RPC method requests may return errors. Make sure the abnormality is handled every time you call `platon.request(args)`.
 
-  有关PlatON JSON-RPC API的信息，请参阅[PlatON-DevDocs](https://devdocs.platon.network/docs/zh-CN/Json_Rpc/)
+#### ** PlatON JSON-RPC method**
 
-  比较重要的API方法如下：
-  + platon_accounts
-  + platon_call
-  + platon_getBalance
-  + platon_sendTransaction
-  + platon_sign
-+ __权限__
-  + __platon_requestAccount__
-  + __wallet_getPermissions__
-  + __wallet_requestPermissions__
-+ __其他RPC方法__
+For information about PlatON JSON-RPC API, please refer to [PlatON-DevDocs](https://devdocs.platon.network/docs/zh-CN/JS_SDK/).
 
-#### 权限相关
-+ platon_requestAccounts
-  + __返回值__
+Important API methods are as follows:
 
-    string[] -单个PlatON地址字符串的数组。
-  + __描述__
+  + `platon_accounts`
+  + `platon_call`
+  + `platon_getBalance`
+  + `platon_sendTransaction`
+  + `platon_sign`
 
-    请求用户提供一个PlatON地址以作为标识。返回一个Promise，该Promise解析为单个PlatON地址字符串的数组。如果用户拒绝该请求，则Promise将拒绝并出现4001错误。
+Permissions：
 
-    该请求将导致出现一个Samurai弹出窗口。您只需响应用户的操作（例如单击按钮）来请求用户的帐户。在请求仍处于挂起状态时，应始终禁用导致调度请求的按钮。
++ `platon_requestAccount`
++ `wallet_getPermissions`
++ `wallet_requestPermissions`
 
-    如果您无法获取用户的帐户，则应鼓励用户发起创建帐户请求。
 
-    例子：
-    ```javascript
+
+#### Permission related
+
++ ##### platon_requestAccounts
+
+  **Return value**
+
+  `string[]` - An array of single PlatON/Alaya address strings.
+
+  
+
+  **Description**
+
+  Ask the user to provide a PlatON/Alaya address as an identification. Return a Promise that resolves to an array of strings of individual PlatON/Alaya addresses. If the user rejects the request, the Promise will reject it with a `4001` error.
+
+  This request will result in a Samurai pop-up window. You only need to respond to user actions (such as clicking a button) to request the user's account. While the request is still pending, the button that caused the dispatch request should always be disabled.
+
+  If you are unable to obtain a user’s account, you should encourage the user to initiate an account creation request.
+
+  
+
+  **Example**
+
+  ```javascript
     document.getElementById('connectButton', connect);
 
     function connect() {
@@ -649,28 +784,38 @@ Tips
       });
     }
     ```
-+ wallet_requestPermissions
-  + __参数__
 
-    Array
++ ##### wallet_requestPermissions
 
-    0. RequestedPermissions -请求的权限。
-    ```javascript
-    interface RequestedPermissions {
-      [methodName: string]: {}; // an empty object, for future extensibility
-    }
-    ```
-  + __返回值__
+  **Parameter**
 
-    Web3WalletPermission[] -caller权限的数组。
-  + __描述__
+  `Array`
 
-    向用户请求给定的权限。返回一个Promise，该Promise解析为一个非空Web3WalletPermission对象数组，对应于调用者的当前权限。如果用户拒绝该请求，则Promise将拒绝并出现4001错误。
+    0. `RequestedPermissions` - Requested permissions.
 
-    该请求将会唤醒一个Samurai弹出窗口。您仅应请求权限来响应用户操作，例如单击按钮。
+  ```javascript
+  interface RequestedPermissions {
+    [methodName: string]: {}; // an empty object, for future extensibility
+  }
+  ```
 
-  + __例子__
-    ```javascript
+  **Return value**
+
+  `Web3WalletPermission[]` - An array of caller permissions.
+
+  
+
+  **Description**
+
+  Ask the user for the given permission. Return a Promise, which resolves to an array of non-empty `Web3WalletPermission` objects, corresponding to the current permissions of the caller. If the user rejects the request, the Promise will reject it with a `4001` error.
+
+  This request will wake up a Samurai pop-up window. You should only request permission to respond to user actions, such as clicking a button.
+
+  
+
+  **Example**
+
+  ```javascript
     document.getElementById('requestPermissionsButton', requestPermissions);
 
     function requestPermissions() {
@@ -696,21 +841,31 @@ Tips
       });
     }
     ```
-+ wallet_getPermissions
-  + __返回值__
 
-    Web3WalletPermission[] -caller权限的数组。
-  + __描述__
++ #### wallet_getPermissions
 
-    获取caller的当前权限。返回解析为Web3WalletPermission对象数组的Promise 。如果调用者没有权限，则该数组将为空。
+  **Return value**
 
-#### 其他RPC API
-+ wallet_watchAsset
-  + __参数__
+  `Web3WalletPermission[]` - An array of caller permissions.
 
-    + WatchAssetParams -要观察的资产的元数据。
-    ```javascript
-    interface WatchAssetParams {
+  
+
+  **Description**
+
+  Get the current permissions of the caller. The Promise parsed as an array of Web3WalletPermission objects will be returned. If the caller does not have permission, the array will be empty.
+
+  
+
+#### Other RPC API
+
++ ##### wallet_watchAsset
+
+  **Parameter**
+
+  `WatchAssetParams` - The metadata of the asset to be observed.
+
+  ```javascript
+  interface WatchAssetParams {
       type: 'ERC20'; // In the future, other standards will be supported
       options: {
         address: string; // The address of the token contract
@@ -719,17 +874,24 @@ Tips
         image: string; // A string url of the token logo
       };
     }
-    ```
-  + __返回值__
+  ```
 
-    + boolean-如果令牌已添加则返回true，否则返回false。
-  + __描述__
+  **Return value**
 
-    在Samurai中用户跟踪token的请求。返回boolean表示token是否已成功添加。
+  boolean - If the token has been added, it returns `true`; otherwise it returns `false`.
 
-    大多数PlatON钱包都支持某些token集，通常是从中心化策划的token注册表中获取的。 wallet_watchAsset使web3应用程序开发人员可以在运行时要求其用户跟踪其钱包中的token。添加后，令牌就无法与通过传统方法（例如中心化注册）添加的令牌区分开。
+  
 
-  + __例子__
+  **Description**
+
+  In Samurai, users track token requests. Boolean indicates whether the token has been successfully added.
+
+  Most PlatON/Alaya wallets support certain token sets, usually obtained from a centrally planned token registry. `wallet_watchAsset` enables web3 application developers to require their users to track the tokens in their wallets at runtime. Once added, the token cannot be distinguished from the tokens added through traditional methods (such as centralized registration).
+
+  
+
+  **Example**
+
   ```javascript
   platon.request({
     method: 'wallet_watchAsset',
@@ -752,31 +914,39 @@ Tips
   })
   .catch(console.error)
   ```
+
+
+
 ## Example
 
-下面的例子演示如何在web console端发起普通和合约交易操作，唤起Samurai进行交易处理。
+The following example demonstrates how to initiate common and contract transaction operations on the web console to evoke Samurai for transaction processing.
 
-在开启Samurai并已经导入账户后，打开一个新的页面。右击->检查->console进入调试模式(后面的命令行均在console中执行)。Samurai在打开页面会注入platon和web3a对象,因此在console中可以直接使用。
-### 普通交易
+After opening Samurai and importing the account, open a new page. Right-click -> check -> console to enter the debug mode (the following command lines are executed in the console). Samurai will inject platon and web3a objects when opening the page, so they can be used directly in the console.
 
-+ 请求Samurai用户授权, 运行下面命令会唤起Samurai界面，选择对应的账户同意即可授权页面连接权限
+
+
+### Ordinary Transaction
+
++ Request the authorization of the Samurai user, run the following command to evoke the Samurai interface, and select the corresponding account to agree to authorize the page connection permissions
+
 ```
 > platon.request({ method: 'platon_requestAccounts' });
 Promise {<pending>}
 > platon.selectedAddress
 "lat1mm09yjr8vwr2g78gselj03w2eks7atq2t4y83p"
 ```
-+ 发起ATP转账交易, 运行下面的命令会唤起Samurai处理该交易，可以进行再编辑等操作
+
++ To initiate an ATP transfer transaction, running the following command will evoke Samurai to process the transaction, and you can perform operations such as re-edit.
+
 ```
 > web3a.platon.sendTransaction({from: platon.selectedAddress,to: "lat1dt2wx0xjkd2je8ev4t3ysmte6n90kc9gzndwuv", value: 1e16}, function(err, transactionHash) {if (err) { console.log(err); } else {console.log(transactionHash);}});
 ```
 
-### Dapp开发集成
+### DApp Development Integration
 
-在开发Dapp页面，由于Samurai在打开页面会注入platon对象，因此在开发的时候可以通过javascript直接调用该对象完成对应的操作。需要web3a对象的引入及使用见[js-sdk文档](https://devdocs.platon.network/docs/zh-CN/JS_SDK/)
+On the DApp development page, since Samurai will inject a platon object when opening the page, the object can be directly called through javascript to complete the corresponding operation during development. For the introduction and use of web3a objects, see [js-sdk document](https://devdocs.platon.network/docs/zh-CN/JS_SDK/).
 
-下面例子展示的是比如点击一个页面按钮发起转账操作，在其后调用的对应的javascript脚本
-
+The following example shows the corresponding `javascript` script that is called after clicking a page button to initiate a transfer.
 ```
 var Web3A = require('web3');
 var web3platon = new Web3A(platon)
@@ -791,6 +961,3 @@ contract.methods.transfer(toAccount,transferBalance)
     console.log('err: ', err);
   })
 ```
-
-
-

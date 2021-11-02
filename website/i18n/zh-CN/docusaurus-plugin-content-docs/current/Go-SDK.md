@@ -5,6 +5,8 @@ sidebar_label: Go SDK
 ---
 
 
+**注：本Go-SDK仅面向Alaya网络，与PlatON网络存在一定的差异，文档内容待更新。**
+
 ## 开发库导入
 
 可以先安装到GO_PATH路径下:  

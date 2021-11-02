@@ -10,13 +10,206 @@ sidebar_label: JSON RPC
 
 ## JavaScript API
 
-要从JavaScript应用程序内部与platon节点通信，请使用 [web3.js](https://github.com/PlatONnetwork/client-sdk-js) 库，该库为RPC方法提供了方便的接口。
+要从JavaScript应用程序内部与PlatON节点通信，请使用 [web3.js](https://github.com/AlayaNetwork/client-sdk-js) 库，该库为RPC方法提供了方便的接口。
 
 ## 注意
 
-下面仅显示带有curl过程的RPC调用过程。实际上，您需要根据服务器的具体情况进行一些调整。例如，PlatON的可能调用过程是 `curl -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}' 127.0.0.1:6789`.
+PlatON在升级到1.1.1版本之后，通过[兼容以太坊](https://github.com/PlatONnetwork/PIPs/blob/master/PIPs/PIP-2.md)扩展了 JSON-RPC 2.0，对 request 请求对象增加 bech32 字段，Booleans 类型。bech32 为 true 表示此次 rpc 调用中地址部分的编解码格式为 bech32，默认为 EIP55。并且支持了以太坊的RPC调用，[参考](https://geth.ethereum.org/docs/rpc/ns-eth).
+
+下面仅显示带有curl过程的RPC调用过程。实际上，您需要根据服务器的具体情况进行一些调整。例如，PlatON的可能调用过程是 `curl -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","bech32":true,"method":"web3_clientVersion","params":[],"id":67}' 127.0.0.1:6789`.
 
 ## JSON RPC API参考
+
+#### admin_startWS
+
+startWS 启动一个基于 WebSocket 的 JSON RPC API 网络服务来处理客户端请求. 
+
+##### 参数
+所有参数是可选的:
+1. host: 监听的网络地址 (默认值是 "localhost")
+2. port: 监听的端口号 (默认值是 8546)
+3. cors: 要使用的跨源资源共享标头 (默认值是 "")
+4. apis: 通过此接口提供的 API 模块 (默认值是 "platon,net,web3")
+
+##### 返回
+
+`Boolean` - 该方法返回一个布尔标志，指定是否打开了 WebSocket RPC 服务器。请注意，任何时候都只允许一个 WebSocket 端点处于活动状态。
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_startWS","params":[host, port, cors, apis],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_stopWS
+
+stopWS 方法关闭当前打开的 WebSocket RPC 服务。
+
+##### 参数
+none
+
+##### 返回
+
+`Boolean` -  服务是否关闭.
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_stopWS","params":[],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+
+#### admin_startRPC
+
+startRPC 启动一个基于 WebSocket 的 HTTP RPC API 网络服务来处理客户端请求. 
+
+##### 参数
+所有参数是可选的:
+1. host: 监听的网络地址 (默认值是 "localhost")
+2. port: 监听的端口号 (默认值是 8546)
+3. cors: 要使用的跨源资源共享标头 (默认值是 "")
+4. apis: 通过此接口提供的 API 模块 (默认值是 "platon,net,web3")
+
+##### 返回
+
+`Boolean` - 该方法返回一个布尔标志，指定是否打开了 HTTP RPC 服务器。请注意，任何时候都只允许一个 HTTP 服务处于活动状态.
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_startRPC","params":[host, port, cors, apis],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_stopRPC
+
+stopRPC 方法关闭当前打开的 HTTP RPC 服务。
+
+##### 参数
+none
+
+##### 返回
+
+`Boolean` -  服务是否关闭.
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_stopRPC","params":[],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_removePeer
+
+如果连接存在，则与远程节点断开连接.
+
+##### 参数
+`string` -  要删除的对等节点的 enode URL.
+
+##### 返回
+
+`boolean` -  远程节点是否被移除.
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_removePeer","params":["enode://f59c0ab603377b6ec88b89d5bb41b98fc385030ab1e4b03752db6f7dab364559d92c757c13116ae6408d2d33f0138e7812eb8b696b2a22fe3332c4b5127b22a3@127.0.0.1:30304"],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_exportChain
+
+将当前区块链导出到本地文件.
+
+##### 参数
+`string` -  文件需要导出的位置.
+
+##### 返回
+
+`boolean` -  是否导出成功.
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_exportChain","params":["/home/develop/blockchain.gz"],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
+
+#### admin_importChain
+
+从本地文件导入区块链.
+
+##### 参数
+`string` -  需要导入文件的位置.
+
+##### 返回
+
+`boolean` -  是否导入成功.
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_importChain","params":["/home/develop/blockchain.gz"],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+
+***
 
 #### web3_clientVersion
 
@@ -32,7 +225,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"web3_clientVersion","params":[],"id":67}'
 
 // Result
 {
@@ -65,7 +258,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}'
 
 // Result
 {
@@ -91,7 +284,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"net_version","params":[],"id":67}'
 
 // Result
 {
@@ -117,7 +310,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":67}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"net_listening","params":[],"id":67}'
 
 // Result
 {
@@ -143,7 +336,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}'
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"net_peerCount","params":[],"id":74}'
 
 // Result
 {
@@ -665,6 +858,427 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_call","params":[{see abov
   "id":1,
   "jsonrpc": "2.0",
   "result": "0x0"
+}
+```
+
+***
+
+#### platon_chainId
+
+返回用于在当前最佳区块进行交易签名的链 ID。 如果不可用，则返回 Null。
+
+
+##### 参数
+
+None
+
+##### 返回
+
+`QUANTITY` - 链 ID，如果不可用，则为 null。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_chainId","params":[],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0x1"
+}
+```
+
+***
+
+#### platon_getAddressHrp
+
+返回当前链的账户地址前缀。
+
+
+##### 参数
+
+None
+
+##### 返回
+
+`DATA` - 帐户地址的前缀。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getAddressHrp","params":[],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "lat"
+}
+```
+
+***
+
+#### platon_getProof
+
+返回给定帐户的 Merkle-proof 和可选的一些存储密钥。
+
+
+##### 参数
+
+1. `Address`, 20 Bytes - 合约账户地址.
+2. `StorageKeys` - StorageTrie中的key
+3. `BlockNumber` - 区块高度
+
+```js
+params: [
+   'lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm',
+   ["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],
+   '0x1'
+]
+```
+
+##### 返回
+
+`Object` - 账户相关数据和证明.
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getProof","params":[see above],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": {
+      "address": "lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm",
+      "accountProof": ["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],
+      "balance": "0x99",
+      "codeHash": "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238",
+      "nonce": "0x1",
+      "storageHash": "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238",
+      "storageProof":[
+          {
+            "key": "0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238",
+            "value": "0x9",
+            "proof": ["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"]
+          }
+      ]
+  }
+}
+```
+
+***
+
+#### platon_resend
+
+重新发送接受现有交易和新的天然气价格和limit。 它将从池中删除给定的交易，并使用新的 gas 价格和limit重新插入它。
+
+##### 参数
+
+1. `Object` - 交易对象 - 参照 `platon_sendTransaction`
+
+2. `QUANTITY` - `gasPrice` - 用于每个付费gas 的gasPrice 的整数。
+3. `QUANTITY` - `gasLimit` - 为交易执行提供的gas整数。
+
+```js
+params: [{
+  "from": "lat1lfxu0c2s4g2z872hgutpytlyekclw7272sj8dy",
+  "to": "lat1wgs4njks2wm4s596prdktrvsnfayh0kzv5ntru",
+  "gas": "0x76c0", // 30400,
+  "gasPrice": "0x9184e72a000", // 10000000000000
+  "value": "0x9184e72a", // 2441406250
+  "data": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"
+},
+"0x1",
+"0x1"
+]
+```
+
+##### 返回
+
+`DATA`, 32 Bytes - 交易Hash，如果交易尚不可用则为空Hash。
+
+当你创建合约时，在交易被打包后，使用 platon_getTransactionReceipt 获取合约地址。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_resend","params":[{see above}],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+}
+```
+
+***
+
+#### platon_pendingTransactionsLength
+
+返回交易池中待处理交易的数量。
+
+
+##### 参数
+
+None
+
+##### 返回
+
+`QUANTITY` - 待处理交易的数量。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_pendingTransactionsLength","params":[],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": 1
+}
+```
+
+***
+
+#### platon_getPoolNonce
+
+返回给定帐户的最新 Nonce。
+
+
+##### 参数
+
+1. `Address`, 20 Bytes - 账户地址.
+
+```js
+params: ['lat1wgs4njks2wm4s596prdktrvsnfayh0kzv5ntru']
+```
+
+##### 返回
+
+`QUANTITY` - 账户的Nonce.
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getPoolNonce","params":[see above],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": '0x1'
+}
+```
+
+***
+
+#### platon_pendingTransactions
+
+返回交易池中的交易，并且具有作为该节点管理的帐户之一的发起人地址。
+
+
+##### 参数
+
+None
+
+##### 返回
+
+`Array` - 交易集合:
+
+  - `blockHash`: `DATA`, 32 Bytes - 区块的哈希值。 等待被打包时为`null` 。
+  - `blockNumber`: `QUANTITY` - 区块高度。等待被打包时为`null` 。
+  - `from`: `DATA`, string - bech32 格式的地址字符串。交易的发送方。
+  - `gas`: `QUANTITY` - 交易消耗的gas。
+  - `gasPrice`: `QUANTITY` - GasPrice 为交易执行提供price。
+  - `hash`: `DATA`, 32 Bytes - 交易的Hash。
+  - `input`: `DATA` - 随交易一起发送的数据。
+  - `nonce`: `QUANTITY` - 发件人在此之前进行的交易数量。
+  - `to`: `DATA`, string - 接收方bech32格式的地址字符串。 当是合约创建的交易时为`null` 。
+  - `transactionIndex`: `QUANTITY` - 区块中交易索引的位置，未打包时为`null`。
+  - `value`: `QUANTITY` - 以 von 为单位转移的价值。
+  - `r`: `Quantity` - 签名的 R 字段。
+  - `s`: `Quantity` - 签名的 S 字段。
+  - `v`: `Quantity` - 签名的 V 字段。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_pendingTransactions","params":[see above],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": [
+      {
+          blockHash: "",
+          blockNumber: 26774895,
+          from: "lat1lfxu0c2s4g2z872hgutpytlyekclw7272sj8dy",
+          gas: 49220,
+          gasPrice: 1000000000,
+          hash: "0x926694537d833a406cb3b321f79966c7cab24e461ac419d4366e94dccc5f2e6e",
+          input: "0xf855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd400000",
+          nonce: 1787,
+          r: "0x61b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283af",
+          s: "0xc0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca",
+          to: "lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm",
+          transactionIndex: 0,
+          v: "0x62297",
+          value: 0
+        }
+  ]
+}
+```
+
+***
+
+#### platon_getRawTransactionByBlockHashAndIndex
+
+返回给定区块哈希和索引的交易字节数。
+
+##### 参数
+
+1. `Hash` - 32 Bytes - 区块Hash。
+2. `Quantity` - 交易在区块中的索引。
+
+```js
+params: [
+    '0x926694537d833a406cb3b321f79966c7cab24e461ac419d4366e94dccc5f2e6e', 
+    '0x1'
+]
+```
+
+##### 返回
+
+- `Data` - 交易的原始字节数据（在 RLP 之后）。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByBlockHashAndIndex","params":[{see above}],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xf8c08206fb843b9aca0082c04494100000000000000000000000000000000000000280b857f855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd40000083062297a061b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283afa00c0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca"
+}
+```
+
+***
+
+#### platon_getRawTransactionByBlockNumberAndIndex
+
+返回给定块号和索引的交易字节。
+
+##### 参数
+
+1. `Quantity` - 区块高度。
+2. `Quantity` - 交易在区块中的索引。
+
+```js
+params: [
+    '0x1b4', 
+    '0x1'
+]
+```
+
+##### 返回
+
+- `Data` - 交易的原始字节数据（在 RLP 之后）。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByBlockNumberAndIndex","params":[{see above}],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xf8c08206fb843b9aca0082c04494100000000000000000000000000000000000000280b857f855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd40000083062297a061b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283afa00c0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca"
+}
+```
+
+***
+
+#### platon_signTransaction
+
+签名交易而不将其发送到网络，可以使用 platon_sendRawTransaction 提交。
+
+##### 参数
+
+1. `Object` - 交易对象. 参考 platon_sendTransaction。
+
+##### 返回
+
+- `Object` - 签名的交易及其详细信息：
+  - `raw`: `Data` - 已签名的 RLP 编码交易。
+  - `tx`: `Object` - 交易对象。
+
+##### 例子
+
+```js
+// Request
+curl -X POST localhost:6789 --data '{"jsonrpc":"2.0","method":"platon_signTransaction","params":[{see above}],"id":1}' -H "Content-Type: application/json" 
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": {
+    "raw": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+    "tx": {
+      "hash": "0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b",
+      "nonce": "0x0", // 0
+      "blockHash": "0xbeab0aa2411b7ab17f30a99d3cb9c6ef2fc5426d6ad6fd9e2a26a6aed1d1055b",
+      "blockNumber": "0x15df", // 5599
+      "transactionIndex": "0x1", // 1
+      "from": "lat1lfxu0c2s4g2z872hgutpytlyekclw7272sj8dy",
+      "to": "lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq93t3hkm",
+      "value": "0x7f110", // 520464
+      "gas": "0x7f110", // 520464
+      "gasPrice": "0x09184e72a000",
+      "input": "0x603880600c6000396000f300603880600c6000396000f3603880600c6000396000f360"
+    }
+  }
+}
+```
+
+***
+
+#### platon_getRawTransactionByHash
+
+返回给定哈希的交易字节。
+
+##### 参数
+
+1. `Hash` - 32 Bytes - 交易Hash。
+
+```js
+params: [
+    '0x926694537d833a406cb3b321f79966c7cab24e461ac419d4366e94dccc5f2e6e'
+]
+```
+
+##### 返回
+
+- `Data` - 交易的原始字节数据（在 RLP 之后）。
+
+##### 例子
+
+```js
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByHash","params":[{see above}],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0xf8c08206fb843b9aca0082c04494100000000000000000000000000000000000000280b857f855838203ec8180b842b8402d35a84c4fc677fe2a19c43407d4cd387b0bbf90a5a3511794d7f752012e4090d8e7a0931ed540be41b73badd3c767c5de28195f3062c7aefba951bfd7a5c49e8a896c6b935b8bbd40000083062297a061b8e974d37dfbe221be5267753e1717f573b6fcd9a0ca0b223aba1c2f8283afa00c0ef7e651bafbd396536b20250fde46199ed6fcf356d08b390e36a3ba039fca"
 }
 ```
 
@@ -1299,7 +1913,7 @@ no
 ##### 例子
 ```js
 // Request
-Curl -X POST --data '{"jsonrpc":"2.0","method":"admin_nodeInfo","params":[],"id":74}'
+Curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_nodeInfo","params":[],"id":74}'
 
 // Result
 {
@@ -1329,7 +1943,7 @@ no
 ##### 例子
 ```js
 // Request
-Curl -X POST --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}'
+Curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_peers","params":[],"id":74}'
 
 // Result
 {
@@ -1359,7 +1973,7 @@ no
 ##### 例子
 ```js
 // Request
-Curl -X POST --data '{"jsonrpc":"2.0","method":"admin_getProgramVersion","params":[],"id":74}'
+Curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"admin_getProgramVersion","params":[],"id":74}'
 
 // Result
 {
@@ -1486,7 +2100,7 @@ params: [{
 
 ```js
 //Request
-curl --data '{"method":"personal_sendTransaction","params":[{"from":"lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q","to":"lat163hgm4nut5etaqzchw8tjuy8purjg3t83gevx0","data":"0x41cd5add4fd13aedd64521e363ea279923575ff39718065d38bd46f0e6632e8e","value":"0x186a0"},"hunter2"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_sendTransaction","params":[{"from":"lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q","to":"lat163hgm4nut5etaqzchw8tjuy8purjg3t83gevx0","data":"0x41cd5add4fd13aedd64521e363ea279923575ff39718065d38bd46f0e6632e8e","value":"0x186a0"},"hunter2"],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 
 //Result
 {
@@ -1522,7 +2136,7 @@ params: [
 
 ```js
 //Request
-curl --data '{"method":"personal_ecRecover","params":["0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675","0xe7225f986f192f859a9bf84e34b2b7001dfa11aeb5c7164f81a2bee0d79943e2587be1faa11502eba0f803bb0ee071a082b6fe40fba025f3309263a1eef52c711c"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_ecRecover","params":["0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675","0xe7225f986f192f859a9bf84e34b2b7001dfa11aeb5c7164f81a2bee0d79943e2587be1faa11502eba0f803bb0ee071a082b6fe40fba025f3309263a1eef52c711c"],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 
 //Result
 {
@@ -1551,7 +2165,7 @@ curl --data '{"method":"personal_ecRecover","params":["0xd46e8dd67c5d32be8d46e8d
 
 ```js
 //Request
-curl --data '{"method":"personal_importRawKey","params":["cd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295e","password1234"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_importRawKey","params":["cd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295e","password1234"],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 
 //Result
 "lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q"
@@ -1574,7 +2188,7 @@ no
 
 ```js
 //Request
-curl --data '{"method":"personal_listAccounts","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_listAccounts","params":[],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   "id": 1,
@@ -1603,7 +2217,7 @@ no
 
 ```js
 //Request
-curl --data '{"method":"personal_listWallets","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_listWallets","params":[],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   accounts: [{
@@ -1634,7 +2248,7 @@ curl --data '{"method":"personal_listWallets","params":[],"id":1,"jsonrpc":"2.0"
 
 ```js
 //Request
-curl --data '{"method":"personal_lockAccount","params":["lat1v79he42uvxghmmajx4r2gxqrckl7l0r6huhkfg"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_lockAccount","params":["lat1v79he42uvxghmmajx4r2gxqrckl7l0r6huhkfg"],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   result: true
@@ -1661,7 +2275,7 @@ curl --data '{"method":"personal_lockAccount","params":["lat1v79he42uvxghmmajx4r
 
 ```js
 //Request
-curl --data '{"method":"personal_newAccount","params":["abc123"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_newAccount","params":["abc123"],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   "id": 1,
@@ -1690,7 +2304,7 @@ curl --data '{"method":"personal_newAccount","params":["abc123"],"id":1,"jsonrpc
 
 ```js
 //Request
-curl --data '{"method":"personal_sign","params":[0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675","lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q","hunter"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_sign","params":[0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675","lat1kc8gm4sut5etaqzchw8tjuy8purjxv24msxq7q","hunter"],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   "id": 1,
@@ -1728,7 +2342,7 @@ curl --data '{"method":"personal_sign","params":[0xd46e8dd67c5d32be8d46e8dd67c5d
 
 ```js
 //Request
-curl --data '{"method":"personal_signTransaction","params":[{"from":"lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpunjvg7","to":"lat14984xa8uuhkmer32s6tuz5e3valxa0ct4z0qkm","data":"0x41cd5add4fd13aedd64521e363ea279923575ff39718065d38bd46f0e6632e8e","value":"0x186a0"},"hunter2"],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_signTransaction","params":[{"from":"lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpunjvg7","to":"lat14984xa8uuhkmer32s6tuz5e3valxa0ct4z0qkm","data":"0x41cd5add4fd13aedd64521e363ea279923575ff39718065d38bd46f0e6632e8e","value":"0x186a0"},"hunter2"],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   "id": 1,
@@ -1756,11 +2370,11 @@ curl --data '{"method":"personal_signTransaction","params":[{"from":"lat1gp7h8k9
 
 #### personal_unlockAccount
 
-解锁指定的账户以供使用。
+从节点的key store中解锁指定的账户。该方法在底层1.1.1版本及以上默认禁用，需要在节点的启动参数中加入--allow-insecure-unlock以启用。
 
-如果永久解锁被禁用（默认），那么持续时间参数将被忽略，账户将被解锁为一个单一的签名。在启用永久锁定的情况下，持续时间设置保持账户开放的秒数。它将默认为300秒。通过0可以无限期地解锁账户。
+解锁的账户会保存到内存中直到解锁周期超时。默认的解锁周期为300秒。如果将解锁周期设为0s，将永久解锁账户,直到节点被关闭。
 
-一次只能有一个解锁的账户。
+账号解锁后可以用于platon_sign和platon_sendTransaction调用。
 
 ##### Parameters
 
@@ -1776,7 +2390,7 @@ curl --data '{"method":"personal_signTransaction","params":[{"from":"lat1gp7h8k9
 
 ```js
 //Request
-curl --data '{"method":"personal_unlockAccount","params":["lat13upz04zc2wjsam753h20asjatvlay227nmyk6p","hunter2",null],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"personal_unlockAccount","params":["lat13upz04zc2wjsam753h20asjatvlay227nmyk6p","hunter2",null],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   "id": 1,
@@ -1803,7 +2417,7 @@ curl --data '{"method":"personal_unlockAccount","params":["lat13upz04zc2wjsam753
 ##### Example
 ```js
 //Request
-curl --data '{"method":"miner_setGasPrice","params":[19999999],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:6789
+curl --data '{"method":"miner_setGasPrice","params":[19999999],"id":1,"jsonrpc":"2.0","bech32":true}' -H "Content-Type: application/json" -X POST localhost:6789
 //Result
 {
   "id": 1,
@@ -1830,7 +2444,7 @@ none
 ##### Example
 ```js
 //Request
-curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"txpool_status","params":[],"id":1}' http://127.0.0.1:6789
+curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"txpool_status","params":[],"id":1}' http://127.0.0.1:6789
 //Result
 {
   "id": 1,
@@ -1860,7 +2474,7 @@ none
 ##### Example
 ```js
 //Request
-curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"txpool_content","params":[],"id":1}' http://127.0.0.1:6789
+curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"txpool_content","params":[],"id":1}' http://127.0.0.1:6789
 //Result
 {
   "id": 1,
@@ -1922,7 +2536,7 @@ none
 ##### Example
 ```js
 //Request
-curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"txpool_inspect","params":[],"id":1}' http://127.0.0.1:6789
+curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"txpool_inspect","params":[],"id":1}' http://127.0.0.1:6789
 //Result
 {
 	"jsonrpc": "2.0",
@@ -1954,5 +2568,33 @@ curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","metho
 			}
 		}
 	}
+}
+```
+
+***
+
+#### debug_getWaitSlashingNodeList
+
+获取零出块的节点，因为零出块而被观察的节点列表。
+
+##### 参数
+no
+
+##### 返回
+`array` - 零出块的节点列表，每个结构包含三个字段，NodeId：零出块的节点ID，Round：观察期内第一次零出块时所处共识轮数，CountBit：零出块次数位图（从Round开始，1表示该轮未出块）。
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{ "jsonrpc": "2.0", "method": "debug_getWaitSlashingNodeList", "params": [], "id": 74}'
+// Result
+{
+  "id": 74,
+  "jsonrpc": "2.0",
+  "result": "[{
+    "NodeId": "8e91f562c1798dc8c567a5c4a99a840eb86e43324b622fd0a4a8defdf873baf8f822313d7f35227fe15b6f4a2767dfb9ea7f7968d0a3a243e57b4d1090f6fc6c",
+    "Round": 1000,
+    "CountBit": 7
+  }]"
 }
 ```

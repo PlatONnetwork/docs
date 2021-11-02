@@ -66,7 +66,7 @@ module.exports = {
         {
           type: 'category',
           label: 'References',
-          items: ['Python_SDK', 'JS_SDK', 'Java_SDK', 'Json_Rpc','Explorer_API', 'Samurai_API']
+          items: ['Python_SDK', 'JS_SDK', 'Java_SDK', 'Go_SDK', 'Json_Rpc','Explorer_API', 'Samurai_API']
         },
         {
           type: 'category',
@@ -79,6 +79,12 @@ module.exports = {
       type: 'category',
       label: 'Data and analytics',
       items: ['PlatON_BlockChain_Browser', 'PlatEye']
+    },
+    {
+      type: 'category',
+      label: 'Tutorials',
+      items: ['DApp_migrate', 'qianqian_prc721_tutorial', 'WASM_Contract_2', 'WASM_Contract_3', 'WASM_Contract_4', 'WASM_Contract_5', 'WASM_Contract_6', 'WASM_Contract_7', 'WASM_Contract_8']
+
     },
     {
       type: 'category',
