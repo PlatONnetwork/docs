@@ -2373,7 +2373,7 @@ contract.getFilterLogs(
 
 #### web3.platon.personal
 
-使用 web3-eth-personal 包和 PlatON 节点账户进行交互。
+使用 web3-eth-personal 包和 `PlatON` 节点账户进行交互。
 
 注意，这个包中的许多函数包含敏感信息，例如密码，因此不要在未加密的
 websocket 或 http 服务提供器上调用这些函数，因为你的密码是明文发送的！
