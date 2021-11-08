@@ -495,18 +495,20 @@ HD钱包路径：【我的 - 钱包管理 - HD钱包详情 - HD设置 - 重新�
 
 
 ### ATON 1.1.0支持 WalletConnect！
+<div>
+<br />支持 WalletConnect ，你可以轻松完成与桌面端 DApp 的连接。
 
-支持 WalletConnect ，你可以轻松完成与桌面端 DApp 的连接。
+<br />WalletConnect 是一项支持通过扫码授权与桌面端 DApp 进行连接的服务，它就像一辆城际快速列车，拉近了桌面端应用和移动端钱包之间的距离。
+<br />ATON 普通版正式支持 WalletConnect 标准【HD版本暂不支持】，你不仅可以实现移动端 DApp 与 ATON 的交互，还能使用 ATON 扫码授权任何支持该标准的桌面端 DApp，且无需担心资产安全问题。
+<br />连接方式也很简单：
+<br />1.桌面端 DApp 选择使用 WalletConnect 连接；
+<br />2.点击 ATON 首页右上角【扫一扫】，选择钱包完成授权；
+<br />3.确认操作，在 ATON 中进行【确认】；
 
-WalletConnect 是一项支持通过扫码授权与桌面端 DApp 进行连接的服务，它就像一辆城际快速列车，拉近了桌面端应用和移动端钱包之间的距离。
-ATON 普通版正式支持 WalletConnect 标准【HD版本暂不支持】，你不仅可以实现移动端 DApp 与 ATON 的交互，还能使用 ATON 扫码授权任何支持该标准的桌面端 DApp，且无需担心资产安全问题。连接方式也很简单：
-1.桌面端 DApp 选择使用 WalletConnect 连接；
-2.点击 ATON 首页右上角【扫一扫】，选择钱包完成授权；
-3.确认操作，在 ATON 中进行【确认】；
-
-操作演示视频：
-https://www.youtube.com/watch?v=hnHRR7D0Rak 
+<br />操作演示视频：
+<br />https://www.youtube.com/watch?v=hnHRR7D0Rak 
 
 
-GitHub上ATON 的WalletConnect Dapp演示demo
-https://github.com/PlatONnetwork/WalletConnect-Example
+<br />GitHub上ATON 的WalletConnect Dapp演示demo
+<br />https://github.com/PlatONnetwork/WalletConnect-Example
+</div>
