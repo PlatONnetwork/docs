@@ -492,3 +492,21 @@ HD钱包路径：【我的 - 钱包管理 - HD钱包详情 - HD设置 - 重新�
 重新导入钱包成功后，原有的钱包信息将被清除。
 
 如果使用私钥/钱包文件重新导入，ATON中将不再存储助记词。
+
+
+### ATON 1.1.0支持 WalletConnect！
+
+支持 WalletConnect ，你可以轻松完成与桌面端 DApp 的连接。
+
+WalletConnect 是一项支持通过扫码授权与桌面端 DApp 进行连接的服务，它就像一辆城际快速列车，拉近了桌面端应用和移动端钱包之间的距离。
+ATON 普通版正式支持 WalletConnect 标准【HD版本暂不支持】，你不仅可以实现移动端 DApp 与 ATON 的交互，还能使用 ATON 扫码授权任何支持该标准的桌面端 DApp，且无需担心资产安全问题。连接方式也很简单：
+1.桌面端 DApp 选择使用 WalletConnect 连接；
+2.点击 ATON 首页右上角【扫一扫】，选择钱包完成授权；
+3.确认操作，在 ATON 中进行【确认】；
+
+操作演示视频：
+https://www.youtube.com/watch?v=hnHRR7D0Rak 
+
+
+GitHub上ATON 的WalletConnect Dapp演示demo
+https://github.com/PlatONnetwork/WalletConnect-Example
