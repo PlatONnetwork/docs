@@ -499,3 +499,19 @@ Path for Normal wallet: [Wallet] - [Wallet Icon] - [Reimport Wallet], or [Me] - 
 After successfully reimport a wallet, the old information of this wallet would be deleted. 
 
 If you reimport a wallet by PrivateKey or KeyStore, the Mnemonic of this wallet would not be saved in ATON.
+
+
+### ATON 1.1.0 supports WalletConnect!
+
+Support WalletConnect, you can easily complete the connection with the desktop DApp.
+
+WalletConnect is a service that supports connecting with desktop DApps through code scanning authorization. It is like an inter-city express train that narrows the distance between desktop applications and mobile wallets.
+The ATON regular version officially supports the WalletConnect standard [the HD version is not currently supported]. Not only can you realize the interaction between mobile DApps and ATON, you can also use ATON scan codes to authorize any desktop DApps that support this standard without worrying about asset security. The connection method is also very simple:
+1. The desktop DApp chooses to use WalletConnect to connect;
+2. Click [Scan] in the upper right corner of the ATON homepage, and select the wallet to complete the authorization;
+3. To confirm the operation, perform [Confirm] in ATON;
+Demo video:
+https://www.youtube.com/watch?v=hnHRR7D0Rak 
+
+ATON’s WalletConnect Dapp demo on GitHub.
+https://github.com/PlatONnetwork/WalletConnect-Example
