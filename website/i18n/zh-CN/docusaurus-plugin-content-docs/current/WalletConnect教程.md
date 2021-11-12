@@ -6,9 +6,10 @@ sidebar_label: WalletConnect
 
 ## 什么是 WalletConnect 协议
 
-[WalletConnect](https://walletconnect.org/) WalletConnect 是一种开放协议，用于在 Dapp 和钱包之间进行安全通信。该协议使用中继服务器在两个应用程序和/或设备之间建立远程配对以中继有效负载。这些有效载荷通过两个对等方之间的共享密钥对称加密。配对由显示的二维码或标准WalletConnect URI 地址发起，并在对方同意此配对请求时建立。
+[WalletConnect](https://walletconnect.org/) 是一种开放协议，用于在 Dapp 和钱包之间进行安全通信。该协议使用中继服务器在两个应用程序和/或设备之间建立远程配对以中继有效负载。这些有效载荷通过两个对等方之间的共享密钥对称加密。配对由显示的二维码或标准WalletConnect URI 地址发起，并在对方同意此配对请求时建立。
 
-
+> - ATON1.1.0版本开始支持 WalletConnect 协议，用户可以在保持私钥不离开移动设备，不暴露给连接的DApp的前提下，实现与DApp的连接和交易签名。
+> - 作为 DApp 开发人员，您需要了解有关成功Walletconnect集成的基础知识，让您的用户能够在 ATON 钱包中本地签署由您的 DApp 生成的交易。
 
 ## 核心架构
 
