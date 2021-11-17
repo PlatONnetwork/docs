@@ -1,0 +1,17 @@
+name: Check code format
+on:
+  pull_request:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with: 
+        ref: master
+    
+    # 检查是否可以编译成功
+    - name: Build
+      run: cd website && npm install && npm run build
