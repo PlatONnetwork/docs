@@ -6,10 +6,10 @@ sidebar_label: WalletConnect
 
 ## 什么是 WalletConnect 协议
 
-[WalletConnect](https://walletconnect.org/) 是一种开放协议，用于在 Dapp 和钱包之间进行安全通信。该协议使用中继服务器在两个应用程序和/或设备之间建立远程配对以中继有效负载。这些有效载荷通过两个对等方之间的共享密钥对称加密。配对由显示的二维码或标准WalletConnect URI 地址发起，并在对方同意此配对请求时建立。
+[WalletConnect](https://walletconnect.org/) 是一种开放协议，用于在 Dapp 和钱包之间进行安全通信。该协议在两个应用程序和/或设备之间建立远程配对，使用中继服务器来中继有效载荷。这些有效载荷通过两个对等方之间的共享密钥进行对称加密。配对由显示的二维码或带有标准WalletConnect URI 地址的一方发起，并在对方同意此配对请求时建立。
 
 > - ATON1.1.0版本开始支持 WalletConnect 协议，用户可以在保持私钥不离开移动设备，不暴露给连接的DApp的前提下，实现与DApp的连接和交易签名。
-> - 作为 DApp 开发人员，您需要了解有关成功Walletconnect集成的基础知识，让您的用户能够在 ATON 钱包中本地签署由您的 DApp 生成的交易。
+> - 作为 DApp 开发人员，您需要了解有关 Walletconnect 集成的基础知识，让您的用户能够在 ATON 钱包中本地签署由您的 DApp 生成的交易。
 
 ## 核心架构
 
@@ -19,7 +19,7 @@ sidebar_label: WalletConnect
 
 ### 请求连接
 
-发起者，是第一个请求连接的节点（Dapp ）。Dapp 使用标准WalletConnect URI格式（[EIP-1328](https://eips.ethereum.org/EIPS/eip-1328)）地址，向桥接服务器发送连接请求
+发起者，是第一个请求连接的节点（Dapp ）。Dapp 使用标准WalletConnect URI格式（[EIP-1328](https://eips.ethereum.org/EIPS/eip-1328)）地址，向桥接服务器发送连接请求。
 
 ```text
 wc:{topic...}@{version...}?bridge={url...}&key={key...}
@@ -45,7 +45,7 @@ wc:8a5e5bdc-a0e4-4702-ba63-8f1a5655744f@1?bridge=https%3A%2F%2Fbridge.walletconn
 
 第二个节点( Wallet )将使用二维码或深层链接读取 URI。读取 URI 后，对等方将立即接收并解密连接的请求数据。
 
-然后，钱包将向用户显示 Dapp 提供的请求详细信息。然后用户将批准或拒绝连接。如果被拒绝，Dapp 将立即与桥服务器断开连接，并在钱包提供的情况下抛出错误消息。如果获得批准，Dapp 将从钱包收到提供的帐户和 chainId。
+然后，钱包将向用户显示 Dapp 提供的请求详细信息。然后用户将批准或拒绝连接。如果被拒绝，Dapp 将立即与桥接服务器断开连接，并在钱包提供的情况下抛出错误消息。如果获得批准，Dapp 将从钱包收到提供的帐户和 ChainID。
 
 建立连接后，Dapp 将能够发送任何由钱包处理的 JSON-RPC 调用请求，以从其节点读取数据或为交易或消息发出签名请求。
 
@@ -53,7 +53,7 @@ wc:8a5e5bdc-a0e4-4702-ba63-8f1a5655744f@1?bridge=https%3A%2F%2Fbridge.walletconn
 
 ## 简单示例
 
-[详细源码](https://github.com/PlatONnetwork/WalletConnect-Example)， [JSON-RPC 说明](https://docs.walletconnect.com/1.0/client-api)
+[详细源码](https://github.com/PlatONnetwork/WalletConnect-Example)， [JSON-RPC 说明](https://docs.walletconnect.com/1.0/client-api) 。
 
 ```typescript
 import WalletConnect from "@walletconnect/client";
@@ -61,7 +61,7 @@ import QRCodeModal from "@walletconnect/qrcode-modal";
 
 // 创建连接
 const connector = new WalletConnect({
-  bridge: "https://bridge.walletconnect.org", // Required
+  bridge: "https://bridge.walletconnect.org",
   qrcodeModal: QRCodeModal,
 });
 
@@ -109,10 +109,3 @@ connector.sendTransaction({
 })
 
 ```
-
-
-
-
-
-
-
