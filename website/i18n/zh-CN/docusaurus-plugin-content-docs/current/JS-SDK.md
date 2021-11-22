@@ -107,6 +107,11 @@ console.log(web3);
 
 成功引入后，现在可以使用 web3 的相关 API 了。
 
+### Mac 下的安装和使用
+
+安装方式同上述 [Ubuntu下安装使用](#ubuntu-下安装使用)。<br/><br/>
+
+
 ### 详细使用
 
 #### web3.version
