@@ -43,26 +43,26 @@ sidebar_label: Ledger 硬件钱包
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div> 
-<br /><div class="text" style={{textAlign: "center"}}>图1.1.1</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.1.1</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.1.2.jpg" width ="500" style={{zoom: '80%'}} />
 </div> 
-<br /><div class="text" style={{textAlign: "center"}}>图1.1.2</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.1.2</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.1.3.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.1.3</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.1.3</div>
 <br />
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.1.4.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.1.4</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.1.4</div>
 <br />
 </div>
 
@@ -75,13 +75,13 @@ sidebar_label: Ledger 硬件钱包
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.1.5.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.1.5</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.1.5</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.1.6.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.1.6</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.1.6</div>
 
 <br />
 </div>
@@ -95,19 +95,19 @@ sidebar_label: Ledger 硬件钱包
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.1.7.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.1.7</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.1.7</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.1.8.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.1.8</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.1.8</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.1.9.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.1.9</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.1.9</div>
 <br />
 </div>
 
@@ -121,14 +121,14 @@ sidebar_label: Ledger 硬件钱包
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.2.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.2.1</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.2.1</div>
 <br />
 <br />2)连接桌面程序进行配对需要需要输入确认PIN识别密码，授权同意配对，如：图1.2.2；
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.2.2.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.2.2</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.2.2</div>
 <br />
 
 <br />3)Ledger live桌面应用程序添加下载安装PlatON应用：由于PlatON应用还没有正式上线Ledger live，目前属于尝鲜实验性功能，以供我们的专业爱好者/社区体验测试，所以需要用户手动去开启开发者模式才能把【PlatON】应用程序搜索到；建议大额交易暂时不进行体验测试。
@@ -138,13 +138,13 @@ sidebar_label: Ledger 硬件钱包
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.2.3.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.2.3</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.2.3</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.2.4.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.2.4</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.2.4</div>
 
 <br />
 </div>
@@ -160,7 +160,7 @@ sidebar_label: Ledger 硬件钱包
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.3.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.3.1</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.3.1</div>
 
 <br />
 <br />2)需要用Ledger 硬件钱包与Ledger live App程序进行配对，如：图1.3.1.1；选择自己的Ledger 硬件钱包与Ledger live App程序都需要确认配对，如：图1.3.2、图1.3.3、图1.3.4；确认后才能配对成功，如：图1.3.5；配对前需要保证Ledger硬件钱包是解锁状态并且蓝牙Bluetooth是开启，正常情况下Ledger硬件钱包一直都是开启状态，不用手动设置；另外前置条件：已经完成【1.1】设置。
@@ -168,31 +168,31 @@ sidebar_label: Ledger 硬件钱包
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.3.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.3.1.1</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.3.1.1</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.3.2.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.3.2</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.3.2</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.3.3.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.3.3</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.3.3</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.3.4.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.3.4</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.3.4</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.3.5.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.3.5</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.3.5</div>
 
 <br />
 <br />3)Ledger live App中，为Ledger硬件钱包添加【PlatON】应用程序：
@@ -202,25 +202,25 @@ sidebar_label: Ledger 硬件钱包
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.3.6.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.3.6</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.3.6</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.3.7.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.3.7</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.3.7</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.3.8.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.3.8</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.3.8</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure1.3.9.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图1.3.9</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图1.3.9</div>
 
 <br />
 </div>
@@ -234,7 +234,7 @@ sidebar_label: Ledger 硬件钱包
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure2.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图2.1.1</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图2.1.1</div>
 <br />
 </div>
 
@@ -246,13 +246,13 @@ sidebar_label: Ledger 硬件钱包
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure2.2.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图2.2.1</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图2.2.1</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure2.2.2.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图2.2.2</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图2.2.2</div>
 <br />
 </div>
 
@@ -264,25 +264,25 @@ sidebar_label: Ledger 硬件钱包
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure2.3.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图2.3.1</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图2.3.1</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure2.3.2.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图2.3.2</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图2.3.2</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure2.3.3.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图2.3.3</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图2.3.3</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure2.3.4.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图2.3.4</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图2.3.4</div>
 <br />
 <br />注：Samurai基于MetaMask的8.0.10版本开源代码修改的浏览器插件钱包，因此MetaMask操与Ledger硬件钱包的交互基本一致。
 <br />
@@ -298,19 +298,19 @@ sidebar_label: Ledger 硬件钱包
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure3.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图3.1.1</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图3.1.1</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure3.1.2.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图3.1.2</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图3.1.2</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure3.1.3.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图3.1.3</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图3.1.3</div>
 <br />
 </div>
 
@@ -322,7 +322,7 @@ sidebar_label: Ledger 硬件钱包
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure3.2.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图3.2.1</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图3.2.1</div>
 <br />
 <br />
 </div>
@@ -335,12 +335,12 @@ sidebar_label: Ledger 硬件钱包
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure4.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图4.1.1</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图4.1.1</div>
 
 <br />
 <div>
 <img src="/docs/en/img/zh-CN/ledger/Figure4.1.2.png" width ="500" style={{zoom: '80%'}} />
 </div>
-<br /><div class="text" style={{textAlign: "center"}}>图4.1.2</div>
+<br /><div class="text" style={{width: "400px", textAlign: "center"}}>图4.1.2</div>
 <br />
 </div>
