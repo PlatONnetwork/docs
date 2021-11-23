@@ -41,26 +41,26 @@ sidebar_label: Ledger 硬件钱包
 <br />注：Ledger与ATON助记词与Samurai助记词不兼容，相互导入请使用钱包私钥
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.1.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 <br /><div class="text" style={{textAlign: "center"}}>图1.1.1</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.2.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.2.jpg" width ="500" style={{zoom: '80%'}} />
 </div> 
 <br /><div class="text" style={{textAlign: "center"}}>图1.1.2</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.3.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.3.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.1.3</div>
 <br />
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.4.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.4.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.1.4</div>
 <br />
@@ -73,13 +73,13 @@ sidebar_label: Ledger 硬件钱包
 <br />https://www.ledger.com/ledger-live/download 操作安装如下图：图1.1.5和图1.1.6
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.5.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.5.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.1.5</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.6.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.6.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.1.6</div>
 
@@ -93,19 +93,19 @@ sidebar_label: Ledger 硬件钱包
 <br />②　打开Chrome浏览器，在地址栏输入chrome://extensions/并回车，进入到Chrome扩展程序管理页面；【打开】开发者模式开关，选择【加载已解压的扩展程序】，导入Samurai插件钱包解压的目录即可，如：图1.1.8和图1.1.9。
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.7.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.7.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.1.7</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.8.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.8.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.1.8</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.9.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.9.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.1.9</div>
 <br />
@@ -119,14 +119,14 @@ sidebar_label: Ledger 硬件钱包
 <br />1)打开Ledger live桌面程序选择对应的Ledger硬件设备，如：图1.2.1；首次使用需要去设置PIN识别码，之前已经设置好的选择直接连接到应用程序；
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.2.1.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.2.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.2.1</div>
 <br />
 <br />2)连接桌面程序进行配对需要需要输入确认PIN识别密码，授权同意配对，如：图1.2.2；
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.2.2.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.2.2.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.2.2</div>
 <br />
@@ -136,13 +136,13 @@ sidebar_label: Ledger 硬件钱包
 <br />②　接着在Manager中查找并安装【PlatON】应用程序，如：图1.2.4；下载安装完成后的下一步需要配合Samurai/MetaMask进行操作。
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.2.3.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.2.3.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.2.3</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.2.4.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.2.4.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.2.4</div>
 
@@ -158,7 +158,7 @@ sidebar_label: Ledger 硬件钱包
 <br />
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.1.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.3.1</div>
 
@@ -166,31 +166,31 @@ sidebar_label: Ledger 硬件钱包
 <br />2)需要用Ledger 硬件钱包与Ledger live App程序进行配对，如：图1.3.1.1；选择自己的Ledger 硬件钱包与Ledger live App程序都需要确认配对，如：图1.3.2、图1.3.3、图1.3.4；确认后才能配对成功，如：图1.3.5；配对前需要保证Ledger硬件钱包是解锁状态并且蓝牙Bluetooth是开启，正常情况下Ledger硬件钱包一直都是开启状态，不用手动设置；另外前置条件：已经完成【1.1】设置。
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.1.1.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.3.1.1</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.2.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.2.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.3.2</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.3.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.3.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.3.3</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.4.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.4.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.3.4</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.5.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.5.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.3.5</div>
 
@@ -200,25 +200,25 @@ sidebar_label: Ledger 硬件钱包
 管理器页面：选择自己的Ledger硬件钱包设备，打开应用程序目录，如：图1.3.8；应用程序中查找下载安装【PlatON】应用程序，如：图1.3.9；下载安装完成后的下一步需要配合Samurai/MetaMask进行操作。
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.6.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.6.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.3.6</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.7.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.7.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.3.7</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.8.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.8.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.3.8</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.9.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.9.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图1.3.9</div>
 
@@ -232,7 +232,7 @@ sidebar_label: Ledger 硬件钱包
 <br />前置条件：需完成上面【1.】的环境准备；接着Ledger硬件钱包需要选择PlatON硬件驱动应用，显示【application is ready】，如：图2.1.1；
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure2.1.1.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure2.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图2.1.1</div>
 <br />
@@ -244,13 +244,13 @@ sidebar_label: Ledger 硬件钱包
 <br />用Samurai随机创建一个账户，进入Samurai插件钱包主页面，选择【链接硬件钱包】配对，如：图2.2.1；链接配对成功后选择账户进行解锁硬件钱包，如：图2.2.2。
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure2.2.1.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure2.2.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图2.2.1</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure2.2.2.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure2.2.2.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图2.2.2</div>
 <br />
@@ -262,25 +262,25 @@ sidebar_label: Ledger 硬件钱包
 <br />Samurai读取并进入硬件钱包页面，选择转账发送操作，如：图2.3.1；Ledger硬件钱包收到签名并确认，如：图2.3.2和图2.3.3；确认后完成签名转账交易，如：图2.3.4。
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure2.3.1.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure2.3.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图2.3.1</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure2.3.2.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure2.3.2.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图2.3.2</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure2.3.3.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure2.3.3.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图2.3.3</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure2.3.4.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure2.3.4.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图2.3.4</div>
 <br />
@@ -296,19 +296,19 @@ sidebar_label: Ledger 硬件钱包
 <br />黑白按钮同时按下保持3秒，选择设置【Setting Manage device】，如：图3.1.1；选择【Security】安全设置，如：图3.1.2；选择【Change PIN】如：图3.1.3；最后设置新的PIN识别码；
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure3.1.1.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure3.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图3.1.1</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure3.1.2.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure3.1.2.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图3.1.2</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure3.1.3.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure3.1.3.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图3.1.3</div>
 <br />
@@ -320,7 +320,7 @@ sidebar_label: Ledger 硬件钱包
 <br />黑白按钮同时按下保持3秒，选择设置【Setting Manage device】，如：图3.1.1；选择【Security】安全设置，如：图3.1.2；选择【Reset device】如：图3.2.1；重置选择恢复【Restore from Recovery phrase】短语（助记词）如：图1.1.2；
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure3.2.1.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure3.2.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图3.2.1</div>
 <br />
@@ -333,13 +333,13 @@ sidebar_label: Ledger 硬件钱包
 <br /> - Ledger硬件钱包进入PlatON应用时，不能进入【application is ready】状态，显示【Pending】状态，如：图4.1.1时，需要重新插一次USB进入应用，或者重启重新进入应用；直到进入【application is ready】状态，如：图4.1.2。
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure4.1.1.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure4.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图4.1.1</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure4.1.2.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure4.1.2.png" width ="500" style={{zoom: '80%'}} />
 </div>
 <br /><div class="text" style={{textAlign: "center"}}>图4.1.2</div>
 <br />

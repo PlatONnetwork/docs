@@ -44,7 +44,7 @@ sidebar_label: Ledger hardware wallet
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.1.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.1.1</div>  
@@ -53,7 +53,7 @@ sidebar_label: Ledger hardware wallet
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.2.jpg "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.2.jpg" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.1.2</div>  
@@ -62,7 +62,7 @@ sidebar_label: Ledger hardware wallet
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.3.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.3.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.1.3</div>  
@@ -72,7 +72,7 @@ sidebar_label: Ledger hardware wallet
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.4.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.4.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.1.4</div>  
@@ -90,14 +90,14 @@ sidebar_label: Ledger hardware wallet
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.5.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.5.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.1.5</div>  
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.6.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.6.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.1.6</div>
@@ -114,7 +114,7 @@ sidebar_label: Ledger hardware wallet
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.7.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.7.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.1.7</div>
@@ -122,7 +122,7 @@ sidebar_label: Ledger hardware wallet
 <br />②　Open the Chrome browser, enter chrome://extensions/ in the address bar and press Enter to enter the page of Extensions. [Activate] developer mode, select [Load unpacked], import the directory where the Samurai plug-in wallet is unpacked, as shown in Figures 1.1.8.
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.1.8.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.1.8.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.1.8</div>
@@ -138,7 +138,7 @@ sidebar_label: Ledger hardware wallet
 <br />1) Open Ledger Live Desktop and select the corresponding Ledger hardware device, as shown in Figure 1.2.1. You need to set the PIN identification code for the first use, and the previously set options are directly synchronized to the application;
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.2.1.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.2.1.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.2.1</div>
@@ -146,7 +146,7 @@ sidebar_label: Ledger hardware wallet
 <br />2)To connect to the desktop program for pairing, you need to enter the PIN identification code, and authorize the pairing, as shown in Figure 1.2.2;
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.2.2.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.2.2.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.2.2</div>
@@ -156,7 +156,7 @@ sidebar_label: Ledger hardware wallet
 <br />①　Enter Ledger Live Desktop, and activate the developer mode in the settings, as shown in Figure 1.2.3;
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.2.3.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.2.3.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.2.3</div>
@@ -165,7 +165,7 @@ sidebar_label: Ledger hardware wallet
 <br />②　Then find and install [PlatON] in Manager, as shown in Figure 1.2.4. After that, we need Samurai/MetaMask;
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.2.4.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.2.4.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.2.4</div>
@@ -180,7 +180,7 @@ sidebar_label: Ledger hardware wallet
 <br />1)Open the Ledger Live app and select the corresponding Ledger hardware device, as shown in Figure 1.3.1. You need to set the PIN identification code for the first use, and the previously set options are directly synchronized to the application;
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.1.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.1.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.3.1</div>
@@ -188,7 +188,7 @@ sidebar_label: Ledger hardware wallet
 <br />2)It is necessary to pair the Ledger hardware wallet with the Ledger Live app, as shown in Figure 1.3.1.1；
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.1.1.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.3.1.1</div>
@@ -198,19 +198,19 @@ sidebar_label: Ledger hardware wallet
 <br />You need to confirm the pairing on both your Ledger hardware wallet and the Ledger Live app, as shown in Figures 1.3.2, 1.3.3, and 1.3.4.;
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.2.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.2.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.3.2</div>
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.3.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.3.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.3.3</div>
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.4.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.4.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.3.4</div>
@@ -218,7 +218,7 @@ sidebar_label: Ledger hardware wallet
 <br />Pairing can be successful only after confirmation, as shown in Figure 1.3.5.;
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.5.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.5.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.3.5</div>
@@ -230,13 +230,13 @@ sidebar_label: Ledger hardware wallet
 <br />Portfolio page: Tap [Settings] in the upper right corner, as shown in Figure 1.3.6. Select [Experimental Function], and activate [Developer mode], as shown in Figure 1.3.7;
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.6.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.6.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.3.6</div>
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.7.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.7.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.3.7</div>
@@ -244,14 +244,14 @@ sidebar_label: Ledger hardware wallet
 <br />Manager page: Select your Ledger hardware wallet device, and open the application catalog, as shown in Figure 1.3.8. Find and download [PlatON], as shown in Figure 1.3.9. After that, we need Samurai/MetaMask;
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.8.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.8.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.3.8</div>
 
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure1.3.9.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure1.3.9.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure1.3.9</div>
@@ -273,7 +273,7 @@ sidebar_label: Ledger hardware wallet
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure2.1.1.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure2.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure2.1.1</div>
@@ -287,14 +287,14 @@ sidebar_label: Ledger hardware wallet
 <br />Create an account randomly with Samurai, enter the main page of Samurai Wallet, and select [Link Hardware Wallet] to pair, as shown in Figure 2.2.1; after the link is successfully paired, select the account to unlock the hardware wallet, as shown in Figure 2.2.2;
 <br />
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure2.2.1.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure2.2.1.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure2.2.1</div>
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure2.2.2.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure2.2.2.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure2.2.2</div>
@@ -310,28 +310,28 @@ sidebar_label: Ledger hardware wallet
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure2.3.1.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure2.3.1.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure2.3.1</div>
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure2.3.2.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure2.3.2.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure2.3.2</div>
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure2.3.3.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure2.3.3.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure2.3.3</div>
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure2.3.4.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure2.3.4.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure2.3.4</div>
@@ -347,21 +347,21 @@ sidebar_label: Ledger hardware wallet
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure3.1.1.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure3.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure3.1.1</div>
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure3.1.2.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure3.1.2.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure3.1.2</div>
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure3.1.3.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure3.1.3.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure3.1.3</div>
@@ -376,7 +376,7 @@ sidebar_label: Ledger hardware wallet
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure3.2.1.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure3.2.1.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure3.2.1</div>
@@ -391,14 +391,14 @@ sidebar_label: Ledger hardware wallet
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure4.1.1.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure4.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure4.1.1</div>
 <br />
 
 <div>
-<img src = "/docs/img/zh-CN/ledger/Figure4.1.2.png "width ="500" style={{zoom: '80%'}} />
+<img src="/docs/en/img/zh-CN/ledger/Figure4.1.2.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
 <br /><div class="text" style={{textAlign: "center"}}>Figure4.1.2</div>
