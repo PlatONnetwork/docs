@@ -47,7 +47,7 @@ sidebar_label: Ledger hardware wallet
 <img src="/docs/en/img/zh-CN/ledger/Figure1.1.1.png" width ="500" style={{zoom: '80%'}} />
 </div> 
 
-<br /><div class="text" style={{textAlign: "center"}}>Figure1.1.1</div>  
+<br /><div class="text" width ="500" style={{textAlign: "center"}}>Figure1.1.1</div>  
 <br />
 <br />②　Between the two options, [Set up as new device] and [Restore from Recovery phrase], here we choose Restore from Recovery phrase (mnemonic phrase), as shown in Figure 1.1.2;
 <br />
