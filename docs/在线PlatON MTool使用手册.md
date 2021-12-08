@@ -42,7 +42,7 @@ Double-click `C:\platon_mtool\unins000.exe` to uninstall all old versions of Pla
 
 **Step1. Download PlatON MTool installation package**
 
-On the online machine, copy the link https://download.platon.network/platon/mtool/windows/1.1.0/platon_mtool.exe  to the browser and download the PlatON MTool installation package.
+On the online machine, copy the link https://download.platon.network/platon/mtool/windows/1.1.1/platon_mtool.exe  to the browser and download the PlatON MTool installation package.
 
 **Step2. Install PlatON MTool**
 
@@ -65,7 +65,7 @@ Proceed as follows:
 **Step1. Download PlatON MTool toolkit**
 
 ```bash
-wget https://download.platon.network/platon/mtool/linux/1.1.0/platon_mtool.zip
+wget https://download.platon.network/platon/mtool/linux/1.1.1/platon_mtool.zip
 ```
 
 **Step2. Extract the PlatON MTool toolkit**
