@@ -16,7 +16,7 @@ USAGE:
    platon [options] command [command options] [arguments...]
 
 VERSION:
-   1.1.1-unstable
+   1.1.2-unstable
 
 COMMANDS:
    account           Manage accounts
