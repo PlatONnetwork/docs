@@ -8,7 +8,7 @@ sidebar_label: Migration tutorial
 
 ### Introduction
 
-The highest solidity version number supported by PlatON is (0.4.26 0.5.17 0.6.12 0.7.6 0.8.2). If you migrate contracts of other versions, you need to modify it to the corresponding version number and adjust the related syntax.
+The highest solidity version number supported by PlatON is (0.4.26 0.5.17 0.6.12 0.7.6 0.8.6). If you migrate contracts of other versions, you need to modify it to the corresponding version number and adjust the related syntax.
 
 If you want to migrate Ethereum's smart contract to PlatON, you can do this with the `platon-truffle` development tool. First, to make sure have `platon-truffle` installed correctly, just follow these steps.
 

@@ -1,7 +1,7 @@
 ---
 id: WASM_Contract_5
-title: WASM——Proxy
-sidebar_label: PlatOn WASM contract (5) -- Proxy
+title: PlatON WASM contract (5) - Proxy
+sidebar_label: WASM—Proxy
 ---
 
 ### EN is under construction

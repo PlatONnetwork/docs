@@ -656,7 +656,7 @@ AttributeDict({'blockHash': HexBytes('0x7bfe17689560c773b1cade579f1bd2cf85aeea9f
   向platon 链上提交一个签名的序列化的交易
 
   ```
-platon.sendRawTransaction(signTransaction，private_key)
+platon.sendRawTransaction(signTransaction, private_key)
   ```
 
   参数：

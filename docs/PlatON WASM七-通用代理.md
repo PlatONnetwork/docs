@@ -1,7 +1,7 @@
 ---
 id: WASM_Contract_7
-title: WASM——General Proxy
-sidebar_label: PlatOn WASM contract (7) -- General Proxy
+title: PlatON WASM contract (7) - General Proxy
+sidebar_label: WASM—General Proxy
 ---
 
 ### EN is under construction

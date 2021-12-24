@@ -1,7 +1,7 @@
 ---
 id: WASM_Contract_2
-title: WASM跨合约调用
-sidebar_label: PlatOn WASM合约开发（二）——跨合约调用
+title: PlatON WASM合约开发（二）—— 跨合约调用
+sidebar_label: WASM跨合约调用
 ---
 
 
@@ -180,7 +180,7 @@ cross.methods.add_message("10", "11", "12").send({
    '0x8196f89cca8161b940b649008211c1cccea40edf0581d5088961c344382d3f31',
   transactionIndex: 0,
   events: {} }
-  ```
+```
 
 #### 4. 查询合约
 ##### get_message_body

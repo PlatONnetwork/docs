@@ -1,7 +1,7 @@
 ---
 id: WASM_Contract_4
-title: WASM——详解参数传递
-sidebar_label: PlatOn WASM contract (四) -- 详解参数传递
+title: PlatON WASM合约开发（四）—— 详解参数传递
+sidebar_label: WASM参数传递详解
 ---
 
 ## 概述
