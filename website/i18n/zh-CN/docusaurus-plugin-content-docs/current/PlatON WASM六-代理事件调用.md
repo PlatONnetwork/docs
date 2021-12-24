@@ -1,7 +1,7 @@
 ---
 id: WASM_Contract_6
-title: WASM——代理机制中访问合约事件
-sidebar_label: PlatOn WASM contract (六) -- 代理机制中访问合约事件
+title: PlatON WASM contract (六) - 代理机制中访问合约事件
+sidebar_label: WASM—代理机制中访问合约事件
 ---
 
 ## 概述

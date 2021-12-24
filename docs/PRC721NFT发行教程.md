@@ -244,4 +244,4 @@ As a note, the second parameter `1` indicates that the token number is 1, follow
 
 As for how to get online on the mainnet, you just need to find a node or deploy a mainnet node yourself and change the host of truffle-config.js to the corresponding ip.
 
-This tutorial was contributed by @LeQianQian
+This tutorial was contributed by @[LeQianQian](https://github.com/LeQianQian)

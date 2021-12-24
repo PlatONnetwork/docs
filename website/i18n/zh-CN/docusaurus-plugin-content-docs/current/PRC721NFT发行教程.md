@@ -240,4 +240,4 @@ nftExample.methods.mintWithTokenURI("您的测试钱包地址",1,'ipfs的uri').s
 
 综上所述，一步步走下来，你就能拥有一个属于自己的开发网 NFT 啦，至于如何在主网上线，你只需要找到一个节点或者自己部署一个主网节点，然后把 truffle-config.js 的host修改成对应的ip就可以啦。
 
-本教程贡献者 @乐浅浅
+本教程贡献者 @[乐浅浅](https://github.com/LeQianQian)

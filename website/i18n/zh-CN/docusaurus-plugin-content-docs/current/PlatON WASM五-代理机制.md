@@ -1,7 +1,7 @@
 ---
 id: WASM_Contract_5
-title: WASM——代理机制
-sidebar_label: PlatOn WASM contract (五) -- 代理机制
+title: PlatON WASM contract (五) - 代理机制
+sidebar_label: WASM—代理机制
 ---
 
 ## 概述
