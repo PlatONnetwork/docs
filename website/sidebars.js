@@ -83,8 +83,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Tutorials',
-      items: ['DApp_migrate', 'qianqian_prc721_tutorial', 'WASM_Contract_2', 'WASM_Contract_3', 'WASM_Contract_4', 'WASM_Contract_5', 'WASM_Contract_6', 'WASM_Contract_7', 'WASM_Contract_8', 'walletconnect_tutorial', 'DApp_integration_with_WalletConnect_for_ATON']
-
+      items: ['DApp_migrate', 'qianqian_prc721_tutorial', 'WASM_Contract_2', 'WASM_Contract_3', 'WASM_Contract_4', 'WASM_Contract_5', 'WASM_Contract_6', 'WASM_Contract_7', 'WASM_Contract_8', 'WASM_Contract_9', 'walletconnect_tutorial', 'DApp_integration_with_WalletConnect_for_ATON']
     },
     {
       type: 'category',
