@@ -101,7 +101,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Wallet',
-      items:['ATON-user-manual', 'Samurai_user_manual', 'Third_Party_Walle','Ledger-hardware-wallet']
+      items:['ATON-user-manual', 'Samurai_user_manual', 'Third_Party_Walle','Ledger-hardware-wallet', 'MetaMask']
     },
     'community',
   ]
