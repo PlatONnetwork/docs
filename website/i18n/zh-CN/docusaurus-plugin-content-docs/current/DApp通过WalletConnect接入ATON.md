@@ -1,7 +1,7 @@
 ---
 id: DApp_integration_with_WalletConnect_for_ATON
 title: DApp 通过 WalletConnect 接入 ATON
-sidebar_label: DApp 通过 WalletConnect 接入 ATON
+sidebar_label: WalletConnect集成教程
 ---
 
 

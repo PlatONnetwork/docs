@@ -43,5 +43,11 @@
   },
    "sidebar.docs.category.Tutorials": {
     "message": "示例教程"
+  },
+"sidebar.docs.category.WASM Tutorials": {
+    "message": "Wasm教程"
+  },
+"sidebar.docs.category.WalletConnect": {
+    "message": "WalletConnect"
   }
 }

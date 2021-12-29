@@ -1,7 +1,7 @@
 ---
 id: WASM_Contract_9
-title: WASM——内置数据结构性能测评
-sidebar_label: PlatOn WASM contract (九) -- 内置数据结构性能测评
+title: PlatON WASM contract (九) - 内置数据结构性能测评
+sidebar_label: WASM内置数据结构性能测评
 ---
 
 前期发布过wasm合约内置数据结构的使用教程，详见《[PlatON WASM contract (八) - 内置数据结构](https://devdocs.platon.network/docs/zh-CN/WASM_Contract_8)》。我们正在参加的黑客松活动刚好对链上数据存储及访问有一定性能上的需求，本教程将针对性能方面做一个简单的测评。

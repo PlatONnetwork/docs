@@ -1,7 +1,7 @@
 ---
 id: WASM_Contract_7
 title: PlatON WASM contract (七) - 通用代理
-sidebar_label: WASM—通用代理
+sidebar_label: WASM通用代理
 ---
 
 

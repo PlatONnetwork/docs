@@ -1,7 +1,7 @@
 ---
 id: WASM_Contract_8
 title: PlatON WASM contract (八) - 内置数据结构
-sidebar_label: WASM—内置数据结构
+sidebar_label: WASM内置数据结构
 ---
 
 合约一般可视为Dapp的“后台”，不可避免将对一些业务相关的数据进行记录。本篇针对可能常用的三类结构（platon::StorageType、platon::db::Map、platon::db::MultiIndex）进行示例讲解。其中platon::StorageType是最为灵活的使用方式，支持用户自定义数据结构，platon::db::Map的用法与std::map较为类似，platon::db::MultiIndex支持创建多索引的数据结构，便于根据不同的索引进行查询。由于链上存储有其独有的特征，这三类数据结构在操作性能上可能存在一定的差异，有机会笔者将在后续系列文章中将对此进行讲解。
