@@ -89,7 +89,7 @@ module.exports = {
         {
           type: 'category',
           label: 'WASM Tutorials',
-          items: ['WASM_Contract_2', 'WASM_Contract_3', 'WASM_Contract_4', 'WASM_Contract_5', 'WASM_Contract_6', 'WASM_Contract_7', 'WASM_Contract_8', 'WASM_Contract_9']
+          items: ['WASM_Contract_1', 'WASM_Contract_2', 'WASM_Contract_3', 'WASM_Contract_4', 'WASM_Contract_5', 'WASM_Contract_6', 'WASM_Contract_7', 'WASM_Contract_8', 'WASM_Contract_9']
         },
         {
           type: 'category',
