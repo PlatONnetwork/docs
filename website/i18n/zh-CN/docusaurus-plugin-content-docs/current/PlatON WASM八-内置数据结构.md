@@ -105,7 +105,8 @@ void WasmDataStruct::ModifyUserInfo(const UserDefinedData& udd){
     if (uTableItr != _mUser_table.cend())
     {
         _mUser_table.modify(uTableItr, [&](auto& userData) {
-            userData = udd;
+            // keys cannot be changed
+			userData.uContent = udd.uContent;
             });
     }
 }
