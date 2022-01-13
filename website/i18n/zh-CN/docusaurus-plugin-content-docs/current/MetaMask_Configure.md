@@ -241,8 +241,8 @@ http://8.220.31.172:6789 (ws://8.220.31.172:6790)
 
 首先打开 [ChainList](https://chainlist.org/) 网站，点击“Connect Wallet”授权连接MetaMask钱包。
 
-<img src="/docs/img/en/MetaMask_Configure.assets/e27a930f30709e719b147ac64dcaaacaf904b93a_2_690x3386.png" alt="e27a930f30709e719b147ac64dcaaacaf904b93a_2_690x338"/>
 
+<img src="/docs/img/en/MetaMask_Configure.assets/e27a930f30709e719b147ac64dcaaacaf904b93a_2_690x3386.png" alt="e27a930f30709e719b147ac64dcaaacaf904b93a_2_690x3386"/>
 
 
 然后，在输入框内输入 **PlatON** 搜索，
@@ -261,7 +261,7 @@ http://8.220.31.172:6789 (ws://8.220.31.172:6790)
 
 让我们来如法炮制一下Alaya的网络环境添加
 
-<img src="/docs/img/en/MetaMask_Configure.assets/e67da043d7028ad99c9f1048a37b65d13a1f8ad9_2_690x338" alt="e67da043d7028ad99c9f1048a37b65d13a1f8ad9_2_690x338"/>
+<img src="/docs/img/en/MetaMask_Configure.assets/e67da043d7028ad99c9f1048a37b65d13a1f8ad9_2_690x338.png" alt="e67da043d7028ad99c9f1048a37b65d13a1f8ad9_2_690x338"/>
 
 
 
