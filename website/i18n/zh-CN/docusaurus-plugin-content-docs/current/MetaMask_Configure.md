@@ -291,7 +291,7 @@ http://8.220.31.172:6789 (ws://8.220.31.172:6790)
 <img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.2.3].png" alt="[Figure-4.1.2.3]"/>
 
 
-### 添加网络并切即可使用
+### 添加网络并切换即可使用
 
 1)连接成功后之前【Connect MetaMask】按钮变成了【Add to MetaMask】按钮，点击【Add to MetaMask】按钮；
 <img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.3.1].png" alt="[Figure-4.1.3.1]"/>
