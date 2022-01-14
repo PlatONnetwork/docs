@@ -263,10 +263,41 @@ http://8.220.31.172:6789 (ws://8.220.31.172:6790)
 
 <img src="/docs/img/en/MetaMask_Configure.assets/e67da043d7028ad99c9f1048a37b65d13a1f8ad9_2_690x338.png" alt="e67da043d7028ad99c9f1048a37b65d13a1f8ad9_2_690x338"/>
 
-
-
 同样是**Approve**，再**switch network**，即可完成Alaya测试网络的添加。
 
+
+
+## 区块浏览器中快速添加
+
+
+进入区块浏览器，导航菜单找到【MORE】点击【Add to Extension】；
+>PlatON主网区块浏览器：https://scan.platon.network/
+>
+>PlatON开发网区块浏览器：https://devnetscan.platon.network/
+>
+>Alaya主网区块浏览器：https://scan.alaya.network/
+>
+>Alaya开发网区块浏览器：https://devnetscan.alaya.network/
+<img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.1].png" alt="[Figure-4.1.1]"/>
+
+### 连接浏览器插件钱包
+
+1)区块浏览器进入Add to Extension页面后，点击【Connect MetaMask】按钮；【前提条件：事先需要在浏览器中安装添加MetaMask插件钱包】
+<img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.2.1].png" alt="[Figure-4.1.2.1]"/>
+
+2)MetaMask钱包点击【Next】；接着再点击【Connect】进行连接，；这里的操作是与MetaMask插件钱包进行连接，建立通讯；
+<img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.2.2].png" alt="[Figure-4.1.2.2]"/>
+<img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.2.3].png" alt="[Figure-4.1.2.3]"/>
+
+
+### 添加网络并切即可使用
+
+1)连接成功后之前【Connect MetaMask】按钮变成了【Add to MetaMask】按钮，点击【Add to MetaMask】按钮；
+<img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.3.1].png" alt="[Figure-4.1.3.1]"/>
+
+2)MetaMask插件点击【Approve】确认即可添加到MetaMask；插件钱包会提示切换到该网络下，点击【Switch Network】按钮，切换到该网络下，切换网络好了即使用啦；
+<img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.3.2].png" alt="[Figure-4.1.3.2]"/>
+<img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.3.3].png" alt="[Figure-4.1.3.3]"/>
 
 
 本教程贡献者 @[LeQianQian](https://github.com/LeQianQian)   @[Dengxin46](https://github.com/Dengxin46)
