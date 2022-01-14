@@ -278,6 +278,7 @@ http://8.220.31.172:6789 (ws://8.220.31.172:6790)
 >Alaya主网区块浏览器：https://scan.alaya.network/
 >
 >Alaya开发网区块浏览器：https://devnetscan.alaya.network/
+
 <img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.1].png" alt="[Figure-4.1.1]"/>
 
 ### 连接浏览器插件钱包
@@ -295,10 +296,12 @@ http://8.220.31.172:6789 (ws://8.220.31.172:6790)
 1)连接成功后之前【Connect MetaMask】按钮变成了【Add to MetaMask】按钮，点击【Add to MetaMask】按钮；
 <img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.3.1].png" alt="[Figure-4.1.3.1]"/>
 
-2)MetaMask插件点击【Approve】确认即可添加到MetaMask；插件钱包会提示切换到该网络下，点击【Switch Network】按钮，切换到该网络下，切换网络好了即使用啦；
+2)MetaMask插件点击【Approve】确认即可添加到MetaMask；
 <img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.3.2].png" alt="[Figure-4.1.3.2]"/>
-<img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.3.3].png" alt="[Figure-4.1.3.3]"/>
 
+3）插件钱包会提示切换到该网络下，点击【Switch Network】按钮，切换到该网络下，切换网络好了即使用啦；
+<img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.3.3].png" alt="[Figure-4.1.3.3]"/>
+<img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.4.1].png" alt="[Figure-4.1.4.1]"/>
 
 本教程贡献者 @[LeQianQian](https://github.com/LeQianQian)   @[Dengxin46](https://github.com/Dengxin46)
 
