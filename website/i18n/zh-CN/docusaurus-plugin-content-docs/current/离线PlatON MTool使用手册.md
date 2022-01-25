@@ -460,7 +460,7 @@ platon_mtool staking --config $PLATON_MTOOLDIR/validator/validator_config.json -
 - 执行命令
 
 ```bash
-platon_mtool update_validator --config $PLATON_MTOOLDIR/validator/validator_config.json --address $PLATON_MTOOLDIR/keystore/staking_observed.json --node_name myNode --website www.mywebsite.com --external_id 121412312 --delegated_reward_rate 6000 --benefit_address lax1x0f9xwr9steccekttqvml0d26zgsxwdnhq3fkv --details "Modify the verifier information operation"
+platon_mtool update_validator --config $PLATON_MTOOLDIR/validator/validator_config.json --address $PLATON_MTOOLDIR/keystore/staking_observed.json --node_name myNode --website www.mywebsite.com --external_id 121412312 --delegated_reward_rate 6000 --benefit_address lat1x0f9xwr9steccekttqvml0d26zgsxwdnhq3fkv --details "Modify the verifier information operation"
 ```
 
 - 参数说明

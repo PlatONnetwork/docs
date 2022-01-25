@@ -466,7 +466,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_accounts","params":[],"id
 {
   "id":1,
   "jsonrpc": "2.0",
-  "result": ["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3"]
+  "result": ["lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3"]
 }
 ```
 
@@ -509,7 +509,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_blockNumber","params":[],
 
 ```js
 params: [
-   'lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3',
+   'lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3',
    'latest'
 ]
 ```
@@ -522,7 +522,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBalance","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3", "latest"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBalance","params":["lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3", "latest"],"id":1}'
 
 // Result
 {
@@ -547,7 +547,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBalance","params":["la
 
 ```js
 params: [
-   'lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3',
+   'lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3',
    '0x0', // storage position at 0
    '0x2' // state at block number 2
 ]
@@ -561,7 +561,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getStorageAt","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3", "0x0", "0x2"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getStorageAt","params":["lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3", "0x0", "0x2"],"id":1}'
 
 // Result
 {
@@ -584,7 +584,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getStorageAt","params":["
 
 ```js
 params: [
-   'lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3',
+   'lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3',
    'latest' // state at the latest block
 ]
 ```
@@ -597,7 +597,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionCount","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3","latest"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionCount","params":["lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3","latest"],"id":1}'
 
 // Result
 {
@@ -690,7 +690,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockTransactionCountB
 
 ```js
 params: [
-   'lax14984xa8uuhkmer32s6tuz5e3valxa0ct68a0c5',
+   'lat14984xa8uuhkmer32s6tuz5e3valxa0ct68a0c5',
    '0x2'  // 2
 ]
 ```
@@ -703,7 +703,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getCode","params":["lax14984xa8uuhkmer32s6tuz5e3valxa0ct68a0c5", "0x2"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getCode","params":["lat14984xa8uuhkmer32s6tuz5e3valxa0ct68a0c5", "0x2"],"id":1}'
 
 // Result
 {
@@ -734,7 +734,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getCode","params":["lax14
 
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_sign","params":["lax16xk7yhxd842s5l44x2k8t89v00sfcfcej8gsug", "Schoolbus"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_sign","params":["lat16xk7yhxd842s5l44x2k8t89v00sfcfcej8gsug", "Schoolbus"],"id":1}'
 
 // Result
 {
@@ -763,8 +763,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_sign","params":["lax16xk7
 
 ```js
 params: [{
-  "from": "lax1kc8gm4sut5etaqzchw8tjuy8purjxv245450s0",
-  "to": "lax163hgm4nut5etaqzchw8tjuy8purjg3t87dtrgq",
+  "from": "lat1kc8gm4sut5etaqzchw8tjuy8purjxv245450s0",
+  "to": "lat163hgm4nut5etaqzchw8tjuy8purjg3t87dtrgq",
   "gas": "0x76c0", // 30400,
   "gasPrice": "0x9184e72a000", // 10000000000000
   "value": "0x9184e72a", // 2441406250
@@ -1371,7 +1371,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockByHash","params":
     "logsBloom": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331",
     "transactionsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
     "stateRoot": "0xd5855eb08b3387c0af375e9cdb6acfc05eb8f519e419b874b6ff2ffda7ed1dff",
-    "miner": "lax1fejlmgs4j432f9he7dfzlzgj9gcgsjt6c4ujsh",
+    "miner": "lat1fejlmgs4j432f9he7dfzlzgj9gcgsjt6c4ujsh",
     "difficulty": "0x027f07", // 163591
     "totalDifficulty":  "0x027f07", // 163591
     "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -1465,8 +1465,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionByHash","pa
     "blockHash": "0xbeab0aa2411b7ab17f30a99d3cb9c6ef2fc5426d6ad6fd9e2a26a6aed1d1055b",
     "blockNumber": "0x15df", // 5599
     "transactionIndex":  "0x1", // 1
-    "from":"lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3",
-    "to":"lax163hgm4nut5etaqzchw8tjuy8purjg3t87dtrgq",
+    "from":"lat1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3",
+    "to":"lat163hgm4nut5etaqzchw8tjuy8purjg3t87dtrgq",
     "value":"0x7f110" // 520464
     "gas": "0x7f110" // 520464
     "gasPrice":"0x09184e72a000",
@@ -1584,7 +1584,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionReceipt","p
      blockHash: '0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b',
      cumulativeGasUsed: '0x33bc', // 13244
      gasUsed: '0x4dc', // 1244
-     contractAddress: 'lax1kc8gm4sut5etaqzchw8tjuy8purjxv245450s0' // or null, if none was created
+     contractAddress: 'lat1kc8gm4sut5etaqzchw8tjuy8purjxv245450s0' // or null, if none was created
      logs: [{
          // logs as returned by getFilterLogs, etc.
      }, ...]
@@ -1611,7 +1611,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionReceipt","p
 params: [{
   "fromBlock": "0x1",
   "toBlock": "0x2",
-  "address": "lax13zy0ruv447se9nlwscrfskzvqv85e8d35gau40",
+  "address": "lat13zy0ruv447se9nlwscrfskzvqv85e8d35gau40",
   "topics": ["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b", null, [0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b, 0x000000000000000000000000aff3454fce5edbc8cca8697c15331677e6ebccc]]
 }]
 ```
@@ -1773,7 +1773,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getFilterChanges","params
     "blockHash": "0x8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcfdf829c5a142f1fccd7d",
     "transactionHash":  "0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf",
     "transactionIndex": "0x0", // 0
-    "address": "lax1zmzhskk9vtl5rckulhuzn3dpgtclenta5fjs08",
+    "address": "lat1zmzhskk9vtl5rckulhuzn3dpgtclenta5fjs08",
     "data":"0x0000000000000000000000000000000000000000000000000000000000000000",
     "topics": ["0x59ebeb90bc63057b6515673c3ecf9438e5058bca0f92585014eced636878c9a5"]
     },{

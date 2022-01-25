@@ -316,7 +316,7 @@ COPYRIGHT:
   如：
 
   ```bash
-  platon attach http://localhost:6789 -exec 'platon.estimateGas({from:"lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6",to:"lax1zhllhqu72wz66cdwly8983xhla2sann75j2ec2",value:"0x10000000000000",data:"0x11",gas:"0x88888",gasprice:"0x333333",nonce:"11"})'
+  platon attach http://localhost:6789 -exec 'platon.estimateGas({from:"lat1fyeszufxwxk62p46djncj86rd553skpptsj8v6",to:"lat1zhllhqu72wz66cdwly8983xhla2sann75j2ec2",value:"0x10000000000000",data:"0x11",gas:"0x88888",gasprice:"0x333333",nonce:"11"})'
   ```
 
 - 查看当前节点底层版本的p2p协议号
