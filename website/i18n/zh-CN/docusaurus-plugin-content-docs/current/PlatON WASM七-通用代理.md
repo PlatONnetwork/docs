@@ -134,7 +134,7 @@ true = True
 instanceABI = [{"anonymous":false,"input":[{"name":"topic","type":"string"},{"name":"arg1","type":"int32"}],"name":"addCallResult","topic":1,"type":"Event"},{"constant":false,"input":[],"name":"init","output":"void","type":"Action"},{"constant":false,"input":[{"name":"eles","type":"int32[]"}],"name":"testAddFromGeneralProxy","output":"bool","type":"Action"}]
 instanceContractAddr = 'lat1dgcfjgtdw56rjg7fa90gwzg0fdw9lyrs3kka28'
 
-#测试网/主网账户地址
+#主网账户地址
 clientAccount = 'latxxxx'
 
 proxyABI= [{"constant":false,"input":[],"name":"init","output":"void","type":"Action"},{"constant":false,"input":[{"name":"contractAddr","type":"string"},{"name":"params","type":"uint8[]"}],"name":"generalCall","output":"bool","type":"Action"}]

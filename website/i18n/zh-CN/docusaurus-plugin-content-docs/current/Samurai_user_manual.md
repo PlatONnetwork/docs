@@ -168,7 +168,7 @@ Samurai基于MetaMask的8.0.10版本开源代码修改的浏览器插件钱包�
 
 ### 切换网络
 
-Samurai默认添加了PlatON主网、PlatON开发测试网、PlatON主网、PlatON开发测试网，您可以选择连接的网络。 单击“网络”并从四个网络中选择一个网络进行连接。
+Samurai默认添加了PlatON主网、PlatON开发测试网、ALAYA主网、ALAYA开发测试网，您可以选择连接的网络。 单击“网络”并从四个网络中选择一个网络进行连接。
 
 <img src="/docs/img/zh-CN/Samurai.assets/choose-network.jpg" alt="选择网络"/>
 
