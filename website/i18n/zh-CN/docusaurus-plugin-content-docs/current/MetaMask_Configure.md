@@ -26,19 +26,19 @@ MetaMask作为目前市面上用户量最多，应用最广泛的浏览器插件
 
 1. 使用MetaMask钱包生成的，展示的是0x开头的地址，也就是以太坊格式地址。如需查看PlatON| Alaya格式地址，请在PlatON| Alaya中进行查看。
 
-   > PlatON MainNet：https://scan.platon.network/  ，https://rpc.plateye.com（itokenpool提供）
+   > PlatON MainNet：https://scan.platon.network/  
    >
    > PlatON DevNet: https://devnetscan.platon.network/
    >
-   > Alaya MainNet：https://scan.alaya.network/ ， https://rpc.alayascan.com （itokenpool提供）
+   > Alaya MainNet：https://scan.alaya.network/ 
    >
    > Alaya DevNet: https://devnetscan.alaya.network/
-   >
-   > 
 
 2. ATON钱包助记词与MetaMask助记词由于生成路径不一致，无法相互不兼容。私钥兼容。
 
 3. MetaMask面向目前暂时不支持WASM合约调用，仅支持EVM合约。
+
+4. **由于当前PlatON 主网络的ChainID（100）与xDai主网络相同，因此在MetaMask上配置PlatON主网络前，请删除MetaMask中的xDai主网络，或者通过“手动添加方式”配置PlatON主网络（忽略ChainID冲突的提示）**。
 
 
 
@@ -70,21 +70,11 @@ MetaMask作为目前市面上用户量最多，应用最广泛的浏览器插件
 
 
 
-## 注意事项
-
-由于当前PlatON 主网络的ChainID（100）与xDai主网络相同，因此在MetaMask上配置PlatON主网络前，请删除MetaMask中的xDai主网络，或者通过“手动添加方式”配置PlatON主网络（忽略ChainID冲突的提示）。
-
-
-
 
 
 ## 手动添加 PlatON 网络
 
 ### PlatON主网
-
-
-
-
 
 首先你需要在Chrome浏览器上安装一个MetaMask插件。
 
@@ -113,6 +103,10 @@ Chain ID：100
 Currency Symbol：LAT
 Block Explorer URL: https://scan.platon.network/
 ```
+
+其他可用PlatON主网络RPC节点：
+
+> https://rpc.plateye.com（itokenpool提供）
 
 接着点击保存，等待完成即可。
 
@@ -199,6 +193,12 @@ Chain ID：201018
 Currency Symbol：ATP
 Block Explorer URL: https://scan.alaya.network/
 ```
+
+其他可用Alaya主网络RPC节点：
+
+>  https://rpc.alayascan.com （itokenpool提供）
+
+
 
 添加成功：
 
