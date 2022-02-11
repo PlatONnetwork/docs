@@ -26,13 +26,15 @@ MetaMask作为目前市面上用户量最多，应用最广泛的浏览器插件
 
 1. 使用MetaMask钱包生成的，展示的是0x开头的地址，也就是以太坊格式地址。如需查看PlatON| Alaya格式地址，请在PlatON| Alaya中进行查看。
 
-   > PlatON MainNet：https://scan.platon.network/
+   > PlatON MainNet：https://scan.platon.network/  ，https://rpc.plateye.com（itokenpool提供）
    >
    > PlatON DevNet: https://devnetscan.platon.network/
    >
-   > Alaya MainNet：https://scan.alaya.network/
+   > Alaya MainNet：https://scan.alaya.network/ ， https://rpc.alayascan.com （itokenpool提供）
    >
    > Alaya DevNet: https://devnetscan.alaya.network/
+   >
+   > 
 
 2. ATON钱包助记词与MetaMask助记词由于生成路径不一致，无法相互不兼容。私钥兼容。
 
@@ -68,11 +70,21 @@ MetaMask作为目前市面上用户量最多，应用最广泛的浏览器插件
 
 
 
+## 注意事项
+
+由于当前PlatON 主网络的ChainID（100）与xDai主网络相同，因此在MetaMask上配置PlatON主网络前，请删除MetaMask中的xDai主网络，或者通过“手动添加方式”配置PlatON主网络（忽略ChainID冲突的提示）。
+
+
+
 
 
 ## 手动添加 PlatON 网络
 
 ### PlatON主网
+
+
+
+
 
 首先你需要在Chrome浏览器上安装一个MetaMask插件。
 
