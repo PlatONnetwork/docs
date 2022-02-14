@@ -34,7 +34,7 @@ MetaMask作为目前市面上用户量最多，应用最广泛的浏览器插件
    >
    > Alaya DevNet: https://devnetscan.alaya.network/
 
-2. ATON钱包助记词与MetaMask助记词由于生成路径不一致，无法相互不兼容。私钥兼容。
+2. ATON钱包助记词与MetaMask助记词由于生成路径不一致，无法相互兼容。私钥兼容。
 
 3. MetaMask面向目前暂时不支持WASM合约调用，仅支持EVM合约。
 
