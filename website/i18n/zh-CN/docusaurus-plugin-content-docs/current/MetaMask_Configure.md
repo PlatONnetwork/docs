@@ -51,9 +51,7 @@ MetaMask作为目前市面上用户量最多，应用最广泛的浏览器插件
 可参考：
 
 > [MetaMask的安装、配置和使用](https://chainlink-chinese.readme.io/docs/metamask的安装-配置和使用)
->
-> // 英文 https://archive.docs.chain.link/docs/install-metamask#config
->
+> 
 > [How To Use MetaMask: Ethereum Wallet in your Browser](https://www.youtube.com/watch?v=ZIGUC9JAAw8)
 
 
