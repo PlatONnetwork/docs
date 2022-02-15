@@ -38,7 +38,7 @@ MetaMask作为目前市面上用户量最多，应用最广泛的浏览器插件
 
 3. MetaMask面向目前暂时不支持WASM合约调用，仅支持EVM合约。
 
-4. **由于当前PlatON 主网络的ChainID（100）与xDai主网络相同，因此在MetaMask上配置PlatON主网络前，请删除MetaMask中的xDai主网络，或者通过“手动添加方式”配置PlatON主网络（忽略ChainID冲突的提示）**。
+4. **由于当前PlatON 主网络的ChainID（100）与xDai主网络相同，因此在MetaMask上配置PlatON主网络前，请删除MetaMask中的xDai主网络，或者通过“手动添加方式”配置PlatON主网络（忽略ChainID冲突的提示）。未来计划更新ChainID为210425，已在Chainlist注册（目前该ChainID：210425 不可用）**
 
 
 
@@ -260,6 +260,9 @@ http://8.220.31.172:6789 (ws://8.220.31.172:6790)
 得到：
 
 <img src="/docs/img/en/MetaMask_Configure.assets/9800bbe80cff52b23b102f36b0eae9e0c05a7bbd_2_690x338.png" alt="9800bbe80cff52b23b102f36b0eae9e0c05a7bbd_2_690x338"/>
+
+**注意：
+当前PlatON主网ChainID:100，Chainlist已存在ChainID:100的链, 因此暂不支持在Chainlist上添加PlatON主网。注册的ChainID:210425暂未生效，不可用！！**
 
 接着，点击“Add tTo MetaMask” 进行网络添加。
 
