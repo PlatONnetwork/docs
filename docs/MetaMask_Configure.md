@@ -40,7 +40,7 @@ MetaMask makes operations such as transfer, signing, and contract interaction mo
 
 3. MetaMask cannot be called by WASM contracts, but EVM contracts only. 
 
-4. **Since the ChainID (100) of the current PlatON MainNet is the same as the xDai MainNet, before configuring the PlatON MainNet on MetaMask, please delete the xDai MainNet in MetaMask, or configure the PlatON MainNet by "manually adding" (Ignore the hint of ChainID conflict).** 
+4. **Since the ChainID (100) of the current PlatON MainNet is the same as the xDai MainNet, before configuring the PlatON MainNet on MetaMask, please delete the xDai MainNet in MetaMask, or configure the PlatON MainNet by "manually adding" (Ignore the hint of ChainID conflict). Future plans to update the ChainID to 210425, already registered in Chainlist (currently this ChainID: 210425 is not available)** 
 
 
 
@@ -268,7 +268,8 @@ and we can see:
 
 <img src="/docs/img/en/MetaMask_Configure.assets/9800bbe80cff52b23b102f36b0eae9e0c05a7bbd_2_690x338.png" alt="9800bbe80cff52b23b102f36b0eae9e0c05a7bbd_2_690x338"/>
 
-
+**Note.
+Currently PlatON Mainnet ChainID:100, Chainlist already has a Blockchain with ChainID:100, so adding PlatON Mainnet from Chainlist is not supported for now. The registered ChainID:210425 is not yet valid and is not available! **
 
 Next, click "Add tTo MetaMask" to add the network. 
 
