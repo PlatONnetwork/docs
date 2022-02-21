@@ -4,7 +4,6 @@ title: PlatONet：PlatON/Alaya网络的.NET SDK
 sidebar_label: .NET SDK
 ---
 
-# PlatONet：PlatON/Alaya网络的.NET SDK
 
 PlatONet是PlatON/Alaya网络的dotnet sdk，通过PlatONet，开发人员能够使用dotnet(如c#，C++等)接入PlatON/Alaya网络，查询PlatON/Alaya网络的相关参数，如发送lat/atp，与智能合约进行交互，执行PlatON/Alaya网络的内置合约等。PlatONet包含client-java-sdk的所有功能。
 
@@ -12,11 +11,16 @@ PlatONet是PlatON/Alaya网络的dotnet sdk，通过PlatONet，开发人员能够
 
 API文档：[PlatONet API文档](https://rileyge.github.io/platonet-documents/api/)
 
-## 1. 项目适用平台
+
+## 快速开始
+
+本文旨在让有dotnet、区块链开发经验的开发者可以快速使用PlatONet。
+
+### 项目适用平台
 
 PlatONet符合.net standard 2.0标准，可以广泛的应用于Windows、Mac、Linux等操作系统。
 
-## 2. 安装与使用
+### 安装与使用
 
 打开Nuget命令行工具，运行以下命令：
 
@@ -26,70 +30,19 @@ Install-Package PlatONet
 
 或使用Visual Studio的NuGet包管理器，搜索并安装`PlatONet`。
 
-## 3. 快速开始
-
-请参照文档。
-
-## 4. 文档
-
-文档地址：https://rileyge.github.io/platonet-documents/
-
-## 5. 项目结构
-
-PlatONet的结构非常简单，主要包含了三个命名：`PlatONet`、`PlatONet.Crypto`、`PlatONet.DTOs`。其中`PlatONet.Crypto`主要是一些加密算法，仅供项目内部使用，对外公开的只有`PlatONet`和`PlatONet.DTOs`两个命名空间。
-
-### 5.1. PlatONet命名空间
-
-PlatONet的主体内容都存在于这个命名空间中，主要有以下几个类：
-
-- Web3类：最重要入口，PlatONet的基础，可以用于查询网络基础信息、管理账号、PlatON类、PPOS类。
-- PlatON类：PlatON网络类，用于交易和查询，也可以生成PlatONContract类与智能合约进行交互。
-- PlatONContract类：智能合约类，用于与PlatON网络中的智能合约进行交互，也可以生成PlatONFunction。
-- PlatONFunction类：智能合约方法类，直接调用智能合约的方法，进行交易等。
-- Transaction类：交易信息类，进行交易内容的管理
-- Account类：账号管理、签名。
-- Address类：地址类，进行地址管理。
-
-### 5.2. PlatONet.DTOs命名空间
-
-此命名空间中包含多个数据传输对象（Data Transfer Objects），主要用于数据传输。
-
-## 6. 参与本项目
-
-任何形式的参与本项目都是欢迎的，你可以：
-
-- 通过Issue可Discussions来参与本项目讨论
-- 通过Pull Request向本项目提交代码
-- 资助本项目：PlatON钱包地址：lat1vvtea8l8ve7xu0pncwgrgavdpkkql4e25jp6gk
-- 给我运行的节点投票，节点名[rileyge](https://scan.platon.network/node-detail?address=0x78d2f0cb6b261f41c17893dbec000010818ffba2b41732d4a6d16b8af36e05f51d19529adae4674a2538cd5622974c0e9d60eab10de42099c4a600c435c4714f)投票
-
-# 快速开始
-
-本文旨在让有dotnet、区块链开发经验的开发者可以快速使用PlatONet。
-
-## 1. 项目适用平台
-
-PlatONet符合.net standard 2.0标准，可以广泛的应用于Windows、Mac、Linux等操作系统。
-
-## 2. 安装与使用
-
-打开NuGet命令行工具，运行以下命令：
-
-```powershell
-Install-Package PlatONet
-```
-
-或使用Visual Studio的NuGet包管理器，搜索并安装`PlatONet`。
-
-## 3. 示例
+## 示例
 
 [PlatONet](https://github.com/RileyGe/PlatONet)项目包含了非常多的示例，可以帮助用户快速开始使用PlatONet。具体请参照：[PlatONet示例](https://github.com/RileyGe/PlatONet/tree/main/examples)。示例基础.net core 3.1。
 
-## 4. 项目结构
+## 文档
+
+文档地址：https://rileyge.github.io/platonet-documents/
+
+### 项目结构
 
 PlatONet的结构非常简单，主要包含了三个命名：`PlatONet`、`PlatONet.Crypto`、`PlatONet.DTOs`。其中`PlatONet.Crypto`主要是一些加密算法，仅供项目内部使用，对外公开的只有`PlatONet`和`PlatONet.DTOs`两个命名空间。
 
-### 4.1. PlatONet命名空间
+#### PlatONet命名空间
 
 PlatONet的主体内容都存在于这个命名空间中，主要有以下几个类：
 
@@ -101,11 +54,12 @@ PlatONet的主体内容都存在于这个命名空间中，主要有以下几个
 - Account类：账号管理、签名。
 - Address类：地址类，进行地址管理。
 
-### 4.2. PlatONet.DTOs命名空间
+#### PlatONet.DTOs命名空间
 
 此命名空间中包含多个数据传输对象（Data Transfer Objects），主要用于数据传输。
 
-﻿## 5. 运行第一次PlatONet查询
+
+### 运行第一次PlatONet查询
 
 ```csharp
 using System;
@@ -127,7 +81,7 @@ namespace examples
 }
 ```
 
-## 6. 进行一次转账
+### 进行一次转账
 
 ```csharp
 using PlatONet;
@@ -157,7 +111,7 @@ namespace examples
 }
 ```
 
-## 7. 智能合约部署
+### 智能合约部署
 
 ```csharp
 using PlatONet;
@@ -185,7 +139,7 @@ namespace examples
 }
 ```
 
-## 8. 与智能合约进行一次交互
+### 与智能合约进行一次交互
 
 ```csharp
 using PlatONet;
@@ -248,7 +202,7 @@ namespace examples
 }
 ```
 
-## 9. 调用一次内置合约
+### 调用一次内置合约
 
 ```csharp
 using PlatONet;
@@ -279,7 +233,9 @@ namespace examples
 
 相信有了前面的这些简单的例子，大家就能很快的开始使用PlatONet了，Enjoy！！！
 
-# 使用PlatONet连接PlatON网络并查询基本信息
+
+
+## 使用PlatONet连接PlatON网络并查询基本信息
 
 查询网络基本信息是最常用，也最简单的操作。本节教程只涉及查询PlatON网络的公开信息，所以不需要使用账号，只需要一个PlatON网络的接入点即可。本教程只用到了Web3及PlatON类。
 
@@ -329,11 +285,11 @@ namespace examples
 
 本教程主要介绍了PlatONet所支持的网络及Web3的基本使用方法。本节的内容比较简单，只涉及了Web3类及PlatON类的简单使用方法，后续会介绍更复杂的使用方法。
 
-# 账号、地址及转账操作
+##  账号、地址及转账操作
 
 本篇会介绍账号的相关知识及账号生成的相关操作。本教程分为两大部分，第一部分为账号的基本概念，在这里你能学到一些相关账号的基本概念，以及一些安全方面的建议。如果你对此部分内容比较熟悉或不感兴趣，可以直接跳过第一部分，进入第二部分账号生成。在第二部分中主要讲操作，本教程会带领大家用PlatONet成账号，参与PlatON/Alaya网络交易。
 
-## 1. 基本概念
+### 基本概念
 
 如果你是第一次接触区块链，那么PlatON/Alaya的账号（Account）的概念对你来说可能难以理解。Alaya的账号与中心化的账号有很大不同。无论你在银行还是其他中心化的应用中，如微信，支付宝等，你都要准备好资料并向中心化的组织来提交你的资料，你才能开户一个账号。但在PlatON/Alaya中，你可以自行生成一个公私钥对，如果你将你的账号地址（Address）分享给大家，大家就可以与你的账号发生交互了。
 
@@ -341,13 +297,13 @@ namespace examples
 
 ![Account](account.png)
 
-### 1.1. 账户（Accounts）
+### 账户（Accounts）
 
 在进行正式解释之前，我们先做一下类比。PlatON/Alaya中的**普通账号**和银行账号有很大的相似之外。你的银行账号里面会记录你账号上有多少钱，进行过什么操作等。PlatON/Alaya中也一样，PlatON/Alaya网络会维护一棵状态树，该树以账号地址为索引，存储账号的余额（balance）、交易计数（nonce）等。
 
 PlatON/Alaya还有另外一种账号是**合约账号**，通常我们也直接称之为合约。合约账号和普通账号的信息都存储于同一棵树中，合约也有余额（balance）、交易计数（nonce）等，同时他还具有代码等。
 
-### 1.2. 地址（Address）
+### 地址（Address）
 
 如果类比一下，地址就是你银行账户的银行卡号。在PlatON/Alaya网络中，一个PlatON/Alaya地址就代表着一个账户，地址是账户的标识。也就是如我们1.1中所说，PlatON/Alaya中的状态树是以地址为索引的。
 
@@ -366,7 +322,7 @@ PlatON/Alaya还有另外一种账号是**合约账号**，通常我们也直接�
 >
 >![地址组成部分](18.png)
 
-### 1.3. 私钥（Private Key）和公钥（Public Key）
+### 私钥（Private Key）和公钥（Public Key）
 
 私钥和公钥是非对称加密中的概念。在非对称加密中，我们通过某种算法来生成一个公私钥对，这个公私钥对有以下特征：
 
@@ -384,7 +340,7 @@ PlatON/Alaya还有另外一种账号是**合约账号**，通常我们也直接�
 > 1. 由于私钥的持有者可以对账号进行任何Alaya支持的操作，所以如果你的私钥丢失，那么你将完全的失去你的账号，任何人对此都无能为力。
 > 2. 账号进行过发送操作，其公钥就会暴露。从某种角度来讲，其安全性确实降低了。但在现有的技术水平下，公钥暴露完全造成的安全影响非常微小。到目前为止，所有区块链项目都没有因为公钥暴露而产生安全问题。
 
-### 1.4. 助记词
+### 助记词
 
 助记词从名字就能看出来是干嘛的。之前说过私钥非常非常重要，但私钥又非常非常长（否则容易被破解），私钥也完全没有任何顺序，没有任何意义（否则容易被人破解）。所以为了帮助大家更好的记忆私钥，大家会有一些常用的单词，来代表私钥，这样私钥就容易记录一些了。
 
@@ -392,7 +348,7 @@ PlatON/Alaya还有另外一种账号是**合约账号**，通常我们也直接�
 
 好，基本概念就讲这么多，下面就开始实操。
 
-## 2. 转账操作
+### 转账操作
 
 转账操作虽然看起来简单，但实际上是一个非常完整的进行区块链交易的过程，通过转账操作，开发者基本上就可以掌握Account类、Transaction类、Web3类、PlatON类的最基本用法。Web3类和PlatON在教程《查询操作》中已经进行过基本介绍，这里就再介绍一下Account类及Transaction类：
 
@@ -441,13 +397,13 @@ namespace examples
 
 转账交易是区块链中最基础、使用最广泛的操作，以上就是使用PlatONet进行转账的操作方法。
 
-# 智能合约操作
+## 智能合约操作
 
 智能合约是PlatON/Alaya最核心的功能之一，能过智能合约，用户可以无限制的拓展区块链的应用。ERC20代币、NFT、去中心交易所、DAO等都是智能合约的应用。本文就介绍一下如何通过PlatONet进行智能合约的部署与交互。
 
 > 注：本文不会涉及到如何进行智能合约的编写及编译等相关介绍，如需要相关知识，请参照：[Solidity智能合约开发](https://devdocs.platon.network/docs/zh-CN/Solidity_Dev_Manual)。
 
-## 1. 智能合约部署
+### 智能合约部署
 
 文本使用[Solidity智能合约入门手册](https://devdocs.platon.network/docs/zh-CN/Solidity_Dev_Manual)中[创建HelloWorld合约](https://devdocs.platon.network/docs/zh-CN/Solidity_Dev_Manual#%E5%88%9B%E5%BB%BAhelloworld%E5%90%88%E7%BA%A6)章节中的智能合约为例，智能合约代码如下：
 
@@ -546,7 +502,7 @@ namespace examples
 
 智能合约的部署是不是非常简单！
 
-## 2. 与智能合约进行交互
+### 与智能合约进行交互
 
 与智能合约的交互我们也从代码开始讲解：
 
@@ -584,7 +540,7 @@ namespace examples
 
 了解了这些，开发者就可以非常流畅的与智能合约进行交互了！
 
-# 系统合约交互
+## 系统合约交互
 
 在链启动之后系统内部已经内置了部分合约，这些合约的地址已固定，功能已实现，其中一部分合约为经济模型的实现，并提供各类合约接口与客户端进行交互。更多详细内容请参照：[系统合约](https://devdocs.platon.network/docs/zh-CN/PlatON_system_contract)。
 
@@ -619,3 +575,9 @@ namespace examples
 - 第13行：`ppos`变量是为了方便书写而定义的，如果后面全部使用`w3.PlatON.PPOS`替代`ppos`效果是相同的。
 - 第15行：查询系统合约状态。由此可以看出，PlatONet已经将系统合约封装成普通函数，就像调用普通函数一样调用即可。
 - 第18~19行：写系统合约调用。由于此操作涉及区块链的写操作，会改变区块链状态，需要在使用前初始化账号，否则会调用失败。
+
+
+
+本教程贡献者 [@RileyGe](https://github.com/RileyGe)
+
+
