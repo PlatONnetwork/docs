@@ -16,39 +16,38 @@ USAGE:
    platon [options] command [command options] [arguments...]
 
 VERSION:
-   1.1.2-unstable
+   1.1.3-unstable-3bc1b02d-20220211
 
 COMMANDS:
-   account           Manage accounts
-   attach            Start an interactive JavaScript environment (connect to node)
-   console           Start an interactive JavaScript environment
-   copydb            Create a local chain from a target chaindata folder
-   dump              Dump a specific block from storage
-   dumpconfig        Show configuration values
-   export-preimages  Export the preimage database into an RLP stream
-   import-preimages  Import the preimage database from an RLP stream
-   init              Bootstrap and initialize a new genesis block
-   inspect           Inspect the storage size for each type of data in the database
-   js                Execute the specified JavaScript files
-   license           Display license information
-   removedb          Remove blockchain and state databases
-   version           Print version numbers
-   help, h           Shows a list of commands or help for one command
+   account                Manage accounts
+   attach                 Start an interactive JavaScript environment (connect to node)
+   console                Start an interactive JavaScript environment
+   copydb                 Create a local chain from a target chaindata folder
+   dump                   Dump a specific block from storage
+   dumpconfig             Show configuration values
+   export-preimages       Export the preimage database into an RLP stream
+   import-preimages       Import the preimage database from an RLP stream
+   init                   Bootstrap and initialize a new genesis block
+   inspect                Inspect the storage size for each type of data in the database
+   js                     Execute the specified JavaScript files
+   license                Display license information
+   removedb               Remove blockchain and state databases
+   show-deprecated-flags  Show flags that have been deprecated
+   version                Print version numbers
+   help, h                Shows a list of commands or help for one command
 
 PLATON OPTIONS:
-  --config value                      TOML configuration file
-  --datadir "/home/chenglin/.platon"  Data directory for the databases and keystore
-  --datadir.ancient                   Data directory for ancient chain segments (default = inside chaindata)
-  --keystore                          Directory for the keystore (default = inside the datadir)
-  --nousb                             Disables monitoring for and managing USB hardware wallets
-  --networkid value                   Network identifier (integer, 1=Frontier, 2=Morden (disused), 3=Ropsten, 4=Rinkeby) (default: 1)
-  --main                              Mainnet network: pre-configured main network (default network)
-  --testnet                           Testnet network: pre-configured test network
-  --syncmode "full"                   Blockchain sync mode ("fast", "full", or "light")
-  --identity value                    Custom node name
-  --lightserv value                   Maximum percentage of time allowed for serving LES requests (0-90) (default: 0)
-  --lightpeers value                  Maximum number of LES client peers (default: 100)
-  --lightkdf                          Reduce key-derivation RAM & CPU usage at some expense of KDF strength
+  --config value                   TOML configuration file
+  --datadir "/home/juzix/.platon"  Data directory for the databases and keystore
+  --datadir.ancient                Data directory for ancient chain segments (default = inside chaindata)
+  --keystore                       Directory for the keystore (default = inside the datadir)
+  --nousb                          Disables monitoring for and managing USB hardware wallets
+  --networkid value                Network identifier (integer, 1=Frontier, 2=Morden (disused), 3=Ropsten, 4=Rinkeby) (default: 1)
+  --main                           Mainnet network: pre-configured main network (default network)
+  --testnet                        Testnet network: pre-configured test network
+  --syncmode "full"                Blockchain sync mode ("fast", "full", or "light")
+  --identity value                 Custom node name
+  --lightkdf                       Reduce key-derivation RAM & CPU usage at some expense of KDF strength
 
 DEVELOPER CHAIN OPTIONS:
   --dev.period value  Block period to use in developer mode (0 = mine only if transaction pending) (default: 0)
@@ -79,23 +78,26 @@ ACCOUNT OPTIONS:
   --allow-insecure-unlock  Allow insecure account unlocking when account-related RPCs are exposed by http
 
 API AND CONSOLE OPTIONS:
-  --rpc                  Enable the HTTP-RPC server
-  --rpcaddr value        HTTP-RPC server listening interface (default: "localhost")
-  --rpcport value        HTTP-RPC server listening port (default: 6789)
-  --rpcapi value         API's offered over the HTTP-RPC interface
-  --rpc.gascap value     Sets a cap on gas that can be used in eth_call/estimateGas (default: 0)
-  --ws                   Enable the WS-RPC server
-  --wsaddr value         WS-RPC server listening interface (default: "localhost")
-  --wsport value         WS-RPC server listening port (default: 6790)
-  --wsapi value          API's offered over the WS-RPC interface
-  --wsorigins value      Origins from which to accept websockets requests
-  --ipcdisable           Disable the IPC-RPC server
-  --ipcpath              Filename for IPC socket/pipe within the datadir (explicit paths escape it)
-  --rpccorsdomain value  Comma separated list of domains from which to accept cross origin requests (browser enforced)
-  --rpcvhosts value      Comma separated list of virtual hostnames from which to accept requests (server enforced). Accepts '*' wildcard. (default: "localhost")
-  --jspath loadScript    JavaScript root path for loadScript (default: ".")
-  --exec value           Execute JavaScript statement
-  --preload value        Comma separated list of JavaScript files to preload into the console
+  --ipcdisable                Disable the IPC-RPC server
+  --ipcpath                   Filename for IPC socket/pipe within the datadir (explicit paths escape it)
+  --http                      Enable the HTTP-RPC server
+  --http.addr value           HTTP-RPC server listening interface (default: "localhost")
+  --http.port value           HTTP-RPC server listening port (default: 6789)
+  --http.api value            API's offered over the HTTP-RPC interface
+  --http.corsdomain value     Comma separated list of domains from which to accept cross origin requests (browser enforced)
+  --http.vhosts value         Comma separated list of virtual hostnames from which to accept requests (server enforced). Accepts '*' wildcard. (default: "localhost")
+  --ws                        Enable the WS-RPC server
+  --ws.addr value             WS-RPC server listening interface (default: "localhost")
+  --ws.port value             WS-RPC server listening port (default: 6790)
+  --ws.api value              API's offered over the WS-RPC interface
+  --ws.origins value          Origins from which to accept websockets requests
+  --graphql                   Enable GraphQL on the HTTP-RPC server. Note that GraphQL can only be started if an HTTP server is started as well.
+  --graphql.corsdomain value  Comma separated list of domains from which to accept cross origin requests (browser enforced)
+  --graphql.vhosts value      Comma separated list of virtual hostnames from which to accept requests (server enforced). Accepts '*' wildcard. (default: "localhost")
+  --rpc.gascap value          Sets a cap on gas that can be used in platon_call/estimateGas (default: 0)
+  --jspath loadScript         JavaScript root path for loadScript (default: ".")
+  --exec value                Execute JavaScript statement
+  --preload value             Comma separated list of JavaScript files to preload into the console
 
 NETWORKING OPTIONS:
   --bootnodes value          Comma separated enode URLs for P2P discovery bootstrap (set v4+v5 instead for light servers)
@@ -112,33 +114,32 @@ NETWORKING OPTIONS:
 
 MINER OPTIONS:
   --miner.gasprice "1000000000"  Minimum gas price for mining a transaction
-  --miner.gastarget value        Target gas floor for mined blocks (default: 9424776)
 
 GAS PRICE ORACLE OPTIONS:
-  --gpoblocks value      Number of recent blocks to check for gas prices (default: 20)
-  --gpopercentile value  Suggested gas price is the given percentile of a set of recent transaction gas prices (default: 60)
+  --gpo.blocks value      Number of recent blocks to check for gas prices (default: 20)
+  --gpo.percentile value  Suggested gas price is the given percentile of a set of recent transaction gas prices (default: 60)
 
 LOGGING AND DEBUGGING OPTIONS:
-  --nocompaction            Disables db compaction after import
-  --verbosity value         Logging verbosity: 0=silent, 1=error, 2=warn, 3=info, 4=debug, 5=detail (default: 3)
-  --vmodule value           Per-module verbosity: comma-separated list of <pattern>=<level> (e.g. eth/*=5,p2p=4)
-  --backtrace value         Request a stack trace at a specific logging statement (e.g. "block.go:271")
-  --debug                   Prepends log messages with call-site location (file and line number)
-  --pprof                   Enable the pprof HTTP server
-  --pprofaddr value         pprof HTTP server listening interface (default: "127.0.0.1")
-  --pprofport value         pprof HTTP server listening port (default: 6060)
-  --memprofilerate value    Turn on memory profiling with the given rate (default: 524288)
-  --blockprofilerate value  Turn on block profiling with the given rate (default: 0)
-  --cpuprofile value        Write CPU profile to the given file
-  --trace value             Write execution trace to the given file
-  --wasmlog value           output wasm contract log to file
+  --nocompaction                  Disables db compaction after import
+  --verbosity value               Logging verbosity: 0=silent, 1=error, 2=warn, 3=info, 4=debug, 5=detail (default: 3)
+  --vmodule value                 Per-module verbosity: comma-separated list of <pattern>=<level> (e.g. eth/*=5,p2p=4)
+  --backtrace value               Request a stack trace at a specific logging statement (e.g. "block.go:271")
+  --debug                         Prepends log messages with call-site location (file and line number)
+  --pprof                         Enable the pprof HTTP server
+  --pprof.addr value              pprof HTTP server listening interface (default: "127.0.0.1")
+  --pprof.port value              pprof HTTP server listening port (default: 6060)
+  --pprof.memprofilerate value    Turn on memory profiling with the given rate (default: 524288)
+  --pprof.blockprofilerate value  Turn on block profiling with the given rate (default: 0)
+  --pprof.cpuprofile value        Write CPU profile to the given file
+  --trace value                   Write execution trace to the given file
+  --wasmlog value                 output wasm contract log to file
 
 METRICS AND STATS OPTIONS:
   --metrics                          Enable metrics collection and reporting
   --metrics.expensive                Enable expensive metrics collection and reporting
   --metrics.influxdb                 Enable metrics export/push to an external InfluxDB database
   --metrics.influxdb.endpoint value  InfluxDB API endpoint to report metrics to (default: "http://localhost:8086")
-  --metrics.influxdb.database value  InfluxDB database name to push reported metrics to (default: "platon")
+  --metrics.influxdb.database value  InfluxDB database name to push reported metrics to (default: "alaya")
   --metrics.influxdb.username value  Username to authorize access to the database (default: "test")
   --metrics.influxdb.password value  Password to authorize access to the database (default: "test")
   --metrics.influxdb.tags value      Comma-separated InfluxDB tags (key/values) attached to all measurements (default: "host=localhost")
@@ -160,6 +161,25 @@ DB OPTIONS:
 VM OPTIONS:
   --vm.wasm_type value         The actual implementation type of the wasm instance (default: "wagon")
   --vm.timeout_duration value  The VM execution timeout duration (uint: ms) (default: 0)
+
+ALIASED (deprecated) OPTIONS:
+  --rpc                     Enable the HTTP-RPC server (deprecated, use --http)
+  --rpcaddr value           HTTP-RPC server listening interface (deprecated, use --http.addr) (default: "localhost")
+  --rpcport value           HTTP-RPC server listening port (deprecated, use --http.port) (default: 6789)
+  --rpccorsdomain value     Comma separated list of domains from which to accept cross origin requests (browser enforced) (deprecated, use --http.corsdomain)
+  --rpcvhosts value         Comma separated list of virtual hostnames from which to accept requests (server enforced). Accepts '*' wildcard. (deprecated, use --http.vhosts) (default: "localhost")
+  --rpcapi value            API's offered over the HTTP-RPC interface (deprecated, use --http.api)
+  --wsaddr value            WS-RPC server listening interface (deprecated, use --ws.addr) (default: "localhost")
+  --wsport value            WS-RPC server listening port (deprecated, use --ws.port) (default: 6790)
+  --wsorigins value         Origins from which to accept websockets requests (deprecated, use --ws.origins)
+  --wsapi value             API's offered over the WS-RPC interface (deprecated, use --ws.api)
+  --gpoblocks value         Number of recent blocks to check for gas prices (deprecated, use --gpo.blocks) (default: 20)
+  --gpopercentile value     Suggested gas price is the given percentile of a set of recent transaction gas prices (deprecated, use --gpo.percentile) (default: 60)
+  --pprofport value         pprof HTTP server listening port (deprecated, use --pprof.port) (default: 6060)
+  --pprofaddr value         pprof HTTP server listening interface (deprecated, use --pprof.addr) (default: "127.0.0.1")
+  --memprofilerate value    Turn on memory profiling with the given rate (deprecated, use --pprof.memprofilerate) (default: 524288)
+  --blockprofilerate value  Turn on block profiling with the given rate (deprecated, use --pprof.blockprofilerate) (default: 0)
+  --cpuprofile value        Write CPU profile to the given file (deprecated, use --pprof.cpuprofile)
 
 MISC OPTIONS:
   --help, -h  show help
