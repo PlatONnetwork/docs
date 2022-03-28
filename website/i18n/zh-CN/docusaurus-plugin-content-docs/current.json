@@ -23,6 +23,9 @@
   "sidebar.docs.category.Smart contract": {
     "message": "智能合约"
   },
+  "sidebar.docs.category.System contract": {
+    "message": "系统合约"
+  },
   "sidebar.docs.category.Solidity contract": {
     "message": "Solidity合约"
   },

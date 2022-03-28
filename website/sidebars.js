@@ -44,7 +44,14 @@ module.exports = {
           type: 'category',
           label: 'Smart contract',
           items: [
-            'PlatON_system_contract',
+            {
+              type: 'category',
+              label: 'System contract',
+              items : [
+                'PlatON_system_contract',
+                'PlatON_system_contract_api'
+              ]
+            },
             {
               type: 'category',
               label: 'Solidity contract',
@@ -53,7 +60,8 @@ module.exports = {
                 'Solidity_Contract_Migrate',
                 'Solidity_Contract_Dev_Costs',
                 'Solidity_Contract_Best_Practice',
-                'Solidity_Contract_Security_Dev_Guide'
+                'Solidity_Contract_Security_Dev_Guide',
+                'Solidity_Inner_Contract'
               ]
             },
             {
@@ -66,7 +74,7 @@ module.exports = {
         {
           type: 'category',
           label: 'References',
-          items: ['Python_SDK', 'JS_SDK', 'Java_SDK', 'Go_SDK', 'NET_SDK', 'Json_Rpc', 'Explorer_API', 'Samurai_API']
+          items: ['Python_SDK', 'JS_SDK', 'Java_SDK', 'Go_SDK', 'NET_SDK', 'Json_Rpc','GraphQL_Server', 'Explorer_API', 'Samurai_API']
         },
         {
           type: 'category',
