@@ -52,5 +52,8 @@
   },
 "sidebar.docs.category.WalletConnect": {
     "message": "WalletConnect"
+  },
+  "sidebar.docs.category.Get a Random Number": {
+    "message": "Get a Random Number"
   }
 }
