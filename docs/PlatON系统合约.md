@@ -307,3 +307,13 @@ In this process, at the end of each epoch, the system will automatically calcula
 
    Interface parameters reference Java SDK:[ Query delegation reward](/docs/en/Java_SDK#getdelegatereward). 
 
+### random number contract
+
+contract address:**lat1xqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpe9fgva**
+
+This contract is mainly used to generate multiple random numbers. The parameter is the number of random numbers to be generated. It supports the generation of up to 500 random numbers. The return value is a []byte array, and every 32 bits is a random number.
+
+If only one random number is generated, it is obtained by the XOR of the random number of the current block and the transaction hash. If multiple random numbers need to be generated, the first random number is obtained by the XOR of the random number of the current block and the transaction hash. The random number is obtained by XORing the random number of the previous block in turn with the first random number.
+
+The random number generation principle of the block: After the PlatON node packs the block, it will use VRF to generate a random number and proof for the block, and store it in the Nonce field of the block. The random number seed is the random number of the previous block. number.
+

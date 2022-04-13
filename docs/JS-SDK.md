@@ -6,16 +6,89 @@ sidebar_label: JS SDK
 
 ## Web3.js Interface
 
-Interact with nodes through web3 objects provided by web3.js. On the underlying implementation, it communicates with the local node through RPC calls. web3.js can connect to any PlatON node that exposes the RPC interface.
+Interact with nodes through web3 objects provided by web3.js. On the underlying implementation, it communicates with the local node through RPC calls. web3.js can connect to any PlatON node that exposes the RPC interface. The installation and use under Windows 10 and Ubuntu are introduced in following.
 
-### Usage
+### Install and use under Windows
 
-First, make sure the nodeJS environment is successfully installed locally. `WEB3.JS` uses the [lerna](https://github.com/lerna/lerna) management tool to optimize the workflow of the multi-package code base hosted on `git/npm`, so you should make sure the lerna package has been installed globally before installing. If not, execute the command `npm i lerna -g` for global installation.
+To use js sdk under windows10, you need to install nvm and other related tools in advance. Steps are as follows:
 
-Then you can integrate client-sdk-js into the project through package management tools such as npm or yarn, the steps are as follows:
+- Install `nvm`
 
-- npm: `npm i PlatONnetwork/client-sdk-js#master`
-- yarn: `yarn add PlatONnetwork/client-sdk-js#master`
+  - Skip this step if already installed, [download here](https://github.com/coreybutler/nvm-windows/releases/download/1.1.8/nvm-setup.zip)
+  
+  - Install `nodejs`
+
+    ```bash
+    nvm install v12.16.1
+    ```
+
+  - Switch version
+
+    ```bash
+    nvm use 12.16.1
+    ```
+
+  - Set environment variables
+
+    > NVM_SYMLINK：%NVM_HOME%\v12.16.1
+
+- Install `git`
+
+Skip this step if already installed, [download here](https://github.com/git-for-windows/git/releases/download/v2.33.0.windows.2/Git-2.33.0.2-64-bit.exe)
+
+- Install `lerna`
+
+  Recommanded to execute in `git bash`;
+
+  ```bash
+  npm install --global lerna@^3.22.1
+  ```
+
+  > Attention:
+  >
+  > - Configure the environment variables of lerna installation directory
+  > - Check if lerna is installed successfully: `learna -v`
+
+- Install `client-sdk-js`
+
+  ```bash
+  npm i PlatONnetwork/client-sdk-js#master
+  ```
+
+  > If got errors like: `git-sh-setup: file not found`, means you need to configure the environment variables of the git submodule; If git is installed under the `C:\Program Files\Git` directory, you need to configure the following path to the PATH environment variable:
+  >
+  > ```bash
+  > Git_Home : C:\Program Files\Git
+  > 
+  > Path:
+  > %Git_Home%\usr\bin
+  > %Git_Home%\mingw64\libexec\git-core
+  > ```
+
+### Install and use under Ubuntu
+
+First of all, please make sure that the nodeJS environment is installed locally. Because this project also uses the [lerna](https://github.com/lerna/lerna) management tool to optimize the workflow of the multi-package code library hosted on git\npm, So before you install the project, make sure that the lerna package has been installed globally. **If not, you need to install it globally. **
+
+- Install `lerna`
+
+  ```bash
+  npm i lerna -g
+  ```
+
+- Install `client-sdk-js`
+
+  `client-sdk-js` can be installed into the project through the npm package management tool or the yarn package management tool, specific steps are as the following:
+
+  ```bash
+  npm i PlatONnetwork/client-sdk-js#master
+  ```
+
+  Or
+
+  ```bash
+  yarn add PlatONnetwork/client-sdk-js#master
+  ```
+
 
 Create a web3 instance and set up a provider. You can refer to the following code:
 
@@ -34,6 +107,11 @@ console.log(web3);
 ```
 
 After successful introduction, you can use the relevant API of web3.
+
+### Install and use under Mac
+
+The installation method is the same as the above [Install and use under Ubuntu](#install-and-use-under-ubuntu).<br/><br/>
+
 
 ### API Reference
 
@@ -872,7 +950,7 @@ PromiEvent: A promise combined event emitter. Will be resolved when the transact
 Example:
 
 ```js
-// compiled solidity source code using https://remix.ethereum.org
+// compiled solidity source code using https://remix.ethereum.org  or PlatON Studio (https://github.com/ObsidianLabs/PlatON-Studio)
 var code = "603d80600c6000396000f3007c01000000000000000000000000000000000000000000000000000000006000350463c6888fa18114602d57005b6007600435028060005260206000f3";
 
 // using the callback
@@ -3064,7 +3142,7 @@ web3.utils.isHex('Hello');
 
 #### web3.utils.isAddress
 
-Checks if a given string is a valid PlatON address. It will also check the checksum, if the address has upper and lowercase letters.
+Checks if a given string is a valid Hexadecimal address (ie. Ethereum address). It will also check the checksum, if the address has upper and lowercase letters.
 
 Method:
 
@@ -3103,7 +3181,7 @@ web3.utils.isAddress('0xC1912fEE45d61C87Cc5EA59DaE31190FFFFf232d');
 
 #### web3.utils.isBech32Address
 
-Check whether the specified character string is a valid address in bech32 format.
+Check whether the specified character string is a valid address in bech32 format（ie.PlatON address）.
 
 Method:
 
@@ -3139,7 +3217,7 @@ web3.utils.isBech32Address('lax1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
 
 #### web3.utils.toBech32Address
 
-Convert a valid PlatON address to a bech32 format address of the designated network.
+Convert a valid Hexadecimal address (ie. Ethereum address) format address of the designated network.
 
 Method:
 
@@ -3151,7 +3229,7 @@ Parameters:
 
 `hrp` - String: Specify the network parameters, lax indicates the test network address, and lat indicates the main network address.
 
-`address` - String: PlatON address format string.
+`address` - String: Hexadecimal address (ie. Ethereum address)  format string.
 
 Returns:
 
@@ -3171,7 +3249,7 @@ web3.utils.toBech32Address('lat', '0x1234567890123456789012345678901234567891');
 
 #### web3.utils.decodeBech32Address
 
-Resolve the bech32 format address of the specified network into a valid PlatON address.
+Resolve the bech32 format address(ie. PlatON address) of the specified network into a valid Hexadecimal address (ie. Ethereum address).
 
 Method:
 
@@ -3183,11 +3261,11 @@ Parameters:
 
 `hrp` - String: Specify the network parameters, lax indicates the test network address, and lat indicates the main network address.
 
-`bech32Address` - String: Address string in bech32 format.
+`bech32Address` - String: Address string in bech32 format(ie.  PlatON address).
 
 Returns:
 
-`String`: The resolution correctly returns a valid PlatON address, otherwise it returns null.
+`String`: The resolution correctly returns a valid Hexadecimal address (ie. Ethereum address), otherwise it returns null.
 
 Sample code:
 
@@ -3203,7 +3281,7 @@ web3.utils.decodeBech32Address('lat', 'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluq
 
 #### web3.utils.toChecksumAddress
 
-Will convert an upper or lowercase PlatON address to a checksum address.
+Will convert an upper or lowercase Hexadecimal address (ie. Ethereum address) to a checksum address.
 
 Method:
 
@@ -3530,18 +3608,6 @@ web3.utils.hexToBytes(0x000000ea);
 
 Converts any lat value value into von.
 
-- von
-- kvon
-- mvon
-- gvon
-- microlat
-- millilat
-- lat
-- klat
-- mlat
-- glat
-- tlat
-
 ```
 'von':          '1',
 'kvon':         '1000',
@@ -3565,7 +3631,18 @@ web3.utils.toVon(number [, unit])
 Parameter:
 
 - `number` - `String|Number|BN`: The value.
-- `unit` - String，(optional, defaults to "lat"): The ether to convert from.
+- `unit` - String，(optional, defaults to "lat"): The lat to convert from. Possible units are:
+  - von
+  - kvon
+  - mvon
+  - gvon
+  - microlat
+  - millilat
+  - lat
+  - klat
+  - mlat
+  - glat
+  - tlat
 
 Returns:
 
@@ -3590,12 +3667,10 @@ Method:
 web3.utils.fromVon(number [, unit])
 ```
 
-Converts any von value into a lat value.
-
 Parameter:
 
 `number` - `String|Number|BN`: The value in von.
-`unit` - `String`，(optional, defaults to "lat"): The ether to convert to. Possible units are:
+`unit` - `String`，(optional, defaults to "lat"): The lat to convert to. Possible units are:
 
 - von
 - kvon
@@ -4756,3 +4831,8 @@ Is a []Reward array
 | 301203    | Getting related of delegate is failed                |
 | 301204    | Query candidate info failed                          |
 | 301205    | Query delegate info failed                           |
+
+
+
+
+*English Translation Contributors @[WillXing](https://github.com/WillXing)*

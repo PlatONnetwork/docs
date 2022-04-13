@@ -42,7 +42,7 @@ platon_mtool --version
 
 **step1. 下载PlatON MTool安装包**
 
-在在线机器上，复制链接<https://download.platon.network/platon/mtool/windows/1.1.0/platon_mtool.exe> 到浏览器下载PlatON MTool安装包。
+在在线机器上，复制链接<https://download.platon.network/platon/mtool/windows/1.1.1/platon_mtool.exe> 到浏览器下载PlatON MTool安装包。
 
 **step2. 安装PlatON MTool**
 
@@ -65,7 +65,7 @@ platon_mtool --version
 **step1. 下载PlatON MTool工具包**
 
 ``` bash
-wget https://download.platon.network/platon/mtool/linux/1.1.0/platon_mtool.zip
+wget https://download.platon.network/platon/mtool/linux/1.1.1/platon_mtool.zip
 ```
 
 **step2. 解压PlatON MTool工具包**
@@ -460,7 +460,7 @@ platon_mtool staking --config $PLATON_MTOOLDIR/validator/validator_config.json -
 - 执行命令
 
 ```bash
-platon_mtool update_validator --config $PLATON_MTOOLDIR/validator/validator_config.json --address $PLATON_MTOOLDIR/keystore/staking_observed.json --node_name myNode --website www.mywebsite.com --external_id 121412312 --delegated_reward_rate 6000 --benefit_address lax1x0f9xwr9steccekttqvml0d26zgsxwdnhq3fkv --details "Modify the verifier information operation"
+platon_mtool update_validator --config $PLATON_MTOOLDIR/validator/validator_config.json --address $PLATON_MTOOLDIR/keystore/staking_observed.json --node_name myNode --website www.mywebsite.com --external_id 121412312 --delegated_reward_rate 6000 --benefit_address lat1x0f9xwr9steccekttqvml0d26zgsxwdnhq3fkv --details "Modify the verifier information operation"
 ```
 
 - 参数说明

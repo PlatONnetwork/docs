@@ -369,12 +369,12 @@ class Token {
 class StandardToken: public Token
 {
 	protected: 
-		platon::StorageType<"balances"_n, std::map<Address, uint64_t>> balances;
-		platon::StorageType<"allowed"_n, std::map<Address, std::map<Address, uint64_t>>> allowed;
+		platon::db::Map<"balances"_n, Address, uint64_t> balances;
+		platon::db::Map<"allowed"_n, std::pair<Address, Address>, uint64_t> allowed;
 
 	public:
 		CONST uint64_t balanceOf(Address _owner) {
-			return balances.self()[_owner];		
+			return balances[_owner];		
 		}
 
 		ACTION bool transfer(Address _to, uint64_t _value){
@@ -383,9 +383,9 @@ class StandardToken: public Token
 			// you need to check if it doesn't wrap.
 			// Replace the if with this on instead.
 			Address sender = platon_caller();
-			if (balances.self()[sender] >= _value && _value > 0) {
-				balances.self()[sender] -= _value;
-				balances.self()[_to] += _value;
+			if (balances[sender] >= _value && _value > 0) {
+				balances[sender] -= _value;
+				balances[_to] += _value;
 				PLATON_EMIT_EVENT2(Transfer, sender, _to, _value);
 				return true;
 			} else {
@@ -397,10 +397,11 @@ class StandardToken: public Token
 			// same as above. Replace this line with the following if you want to protect against
 			// wrapping uints.
 			Address sender = platon_caller();
-			if(balances.self()[_from] >= _value 
-				&& allowed.self()[_from][sender] >= _value && _value > 0){
-				balances.self()[_to] += _value;
-				balances.self()[_from] -= _value;
+			auto key = std::make_pair(_from, sender);
+			if(balances[_from] >= _value && allowed[key] >= _value && _value > 0){
+				balances[_to] += _value;
+				balances[_from] -= _value;
+				allowed[key] -= _value;
 				PLATON_EMIT_EVENT2(Transfer, _from, _to, _value);
 				return true;
 			} else {
@@ -410,13 +411,15 @@ class StandardToken: public Token
 
 		ACTION bool approve(Address _spender, uint64_t _value){
 			Address sender = platon_caller();			
-			allowed.self()[sender][_spender] = _value;
+			auto key = std::make_pair(sender, _spender);
+			allowed[key] = _value;
 			PLATON_EMIT_EVENT2(Approval, sender, _spender, _value);
 			return true;		
 		}
 
 		CONST uint64_t allowance(Address _owner, Address _spender){
-			return allowed.self()[_owner][_spender];		
+			auto key = std::make_pair(_owner, _spender);
+			return allowed[key];		
 		}
 };
 
@@ -435,7 +438,7 @@ CONTRACT LATToken: public platon::Contract, public StandardToken
 			uint8_t _decimalUnits, const std::string& _tokenSymbol)
 		{
 			Address sender = platon_caller();
-			balances.self()[sender] = _initialAmount;		// Give the creator all initial tokens.
+			balances[sender] = _initialAmount;		// Give the creator all initial tokens.
 			totalSupply.self() = _initialAmount;			// Update total supply.
 			name.self() = _tokenName;						// Set the name for display purposes
 			decimals.self() = _decimalUnits;				// Amount of decimals for display purposes
@@ -461,7 +464,8 @@ CONTRACT LATToken: public platon::Contract, public StandardToken
 		// Approves and then calls the receiving contract.
 		ACTION bool approveAndCall(Address _spender, uint64_t _value, const bytes& _extraData) {
 			Address sender = platon_caller();
-			allowed.self()[sender][_spender] = _value;
+			auto key = std::make_pair(sender, _spender);
+			allowed[key] = _value;
 			PLATON_EMIT_EVENT2(Approval, sender, _spender, _value);
 			// call the receiveApproval function on the contract you want to be notified. This 
 			// crafts the function signature manually so one doesn't have to include a contract 

@@ -44,7 +44,14 @@ module.exports = {
           type: 'category',
           label: 'Smart contract',
           items: [
-            'PlatON_system_contract',
+            {
+              type: 'category',
+              label: 'System contract',
+              items : [
+                'PlatON_system_contract',
+                'PlatON_system_contract_api'
+              ]
+            },
             {
               type: 'category',
               label: 'Solidity contract',
@@ -53,7 +60,8 @@ module.exports = {
                 'Solidity_Contract_Migrate',
                 'Solidity_Contract_Dev_Costs',
                 'Solidity_Contract_Best_Practice',
-                'Solidity_Contract_Security_Dev_Guide'
+                'Solidity_Contract_Security_Dev_Guide',
+                'Solidity_Inner_Contract'
               ]
             },
             {
@@ -66,7 +74,7 @@ module.exports = {
         {
           type: 'category',
           label: 'References',
-          items: ['Python_SDK', 'JS_SDK', 'Java_SDK', 'Json_Rpc','Explorer_API', 'Samurai_API']
+          items: ['Python_SDK', 'JS_SDK', 'Java_SDK', 'Go_SDK', 'NET_SDK', 'Json_Rpc','GraphQL_Server', 'Explorer_API', 'Samurai_API']
         },
         {
           type: 'category',
@@ -82,8 +90,26 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Tutorials',
+      items: [
+         'DApp_migrate', 
+         'qianqian_prc721_tutorial', 
+        {
+          type: 'category',
+          label: 'WASM Tutorials',
+          items: ['WASM_Contract_1', 'WASM_Contract_2', 'WASM_Contract_3', 'WASM_Contract_4', 'WASM_Contract_5', 'WASM_Contract_6', 'WASM_Contract_7', 'WASM_Contract_8', 'WASM_Contract_9']
+        },
+        {
+          type: 'category',
+          label: 'WalletConnect',
+          items: ['walletconnect_tutorial', 'DApp_integration_with_WalletConnect_for_ATON']
+        }
+        ]
+    },
+    {
+      type: 'category',
       label: 'Wallet',
-      items:['ATON-user-manual', 'Samurai_user_manual', 'Third_Party_Walle']
+      items:['ATON-user-manual', 'Samurai_user_manual', 'Third_Party_Walle','Ledger-hardware-wallet', 'MetaMask']
     },
     'community',
   ]

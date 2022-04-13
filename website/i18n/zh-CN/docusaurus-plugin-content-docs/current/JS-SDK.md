@@ -6,16 +6,88 @@ sidebar_label: JS SDK
 
 ## Web3.js 调用接口
 
-通过 web3.js 提供的 web3 对象与底层链进行交互。底层实现上，它通过 RPC 调用与本地节点通信。web3.js 可以与任何暴露了 RPC 接口的 PlatON 节点连接。
+通过 web3.js 提供的 web3 对象与底层链进行交互。底层实现上，它通过 RPC 调用与本地节点通信。web3.js 可以与任何暴露了 RPC 接口的 PlatON 节点连接。如下主要介绍 Windows 10 和 Ubuntu 下的安装和使用。
 
-### 准备工作
+### Windows 下安装使用
 
-首先请确保本地成功安装了 nodeJS 环境，由于该项目使用了[lerna](https://github.com/lerna/lerna)管理工具来优化托管在 git\npm 上的多 package 代码库的工作流，所以你在安装之前确保已经全局安装了 lerna 包。**如果没有，执行命令`npm i lerna -g`进行全局安装。**
+在 windows10 下使用 js sdk 需要提前安装 nvm 等相关工具，具体步骤如下：
 
-然后你就可以通过 npm 包管理工具或者 yarn 包管理工具将 client-sdk-js 引入到项目工程中，通过如下步骤：
+- 安装 nvm
 
-- npm: `npm i PlatONnetwork/client-sdk-js#master`
-- yarn: `yarn add PlatONnetwork/client-sdk-js#master`
+  - 如安装可忽略此步骤，[下载地址](https://github.com/coreybutler/nvm-windows/releases/download/1.1.8/nvm-setup.zip)。
+
+  - 安装 nodejs
+
+    ```bash
+    nvm install v12.16.1
+    ```
+
+  - 切换版本
+
+    ```bash
+    nvm use 12.16.1
+    ```
+
+  - 设置环境变量
+
+    > NVM_SYMLINK：%NVM_HOME%\v12.16.1
+
+- 安装 git
+
+  如安装可忽略此步骤，[下载地址](https://github.com/git-for-windows/git/releases/download/v2.33.0.windows.2/Git-2.33.0.2-64-bit.exe)。
+
+- 安装 lerna
+
+  建议在 git bash 上执行命令；
+
+  ```bash
+  npm install --global lerna@^3.22.1
+  ```
+
+  > 注意:
+  >
+  > - 配置 lerna 安装目录的环境变量；
+  > - 检查 lerna 是否安装成功：`lerna -v`。
+
+- 安装 client-sdk-js
+
+  ```bash
+  npm i PlatONnetwork/client-sdk-js#master
+  ```
+
+  > 如提示：`git-sh-setup: file not found`相关的 error，需要配置 git submodule 的环境变量；如 git 安装在`C:\Program Files\Git`目录下，需要配置如下路径到 PATH 环境变量中：
+  >
+  > ```bash
+  > Git_Home : C:\Program Files\Git
+  >
+  > Path:
+  > %Git_Home%\usr\bin
+  > %Git_Home%\mingw64\libexec\git-core
+  > ```
+
+### Ubuntu 下安装使用
+
+首先请确保本地成功安装了 nodeJS 环境，由于该项目使用了[lerna](https://github.com/lerna/lerna)管理工具来优化托管在 git\npm 上的多 package 代码库的工作流，所以你在安装之前确保已经全局安装了 lerna 包。**如果没有，需要进行全局安装。**
+
+- 安装 lerna
+
+  ```bash
+  npm i lerna -g
+  ```
+
+- 安装 client-sdk-js
+
+  可以通过 npm 包管理工具或者 yarn 包管理工具将 client-sdk-js 引入到项目工程中，通过如下步骤：
+
+  ```bash
+  npm i PlatONnetwork/client-sdk-js#master
+  ```
+
+  或
+
+  ```bash
+  yarn add PlatONnetwork/client-sdk-js#master
+  ```
 
 然后需要创建 web3 的实例，设置一个 provider。可参考如下代码：
 
@@ -34,6 +106,11 @@ console.log(web3);
 ```
 
 成功引入后，现在可以使用 web3 的相关 API 了。
+
+### Mac 下的安装和使用
+
+安装方式同上述 [Ubuntu下安装使用](#ubuntu-下安装使用)。<br/><br/>
+
 
 ### 详细使用
 
@@ -119,15 +196,15 @@ web3.platon.setProvider(myProvider)
 示例代码：
 
 ```js
-var Web3 = require('web3');
-var web3 = new Web3('http://localhost:8545');
+var Web3 = require("web3");
+var web3 = new Web3("http://localhost:8545");
 // 或者
-var web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
 // 改变服务提供器
-web3.setProvider('ws://localhost:8546');
+web3.setProvider("ws://localhost:8546");
 // 或者
-web3.setProvider(new Web3.providers.WebsocketProvider('ws://localhost:8546'));
+web3.setProvider(new Web3.providers.WebsocketProvider("ws://localhost:8546"));
 ```
 
 ---
@@ -154,18 +231,21 @@ web3.platon.providers
 示例代码：
 
 ```js
-var Web3 = require('web3');
+var Web3 = require("web3");
 // 使用指定的服务提供器（例如在Mist中）或实例化一个新的websocket提供器
-var web3 = new Web3(Web3.givenProvider || 'ws://remotenode.com:8546');
+var web3 = new Web3(Web3.givenProvider || "ws://remotenode.com:8546");
 // 或者
-var web3 = new Web3(Web3.givenProvider || new Web3.providers.WebsocketProvider('ws://remotenode.com:8546'));
+var web3 = new Web3(
+  Web3.givenProvider ||
+    new Web3.providers.WebsocketProvider("ws://remotenode.com:8546")
+);
 ```
 
 ---
 
 #### web3.givenProvider
 
-在以太坊兼容的浏览器中使用 web3.js 时，`web3.givenProvider`属性将返回浏览器设置的原生
+在 PlatON 兼容的浏览器中使用 web3.js 时，`web3.givenProvider`属性将返回浏览器设置的原生
 服务提供器，否则返回`null`。
 
 调用：
@@ -228,9 +308,20 @@ new web3.platon.BatchRequest()
 var contract = new web3.platon.Contract(abi, address);
 
 var batch = new web3.BatchRequest();
-batch.add(web3.platon.getBalance.request('lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35', 'latest', callback));
 batch.add(
-  contract.methods.balance(address).call.request({ from: 'lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35' }, callback2)
+  web3.platon.getBalance.request(
+    "lat1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35",
+    "latest",
+    callback
+  )
+);
+batch.add(
+  contract.methods
+    .balance(address)
+    .call.request(
+      { from: "lat1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35" },
+      callback2
+    )
 );
 batch.execute();
 ```
@@ -255,7 +346,7 @@ web3.platon.defaultAccount
 
 属性：
 
-`String` - 以太坊地址对应的 bech32 编码地址，你应当在节点或 keystore 中存有该地址的私钥。默认值为`undefined`
+`String` - 十六进制地址（如以太坊地址）对应的 bech32 编码地址，你应当在节点或 keystore 中存有该地址的私钥。默认值为`undefined`
 
 示例代码：
 
@@ -264,12 +355,12 @@ web3.platon.defaultAccount;
 > undefined
 
 // set the default account
-web3.platon.defaultAccount = 'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6';
+web3.platon.defaultAccount = 'lat1fyeszufxwxk62p46djncj86rd553skpptsj8v6';
 ```
 
 > 注意：
 >
-> **所有地址格式必须带引号，如上：'lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6'。**
+> **所有地址格式必须带引号，如上：'lat1fyeszufxwxk62p46djncj86rd553skpptsj8v6'。**
 
 ---
 
@@ -317,7 +408,7 @@ web3.platon.defaultBlock = 231;
 
 #### web3.platon.getProtocolVersion
 
-返回节点的以太坊协议版本。
+返回节点的 PlatON 协议版本。
 
 调用：
 
@@ -376,15 +467,15 @@ web3.platon.isSyncing().then(console.log);
 
 #### platon.chainId
 
-`platon.chainId()`方法用来获取当前链的链ID的rpc接口。
+`platon.chainId()`方法用来获取当前链的链 ID 的 rpc 接口。
 
 示例代码：
 
 ```js
 const get_chainid = async function () {
-    let chainid = web3.utils.toDecimal(await web3.ppos.rpc("platon_chainId",[]));
-    console.log("chainid:", chainid);
-}
+  let chainid = web3.utils.toDecimal(await web3.ppos.rpc("platon_chainId", []));
+  console.log("chainid:", chainid);
+};
 ```
 
 ---
@@ -454,7 +545,7 @@ web3.platon.getAccounts([callback])
 
 ```js
 web3.platon.getAccounts().then(console.log);
-> ["lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6", "lax1kg7y7wfwzqsyxppyxcdvhkkkwlf64ccl8x93ut"]
+> ["lat1fyeszufxwxk62p46djncj86rd553skpptsj8v6", "lat1kg7y7wfwzqsyxppyxcdvhkkkwlf64ccl8x93ut"]
 ```
 
 ---
@@ -494,7 +585,7 @@ web3.platon.getBalance(address [, defaultBlock] [, callback])
 
 参数：
 
-- `address`：String - 要检查余额的账户地址，bech32 address 格式，lax 开头的为测试网，lat 开头的为主网
+- `address`：String - 要检查余额的账户地址，bech32 address 格式，lat 开头的为主网
 - `defaultBlock`：Number|String - 可选，使用该参数覆盖 web3.platon.defaultBlock 属性值
 - `callback`：Function - 可选的回调函数，该回调的第一个参数为 error 对象，第二个参数为结果值
 
@@ -505,7 +596,7 @@ web3.platon.getBalance(address [, defaultBlock] [, callback])
 示例代码：
 
 ```js
-web3.platon.getBalance("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
+web3.platon.getBalance("lat1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > "1000000000000"
 ```
@@ -514,7 +605,7 @@ web3.platon.getBalance("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 
 #### web3.platon.getStorageAt
 
-`web3.platon.getStorageAt()`方法返回一个以太坊地址的指定位置存储内容。
+`web3.platon.getStorageAt()`方法返回一个 PlatON 地址的指定位置存储内容。
 
 调用：
 
@@ -536,7 +627,7 @@ web3.platon.getStorageAt(address, position [, defaultBlock] [, callback])
 示例代码：
 
 ```js
-web3.platon.getStorageAt("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6", 0)
+web3.platon.getStorageAt("lat1fyeszufxwxk62p46djncj86rd553skpptsj8v6", 0)
 .then(console.log);
 > "0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234"
 ```
@@ -545,7 +636,7 @@ web3.platon.getStorageAt("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6", 0)
 
 #### web3.platon.getCode
 
-`web3.platon.getCode()`方法返回指定以太坊地址处的代码。
+`web3.platon.getCode()`方法返回指定 PlatON 地址处的代码。
 
 调用：
 
@@ -566,7 +657,7 @@ web3.platon.getCode(address [, defaultBlock] [, callback])
 示例代码：
 
 ```js
-web3.platon.getCode("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
+web3.platon.getCode("lat1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > "0x600160008035811a818181146012578301005b601b6001356025565b8060005260206000f25b600060078202905091905056"
 ```
@@ -627,7 +718,7 @@ web3.platon.getBlock(3150)
     "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
     "transactionsRoot": "0x3a1b03875115b79539e5bd33fb00d8f7b7cd61929d5a3c574f507b8acf415bee",
     "stateRoot": "0xf1133199d44695dfa8fd1bcfe424d82854b5cebef75bddd7e40ea94cda515bcb",
-    "miner": "lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6",
+    "miner": "lat1fyeszufxwxk62p46djncj86rd553skpptsj8v6",
     "difficulty": '21345678965432',
     "totalDifficulty": '324567845321',
     "size": 616,
@@ -666,7 +757,7 @@ web3.platon.getBlockTransactionCount(blockHashOrBlockNumber [, callback])
 示例代码：
 
 ```js
-web3.platon.getBlockTransactionCount("lax1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
+web3.platon.getBlockTransactionCount("lat1fyeszufxwxk62p46djncj86rd553skpptsj8v6")
 .then(console.log);
 > 1
 ```
@@ -715,8 +806,8 @@ web3.platon.getTransaction('0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4
     "blockHash": "0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
     "blockNumber": 3,
     "transactionIndex": 0,
-    "from": "lax14984xa8uuhkmer32s6tuz5e3valxa0ct68a0c5",
-    "to": "lax1v227ux60dht9q3mk97fyanfk0st740u0x25f88",
+    "from": "lat14984xa8uuhkmer32s6tuz5e3valxa0ct68a0c5",
+    "to": "lat1v227ux60dht9q3mk97fyanfk0st740u0x25f88",
     "value": '123450000000000000',
     "gas": 314159,
     "gasPrice": '2000000000000',
@@ -799,7 +890,7 @@ var receipt = web3.platon.getTransactionReceipt('0x9fc76417374aa880d4449a1f7f31e
   "transactionIndex": 0,
   "blockHash": "0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
   "blockNumber": 3,
-  "contractAddress": "lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2",
+  "contractAddress": "lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2",
   "cumulativeGasUsed": 314159,
   "gasUsed": 30234,
   "logs": [{
@@ -833,7 +924,7 @@ web3.platon.getTransactionCount(address [, defaultBlock] [, callback])
 示例代码：
 
 ```js
-web3.platon.getTransactionCount("lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2")
+web3.platon.getTransactionCount("lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2")
 .then(console.log);
 > 1
 ```
@@ -876,12 +967,12 @@ PromiEvent: 一个整合事件发生器的 Promise 对象，将在收到交易�
 示例代码：
 
 ```js
-// compiled solidity source code using https://remix.ethereum.org
+// compiled solidity source code using https://remix.ethereum.org Or PlatON Studio (https://github.com/ObsidianLabs/PlatON-Studio)
 var code = "603d80600c6000396000f3007c01000000000000000000000000000000000000000000000000000000006000350463c6888fa18114602d57005b6007600435028060005260206000f3";
 
 // 使用回调函数
 web3.platon.sendTransaction({
-    from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv',
+    from: 'lat1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv',
     data: code // deploying a contracrt
 }, function(error, hash){
     ...
@@ -889,8 +980,8 @@ web3.platon.sendTransaction({
 
 // 使用promise
 web3.platon.sendTransaction({
-    from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv',
-    to: 'lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2',
+    from: 'lat1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv',
+    to: 'lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2',
     value: '1000000000000000'
 })
 .then(function(receipt){
@@ -900,8 +991,8 @@ web3.platon.sendTransaction({
 
 // 使用事件发生器
 web3.platon.sendTransaction({
-    from: 'lax1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv',
-    to: 'lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2',
+    from: 'lat1mc9jj4nf487e840j3k0vshjq7n9kj7awe459dv',
+    to: 'lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2',
     value: '1000000000000000'
 })
 .on('transactionHash', function(hash){
@@ -923,7 +1014,7 @@ web3.platon.sendTransaction({
 调用：
 
 ```js
-let address = Accounts.privateKeyToAccount(privateKey).address
+let address = Accounts.privateKeyToAccount(privateKey).address;
 ```
 
 参数：
@@ -937,15 +1028,16 @@ let address = Accounts.privateKeyToAccount(privateKey).address
 示例代码：
 
 ```js
-var Web3 = require('web3')
-var Account = require('account')
+var Web3 = require("web3");
+var Account = require("account");
 const transaction_demo = async function () {
-  web3 = new Web3('http://127.0.0.1:6789')
-  var privateKey = '0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba'
-  var hrp = await web3.platon.getAddressHrp()
+  web3 = new Web3("http://127.0.0.1:6789");
+  var privateKey =
+    "0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba";
+  var hrp = await web3.platon.getAddressHrp();
   var alayaAccounts = new Accounts(web3, hrp);
-  let address = alayaAccounts.privateKeyToAccount(privateKey).address
-}
+  let address = alayaAccounts.privateKeyToAccount(privateKey).address;
+};
 ```
 
 ---
@@ -973,29 +1065,32 @@ PromiEvent: 一个整合了事件发生器的 Promise 对象。当交易收据�
 示例代码：
 
 ```js
-var Web3 = require('web3')
-var Account = require('account')
+var Web3 = require("web3");
+var Account = require("account");
 const transaction_demo = async function () {
-  web3 = new Web3('http://127.0.0.1:6789')
-  var privateKey = '0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba'
-  var hrp = await web3.platon.getAddressHrp()
+  web3 = new Web3("http://127.0.0.1:6789");
+  var privateKey =
+    "0xb416b341437c420a45cb6ba5ca883655eec169360d36866124d23682c03766ba";
+  var hrp = await web3.platon.getAddressHrp();
   var platonAccounts = new Accounts(web3, hrp);
-  let from = platonAccounts.privateKeyToAccount(privateKey).address
-  let nonce = web3.utils.numberToHex(await web3.platon.getTransactionCount(from))
+  let from = platonAccounts.privateKeyToAccount(privateKey).address;
+  let nonce = web3.utils.numberToHex(
+    await web3.platon.getTransactionCount(from)
+  );
   let tx = {
     from: from,
-    to: 'atp1j9x482k50kl86qvx5cyw7hp48qcx5mezayxj8t',
-    value: '1000000000000000000',
+    to: "atp1j9x482k50kl86qvx5cyw7hp48qcx5mezayxj8t",
+    value: "1000000000000000000",
     chainId: 201018,
-    gasPrice: '10000000000000',
-    gas: '21000',
-    nonce: nonce
+    gasPrice: "10000000000000",
+    gas: "21000",
+    nonce: nonce,
   };
   // 签名交易
   let signTx = await web3.platon.accounts.signTransaction(tx, privateKey);
   // 发送交易
   let receipt = await web3.platon.sendSignedTransaction(signTx.rawTransaction);
-  console.log('sign tx data:\n', signTx.rawTransaction);
+  console.log("sign tx data:\n", signTx.rawTransaction);
 };
 ```
 
@@ -1024,12 +1119,12 @@ web3.platon.sign(dataToSign, address [, callback])
 示例代码：
 
 ```js
-web3.platon.sign("Hello world", "lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2")
+web3.platon.sign("Hello world", "lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2")
 .then(console.log);
 > "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"
 
 // the below is the same
-web3.platon.sign(web3.utils.utf8ToHex("Hello world"), "lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2")
+web3.platon.sign(web3.utils.utf8ToHex("Hello world"), "lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2")
 .then(console.log);
 > "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"
 ```
@@ -1061,10 +1156,10 @@ web3.platon.signTransaction(transactionObject, address [, callback])
 
 ```js
 web3.platon.signTransaction({
-    from: "lax1avq5lrytgxxmddzhwnpjdg8xf3ufznwqrjn60v",
+    from: "lat1avq5lrytgxxmddzhwnpjdg8xf3ufznwqrjn60v",
     gasPrice: "20000000000",
     gas: "21000",
-    to: 'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
+    to: 'lat1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
     value: "1000000000000000000",
     data: ""
 }).then(console.log);
@@ -1074,7 +1169,7 @@ web3.platon.signTransaction({
         nonce: '0x0',
         gasPrice: '0x4a817c800',
         gas: '0x5208',
-        to: 'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
+        to: 'lat1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
         value: '0xde0b6b3a7640000',
         input: '0x',
         v: '0x25',
@@ -1110,7 +1205,7 @@ web3.platon.estimateGas(callObject [, callback])
 
 ```js
 web3.platon.estimateGas({
-    to: "lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2",
+    to: "lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2",
     data: "0xc6888fa10000000000000000000000000000000000000000000000000000000000000003"
 })
 .then(console.log);
@@ -1156,7 +1251,7 @@ web3.platon.getPastLogs(options [, callback])
 
 ```js
 web3.platon.getPastLogs({
-    address: "lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2",
+    address: "lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2",
     topics: ["0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234"]
 })
 .then(console.log);
@@ -1169,7 +1264,7 @@ web3.platon.getPastLogs({
     transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
     blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
     blockNumber: 1234,
-    address: 'lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2'
+    address: 'lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2'
 },{...}]
 ```
 
@@ -1211,10 +1306,10 @@ Mixed - 取决于具体的订阅类型
 
 ```js
 var subscription = web3.platon.subscribe(
-  'logs',
+  "logs",
   {
-    address: 'lax..',
-    topics: ['lax...']
+    address: "lat..",
+    topics: ["lat..."],
   },
   function (error, result) {
     if (!error) console.log(log);
@@ -1223,7 +1318,7 @@ var subscription = web3.platon.subscribe(
 
 // unsubscribes the subscription
 subscription.unsubscribe(function (error, success) {
-  if (success) console.log('Successfully unsubscribed!');
+  if (success) console.log("Successfully unsubscribed!");
 });
 ```
 
@@ -1293,16 +1388,16 @@ web3.platon.subscribe('pendingTransactions' [, callback]);
 
 ```js
 var subscription = web3.platon
-  .subscribe('pendingTransactions', function (error, result) {
+  .subscribe("pendingTransactions", function (error, result) {
     if (!error) console.log(result);
   })
-  .on('data', function (transaction) {
+  .on("data", function (transaction) {
     console.log(transaction);
   });
 
 // unsubscribes the subscription
 subscription.unsubscribe(function (error, success) {
-  if (success) console.log('Successfully unsubscribed!');
+  if (success) console.log("Successfully unsubscribed!");
 });
 ```
 
@@ -1356,14 +1451,14 @@ EventEmitter: 订阅对象实例，是一个事件发生器，定义有如下事
 
 ```js
 var subscription = web3.platon
-  .subscribe('newBlockHeaders', function (error, result) {
+  .subscribe("newBlockHeaders", function (error, result) {
     if (error) console.log(error);
   })
-  .on('data', function (blockHeader) {});
+  .on("data", function (blockHeader) {});
 
 // unsubscribes the subscription
 subscription.unsubscribe(function (error, success) {
-  if (success) console.log('Successfully unsubscribed!');
+  if (success) console.log("Successfully unsubscribed!");
 });
 ```
 
@@ -1403,13 +1498,13 @@ EventEmitter: 订阅对象实例，是一个事件发生器，定义有如下事
 
 ```js
 var subscription = web3.platon
-  .subscribe('syncing', function (error, sync) {
+  .subscribe("syncing", function (error, sync) {
     if (!error) console.log(sync);
   })
-  .on('data', function (sync) {
+  .on("data", function (sync) {
     // show some syncing stats
   })
-  .on('changed', function (isSyncing) {
+  .on("changed", function (isSyncing) {
     if (isSyncing) {
       // stop app operation
     } else {
@@ -1419,7 +1514,7 @@ var subscription = web3.platon
 
 // unsubscribes the subscription
 subscription.unsubscribe(function (error, success) {
-  if (success) console.log('Successfully unsubscribed!');
+  if (success) console.log("Successfully unsubscribed!");
 });
 ```
 
@@ -1464,23 +1559,23 @@ EventEmitter: 订阅实例对象，是一个事件发生器，定义有如下事
 ```js
 var subscription = web3.platon
   .subscribe(
-    'logs',
+    "logs",
     {
-      address: 'lax..',
-      topics: ['lax...']
+      address: "lat..",
+      topics: ["lat..."],
     },
     function (error, result) {
       if (!error) console.log(result);
     }
   )
-  .on('data', function (log) {
+  .on("data", function (log) {
     console.log(log);
   })
-  .on('changed', function (log) {});
+  .on("changed", function (log) {});
 
 // unsubscribes the subscription
 subscription.unsubscribe(function (error, success) {
-  if (success) console.log('Successfully unsubscribed!');
+  if (success) console.log("Successfully unsubscribed!");
 });
 ```
 
@@ -1488,7 +1583,7 @@ subscription.unsubscribe(function (error, success) {
 
 #### web3.platon.Contract
 
-`web3.platon.Contract`类简化了与以太坊区块链上智能合约的交互。创建合约对象时，
+`web3.platon.Contract`类简化了与 PlatON 区块链上智能合约的交互。创建合约对象时，
 只需指定相应智能合约的 json 接口，web3 就可以自动地将所有的调用转换为底层
 基于 RPC 的 ABI 调用。
 
@@ -1516,7 +1611,7 @@ new web3.platon.Contract(jsonInterface[, address][, options])
 
   - vmType - Number: 合约类型。0 表示 solidity 合约，1 表示 wasm 合约。不传默认是 solidity 合约。(新增字段)
 
-  - net_type - String: 网络类型。`lat`表示主网，`lax`表示测试网。不传默认是测试网。(新增字段)
+  - net_type - String: 网络类型。`lat`表示主网，不传默认是主网。(新增字段)
 
     返回值：
 
@@ -1525,8 +1620,8 @@ new web3.platon.Contract(jsonInterface[, address][, options])
 示例代码：
 
 ```js
-var myContract = new web3.platon.Contract([...], 'lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2', {
-    from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf', // default from address
+var myContract = new web3.platon.Contract([...], 'lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2', {
+    from: 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf', // default from address
     gasPrice: '20000000000' // default gas price in VON, 20 GVON in this case
 });
 ```
@@ -1557,14 +1652,14 @@ myContract.options
 ```js
 myContract.options;
 > {
-    address: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf',
+    address: 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf',
     jsonInterface: [...],
-    from: 'lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2',
+    from: 'lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2',
     gasPrice: '10000000000000',
     gas: 1000000
 }
 
-myContract.options.from = 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'; // default from address
+myContract.options.from = 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'; // default from address
 myContract.options.gasPrice = '20000000000000'; // default gas price in VON
 myContract.options.gas = 5000000; // provide as fallback always 5M gas
 ```
@@ -1590,10 +1685,10 @@ myContract.options.address
 
 ```js
 myContract.options.address;
-> 'lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2'
+> 'lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2'
 
 // 设置一个新地址
-myContract.options.address = 'lax...';
+myContract.options.address = 'lat...';
 ```
 
 ---
@@ -1668,7 +1763,7 @@ myContract.deploy({
     arguments: [123, 'My String']
 })
 .send({
-    from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf',
+    from: 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf',
     gas: 1500000,
     gasPrice: '30000000000000'
 }, function(error, transactionHash){ ... })
@@ -1690,7 +1785,7 @@ myContract.deploy({
     arguments: [123, 'My String']
 })
 .send({
-    from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf',
+    from: 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf',
     gas: 1500000,
     gasPrice: '30000000000000'
 })
@@ -1756,18 +1851,18 @@ Object: 交易对象，包含以下字段：
 
 ```js
 // 调用合约方法
-myContract.methods.myMethod(123).call({from: 'lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2'}, function(error, result){
+myContract.methods.myMethod(123).call({from: 'lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2'}, function(error, result){
     ...
 });
 
 // 发送交易，使用Promise对象获取返回结果
-myContract.methods.myMethod(123).send({from: 'lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2'})
+myContract.methods.myMethod(123).send({from: 'lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2'})
 .then(function(receipt){
     // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
 });
 
 // 发送交易，使用事件获取返回结果
-myContract.methods.myMethod(123).send({from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'})
+myContract.methods.myMethod(123).send({from: 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'})
 .on('transactionHash', function(hash){
     ...
 })
@@ -1809,12 +1904,12 @@ myContract.methods.myMethod([param1[, param2[, ...]]]).call(options[, callback])
 
 ```js
 // 使用回调函数接收合约方法执行结果
-myContract.methods.myMethod(123).call({from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'}, function(error, result){
+myContract.methods.myMethod(123).call({from: 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'}, function(error, result){
     ...
 });
 
 // 使用Promise接收合约方法执行结果
-myContract.methods.myMethod(123).call({from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'})
+myContract.methods.myMethod(123).call({from: 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'})
 .then(function(result){
     ...
 });
@@ -1905,19 +2000,19 @@ PromiEvent: 一个 Promise 对象，当交易收据有效时或者发送交易�
 
 ```js
 // using the callback
-myContract.methods.myMethod(123).send({from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'}, function(error, transactionHash){
+myContract.methods.myMethod(123).send({from: 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'}, function(error, transactionHash){
     ...
 });
 
 // using the promise
-myContract.methods.myMethod(123).send({from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'})
+myContract.methods.myMethod(123).send({from: 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'})
 .then(function(receipt){
     // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
 });
 
 
 // using the event emitter
-myContract.methods.myMethod(123).send({from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'})
+myContract.methods.myMethod(123).send({from: 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'})
 .on('transactionHash', function(hash){
     ...
 })
@@ -1932,7 +2027,7 @@ myContract.methods.myMethod(123).send({from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7
         "transactionIndex": 0,
         "blockHash": "0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
         "blockNumber": 3,
-        "contractAddress": "lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2",
+        "contractAddress": "lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2",
         "cumulativeGasUsed": 314159,
         "gasUsed": 30234,
         "events": {
@@ -1953,7 +2048,7 @@ myContract.methods.myMethod(123).send({from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7
                 transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
                 blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
                 blockNumber: 1234,
-                address: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'
+                address: 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'
             },
             "MyOtherEvent": {
                 ...
@@ -2000,7 +2095,7 @@ myContract.methods.myMethod(123).estimateGas({gas: 5000000}, function(error, gas
 });
 
 // 使用promise
-myContract.methods.myMethod(123).estimateGas({from: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'})
+myContract.methods.myMethod(123).estimateGas({from: 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'})
 .then(function(gasAmount){
     ...
 })
@@ -2111,7 +2206,7 @@ myContract.events.MyEvent({
     transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
     blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
     blockNumber: 1234,
-    address: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'
+    address: 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'
 }
 ```
 
@@ -2182,7 +2277,7 @@ myContract.getPastEvents('MyEvent', {
     transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
     blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
     blockNumber: 1234,
-    address: 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'
+    address: 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'
 },{
     ...
 }]
@@ -2251,24 +2346,29 @@ myContract.getFilterLogs(rpcId[, callback])
 示例代码：
 
 ```js
-contract.getFilterLogs('0xa081d1f00117ade0e08769bb053ae7e', function (error, events) {
-  console.log(events);
-}) >
+contract.getFilterLogs(
+  "0xa081d1f00117ade0e08769bb053ae7e",
+  function (error, events) {
+    console.log(events);
+  }
+) >
   [
     {
-      address: 'lat1dw8t6q5jy6r3xqqkgc43nn403gpuzwx7penk3q',
+      address: "lat1dw8t6q5jy6r3xqqkgc43nn403gpuzwx7penk3q",
       topics: [
-        '0x0000000000000000000000000000000000000000007374727563744576656e74',
-        '0x000000000000000000000000000000000000000000000000000000000000c180'
+        "0x0000000000000000000000000000000000000000007374727563744576656e74",
+        "0x000000000000000000000000000000000000000000000000000000000000c180",
       ],
-      data: '0xc0',
-      blockNumber: '0x16375a',
-      transactionHash: '0x59d68e32b6566877fb024f3ab356d9c5d2947f6f7a89bc4b34432496c34193d5',
-      transactionIndex: '0x0',
-      blockHash: '0x2843f645de8147cce62e6d18bb287c4cf06bbb6a3f3f5ec97917a7a09e300eee',
-      logIndex: '0x0',
-      removed: false
-    }
+      data: "0xc0",
+      blockNumber: "0x16375a",
+      transactionHash:
+        "0x59d68e32b6566877fb024f3ab356d9c5d2947f6f7a89bc4b34432496c34193d5",
+      transactionIndex: "0x0",
+      blockHash:
+        "0x2843f645de8147cce62e6d18bb287c4cf06bbb6a3f3f5ec97917a7a09e300eee",
+      logIndex: "0x0",
+      removed: false,
+    },
   ];
 ```
 
@@ -2278,7 +2378,7 @@ contract.getFilterLogs('0xa081d1f00117ade0e08769bb053ae7e', function (error, eve
 
 #### web3.platon.personal
 
-使用 web3-eth-personal 包和以太坊节点账户进行交互。
+使用 web3-eth-personal 包和 `PlatON` 节点账户进行交互。
 
 注意，这个包中的许多函数包含敏感信息，例如密码，因此不要在未加密的
 websocket 或 http 服务提供器上调用这些函数，因为你的密码是明文发送的！
@@ -2288,7 +2388,7 @@ websocket 或 http 服务提供器上调用这些函数，因为你的密码是�
 ```
 var Personal = require('web3.platon-personal');
 
-// 在以太坊兼容浏览器中，"Personal.providers.givenProvider"将自动被设置
+// 在PlatON兼容浏览器中，"Personal.providers.givenProvider"将自动被设置
 var personal = new Personal(Personal.givenProvider || 'ws://some.local-or-remote.node:8546');
 
 
@@ -2325,7 +2425,7 @@ password - String: 用来加密账户的密码
 
 ```js
 web3.platon.personal.newAccount('!@superpassword').then(console.log);
-> 'lax1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'
+> 'lat1uqug0zq7rcxddndleq4ux2ft3tv6dqljphydrl'
 ```
 
 ---
@@ -2356,12 +2456,12 @@ web3.platon.personal.sign(dataToSign, address, password [, callback])
 示例代码：
 
 ```js
-web3.platon.personal.sign("Hello world", "lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2", "test password!")
+web3.platon.personal.sign("Hello world", "lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2", "test password!")
 .then(console.log);
 > "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"
 
 // 下面代码实现同样功能
-web3.platon.personal.sign(web3.utils.utf8ToHex("Hello world"), "lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2", "test password!")
+web3.platon.personal.sign(web3.utils.utf8ToHex("Hello world"), "lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2", "test password!")
 .then(console.log);
 > "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400"
 ```
@@ -2392,7 +2492,7 @@ web3.platon.personal.ecRecover(dataThatWasSigned, signature [, callback])
 
 ```js
 web3.platon.personal.ecRecover("Hello world", "0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400").then(console.log);
-> "lax1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2"
+> "lat1z86dpg7p96rtfd0nnvsn7lse6pyzwmdwnyana2"
 ```
 
 ---
@@ -2423,10 +2523,10 @@ web3.platon.personal.signTransaction(transaction, password [, callback])
 
 ```js
 web3.platon.signTransaction({
-    from: "lax1avq5lrytgxxmddzhwnpjdg8xf3ufznwqrjn60v",
+    from: "lat1avq5lrytgxxmddzhwnpjdg8xf3ufznwqrjn60v",
     gasPrice: "20000000000",
     gas: "21000",
-    to: 'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
+    to: 'lat1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
     value: "1000000000000000000",
     data: ""
 }, 'MyPassword!').then(console.log);
@@ -2436,7 +2536,7 @@ web3.platon.signTransaction({
         nonce: '0x0',
         gasPrice: '0x4a817c800',
         gas: '0x5208',
-        to: 'lax1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
+        to: 'lat1x56n2df4x56n2df4x56n2df4x56n2df44dm33c',
         value: '0xde0b6b3a7640000',
         input: '0x',
         v: '0x25',
@@ -2452,7 +2552,7 @@ web3.platon.signTransaction({
 #### web3.platon.abi
 
 web3.platon.abi 系列函数用来将参数编码为 ABI (Application Binary Interface)，或者从 ABI 解码回来。
-以便在以太坊虚拟机 EVM 上执行函数函数调用。
+以便在 PlatON 虚拟机 EVM 上执行函数函数调用。
 
 函数列表：
 
@@ -2491,22 +2591,23 @@ web3.platon.abi.encodeFunctionSignature(functionName);
 ```js
 // 传入JSON接口对象
 web3.platon.abi.encodeFunctionSignature({
-  name: 'myMethod',
-  type: 'function',
+  name: "myMethod",
+  type: "function",
   inputs: [
     {
-      type: 'uint256',
-      name: 'myNumber'
+      type: "uint256",
+      name: "myNumber",
     },
     {
-      type: 'string',
-      name: 'myString'
-    }
-  ]
+      type: "string",
+      name: "myString",
+    },
+  ],
 }) > 0x24ee0097;
 
 // 传入字符串
-web3.platon.abi.encodeFunctionSignature('myMethod(uint256,string)') > '0x24ee0097';
+web3.platon.abi.encodeFunctionSignature("myMethod(uint256,string)") >
+  "0x24ee0097";
 ```
 
 ---
@@ -2534,23 +2635,23 @@ web3.platon.abi.encodeEventSignature(eventName);
 
 ```js
 // 使用字符串参数
-web3.platon.abi.encodeEventSignature('myEvent(uint256,bytes32)') >
+web3.platon.abi.encodeEventSignature("myEvent(uint256,bytes32)") >
   0xf2eeb729e636a8cb783be044acf6b7b1e2c5863735b60d6daae84c366ee87d97;
 
 // 使用json接口对象
 web3.platon.abi.encodeEventSignature({
-  name: 'myEvent',
-  type: 'event',
+  name: "myEvent",
+  type: "event",
   inputs: [
     {
-      type: 'uint256',
-      name: 'myNumber'
+      type: "uint256",
+      name: "myNumber",
     },
     {
-      type: 'bytes32',
-      name: 'myBytes'
-    }
-  ]
+      type: "bytes32",
+      name: "myBytes",
+    },
+  ],
 }) > 0xf2eeb729e636a8cb783be044acf6b7b1e2c5863735b60d6daae84c366ee87d97;
 ```
 
@@ -2750,15 +2851,16 @@ web3.utils.randomHex(size)
 示例代码：
 
 ```js
-web3.utils.randomHex(32) > '0xa5b9d60f32436310afebcfda832817a68921beb782fabf7915cc0460b443116a';
+web3.utils.randomHex(32) >
+  "0xa5b9d60f32436310afebcfda832817a68921beb782fabf7915cc0460b443116a";
 
-web3.utils.randomHex(4) > '0x6892ffc6';
+web3.utils.randomHex(4) > "0x6892ffc6";
 
-web3.utils.randomHex(2) > '0x99d6';
+web3.utils.randomHex(2) > "0x99d6";
 
-web3.utils.randomHex(1) > '0x9a';
+web3.utils.randomHex(1) > "0x9a";
 
-web3.utils.randomHex(0) > '0x';
+web3.utils.randomHex(0) > "0x";
 ```
 
 ---
@@ -3091,7 +3193,7 @@ web3.utils.isHex('Hello');
 
 #### web3.utils.isAddress
 
-检查指定的字符串是否是有效的以太坊地址。如果地址同时使用了大小写字符，
+检查指定的字符串是否是有效的 十六进制地址（如以太坊地址）。如果地址同时使用了大小写字符，
 `web3.utils.isAddress()`方法也会检查校验和。
 
 调用：
@@ -3131,7 +3233,7 @@ web3.utils.isAddress('0xC1912fEE45d61C87Cc5EA59DaE31190FFFFf232d');
 
 #### web3.utils.isBech32Address
 
-检查指定的字符串是否是有效的 bech32 格式地址。
+检查指定的字符串是否是有效的 bech32 格式地址（如PlatON 地址）。
 
 调用：
 
@@ -3141,7 +3243,7 @@ web3.utils.isBech32Address(bech32Address)
 
 参数：
 
-`bech32Address` - String: 要检查的 bech32 格式地址字符串；lax 表示测试网地址，lat 表示主网地址。
+`bech32Address` - String: 要检查的 bech32 格式地址字符串；lat 表示主网地址。
 
 返回值：
 
@@ -3150,24 +3252,18 @@ web3.utils.isBech32Address(bech32Address)
 示例代码：
 
 ```js
-web3.utils.isBech32Address('lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf');
-> true
-
 web3.utils.isBech32Address('lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf');
-> false
-
-web3.utils.isBech32Address('lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
 > true
 
-web3.utils.isBech32Address('lax1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
+web3.utils.isBech32Address('0x1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf');
 > false
-```
+
 
 ---
 
 #### web3.utils.toBech32Address
 
-将有效的以太坊地址转成指定网络的 bech32 格式地址。
+将有效的十六进制地址（如以太坊地址）转成指定网络的 bech32 格式地址（如PlatON 地址）。
 
 调用：
 
@@ -3177,9 +3273,9 @@ web3.utils.toBech32Address(hrp, address)
 
 参数：
 
-`hrp` - String: 指定网络参数，lax 表示测试网地址，lat 表示主网地址。
+`hrp` - String: 指定网络参数，lat 表示主网地址。
 
-`address` - String: 以太坊地址字符串。
+`address` - String:  十六进制地址（如以太坊地址）字符串。
 
 返回值：
 
@@ -3188,8 +3284,8 @@ web3.utils.toBech32Address(hrp, address)
 示例代码：
 
 ```js
-web3.utils.toBech32Address('lax', '0x1234567890123456789012345678901234567891');
-> 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'
+web3.utils.toBech32Address('lat', '0x1234567890123456789012345678901234567891');
+> 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf'
 
 web3.utils.toBech32Address('lat', '0x1234567890123456789012345678901234567891');
 > 'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx'
@@ -3199,7 +3295,7 @@ web3.utils.toBech32Address('lat', '0x1234567890123456789012345678901234567891');
 
 #### web3.utils.decodeBech32Address
 
-将指定网络的的 bech32 格式地址解析成有效的以太坊地址。
+将指定网络的的 bech32 格式地址（如PlatON 地址）解析成有效的 十六进制地址（如以太坊地址）。
 
 调用：
 
@@ -3209,18 +3305,18 @@ web3.utils.decodeBech32Address(hrp, bech32Address)
 
 参数：
 
-`hrp` - String: 指定网络参数，lax 表示测试网地址，lat 表示主网地址。
+`hrp` - String: 指定网络参数，lat 表示主网地址。
 
 `bech32Address` - String: bech32 格式地址。
 
 返回值：
 
-`String`：解析正确返回有效的以太坊地址，否则返回为空。
+`String`：解析正确返回有效的十六进制地址（如以太坊地址），否则返回为空。
 
 示例代码：
 
 ```js
-web3.utils.decodeBech32Address('lax', 'lax1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf');
+web3.utils.decodeBech32Address('lat', 'lat1zg69v7yszg69v7yszg69v7yszg69v7y3q7dnwf');
 > '0x1234567890123456789012345678901234567891'
 
 web3.utils.decodeBech32Address('lat', 'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluqx');
@@ -3231,7 +3327,7 @@ web3.utils.decodeBech32Address('lat', 'lat1zg69v7yszg69v7yszg69v7yszg69v7y30mluq
 
 #### web3.utils.toChecksumAddress
 
-将给定的大写或小写以太坊地址转换为校验和地址。
+将给定的大写或小写十六进制地址（如以太坊地址）转换为校验和地址。
 
 调用：
 
@@ -3556,19 +3652,7 @@ web3.utils.hexToBytes(0x000000ea);
 
 #### web3.utils.toVon
 
-按对应货币转为以 von 为单位。可选择的单位如下：
-
-- von
-- kvon
-- mvon
-- gvon
-- microlat
-- millilat
-- lat
-- klat
-- mlat
-- glat
-- tlat
+将任意 lat 值转换为 von 。
 
 ```
 'von':          '1',
@@ -3592,8 +3676,19 @@ web3.utils.toVon(number [, unit])
 
 参数：
 
-- `number` - String|Number|BN: 金额
-- `unit` - String，可选，默认值为`ether`
+- `number` - String|Number|BN: 要转换的金额
+- `unit` - String（可选，默认值为`lat`）: 要转换的 lat 单位. 支持的单位包括:
+  - von
+  - kvon
+  - mvon
+  - gvon
+  - microlat
+  - millilat
+  - lat
+  - klat
+  - mlat
+  - glat
+  - tlat
 
 返回值：
 
@@ -3610,7 +3705,7 @@ web3.utils.toVon('1', 'lat');
 
 #### web3.utils.fromVon
 
-将给定的以 von 为单位的值转换为其他单位的数值。
+将任意数量的 von 转换为 lat 。
 
 调用：
 
@@ -3618,12 +3713,10 @@ web3.utils.toVon('1', 'lat');
 web3.utils.fromVon(number [, unit])
 ```
 
-Converts any von value into a lat value.
-
 参数：
 
-`number` - String|Number|BN: VON 为单位的数值
-`unit` - String，可选，默认值为`lat`，可选的单位有：
+`number` - String|Number|BN: 以 VON 为单位的数值
+`unit` - String（可选，默认值为`lat`）：要转换到的 lat 单位. 可能支持的单位包括:
 
 - von
 - kvon
@@ -3714,7 +3807,7 @@ web3.utils.padLeft('Hello', 20, 'x');
     let data, reply;
 
     // 传参以对象形式发送交易： 1000. createStaking() : 发起质押
-    const benefitAddress = 'lax1umevux40n6ljlclm4pmrh2ad7f0rld06hkzx3u';
+    const benefitAddress = 'lat1umevux40n6ljlclm4pmrh2ad7f0rld06hkzx3u';
     const nodeId = '80f1fcee54de74dbf7587450f31c31c0e057bedd4faaa2a10c179d52c900ca01f0fb255a630c49d83b39f970d175c42b12a341a37504be248d76ecf592d32bc0';
     const amount = '10000000000000000000000000000';
     const blsPubKey = 'd2459db974f49ca9cbf944d4d04c2d17888aef90858b62d6aec166341a6e886e8c0c0cfae9e469c2f618f5d9b7a249130d10047899da6154288c9cde07b576acacd75fef07ba0cfeb4eaa7510704e77a9007eff5f1a5f8d099e6ea664129780c';
@@ -3793,11 +3886,11 @@ createStaking params object reply:  {
   "blockNumber": "0xb",
   "contractAddress": null,
   "cumulativeGasUsed": "0x14f34",
-  "from": "lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35",
+  "from": "lat1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35",
   "gasUsed": "0x14f34",
   "logs": [
     {
-      "address": "lax1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3",
+      "address": "lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3",
       "topics": [
         "0xd63087bea9f1800eed943829fc1d61e7869764805baa3259078c1caf3d4f5a48"
       ],
@@ -3817,7 +3910,7 @@ createStaking params object reply:  {
   ],
   "logsBloom": "",
   "root": "0x3b7a41cea97f90196039586a3068f6a64c09aa7597898440c3c241a095e37984",
-  "to": "lax1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3",
+  "to": "lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3",
   "transactionHash": "0x4bee71e351076a81482e2576e469a8dfaa76da9b6cc848265c10968d6de67364",
   "transactionIndex": "0x0"
 }
@@ -3827,10 +3920,10 @@ createStaking params array reply:  { blockHash:
   blockNumber: '0x10',
   contractAddress: null,
   cumulativeGasUsed: '0x14f34',
-  from: 'lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35',
+  from: 'lat1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35',
   gasUsed: '0x14f34',
   logs:
-   [ { address: 'lax1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3',
+   [ { address: 'lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3',
        topics: [Array],
        data:
         '0xf846b8447b22436f6465223a3330313130312c2244617461223a22222c224572724d7367223a22546869732063616e64696461746520697320616c7265616479206578697374227d',
@@ -3846,7 +3939,7 @@ createStaking params array reply:  { blockHash:
   logsBloom:'',
   root:
    '0x45ffeda340b68a0d54c5556a51f925b0787307eab1fb120ed141fd8ba81183d4',
-  to: 'lax1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3',
+  to: 'lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzlh5ge3',
   transactionHash:
    '0xe5cbc728d6e284464c30ce6f0bbee5fb2b30351a591424f3a0edd37cc1bbdc05',
   transactionIndex: '0x0' }
@@ -3960,7 +4053,7 @@ let reply = await ppos.rpc('admin_getProgramVersion');
 let reply = await ppos.rpc('platon_accounts')
 
 // 获取一个账号的金额
-let reply = await ppos.rpc('platon_getBalance', ["lax1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35","latest"])
+let reply = await ppos.rpc('platon_getBalance', ["lat1w9x7ye4qalarnl9v59zzhyn7tug9864rr2fc35","latest"])
 ```
 
 ---
@@ -4040,7 +4133,7 @@ let buffer = ppos.hexStrBuf(nodeId);
 var utils = require("web3-utils")
 let params, reply;
 
-let address = utils.decodeBech32Address("lax", "lax1umevux40n6ljlclm4pmrh2ad7f0rld06hkzx3u")
+let address = utils.decodeBech32Address("lat", "lat1umevux40n6ljlclm4pmrh2ad7f0rld06hkzx3u")
 // 以传进入对象进行调用(对于key不要求顺序)
 params = {
     funcType: 1103,
@@ -4094,12 +4187,12 @@ reply = await ppos.call(params);
 
 以调用 `发起委托`这个接口，入参顺序从上到下，入参如下所示：
 
-| 参数     | 类型           | 说明                                                         |
-| -------- | -------------- | ------------------------------------------------------------ |
-| funcType | uint16(2bytes) | 代表方法类型码(1004)                                         |
+| 参数     | 类型           | 说明                                                                                                                               |
+| -------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| funcType | uint16(2bytes) | 代表方法类型码(1004)                                                                                                               |
 | typ      | uint16(2bytes) | 表示使用账户自由金额还是账户的锁仓金额做委托，0: 自由金额； 1: 锁仓金额；2: 优先使用锁仓余额，锁仓余额不足则剩下的部分使用自由金额 |
-| nodeId   | 64bytes        | 被质押的节点的 NodeId                                        |
-| amount   | big.Int(bytes) | 委托的金额(按照最小单位算，1LAT = 10^18 von)                 |
+| nodeId   | 64bytes        | 被质押的节点的 NodeId                                                                                                              |
+| amount   | big.Int(bytes) | 委托的金额(按照最小单位算，1LAT = 10^18 von)                                                                                       |
 
 调用示例
 
@@ -4135,22 +4228,22 @@ reply = await ppos.send(params, other);
 
 - 发起质押，send 发送交易。
 
-| 参数               | 类型             | 说明                                                         |
-| ------------------ | ---------------- | ------------------------------------------------------------ |
-| funcType           | uint16(2bytes)   | 代表方法类型码(1000)                                         |
+| 参数               | 类型             | 说明                                                                                                                               |
+| ------------------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| funcType           | uint16(2bytes)   | 代表方法类型码(1000)                                                                                                               |
 | typ                | uint16(2bytes)   | 表示使用账户自由金额还是账户的锁仓金额做质押，0: 自由金额； 1: 锁仓金额；2: 优先使用锁仓余额，锁仓余额不足则剩下的部分使用自由金额 |
-| benefitAddress     | 20bytes          | 用于接受出块奖励和质押奖励的收益账户                         |
-| nodeId             | 64bytes          | 被质押的节点 Id(也叫候选人的节点 Id)                         |
-| externalId         | string           | 外部 Id(有长度限制，给第三方拉取节点描述的 Id)               |
-| nodeName           | string           | 被质押节点的名称(有长度限制，表示该节点的名称)               |
-| website            | string           | 节点的第三方主页(有长度限制，表示该节点的主页)               |
-| details            | string           | 节点的描述(有长度限制，表示该节点的描述)                     |
-| amount             | \*big.Int(bytes) | 质押的 von                                                   |
-| rewardPer          | uint16(2bytes)   | 委托所得到的奖励分成比例，采用 BasePoint 1BP=0.01%           |
-| programVersion     | uint32           | 程序的真实版本，治理 rpc 获取                                |
-| programVersionSign | 65bytes          | 程序的真实版本签名，治理 rpc 获取                            |
-| blsPubKey          | 96bytes          | bls 的公钥                                                   |
-| blsProof           | 64bytes          | bls 的证明,通过拉取证明接口获取                              |
+| benefitAddress     | 20bytes          | 用于接受出块奖励和质押奖励的收益账户                                                                                               |
+| nodeId             | 64bytes          | 被质押的节点 Id(也叫候选人的节点 Id)                                                                                               |
+| externalId         | string           | 外部 Id(有长度限制，给第三方拉取节点描述的 Id)                                                                                     |
+| nodeName           | string           | 被质押节点的名称(有长度限制，表示该节点的名称)                                                                                     |
+| website            | string           | 节点的第三方主页(有长度限制，表示该节点的主页)                                                                                     |
+| details            | string           | 节点的描述(有长度限制，表示该节点的描述)                                                                                           |
+| amount             | \*big.Int(bytes) | 质押的 von                                                                                                                         |
+| rewardPer          | uint16(2bytes)   | 委托所得到的奖励分成比例，采用 BasePoint 1BP=0.01%                                                                                 |
+| programVersion     | uint32           | 程序的真实版本，治理 rpc 获取                                                                                                      |
+| programVersionSign | 65bytes          | 程序的真实版本签名，治理 rpc 获取                                                                                                  |
+| blsPubKey          | 96bytes          | bls 的公钥                                                                                                                         |
+| blsProof           | 64bytes          | bls 的证明,通过拉取证明接口获取                                                                                                    |
 
 - 修改质押信息，send 发送交易。
 
@@ -4169,12 +4262,12 @@ reply = await ppos.send(params, other);
 
 入参：
 
-| 参数     | 类型             | 说明                                                         |
-| -------- | ---------------- | ------------------------------------------------------------ |
-| funcType | uint16(2bytes)   | 代表方法类型码(1002)                                         |
-| nodeId   | 64bytes          | 被质押的节点 Id(也叫候选人的节点 Id)                         |
+| 参数     | 类型             | 说明                                                                                                                               |
+| -------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| funcType | uint16(2bytes)   | 代表方法类型码(1002)                                                                                                               |
+| nodeId   | 64bytes          | 被质押的节点 Id(也叫候选人的节点 Id)                                                                                               |
 | typ      | uint16(2bytes)   | 表示使用账户自由金额还是账户的锁仓金额做质押，0: 自由金额； 1: 锁仓金额；2: 优先使用锁仓余额，锁仓余额不足则剩下的部分使用自由金额 |
-| amount   | \*big.Int(bytes) | 增持的 von                                                   |
+| amount   | \*big.Int(bytes) | 增持的 von                                                                                                                         |
 
 - 撤销质押(一次性发起全部撤销，多次到账)，send 发送交易。
 
@@ -4502,11 +4595,11 @@ reply = await ppos.send(params, other);
 
 **VoteOption 投票选项定义**
 
-| 类型        | 定义 | 说明 |
-| ----------- | ---- | ---- |
-| Yeas        | 0x01 | 支持 |
-| Nays        | 0x02 | 反对 |
-|Abstentions  | 其他值|弃权  |
+| 类型        | 定义   | 说明 |
+| ----------- | ------ | ---- |
+| Yeas        | 0x01   | 支持 |
+| Nays        | 0x02   | 反对 |
+| Abstentions | 其他值 | 弃权 |
 
 **Proposal 接口 提案定义**
 

@@ -4,6 +4,7 @@ title: Go SDK
 sidebar_label: Go SDK
 ---
 
+**Note: This Go-SDK is for the Alaya network only, there are some differences with the PlatON network, the documentation is to be updated.**
 
 ## Development library import
 

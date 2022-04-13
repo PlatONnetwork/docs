@@ -152,7 +152,7 @@ Address platon::platon_address()
 ```cpp
 template <size_t M> std::pair<Address, bool> make_address(const char (&str)[M])
 ```
-CDT 默认识别的地址是主网地址也就是地址前缀为lat，如果要识别测试网地址前缀为lax，需要定义宏TESTNET，在合约第一行加上#define TESTNET即可。
+CDT 默认识别的地址是主网地址也就是地址前缀为lat，同时我们支持以太坊以地址格式,例如: "0x02ea8A5273d20f3e378a56D958a684004eDD0094"
 
 将C风格字符串转换为地址对象。
 
@@ -166,7 +166,7 @@ CDT 默认识别的地址是主网地址也就是地址前缀为lat，如果要�
 ```cpp
 std::pair<Address, bool> make_address(const std::string &str_address)
 ```
-CDT 默认识别的地址是主网地址也就是地址前缀为lat，如果要识别测试网地址前缀为lax，需要定义宏TESTNET，在合约第一行加上#define TESTNET即可。
+CDT 默认识别的地址是主网地址也就是地址前缀为lat，同时我们支持以太坊以地址格式,例如: "0x02ea8A5273d20f3e378a56D958a684004eDD0094"
 
 将字符串转换为地址对象。
 
@@ -1074,7 +1074,7 @@ const Args &... args)
 * **示例：**
 
    ```cpp
-   auto address_pair =make_address("lax10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt");
+   auto address_pair =make_address("lat10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt");
    bool result = platon_call(address_pair.first, uint32_t(100), uint32_t(100), "add", 1,2,3);
    if(!result){
      platon_throw("cross call fail");
@@ -1105,7 +1105,7 @@ const Args &... args)
 * **示例：**
 
    ```cpp
-  auto address_pair =make_address("lax10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt"); 
+  auto address_pair =make_address("lat10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt"); 
   auto result = platon_call_with_return_value<int>(address_pair.first, uint32_t(100), uint32_t(100), "add", 1,2,3);
   if(!result.second){
     platon_throw("cross call fail");
@@ -1133,7 +1133,7 @@ const Args &... args)
 * **示例：**
 
   ```cpp
-   auto address_pair =make_address("lax10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt");
+   auto address_pair =make_address("lat10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt");
    bool result = platon_delegate_call(address_pair.first, uint32_t(100), uint32_t(100), "add", 1,2,3);
    if(!result){
      platon_throw("cross call fail");
@@ -1162,7 +1162,7 @@ const Args &... args)
 * **示例：**
 
   ```cpp
-  auto address_pair = make_address("lax10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt"); 
+  auto address_pair = make_address("lat10jc0t4ndqarj4q6ujl3g3ycmufgc77epxg02lt"); 
   auto result = platon_delegate_call_with_return_value<int>(address_pair.first, uint32_t(100), "add", 1,2,3);
   if(!result.secnod){
     platon_throw("cross call fail");

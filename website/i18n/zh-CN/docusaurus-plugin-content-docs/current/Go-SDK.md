@@ -5,6 +5,8 @@ sidebar_label: Go SDK
 ---
 
 
+**注：本Go-SDK仅面向Alaya网络，与PlatON网络存在一定的差异，文档内容待更新。**
+
 ## 开发库导入
 
 可以先安装到GO_PATH路径下:  
@@ -109,7 +111,7 @@ account, err := w.NewAccount(1)
 
 ### 转账
 使用`Transfer(from common.Address, to common.Address, value *big.Int) (string, error)`方法用来转账.
-下面的代码示例, 演示了如果在Alaya测试网上列出账户余额和转账的操作.
+下面的代码示例, 演示了如何在ALAYA开发测试网上列出账户余额和转账的操作.
 
 ```go
 const mnemonic = "always brick access science decade nasty marriage attack fame topple pen add"
@@ -141,7 +143,7 @@ const mnemonic = "always brick access science decade nasty marriage attack fame 
 
 ### 导出HDWallet的账户详情
 使用`ToString(account accounts.Account) string`方法导出一个HDWallet账号的详情,
-包括Alaya主网地址, 测试网地址, 私钥.
+包括Alaya主网地址, 开发测试网, 私钥.
 
 ### 导出KeyStore中账户的私钥
 使用`ExportPrivateKey(account accounts.Account, passphrass string) (*ecdsa.PrivateKey, error)`方法

@@ -1488,7 +1488,7 @@ TransactionResponse
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
 BigDecimal stakingAmount = Convert.toVon("1000000", Unit.LAT);
 StakingAmountType stakingAmountType = StakingAmountType.FREE_AMOUNT_TYPE;
-String benifitAddress = "lax1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt";
+String benifitAddress = "lat1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt";
 String externalId = "";
 String nodeName = "integration-node1";
 String webSite = "https://www.platon.network/#/";
@@ -1570,7 +1570,7 @@ TransactionResponse
 
 ```java
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
-String benifitAddress = "lax1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt";
+String benifitAddress = "lat1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt";
 String externalId = "";
 String nodeName = "integration-node1-u";
 String webSite = "https://www.platon.network/#/";
@@ -1884,7 +1884,7 @@ CallResponse<Delegation>
 
 ```java
 String nodeId = "77fffc999d9f9403b65009f1eb27bae65774e2d8ea36f7b20a89f82642a5067557430e6edfe5320bb81c3666a19cf4a5172d6533117d7ebcd0f2c82055499050";
-String address = "lax1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt";
+String address = "lat1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt";
 BigInteger stakingBlockNum = new BigInteger("10888");
 
 CallResponse<Delegation> baseResponse = delegateContract.getDelegateInfo(nodeId, address, stakingBlockNum).send();
@@ -2567,7 +2567,7 @@ CallResponse
 * **合约使用**
 
 ```java
-CallResponse<String> baseResponse = slashContract.checkDoubleSign(DuplicateSignType.PREPARE_BLOCK, "lax1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt", BigInteger.valueOf(500L)).send();
+CallResponse<String> baseResponse = slashContract.checkDoubleSign(DuplicateSignType.PREPARE_BLOCK, "lat1qtp5fqtmudzge9aqt9rnzgdxv729pdq5vug5vt", BigInteger.valueOf(500L)).send();
 ```
 
 ###  锁仓相关接口
