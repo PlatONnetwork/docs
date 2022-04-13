@@ -104,11 +104,7 @@ module.exports = {
           label: 'WalletConnect',
           items: ['walletconnect_tutorial', 'DApp_integration_with_WalletConnect_for_ATON']
         },
-		{
-          type: 'category',
-          label: 'Get a Random Number',
-          items: ['get_vrf_random_number']
-        }
+		'get_vrf_random_number'
         ]
     },
     {
