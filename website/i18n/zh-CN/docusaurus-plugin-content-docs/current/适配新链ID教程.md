@@ -1,22 +1,22 @@
 ---
 id: adapting_to_new_chainid
-title: Adapting to new chainid
-sidebar_label: Adapting to new chainid
+title: 适配新链ID教程
+sidebar_label: 适配新链ID教程
 ---
 
-## How new DApp can be adapted to PlatON's new ChainId
+## 新应用如何适配PlatON新链ID
 
-The PlatON mainnet proposal to support the new ChainId [PIP-7](https://github.com/PlatONnetwork/PIPs/blob/master/PIPs/PIP-7.md)has been adopted and the first phase has been implemented in the mainnet, which means that the ChainId of the PlatON mainnet will be gradually switched from 100 to the new value 210425. In order to minimise the impact on applications during subsequent version upgrades, new applications should try to support the new ChainId from the beginning ChainId.
+PlatON主网关于支持新链ID的提案[PIP-7](https://github.com/PlatONnetwork/PIPs/blob/master/PIPs/PIP-7.md)已经获得通过，并且第一阶段已经在主网实施，这意味着PlatON主网的ChainId将会从100 逐步切换到新值210425，为了尽量减少应用在后续版本升级过程中的影响，新应用应尽量从一开始就支持新的ChainId。
 
-However, at this stage the ChainId returned to the contract by the PlatON EVM virtual machine is still 100 (after which it will return 210425), so in the process of developing the application if there is logic related to the ChainId special adaptations need to be made. The following examples will introduce the adaptations from two scenarios, the first is the PRC20 token permit method and the second governance token voting rights proxy.
+但是现阶段PlatON EVM虚拟机返回给合约的ChainId还是100（之后会返回210425），所以在开发应用的过程中如果有与链ID有关的逻辑需要做特别的适配，下文的实例将从两个场景来介绍适配的地方，第一个是PRC20 代币permit方法，第二个治理代币的投票权委托。
 
-### PRC20 permit func
+### PRC20 代币permit方法
 
-Usually Swap needs to use metamask's eth_signTypedData_v4 interface to sign the client first each time it removes liquidity (the signature contains the ChainId), and then use the signature as an argument to call the router contract's removeLiquidityWithPermit, which is used to do PRC20 contract's permit (allowing the contract to deduct the user's PRC20 assets)
+通常Swap在每次移除流动性的时候，需要先使用metamask的eth_signTypedData_v4接口在客户端签名（签名内容包含ChainId），然后使用签名作为参数调用router合约的removeLiquidityWithPermit，签名是用来做PRC20合约的permit（允许合约扣用户的PRC20资产）
 
-The adaptation code is shown below.
+适配代码如下所示：
 
-constructor() function adds DOMAIN_SEPARATOR_NEW, generating method containing the ChainId of 210425
+constructor()函数增加DOMAIN_SEPARATOR_NEW，生成方法包含210425的ChainId
 
 ```
 ......
@@ -42,8 +42,7 @@ DOMAIN_SEPARATOR_NEW = keccak256(
 ```
 
 
-permit function adds verification of two ChainId related signatures
-
+permit函数增加对于两个ChainId相关签名的验证
 ```
 require(deadline >= block.timestamp, 'EXPIRED');
 bytes32 digest = keccak256(
@@ -70,12 +69,11 @@ nonces[owner] += 1;
 ......
 ```
 
-### Governance Token Voting Proxy
+### 治理代币投票权委托
 
-Similar signature and verification logic is used when governing the token voting rights proxy. The code is modified as follows.
+治理代币投票权委托的时候也用到了类似的签名和验证逻辑。代码修改如下：
 
-The delegateBySig function adds validation for the signatures associated with the two ChainId
-
+delegateBySig函数增加对于两个ChainId相关签名的验证
 ```
 constructor(address account, address minter_) public {
         ......
