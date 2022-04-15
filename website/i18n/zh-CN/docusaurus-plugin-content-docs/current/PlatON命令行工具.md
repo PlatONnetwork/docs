@@ -14,10 +14,10 @@ NAME:
 
 USAGE:
    platon [options] command [command options] [arguments...]
-
+   
 VERSION:
-   1.1.3-unstable-3bc1b02d-20220211
-
+   1.2.1-unstable
+   
 COMMANDS:
    account                Manage accounts
    attach                 Start an interactive JavaScript environment (connect to node)
@@ -35,23 +35,23 @@ COMMANDS:
    show-deprecated-flags  Show flags that have been deprecated
    version                Print version numbers
    help, h                Shows a list of commands or help for one command
-
+   
 PLATON OPTIONS:
-  --config value                   TOML configuration file
-  --datadir "/home/juzix/.platon"  Data directory for the databases and keystore
-  --datadir.ancient                Data directory for ancient chain segments (default = inside chaindata)
-  --keystore                       Directory for the keystore (default = inside the datadir)
-  --nousb                          Disables monitoring for and managing USB hardware wallets
-  --networkid value                Network identifier (integer, 1=Frontier, 2=Morden (disused), 3=Ropsten, 4=Rinkeby) (default: 1)
-  --main                           Mainnet network: pre-configured main network (default network)
-  --testnet                        Testnet network: pre-configured test network
-  --syncmode "full"                Blockchain sync mode ("fast", "full", or "light")
-  --identity value                 Custom node name
-  --lightkdf                       Reduce key-derivation RAM & CPU usage at some expense of KDF strength
-
+  --config value                    TOML configuration file
+  --datadir "/home/platon/.platon"  Data directory for the databases and keystore
+  --datadir.ancient                 Data directory for ancient chain segments (default = inside chaindata)
+  --keystore                        Directory for the keystore (default = inside the datadir)
+  --nousb                           Disables monitoring for and managing USB hardware wallets
+  --networkid value                 Network identifier (integer, 1=Frontier, 2=Morden (disused), 3=Ropsten, 4=Rinkeby) (default: 1)
+  --main                            Mainnet network: pre-configured main network (default network)
+  --testnet                         Testnet network: pre-configured test network
+  --syncmode "full"                 Blockchain sync mode ("fast", "full", or "light")
+  --identity value                  Custom node name
+  --lightkdf                        Reduce key-derivation RAM & CPU usage at some expense of KDF strength
+  
 DEVELOPER CHAIN OPTIONS:
   --dev.period value  Block period to use in developer mode (0 = mine only if transaction pending) (default: 0)
-
+  
 TRANSACTION POOL OPTIONS:
   --txpool.locals value         Comma separated accounts to treat as locals (no flush, priority inclusion)
   --txpool.nolocals             Disables price exemptions for locally submitted transactions
@@ -65,18 +65,18 @@ TRANSACTION POOL OPTIONS:
   --txpool.globaltxcount value  Maximum number of transactions for package (default: 3000)
   --txpool.lifetime value       Maximum amount of time non-executable transaction are queued (default: 3h0m0s)
   --txpool.cacheSize value      After receiving the specified number of transactions from the remote, move the transactions in the queen to pending (default: 0)
-
+  
 PERFORMANCE TUNING OPTIONS:
   --cache value           Megabytes of memory allocated to internal caching (default: 1024)
   --cache.database value  Percentage of cache memory allowance to use for database io (default: 75)
   --cache.gc value        Percentage of cache memory allowance to use for trie pruning (default = 25% full mode, 0% archive mode) (default: 25)
   --cache.triedb value    Megabytes of memory allocated to triedb internal caching (default: 512)
-
+  
 ACCOUNT OPTIONS:
   --unlock value           Comma separated list of accounts to unlock
   --password value         Password file to use for non-interactive password input
   --allow-insecure-unlock  Allow insecure account unlocking when account-related RPCs are exposed by http
-
+  
 API AND CONSOLE OPTIONS:
   --ipcdisable                Disable the IPC-RPC server
   --ipcpath                   Filename for IPC socket/pipe within the datadir (explicit paths escape it)
@@ -98,7 +98,7 @@ API AND CONSOLE OPTIONS:
   --jspath loadScript         JavaScript root path for loadScript (default: ".")
   --exec value                Execute JavaScript statement
   --preload value             Comma separated list of JavaScript files to preload into the console
-
+  
 NETWORKING OPTIONS:
   --bootnodes value          Comma separated enode URLs for P2P discovery bootstrap (set v4+v5 instead for light servers)
   --bootnodesv4 value        Comma separated enode URLs for P2P v4 discovery bootstrap (light server, full nodes)
@@ -111,14 +111,14 @@ NETWORKING OPTIONS:
   --netrestrict value        Restricts network communication to the given IP networks (CIDR masks)
   --nodekey value            P2P node key file
   --nodekeyhex value         P2P node key as hex (for testing)
-
+  
 MINER OPTIONS:
   --miner.gasprice "1000000000"  Minimum gas price for mining a transaction
-
+  
 GAS PRICE ORACLE OPTIONS:
   --gpo.blocks value      Number of recent blocks to check for gas prices (default: 20)
   --gpo.percentile value  Suggested gas price is the given percentile of a set of recent transaction gas prices (default: 60)
-
+  
 LOGGING AND DEBUGGING OPTIONS:
   --nocompaction                  Disables db compaction after import
   --verbosity value               Logging verbosity: 0=silent, 1=error, 2=warn, 3=info, 4=debug, 5=detail (default: 3)
@@ -133,7 +133,7 @@ LOGGING AND DEBUGGING OPTIONS:
   --pprof.cpuprofile value        Write CPU profile to the given file
   --trace value                   Write execution trace to the given file
   --wasmlog value                 output wasm contract log to file
-
+  
 METRICS AND STATS OPTIONS:
   --metrics                          Enable metrics collection and reporting
   --metrics.expensive                Enable expensive metrics collection and reporting
@@ -143,25 +143,25 @@ METRICS AND STATS OPTIONS:
   --metrics.influxdb.username value  Username to authorize access to the database (default: "test")
   --metrics.influxdb.password value  Password to authorize access to the database (default: "test")
   --metrics.influxdb.tags value      Comma-separated InfluxDB tags (key/values) attached to all measurements (default: "host=localhost")
-
+  
 CBFT OPTIONS:
   --cbft.msg_queue_size value      Message queue size (default: 1024)
   --cbft.wal.disabled              Disable the Wal server
   --cbft.max_ping_latency value    Maximum latency of ping (default: 2000)
   --cbft.blskey value              BLS key file
   --cbft.blacklist_deadline value  Blacklist effective time. uint:minute (default: "60")
-
+  
 DB OPTIONS:
   --db.nogc               Disables database garbage collection
   --db.gc_interval value  Block interval for garbage collection (default: 86400)
   --db.gc_timeout value   Maximum time for database garbage collection (default: 1m0s)
   --db.gc_mpt             Enables database garbage collection MPT
   --db.gc_block value     Number of cache block states, default 10 (default: 10)
-
+  
 VM OPTIONS:
   --vm.wasm_type value         The actual implementation type of the wasm instance (default: "wagon")
   --vm.timeout_duration value  The VM execution timeout duration (uint: ms) (default: 0)
-
+  
 ALIASED (deprecated) OPTIONS:
   --rpc                     Enable the HTTP-RPC server (deprecated, use --http)
   --rpcaddr value           HTTP-RPC server listening interface (deprecated, use --http.addr) (default: "localhost")
@@ -180,10 +180,10 @@ ALIASED (deprecated) OPTIONS:
   --memprofilerate value    Turn on memory profiling with the given rate (deprecated, use --pprof.memprofilerate) (default: 524288)
   --blockprofilerate value  Turn on block profiling with the given rate (deprecated, use --pprof.blockprofilerate) (default: 0)
   --cpuprofile value        Write CPU profile to the given file (deprecated, use --pprof.cpuprofile)
-
+  
 MISC OPTIONS:
   --help, -h  show help
-
+  
 
 COPYRIGHT:
    Copyright 2019 The PlatON-Go Authors
