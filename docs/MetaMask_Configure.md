@@ -40,7 +40,9 @@ MetaMask makes operations such as transfer, signing, and contract interaction mo
 
 3. MetaMask cannot be called by WASM contracts, but EVM contracts only. 
 
-4. **Since the ChainID (100) of the current PlatON MainNet is the same as the xDai MainNet, before configuring the PlatON MainNet on MetaMask, please delete the xDai MainNet in MetaMask, or configure the PlatON MainNet by "manually adding" (Ignore the hint of ChainID conflict). Future plans to update the ChainID to 210425, already registered in Chainlist (currently this ChainID: 210425 is not available)** 
+4. **PlatON Main Network old ChainID: 100, as it is the same as xDai Main Network, please delete the xDai Main Network from MetaMask before configuring PlatON Main Network with ChainID:100, or configure PlatON Main Network by "Manual Add Method". (ignore the ChainID conflict prompt). ** 
+
+5. **Starting from PlatON version 1.2.0 (effective time 2022.4.15 11:00am UTC，For details see：https://forum.latticex.foundation/t/topic/6176 ), PlatON Main Network will adopt ChainID: 210425 and will support double ChainID operation in the next 6~12 months. Application developers and users are advised to update ChainID and the Node RPC used as early as possible.** 
 
 
 
@@ -98,6 +100,20 @@ Then scroll to the end and click "Add Network"
 
 Fill in the above information one by one. The configuration content is as follows: 
 
+- PlatON ChainID:210425 Configuration Information ( Recommended )
+
+```
+Network Name: PlatON MainNetwork
+New RPC URL: https://openapi2.platon.network/rpc
+Chain ID：210425
+Currency Symbol：LAT
+Block Explorer URL: https://scan.platon.network/
+```
+
+
+
+- PlatON ChainID:100 Configuration information (not recommended to continue using）
+
 ```
 Network Name: PlatON MainNetwork
 New RPC URL: https://openapi.platon.network/rpc
@@ -109,6 +125,8 @@ Block Explorer URL: https://scan.platon.network/
 Other available RPC nodes on the PlatON MainNet: 
 
 > https://rpc.plateye.com (provided by itokenpool) 
+
+
 
 Then click Save and wait for it to finish. 
 
@@ -268,8 +286,7 @@ and we can see:
 
 <img src="/docs/img/en/MetaMask_Configure.assets/9800bbe80cff52b23b102f36b0eae9e0c05a7bbd_2_690x338.png" alt="9800bbe80cff52b23b102f36b0eae9e0c05a7bbd_2_690x338"/>
 
-**Note.
-Currently PlatON Mainnet ChainID:100, Chainlist already has a Blockchain with ChainID:100, so adding PlatON Mainnet from Chainlist is not supported for now. The registered ChainID:210425 is not yet valid and is not available!**
+**Note: PlatON version 1.2.0 mainnet ChainID:210425 is effective as of 2022.4.15 11:00am UTC! **
 
 Next, click "Add tTo MetaMask" to add the network. 
 

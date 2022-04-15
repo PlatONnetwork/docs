@@ -36,9 +36,11 @@ MetaMask作为目前市面上用户量最多，应用最广泛的浏览器插件
 
 2. ATON钱包助记词与MetaMask助记词由于生成路径不一致，无法相互兼容。私钥兼容。
 
-3. MetaMask面向目前暂时不支持WASM合约调用，仅支持EVM合约。
+3. MetaMask目前暂时不支持WASM合约调用，仅支持EVM合约。
 
-4. **由于当前PlatON 主网络的ChainID（100）与xDai主网络相同，因此在MetaMask上配置PlatON主网络前，请删除MetaMask中的xDai主网络，或者通过“手动添加方式”配置PlatON主网络（忽略ChainID冲突的提示）。未来计划更新ChainID为210425，已在Chainlist注册（目前该ChainID：210425 不可用）**
+4. **原PlatON 主网络的ChainID：100，由于与xDai主网络相同，使用 ChainID:100 在 MetaMask上配置 PlatON主网络前，请删除MetaMask中的 xDai主网络，或者通过“手动添加方式”配置PlatON主网络（忽略ChainID冲突的提示）。**
+
+5. **从PlatON1.2.0版本开始(生效时间UTC 2022.4.15 11:00am )，PlatON主网将采用 ChainID：210425，并在未来的6~12个月支持双ChainID运行。建议应用开发者和用户尽早更新ChainID和使用的Node RPC。详见**https://forum.latticex.foundation/t/topic/6176 。
 
 
 
@@ -94,6 +96,20 @@ MetaMask作为目前市面上用户量最多，应用最广泛的浏览器插件
 
 依次填写上述信息，配置内容如下：
 
+- PlatON ChainID:210425 配置信息（推荐）
+
+```
+Network Name: PlatON MainNetwork
+New RPC URL: https://openapi2.platon.network/rpc
+Chain ID：210425
+Currency Symbol：LAT
+Block Explorer URL: https://scan.platon.network/
+```
+
+
+
+- PlatON ChainID:100  配置信息（不建议继续使用）
+
 ```
 Network Name: PlatON MainNetwork
 New RPC URL: https://openapi.platon.network/rpc
@@ -102,9 +118,11 @@ Currency Symbol：LAT
 Block Explorer URL: https://scan.platon.network/
 ```
 
-其他可用PlatON主网络RPC节点：
+其他可用PlatON主网络( ChainID:100 )RPC节点：
 
 > https://rpc.plateye.com（itokenpool提供）
+
+
 
 接着点击保存，等待完成即可。
 
@@ -261,14 +279,13 @@ http://8.220.31.172:6789 (ws://8.220.31.172:6790)
 
 <img src="/docs/img/en/MetaMask_Configure.assets/9800bbe80cff52b23b102f36b0eae9e0c05a7bbd_2_690x338.png" alt="9800bbe80cff52b23b102f36b0eae9e0c05a7bbd_2_690x338"/>
 
-**注意：
-当前PlatON主网ChainID:100，Chainlist已存在ChainID:100的链, 因此暂不支持在Chainlist上添加PlatON主网。注册的ChainID:210425暂未生效，不可用！！**
+**注意：PlatON1.2.0版本主网ChainID:210425已于UTC 2022.4.15 11:00am生效！**
 
 接着，点击“Add tTo MetaMask” 进行网络添加。
 
 <img src="/docs/img/en/MetaMask_Configure.assets/0acc9a52bb0d63ed11f2fb9063a12e059c754298_2_690x338.png" alt="0acc9a52bb0d63ed11f2fb9063a12e059c754298_2_690x338" />
 
-然后点击 **switch network** 就可以跳转到PlatON Dev网络啦！
+然后点击 **switch network** 就可以跳转到PlatON Mainnet或PlatON Dev网络啦！
 
 <img src="/docs/img/en/MetaMask_Configure.assets/image-20220112193135951.png" alt="image-20220112193135951"/>
 
