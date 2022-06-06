@@ -496,7 +496,6 @@ HD钱包路径：【我的 - 钱包管理 - HD钱包详情 - HD设置 - 重新�
 ### 冷钱包签名链ID设置
 <div>
 <div><img src="/docs/img/en/ATON-user-manual.assets/aton29.png" width="250" style={{zoom:"80%"}} /></div>
-
 <br />1.观察钱包与冷钱包签名需要保持链ID的一致；
 <br />2.ATON1.1.5及以上版本，已经兼容 PlatON Mainnet 新的链ID:210425；冷钱包没有升级ATON1.1.5及以上版本，签名默认为链ID:100；热钱包如果修改为最新链ID:210425，请将冷钱包升级，并同时设置新的链ID才能签名成功；
 <br />
