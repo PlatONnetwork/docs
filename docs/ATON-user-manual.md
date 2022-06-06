@@ -504,7 +504,6 @@ If you reimport a wallet by PrivateKey or KeyStore, the Mnemonic of this wallet 
 ### Cold wallet signature chain ID
 <div>
 <div><img src="/docs/img/en/ATON-user-manual.assets/aton29.png" width="250" style={{zoom:"80%"}} /></div>
-
 <br />1. Observing the wallet and cold wallet signatures need to keep the chain ID consistent;
 <br />2. ATON 1.1.5 and above are compatible with PlatON Mainnet's new chain ID:210425; the cold wallet has not been upgraded to ATON 1.1.5 and above, and the signature defaults to chain ID:100; if the hot wallet is changed to the latest chain ID:210425, Please upgrade the cold wallet and set a new chain ID at the same time to sign successfully;
 <br />
