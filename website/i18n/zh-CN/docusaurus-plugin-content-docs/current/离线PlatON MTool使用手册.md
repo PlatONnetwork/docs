@@ -113,7 +113,7 @@ Windows和Ubuntu下PlatON MTool目录使用环境变量有所区别：
 >
 > - 后续命令是Ubuntu下的命令格式，Windows下需要把`$PLATON_MTOOLDIR`修改成`%PLATON_MTOOLDIR%`；
 > - 如果连接的是开发1网，需要修改PlatON MTool安装目录下的config.properties配置文件的chainid为210309；
-> - 如果连接的是开发2网，需要修改PlatON MTool安装目录下的config.properties配置文件的chainid为210309。
+> - 如果连接的是开发2网，需要修改PlatON MTool安装目录下的config.properties配置文件的chainid为2206131。
 
 ### 创建冷钱包
 
