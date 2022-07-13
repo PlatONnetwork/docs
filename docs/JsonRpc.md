@@ -2298,7 +2298,7 @@ curl --data '{"method":"personal_newAccount","params":["abc123"],"id":1,"jsonrpc
 
 #### personal_sign
 
-Calculates an PlatON specific signature with: sign(keccak256("PlatON Signed Message: " + len(message) + message))).
+Calculates an PlatON specific signature with: sign(keccak256("Ethereum Signed Message: " + len(message) + message))).
 
 ##### Parameters
 
