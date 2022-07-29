@@ -30,7 +30,7 @@ CTool是PlatON网络钱包交易及合约交易的综合工具，方便使用者
 
 **step1.** 下载CTool安装包
 
-下载路径：https://download.platon.network/platon/CTool/CTool.exe。
+下载路径：https://download.platon.network/platon/CTool/CTool.exe
 
 **step2.** 通过安全存储介质（移动U盘或者移动硬盘）将安装文件 `CTool.exe` 转到**离线机器**下
 
