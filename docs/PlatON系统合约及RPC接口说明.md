@@ -157,7 +157,7 @@ EIP55 address:0x1000000000000000000000000000000000000002
 |parameter|type|describe|must|
 |---|---|---|---|
 |funcType|uint16(2bytes)|Representing method type code(1004)|Y|
-|typ|uint16(2bytes)|Indicates the latch amount of the account free amount or the account of the account, 0: Free amount; 1: Locking amount|Y|
+|typ|uint16(2bytes)|Indicates the latch amount of the account free amount or the account of the account, 0: Free amount; 1: Locking amount  3:delegation lock|Y|
 |nodeId|64bytes|NodeID of the pledged node|Y|
 |amount|*big.Int(bytes)|The amount delegated (calculated according to the minimum unit, 1 lat = 10 ** 18 von)|Y|
 
@@ -174,14 +174,35 @@ EIP55 address:0x1000000000000000000000000000000000000002
 
 return value:
 
-Note: The trading result is stored in the log.Data of the transaction receipt, if it is redeemed all delegate, store rlp.encode ([] [] byte {[] byte (status 0), RLP.Encode (entrusted)} ), Otherwise the same as before
+Note: The transaction result is stored in the logs.data of the transaction result receipt. If the order is successfully redeemed, rlp.Encode([][]byte{[]byte(code 0), rlp.Encode(the result of the order), rlp . En (triggered gold commission code user balance, rlp.), rlp. The commission money is transferred to the lock-up period, from the lock-up account)})
+
 
 | parameter           | type     | describe       | must| |
 | -------------- | -------- | ---------- | -------- |
 | delegateIncome | *big.int | Entrusted income | N        |
+| released | *big.int | The revoked commission gold will return the user balance | 
+| restrictingPlan | *big.int | The revoked entrustment deposit will return to the user lock account account |
+| lockReleased | *big.int | The revoking commission gold is transferred to the lock -up period, from the balance |
+| lockRestrictingPlan | *big.int | The revoking commission gold is transferred to the lock -up period, from the locking account |
 
 
-7. getVerifierList: Query the verification person queue of the current settlement cycle
+7. redeemDelegation: Receive the commission of unlocking
+
+| parameter           | type     | describe       | must| 
+|---|---|---|---|
+|funcType|uint16(2bytes)|Representative method type code (1006)|Y|
+
+return value:
+
+Note: The transaction result is stored in the logs.data of the transaction receipt. If the order is successfully redeemed, rlp.Encode([][]byte{[]byte(status code 0), rlp.Encode(received entrustment, return to the balance), rlp.Encode (the received commission money, return to the lock account) })
+
+
+| parameter           | type     | describe       | must| 
+| -------------- | -------- | ---------- | -------- |
+| released | *big.int | The entrusted gold that has been successfully received, return to the balance | 
+| restrictingPlan | *big.int | The entrusted gold that has been successfully received, return to the locking account |
+
+8. getVerifierList: Query the verification person queue of the current settlement cycle
 
 
 
@@ -213,7 +234,7 @@ return value: array
 |DelegateTotal|*big.Int(bytes)|The total commission of the current candidate takes effect|Y|
 |DelegateRewardTotal|*big.Int(bytes)|Total entrustment reward for candidates|Y|
 
-8. getValidatorList: Query the list of verifiers for the current consensus cycle
+9. getValidatorList: Query the list of verifiers for the current consensus cycle
 
 
 
@@ -244,7 +265,7 @@ return value: array
 |DelegateTotal|*big.Int(bytes)|The total commission of the current candidate takes effect|Y|
 |DelegateRewardTotal|*big.Int(bytes)|Total entrustment reward for candidates|Y|
 
-9. getCandidateList: Query all real-time candidates list
+10. getCandidateList: Query all real-time candidates list
 
 parameter：
 
@@ -280,7 +301,7 @@ return value: array
 |DelegateTotalHes|string(0x hexadecimal string)|The total quantity of the node is entrusted|Y|
 |DelegateRewardTotal|*big.Int(bytes)|Total entrustment reward for candidates|Y|
 
-10. getRelatedListByDelAddr: Query the NodeID and Pledge ID of the node delegated by the current account address
+11. getRelatedListByDelAddr: Query the NodeID and Pledge ID of the node delegated by the current account address
 
 
 
@@ -299,7 +320,7 @@ return value: array
 |NodeId|64bytes|Verifiable person's node ID|N|
 |StakingBlockNum|uint64(8bytes)|Block height when launching pledge|N|
 
-11. getDelegateInfo: Query the principal information of the current single node
+12. getDelegateInfo: Query the principal information of the current single node
 
 parameter：
 
@@ -323,8 +344,38 @@ return value:
 |RestrictingPlan|string(0x hexadecimal string)|Locking amount of lock bin in the entrustment account|Y,Default is 0|
 |RestrictingPlanHes|string(0x hexadecimal string)|Temperators to launch the latch of the entrustment account|Y,Default is 0|
 |CumulativeIncome|string(0x hexadecimal string)|Entrusted income to be taken|Y,Default is 0|
+|LockReleasedHes|string(0x hexadecimal string)|The entrusted gold during the hesitation period comes from the lock -up period, originated from the amount of freedom|Y,Default is 0|
+|LockRestrictingPlanHes|string(0x hexadecimal string)|The entrusted gold during the hesitation period comes from the lock -up period, which is derived from the locking amount|Y,Default is 0|
 
-12. getCandidateInfo: Query the pledge information of the current node
+13. getDelegationLockInfo: Inquiry account is at the commission information of the lock -up and unlocking period
+
+加入：
+
+| Parameters | Type | Description | Is it necessary |
+|---|---|---|---|
+|funcType|uint16|代表方法类型码(1106)|Y|
+|delAddr|20bytes|委托人账户地址|Y|
+
+Returns: The structure is as follows
+
+| Name | Type | Description | Whether it can be empty (zero value) |
+|---|---|---|---|
+|Locks|List|At the entrusted gold that is located, see it under the structure|Y|
+|Released|string(0x Sixteen Entry String)|The commissioned gold in the unlocking period, after the user receives it, returns to the user balance|N, default|
+|RestrictingPlan|string(0x Sixteen Entry String)|The commissioned gold at the unlocking period, after the user receives it, returns to the user's lock account account|N, default|
+
+
+The entrusted deposit of the lock -up period:
+
+| Name | Type | Description | Whether it can be empty (zero value) |
+|---|---|---|---|
+|Epoch|uint32(4bytes)|Unlocking cycle|N|
+|Released|string(0x Sixteen Entry String)|Locking amount, free account|N|
+|RestrictingPlan|string(0x Sixteen Entry String)|Locking amount, locking account|N|
+
+
+
+14. getCandidateInfo: Query the pledge information of the current node
 
 parameter：
 
@@ -361,7 +412,7 @@ return value: List
 |DelegateTotalHes|string(0x hexadecimal string)|The total number of unnifunctioned nodes is commissioned|Y,Default is 0|
 |DelegateRewardTotal|*big.Int(bytes)|Total entrustment reward for candidates|Y|
 
-13. getPackageReward: Query the block reward of the current settlement cycle
+15. getPackageReward: Query the block reward of the current settlement cycle
 
 
 parameter：
@@ -376,7 +427,7 @@ return value:
 | ------------------------ | -------- | ---------------- |
 | string(0x hexadecimal string) | Block reward | N                |
 
-14. getStakingReward: Query the current settlement cycle pledge reward
+16. getStakingReward: Query the current settlement cycle pledge reward
 
 parameter：
 
@@ -390,7 +441,7 @@ return value:
 | ------------------------ | -------- | ---------------- |
 | string(0x hexadecimal string) | Pledge reward | N                |
 
-15. getAvgPackTime: Query the average time of package blocking blocks
+17. getAvgPackTime: Query the average time of package blocking blocks
 
 parameter：
 
