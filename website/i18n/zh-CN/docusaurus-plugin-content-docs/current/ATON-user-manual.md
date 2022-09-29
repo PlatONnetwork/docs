@@ -519,3 +519,20 @@ HD钱包路径：【我的 - 钱包管理 - HD钱包详情 - HD设置 - 重新�
 <br />GitHub上ATON 的WalletConnect Dapp演示demo
 <br />https://github.com/PlatONnetwork/WalletConnect-Example
 </div>
+
+
+### HashKey DID
+
+<div>
+<br />HashKey DID 是一个多链结构的去中心化身份数据聚合器，基于智能合约,NFT,隐私计算的去中心化协议，为Web3用户提供身份服务。
+<br />HashKey官网： www.hashkey.id
+<br />
+<br />1.使用ATON进行快速注册HashKey DID：ATON首页的钱包地址下方点击[注册]按钮进行注册。
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/hashkey_register.png" width ="500" style={{zoom: '80%'}}/></div>
+<br />
+<br />2.支持输入DID作为接收地址进行转账，如输入已注册的DID Name：abc123.key。
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/hashkey_send.png" width ="500" style={{zoom: '80%'}}/></div>
+<br />
+</div>
+
+
