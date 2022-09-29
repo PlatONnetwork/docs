@@ -527,3 +527,19 @@ If you reimport a wallet by PrivateKey or KeyStore, the Mnemonic of this wallet 
 <br />ATON’s WalletConnect Dapp demo on GitHub.
 <br />https://github.com/PlatONnetwork/WalletConnect-Example
 </div>
+
+### HashKey DID
+
+<div>
+<br />HashKey DID is a multi-chain decentralized identity data aggregator, powered by smart contract, NFT and privacy protection decentralised protocol, to provide identity services to Web3 users.
+<br />HashKey Website： www.hashkey.id
+<br />
+<br />1.Use ATON to quickly register HashKey DID: Click the [HashKey DID Register] button below the wallet address on the ATON home page to register.
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/hashkey_register.png" width="250" style={{zoom:"80%"}} /></div>
+<br />
+<br />2.Support input DID as the receiving address for transfer, for example, input the registered DID Name: abc123.key.
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/hashkey_send.png" width="250" style={{zoom:"80%"}} /></div>
+<br />
+</div>
+
+
