@@ -19,18 +19,22 @@ sidebar_label: JS SDK
   - 安装 nodejs
 
     ```bash
-    nvm install v12.16.1
+    nvm install v14.16.0
     ```
 
   - 切换版本
 
     ```bash
-    nvm use 12.16.1
+    nvm use 14.16.0
     ```
-
+  - 切换nvm请确保npm版本在8以下
+    ```
+    npm -v
+    ```
+  
   - 设置环境变量
 
-    > NVM_SYMLINK：%NVM_HOME%\v12.16.1
+    > NVM_SYMLINK：%NVM_HOME%\v14.16.0
 
 - 安装 git
 
@@ -53,6 +57,11 @@ sidebar_label: JS SDK
 
   ```bash
   npm i PlatONnetwork/client-sdk-js#master
+  ```
+  > 如您安装等待时间过长或者安装报错，请尝试一下方式进行sdk的安装
+
+  ```
+  npm i @platonnetwork/web3
   ```
 
   > 如提示：`git-sh-setup: file not found`相关的 error，需要配置 git submodule 的环境变量；如 git 安装在`C:\Program Files\Git`目录下，需要配置如下路径到 PATH 环境变量中：

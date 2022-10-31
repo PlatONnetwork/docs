@@ -19,18 +19,22 @@ To use js sdk under windows10, you need to install nvm and other related tools i
   - Install `nodejs`
 
     ```bash
-    nvm install v12.16.1
+    nvm install v14.16.0
     ```
 
   - Switch version
 
     ```bash
-    nvm use 12.16.1
+    nvm use 14.16.0
+    ```
+  - After switching nvm, please ensure that the npm version is below 8
+    ```
+    npm -v
     ```
 
   - Set environment variables
 
-    > NVM_SYMLINK：%NVM_HOME%\v12.16.1
+    > NVM_SYMLINK：%NVM_HOME%\v14.16.0
 
 - Install `git`
 
@@ -53,6 +57,11 @@ Skip this step if already installed, [download here](https://github.com/git-for-
 
   ```bash
   npm i PlatONnetwork/client-sdk-js#master
+  ```
+  > If the installation speed is too slow, please consider the following ways to install the sdk
+  
+  ```
+  npm i @platonnetwork/web3
   ```
 
   > If got errors like: `git-sh-setup: file not found`, means you need to configure the environment variables of the git submodule; If git is installed under the `C:\Program Files\Git` directory, you need to configure the following path to the PATH environment variable:
