@@ -543,3 +543,28 @@ If you reimport a wallet by PrivateKey or KeyStore, the Mnemonic of this wallet 
 </div>
 
 
+### Support for the PIP-10 proposal on delegate freeze
+
+<div>
+<br />Delegate：
+<br />1.Delegates are locked for at least one cycle (block 10750) before they can be profitable. The rewards obtained by the nodes are distributed according to the delegation reward ratio set by the nodes. Node revenue includes block rewards and staking rewards.
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/delegate-01.png" width="250" style={{zoom:"80%"}}/></div>
+<br />
+<br />2.Delegate freeze can be delegated again.
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/delegate-02.png" width="250" style={{zoom:"80%"}} /></div>
+
+<br />
+<br />Undelegate: When undelegate the delegation, the delegation will return to the original way during the hesitation period, and the delegation within the validity period will be returned to the delegation frozen account, which will be frozen for a certain period.
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/undelegate.png" width="250" style={{zoom:"80%"}}/></div>
+<br />
+<br />Freeze Details：There is a certain settlement period as a freezing period after Undelegate, and each settlement cycle is 10750 blocks.Delegation within the freeze period can be viewed on the Freeze Details.
+
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/freeze details.png" width="250" style={{zoom:"80%"}}/></div>
+<br />
+<br />Withdraw：After the freeze period ends, the user needs to manually perform the extraction operation,all delegations to be withdrawn will be withdrawn and returned to the user's wallet balance or locked account according to the source of the asset.
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/withdraw.png" width="250" style={{zoom:"80%"}}/></div>
+
+<br />
+</div>
+
+
