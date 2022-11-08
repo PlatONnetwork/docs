@@ -384,7 +384,7 @@ ATON是一个支持PlatON Network及Alaya Network的安全易用的移动钱包�
 <div>
 <br />赎回有效的委托将会有一定的冻结周期，冻结期内的委托可以在委托冻结详情页面进行查看。
 <br />【委托节点详情】点击【委托冻结】进入委托冻结的详情页面；
-<br /><div><img src="/docs/img/en/ATON-user-manual.assets/freeze details.png" width ="250" style={{zoom: '80%'}}/></div>
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/freeze details.png" width ="500" style={{zoom: '80%'}}/></div>
 </div>
 
 
@@ -393,7 +393,7 @@ ATON是一个支持PlatON Network及Alaya Network的安全易用的移动钱包�
 <br />委托冻结周期结束后，需要用户手动进行提取操作，将提取所有待提取的委托,会根据资产来源返还到用户钱包余额或者锁仓账户中。
 <br />1.【委托冻结详情】点击【提取】按钮，进入提取页面；
 <br />2、提取页面点击【提取】按钮，提取所有待提取的委托；
-<br /><div><img src="/docs/img/en/ATON-user-manual.assets/withdraw.png" width ="250" style={{zoom: '80%'}}/></div>
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/withdraw.png" width ="500" style={{zoom: '80%'}}/></div>
 </div>
 
 
