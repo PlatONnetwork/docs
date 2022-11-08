@@ -370,17 +370,16 @@ For details about importing observed wallets, please refer to the instructions o
 <div style={{marginTop: '40px'}}></div>
 </div>
 
-### Withdraw Delegation
+### Undelegation
 
 <div>
-<div> <img src = "/docs/img/en/ATON-user-manual.assets/aton17.png "width =" 300 " style={{zoom: '80%'}} /> </div> 
+<div> <img src = "/docs/img/en/ATON-user-manual.assets/undelegate.png "width =" 300 " style={{zoom: '80%'}} /> </div> 
 <div> 
 <br />1. Click You can withdraw your delegation via: [My Delegations]-[Delegation Rec]-[Withdraw]. 
 <br />2. Enter the number,it should  be greater than or equal to 10 LAT/1 ATP. Enter your password to proceed the process.
 <br /> 
 <br /> <b> Note </b> 
-<br />1. Your delegated LAT/ATP will be back to your wallet immediately after you withdraw the delegation successfully. 
-<br />2. When withdrawing all delegations, the delegation rewards will be claimed automatically.
+<br />When withdrawing all delegations, the delegation rewards will be claimed automatically.
 </div>
 <div style={{marginTop: '40px'}}></div>
 </div>
