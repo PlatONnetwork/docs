@@ -334,7 +334,7 @@ ATON是一个支持PlatON Network及Alaya Network的安全易用的移动钱包�
 ### 参与委托
 
 <div>
-<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/delegate-01.png" width="300" style={{zoom:"80%"}}  /></div>
+<div><img src="/docs/img/en/ATON-user-manual.assets/delegate-01.png" width="300" style={{zoom:"80%"}}  /></div>
 <div>
 <br />1. 可点击【委托-验证节点】，选择某个节点进行委托。如果已委托过，可点击【委托-我的委托-委托节点详情】，选择某个节点继续进行委托。
 <br />2. 进入页面，选择需要委托的钱包。
@@ -367,7 +367,7 @@ ATON是一个支持PlatON Network及Alaya Network的安全易用的移动钱包�
 ### 赎回委托
 
 <div>
-<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/undelegate.png" width="500"style={{zoom:"80%"}} /></div>
+<div><img src="/docs/img/en/ATON-user-manual.assets/undelegate.png" width="500"style={{zoom:"80%"}} /></div>
 <div>
 <br />1. 点击【委托-我的委托-详情-赎回委托】可进行赎回。
 <br />2. 输入想要赎回的数量，数量需大于等于10LAT/ATP，输入正确的密码即可完成赎回委托操作。
