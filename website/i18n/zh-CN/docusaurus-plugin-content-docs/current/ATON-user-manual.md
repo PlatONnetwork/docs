@@ -536,3 +536,25 @@ HD钱包路径：【我的 - 钱包管理 - HD钱包详情 - HD设置 - 重新�
 </div>
 
 
+### 支持关于委托锁定的PIP-10提案
+
+<div>
+<br />委托：
+<br />1.委托至少锁定一个周期（10750区块）才有收益。根据节点设置的委托奖励比例对节点获得的收益进行分配。节点收益包含出块奖励和质押奖励。
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/delegate-01.png" width ="250" style={{zoom: '80%'}}/></div>
+<br />
+<br />2.支持选择委托冻结的委托再次进行委托；
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/delegate-02.png" width ="250" style={{zoom: '80%'}}/></div>
+<br />
+
+<br />赎回委托：赎回委托时，犹豫期内委托将原路返回，有效期内的委托将回到委托冻结账户，将冻结一定的周期；冻结周期结束，该委托将到待提取状态。
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/undelegate.png" width ="250" style={{zoom: '80%'}}/></div>
+<br />
+<br />委托冻结详情：赎回有效的委托将会有一定的冻结周期，冻结期内的委托可以在委托冻结详情页面进行查看。
+<br />
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/freeze details.png" width ="250" style={{zoom: '80%'}}/></div>
+<br />
+<br />提取委托：委托冻结周期结束后，需要用户手动进行提取操作，将提取所有待提取的委托,会根据资产来源返还到用户钱包余额或者锁仓账户中。
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/withdraw.png" width ="250" style={{zoom: '80%'}}/></div>
+<br />
+</div>
