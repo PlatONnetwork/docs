@@ -373,8 +373,7 @@ ATON是一个支持PlatON Network及Alaya Network的安全易用的移动钱包�
 <br />2. 输入想要赎回的数量，数量需大于等于10LAT/ATP，输入正确的密码即可完成赎回委托操作。
 <br />
 <br /><b>注意:</b>
-<br />1. 赎回委托，将立即到账。
-<br />2. 操作全部赎回时，将自动领取委托奖励。
+<br />操作全部赎回时，将自动领取委托奖励。
 </div>
 <div style={{marginTop:"40px"}}></div>
 </div>
