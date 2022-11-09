@@ -99,33 +99,39 @@ The interaction between the validator and the delegator is mainly done through t
 
 11. Decrease/revoke delegation
 
-    This interface is used to reduce or revoke the delegate operation. The principal can reduce or revoke the commission at any time, and the minimum amount of each reduced commission is 10`LAT`. After the operation is completed, `LAT` will be returned to the principal's account from the `Staking contract` in real time, and if the remaining commission after the reduction is less than 10`LAT`, the commission of this principal will be revoked. The proceeds received by the validator in the current cycle will be distributed to the principal according to the amount of the mandate after the reduction.
+    This interface is used to reduce or revoke the delegation operation. The delegator can reduce or revoke the delegation at any time. The minimum amount of the delegation for each reduction is 10 `LAT`. After the operation is completed, the `LAT` will be locked in the `Staking contract` for 56 settlement cycles. If it is less than 10`LAT`, the delegate's delegation will be revoked. The income obtained by the validator in the current cycle will be distributed to the delegator according to the delegated amount after the reduction.
 
    Interface parameters reference Java SDK:[ Decrease/revoke delegation](/docs/en/Java_SDK#undelegate). 
 
+12. Receive the commission of unlocking
 
-12. Query delegation
+    This interface is used to receive the commission gold that is in the unlocking period.
+
+13. Query delegation
 
     This interface is used to query the user's delegation information.
 
     Interface parameters reference Java SDK:[ Query delegation](/docs/en/Java_SDK#getdelegateinfo). 
 
+14. Inquiry account is at the commission amount of the lock -up and unlocking period
 
-13. Query average time of packed blocks
+    The interface is used to query the commission amount of the account is in the lock -up and unlocking period.
+
+15. Query average time of packed blocks
 
     This interface is used to query the average time of packed blocks.
 
     Interface parameters reference Java SDK:[ Query average time of packed blocks](/docs/en/Java_SDK#getavgpacktime). 
 
 
-14. Query the block reward of the epoch
+16. Query the block reward of the epoch
 
     This interface is used to query the block reward of the current epoch.
 
     Interface parameters reference Java SDK:[ Query the block reward of the epoc](/docs/en/Java_SDK#getpackagerewards). 
 
 
-15. Query the staking reward of the epoch
+17. Query the staking reward of the epoch
 
     This interface is used to query the staking reward of the current epoch.
 
