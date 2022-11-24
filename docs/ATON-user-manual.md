@@ -340,8 +340,7 @@ For details about importing observed wallets, please refer to the instructions o
 ### **Participate in** **Delegation**
 
 <div>
-<div> <img src = "/docs/img/en/ATON-user-manual.assets/delegate-01.png "width =" 300 " style={{zoom: '80%'}} /> </div> 
-<div> <img src = "/docs/img/en/ATON-user-manual.assets/delegate-03.png "width =" 300 " style={{zoom: '80%'}} /> </div>
+<div> <img src = "/docs/img/en/ATON-user-manual.assets/delegate-01.png "width =" 300 " style={{zoom: '80%'}} /><img src = "/docs/img/en/ATON-user-manual.assets/delegate-03.png "width =" 300 " style={{zoom: '80%'}} /> </div>
 <div> 
 <br />1. Select a validator to delegate. If you’ve delegated, then you can check your delegation details via: [Delegate] - [My Delegations]-[Delegation Rec], and then select one validator to continue delegation.
 <br />2. Select the wallet you want to delegrate. 
