@@ -340,11 +340,11 @@ For details about importing observed wallets, please refer to the instructions o
 ### **Participate in** **Delegation**
 
 <div>
-<div> <img src = "/docs/img/en/ATON-user-manual.assets/delegate-01.png "width =" 300 " style={{zoom: '80%'}} /> </div> 
+<div> <img src = "/docs/img/en/ATON-user-manual.assets/delegate-01.png "width =" 300 " style={{zoom: '80%'}} /><img src = "/docs/img/en/ATON-user-manual.assets/delegate-03.png "width =" 300 " style={{zoom: '80%'}} /> </div>
 <div> 
 <br />1. Select a validator to delegate. If you’ve delegated, then you can check your delegation details via: [Delegate] - [My Delegations]-[Delegation Rec], and then select one validator to continue delegation.
 <br />2. Select the wallet you want to delegrate. 
-<br />3. You can select locked-up balance to delegate if there is. 
+<br />3. You can select locked-up balance to delegate if there is, or select delegated freeze balance to delegate if there is.
 <br />4. Enter the amount, and  it must not be less than 10LAT/1ATP. 
 <br />5. Enter the correct password.
 <br />6. You can delegate to the nodes you’ve delegated, no limit to the delegation times.
@@ -389,7 +389,7 @@ For details about importing observed wallets, please refer to the instructions o
 <div>
 <br />There is a certain settlement period as a freezing period after Undelegate, and each settlement cycle is 10750 blocks.Delegation within the freeze period can be viewed on the Freeze Details.
 <br />[Delegate node Details] Click [Delegated Freeze] to enter the Freeze details.
-<br /><div><img src="/docs/img/en/ATON-user-manual.assets/freeze details.png" width ="250" style={{zoom: '80%'}}/></div>
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/freeze details.png" width ="300" style={{zoom: '80%'}}/></div>
 </div>
 
 
@@ -398,7 +398,7 @@ For details about importing observed wallets, please refer to the instructions o
 <br />After the freeze period ends, the user needs to manually perform the extraction operation,all delegations to be withdrawn will be withdrawn and returned to the user's wallet balance or locked account according to the source of the asset.
 <br />1. [Freeze Details] Click the [Withdraw] button to enter the withdrawal;
 <br />2. Click the [Withdraw] button  to withdraw all the withdrawable delegations.
-<br /><div><img src="/docs/img/en/ATON-user-manual.assets/withdraw.png" width ="250" style={{zoom: '80%'}}/></div>
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/withdraw.png" width ="300" style={{zoom: '80%'}}/></div>
 </div>
 
 

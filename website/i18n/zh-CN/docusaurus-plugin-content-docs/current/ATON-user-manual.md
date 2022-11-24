@@ -334,11 +334,11 @@ ATON是一个支持PlatON Network及Alaya Network的安全易用的移动钱包�
 ### 参与委托
 
 <div>
-<div><img src="/docs/img/en/ATON-user-manual.assets/delegate-01.png" width="300" style={{zoom:"80%"}}  /></div>
+<div><img src="/docs/img/en/ATON-user-manual.assets/delegate-01.png" width="300" style={{zoom:"80%"}}  /><img src="/docs/img/en/ATON-user-manual.assets/delegate-03.png" width="300" style={{zoom:"80%"}}  /></div>
 <div>
 <br />1. 可点击【委托-验证节点】，选择某个节点进行委托。如果已委托过，可点击【委托-我的委托-委托节点详情】，选择某个节点继续进行委托。
 <br />2. 进入页面，选择需要委托的钱包。
-<br />3. 如果钱包有锁仓金额，可点击委托钱包余额选项栏进行切换，使用锁仓金额进行委托（注意钱包余额需足够支付委托交易手续费）。
+<br />3. 如果钱包有锁仓金额，可点击委托钱包余额选项栏进行切换，使用锁仓金额进行委托；如果钱包有委托冻结金额，可点击委托钱包余额选项栏进行切换，使用委托冻结金额进行委托（注意钱包余额需足够支付委托交易手续费）。
 <br />4. 输入委托的金额，每次委托不得小于10LAT/1ATP。
 <br />5. 输入正确的密码即可完成委托。
 <br />6. 已委托过的节点，可再次进行委托，无次数限制。
