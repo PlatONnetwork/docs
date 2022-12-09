@@ -38,9 +38,7 @@ MetaMask作为目前市面上用户量最多，应用最广泛的浏览器插件
 
 3. MetaMask目前暂时不支持WASM合约调用，仅支持EVM合约。
 
-4. **原PlatON 主网络的ChainID：100，由于与xDai主网络相同，使用 ChainID:100 在 MetaMask上配置 PlatON主网络前，请删除MetaMask中的 xDai主网络，或者通过“手动添加方式”配置PlatON主网络（忽略ChainID冲突的提示）。**
-
-5. **从PlatON1.2.0版本开始(生效时间UTC 2022.4.15 11:00am )，PlatON主网将采用 ChainID：210425，并在未来的6~12个月支持双ChainID运行。建议应用开发者和用户尽早更新ChainID和使用的Node RPC。详见**https://forum.latticex.foundation/t/topic/6176 。
+4. **从PlatON1.3.0版本开始(生效时间2022.11.9)，PlatON主网已完全切换至 ChainID：210425，原ChainID：100不再支持！！！。详见https://forum.latticex.foundation/t/topic/6548
 
 
 
@@ -108,7 +106,7 @@ Block Explorer URL: https://scan.platon.network/
 
 
 
-- PlatON ChainID:100  配置信息（不建议继续使用）
+- PlatON ChainID:100  配置信息--**已停用**
 
 ```
 Network Name: PlatON MainNetwork
@@ -118,9 +116,6 @@ Currency Symbol：LAT
 Block Explorer URL: https://scan.platon.network/
 ```
 
-其他可用PlatON主网络( ChainID:100 )RPC节点：
-
-> https://rpc.plateye.com（itokenpool提供）
 
 
 
@@ -146,19 +141,12 @@ Block Explorer URL: https://scan.platon.network/
 
 ```
 Network Name: PlatON Dev Network
-New RPC URL: https://devnetopenapi.platon.network/rpc
-Chain ID：210309
+New RPC URL: https://devnet2openapi.platon.network/rpc   OR wss://devnet2openapi.platon.network/ws
+Chain ID：2206132
 Currency Symbol：LAT
-Block Explorer URL: https://devnetscan.platon.network/
+Block Explorer URL: https://devnet2scan.platon.network/
 ```
 
-
-其他可用PlatON开放网络RPC节点：
-
-```
-http://34.93.120.9:6789 （ws://34.93.120.9:6790）
-http://34.85.65.222:6789 （ws://34.85.65.222:6790）
-```
 
 保存之后会自动跳转到PlatON DevNet，出现以下内容：
 
@@ -166,7 +154,7 @@ http://34.85.65.222:6789 （ws://34.85.65.222:6790）
 
 
 
-接着，我们可以在PlatON开发网水龙头（https://faucet.platon.network/faucet/）上申请测试代币，测试一下转账操作。
+接着，我们可以在PlatON开发网水龙头（https://devnet2faucet.platon.network/faucet）上申请测试代币，测试一下转账操作。
 
 <img src="/docs/img/en/MetaMask_Configure.assets/image-20220112184859903.png" alt="image-20220112184859903"/>
 
@@ -279,7 +267,6 @@ http://8.220.31.172:6789 (ws://8.220.31.172:6790)
 
 <img src="/docs/img/en/MetaMask_Configure.assets/9800bbe80cff52b23b102f36b0eae9e0c05a7bbd_2_690x338.png" alt="9800bbe80cff52b23b102f36b0eae9e0c05a7bbd_2_690x338"/>
 
-**注意：PlatON1.2.0版本主网ChainID:210425已于UTC 2022.4.15 11:00am生效！**
 
 接着，点击“Add tTo MetaMask” 进行网络添加。
 
@@ -351,8 +338,6 @@ http://8.220.31.172:6789 (ws://8.220.31.172:6790)
 <img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.3.3].png" alt="[Figure-4.1.3.3]"/>
 
 
-
-<img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.4.1].png" alt="[Figure-4.1.4.1]"/>
 
 
 
