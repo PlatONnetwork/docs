@@ -38,7 +38,7 @@ MetaMask作为目前市面上用户量最多，应用最广泛的浏览器插件
 
 3. MetaMask目前暂时不支持WASM合约调用，仅支持EVM合约。
 
-4. **从PlatON1.3.0版本开始(生效时间2022.11.9)，PlatON主网已完全切换至 ChainID：210425，原ChainID：100不再支持！！！。详见https://forum.latticex.foundation/t/topic/6548
+4. **从PlatON1.3.0版本开始(生效时间2022.11.9)，PlatON主网已完全切换至 ChainID：210425，原ChainID：100不再支持！ 详见 https://forum.latticex.foundation/t/topic/6548**
 
 
 
