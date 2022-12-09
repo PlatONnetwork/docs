@@ -444,6 +444,9 @@ After delegating LAT to a alternative validator candidate, the delegated LAT wil
 
 ##### Redemption delegation
 
+> Based on the [PIP-10](https://github.com/PlatONnetwork/PIPs/blob/master/PIPs/PIP-10.md) proposal, when submitting a undelegate operation, the effective delegation funds will be locked for 56 settlement cycles, and there will be no delegation rewards during this period. Details: https://forum.latticex.foundation/t/topic/6548
+ 
+
 The principal can submit the redemption delegation transaction at any time, because the principal can be said to be wicked to a certain extent, so the LAT after the principal redeems the commission has no additional freezing period. At the same time, it is different from the cancellation of the pledge of the candidate who has withdrawn from the candidate node. The cancellation of the pledge is all but the redemption entrustment supports partial redemption (that is, reduction of holdings) and full redemption.
 
 - The interval between the entrusted transaction block and the settlement block of the current epoch is a hesitation period. The delegation is redeemed, and the delegated LAT immediately returns to the user's delegated account.
