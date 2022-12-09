@@ -50,7 +50,7 @@ To support the different chain-id of the two versions, we added new config files
 	"signed_transaction_file_dir": "C:\CTool\signed_transaction\",
 	"transaction_result_dir": "C:\CTool\transaction_result\",
     "rpc_url":"http://127.0.0.1:6789",
-	"chain_id": 100,
+	"chain_id": 210425,
 	"hrp_type": "lat"
 }
 ```
@@ -71,7 +71,7 @@ To support the different chain-id of the two versions, we added new config files
 >
 > - rpc_url: the path for calling a node’s rpc interface;
 >
-> - chain_id: the ChainID of the current version used by the node (the ChainID of the PlatON mainnet: 100);
+> - chain_id: the ChainID of the current version used by the node (the ChainID of the PlatON mainnet: 210425);
 >
 > - hrp_type: the bech32 address format prefix;
 >
