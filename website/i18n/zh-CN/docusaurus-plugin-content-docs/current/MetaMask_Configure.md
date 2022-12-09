@@ -224,12 +224,6 @@ Currency Symbol：ATP
 Block Explorer URL: https://devnetscan.alaya.network/
 ```
 
-其他可用Alaya开放网络RPC节点：
-
-```
-http://47.245.14.190:6789 (ws://47.245.14.190:6790)
-http://8.220.31.172:6789 (ws://8.220.31.172:6790)
-```
 
 添加完成后，创建个新Alaya测试钱包，然后我们可以在Alaya开发网水龙头（https://faucet.alaya.network/faucet/）上申请测试代币，测试一下转账操作。
 
