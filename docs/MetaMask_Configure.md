@@ -228,13 +228,6 @@ Currency Symbol：ATP
 Block Explorer URL: https://devnetscan.alaya.network/
 ```
 
-Other available RPC nodes on the Alaya DevNet:
-
-```
-http://47.245.14.190:6789 (ws://47.245.14.190:6790)
-http://8.220.31.172:6789 (ws://8.220.31.172:6790)
-```
-
 After the information is added, create a new Alaya test wallet, and then apply for test tokens on the Alaya DevNet faucet (https://faucet.alaya.network/faucet/) to test the transfer operation. 
 
 <img src="/docs/img/en/MetaMask_Configure.assets/image-20220112191841275.png" alt="image-20220112191841275"/>
