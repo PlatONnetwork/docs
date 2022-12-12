@@ -122,7 +122,6 @@ module.exports = {
           items: ['walletconnect_tutorial', 'DApp_integration_with_WalletConnect_for_ATON'],
         },
         'get_vrf_random_number',
-        'adapting_to_new_chainid',
         'eip55-bech32-compatible',
       ],
     },
