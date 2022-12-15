@@ -30,7 +30,7 @@ MetaMask makes operations such as transfer, signing, and contract interaction mo
 
    > PlatON MainNet：https://scan.platon.network/  
    >
-   > PlatON DevNet: https://devnetscan.platon.network/
+   > PlatON DevNet2: https://devnet2scan.platon.network/
    >
    > Alaya MainNet：https://scan.alaya.network/ 
    >
