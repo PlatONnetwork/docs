@@ -28,7 +28,7 @@ MetaMask作为目前市面上用户量最多，应用最广泛的浏览器插件
 
    > PlatON MainNet：https://scan.platon.network/  
    >
-   > PlatON DevNet: https://devnetscan.platon.network/
+   > PlatON DevNet2: https://devnet2scan.platon.network/
    >
    > Alaya MainNet：https://scan.alaya.network/ 
    >
