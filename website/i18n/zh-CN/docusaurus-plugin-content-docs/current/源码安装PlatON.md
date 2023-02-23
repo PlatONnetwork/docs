@@ -100,9 +100,21 @@ git clone -b master https://github.com/PlatONnetwork/PlatON-Go.git --recursive
 
 **step3.** 安装依赖库：
 
+安装golang
+
+```bash
+cd /usr/local
+sudo wget https://go.dev/dl/go1.18.7.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && tar -C /usr/local -xzf go1.18.7.linux-amd64.tar.gz
+sudo vim /etc/profile
+// 将下面一行加到文件末尾
+export PATH=$PATH:/usr/local/go/bin
+source /etc/profile
+```
+
 ```bash
 sudo apt update 
-sudo apt install -y golang-go cmake llvm g++ libgmp-dev libssl-dev
+sudo apt install -y cmake llvm g++ libgmp-dev libssl-dev
 ```
 
 **step4.** 编译：
