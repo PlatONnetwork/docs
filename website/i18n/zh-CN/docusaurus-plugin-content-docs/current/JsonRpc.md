@@ -2598,3 +2598,31 @@ curl -X POST --data '{ "jsonrpc": "2.0", "method": "debug_getWaitSlashingNodeLis
   }]"
 }
 ```
+
+***
+
+#### debug_getValidatorByBlockNumber
+
+获取指定共识轮的验证人列表，传入某个共识轮中的任意区块高度，系统自动计算块高所属共识轮，返回该共识轮的验证人列表，无数据时返回空字符串。
+
+##### 参数
+Uint64 - 区块高度
+
+##### 返回
+`array` - 验证人列表，Address：节点地址；NodeId：节点Id；BlsPubKey：节点bls公钥。
+
+##### 例子
+```js
+// Request
+curl -X POST --data '{ "jsonrpc": "2.0", "method": "debug_getValidatorByBlockNumber", "params": [1000], "id": 75}'
+// Result
+{
+  "jsonrpc": "2.0",
+  "id": 75,
+  "result": "[{
+    "Address": "0xc6a99e99978ac78333897e2117ec9747f010b827",
+    "NodeId": "2d016c3c2dd0ffb4c251940e255a90cd4541c553710c0b5b594595d1eaa660cb8109c1cd90ac864665852abffc7fd47343b03d0156d81501b838be7c4e354d6d",
+    "BlsPubKey": "21a9fc05c3b349e9a50f0966d5c338082f52e72639778d6ed5d11ce544efc2ba8b8f463d03eb4d02934937da603d0f109a08e5c4c82c835fc7f4209ad0d5c551853dd9fbfab08345346696e09124c19e0d08e01a4b5d841eea896fd3ae982995"
+  }]"
+}
+```
