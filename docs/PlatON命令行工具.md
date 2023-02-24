@@ -16,7 +16,7 @@ USAGE:
    platon [options] command [command options] [arguments...]
    
 VERSION:
-   1.2.1-unstable
+   1.4.0-unstable
    
 COMMANDS:
    account                Manage accounts
@@ -152,11 +152,12 @@ CBFT OPTIONS:
   --cbft.blacklist_deadline value  Blacklist effective time. uint:minute (default: "60")
   
 DB OPTIONS:
-  --db.nogc               Disables database garbage collection
-  --db.gc_interval value  Block interval for garbage collection (default: 86400)
-  --db.gc_timeout value   Maximum time for database garbage collection (default: 1m0s)
-  --db.gc_mpt             Enables database garbage collection MPT
-  --db.gc_block value     Number of cache block states, default 10 (default: 10)
+  --db.nogc                           Disables database garbage collection
+  --db.gc_interval value              Block interval for garbage collection (default: 86400)
+  --db.gc_timeout value               Maximum time for database garbage collection (default: 1m0s)
+  --db.gc_mpt                         Enables database garbage collection MPT
+  --db.gc_block value                 Number of cache block states, default 10 (default: 10)
+  --db.validators_history             Store the list of validators for each consensus round
   
 VM OPTIONS:
   --vm.wasm_type value         The actual implementation type of the wasm instance (default: "wagon")
