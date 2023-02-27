@@ -808,6 +808,30 @@ Request <?, PlatonTransaction> request = platonWeb3j.platonGetTransactionByHash(
 Optional<Transaction> req = request.send().getTransaction();
 ```
 
+### platonGetTransactionByHash
+
+> Query transactions by transaction hash
+
+- **parameters**
+  - String: transactionHash
+
+- **return value**
+
+```java
+Request<?, PlatonTransaction>
+```
+
+The transaction in the PlatonTransaction property is the corresponding stored data
+
+- **Example**
+
+```java
+Web3j platonWeb3j = Web3j.build(new HttpService("http://127.0.0.1:6789"));
+String txHash   = "";
+Request <?, PlatonTransaction> request = platonWeb3j.platonGetTransactionByHash(txHash);
+Optional<Transaction> response = request.send().getTransaction();
+```
+
 ### platonGetTransactionReceipt
 
 > Query transaction receipt based on transaction hash
