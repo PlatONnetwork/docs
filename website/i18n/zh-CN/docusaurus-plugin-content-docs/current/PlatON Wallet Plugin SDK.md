@@ -1,7 +1,7 @@
 ---
 id: PlatON_Wallet_Plugin_Sdk
 title: PlatON-Wallet-Plugin-SDK接入手册
-sidebar_label: PlatON-Wallet-Plugin-SDK接入
+sidebar_label: PlatON钱包插件SDK
 ---
 
 # 集成 PlatON Wallet Plugin SDK
@@ -10,7 +10,7 @@ sidebar_label: PlatON-Wallet-Plugin-SDK接入
 
 > 集成 `SDK` 到您的 `dApp/Wallet/swap` 页面中.
 
-PlatON Wallet Plugin SDK 提供用户快速资产管理功能，使用该插件库，可以查看用户在 PlatON 网络上的资产余额，通过跨链桥或者法币的方式
+PlatON钱包插件SDK提供用户快速资产管理功能，使用该插件库，可以查看用户在 PlatON 网络上的资产余额，通过跨链桥或者法币的方式
 购买 PlatON 网络上的资产。
 
 
@@ -19,19 +19,19 @@ PlatON Wallet Plugin SDK 提供用户快速资产管理功能，使用该插件�
 我们推荐使用 `npm/yarn/pnpm` 等方式安装 SDK。
 
 ```
-npm install '@platonnetwork/wallet-plugin-sdk'
+npm install '@platonnetwork/platon-wallet-sdk'
+```
+
+or
+
+```
+yarn add '@platonnetwork/platon-wallet-sdk'
 ```
 
 or 
 
 ```
-yarn add '@platonnetwork/wallet-plugin-sdk'
-```
-
-or 
-
-```
-pnpm add '@platonnetwork/wallet-plugin-sdk'
+pnpm add '@platonnetwork/platon-wallet-sdk'
 ```
 
 
@@ -42,7 +42,7 @@ pnpm add '@platonnetwork/wallet-plugin-sdk'
 开始使用前，您必须初始化并配置 SDK：
 
 ```
-import PlatOWallet from '@platonnetwork/wallet-plugin-sdk';
+import PlatOWallet from '@platonnetwork/platon-wallet-sdk';
 
 // Definition PlatONWallet SDK
 const walletSDK = new PlatONWallet(config);
@@ -51,7 +51,7 @@ const walletSDK = new PlatONWallet(config);
 
 可选配置参数可传入用户自定义配置项：
 
-```
+```js
 type ConfigUpdate = {
     env: 'PROD' // 'TEST' or 'PROD'
 };
@@ -65,12 +65,14 @@ type ConfigUpdate = {
 
 ## 使用案例
 
+项目为客户端渲染时，用如下导入方式：
+
 ```js
-import PlatOWallet from '@platonnetwork/wallet-plugin-sdk';
+import PlatOWallet from '@platonnetwork/platon-wallet-sdk';
 
 // Definition PlatONWallet SDK
 const walletSDK = new PlatONWallet({
-    env: 'TEST' // 'TEST' or 'PROD'
+    env: 'PROD' // 'TEST' or 'PROD'
 });
 
 // 初始化 PlatONWallet SDK
@@ -86,6 +88,15 @@ walletSDK.show();
 walletSDK.destroy();
 ```
 
+项目为服务端（如使用 next.js 等）渲染时，用如下导入方式：
+
+```js
+let walletSDK = null
+
+import('@platonnetwork/platon-wallet-sdk').then(module => {
+  walletSDK = new module.default({ env: 'PROD' })
+})
+```
 
 
 

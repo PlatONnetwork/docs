@@ -1,7 +1,7 @@
 ---
 id: PlatON_Wallet_Operation_Manual
 title: PlatON-Wallet - 操作手册
-sidebar_label: PlatON-Wallet操作手册
+sidebar_label: PlatON钱包插件
 ---
 
 # PlatON Wallet 操作手册
@@ -15,7 +15,7 @@ sidebar_label: PlatON-Wallet操作手册
 
 ## 集成方式
 
-  - [PlatON Wallet Plugin SDK](/docs/zh-CN/PlatON_Wallet_Plugin_Sdk)：提供完整的钱包功能和页面，通过简单的单点集成，可快速使用钱包内所有的功能。
+  - [PlatON钱包插件SDK](/docs/zh-CN/PlatON_Wallet_Plugin_Sdk)：提供完整的钱包功能和页面，通过简单的单点集成，可快速使用钱包内所有的功能。
 
    我们也即将提供更多种集成方式，以满足应用不同场景的集成需求。
 

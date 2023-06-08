@@ -1,7 +1,7 @@
 ---
 id: PlatON_Wallet_Operation_Manual
 title: PlatON-Wallet - Operation_Manual
-sidebar_label: PlatON-Wallet Operation_Manual
+sidebar_label: PlatON wallet plugin 
 ---
 
 # PlatON Wallet Plugin
@@ -15,7 +15,7 @@ The PlatON Wallet plugin is compatible with various decentralized wallets. After
 In order to meet the various integration needs of the project parties, we will provide SDKs for a series of languages and frameworks, so that application developers can quickly complete integration according to different business scenarios.
 
 ## How to integrate
-- [PlatON Wallet Plugin SDK](/docs/en/PlatON_Wallet_Plugin_Sdk): Provides complete wallet functions and pages. Through simple one-point integration, you can quickly use all the functions in the wallet.
+- [PlatON wallet plugin SDK](/docs/en/PlatON_Wallet_Plugin_Sdk): Provides complete wallet functions and pages. Through simple one-point integration, you can quickly use all the functions in the wallet.
 
 We will also provide more integration methods to meet the integration needs of applications in different scenarios. 
 
