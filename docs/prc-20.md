@@ -124,7 +124,7 @@ During the installation process, some dependency packages will require c++14 com
 ``` python
 from client_sdk_python import Web3, HTTPProvider
 
-rpc, chain_id, hrp = 'http://127.0.0.1:6789', 100, 'lat'
+rpc, chain_id, hrp = 'http://127.0.0.1:6789', 210425, 'lat'
 w3 = Web3(HTTPProvider(rpc), chain_id=chain_id, hrp_type=hrp)
 abi = []			# ABI
 prc20 = w3.eth.contract(address='contract address', abi=abi)

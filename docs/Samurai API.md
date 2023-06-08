@@ -406,8 +406,8 @@ These are the IDs of the PlatON/Alaya chain supported by Samurai by default.
 
 | Hexadecimal | Decimal | Network        |
 | ----------- | ------- | -------------- |
-| 0x64        | 100     | PlatON mainnet |
-| 0x33585     | 210309  | PlatON testnet |
+| 0x335f9     | 210425     | PlatON mainnet |
+| 0x21a9b4    | 2206132  | PlatON Devnet2 |
 | 0x3113a     | 201018  | Alaya network  |
 | 0x31146     | 201030  | Alaya testnet  |
 

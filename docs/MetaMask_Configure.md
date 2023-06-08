@@ -30,7 +30,7 @@ MetaMask makes operations such as transfer, signing, and contract interaction mo
 
    > PlatON MainNet：https://scan.platon.network/  
    >
-   > PlatON DevNet: https://devnetscan.platon.network/
+   > PlatON DevNet2: https://devnet2scan.platon.network/
    >
    > Alaya MainNet：https://scan.alaya.network/ 
    >
@@ -40,9 +40,7 @@ MetaMask makes operations such as transfer, signing, and contract interaction mo
 
 3. MetaMask cannot be called by WASM contracts, but EVM contracts only. 
 
-4. **PlatON Main Network old ChainID: 100, as it is the same as xDai Main Network, please delete the xDai Main Network from MetaMask before configuring PlatON Main Network with ChainID:100, or configure PlatON Main Network by "Manual Add Method". (ignore the ChainID conflict prompt). ** 
-
-5. **Starting from PlatON version 1.2.0 (effective time 2022.4.15 11:00am UTC，For details see：https://forum.latticex.foundation/t/topic/6176 ), PlatON Main Network will adopt ChainID: 210425 and will support double ChainID operation in the next 6~12 months. Application developers and users are advised to update ChainID and the Node RPC used as early as possible.** 
+4. **Starting from PlatON version 1.3.0 (effective time 2022.11.9，For details see：https://forum.latticex.foundation/t/topic/6548 ), PlatON MainNet has been completely switched to ChainID: 210425, the original ChainID: 100 is no longer supported!** 
 
 
 
@@ -112,7 +110,7 @@ Block Explorer URL: https://scan.platon.network/
 
 
 
-- PlatON ChainID:100 Configuration information (not recommended to continue using）
+- PlatON ChainID:100 Configuration information -- **Disabled**
 
 ```
 Network Name: PlatON MainNetwork
@@ -121,11 +119,6 @@ Chain ID：100
 Currency Symbol：LAT
 Block Explorer URL: https://scan.platon.network/
 ```
-
-Other available RPC nodes on the PlatON MainNet: 
-
-> https://rpc.plateye.com (provided by itokenpool) 
-
 
 
 Then click Save and wait for it to finish. 
@@ -146,22 +139,16 @@ Done! It is worth mentioning that only Hex addresses are supported on the mainne
 
 ### PlatON DevNet 
 
-Similarly, you can add and configure the PlatON DevNet according to the following information: 
+Similarly, you can add and configure the PlatON DevNet2 according to the following information: 
 
 ```
-Network Name: PlatON Dev Network
-New RPC URL: https://devnetopenapi.platon.network/rpc
-Chain ID：210309
+Network Name: PlatON Dev2 Network
+New RPC URL: https://devnet2openapi.platon.network/rpc   OR wss://devnet2openapi.platon.network/ws
+Chain ID：2206132
 Currency Symbol：LAT
-Block Explorer URL: https://devnetscan.platon.network/
+Block Explorer URL: https://devnet2scan.platon.network/
 ```
 
-Other available RPC nodes on the PlatON Open Network: 
-
-```
-http://34.93.120.9:6789 （ws://34.93.120.9:6790）
-http://34.85.65.222:6789 （ws://34.85.65.222:6790）
-```
 
 After the settings are saved, it will automatically jump to PlatON DevNet, and the following will appear: 
 
@@ -169,7 +156,7 @@ After the settings are saved, it will automatically jump to PlatON DevNet, and t
 
 
 
-Next, we can apply for test tokens on the PlatON DevNet faucet (https://faucet.platon.network/faucet/) to test the transfer operation. 
+Next, we can apply for test tokens on the PlatON DevNet faucet (https://devnet2faucet.platon.network/faucet) to test the transfer operation. 
 
 <img src="/docs/img/en/MetaMask_Configure.assets/image-20220112184859903.png" alt="image-20220112184859903"/>
 
@@ -241,13 +228,6 @@ Currency Symbol：ATP
 Block Explorer URL: https://devnetscan.alaya.network/
 ```
 
-Other available RPC nodes on the Alaya DevNet:
-
-```
-http://47.245.14.190:6789 (ws://47.245.14.190:6790)
-http://8.220.31.172:6789 (ws://8.220.31.172:6790)
-```
-
 After the information is added, create a new Alaya test wallet, and then apply for test tokens on the Alaya DevNet faucet (https://faucet.alaya.network/faucet/) to test the transfer operation. 
 
 <img src="/docs/img/en/MetaMask_Configure.assets/image-20220112191841275.png" alt="image-20220112191841275"/>
@@ -286,7 +266,6 @@ and we can see:
 
 <img src="/docs/img/en/MetaMask_Configure.assets/9800bbe80cff52b23b102f36b0eae9e0c05a7bbd_2_690x338.png" alt="9800bbe80cff52b23b102f36b0eae9e0c05a7bbd_2_690x338"/>
 
-**Note: PlatON version 1.2.0 mainnet ChainID:210425 is effective as of 2022.4.15 11:00am UTC! **
 
 Next, click "Add tTo MetaMask" to add the network. 
 
@@ -366,9 +345,6 @@ Enter the PlatON or Alaya blockchain explorer, find [MORE] in the navigation men
 
 <img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.3.3].png" alt="[Figure-4.1.3.3]"/>
 
-
-
-<img src="/docs/img/en/MetaMask_Configure.assets/[Figure-4.1.4.1].png" alt="[Figure-4.1.4.1]"/>
 
 
 

@@ -61,6 +61,9 @@
 .commmunity-table tr td {
   vertical-align: middle;
 }
+.commmunity-table tr td.top {
+  vertical-align: top;
+}
 
 /* moblie */
 .navbar__toggle {

@@ -58,6 +58,8 @@ platon.sendTransaction({from: "lat1nwc2am8ple8rpuqx3rsv6txljkuetsm6890u6d",to: "
 
 1005: [减持/撤销委托](#staking_contract_6)
 
+1006: [领取解锁的委托](#staking_contract_17)
+
 1100: [查询当前结算周期的验证人队列](#staking_contract_7)
 
 1101: [查询当前共识周期的验证人列表](#staking_contract_8)
@@ -69,6 +71,8 @@ platon.sendTransaction({from: "lat1nwc2am8ple8rpuqx3rsv6txljkuetsm6890u6d",to: "
 1104: [查询当前单个节点的委托信息](#staking_contract_11)
 
 1105: [查询当前节点的质押信息](#staking_contract_12)
+
+1106: [查询账户处于锁定期与解锁期的委托金额](#staking_contract_16)
 
 1200: [查询当前结算周期的区块奖励](#staking_contract_13)
 
@@ -266,7 +270,7 @@ EIP55地址:0x1000000000000000000000000000000000000002
 |参数|类型|说明|是否必须|
 |---|---|---|---|
 |funcType|uint16(2bytes)|代表方法类型码(1004)|Y|
-|typ|uint16(2bytes)|表示使用账户自由金额还是账户的锁仓金额做委托，0: 自由金额； 1: 锁仓金额|Y|
+|typ|uint16(2bytes)|表示使用账户自由金额还是账户的锁仓金额做委托，0: 自由金额； 1: 锁仓金额  3:委托锁定金额 |Y|
 |nodeId|64bytes|被质押的节点的NodeId|Y|
 |amount|*big.Int(bytes)|委托的金额(按照最小单位算，1LAT = 10**18 von)|Y|
 
@@ -283,14 +287,32 @@ EIP55地址:0x1000000000000000000000000000000000000002
 
 返参：
 
-注:交易结果存储在交易回执的logs.data中，如果是赎回全部委托，存储 rlp.Encode([][]byte{[]byte(状态码0)， rlp.Encode(委托的收益) })，否则和之前结构一样
+注:交易结果存储在交易回执的logs.data中，如果成功赎回委托，存储 rlp.Encode([][]byte{[]byte(状态码0)， rlp.Encode(委托的收益), rlp.Encode(撤销的委托金退回用户余额), rlp.Encode(撤销的委托金退回用户锁仓账户), rlp.Encode(撤销的委托金转到锁定期,来自余额), rlp.Encode(撤销的委托金转到锁定期,来自锁仓账户) })
 
 | 参数           | 类型     | 说明       | 是否必须 |
 | -------------- | -------- | ---------- | -------- |
 | delegateIncome | *big.int | 委托的收益 | N        |
+| released | *big.int | 撤销的委托金退回用户余额 | 
+| restrictingPlan | *big.int | 撤销的委托金退回用户锁仓账户 |
+| lockReleased | *big.int | 撤销的委托金转到锁定期,来自余额 |
+| lockRestrictingPlan | *big.int | 撤销的委托金转到锁定期,来自锁仓账户 |
 
+7. redeemDelegation: 领取解锁的委托
 
-7. getVerifierList: 查询当前结算周期的验证人队列
+|参数|类型|说明|是否必须|
+|---|---|---|---|
+|funcType|uint16(2bytes)|代表方法类型码(1006)|Y|
+
+返参：
+
+注:交易结果存储在交易回执的logs.data中，如果成功赎回委托，存储 rlp.Encode([][]byte{[]byte(状态码0)， rlp.Encode(领取的委托金,回到余额), rlp.Encode(领取的委托金,回到锁仓账户) })
+
+| 参数           | 类型     | 说明       | 是否必须 |
+| -------------- | -------- | ---------- | -------- |
+| released | *big.int | 成功领取的委托金,回到余额 | 
+| restrictingPlan | *big.int | 成功领取的委托金,回到锁仓账户 |
+
+8. getVerifierList: 查询当前结算周期的验证人队列
 
 
 
@@ -322,7 +344,7 @@ EIP55地址:0x1000000000000000000000000000000000000002
 |DelegateTotal|*big.Int(bytes)|当前候选人生效的总委托数量|Y|
 |DelegateRewardTotal|*big.Int(bytes)|候选人当前发放的总委托奖励|Y|
 
-8. getValidatorList: 查询当前共识周期的验证人列表
+9. getValidatorList: 查询当前共识周期的验证人列表
 
 
 
@@ -353,7 +375,7 @@ EIP55地址:0x1000000000000000000000000000000000000002
 |DelegateTotal|*big.Int(bytes)|当前候选人生效的总委托数量|Y|
 |DelegateRewardTotal|*big.Int(bytes)|候选人当前发放的总委托奖励|Y|
 
-9. getCandidateList: 查询所有实时的候选人列表
+10. getCandidateList: 查询所有实时的候选人列表
 
 入参：
 
@@ -389,7 +411,7 @@ EIP55地址:0x1000000000000000000000000000000000000002
 |DelegateTotalHes|string(0x十六进制字符串)|节点被委托的未生效的总数量|Y|
 |DelegateRewardTotal|*big.Int(bytes)|候选人当前发放的总委托奖励|Y|
 
-10. getRelatedListByDelAddr: 查询当前账户地址所委托的节点的NodeID和质押Id
+11. getRelatedListByDelAddr: 查询当前账户地址所委托的节点的NodeID和质押Id
 
 
 
@@ -408,7 +430,7 @@ EIP55地址:0x1000000000000000000000000000000000000002
 |NodeId|64bytes|验证人的节点Id|N|
 |StakingBlockNum|uint64(8bytes)|发起质押时的区块高度|N|
 
-11. getDelegateInfo: 查询当前单个节点的委托信息
+12. getDelegateInfo: 查询当前单个节点的委托信息
 
 入参：
 
@@ -432,8 +454,36 @@ EIP55地址:0x1000000000000000000000000000000000000002
 |RestrictingPlan|string(0x十六进制字符串)|发起委托账户的锁仓金额的锁定期委托的von|Y,默认为0|
 |RestrictingPlanHes|string(0x十六进制字符串)|发起委托账户的锁仓金额的犹豫期委托的von|Y,默认为0|
 |CumulativeIncome|string(0x十六进制字符串)|待领取的委托收益|Y,默认为0|
+|LockReleasedHes|string(0x十六进制字符串)|犹豫期的委托金,来自锁定期,源自自由金额|Y,默认为0|
+|LockRestrictingPlanHes|string(0x十六进制字符串)|犹豫期的委托金,来自锁定期,源自锁仓金额|Y,默认为0|
 
-12. getCandidateInfo: 查询当前节点的质押信息
+13. getDelegationLockInfo: 查询账户处于锁定期与解锁期的委托信息
+
+入参：
+
+|参数|类型|说明|是否必须|
+|---|---|---|---|
+|funcType|uint16|代表方法类型码(1106)|Y|
+|delAddr|20bytes|委托人账户地址|Y|
+
+返参：结构如下
+
+|名称|类型|说明|是否可为空(零值)|
+|---|---|---|---|
+|Locks|列表|处于锁定期的委托金,结构见下|Y|
+|Released|string(0x十六进制字符串)|处于解锁期的委托金,待用户领取后返回到用户余额|N,默认为0|
+|RestrictingPlan|string(0x十六进制字符串)|处于解锁期的委托金,待用户领取后返回到用户锁仓账户|N,默认为0|
+
+
+锁定期的委托金:
+
+|名称|类型|说明|是否可为空(零值)|
+|---|---|---|---|
+|Epoch|uint32(4bytes)|解锁的周期|N|
+|Released|string(0x十六进制字符串)|锁定的金额,自由账户|N|
+|RestrictingPlan|string(0x十六进制字符串)|锁定的金额,锁仓账户|N|
+
+14. getCandidateInfo: 查询当前节点的质押信息
 
 入参：
 
@@ -470,7 +520,7 @@ EIP55地址:0x1000000000000000000000000000000000000002
 |DelegateTotalHes|string(0x十六进制字符串)|节点被委托的未生效总数量|Y,默认为0|
 |DelegateRewardTotal|*big.Int(bytes)|候选人当前发放的总委托奖励|Y|
 
-13. getPackageReward: 查询当前结算周期的区块奖励
+15. getPackageReward: 查询当前结算周期的区块奖励
 
 
 入参：
@@ -485,7 +535,7 @@ EIP55地址:0x1000000000000000000000000000000000000002
 | ------------------------ | -------- | ---------------- |
 | string(0x十六进制字符串) | 区块奖励 | N                |
 
-14. getStakingReward: 查询当前结算周期的质押奖励
+16. getStakingReward: 查询当前结算周期的质押奖励
 
 入参：
 
@@ -499,7 +549,7 @@ EIP55地址:0x1000000000000000000000000000000000000002
 | ------------------------ | -------- | ---------------- |
 | string(0x十六进制字符串) | 质押奖励 | N                |
 
-15. getAvgPackTime: 查询打包区块的平均时间
+17. getAvgPackTime: 查询打包区块的平均时间
 
 入参：
 

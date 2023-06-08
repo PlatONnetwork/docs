@@ -30,7 +30,7 @@ CTool是PlatON网络钱包交易及合约交易的综合工具，方便使用者
 
 **step1.** 下载CTool安装包
 
-下载路径：https://download.platon.network/platon/CTool/CTool.exe。
+下载路径：https://download.platon.network/platon/CTool/CTool.exe
 
 **step2.** 通过安全存储介质（移动U盘或者移动硬盘）将安装文件 `CTool.exe` 转到**离线机器**下
 
@@ -51,7 +51,7 @@ CTool是PlatON网络钱包交易及合约交易的综合工具，方便使用者
 	"signed_transaction_file_dir": "C:\CTool\signed_transaction\",
 	"transaction_result_dir": "C:\CTool\transaction_result\",
     "rpc_url":"http://127.0.0.1:6789",
-	"chain_id": 100,
+	"chain_id": 210425,
 	"hrp_type": "lat"
 }
 ```
@@ -65,7 +65,7 @@ CTool是PlatON网络钱包交易及合约交易的综合工具，方便使用者
 > - signed_transaction_file_dir：保存交易签名文件目录；
 > - transaction_result_dir：保存发送交易结果和校验交易结果目录；
 > - rpc_url：调用节点rpc接口的路径；
-> - chain_id：节点所在的链ID，PlatON主网为: 100;
+> - chain_id：节点所在的链ID，PlatON主网为: 210425;
 > - hrp_type：bech32地址格式前缀；
 > 
 > **根据实际情况，修改此配置文件。**

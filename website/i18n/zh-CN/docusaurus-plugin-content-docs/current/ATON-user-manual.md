@@ -334,11 +334,11 @@ ATON是一个支持PlatON Network及Alaya Network的安全易用的移动钱包�
 ### 参与委托
 
 <div>
-<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/aton15.png" width="300" style={{zoom:"80%"}}  /></div>
+<div><img src="/docs/img/en/ATON-user-manual.assets/delegate-01.png" width="300" style={{zoom:"80%"}}  /><img src="/docs/img/en/ATON-user-manual.assets/delegate-03.png" width="300" style={{zoom:"80%"}}  /></div>
 <div>
 <br />1. 可点击【委托-验证节点】，选择某个节点进行委托。如果已委托过，可点击【委托-我的委托-委托节点详情】，选择某个节点继续进行委托。
 <br />2. 进入页面，选择需要委托的钱包。
-<br />3. 如果钱包有锁仓金额，可点击委托钱包余额选项栏进行切换，使用锁仓金额进行委托（注意钱包余额需足够支付委托交易手续费）。
+<br />3. 如果钱包有锁仓金额，可点击委托钱包余额选项栏进行切换，使用锁仓金额进行委托；如果钱包有委托冻结金额，可点击委托钱包余额选项栏进行切换，使用委托冻结金额进行委托（注意钱包余额需足够支付委托交易手续费）。
 <br />4. 输入委托的金额，每次委托不得小于10LAT/1ATP。
 <br />5. 输入正确的密码即可完成委托。
 <br />6. 已委托过的节点，可再次进行委托，无次数限制。
@@ -367,16 +367,33 @@ ATON是一个支持PlatON Network及Alaya Network的安全易用的移动钱包�
 ### 赎回委托
 
 <div>
-<div><img src="/docs/img/zh-CN/ATON-manual-cn.assets/aton17.png" width="500"style={{zoom:"80%"}} /></div>
+<div><img src="/docs/img/en/ATON-user-manual.assets/undelegate.png" width="500"style={{zoom:"80%"}} /></div>
 <div>
 <br />1. 点击【委托-我的委托-详情-赎回委托】可进行赎回。
 <br />2. 输入想要赎回的数量，数量需大于等于10LAT/ATP，输入正确的密码即可完成赎回委托操作。
 <br />
 <br /><b>注意:</b>
-<br />1. 赎回委托，将立即到账。
-<br />2. 操作全部赎回时，将自动领取委托奖励。
+<br />1.赎回委托时，犹豫期内委托将原路返回，有效期内的委托将回到委托冻结账户，将冻结一定的结算周期；
+<br />2.操作全部赎回时，将自动领取委托奖励。
 </div>
 <div style={{marginTop:"40px"}}></div>
+</div>
+
+
+### 委托冻结详情
+<div>
+<br />赎回有效的委托将会有一定的冻结周期，冻结期内的委托可以在委托冻结详情页面进行查看。
+<br />【委托节点详情】点击【委托冻结】进入委托冻结的详情页面；
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/freeze details.png" width ="500" style={{zoom: '80%'}}/></div>
+</div>
+
+
+### 提取委托
+<div>
+<br />委托冻结周期结束后，需要用户手动进行提取操作，将提取所有待提取的委托,会根据资产来源返还到用户钱包余额或者锁仓账户中。
+<br />1.【委托冻结详情】点击【提取】按钮，进入提取页面；
+<br />2、提取页面点击【提取】按钮，提取所有待提取的委托；
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/withdraw.png" width ="500" style={{zoom: '80%'}}/></div>
 </div>
 
 
@@ -519,3 +536,19 @@ HD钱包路径：【我的 - 钱包管理 - HD钱包详情 - HD设置 - 重新�
 <br />GitHub上ATON 的WalletConnect Dapp演示demo
 <br />https://github.com/PlatONnetwork/WalletConnect-Example
 </div>
+
+
+### HashKey DID
+
+<div>
+<br />HashKey DID 是一个多链结构的去中心化身份数据聚合器，基于智能合约,NFT,隐私计算的去中心化协议，为Web3用户提供身份服务。
+<br />HashKey官网： www.hashkey.id
+<br />
+<br />1.使用ATON进行快速注册HashKey DID：ATON首页的钱包地址下方点击[注册]按钮进行注册。
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/hashkey_register.png" width ="250" style={{zoom: '80%'}}/></div>
+<br />
+<br />2.支持输入DID作为接收地址进行转账，如输入已注册的DID Name：abc123.key。
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/hashkey_send.png" width ="250" style={{zoom: '80%'}}/></div>
+<br />
+</div>
+

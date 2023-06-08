@@ -27,4 +27,4 @@ In `website` folder:
 yarn start # English
 yarn start:zh # 中文
 ```
-Then you should be able to preview the website at `http://localhost:3000/` in your browser.
+Then you should be able to preview the website at `http://localhost:3000/` in your browser. 

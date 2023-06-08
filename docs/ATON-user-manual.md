@@ -340,11 +340,11 @@ For details about importing observed wallets, please refer to the instructions o
 ### **Participate in** **Delegation**
 
 <div>
-<div> <img src = "/docs/img/en/ATON-user-manual.assets/aton15.png "width =" 300 " style={{zoom: '80%'}} /> </div> 
+<div> <img src = "/docs/img/en/ATON-user-manual.assets/delegate-01.png "width =" 300 " style={{zoom: '80%'}} /><img src = "/docs/img/en/ATON-user-manual.assets/delegate-03.png "width =" 300 " style={{zoom: '80%'}} /> </div>
 <div> 
 <br />1. Select a validator to delegate. If you’ve delegated, then you can check your delegation details via: [Delegate] - [My Delegations]-[Delegation Rec], and then select one validator to continue delegation.
 <br />2. Select the wallet you want to delegrate. 
-<br />3. You can select locked-up balance to delegate if there is. 
+<br />3. You can select locked-up balance to delegate if there is, or select delegated freeze balance to delegate if there is.
 <br />4. Enter the amount, and  it must not be less than 10LAT/1ATP. 
 <br />5. Enter the correct password.
 <br />6. You can delegate to the nodes you’ve delegated, no limit to the delegation times.
@@ -370,20 +370,37 @@ For details about importing observed wallets, please refer to the instructions o
 <div style={{marginTop: '40px'}}></div>
 </div>
 
-### Withdraw Delegation
+### Undelegation
 
 <div>
-<div> <img src = "/docs/img/en/ATON-user-manual.assets/aton17.png "width =" 300 " style={{zoom: '80%'}} /> </div> 
+<div> <img src = "/docs/img/en/ATON-user-manual.assets/undelegate.png "width =" 300 " style={{zoom: '80%'}} /> </div> 
 <div> 
 <br />1. Click You can withdraw your delegation via: [My Delegations]-[Delegation Rec]-[Withdraw]. 
 <br />2. Enter the number,it should  be greater than or equal to 10 LAT/1 ATP. Enter your password to proceed the process.
 <br /> 
 <br /> <b> Note </b> 
-<br />1. Your delegated LAT/ATP will be back to your wallet immediately after you withdraw the delegation successfully. 
-<br />2. When withdrawing all delegations, the delegation rewards will be claimed automatically.
+<br />1.When undelegate the delegation, the delegation will return to the original way during the hesitation period, and the delegation within the validity period will be returned to the delegation frozen account, which will be frozen for a certain period.
+<br />2.When withdrawing all delegations, the delegation rewards will be claimed automatically.
 </div>
 <div style={{marginTop: '40px'}}></div>
 </div>
+
+### Freeze Details
+<div>
+<br />There is a certain settlement period as a freezing period after Undelegate, and each settlement cycle is 10750 blocks.Delegation within the freeze period can be viewed on the Freeze Details.
+<br />[Delegate node Details] Click [Delegated Freeze] to enter the Freeze details.
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/freeze details.png" width ="300" style={{zoom: '80%'}}/></div>
+</div>
+
+
+### Withdraw
+<div>
+<br />After the freeze period ends, the user needs to manually perform the extraction operation,all delegations to be withdrawn will be withdrawn and returned to the user's wallet balance or locked account according to the source of the asset.
+<br />1. [Freeze Details] Click the [Withdraw] button to enter the withdrawal;
+<br />2. Click the [Withdraw] button  to withdraw all the withdrawable delegations.
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/withdraw.png" width ="300" style={{zoom: '80%'}}/></div>
+</div>
+
 
 
 ## Observed Wallet and Cold Wallet
@@ -527,3 +544,18 @@ If you reimport a wallet by PrivateKey or KeyStore, the Mnemonic of this wallet 
 <br />ATON’s WalletConnect Dapp demo on GitHub.
 <br />https://github.com/PlatONnetwork/WalletConnect-Example
 </div>
+
+### HashKey DID
+
+<div>
+<br />HashKey DID is a multi-chain decentralized identity data aggregator, powered by smart contract, NFT and privacy protection decentralised protocol, to provide identity services to Web3 users.
+<br />HashKey Website： www.hashkey.id
+<br />
+<br />1.Use ATON to quickly register HashKey DID: Click the [HashKey DID Register] button below the wallet address on the ATON home page to register.
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/hashkey_register.png" width="250" style={{zoom:"80%"}} /></div>
+<br />
+<br />2.Support input DID as the receiving address for transfer, for example, input the registered DID Name: abc123.key.
+<br /><div><img src="/docs/img/en/ATON-user-manual.assets/hashkey_send.png" width="250" style={{zoom:"80%"}} /></div>
+<br />
+</div>
+
