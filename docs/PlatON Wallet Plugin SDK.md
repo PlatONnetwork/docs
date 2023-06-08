@@ -1,7 +1,7 @@
 ---
 id: PlatON_Wallet_Plugin_Sdk
 title: PlatON-Wallet-Plugin-SDK - Access Manual
-sidebar_label: PlatON-Wallet-Plugin-SDK
+sidebar_label: PlatON wallet plugin SDK
 ---
 
 # INTEGRATE PlatON Wallet Plugin SDK
@@ -19,19 +19,19 @@ balance of assets on the PlatON network and purchase assets on the PlatON networ
 We recommend installing the SDK via npm、yarn or pnpm.
 
 ```
-npm install '@platonnetwork/wallet-plugin-sdk'
+npm install '@platonnetwork/platon-wallet-sdk'
 ```
 
-or 
+or
 
 ```
-yarn add '@platonnetwork/wallet-plugin-sdk'
+yarn add '@platonnetwork/platon-wallet-sdk'
 ```
 
-or 
+or
 
 ```
-pnpm add '@platonnetwork/wallet-plugin-sdk'
+pnpm add '@platonnetwork/platon-wallet-sdk'
 ```
 
 
@@ -42,7 +42,7 @@ pnpm add '@platonnetwork/wallet-plugin-sdk'
 To get started, you have to instantiate and configure the Platon-Wallet SDK:
 
 ```
-import PlatOWallet from '<package name>';
+import PlatOWallet from '@platonnetwork/platon-wallet-sdk';
 
 // Definition PlatONWallet SDK
 const walletSDK = new PlatONWallet(config);
@@ -53,7 +53,7 @@ The optional config parameter can be used to pass custom configuration to the SD
 
 ```
 type ConfigUpdate = {
-    env: 'TEST' // 'TEST' or 'PROD'
+    env: 'PROD' // 'TEST' or 'PROD'
 };
 ```
 
@@ -66,12 +66,14 @@ the corresponding environment be determined at initialization time.
 
 ## Example usage
 
+When the project is rendered for the client, use the following import methods:
+
 ```js
-import PlatOWallet from '<package name>';
+import PlatOWallet from '@platonnetwork/platon-wallet-sdk';
 
 // Definition PlatONWallet SDK
 const walletSDK = new PlatONWallet({
-    env: 'TEST' // 'TEST' or 'PROD'
+    env: 'PROD' // 'TEST' or 'PROD'
 });
 
 // Initialization PlatONWallet SDK
@@ -87,6 +89,15 @@ walletSDK.show();
 walletSDK.destroy();
 ```
 
+When the project is rendered for the server (e.g. using next.js, etc.), use the following import method:
+
+```next.js
+let walletSDK = null
+
+import('@platonnetwork/platon-wallet-sdk').then(module => {
+  walletSDK = new module.default({ env: 'PROD' })
+})
+```
 
 
 
