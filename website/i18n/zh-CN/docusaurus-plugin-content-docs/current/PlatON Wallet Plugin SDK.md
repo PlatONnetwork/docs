@@ -1,5 +1,5 @@
 ---
-id: PlatON_Wallet_Plugin_Sdk
+id: PlatON_wallet_plugin_sdk
 title: PlatON-Wallet-Plugin-SDK接入手册
 sidebar_label: PlatON钱包插件SDK
 ---
