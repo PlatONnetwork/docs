@@ -128,7 +128,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Wallet',
-      items: ['ATON-user-manual', 'Samurai_user_manual', 'Third_Party_Walle', 'Ledger-hardware-wallet', 'MetaMask','PlatON_Wallet_Operation_Manual','PlatON_Wallet_Plugin_Sdk'],
+      items: ['ATON-user-manual', 'Samurai_user_manual', 'Third_Party_Walle', 'Ledger-hardware-wallet', 'MetaMask','PlatON_wallet_plugin','PlatON_wallet_plugin_sdk'],
 
     },
     'community',

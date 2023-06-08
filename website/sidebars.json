@@ -108,8 +108,8 @@
 			"Third_Party_Walle",
 			"Ledger-hardware-wallet",
 			"MetaMask",
-			"PlatON_Wallet_Operation_Manual",
-			"PlatON_Wallet_Plugin_Sdk"
+			"PlatON_wallet_plugin",
+			"PlatON_wallet_plugin_sdk"
 		],
 		"community": [
 			"community"

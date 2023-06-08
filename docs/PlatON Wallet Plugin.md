@@ -1,5 +1,5 @@
 ---
-id: PlatON_Wallet_Operation_Manual
+id: PlatON_wallet_plugin
 title: PlatON-Wallet - Operation_Manual
 sidebar_label: PlatON wallet plugin 
 ---
@@ -24,16 +24,19 @@ We will also provide more integration methods to meet the integration needs of a
 > **Note:** Since the PlatON Wallet plugin itself does not generate account addresses and relies on third-party wallets with accounts, such as Metamask, etc., all transactions will be completed through third-party wallets. 
 
 **1. Connect Wallet** 
+
 After the application integrates the PlatON Wallet plugin, the PlatON wallet will also synchronize and connect to Metamask after the application connects to Metamask. After connecting to Metamask, the PlatON Wallet plugin will display the asset status of the account on the PlatON network.
     
 <img src="/docs/img/zh-CN/PlatON-Wallet-imgs/connect.jpg" alt="connect"/>
 
 **2. Send and Receive** 
+
 The wallet plugin supports sending and receiving Tokens on the PlatON network. 
     
 <img src="/docs/img/zh-CN/PlatON-Wallet-imgs/send-receive.jpg" alt="send-receive"/>
 
 **3. Recharge** 
+
 Currently there are two ways to recharge assets on the PlatON network: 
 
 - Method 1: Transfer assets from other networks to the PlatON network through cross-chain bridges 
@@ -42,6 +45,7 @@ Currently there are two ways to recharge assets on the PlatON network:
 <img src="/docs/img/zh-CN/PlatON-Wallet-imgs/deposit.jpg" alt="deposit"/>
 
 **4. Withdraw** 
+
 Currently we have two ways to withdraw assets from PlatON: 
 - Method 1: Withdraw PlatON network assets to other networks through cross-chain bridges. 
 - Method 2: Purchase shopping cards through [txnhub.io](https://txnhub.io) 
@@ -49,5 +53,6 @@ Currently we have two ways to withdraw assets from PlatON:
 <img src="/docs/img/zh-CN/PlatON-Wallet-imgs/withdraw.jpg" alt="withdraw"/>
 
 **5. More Functions** 
+
 We will subsequently support more networks, more cross-chain of currencies, Swap between different currencies, transaction authentication based on confidential payment, virtual VISA cards and more functions. 
 
