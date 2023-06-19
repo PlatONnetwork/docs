@@ -1,3 +1,9 @@
+---
+id: PlatON_wallet_plugin_sdk
+title: PlatON-Wallet-Plugin-SDK - Access Manual
+sidebar_label: PlatON wallet plugin SDK
+---
+
 # INTEGRATE PlatON Wallet Plugin SDK
 
 ## Install PlatON Wallet Plugin SDK
