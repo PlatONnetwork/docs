@@ -26,7 +26,7 @@ or
 pnpm add '@platonnetwork/platon-wallet-sdk'
 ```
 
-## 配置 SDK
+### 配置 SDK
 
 > 安装完 SDK 后，需要进行一些设置。
 
