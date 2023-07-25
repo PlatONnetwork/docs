@@ -4,7 +4,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Basics',
-      items: ['lat_introduced', 'staking_and_delegation', 'Network_Description'],
+      items: [ 'lat_introduced', 'staking_and_delegation', 'Network_Description' ],
     },
     {
       type: 'category',
@@ -26,7 +26,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Tools for nodes',
-          items: ['OnLine_MTool_Manual', 'OffLine_MTool_Manual', 'Command_Line_Tools', 'CTool_Manual'],
+          items: [ 'OnLine_MTool_Manual', 'OffLine_MTool_Manual', 'Command_Line_Tools', 'CTool_Manual' ],
         },
       ],
     },
@@ -38,7 +38,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Set up local environment',
-          items: ['Join_Dev_Network', 'Build_Private_Chain'],
+          items: [ 'Join_Dev_Network', 'Build_Private_Chain' ],
         },
         {
           type: 'category',
@@ -47,7 +47,7 @@ module.exports = {
             {
               type: 'category',
               label: 'System contract',
-              items: ['PlatON_system_contract', 'PlatON_system_contract_api'],
+              items: [ 'PlatON_system_contract', 'PlatON_system_contract_api' ],
             },
             {
               type: 'category',
@@ -64,7 +64,7 @@ module.exports = {
             {
               type: 'category',
               label: 'Wasm contract',
-              items: ['Wasm_Dev_Manual', 'Wasm_Contract_Dev_Costs', 'Wasm_Contract_Best_Practice', 'Wasm_Contract_API'],
+              items: [ 'Wasm_Dev_Manual', 'Wasm_Contract_Dev_Costs', 'Wasm_Contract_Best_Practice', 'Wasm_Contract_API' ],
             },
           ],
         },
@@ -86,14 +86,14 @@ module.exports = {
         {
           type: 'category',
           label: 'PRC Token',
-          items: ['PRC20_contract', 'PRC721_contract'],
+          items: [ 'PRC20_contract', 'PRC721_contract' ],
         },
       ],
     },
     {
       type: 'category',
       label: 'Data and analytics',
-      items: ['PlatON_BlockChain_Browser', 'PlatEye'],
+      items: [ 'PlatON_BlockChain_Browser', 'PlatEye' ],
     },
     {
       type: 'category',
@@ -119,7 +119,7 @@ module.exports = {
         {
           type: 'category',
           label: 'WalletConnect',
-          items: ['walletconnect_tutorial', 'DApp_integration_with_WalletConnect_for_ATON'],
+          items: [ 'walletconnect_tutorial', 'DApp_integration_with_WalletConnect_for_ATON' ],
         },
         'get_vrf_random_number',
         'eip55-bech32-compatible',
@@ -128,7 +128,13 @@ module.exports = {
     {
       type: 'category',
       label: 'Wallet',
-      items: ['ATON-user-manual', 'Samurai_user_manual', 'Third_Party_Walle', 'Ledger-hardware-wallet', 'MetaMask','PlatON_wallet_plugin','PlatON_wallet_plugin_sdk'],
+      items: [ 'ATON-user-manual', 'Samurai_user_manual', 'Third_Party_Walle', 'Ledger-hardware-wallet', 'MetaMask', 'PlatON_wallet_plugin', 'PlatON_wallet_plugin_sdk', {
+        type: 'category',
+        label: 'PlaTrust Wallet',
+        items: [
+          'PlaTrust_Wallet', 'PlaTrust-wallet-js-sdk', 'PlaTrust-wallet-js-sdk-api'
+        ],
+      } ],
 
     },
     'community',
