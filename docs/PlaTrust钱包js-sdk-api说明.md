@@ -1,10 +1,10 @@
 ---
 id: PlaTrust-wallet-js-sdk-api
-title: PlaTrust Wallet js-sdk-api
+title: PlaTrust Wallet js-sdk-API
 sidebar_label: PlaTrust Wallet js-sdk-api
 ---
 
-# PlaTrust- js-sdk API Documentation
+# PlaTrust Wallet js-sdk-API
 
 ## 1. Enumerations (enum)
 

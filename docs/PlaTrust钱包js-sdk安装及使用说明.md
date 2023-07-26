@@ -5,7 +5,7 @@ sidebar_label: PlaTrust Wallet js-sdk
 ---
 
 
-# PlaTrust-js-sdk Installation and Usage Instructions
+# PlaTrust Wallet js-sdk Installation and Usage Instructions
 
 ## Install js-sdk
 
