@@ -4,7 +4,7 @@ title: PlaTrust Wallet
 sidebar_label: PlaTrust Wallet
 ---
 
-# PlaTrust wallet
+# PlaTrust Wallet
 
 ## Preface
 
