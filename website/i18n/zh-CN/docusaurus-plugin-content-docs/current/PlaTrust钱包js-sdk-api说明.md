@@ -1,7 +1,7 @@
 ---
 id: PlaTrust-wallet-js-sdk-api
 title: PlaTrust钱包 js-sdk-API说明
-sidebar_label: PlaTrust钱包 sdk_api说明
+sidebar_label: PlaTrust钱包 js-sdk-API说明
 ---
 
 # PlaTrust钱包 js-sdk-API说明

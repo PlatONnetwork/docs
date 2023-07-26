@@ -1,7 +1,7 @@
 ---
 id: PlaTrust-wallet-js-sdk
 title: PlaTrust钱包 js-sdk说明安装及使用说明
-sidebar_label: PlaTrust Wallet js-sdk安装及使用说明
+sidebar_label: PlaTrust钱包 js-sdk说明安装及使用说明
 ---
 
 
