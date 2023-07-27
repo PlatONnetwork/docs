@@ -22,7 +22,7 @@ Main use cases include:
 PlaTrust Wallet is a multi-signature contract wallet that follows the EIP-4337 specification. It lowers the barriers for Web2 users to enter Web3 and offers the following main features:
 
 1. [**Threshold-based Multisig:**](#1.) Manage assets in a multi-signature form based on the specified threshold.
-2. [**Session-based Multisig:**](#2.) Enable gasless transactions during specific time windows, providing convenience for user wallet operations.
+2. [**Session without Multi-Signature:**](#2.) Enable exemption from multi-signature operation within a specific time window to provide convenience for user wallet transactions.
 3. [**Wallet Lock:**](#3.) Allows wallet locking when owners suspect their account (device) has been compromised (lost, stolen, etc.).
 4. [**Custom Modules:**](#4.) Support user-defined modules that can be added to the wallet to introduce custom extensions.
 5. [**Wallet Recovery:**](#5.) Recover the wallet's ownership by replacing the lost private key with a new one through multi-signature initiated by other owners.
@@ -32,7 +32,6 @@ PlaTrust Wallet is a multi-signature contract wallet that follows the EIP-4337 s
 9. [**Account Whitelist:**](#9.) Set up a whitelist of accounts, allowing certain accounts to execute cross-account operations or transfers without considering trust issues.
 10. [**Censorship Resistance:**](#10.) Users have full control over their accounts without relying on any third-party services.
 11. [**Multi-chain Support:**](#11.) Compatible with all EVM-compatible public blockchains, ensuring the same wallet address across different EVM-compatible chains.
-
 
 
 ## Feature Overview
@@ -46,7 +45,7 @@ PlaTrust Wallet is a multi-signature contract wallet that follows the EIP-4337 s
 
 PlaTrust Wallet is a multi-signature contract wallet based on the EIP-4337 specification. It supports multiple owners and provides various wallet operations based on a multisig threshold. The concept of multisig is illustrated as follows:
 
-<img src="/docs/img/en/introduction-muti-sign.jpg" alt="" />
+<img src="/docs/img/en/PlaTrust/introduction-muti-sign.jpg" alt="" />
 
 For each wallet operation (especially asset management), it must be signed by at least the threshold number of owners. Only when the required number of owner signatures is collected, the wallet operation can be successfully executed.
 
@@ -60,15 +59,15 @@ For each wallet operation (especially asset management), it must be signed by at
 
 <span id="2."></span>
 
-### 2. Session-based Multisig Free
+### 2. Session without Multi-Signature
 
 #### Explanation
 
-In certain scenarios, multisig introduces inconvenience for operations. Every time a wallet operation is performed, it requires signatures from the threshold number of owners to be effective. If a user wishes to perform numerous transactions within a specific time window and seeks to exempt from multisig and obtain permission from other owners, this can be achieved by creating a session. A session defines a temporary session key held by a specific owner, and as long as the session key is valid, the owner holding the session can use it to bypass multisig and execute any wallet call. The duration of the session is defined by the owner when creating it, and the session key will automatically expire at the end of the session.
+In certain scenarios, multisig introduces inconvenience for operations. Every time a wallet operation is performed, it requires signatures from the threshold number of owners to be effective. If a user wishes to perform numerous transactions within a specific time window and seeks to exempt from multisig and obtain permission from other owners, this can be achieved by creating a session without Multi-Signature. A session defines a temporary session key held by a specific owner, and as long as the session key is valid, the owner holding the session can use it to bypass multisig and execute any wallet call. The duration of the session is defined by the owner when creating it, and the session key will automatically expire at the end of the session.
 
 Starting a session requires the number of signatures that satisfy the multisig threshold. The wallet's owners can close a session at any time before its expiration.
 
-<img src="/docs/img/en/introduction-start-session.jpg" alt="" />
+<img src="/docs/img/en/PlaTrust/introduction-start-session.jpg" alt="" />
 
 #### Functions and Use Cases
 
@@ -89,7 +88,7 @@ The wallet supports a lock feature, which allows owners to initiate a locking pe
 
 To unlock the wallet before the security period ends, the owner needs to initiate a multisig unlock to trigger the wallet's unlocking.
 
-<img src="/docs/img/en/introduction-lock.jpg" alt="" />
+<img src="/docs/img/en/PlaTrust/introduction-lock.jpg" alt="" />
 
 #### Functions and Use Cases
 
@@ -106,7 +105,7 @@ To unlock the wallet before the security period ends, the owner needs to initiat
 
 In PlaTrust Wallet, users can extend custom functional components to the wallet. By deploying custom module contracts and enabling them in the wallet through the "enable module" function, users can activate custom functional components for the wallet. Users can call functions from custom components and ultimately execute calls from the modules to the wallet using the `executeFromModule` function. It is important to note that each wallet contract instance will set the EIP-4337 entry contract RelayerManager as the default module during creation, and RelayerManager cannot be removed.
 
-<img src="/docs/img/en/img/introduction-enable-module.jpg" alt="" />
+<img src="/docs/img/en/PlaTrust/introduction-enable-module.jpg" alt="" />
 
 #### Functions and Use Cases
 
@@ -154,7 +153,7 @@ In many business scenarios, it is necessary to finely segment the functionality 
 
 PlaTrust Wallet is a multi-signature contract wallet based on EIP-4337, and the EIP-4337 standard natively supports "meta transactions." When owners of the wallet perform wallet-related functions, they assemble and sign what is called the "User Operation" message, then pass the User Operation to the relevant "Bundler" service for assembling and submitting the User Operation as a blockchain transaction. For wallet owners, they only need to sign the User Operation message with their corresponding owner private keys, without sending actual blockchain transactions. Hence, they do not need to pay any gas fees. For the Bundler service, upon receiving the User Operation and collecting the required multisig signatures, it assembles the User Operation and multisig signatures into a blockchain transaction and submits it to the chain, thereby incurring gas fees. The gas fees advanced by the Bundler are either covered by the tokens held by the wallet itself or filled in by the paymaster. Therefore, for wallet users (owners), PlaTrust Wallet exhibits gasless characteristics.
 
-<img src="/docs/img/en/img/introduction-gasless.jpg" alt="" />
+<img src="/docs/img/en/PlaTrust/introduction-gasless.jpg" alt="" />
 
 #### Functions and Use Cases
 
@@ -209,7 +208,7 @@ Users can directly connect the functionality of the wallet to their own applicat
 
 The wallet is deployed using the `create2` opcode, which allows for the creation of the same contract address (also called a "counterfactual address") based on the same input parameters. This has the advantage that the wallet address can be known before the wallet contract is actually deployed on various EVM-compatible blockchains, allowing early funding of the wallet. Additionally, in many cross-chain projects, having the same contract address on multiple different blockchains facilitates wallet account management across different chains.
 
-<img src="/docs/img/en/img/introduction-multichain-support.jpg" alt="" />
+<img src="/docs/img/en/PlaTrust/introduction-multichain-support.jpg" alt="" />
 
 
 ## Reference
