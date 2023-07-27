@@ -1737,7 +1737,7 @@ new UserOperation(sender?, nonce?, initCode?, callData?, callGasLimit?, maxFeePe
 >
 >
 | 字段名 | 类型 | 说明 | 是否必须 |
-| ------ | ---- | ---- | -------- |s s
+| ------ | ---- | ---- | -------- |
 |sender|string|进行操作的钱包 (就是钱包合约的地址,但是在第一次部署时是发起者的EOA地址)|N|
 |nonce|number|钱包中设置的抗重放参数，也用作首次创建钱包的盐|N|
 |initCode|string|本设计的创建钱包均由定义好的 wallet 模板合约部署 (EIP-1167)，故该字段为空值|N|

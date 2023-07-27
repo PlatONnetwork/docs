@@ -26,7 +26,7 @@ Web3 无疑是近些年最热门的的技术话题。敲开Web3大门的钥匙�
 PlaTrust钱包是一种遵循EIP-4337规范的多重签名合约钱包。它降低了Web2用户进入Web3的障碍，并提供以下主要功能：
 
 1. [**基于阈值的多重签名：**](#1.) 基于指定的阈值以多重签名形式管理资产。
-2. [**基于session的多重签名：**](#2.) 在特定时间窗口内实现无需gas的交易，为用户钱包操作提供便利。
+2. [**免多重签名session：**](#2.) 在特定时间窗口内启用免多重签名操作，为用户钱包操作提供便利。 
 3. [**钱包锁定：**](#3.) 允许在所有者怀疑其账户（设备）被篡改（丢失、被盗等）时对钱包进行锁定。
 4. [**自定义模块：**](#4.) 支持用户定义的模块，可添加到钱包中引入自定义扩展。
 5. [**钱包恢复：**](#5.) 通过其他所有者发起的多重签名来替换丢失的私钥，恢复钱包的所有权。
@@ -48,7 +48,7 @@ PlaTrust钱包是一种遵循EIP-4337规范的多重签名合约钱包。它降�
 
 PlaTrust钱包是基于EIP-4337规范的多重签名合约钱包。它支持多个所有者，并根据多重签名阈值提供各种钱包操作。多重签名的概念如下所示：
 
-<img src="/docs/img/zh-CN/introduction-muti-sign.jpg" alt="" />
+<img src="/docs/img/zh-CN/PlaTrust/introduction-muti-sign.jpg" alt="" />
 
 对于每个钱包操作（特别是资产管理），必须由至少阈值数量的所有者签名。只有收集到所需数量的所有者签名，钱包操作才能成功执行。
 
@@ -64,15 +64,15 @@ PlaTrust钱包是基于EIP-4337规范的多重签名合约钱包。它支持多�
 
 <span id="2."></span>
 
-### 2. 基于session的免多签
+### 2. 免多重签名 session
 
 #### 解释
 
-在某些情况下，多重签名会为操作带来不便。每次执行钱包操作时，都需要满足多重签名阈值的签名才能生效。如果用户希望在特定时间窗口内执行多笔交易，并寻求豁免多重签名并获得其他所有者的许可，可以通过创建session来实现。session定义了由特定所有者持有的临时session key，只要session key有效，持有session的所有者就可以使用它绕过多重签名并执行任何钱包调用。session的持续时间由所有者在创建时定义，并且session key将在session结束时自动过期。
+在某些情况下，多重签名会为操作带来不便。每次执行钱包操作时，都需要满足多重签名阈值的签名才能生效。如果用户希望在特定时间窗口内执行多笔交易，并寻求豁免多重签名并获得其他所有者的许可，可以通过创建免多重签名 session来实现。session定义了由特定所有者持有的临时session key，只要session key有效，持有session的所有者就可以使用它绕过多重签名并执行任何钱包调用。session的持续时间由所有者在创建时定义，并且session key将在session结束时自动过期。
 
 启动session需要满足多重签名阈值的签名。钱包的所有者可以在其过期之前随时关闭session。
 
-<img src="/docs/img/zh-CN/introduction-start-session.jpg" alt="" />
+<img src="/docs/img/zh-CN/PlaTrust/introduction-start-session.jpg" alt="" />
 
 #### 功能和用例
 
@@ -92,7 +92,7 @@ PlaTrust钱包是基于EIP-4337规范的多重签名合约钱包。它支持多�
 
 该钱包支持锁定功能，允许所有者在怀疑其帐户（设备）存在问题（丢失、被盗等）时发起锁定期。在钱包的锁定期间，只允许执行特定的受限操作，如解锁过程。所有其他操作（更改owner、更改多重签名阈值、资产转移等）都将被阻止。在安全期结束前解锁钱包，所有者需要发起多重签名解锁以触发钱包的解锁。
 
-<img src="/docs/img/zh-CN/introduction-lock.jpg" alt="" />
+<img src="/docs/img/zh-CN/PlaTrust/introduction-lock.jpg" alt="" />
 
 #### 功能和用例
 
@@ -111,7 +111,7 @@ PlaTrust钱包是基于EIP-4337规范的多重签名合约钱包。它支持多�
 
 在PlaTrust钱包中，用户可以扩展自定义功能组件到钱包中。通过部署自定义模块合约，并通过"enable module"函数在钱包中启用它们，用户可以为钱包激活自定义功能组件。用户可以从自定义组件调用函数，并最终通过`executeFromModule`函数从模块对钱包进行调用。值得注意的是，每个钱包合约实例在创建时都将设置EIP-4337入口合约RelayerManager为默认模块，并且RelayerManager不能被移除。
 
-<img src="/docs/img/zh-CN/img/introduction-enable-module.jpg" alt="" />
+<img src="/docs/img/zh-CN/PlaTrust/img/introduction-enable-module.jpg" alt="" />
 
 #### 功能和用例
 
@@ -164,7 +164,7 @@ PlaTrust钱包是基于EIP-4337规范的多重签名合约钱包。它支持多�
 
 PlaTrust钱包是基于EIP-4337的多重签名合约钱包，EIP-4337标准原生支持"元交易"。当钱包的所有者执行与钱包相关的功能时，他们会组装和签署所谓的"UserOperation"消息，然后将用户操作传递给相关的"Bundler"服务以进行组装和提交用户操作作为区块链交易。对于钱包所有者，他们只需要用相应的所有者私钥签署"UserOperation"消息，而无需发送实际的区块链交易。因此，他们不需要支付任何gas费用。对于Bundler服务，当收到用户操作并收集到所需的多重签名时，它会将用户操作和多重签名组装成区块链交易，并提交到链上，从而产生gas费用。Bundler提前支付的gas费用要么由钱包本身持有的代币支付，要么由付费人填充。因此，对于钱包用户（所有者），PlaTrust钱包具有无gas费的特性。
 
-<img src="/docs/img/zh-CN/img/introduction-gasless.jpg" alt="" />
+<img src="/docs/img/zh-CN/PlaTrust/img/introduction-gasless.jpg" alt="" />
 
 #### 功能和用例
 
@@ -222,8 +222,8 @@ PlaTrust钱包是基于EIP-4337的多重签名合约钱包，EIP-4337标准原�
 
 钱包使用`create2`操作码部署，允许基于相同的输入参数创建相同的合约地址（也称为“反事实地址”）。这样的好处是在钱包合约实际部署在各种EVM兼容的区块链上之前就可以知道钱包地址，从而可以提前对钱包进行资金预留。此外，在许多跨链项目中，在多个不同的区块链上具有相同的合约地址有助于在不同链上实现钱包帐户管理。
 
-<img src="/docs/img/zh-CN/img/introduction-multichain-support.jpg" alt="" />
+<img src="/docs/img/zh-CN/PlaTrust/img/introduction-multichain-support.jpg" alt="" />
 
-### 参考
+## 参考
 
 1. [https://eips.ethereum.org/EIPS/eip-4337](https://eips.ethereum.org/EIPS/eip-4337) 
