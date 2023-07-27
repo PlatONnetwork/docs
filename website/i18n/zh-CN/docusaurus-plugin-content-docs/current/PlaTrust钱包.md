@@ -111,7 +111,7 @@ PlaTrust钱包是基于EIP-4337规范的多重签名合约钱包。它支持多�
 
 在PlaTrust钱包中，用户可以扩展自定义功能组件到钱包中。通过部署自定义模块合约，并通过"enable module"函数在钱包中启用它们，用户可以为钱包激活自定义功能组件。用户可以从自定义组件调用函数，并最终通过`executeFromModule`函数从模块对钱包进行调用。值得注意的是，每个钱包合约实例在创建时都将设置EIP-4337入口合约RelayerManager为默认模块，并且RelayerManager不能被移除。
 
-<img src="/docs/img/zh-CN/PlaTrust/img/introduction-enable-module.jpg" alt="" />
+<img src="/docs/img/zh-CN/PlaTrust/introduction-enable-module.jpg" alt="" />
 
 #### 功能和用例
 
