@@ -164,7 +164,7 @@ PlaTrust钱包是基于EIP-4337规范的多重签名合约钱包。它支持多�
 
 PlaTrust钱包是基于EIP-4337的多重签名合约钱包，EIP-4337标准原生支持"元交易"。当钱包的所有者执行与钱包相关的功能时，他们会组装和签署所谓的"UserOperation"消息，然后将用户操作传递给相关的"Bundler"服务以进行组装和提交用户操作作为区块链交易。对于钱包所有者，他们只需要用相应的所有者私钥签署"UserOperation"消息，而无需发送实际的区块链交易。因此，他们不需要支付任何gas费用。对于Bundler服务，当收到用户操作并收集到所需的多重签名时，它会将用户操作和多重签名组装成区块链交易，并提交到链上，从而产生gas费用。Bundler提前支付的gas费用要么由钱包本身持有的代币支付，要么由付费人填充。因此，对于钱包用户（所有者），PlaTrust钱包具有无gas费的特性。
 
-<img src="/docs/img/zh-CN/PlaTrust/img/introduction-gasless.jpg" alt="" />
+<img src="/docs/img/zh-CN/PlaTrust/introduction-gasless.jpg" alt="" />
 
 #### 功能和用例
 
@@ -222,7 +222,7 @@ PlaTrust钱包是基于EIP-4337的多重签名合约钱包，EIP-4337标准原�
 
 钱包使用`create2`操作码部署，允许基于相同的输入参数创建相同的合约地址（也称为“反事实地址”）。这样的好处是在钱包合约实际部署在各种EVM兼容的区块链上之前就可以知道钱包地址，从而可以提前对钱包进行资金预留。此外，在许多跨链项目中，在多个不同的区块链上具有相同的合约地址有助于在不同链上实现钱包帐户管理。
 
-<img src="/docs/img/zh-CN/PlaTrust/img/introduction-multichain-support.jpg" alt="" />
+<img src="/docs/img/zh-CN/PlaTrust/introduction-multichain-support.jpg" alt="" />
 
 ## 参考
 
