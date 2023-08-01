@@ -26,13 +26,13 @@ We will also provide more integration methods to meet the integration needs of a
 **1. Connect Wallet** 
 
 After the application integrates the PlatON Wallet plugin, the PlatON wallet will also synchronize and connect to Metamask after the application connects to Metamask. After connecting to Metamask, the PlatON Wallet plugin will display the asset status of the account on the PlatON network.
-    
+
 <img src="/docs/img/zh-CN/PlatON-Wallet-imgs/connect.jpg" alt="connect"/>
 
 **2. Send and Receive** 
 
 The wallet plugin supports sending and receiving Tokens on the PlatON network. 
-    
+
 <img src="/docs/img/zh-CN/PlatON-Wallet-imgs/send-receive.jpg" alt="send-receive"/>
 
 **3. Recharge** 
@@ -41,7 +41,8 @@ Currently there are two ways to recharge assets on the PlatON network:
 
 - Method 1: Transfer assets from other networks to the PlatON network through cross-chain bridges 
 - Method 2: Purchase assets on the PlatON network by paying in fiat currency through integration with Alchemy Pay.   We will support more convenient recharge methods in the future. 
-    
+- Method 3: Deposit through Interchain Transfer. After depositing assets to the specified address, the asset deposit on the PlatON network can be completed.
+
 <img src="/docs/img/zh-CN/PlatON-Wallet-imgs/deposit.jpg" alt="deposit"/>
 
 **4. Withdraw** 
@@ -49,7 +50,7 @@ Currently there are two ways to recharge assets on the PlatON network:
 Currently we have two ways to withdraw assets from PlatON: 
 - Method 1: Withdraw PlatON network assets to other networks through cross-chain bridges. 
 - Method 2: Purchase shopping cards through [txnhub.io](https://txnhub.io) 
-    
+
 <img src="/docs/img/zh-CN/PlatON-Wallet-imgs/withdraw.jpg" alt="withdraw"/>
 
 **5. More Functions** 
