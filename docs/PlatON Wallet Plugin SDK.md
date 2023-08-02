@@ -237,4 +237,19 @@ import('@platonnetwork/platon-wallet-sdk').then(module => {
 })
 ```
 
+## Token Contract
 
+### PlatON Testnet
+
+| name |  symbol | address |
+|:---|:---|:---|
+| Tether USD | USDT | 0x1e6E4b48F6F57Aa7cefd8239e8515694D110386B |
+| USD Coin | USDC | 0x229b68722bF16CCc7186Dc8760b3D8C5980fe609 |
+
+
+### PlatON Mainnet
+
+| name |  symbol | address |
+|:---|:---|:---|
+| Tether USD | USDT | 0xeac734fb7581D8eB2CE4949B0896FC4E76769509 |
+| USD Coin | USDC | 0xdA396A3C7FC762643f658B47228CD51De6cE936d |
