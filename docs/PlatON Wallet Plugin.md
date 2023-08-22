@@ -40,7 +40,7 @@ The wallet plugin supports sending and receiving Tokens on the PlatON network.
 Currently there are two ways to recharge assets on the PlatON network: 
 
 - Method 1: Transfer assets from other networks to the PlatON network through cross-chain bridges 
-- Method 2: Purchase assets on the PlatON network by paying in fiat currency through integration with Alchemy Pay.   We will support more convenient recharge methods in the future. 
+- Method 2: Purchase assets on the PlatON network by paying in fiat currency through integration with Alchemy Pay and FaTPay.   We will support more convenient recharge methods in the future. 
 - Method 3: Deposit through Interchain Transfer. After depositing assets to the specified address, the asset deposit on the PlatON network can be completed.
 
 <img src="/docs/img/zh-CN/PlatON-Wallet-imgs/deposit.jpg" alt="deposit"/>

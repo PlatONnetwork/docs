@@ -41,7 +41,7 @@ PlatON 钱包插件兼容多种去中心化钱包，应用方通过集成 PlatON
   目前提供三种方式来进行 PlatON 网络资产的充值：
 
 - 方式一：通过跨链桥的方式从其他网络跨入资产到 PlatON 网络，目前已经支持从Ethereum、Polygon、BSC和Tron四个网络充值资产到 PlatON 网络。
-- 方式二：通过集成 Alchemy Pay，支持以法币支付的方式购买 PlatON 网络上的资产
+- 方式二：通过集成 Alchemy Pay和FaTPay，支持以法币支付的方式购买 PlatON 网络上的资产
   未来我们还将支持更多种便捷的充值方式。
 - 方式三：通过Interchain Transfer来进行充值。将资产充值到指定的地址之后，即可完成PlatON网络上的资产充值。
 
