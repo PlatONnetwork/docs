@@ -18,7 +18,7 @@ sidebar_label: PRC721NFT发行教程
 
 中央处理器：1核2G
 硬盘：40GSSD
-系统：Ubuntu16.04
+系统：Ubuntu18.04
 远程连接工具：MobaXterm
 
 ### 软件准备
