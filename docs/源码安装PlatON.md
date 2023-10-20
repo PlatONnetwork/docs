@@ -87,8 +87,8 @@ After compiling, `platon`,` platonkey` executable files will be generated in the
 
 **step1.** Ubuntu compilation environment requirements:
 
-- System version: `Ubuntu 18.04.1 and above`
-- git: `2.19.1 and above`
+- System version: `Ubuntu 18.04 or higher`
+- git: `2.19.1 or higher`
 - Compilers: `gcc (4.9.2+)`, `g ++ (5.0+)`
 - Go language development kit: `go (1.16+)`
 - cmake: `3.0 +`
