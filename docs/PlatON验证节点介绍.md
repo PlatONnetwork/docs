@@ -21,7 +21,7 @@ Minimum staking of 100,000 LAT is required and additional staking can be made, b
 #### Recommended configurations
 
 - Server: Server or backup server running PlatON software (firewall required)
-- Memory: 8GB RAM 
+- Memory: 16GB RAM 
 - Local storage: 100GB system disk, 200GB data disk (online scalable)
 - Processor: 64-Bit 4 core (each core 2.4 GHz or higher)
 - Bandwidth: 5 MB/s (online scalable)
