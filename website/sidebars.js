@@ -138,5 +138,6 @@ module.exports = {
 
     },
     'community',
+    'contributing',
   ],
 }

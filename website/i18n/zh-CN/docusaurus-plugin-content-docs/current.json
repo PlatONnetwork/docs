@@ -52,5 +52,8 @@
   },
 "sidebar.docs.category.WalletConnect": {
     "message": "WalletConnect"
+  },
+"sidebar.docs.category.contributing": {
+    "message": "参与贡献"
   }
 }
