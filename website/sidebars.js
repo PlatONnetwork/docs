@@ -123,6 +123,7 @@ module.exports = {
         },
         'get_vrf_random_number',
         'eip55-bech32-compatible',
+        'Particle_Network_Integration_for_PlatON'
       ],
     },
     {
