@@ -404,7 +404,7 @@ LAT holders can earn profits by entrusting LAT in their hands to alternative val
 - To prevent malicious delegation attacks, there is a minimum LAT limit for a single delegation.
 - LAT commissioned enters the next epoch and starts to lock. LAT commissioned does not actively redeem. LAT commissioned will continue to be locked. The system does not support the automatic redemption function. At the same time, only when a complete epoch is locked will it participate in sharing node revenue.
 
-- Once the alternative validator candidate applies for withdrawal or is withdrawn by the system, he cannot continue to delegate. The original entrusted LAT will be unlocked, and users need to actively redeem the entrusted LAT.
+- Once the alternative validator candidate applies for withdrawal or is withdrawn by the system, he cannot continue to delegate. Users need to actively redeem the entrusted LAT.
 
 ##### Delegated award
 
@@ -589,7 +589,7 @@ PlatON currently supports the following penalties:
 
    - When the pledge is revoked, the pledged LAT that is not locked in the hesitation period does not need to continue to lock for 168 epochs and will be returned immediately.
 
-   - When the entrusted LAT is revoked, the entrusted LAT can be redeemed, and the entrusted LAT will be credited to the account immediately, but the principal needs to apply for redemption.
+   - Upon cancellation of the pledge at the node, the principal is required to redeem the LAT that has been entrusted to node by oneself (see the section on entrusted redemption for details)..
 
    - A node that is forcibly withdrawn can only use the node ID to re-pledge after the lock-up period ends and the node pledged LAT returns.
 
