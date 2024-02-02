@@ -16,7 +16,7 @@ Currently, you can obtain LAT by participating in the [Grants Program](https://l
 
 **LAT fuels and secures PlatON**
 
-When you transfer LAT or use a PlatON application, you need to pay a small LAT as fee. The fee is used to incentivizes the node to process and verify your transaction.
+When you transfer LAT or use a PlatON application, you need to pay a small LAT as fee. The fee is used to incentivizes the node to process and verify your transaction.  
 
 In the PPOS mechanism, LAT is of great importance to the network. With LAT, one can delegate to validators or become a validator by staking themselves, which help maintain PlatON network security.  Both the validators and delegators can get LAT rewards. [More about PlatON validators](/docs/en/PlatON_Validation_Introduce).
 
