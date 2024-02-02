@@ -17,7 +17,7 @@ jobs:
       run: cd website && npm install && npm run build:all
     
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
+      uses: JamesIves/github-pages-deploy-action@releases/v4
       with:
           ACCESS_TOKEN: ${{ secrets.BUILD_DEPLOY_ACTION }}
           BRANCH: gh-pages
