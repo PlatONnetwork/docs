@@ -6,7 +6,7 @@ sidebar_label: Particle Network integration tutorial
 
 # Particle Network Wallet-as-a-Service
 
-[**Particle Network**](https://particle.network) is the Intent-Centric, Modular Access Layer of Web3. With Particle's Wallet-as-a-Service, developers can curate an Web2-like user experience through modular and customizable embedded wallet components. Using MPC-TSS for key management, Particle can streamline user onboarding via familiar Web2 accounts—such as Google accounts, email addresses, and phone numbers.
+[Particle Network](https://particle.network)'s Wallet Abstraction services enable universal, Web2-adjacent onboarding and interactions. Its core technology, [Smart Wallet-as-a-Service](https://blog.particle.network/announcing-our-smart-wallet-as-a-service-modular-stack-upgrading-waas-with-erc-4337) (WaaS) aims to onboard users into MPC-secured smart accounts supporting any chain. It also allows developers to offer an improved user experience through modular, fully customizable EOA/AA embedded wallets. Particle supports its Smart Wallet-as-a-Service through a Modular L1 powering chain abstraction, acting as a settlement layer across chains for a seamless multi-chain experience.
 
 Particle Network's Wallet-as-a-Service supports PlatON Mainnet and Testnet through standard EOA-based social logins. Therefore, developers building on PlatON can natively leverage Particle Network for onboarding users into application-embedded wallets using social logins through various SDKs that are directly compatible with PlatON.
 
