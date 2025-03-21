@@ -21,7 +21,7 @@ We accept all your contributions, even if what you want to do isn’t listed her
 
 
 ## Run a Validator
-PlatON is currently maintained by 201 validators and will expand to over 1,000 validators in the future.
+PlatON is currently maintained by 225 validators and will expand to over 1,000 validators in the future.
 
 Join the PlatON validator network to help maintain our security and further decentralize PlatON.
 
