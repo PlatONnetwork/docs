@@ -546,7 +546,7 @@ platon_mtool submit_versionproposal --newversion 0.15.1 --end_voting_rounds 345 
 
 > newversion：目标升级版本，x.x.x，数字加标点
 >
-> end_voting_rounds：投票共识轮数，投票共识轮数N，必须满足0 < N <= 4838（约为2周）
+> end_voting_rounds：投票共识轮数，投票共识轮数N，必须满足0 < N <= 2813（约为2周）
 >
 > pid_id：GitHub ID
 >
@@ -566,7 +566,7 @@ platon_mtool submit_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b
 
 > proposalid：需要被取消的提案ID，即发起提案交易的hash，66字符，字母数字组成
 >
-> end_voting_rounds：投票共识轮数，投票共识轮数N，必须满足0 < N <= 4838（约为2周）
+> end_voting_rounds：投票共识轮数，投票共识轮数N，必须满足0 < N <= 2813（约为2周）
 >
 > pid_id：GitHub ID
 >
