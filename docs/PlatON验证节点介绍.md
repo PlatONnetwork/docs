@@ -6,7 +6,7 @@ sidebar_label: Intro to validator
 
 ### What is a validator?
 
-PlatON is a blockchain project that implements democratic governance. Validators are jointly selected by all LAT holders to maintain and develop the PlatON network. The 201 nodes with the most votes will become alternative nodes, from which 43 validators will be randomly selected by VRF to participate in the management of the entire PlatON network. The responsibilities of a validator are:
+PlatON is a blockchain project that implements democratic governance. Validators are jointly selected by all LAT holders to maintain and develop the PlatON network. The 225 nodes with the most votes will become alternative nodes, from which 43 validators will be randomly selected by VRF to participate in the management of the entire PlatON network. The responsibilities of a validator are:
 
 - Maintaining PlatON nodes and network
 - Production and validating the blocks
@@ -23,7 +23,7 @@ Minimum staking of 100,000 LAT is required and additional staking can be made, b
 - Server: Server or backup server running PlatON software (firewall required)
 - Memory: 16GB RAM 
 - Local storage: 100GB system disk, 200GB data disk (online scalable)
-- Processor: 64-Bit 4 core (each core 2.4 GHz or higher)
+- Processor: 64-Bit 4 core (each core 2.5 GHz or higher)
 - Bandwidth: 5 MB/s (online scalable)
 
 #### Software requirements

@@ -191,11 +191,11 @@ PlatON adopts randomly selected nodes among the small-scale candidate nodes to p
 
 - Alternative Validator
 
-  Ranking (see [Alternative Validator selection](#alternative-validator-selection) for the ranking rules) Alternative Validator Candidates in the top 201 are called Alternative Validator. The Alternative Validators participate in the Validator election for each consensus round to obtain the settlement epoch LAT additional distribution bonus.
+  Ranking (see [Alternative Validator selection](#alternative-validator-selection) for the ranking rules) Alternative Validator Candidates in the top 225 are called Alternative Validator. The Alternative Validators participate in the Validator election for each consensus round to obtain the settlement epoch LAT additional distribution bonus.
 
 - Validator
 
-  The system randomly selects 43 (normal state) nodes from 201 alternative validators as the consensus round validator through the VRF random function.
+  The system randomly selects 43 (normal state) nodes from 225 alternative validators as the consensus round validator through the VRF random function.
 
 - Proposer
 
@@ -221,7 +221,7 @@ The role relationship diagram is as follows. **To facilitate the subsequent desc
 
 3. Election of Alternative Validator
 
-   For the last block of each settlement epoch (that is, the settlement block), the system takes the top 201 nodes as alternative validators for the next  epoch according to the current alternative validator candidate ranking and participates in the consensus of the next settlement round. Alternative validators can get Staking rewards.
+   For the last block of each settlement epoch (that is, the settlement block), the system takes the top 225 nodes as alternative validators for the next  epoch according to the current alternative validator candidate ranking and participates in the consensus of the next settlement round. Alternative validators can get Staking rewards.
 
 4. Election Validators
 
@@ -233,7 +233,7 @@ The role relationship diagram is as follows. **To facilitate the subsequent desc
 
 6. Exit Alternative Validator Candidate
 
-   Obtain a new ranking in the settlement block of the epoch. The nodes after the 201st ranking become  alternative validator candidates and no longer get Staking rewards. In cases where multiple reports are reported and the report is true or the consensus round-off block rate is 0, the node will be immediately eliminated from the Alternative Validator Candidate list.
+   Obtain a new ranking in the settlement block of the epoch. The nodes after the 225st ranking become  alternative validator candidates and no longer get Staking rewards. In cases where multiple reports are reported and the report is true or the consensus round-off block rate is 0, the node will be immediately eliminated from the Alternative Validator Candidate list.
 
 #### Election of Validator
 
@@ -257,7 +257,7 @@ To become a  Alternative Validator Candidate, you also need to submit the true v
 - When the node's version number is lower than the current chain version number or the pre-validated version number, the staking fails.
 - Once the node is successfully pledged as a Alternative Validator Candidate, the account used for the staking will correspond to the node ID one by one, and subsequent related operations need to use the staking account to initiate signed transactions. Please pay attention to the safe storage of the staking account.
 
-Alternative Validator Candidate can accept delegation. In the settlement block of the current epoch, if it ranks 201st according to the current total staking amount (the sum of self-pledged and delegate quantities), it can be elected as an alternative validatorfor the next epoch.
+Alternative Validator Candidate can accept delegation. In the settlement block of the current epoch, if it ranks 225st according to the current total staking amount (the sum of self-pledged and delegate quantities), it can be elected as an alternative validatorfor the next epoch.
 
 ##### Increase staking
 
@@ -271,11 +271,11 @@ All Alternative Validator Candidate can increase the number of staking LAT at an
 
 ##### Alternative Validator selection
 
-The total number of  alternative validators is at most 201, and the last block (settlement block) of each epoch will be re-selected.
+The total number of  alternative validators is at most 225, and the last block (settlement block) of each epoch will be re-selected.
 
 <img src="/docs/img/en/PlatON_economic_plan.assets/election_of_validators.png" alt="election_of_validators"/>
 
-The selection rules are based on the top 201 nodes, and the ranking rules are as follows:
+The selection rules are based on the top 225 nodes, and the ranking rules are as follows:
 
 1. First, sort from highest to lowest version of the running system.
 2. Then sort according to the total staking amount (the sum of self-staking and delegate amount) from high to low.
@@ -284,7 +284,7 @@ The selection rules are based on the top 201 nodes, and the ranking rules are as
 
 ##### Validator selection
 
-Each consensus round is responsible for the production of 430 blocks. In the 410th block of the consensus round, the next round of consensus round validator is elected from 201 alternative validators. The first consensus  round validator is in the genesis block Built-in.
+Each consensus round is responsible for the production of 430 blocks. In the 410th block of the consensus round, the next round of consensus round validator is elected from 225 alternative validators. The first consensus  round validator is in the genesis block Built-in.
 
 In order to prevent the newly selected validators from affecting the efficiency of the consensus due to slow network connections and out-of-synchronization of blocks, to ensure the fault tolerance of the consensus, not all of the 43 nodes are replaced at a time, and only some of the validator nodes are replaced.
 
@@ -322,7 +322,7 @@ In order to prevent the newly selected validators from affecting the efficiency 
   
   - The block proposer generates a random seed of the current block and its proof based on the random seed of the previous block $(r_n, \pi_n)$ 
   
-  - Consider a candidate node. Assume that the ranking is $i$ and there are $w\_i$ votes. The total number of votes for all candidate nodes is $W=\sum_{k=1}^{201}w\_k$, choose a positive The integer $m<W$,  so  $p=\frac{m}{W}$.For this node, finding $X$ makes
+  - Consider a candidate node. Assume that the ranking is $i$ and there are $w\_i$ votes. The total number of votes for all candidate nodes is $W=\sum_{k=1}^{225}w\_k$, choose a positive The integer $m<W$,  so  $p=\frac{m}{W}$.For this node, finding $X$ makes
   
     $$\sum_{k=0}^XB(k,w_i,p)\leq\frac{r\_{n-i} \oplus r_n}{2^l-1}<\sum\_{k=0}^{X+1}B(k,w_i,p)$$                               (2)
   
@@ -408,7 +408,7 @@ LAT holders can earn profits by entrusting LAT in their hands to alternative val
 
 ##### Delegated award
 
-Based on the PPoS consensus, the client entrusts LAT to the alternative validator candidates, which affects the ranking of alternative validator candidates. The alternative validator candidates ranked in the top 201 can become alternative validators for each epoch and get Staking Reward, at the same time have the opportunity to become a validator, participate in the block production and get block rewards and transaction fee rewards in the block. The principal is an important factor in maintaining thealternative validator ranking of the alternative validator. In order to improve the ranking and attract the principal to commission, the alternative validator candidates needs to generously assign the commission reward to the principal who is given the system reward. The percentage of rewards specifically allocated to the client is submitted by the node in the stage of pledge to become a alternative validator candidate.
+Based on the PPoS consensus, the client entrusts LAT to the alternative validator candidates, which affects the ranking of alternative validator candidates. The alternative validator candidates ranked in the top 225 can become alternative validators for each epoch and get Staking Reward, at the same time have the opportunity to become a validator, participate in the block production and get block rewards and transaction fee rewards in the block. The principal is an important factor in maintaining thealternative validator ranking of the alternative validator. In order to improve the ranking and attract the principal to commission, the alternative validator candidates needs to generously assign the commission reward to the principal who is given the system reward. The percentage of rewards specifically allocated to the client is submitted by the node in the stage of pledge to become a alternative validator candidate.
 
 - Delegated rewards come from two sources:
 
