@@ -513,7 +513,7 @@ platon_mtool submit_versionproposal --newversion 0.15.1 --end_voting_rounds 345 
 
 > newversion: target upgrade version, x.x.x, number plus punctuation
 >
-> end_voting_rounds: the number of voting consensus rounds, the number of voting consensus rounds N, must satisfy 0 <N <= 4838 (about 2 weeks)
+> end_voting_rounds: the number of voting consensus rounds, the number of voting consensus rounds N, must satisfy 0 <N <= 2813 (about 2 weeks)
 >
 > pid_id: GitHub ID
 
@@ -529,7 +529,7 @@ platon_mtool submit_cancelproposal --proposalid 0x444c3df404bc1ce4d869166623514b
 
 > proposalid: proposal ID that needs to be cancelled, that is, the hash used to initiate the proposal transaction, 66 characters, alphanumeric
 >
-> end_voting_rounds: the number of voting consensus rounds, the number of voting consensus rounds N, must satisfy 0 <N <= 4838 (about 2 weeks)
+> end_voting_rounds: the number of voting consensus rounds, the number of voting consensus rounds N, must satisfy 0 <N <= 2813 (about 2 weeks)
 >
 > pid_id: GitHub ID
 
