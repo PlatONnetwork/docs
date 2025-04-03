@@ -106,7 +106,21 @@ The environment variables used in the PlatON MTool directory under Windows and U
   - Ubuntu: `$PLATON_MTOOLDIR`
 
 > Note: **`Users choose environment variables according to the system they have installed. `**
->
+
+## Modifying the Chain ID in the Configuration File
+There are differences in the use of environment variables for the PlatON MTool directory between Windows and Ubuntu:
+
+- Windows
+
+  - Path: mtool\current\config
+
+  - Change chainId=100 to chainId=210425
+
+- Ubuntu
+
+  - Path: /platon_mtool/config.properties
+
+  - Change chainId=100 to chainId=210425
 
 ## Detailed explanation of PlatON MTool wallet commands
 
