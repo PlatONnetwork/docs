@@ -107,17 +107,17 @@ The environment variables of PlatON MTool directories under Windows and Ubuntu a
 ## Modifying the Chain ID in the Configuration File
 There are differences in the use of environment variables for the PlatON MTool directory between Windows and Ubuntu:
 
-Windows
+- Windows
 
-Path: mtool\current\config
+  - Path: mtool\current\config
 
-Change chainId=100 to chainId=210425
+  - Change chainId=100 to chainId=210425
 
-Ubuntu
+- Ubuntu
 
-Path: /platon_mtool/config.properties
+  - Path: /platon_mtool/config.properties
 
-Change chainId=100 to chainId=210425
+  - Change chainId=100 to chainId=210425
 
 ##  PlatON MTool Command Details
 
