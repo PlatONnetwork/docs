@@ -105,7 +105,18 @@ Windows和Ubuntu下PlatON MTool目录使用环境变量有所区别：
   - Ubuntu：`$PLATON_MTOOLDIR`
 
 >  说明：**`用户根据自己安装的系统进行选择环境变量。`**
->
+
+## 修改配置文件中的链ID
+Windows和Ubuntu下PlatON MTool目录使用环境变量有所区别：
+
+- Windows
+  - 路径：mtool\current\config
+  - chainId=100 修改为 chainId=210425
+
+- Ubuntu
+  - 路径：/platon_mtool\config.properties
+  - chainId=100 修改为 chainId=210425
+
 
 ##  PlatON MTool钱包命令详解
 
