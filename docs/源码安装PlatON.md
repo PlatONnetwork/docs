@@ -15,7 +15,7 @@ This document is intended for users with the ability to compile source code on t
 Windows compilation environment requirements :
 
 - git: `2.19.1 and above`
-- Go language development kit: `go (1.16+)`
+- Go language development kit: `go (1.22+)`
 - mingw: `mingw (V8.1.0)`
 - cmake: `3.0 +`
 
@@ -47,7 +47,7 @@ You can install the above compilation environment yourself. Please make sure the
 > choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
 > ```
 >
-> Most softwares installed using the `chocolatey` package manager have a default installation path, and some software may have various paths, depending on the publisher of the software. Installing these packages will modify the Path environment variable. The final installation path can be viewed in the PATH. Some machine environments may not find the installation path of these tools in the PATH, and you need to add it manually at this time. After installation, please make sure the installed Go version is 1.16 (or higher).
+> Most softwares installed using the `chocolatey` package manager have a default installation path, and some software may have various paths, depending on the publisher of the software. Installing these packages will modify the Path environment variable. The final installation path can be viewed in the PATH. Some machine environments may not find the installation path of these tools in the PATH, and you need to add it manually at this time. After installation, please make sure the installed Go version is 1.22 (or higher).
 >
 
 > Note: The following commands need to be run in the `Git-bash` environment. In any directory, right-click and select `Git Bash Here` to bring up the `Git Bash` running window.
@@ -90,7 +90,7 @@ After compiling, `platon`,` platonkey` executable files will be generated in the
 - System version: `Ubuntu 18.04 or higher`
 - git: `2.19.1 or higher`
 - Compilers: `gcc (4.9.2+)`, `g ++ (5.0+)`
-- Go language development kit: `go (1.16+)`
+- Go language development kit: `go (1.22+)`
 - cmake: `3.0 +`
 
 **step2.** Get the PlatON source:
