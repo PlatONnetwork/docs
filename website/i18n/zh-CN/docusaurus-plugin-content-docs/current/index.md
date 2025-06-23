@@ -13,9 +13,6 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
 
 ## 初步了解
 
-- [什么是LAT](/docs/zh-CN/lat_introduced)-在这里你可以全面了解到什么是LAT、LAT有什么作用，以及相关使用方式等
-- [质押&委托](/docs/zh-CN/staking_and_delegation)
-- [ATON钱包](/docs/zh-CN/ATON-user-manual)-关于ATON钱包的各类操作，你都可以在这里找到相关说明
 - 区块链浏览器
   - [PlatScan](https://scan.platon.network/)
   - [PlatEye](/docs/zh-CN/PlatEye)-由社区主导开发的浏览器，并提供了API数据查询接口
@@ -59,7 +56,6 @@ PlatON由LatticeX基金会发起和推动，基于区块链的基本属性，以
 ### 普通用户
 
 - [大使计划](https://forum.latticex.foundation/t/topic/4246)-你可以作为大使为PlatON生态贡献力量
-- [质押&委托](/docs/zh-CN/staking_and_delegation)-介绍了什么是委托、什么是质押，以及相关收益问题
 - 社区资源资源：
   - [Facebook](https://www.facebook.com/PlatONNetwork/)
   - [Twitter](https://twitter.com/PlatON_Network)

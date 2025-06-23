@@ -28,14 +28,6 @@ Join the PlatON validator network to help maintain our security and further dece
 [More About Running Validators](https://devdocs.platon.network/docs/en/PlatON_Validation_Introduce/)
 
 
-
-## Stake Your LAT
-You can delegate your LAT to a PlatON validator to earn rewards and help protect PlatON.
-
-[More About Staking LAT](https://www.platon.network/stakeLat)
-
-
-
 ## Code Programming
 PlatON is an open financial infrastructure with privacy-preserving computation at its core. Our vast project requires more than just a few core developers. We look forward to having more community developers help us write and maintain our code. Diving straight into development can be overwhelming; therefore, we introduced the “Help Wanted” tag for functionalities or bug fixes where you can help us. This is the best way for you to start contributing code.
 
