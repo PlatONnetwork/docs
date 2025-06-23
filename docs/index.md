@@ -13,9 +13,6 @@ PlatON was initiated and promoted by the LatticeX Foundation. Based on the basic
 
 ## Basics
 
-- [What is LAT](/docs/en/lat_introduced)-Here you can get a comprehensive understanding of what LAT is, what it does, and how it is used, etc.
-- [Staking&Delegation](/docs/en/staking_and_delegation)
-- [ATON wallet](/docs/en/ATON-user-manual)-You can find all kinds of operations about ATON wallet here.
 - Blockchain Browser
   - [PlatScan](https://scan.platon.network/)
   - [PlatEye](/docs/en/PlatEye)
@@ -61,7 +58,6 @@ If you want to join the PlatON network as a node, the following documents can gi
 ### General users
 
 - [Ambassador Program](https://forum.latticex.foundation/t/topic/4246)
-- [Staking&Delegation](/docs/en/staking_and_delegation)
 - Community Resources Resources.
   - [Facebook](https://www.facebook.com/PlatONNetwork/)
   - [Twitter](https://twitter.com/PlatON_Network)

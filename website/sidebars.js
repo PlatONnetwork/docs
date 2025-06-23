@@ -4,7 +4,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Basics',
-      items: [ 'lat_introduced', 'staking_and_delegation', 'Network_Description' ],
+      items: [ 'Network_Description' ],
     },
     {
       type: 'category',
@@ -129,16 +129,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Wallet',
-      items: [ 'ATON-user-manual', 'Samurai_user_manual', 'Third_Party_Walle', 'Ledger-hardware-wallet', 'MetaMask', 'PlatON_wallet_plugin', 'PlatON_wallet_plugin_sdk', {
-        type: 'category',
-        label: 'PlaTrust Wallet',
-        items: [
-          'PlaTrust_Wallet', 'PlaTrust-wallet-js-sdk', 'PlaTrust-wallet-js-sdk-api'
-        ],
-      } ],
+      items: [ 'Ledger-hardware-wallet', 'MetaMask' ],
 
     },
-    'community',
     'contributing',
   ],
 }
