@@ -122,7 +122,7 @@ There are differences in the use of environment variables for the PlatON MTool d
 ##  PlatON MTool Command Details
 
 > Note: The follow-up command is the command format under Ubuntu. Under Windows, you need to modify `$PLATON_MTOOLDIR` to `%PLATON_MTOOLDIR%`.
-> - Original Devnet1 (ChainID:210309) has been disabled, please change it to Devnet2 (ChainID:20250407) if needed.
+> - Original Devnet1 (ChainID:210309) has been disabled, please change it to Devnet3 (ChainID:20250407) if needed.
 > - If you are connecting to the Development 2 network, you need to modify the domainid of the config.properties configuration file in the PlatON MTool installation directory to 20250407.
 
 ### Create A Wallet
