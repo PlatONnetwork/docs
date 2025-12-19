@@ -28,7 +28,7 @@ MetaMask作为目前市面上用户量最多，应用最广泛的浏览器插件
 
    > PlatON MainNet：https://scan.platon.network/  
    >
-   > PlatON DevNet2: https://devnet2scan.platon.network/
+   > PlatON DevNet3: https://devnet3scan.platon.network/
    >
    > Alaya MainNet：https://scan.alaya.network/ 
    >
@@ -141,10 +141,10 @@ Block Explorer URL: https://scan.platon.network/
 
 ```
 Network Name: PlatON Dev Network
-New RPC URL: https://devnet2openapi.platon.network/rpc   OR wss://devnet2openapi.platon.network/ws
-Chain ID：2206132
+New RPC URL: https://devnet3openapi.platon.network/rpc   OR wss://devnet3openapi.platon.network/ws
+Chain ID：20250407
 Currency Symbol：LAT
-Block Explorer URL: https://devnet2scan.platon.network/
+Block Explorer URL: https://devnet3scan.platon.network/
 ```
 
 
@@ -154,7 +154,7 @@ Block Explorer URL: https://devnet2scan.platon.network/
 
 
 
-接着，我们可以在PlatON开发网水龙头（https://devnet2faucet.platon.network/faucet）上申请测试代币，测试一下转账操作。
+接着，我们可以在PlatON开发网水龙头（https://devnet3faucet.platon.network/faucet）上申请测试代币，测试一下转账操作。
 
 <img src="/docs/img/en/MetaMask_Configure.assets/image-20220112184859903.png" alt="image-20220112184859903"/>
 

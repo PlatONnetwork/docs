@@ -73,7 +73,7 @@ async function main() {
     );
     const userOpHash = await activateOp.getUserOpHashFromContract(
         relayerManagerAddr,  // <address> EntryPoint Contract Address
-        new ethers.providers.JsonRpcProvider( "https://devnet2openapi.platon.network/rpc"),  // ethers.providers
+        new ethers.providers.JsonRpcProvider( "https://devnet3openapi.platon.network/rpc"),  // ethers.providers
     );
     const signedHash = platrust.packSignatureHash(userOpHash, SignatureMode.owner, 0, 0);
     const sig = platrust.signMessage(signedHash, pks[0])
@@ -84,7 +84,7 @@ async function main() {
     
     const bundler = new walletLib.Bundler(
         '0x0',  // <address> EntryPoint Contract Address
-        new ethers.providers.JsonRpcProvider( "https://devnet2openapi.platon.network/rpc"),  // ethers.providers
+        new ethers.providers.JsonRpcProvider( "https://devnet3openapi.platon.network/rpc"),  // ethers.providers
     );
 
     const validation = await bundler.simulateValidation(activateOp);
@@ -113,7 +113,7 @@ main();
 ## 开发测试网配置
 
 ```javascript
-测试链URL: 'https://devnet2openapi2.platon.network/rpc'
+测试链URL: 'https://devnet3openapi2.platon.network/rpc'
 bundleURL: 'https://testbundler.platon.network'
 
 walletLogic: '0x3b682b956E65b5F5b8150f75F2235f156A8F4b7B'

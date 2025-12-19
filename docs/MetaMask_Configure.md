@@ -30,7 +30,7 @@ MetaMask makes operations such as transfer, signing, and contract interaction mo
 
    > PlatON MainNet：https://scan.platon.network/  
    >
-   > PlatON DevNet2: https://devnet2scan.platon.network/
+   > PlatON DevNet3: https://devnet3scan.platon.network/
    >
    > Alaya MainNet：https://scan.alaya.network/ 
    >
@@ -139,14 +139,14 @@ Done! It is worth mentioning that only Hex addresses are supported on the mainne
 
 ### PlatON DevNet 
 
-Similarly, you can add and configure the PlatON DevNet2 according to the following information: 
+Similarly, you can add and configure the PlatON DevNet3 according to the following information: 
 
 ```
 Network Name: PlatON Dev2 Network
-New RPC URL: https://devnet2openapi.platon.network/rpc   OR wss://devnet2openapi.platon.network/ws
-Chain ID：2206132
+New RPC URL: https://devnet3openapi.platon.network/rpc   OR wss://devnet3openapi.platon.network/ws
+Chain ID：20250407
 Currency Symbol：LAT
-Block Explorer URL: https://devnet2scan.platon.network/
+Block Explorer URL: https://devnet3scan.platon.network/
 ```
 
 
@@ -156,7 +156,7 @@ After the settings are saved, it will automatically jump to PlatON DevNet, and t
 
 
 
-Next, we can apply for test tokens on the PlatON DevNet faucet (https://devnet2faucet.platon.network/faucet) to test the transfer operation. 
+Next, we can apply for test tokens on the PlatON DevNet faucet (https://devnet3faucet.platon.network/faucet) to test the transfer operation. 
 
 <img src="/docs/img/en/MetaMask_Configure.assets/image-20220112184859903.png" alt="image-20220112184859903"/>
 
