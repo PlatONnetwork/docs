@@ -168,7 +168,7 @@ payload: {
   event: "connect"
   params: [
     accounts: ['0xdc8c0f103dc8523c82d38064f746dda9fa28bf7f']
-    chainId: 2206132
+    chainId: 20250407
     peerId: "BC246E88-ACC0-4FD6-BF10-DEF314EF42BE"
     peerMeta: {description: "hello，i'm Platon.", icons: Array(0), name: 'ATON', url: 'https://safe.gnosis.io'}
   ]

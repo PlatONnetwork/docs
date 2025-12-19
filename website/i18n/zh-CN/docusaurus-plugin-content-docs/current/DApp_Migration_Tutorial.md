@@ -16,7 +16,7 @@ sidebar_label: 以太坊DApp快速迁移教程
 
 + 账户地址格式：PlatON同时支持EIP55和Bech32地址格式。
 
-+ PlatON网络目前没有infrua类似的服务，目前对外提供了开发2网：https://devnet2openapi.platon.network/rpc 接口服务。
++ PlatON网络目前没有infrua类似的服务，目前对外提供了开发2网：https://devnet3openapi.platon.network/rpc 接口服务。
 
 
 
@@ -30,10 +30,10 @@ sidebar_label: 以太坊DApp快速迁移教程
 
    ```javascript
    网络名称: PlatON开发测试网
-   新增RPC URL: https://devnet2openapi.platon.network/rpc
-   链ID: 2206132
+   新增RPC URL: https://devnet3openapi.platon.network/rpc
+   链ID: 20250407
    符号(选填): LAT
-   区块浏览器URL(选填): https://devnet2scan.platon.network
+   区块浏览器URL(选填): https://devnet3scan.platon.network
    ```
 
 2. 根据下文的“uniswap合约迁移”章节迁移好DApp相关合约，部署到自己的PlatON测试网络。
@@ -180,7 +180,7 @@ initHash is at: 0x2d2546605b9f2d8c64755e6b9c29cc742d5f0b74bad6d7b8c188c2ccd0822f
     RINKEBY = 4,
     GÖRLI = 5,
     KOVAN = 42
-    PLATON = 2206132
+    PLATON = 20250407
   }
   ```
 
@@ -209,7 +209,7 @@ initHash is at: 0x2d2546605b9f2d8c64755e6b9c29cc742d5f0b74bad6d7b8c188c2ccd0822f
 
 ```javascript
 export const injected = new InjectedConnector({
-  supportedChainIds: [1, 3, 4, 5, 42, 2206132]
+  supportedChainIds: [1, 3, 4, 5, 42, 20250407]
 })
 ```
 
@@ -255,7 +255,7 @@ blockTimeStamp需要乘1000，因为PlatON开发测试网络的区块时间戳�
 
 #### uniswap迁移总结
 
-+ swap源代码及依赖库@uniswap/sdk增加PlatON网络配置，支持chainId为2206132的PlatON开发2测试网。
++ swap源代码及依赖库@uniswap/sdk增加PlatON网络配置，支持chainId为20250407的PlatON开发2测试网。
   
 + 修改业务相关的合约的依赖合约UniswapV2Library中的init code hash对应代码，然后部署业务相关的合约(uniswapV2Factory/WETH/uniswapV2Router/multicall)，获取相关合约的地址（solidity版本需要注意的点）。
 
