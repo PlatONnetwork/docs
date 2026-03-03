@@ -15,9 +15,6 @@ NAME:
 USAGE:
    platon [options] command [command options] [arguments...]
    
-VERSION:
-   1.5.0-unstable
-   
 COMMANDS:
    account                Manage accounts
    attach                 Start an interactive JavaScript environment (connect to node)
