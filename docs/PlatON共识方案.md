@@ -271,7 +271,7 @@ Due to the asynchronous parallelism of the CBFT consensus, the latest blocks are
 
 Here is an overview of the block synchronization mechanism:
 
-- Newly added nodes update blocks to mainnet height via ETH-P2P with fast synchronization or full synchronization
+- Newly added nodes update blocks to mainnet height via ETH-P2P with snap synchronization or full synchronization
 
 - Consensus nodes use CBFT-P2P's heartbeat mechanism to keep the block height consistent with other nodes
 

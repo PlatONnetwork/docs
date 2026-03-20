@@ -45,7 +45,7 @@ PLATON OPTIONS:
   --networkid value                 Network identifier (integer, 1=Frontier, 2=Morden (disused), 3=Ropsten, 4=Rinkeby) (default: 1)
   --main                            Mainnet network: pre-configured main network (default network)
   --testnet                         Testnet network: pre-configured test network
-  --syncmode "full"                 Blockchain sync mode ("fast", "full", or "light")
+  --syncmode "full"                 Blockchain sync mode ("snap" or "full")
   --identity value                  Custom node name
   --lightkdf                        Reduce key-derivation RAM & CPU usage at some expense of KDF strength
   
