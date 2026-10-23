@@ -9,13 +9,17 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      with: 
+      with:
         ref: master
-    
+
     # 替换定制化js文件,生成静态文件
     - name: Build
-      run: cd website && npm install && npm run build:all
-    
+      run: |
+        cd website
+        npm install -g yarn@1
+        yarn install --frozen-lockfile
+        yarn build:all
+
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v4
       with:
