@@ -9,9 +9,13 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      with: 
+      with:
         ref: master
-    
+
     # 检查是否可以编译成功
     - name: Build
-      run: cd website && npm install && npm run build
+      run: |
+        cd website
+        npm install -g yarn@1
+        yarn install --frozen-lockfile
+        yarn build
