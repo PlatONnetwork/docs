@@ -9,9 +9,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      with: 
+      with:
         ref: master
-    
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
     # 检查是否可以编译成功
     - name: Build
       run: cd website && npm install && npm run build
